@@ -1,0 +1,1 @@
+node storage-etl.js %1 %2 %3

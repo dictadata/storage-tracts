@@ -1,0 +1,6 @@
+{
+    "sourceField": "targetField",
+    "sourceProperty.field1": "targetField2",
+    "sourceProperty.field2": "targetProperty.field",
+    "source.sub.field": "targetField3"
+}
