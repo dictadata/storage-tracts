@@ -1,12 +1,12 @@
 "use strict";
 
-const storage = require("@dicta.io/storage-junctions");
+const storage = require("@dicta-io/storage-junctions");
 const stream = require('stream');
 const util = require('util');
 const fs = require('fs')
 const path = require('path');
 
-console.log("@dicta.io/storage-etl");
+console.log("@dicta-io/storage-etl");
 
 const pipeline = util.promisify(stream.pipeline);
 

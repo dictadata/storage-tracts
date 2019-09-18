@@ -1,4 +1,4 @@
-# @dicta.io/storage-etl
+# @dicta-io/storage-etl
 
 Command line utilities to convert and/or transform data between JSON and CSV file formats.
 
