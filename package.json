@@ -1,7 +1,10 @@
 {
   "name": "@dicta-io/storage-etl",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Convert and/or transform data between json and csv files.",
+  "author": "Drew O. Letcher",
+  "license": "MIT",
+  "repository": "github:@dicta.io/storage-etl",
   "main": "storage-etl.js",
   "scripts": {
     "test": "node storage-etl.js test/input.json test/output.csv test/transforms.json"
@@ -12,9 +15,7 @@
     "json",
     "csv"
   ],
-  "author": "Drew O. Letcher",
-  "license": "MIT",
   "dependencies": {
-    "@dicta-io/storage-junctions": "^0.2.1"
+    "@dicta-io/storage-junctions": "^0.2.2"
   }
 }
