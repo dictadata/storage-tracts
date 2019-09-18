@@ -9,7 +9,7 @@ Node.js version 10.0 or higher.  Download the installer from https://nodejs.org/
 
 # Installation
 
-npm install -g @dicta-io/storage-etl
+    npm install -g @dicta-io/storage-etl
 
 # Usage
 
