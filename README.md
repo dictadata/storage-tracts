@@ -5,7 +5,7 @@ Currently, supports JSON and CSV file formats.
 
 # Prerequisites
 
-Node.js version 10.15 or higher.  Download the installer from https://nodejs.org/en/download/
+Node.js version 10.0 or higher.  Download the installer from https://nodejs.org/en/download/
 
 # Usage
 
