@@ -37,6 +37,66 @@ The transforms file is .json format. It uses dot notation to reference propertie
 
     storage-etl input.csv output.json
 
+input.csv
+
+    Foo, Bar, Baz, Enabled
+    first, 123, 2018-10-07, true
+    second, 456, 2018-10-07, false
+    third, 789, 2018-10-18, true
+
+Generates output.json
+
+    [
+      {"Foo":"first","Bar":"123","Baz":"2018-10-07","Enabled":"true"},
+      {"Foo":"second","Bar":"456","Baz":"2018-10-07","Enabled":"false"},
+      {"Foo":"third","Bar":"789","Baz":"2018-10-18","Enabled":"true"}
+    ]
+
 ## Convert and transform a .json file to "flat" .csv 
 
     storage-etl input.json output.csv transforms.json
+
+input.json
+
+    [
+      {
+        "Foo": "first",
+        "Bar": "123",
+        "Baz": "2018-10-07",
+        "State": {
+          "Enabled": "true"
+        }
+      },
+      {
+        "Foo": "second",
+        "Bar": "456",
+        "Baz": "2018-10-07",
+        "State": {
+          "Enabled": "false"
+        }
+      },
+      {
+        "Foo": "third",
+        "Bar": "789",
+        "Baz": "2018-10-18",
+        "State": {
+          "Enabled": "true"
+        }
+      }
+    ]
+
+transform.json
+
+    {
+      "Foo": "foo",
+      "Bar": "bar",
+      "Baz": "baz",
+      "State.Enabled": "enabled"
+    }
+
+Generates ouput.csv
+
+    foo,bar,baz
+    first,123,2018-10-07
+    second,456,2018-10-07
+    third,789,2018-10-18

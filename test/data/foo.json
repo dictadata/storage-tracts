@@ -1,0 +1,26 @@
+[
+  {
+    "Foo": "first",
+    "Bar": "123",
+    "Baz": "2018-10-07",
+    "State": {
+      "Enabled": "true"
+    }
+  },
+  {
+    "Foo": "second",
+    "Bar": "456",
+    "Baz": "2018-10-07",
+    "State": {
+      "Enabled": "false"
+    }
+  },
+  {
+    "Foo": "third",
+    "Bar": "789",
+    "Baz": "2018-10-18",
+    "State": {
+      "Enabled": "true"
+    }
+  }
+]

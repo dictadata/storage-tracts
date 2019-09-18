@@ -35,8 +35,8 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
-        "test/data/input.csv",
-        "test/output/output.json"
+        "test/data/foo.csv",
+        "test/output/foo.json"
       ],
       "outputCapture": "std"
     },
