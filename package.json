@@ -1,6 +1,6 @@
 {
   "name": "@dicta-io/storage-etl",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Command line ELT utility to copy, convert and transform data from distributed sources.",
   "author": "Drew O. Letcher",
   "license": "MIT",

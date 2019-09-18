@@ -7,9 +7,13 @@ Currently, supports JSON and CSV file formats.
 
 Node.js version 10.0 or higher.  Download the installer from https://nodejs.org/en/download/
 
+# Installation
+
+npm install -g @dicta-io/storage-etl
+
 # Usage
 
-    node storage-etl.js inputfile outputfile [transforms.json]
+    storage-etl inputfile outputfile [transforms.json]
 
 - The inputfile and outputfile can be either .json or .csv format.
 - JSON files needs to be an array of objects e.g. [ {}, {}, ...]
@@ -17,7 +21,7 @@ Node.js version 10.0 or higher.  Download the installer from https://nodejs.org/
 
 ## transforms.json format
 
-The transforms file is .json format. It uses dot notation to reference proerpties in the source and target records.
+The transforms file is .json format. It uses dot notation to reference properties in the source and target records.
 
     { 
        "sourceField": "targetField", 
@@ -26,3 +30,13 @@ The transforms file is .json format. It uses dot notation to reference proerptie
        "source.sub.field": "targetField3", 
        ... 
     }
+
+# Examples
+
+## Convert a .csv file to .json
+
+    storage-etl input.csv output.json
+
+## Convert and transform a .json file to "flat" .csv 
+
+    storage-etl input.json output.csv transforms.json
