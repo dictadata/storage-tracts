@@ -1,6 +1,7 @@
 # @dicta-io/storage-etl
 
-Command line utilities to convert and/or transform data between JSON and CSV file formats.
+Command line ETL utilitiy to copy, convert and transform data between distributed storage sources.
+Currently, supports JSON and CSV file formats.
 
 # Prerequisites
 
