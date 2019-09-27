@@ -19,7 +19,7 @@
     "csv"
   ],
   "dependencies": {
-    "@dicta-io/storage-junctions": "^0.2.3"
+    "@dicta-io/storage-junctions": "^0.3.1"
   },
   "engines": {
     "node": ">=10.0.0"
