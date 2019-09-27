@@ -36,10 +36,11 @@ async function main() {
     //console.log(">>> create junctions");
     var info1 = path.parse(inputfile);
     var smt1 = info1.ext.slice(1) + "|" + info1.dir + "|" + info1.base + "|*";
-    var j1 = storage.create(smt1, {filename: inputfile});
+    var j1 = storage.activate(smt1, {filename: inputfile});
+
     var info2 = path.parse(outputfile);
     var smt2 = info2.ext.slice(1) + "|" + info2.dir + "|" + info2.base + "|*";
-    var j2 = storage.create(smt2, {filename: outputfile});
+    var j2 = storage.activate(smt2, {filename: outputfile});
 
     console.log("input: " + smt1);
     console.log("output: ",smt2);
@@ -69,6 +70,8 @@ async function main() {
 
     await pipeline(mainPipes);
 
+    await j1.relax();
+    await j2.relax();
     console.log("completed.");
   }
   catch (err) {
