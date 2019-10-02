@@ -11,8 +11,8 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
-        "test/data/input.csv",
-        "test/output/output.csv"
+        "${workspaceFolder}/test/data/input.csv",
+        "${workspaceFolder}/test/output/output.csv"
       ],
       "outputCapture": "std"
     },
@@ -23,8 +23,8 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
-        "test/data/input.json",
-        "test/output/output.json"
+        "${workspaceFolder}/test/data/input.json",
+        "${workspaceFolder}/test/output/output.json"
       ],
       "outputCapture": "std"
     },
@@ -35,8 +35,8 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
-        "test/data/foo.csv",
-        "test/output/foo.json"
+        "${workspaceFolder}/test/data/foo.csv",
+        "${workspaceFolder}/test/output/foo.json"
       ],
       "outputCapture": "std"
     },
@@ -47,9 +47,9 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
-        "test/data/input.json",
-        "test/output/output.csv",
-        "test/data/transforms.json" ],
+        "${workspaceFolder}/test/data/input.json",
+        "${workspaceFolder}/test/output/output.csv",
+        "${workspaceFolder}/test/data/transforms.json" ],
       "outputCapture": "std"
     }
   ]
