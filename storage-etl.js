@@ -1,81 +1,60 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --inspect-brk --preserve-symlinks
 
 "use strict";
 
-const storage = require("@dicta-io/storage-junctions");
-const stream = require('stream');
-const util = require('util');
 const fs = require('fs')
 const path = require('path');
 
-console.log("@dicta-io/storage-etl");
+//const encoding = require('./lib/encoding');
+const transfer = require('./lib/transfer');
 
-const pipeline = util.promisify(stream.pipeline);
+console.log("@dicta-io/storage-etl");
 
 async function main() {
 
   var argv = process.argv.slice(2);
-  if (argv.length < 2) {
-    console.log("Usage:  node storage-etl.js <inputfile> <outputfile> [<transforms.json>]");
+  if (argv.length < 1) {
+    console.log("Usage:  node storage-etl.js <source> <destination> [<transforms.json>]");
+    console.log("        node storage-etl.js <options.json>");
     return;
   }
-  var inputfile = argv[0];
-  var outputfile = argv[1];
-  var transformsfile = argv[2] || "";
+
+  var options = {
+    source: {},
+    destination: {},
+    transforms: null
+  };
 
   try {
-    let transforms = null;
-    if (transformsfile)
-      transforms = JSON.parse(fs.readFileSync(transformsfile, 'utf-8'));
 
-    var transformOptions = {
-      template: {},
-      transforms: transforms
-    };
+    if (argv.length === 1) {
+      // assume it's a options file
+      console.log("options: " + argv[0]);
+      options = JSON.parse(fs.readFileSync(argv[0], 'utf-8'));
+    }
+    else {
+      options.source.smt = argv[0];
+      if (argv[0].indexOf('|') < 0) {
+        // assume it is a filename
+        var info1 = path.parse(argv[0]);
+        options.source.smt = info1.ext.slice(1) + "|" + info1.dir + "|" + info1.base + "|*";
+      }
 
-    //console.log(">>> create junctions");
-    var info1 = path.parse(inputfile);
-    var smt1 = info1.ext.slice(1) + "|" + info1.dir + "|" + info1.base + "|*";
-    var j1 = storage.activate(smt1, {filename: inputfile});
+      options.destination.smt = argv[1];
+      if (argv[1].indexOf('|') < 0) {
+        // assume it is a filename
+        var info2 = path.parse(argv[1]);
+        options.destination.smt = info2.ext.slice(1) + "|" + info2.dir + "|" + info2.base + "|*";
+      }
 
-    var info2 = path.parse(outputfile);
-    var smt2 = info2.ext.slice(1) + "|" + info2.dir + "|" + info2.base + "|*";
-    var j2 = storage.activate(smt2, {filename: outputfile});
+      if (argv[2])
+        options.transforms = JSON.parse(fs.readFileSync(argv[2], 'utf-8'));
+    }
 
-    console.log("input: " + smt1);
-    console.log("output: ",smt2);
-    console.log("transform: ", transforms !== null)
-
-    console.log("codify ...");
-    var codifyPipes = [j1.getReadStream({codify: true, max_lines: 1000})];
-    if (transformsfile)
-      codifyPipes.push(j1.getTransform(transformOptions));
-    let codify = j1.getCodifyTransform();
-    codifyPipes.push(codify);
-
-    await pipeline(codifyPipes);
-    let encoding = await codify.getEncoding();
-
-    //console.log(">>> encoding results");
-    //console.log(encoding);
-    //console.log(JSON.stringify(encoding.fields, null, "  "));
-
-    j2.putEncoding(encoding);
-
-    console.log("convert ...");
-    var mainPipes = [j1.getReadStream()];
-    if (transformsfile)
-      mainPipes.push(j1.getTransform(transformOptions));
-    mainPipes.push(j2.getWriteStream());
-
-    await pipeline(mainPipes);
-
-    await j1.relax();
-    await j2.relax();
-    console.log("completed.");
+    transfer(options);
   }
   catch (err) {
-    console.error('Pipeline failed:', err);
+    console.error('Transfer failed:' + JSON.stringify(err,null,"  "));
   }
 }
 

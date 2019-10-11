@@ -1,0 +1,42 @@
+{
+  "source": {
+    "smt": "json|./test/data/|input.json|*",
+    "options": {}
+  },
+  "destination": {
+    "smt": {
+      "model": "csv",
+      "locus": "./test/output/",
+      "schema": "etl-1.csv",
+      "key": "*"
+    },
+    "options": {}
+  },
+  "transforms": {
+    "inject": {
+      "Fie": "where's fum?"
+    },
+    "match": {
+      "Bar": {
+        "op": "eq",
+        "value": "row"
+      }
+    },
+    "drop": {
+      "Baz": {
+        "op": "eq",
+        "value": 5678
+      }
+    },
+    "mapping": {
+      "Foo": "foo",
+      "Bar": "bar",
+      "Baz": "baz",
+      "Fobe": "fobe",
+      "Dt Test": "dt_test",
+      "enabled": "enabled",
+      "subObj1.state": "state",
+      "subObj2.subsub.izze": "izze"
+    }
+  }
+}

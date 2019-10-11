@@ -7,7 +7,19 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "copy csv",
+      "name": "run debug",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run-script",
+        "debug"
+      ],
+      "port": 9229,
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "csv => csv",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
@@ -19,7 +31,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "copy json",
+      "name": "json => json",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
@@ -31,25 +43,59 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "convert",
+      "name": "csv => json",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
         "${workspaceFolder}/test/data/foo.csv",
-        "${workspaceFolder}/test/output/foo.json"
+        "${workspaceFolder}/test/output/transfer.json"
       ],
       "outputCapture": "std"
     },
     {
       "type": "node",
       "request": "launch",
-      "name": "transform",
+      "name": "json => transform => csv",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
         "${workspaceFolder}/test/data/input.json",
-        "${workspaceFolder}/test/output/output.csv",
-        "${workspaceFolder}/test/data/transforms.json" ],
+        "${workspaceFolder}/test/output/transform.csv",
+        "${workspaceFolder}/test/data/transforms.json"
+      ],
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "etl-1: json => transform => csv",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "${workspaceFolder}/test/data/config-etl-1.json"
+      ],
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "etl-2: json => transforms => elasticsearch",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "${workspaceFolder}/test/data/config-etl-2.json"
+      ],
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "etl-3: rest => inject => csv",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "${workspaceFolder}/test/data/config-etl-3.json"
+      ],
       "outputCapture": "std"
     }
   ]

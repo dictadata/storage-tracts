@@ -1,12 +1,13 @@
 {
   "name": "@dicta-io/storage-etl",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "description": "Command line ELT utility to copy, convert and transform data from distributed sources.",
   "author": "Drew O. Letcher",
   "license": "MIT",
   "repository": "github:dicta-io/storage-etl",
   "main": "storage-etl.js",
   "scripts": {
+    "debug": "node --inspect-brk --preserve-symlinks storage-etl.js test/data/config-etl-2.json",
     "test": "node storage-etl.js test/input.json test/output.csv test/transforms.json"
   },
   "bin": {
@@ -19,7 +20,12 @@
     "csv"
   ],
   "dependencies": {
-    "@dicta-io/storage-junctions": "^0.3.3"
+    "@dicta-io/storage-junctions": "^0.3.6"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1"
   },
   "engines": {
     "node": ">=10.0.0"
