@@ -1,4 +1,4 @@
-#!/usr/bin/env node --inspect-brk --preserve-symlinks
+#!/usr/bin/env node
 
 "use strict";
 
