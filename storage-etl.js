@@ -15,26 +15,24 @@ const transfer = require('./lib/transfer');
     var argv = process.argv.slice(2);
     var results = {};
 
-    if (argv.length === 3) {
-      results = transfer(config);
-    }
-    else if (argv.length === 2) {
+    if (argv.length > 1) {
       switch (argv[0]) {
       case 'encode':
-        results = codify(config);
+        results = await codify(config);
         break;
-      case 'tranfer':
-        results = transfer(config);
+      case 'convert':
+      case 'transfer':
+        results = await transfer(config);
         break;
       default:
         results = {results: "unknown command: " + argv[0]};
         break;
       }
 
-      console.log( JSON.stringify(results,null,"  "));
+      console.log( results );
     }
     else {
-      console.log("Usage:  storage-etl <source> <destination> [<transforms.json>]");
+      console.log("Usage:  storage-etl convert <source> <destination> [tranforms]");
       console.log("        storage-etl codify <config.json>");
       console.log("        storage-etl transfer <config.json>");
       //console.log("        storage-etl scan <config.json>");

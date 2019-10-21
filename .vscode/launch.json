@@ -23,6 +23,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
+        "convert",
         "${workspaceFolder}/test/data/input.csv",
         "${workspaceFolder}/test/output/output.csv"
       ],
@@ -35,6 +36,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
+        "convert",
         "${workspaceFolder}/test/data/input.json",
         "${workspaceFolder}/test/output/output.json"
       ],
@@ -47,8 +49,9 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
+        "convert",
         "${workspaceFolder}/test/data/foo.csv",
-        "${workspaceFolder}/test/output/transfer.json"
+        "${workspaceFolder}/test/output/convert.json"
       ],
       "outputCapture": "std"
     },
@@ -59,8 +62,9 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
+        "convert",
         "${workspaceFolder}/test/data/input.json",
-        "${workspaceFolder}/test/output/transform.csv",
+        "${workspaceFolder}/test/output/convert.csv",
         "${workspaceFolder}/test/data/transforms.json"
       ],
       "outputCapture": "std"
@@ -72,6 +76,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
+        "transfer",
         "${workspaceFolder}/test/config/config-etl-1.json"
       ],
       "outputCapture": "std"
@@ -83,6 +88,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
+        "transfer",
         "${workspaceFolder}/test/config/config-etl-2.json"
       ],
       "outputCapture": "std"
@@ -94,6 +100,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
+        "transfer",
         "${workspaceFolder}/test/config/config-etl-3.json"
       ],
       "outputCapture": "std"
@@ -105,6 +112,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
+        "transfer",
         "${workspaceFolder}/test/config/foodusage.json"
       ],
       "outputCapture": "std"

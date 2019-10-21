@@ -1,7 +1,8 @@
 {
   "source": {
     "smt": "json|./test/data/|input.json|*",
-    "options": {}
+    "options": {},
+    "codify": true
   },
   "destination": {
     "smt": {
@@ -10,7 +11,8 @@
       "schema": "etl-1.csv",
       "key": "*"
     },
-    "options": {}
+    "options": {},
+    "create": true
   },
   "transforms": {
     "inject": {
