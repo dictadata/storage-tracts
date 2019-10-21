@@ -72,7 +72,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
-        "${workspaceFolder}/test/data/config-etl-1.json"
+        "${workspaceFolder}/test/config/config-etl-1.json"
       ],
       "outputCapture": "std"
     },
@@ -83,7 +83,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
-        "${workspaceFolder}/test/data/config-etl-2.json"
+        "${workspaceFolder}/test/config/config-etl-2.json"
       ],
       "outputCapture": "std"
     },
@@ -94,7 +94,18 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
-        "${workspaceFolder}/test/data/config-etl-3.json"
+        "${workspaceFolder}/test/config/config-etl-3.json"
+      ],
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Franchise API",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "${workspaceFolder}/test/config/foodusage.json"
       ],
       "outputCapture": "std"
     }

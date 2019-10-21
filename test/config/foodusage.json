@@ -1,0 +1,37 @@
+{
+  "source": {
+    "smt": {
+      "model": "rest",
+      "locus": "https://iportal.panerabread.com/apis/franchise/PANSI001/reporting/foodusage?cafeNumber=203201&weekendDate=2019-10-15",
+      "schema": "",
+      "key": "*"
+    },
+    "options": {
+      "headers": {
+        "Accept": "application/json",
+        "User-Agent": "PANSI001 (devops@remediumsystems.com)"
+      },
+      "auth": {
+        "username": "api_user_remediumslbofiowa",
+        "password": "3c7da24b-5c69-4cf4-b551-eef47cf1c247"
+      },
+      "params": {
+        "cafeNumber": "203201"
+      },
+      "dataEncoding": "headers",
+      "dataConstructs": "rows"
+    }
+  },
+  "destination": {
+    "smt": {
+      "model": "csv",
+      "locus": "./",
+      "schema": "foodusage_203201.csv",
+      "key": "*"
+    },
+    "options": {
+      "append": true
+    }
+  }
+
+}

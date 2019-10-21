@@ -1,11 +1,10 @@
-dist/
 node_modules/
-storage/
+dist/
+test/output
 test/unit/coverage
 test/e2e/reports
-test/output
 
-logs/
+log/
 *.log
 npm-debug.log*
 selenium-debug.log
