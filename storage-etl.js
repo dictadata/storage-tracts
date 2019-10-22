@@ -7,6 +7,7 @@
 const Config = require('./lib/config');
 const codify = require('./lib/codify');
 const transfer = require('./lib/transfer');
+const consolidate = require('./lib/consolidate');
 
 (async () => {
 
@@ -24,6 +25,9 @@ const transfer = require('./lib/transfer');
       case 'transfer':
         results = await transfer(config);
         break;
+      case 'consolidate':
+        results = await consolidate(config);
+        break;
       default:
         results = {results: "unknown command: " + argv[0]};
         break;
@@ -35,6 +39,7 @@ const transfer = require('./lib/transfer');
       console.log("Usage:  storage-etl convert <source> <destination> [tranforms]");
       console.log("        storage-etl codify <config.json>");
       console.log("        storage-etl transfer <config.json>");
+      console.log("        storage-etl consolidate <config.json>");
       //console.log("        storage-etl scan <config.json>");
       //console.log("        storage-etl dbscan <config.json>");
       return;

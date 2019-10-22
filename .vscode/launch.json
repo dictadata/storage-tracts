@@ -104,18 +104,6 @@
         "${workspaceFolder}/test/config/config-etl-3.json"
       ],
       "outputCapture": "std"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Franchise API",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "transfer",
-        "${workspaceFolder}/test/config/foodusage.json"
-      ],
-      "outputCapture": "std"
     }
   ]
 }
