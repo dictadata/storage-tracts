@@ -38,8 +38,8 @@ const consolidate = require('./lib/consolidate');
     else {
       console.log("Usage:  storage-etl convert <source> <destination> [tranforms]");
       console.log("        storage-etl codify <config.json>");
-      console.log("        storage-etl transfer <config.json>");
-      console.log("        storage-etl consolidate <config.json>");
+      console.log("        storage-etl transfer <config.json> <params>");
+      console.log("        storage-etl consolidate <config.json> <params>");
       //console.log("        storage-etl scan <config.json>");
       //console.log("        storage-etl dbscan <config.json>");
       return;
