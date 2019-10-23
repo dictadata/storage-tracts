@@ -7,7 +7,7 @@
         "User-Agent": "@dicta.io/storage-node contact:drew@dicta.io"
       },
       "extract": {
-        "encoding": "",
+        "headers": "",
         "data": "periods"
       }
     }
