@@ -1,0 +1,10 @@
+{
+  "scan": {
+    "max_constructs": 10
+  },
+  "source": {
+    "smt": "json|/somepath/folder/or/bucket|*|*",
+    "options": {
+    }
+  }
+}

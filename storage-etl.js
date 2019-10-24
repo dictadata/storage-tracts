@@ -18,7 +18,7 @@ const consolidate = require('./lib/consolidate');
 
     if (argv.length > 1) {
       switch (argv[0]) {
-      case 'encode':
+      case 'codify':
         results = await codify(config);
         break;
       case 'convert':
@@ -37,11 +37,11 @@ const consolidate = require('./lib/consolidate');
     }
     else {
       console.log("Usage:  storage-etl convert <source> <destination> [tranforms]");
-      console.log("        storage-etl codify <config.json>");
       console.log("        storage-etl transfer <config.json> <params>");
       console.log("        storage-etl consolidate <config.json> <params>");
-      //console.log("        storage-etl scan <config.json>");
-      //console.log("        storage-etl dbscan <config.json>");
+      console.log("        storage-etl codify <config.json>");
+      console.log("        storage-etl scan <config.json>");
+      console.log("        storage-etl dbscan <config.json>");
       return;
     }
 
