@@ -5,9 +5,10 @@
 "use strict";
 
 const Config = require('./lib/config');
-const codify = require('./lib/codify');
 const transfer = require('./lib/transfer');
 const consolidate = require('./lib/consolidate');
+const codify = require('./lib/codify');
+const scan = requie('./lib/scan');
 
 (async () => {
 
@@ -18,22 +19,25 @@ const consolidate = require('./lib/consolidate');
 
     if (argv.length > 1) {
       switch (argv[0]) {
-      case 'codify':
-        results = await codify(config);
-        break;
-      case 'convert':
-      case 'transfer':
-        results = await transfer(config);
-        break;
-      case 'consolidate':
-        results = await consolidate(config);
-        break;
-      default:
-        results = {results: "unknown command: " + argv[0]};
-        break;
+        case 'convert':
+        case 'transfer':
+          results = await transfer(config);
+          break;
+        case 'consolidate':
+          results = await consolidate(config);
+          break;
+        case 'codify':
+          results = await codify(config);
+          break;
+        case 'scan':
+          results = await scan(config);
+          break;
+        default:
+          results = { results: "unknown command: " + argv[0] };
+          break;
       }
 
-      console.log( results );
+      console.log(results);
     }
     else {
       console.log("Usage:  storage-etl convert <source> <destination> [tranforms]");
@@ -41,7 +45,7 @@ const consolidate = require('./lib/consolidate');
       console.log("        storage-etl consolidate <config.json> <params>");
       console.log("        storage-etl codify <config.json>");
       console.log("        storage-etl scan <config.json>");
-      console.log("        storage-etl dbscan <config.json>");
+      //console.log("        storage-etl dbscan <config.json>");
       return;
     }
 
