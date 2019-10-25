@@ -8,7 +8,7 @@ const Config = require('./lib/config');
 const transfer = require('./lib/transfer');
 const consolidate = require('./lib/consolidate');
 const codify = require('./lib/codify');
-const scan = requie('./lib/scan');
+const scan = require('./lib/scan');
 
 (async () => {
 
