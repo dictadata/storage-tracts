@@ -1,10 +1,10 @@
 {
-  "name": "@dicta-io/storage-etl",
-  "version": "0.3.1",
+  "name": "@dictadata/storage-etl",
+  "version": "0.3.2",
   "description": "Command line ELT utility to copy, convert and transform data from distributed sources.",
   "author": "Drew O. Letcher",
   "license": "MIT",
-  "repository": "github:dicta-io/storage-etl",
+  "repository": "github:dictadata/storage-etl",
   "main": "storage-etl.js",
   "scripts": {
     "debug": "node --inspect-brk --preserve-symlinks storage-etl.js consolidate test/config/etl-consolidate.json",
@@ -22,7 +22,7 @@
     "mysql"
   ],
   "dependencies": {
-    "@dicta-io/storage-junctions": "^0.3.9"
+    "@dictadata/storage-junctions": "^0.3.10"
   },
   "devDependencies": {
     "eslint": "^5.16.0",

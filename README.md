@@ -1,4 +1,4 @@
-# @dicta-io/storage-etl
+# @dictadata/storage-etl
 
 Command line ETL utilitiy to copy, convert and transform data between distributed storage sources.
 Currently, supports JSON and CSV file formats.
@@ -9,7 +9,7 @@ Node.js version 10.0 or higher.  Download the installer from https://nodejs.org/
 
 # Installation
 
-    npm install -g @dicta-io/storage-etl
+    npm install -g @dictadata/storage-etl
 
 # Usage
 
