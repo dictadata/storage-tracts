@@ -1,11 +1,11 @@
 {
+  "scan": {
+    "max_constructs": 10
+  },
   "source": {
     "smt": "csv|S3:dictadata.org|*.csv|*",
     "options": {
       "recursive": true
     }
-  },
-  "scan": {
-    "max_constructs": 10
   }
 }
