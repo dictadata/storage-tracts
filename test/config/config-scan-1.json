@@ -1,6 +1,10 @@
 {
   "scan": {
-    "max_constructs": 10
+    "max_constructs": 10,
+    "date": {
+      "match": "/.*/",
+      "field": "at"
+    }
   },
   "source": {
     "smt": "csv|S3:dictadata.org|*.csv|*",
