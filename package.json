@@ -7,7 +7,7 @@
   "repository": "github:dictadata/storage-etl",
   "main": "storage-etl.js",
   "scripts": {
-    "debug": "node --inspect-brk --preserve-symlinks storage-etl.js consolidate test/config/etl-consolidate.json",
+    "debug": "node --inspect-brk --preserve-symlinks storage-etl.js scan test/config/config-scan-1.json",
     "test": "node storage-etl.js test/input.json test/output.csv test/transforms.json"
   },
   "bin": {
