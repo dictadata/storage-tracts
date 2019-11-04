@@ -1,15 +1,18 @@
 {
-  "scan": {
-    "max_constructs": 10,
-    "date": {
-      "match": "/.*/",
-      "field": "at"
+  "source": {
+    "smt": "csv|S3:icbrewlab.com|*-transactions.csv|*",
+    "options": {
+      "aws": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": ""
+      }
     }
   },
-  "source": {
-    "smt": "csv|S3:dictadata.org|*.csv|*",
-    "options": {
-      "recursive": true
-    }
+  "scan": {
+    "filespec": "*-transactions.csv",
+    "recursive": true,
+    "max_constructs": 10,
+    "dateField": "time"
   }
 }
