@@ -6,13 +6,18 @@
         "accessKeyId": "",
         "secretAccessKey": "",
         "region": ""
-      }
+      },
+      "max_read": 10
     }
   },
   "scan": {
     "filespec": "*-transactions.csv",
-    "recursive": true,
-    "max_constructs": 10,
-    "dateField": "time"
+    "recursive": true
+  },
+  "codify": {
+    "statistics": {
+      "count": true,
+      "dateField": "Time"
+    }
   }
 }
