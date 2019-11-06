@@ -1,17 +1,17 @@
 {
   "source": {
-    "smt": "csv|S3:icbrewlab.com|*|*",
+    "smt": "jsonl|S3:bucket|*|*",
     "options": {
       "aws": {
         "accessKeyId": "",
         "secretAccessKey": "",
         "region": ""
       },
-      "max_read": 100
+      "max_read": 8
     }
   },
   "scan": {
-    "filespec": "*-transactions.csv",
+    "filespec": "*.log.gz",
     "recursive": false
   },
   "codify": {
