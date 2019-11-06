@@ -81,11 +81,11 @@
   },
   {
     "Foo": "sixth",
-    "Bar": "",
-    "Baz": "",
-    "Fobe": "",
-    "Dt Test": "",
-    "enabled": ""
+    "Bar": null,
+    "Baz": null,
+    "Fobe": null,
+    "Dt Test": null,
+    "enabled": null
   },
   {
     "Foo": "seventh",

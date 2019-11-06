@@ -1,20 +1,21 @@
 {
   "source": {
-    "smt": "jsonl|C:\\projectdata\\hlt\\|*.log.gz|*",
+    "smt": "csv|S3:icbrewlab.com|*|*",
     "options": {
       "aws": {
         "accessKeyId": "",
         "secretAccessKey": "",
         "region": ""
       },
-      "max_read": -1
+      "max_read": 100
     }
   },
   "scan": {
-    "filespec": "*.log.gz",
+    "filespec": "*-transactions.csv",
     "recursive": false
   },
   "codify": {
+    "notation": "dot",
     "statistics": {
       "count": true,
       "minimum": true,
