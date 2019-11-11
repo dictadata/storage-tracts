@@ -104,6 +104,18 @@
         "${workspaceFolder}/test/config/config-etl-3.json"
       ],
       "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "config-scan-1.json",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "scan",
+        "${workspaceFolder}/test/config/config-scan-1.json"
+      ],
+      "outputCapture": "std"
     }
   ]
 }

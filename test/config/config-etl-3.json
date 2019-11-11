@@ -4,11 +4,13 @@
     "options": {
       "headers": {
         "Accept": "application/ld+json",
-        "User-Agent": "@dictadata.org/storage-node contact:drew@dictadata.org"
+        "User-Agent": "@dictadata.org/storage-node (drew@dictadata.org)"
       },
-      "extract": {
-        "headers": "",
-        "data": "periods"
+      "reader": {
+        "extract": {
+          "headers": "",
+          "data": "periods"
+        }
       }
     }
   },

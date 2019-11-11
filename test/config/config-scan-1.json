@@ -1,18 +1,20 @@
 {
   "source": {
-    "smt": "jsonl|S3:bucket|*|*",
+    "smt": "jsonl|S3:dictadata.org/test/|*|*",
     "options": {
       "aws": {
         "accessKeyId": "",
         "secretAccessKey": "",
         "region": ""
       },
-      "max_read": 8
+      "reader": {
+        "max_read": 8
+      }
     }
   },
   "scan": {
     "filespec": "*.log.gz",
-    "recursive": false
+    "recursive": true
   },
   "codify": {
     "notation": "dot",
@@ -25,5 +27,5 @@
       "dateField": "at"
     }
   },
-  "output": "./test/output/encoding.json"
+  "output": "./test/output/scan_encoding.json"
 }
