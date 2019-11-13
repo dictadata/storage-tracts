@@ -8,7 +8,7 @@
   "main": "storage-etl.js",
   "scripts": {
     "debug": "set LOG_LEVEL=verbose& node --inspect-brk --preserve-symlinks storage-etl.js scan test/config/config-scan-1.json",
-    "test": "node storage-etl.js test/input.json test/output.csv test/transforms.json"
+    "test": "node storage-etl.js transfer test/data/foofile.json test/output/json_foofile.csv test/transforms.json"
   },
   "bin": {
     "storage-etl": "./storage-etl.js"

@@ -14,9 +14,10 @@ Node.js version 10.0 or higher.  Download the installer from https://nodejs.org/
 # Usage
 
     storage-etl convert source destination [transforms.json]
-    storage-etl codify      <config.json>
     storage-etl transfer    <config.json> <params>
     storage-etl consolidate <config.json> <params>
+    storage-etl codify      <config.json>
+    storage-etl scan        <config.json>
 
 - Source and destination can be either .json or .csv format.
 - JSON files needs to be an array of objects e.g. [ {}, {}, ...]
@@ -42,7 +43,7 @@ The transforms file is .json format. It uses dot notation to reference propertie
 ```
 {
   "source": {
-    "smt": "json|./test/data/|input.json|*",
+    "smt": "json|./test/data/|foofile.json|*",
     "options": {},
     "codify": true
   },
@@ -91,16 +92,16 @@ The transforms file is .json format. It uses dot notation to reference propertie
 
 ## Convert a .csv file to .json
 
-    storage-etl input.csv output.json
+    storage-etl convert foofile.csv foofile_out.json
 
-input.csv
+foofile.csv
 
     Foo, Bar, Baz, Enabled
     first, 123, 2018-10-07, true
     second, 456, 2018-10-07, false
     third, 789, 2018-10-18, true
 
-Generates output.json
+Generates foofile_out.json
 
     [
       {"Foo":"first","Bar":"123","Baz":"2018-10-07","Enabled":"true"},
@@ -110,9 +111,9 @@ Generates output.json
 
 ## Convert and transform a .json file to "flat" .csv 
 
-    storage-etl input.json output.csv transforms.json
+    storage-etl convert foofile.json foofile_out.csv transforms.json
 
-input.json
+foofile.json
 
     [
       {
@@ -150,7 +151,7 @@ transform.json
       "State.Enabled": "enabled"
     }
 
-Generates ouput.csv
+Generates foofile_out.csv
 
     foo,bar,baz
     first,123,2018-10-07
@@ -160,7 +161,7 @@ Generates ouput.csv
 ## NOSA Weather Service transfer
 
 ```
-storage-etl weather.json
+storage-etl transfer weather.json
 ```
 weather.json:
 ```

@@ -1,2 +1,2 @@
 REM Run from the same folder as package.json
-node storage-etl.js test/data/input.json test/output/output.csv test/data/transforms.json
+node storage-etl.js transfer test/data/foofile.json test/output/json_foofile.csv test/data/transforms.json

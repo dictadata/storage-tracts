@@ -1,6 +1,6 @@
 {
   "source": {
-    "smt": "json|./test/data/|input.json|*",
+    "smt": "json|./test/data/|foofile.json|*",
     "options": {}
   },
   "destination": {
