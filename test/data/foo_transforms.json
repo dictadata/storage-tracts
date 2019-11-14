@@ -1,6 +1,8 @@
 {
-  "Foo": "foo",
-  "Bar": "bar",
-  "Baz": "baz",
-  "State.Enabled": "enabled"
+  "mapping": {
+    "Foo": "foo",
+    "Bar": "bar",
+    "Baz": "baz",
+    "State.Enabled": "enabled"
+  }
 }
