@@ -1,7 +1,7 @@
 {
   "name": "@dictadata/storage-etl",
-  "version": "0.4.0",
-  "description": "Command line ELT utility to copy, convert and transform data from distributed sources.",
+  "version": "0.5.0",
+  "description": "Command line ELT utility to transfer and transform data from distributed sources.",
   "author": "Drew O. Letcher",
   "license": "MIT",
   "repository": "github:dictadata/storage-etl",
@@ -22,7 +22,7 @@
     "mysql"
   ],
   "dependencies": {
-    "@dictadata/storage-junctions": "^0.4.0"
+    "@dictadata/storage-junctions": "^0.5.0"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
