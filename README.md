@@ -1,7 +1,6 @@
-# @dictadata/storage-etl
+# @dictadata/storage-etl 1.0.0
 
-Command line ETL utilitiy to copy, convert and transform data between distributed storage sources.
-Currently, supports JSON and CSV file formats.
+Command line ETL utilitiy to transfer and optionally transform data between distributed storage sources.
 
 # Prerequisites
 
@@ -11,18 +10,19 @@ Node.js version 12.0 or higher.  Download the installer from https://nodejs.org/
 
     npm install -g @dictadata/storage-etl
 
-# Usage
+# Command Line Usage
 
-    storage-etl convert source destination [transforms.json]
     storage-etl transfer    <config.json> <params>
     storage-etl consolidate <config.json> <params>
     storage-etl codify      <config.json>
     storage-etl scan        <config.json>
+    storage-etl convert source destination [transforms.json]  *DEPRECATED*
 
-- Source and destination can be either .json or .csv format.
-- JSON files needs to be an array of objects e.g. [ {}, {}, ...]
-- A transforms file is optional. If specified then fields will be transformed between input and output.
 - A config file specifies the source and destination SMT addresses along with encoding, transform and transfer information.
+- Source and destination can be supported and compatible storage source.
+- Scan function supports local folders and AWS S3 buckets.
+- Transforms are optional. If specified then fields will be transformed between input and output.
+- JSON files only support an array of objects e.g. [ {}, {}, ...].
 
 ## Convert Transforms Format
 
