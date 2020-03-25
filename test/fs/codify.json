@@ -1,0 +1,31 @@
+{
+  "source": {
+    "smt": "jsonl|test/|*.json|*",
+    "options": {
+      "aws": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": ""
+      },
+      "reader": {
+        "max_read": 8
+      }
+    }
+  },
+  "scan": {
+    "filespec": "*.log.gz",
+    "recursive": true
+  },
+  "codify": {
+    "notation": "dot",
+    "statistics": {
+      "count": true,
+      "minimum": true,
+      "maximum": true,
+      "length": true,
+      "nulls": true,
+      "dateField": "at"
+    }
+  },
+  "output": "./test/output/scan_encoding.json"
+}

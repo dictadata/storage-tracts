@@ -1,16 +1,16 @@
 {
   "name": "@dictadata/storage-etl",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "Command line ETL utility to transfer and optionally transform data between local and/or distributed sources.",
   "author": "Drew O. Letcher",
   "license": "MIT",
   "repository": "github:dictadata/storage-etl",
   "main": "storage-etl.js",
   "scripts": {
-    "debug": "set LOG_LEVEL=verbose& node --inspect-brk --preserve-symlinks storage-etl.js scan test/config/config-scan-1.json",
-    "test": "node storage-etl.js transfer test/data/foofile.json test/output/json_foofile.csv test/transforms.json"
+    "debug": "node --inspect-brk=9229 --preserve-symlinks storage-etl.js list -c test/fs/list-fs.json"
   },
   "bin": {
+    "etl": "./storage-etl.js",
     "storage-etl": "./storage-etl.js"
   },
   "keywords": [
@@ -22,7 +22,9 @@
     "mysql"
   ],
   "dependencies": {
-    "@dictadata/storage-junctions": "^1.0.5"
+    "@dictadata/storage-junctions": "^1.0.5",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^4.4.2"
   },
   "devDependencies": {
     "eslint": "^6.8.0",

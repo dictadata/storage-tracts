@@ -1,6 +1,6 @@
 {
   "source": {
-    "smt": "jsonl|S3:dictadata.org/test/|*|*",
+    "smt": "jsonl|S3:dictadata.org/test/|*.json|*",
     "options": {
       "aws": {
         "accessKeyId": "",

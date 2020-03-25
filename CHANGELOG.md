@@ -1,3 +1,8 @@
+- version 1.1.0
+  - update to @dictadata/storage-junctions v1.1.0
+    - adds support for Excel workbooks and FTP file storage
+  - Breaking changes:
+  - StorageJunction.activate() is now asynchronous and returns a promise
 - version 1.0.5
   - update dependancy for @dictadata/storage-junctions v1.0.5
 - version 1.0.4

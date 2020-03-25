@@ -14,7 +14,7 @@
     "options": {},
     "create": true
   },
-  "transforms": {
+  "transform": {
     "inject": {
       "Fie": "where's fum?"
     },

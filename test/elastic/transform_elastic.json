@@ -7,7 +7,7 @@
     "smt": "elasticsearch|http://localhost:9200|etl-2|=Foo",
     "options": {}
   },
-  "transforms": {
+  "transform": {
     "inject": {
       "Fie": "where's fum?"
     },
