@@ -13,112 +13,151 @@
         "run-script",
         "debug"
       ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "port": 9229,
       "outputCapture": "std"
     },
+
     {
       "type": "node",
       "request": "launch",
-      "name": "csv => csv",
+      "name": "fs list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
-        "convert",
-        "${workspaceFolder}/test/data/foofile.csv",
-        "${workspaceFolder}/test/output/csv_foofile.csv"
+        "list",
+        "-c",
+        "${workspaceFolder}/test/fs/list.json"
       ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
     },
     {
       "type": "node",
       "request": "launch",
-      "name": "json => json",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "convert",
-        "${workspaceFolder}/test/data/foofile.json",
-        "${workspaceFolder}/test/output/json_foofile.json"
-      ],
-      "outputCapture": "std"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "csv => json",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "convert",
-        "${workspaceFolder}/test/data/foo.csv",
-        "${workspaceFolder}/test/output/csv_foofile.json"
-      ],
-      "outputCapture": "std"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "json => transform => csv",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "convert",
-        "${workspaceFolder}/test/data/foofile.json",
-        "${workspaceFolder}/test/output/json_foofile.csv",
-        "${workspaceFolder}/test/data/transforms.json"
-      ],
-      "env": {
-        "LOG_LEVEL": "verbose"
-      },
-      "outputCapture": "std"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "etl-1: json => transform => csv",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "transfer",
-        "${workspaceFolder}/test/config/config-etl-1.json"
-      ],
-      "outputCapture": "std"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "etl-2: json => transforms => elasticsearch",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "transfer",
-        "${workspaceFolder}/test/config/config-etl-2.json"
-      ],
-      "outputCapture": "std"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "etl-3: rest => inject => csv",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "transfer",
-        "${workspaceFolder}/test/config/config-etl-3.json"
-      ],
-      "outputCapture": "std"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "config-scan-1.json",
+      "name": "fs codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
         "scan",
-        "${workspaceFolder}/test/config/config-scan-1.json"
+        "-c",
+        "${workspaceFolder}/test/fs/codify.json",
+        "csv-source"
       ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "fs scan",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "scan",
+        "-c",
+        "${workspaceFolder}/test/fs/scan.json"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "fs transfer csv > output",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/fs/transfer.json",
+        "csv-source",
+        "csv-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "fs transfer json > output",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/fs/transfer.json",
+        "json-source",
+        "json-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "fs transfer csv > json",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/fs/transfer.json",
+        "csv-source",
+        "json2-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "fs transfer json > csv",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/fs/transfer.json",
+        "json-source",
+        "csv2-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "fs transform csv > json",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/fs/transform.json",
+        "csv-source",
+        "json-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "fs transform json > csv",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/fs/transform.json",
+        "json-source",
+        "csv-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
     }
+
+
   ]
 }
