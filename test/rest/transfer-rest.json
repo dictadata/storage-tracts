@@ -14,13 +14,15 @@
       }
     }
   },
-  "transform": {
-    "inject": {
-      "Fie": "It's always sunny in Philadelphia?"
-    }
-  },
   "destination": {
     "smt": "csv|./test/output/|etl-3-weather.csv|*",
     "options": {}
+  },
+  "transforms": {
+    "fields": {
+      "inject": {
+        "Fie": "It's always sunny in Philadelphia?"
+      }
+    }
   }
 }

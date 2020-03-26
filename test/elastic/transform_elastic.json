@@ -1,37 +1,43 @@
 {
-  "source": {
-    "smt": "json|./test/data/|foofile.json|*",
-    "options": {}
-  },
-  "destination": {
-    "smt": "elasticsearch|http://localhost:9200|etl-2|=Foo",
-    "options": {}
-  },
-  "transform": {
-    "inject": {
-      "Fie": "where's fum?"
+  "storage": {
+    "source": {
+      "smt": "json|./test/data/|foofile.json|*",
+      "options": {}
     },
-    "match": {
-      "Bar": {
-        "op": "eq",
-        "value": "row"
+    "destination": {
+      "smt": "elasticsearch|http://localhost:9200|etl-2|=Foo",
+      "options": {}
+    }
+  },
+  "transforms": {
+    "filter": {
+      "match": {
+        "Bar": {
+          "op": "eq",
+          "value": "row"
+        }
+      },
+      "drop": {
+        "Baz": {
+          "op": "eq",
+          "value": 5678
+        }
       }
     },
-    "drop": {
-      "Baz": {
-        "op": "eq",
-        "value": 5678
+    "fields": {
+      "inject": {
+        "Fie": "where's fum?"
+      },
+      "mapping": {
+        "Foo": "foo",
+        "Bar": "bar",
+        "Baz": "baz",
+        "Fobe": "fobe",
+        "Dt Test": "dt_test",
+        "enabled": "enabled",
+        "subObj1.state": "state",
+        "subObj2.subsub.izze": "izze"
       }
-    },
-    "mapping": {
-      "Foo": "foo",
-      "Bar": "bar",
-      "Baz": "baz",
-      "Fobe": "fobe",
-      "Dt Test": "dt_test",
-      "enabled": "enabled",
-      "subObj1.state": "state",
-      "subObj2.subsub.izze": "izze"
     }
   }
 }

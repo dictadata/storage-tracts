@@ -1,44 +1,67 @@
 {
-  "source": {
-    "smt": "json|./test/data/|foofile.json|*",
-    "options": {},
-    "codify": true
-  },
-  "destination": {
-    "smt": {
-      "model": "csv",
-      "locus": "./test/output/",
-      "schema": "etl-1.csv",
-      "key": "*"
+  "storage": {
+    "csv-source": {
+      "smt": "csv|./test/data/|foofile.csv|*",
+      "options": {
+      },
+      "codify": true
     },
-    "options": {},
-    "create": true
-  },
-  "transform": {
-    "inject": {
-      "Fie": "where's fum?"
+    "json-source": {
+      "smt": "json|./test/data/|foofile.json|*",
+      "options": {
+      },
+      "codify": true
     },
-    "match": {
-      "Bar": {
-        "op": "eq",
-        "value": "row"
+    "csv-destination": {
+      "smt": {
+        "model": "csv",
+        "locus": "./test/output/",
+        "schema": "fs_transform.csv",
+        "key": "*"
+      },
+      "options": {},
+      "create": true
+    },
+    "json-destination": {
+      "smt": {
+        "model": "json",
+        "locus": "./test/output/",
+        "schema": "fs_transform.json",
+        "key": "*"
+      },
+      "options": {},
+      "create": true
+    }
+  },
+  "transforms": {
+    "filter": {
+      "match": {
+        "Bar": {
+          "op": "eq",
+          "value": "row"
+        }
+      },
+      "drop": {
+        "Baz": {
+          "op": "eq",
+          "value": 5678
+        }
       }
     },
-    "drop": {
-      "Baz": {
-        "op": "eq",
-        "value": 5678
+    "fields": {
+      "inject": {
+        "Fie": "where's fum?"
+      },
+      "mapping": {
+        "Foo": "foo",
+        "Bar": "bar",
+        "Baz": "baz",
+        "Fobe": "fobe",
+        "Dt Test": "dt_test",
+        "enabled": "enabled",
+        "subObj1.state": "state",
+        "subObj2.subsub.izze": "izze"
       }
-    },
-    "mapping": {
-      "Foo": "foo",
-      "Bar": "bar",
-      "Baz": "baz",
-      "Fobe": "fobe",
-      "Dt Test": "dt_test",
-      "enabled": "enabled",
-      "subObj1.state": "state",
-      "subObj2.subsub.izze": "izze"
     }
   }
 }

@@ -12,7 +12,7 @@
       }
     }
   },
-  "scan": {
+  "list": {
     "filespec": "*.log.gz",
     "recursive": true
   },
@@ -27,5 +27,5 @@
       "dateField": "at"
     }
   },
-  "output": "./test/output/scan_encoding.json"
+  "outputFile": "./test/output/scan_encoding.json"
 }

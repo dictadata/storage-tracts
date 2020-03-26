@@ -1,13 +1,13 @@
 {
-  "datastorage": {
+  "storage": {
     "source": {
       "smt": "json|./test/|*.json|*",
       "options": {
-        "scan": {
+        "list": {
           "recursive": true
         }
       },
-      "outputFile": "./test/output/fs_list.txt"
+      "outputFile": "./test/output/fs_list.json"
     }
   }
 }

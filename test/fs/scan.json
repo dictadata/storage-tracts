@@ -1,20 +1,21 @@
 {
-  "source": {
-    "smt": "jsonl|test/|*.json|*",
-    "options": {
-      "aws": {
-        "accessKeyId": "",
-        "secretAccessKey": "",
-        "region": ""
+  "storage": {
+    "source": {
+      "smt": "json|test/data/|foofile_*.json|*",
+      "options": {
+        "reader": {
+          "max_read": 8
+        },
+        "list": {
+          "filespec": "foofile_*.json",
+          "recursive": false
+        },
+        "codify": {
+          "encoding": {},
+          "statistics": false
+        }
       },
-      "reader": {
-        "max_read": 8
-      }
+      "outputFile": "./test/output/fs_scan.json"
     }
-  },
-  "scan": {
-    "filespec": "*.log.gz",
-    "recursive": true
-  },
-  "output": "./test/output/scan_encoding.json"
+  }
 }

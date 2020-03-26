@@ -1,0 +1,60 @@
+{
+  "storage": {
+    "csv-source": {
+      "smt": "json|./test/data/|foofile.json|*",
+      "options": {
+      },
+      "codify": true
+    },
+    "csv-destination": {
+      "smt": {
+        "model": "csv",
+        "locus": "./test/output/",
+        "schema": "fs_foofile.csv",
+        "key": "*"
+      },
+      "options": {
+      },
+      "create": true
+    },
+    "csv2-destination": {
+      "smt": {
+        "model": "csv",
+        "locus": "./test/output/",
+        "schema": "fs_foofile2.csv",
+        "key": "*"
+      },
+      "options": {
+      },
+      "create": true
+    },
+    "json-source": {
+      "smt": "json|./test/data/|foofile.json|*",
+      "options": {
+      },
+      "codify": true
+    },
+    "json-destination": {
+      "smt": {
+        "model": "json",
+        "locus": "./test/output/",
+        "schema": "fs_foofile.json",
+        "key": "*"
+      },
+      "options": {
+      },
+      "create": true
+    },
+    "json2-destination": {
+      "smt": {
+        "model": "json",
+        "locus": "./test/output/",
+        "schema": "fs_foofile2.json",
+        "key": "*"
+      },
+      "options": {
+      },
+      "create": true
+    }
+  }
+}

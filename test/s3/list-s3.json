@@ -5,7 +5,7 @@
       "recursive": true
     }
   },
-  "scan": {
+  "list": {
     "max_constructs": 10
   }
 }

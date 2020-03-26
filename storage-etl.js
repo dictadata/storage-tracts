@@ -12,7 +12,7 @@ const list = require("./lib/list");
 const scan = require('./lib/scan');
 const transfer = require('./lib/transfer');
 
-var appArgs = {
+const appArgs = {
   command: '',
   configfile: 'config.json',
   source: 'source',
@@ -22,25 +22,30 @@ var appArgs = {
 function parseArgs() {
   // ["node.exe", "storage-etl.js", command, "-c", configfile, source, destination]
   // only command is required
+
+  const myArgs = {}
+
   let i = 2;
   while (i < process.argv.length) {
-    if (!appArgs.command) {
-      appArgs.command = process.argv[i];
+    if (!myArgs.command) {
+      myArgs.command = process.argv[i];
     }
     else if (process.argv[i] === "-c") {
       if (i + 1 < process.argv.length) {
-        appArgs.configfile = process.argv[i + 1];
+        myArgs.configfile = process.argv[i + 1];
         ++i;
       }
     }
-    else if (!appArgs.source) {
-      appArgs.source = process.argv[i];
+    else if (!myArgs.source) {
+      myArgs.source = process.argv[i];
     }
-    else if (!appArgs.destination) {
-      appArgs.destination = process.argv[i];
+    else if (!myArgs.destination) {
+      myArgs.destination = process.argv[i];
     }
     ++i;
   }
+
+  Object.assign(appArgs, myArgs);
 }
 
 (async () => {
@@ -65,8 +70,8 @@ function parseArgs() {
       return;
     }
 
-    let source = config.datastorage[appArgs.source];
-    let destination = config.datastorage[appArgs.destination];
+    let source = config.storage[appArgs.source];
+    let destination = config.storage[appArgs.destination];
     switch (appArgs.command) {
       case 'codify':
         retcode = await codify(source);
@@ -78,7 +83,7 @@ function parseArgs() {
         retcode = await scan(source);
         break;
       case 'transfer':
-        retcode = await transfer(source, destination);
+        retcode = await transfer(source, destination, config.transforms);
         break;
       default:
         console.log("unknown command: " + appArgs.command);

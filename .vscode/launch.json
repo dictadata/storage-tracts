@@ -39,10 +39,10 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
-        "scan",
+        "codify",
         "-c",
         "${workspaceFolder}/test/fs/codify.json",
-        "csv-source"
+        "source"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
