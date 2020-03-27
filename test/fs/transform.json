@@ -2,14 +2,12 @@
   "storage": {
     "csv-source": {
       "smt": "csv|./test/data/|foofile.csv|*",
-      "options": {
-      },
+      "options": {},
       "codify": true
     },
     "json-source": {
       "smt": "json|./test/data/|foofile.json|*",
-      "options": {
-      },
+      "options": {},
       "codify": true
     },
     "csv-destination": {
@@ -36,20 +34,14 @@
   "transforms": {
     "filter": {
       "match": {
-        "Bar": {
-          "op": "eq",
-          "value": "row"
-        }
+        "Bar": "row"
       },
       "drop": {
-        "Baz": {
-          "op": "eq",
-          "value": 5678
-        }
+        "Baz": 456
       }
     },
     "fields": {
-      "inject": {
+      "inject_before": {
         "Fie": "where's fum?"
       },
       "mapping": {
