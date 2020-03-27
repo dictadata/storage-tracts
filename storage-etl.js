@@ -74,13 +74,13 @@ function parseArgs() {
     let destination = config.storage[appArgs.destination];
     switch (appArgs.command) {
       case 'codify':
-        retcode = await codify(source);
+        retcode = await codify(source, config.transforms);
         break;
       case 'list':
         retcode = await list(source);
         break;
       case 'scan':
-        retcode = await scan(source);
+        retcode = await scan(source, config.transforms);
         break;
       case 'transfer':
         retcode = await transfer(source, destination, config.transforms);
