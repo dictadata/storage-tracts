@@ -1,0 +1,14 @@
+{
+  "storage": {
+    "source": {
+      "smt": "csv|S3:dictadata.org|*.csv|*",
+      "options": {
+        "recursive": true
+      }
+    },
+    "list": {
+      "max_constructs": 10
+    },
+    "outputFile": "./test/output/s3_list.json"
+  }
+}

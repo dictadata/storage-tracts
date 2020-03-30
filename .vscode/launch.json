@@ -219,8 +219,83 @@
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
-    }
+    },
 
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "s3 list",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "list",
+        "-c",
+        "${workspaceFolder}/test/s3/list.json"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "s3 codify",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "codify",
+        "-c",
+        "${workspaceFolder}/test/s3/codify.json",
+        "source"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "s3 scan",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "scan",
+        "-c",
+        "${workspaceFolder}/test/s3/scan.json"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "s3 transfer local > s3",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/s3/transfer.json",
+        "local-source",
+        "s3-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "s3 transfer s3 > local",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/s3/transfer.json",
+        "s3-source",
+        "local-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    }
 
   ]
 }

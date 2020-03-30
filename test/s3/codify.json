@@ -1,0 +1,13 @@
+{
+  "storage": {
+    "source": {
+      "smt": "json|s3:/test/data/|foofile.json|*",
+      "options": {
+        "reader": {
+          "max_read": 100
+        }
+      },
+      "outputFile": "./test/output/ftp_codify.json"
+    }
+  }
+}
