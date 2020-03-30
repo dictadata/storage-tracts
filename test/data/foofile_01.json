@@ -49,7 +49,7 @@
   },
   {
     "Foo": "fourth",
-    "Bar": "boat",
+    "Bar": " boat ",
     "Baz": "0",
     "Fobe": "4.3",
     "Dt Test": "2018-10-10T14:13:30.500Z",
