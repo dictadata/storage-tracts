@@ -7,20 +7,6 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "run debug",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": [
-        "run-script",
-        "debug"
-      ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
-      "port": 9229,
-      "outputCapture": "std"
-    },
-
-    {
-      "type": "node",
-      "request": "launch",
       "name": "fs list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
@@ -153,6 +139,83 @@
         "${workspaceFolder}/test/fs/transform.json",
         "json-source",
         "csv-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+
+
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "ftp list",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "list",
+        "-c",
+        "${workspaceFolder}/test/ftp/list.json"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "ftp codify",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "codify",
+        "-c",
+        "${workspaceFolder}/test/ftp/codify.json",
+        "source"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "ftp scan",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "scan",
+        "-c",
+        "${workspaceFolder}/test/ftp/scan.json"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "ftp transfer local > ftp",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/ftp/transfer.json",
+        "local-source",
+        "ftp-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "ftp transfer ftp > local",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/ftp/transfer.json",
+        "ftp-source",
+        "local-destination"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"

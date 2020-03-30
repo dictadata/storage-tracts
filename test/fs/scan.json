@@ -11,8 +11,7 @@
           "recursive": false
         },
         "codify": {
-          "encoding": {},
-          "statistics": false
+          "encoding": {}
         }
       },
       "outputFile": "./test/output/fs_scan.json"

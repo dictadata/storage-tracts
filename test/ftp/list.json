@@ -1,0 +1,19 @@
+{
+  "storage": {
+    "source": {
+      "smt": "csv|ftp:/test/data/|*.csv|*",
+      "options": {
+        "ftp": {
+          "host": "localhost",
+          "port": 21,
+          "user": "dicta",
+          "password": "data"
+        },
+        "list": {
+          "recursive": true
+        }
+      },
+      "outputFile": "./test/output/ftp_list.json"
+    }
+  }
+}

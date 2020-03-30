@@ -1,0 +1,43 @@
+{
+  "storage": {
+    "local-source": {
+      "smt": "json|./test/data/|foofile.json|*",
+      "options": {},
+      "codify": true
+    },
+    "local-destination": {
+      "smt": "json|./test/output/|ftp_foofile.json|*",
+      "options": {},
+      "create": true
+    },
+    "ftp-source": {
+      "smt": "json|ftp:/test/data/|foofile.json|*",
+      "options": {
+        "ftp": {
+          "host": "localhost",
+          "port": 21,
+          "user": "dicta",
+          "password": "data"
+        }
+      },
+      "codify": true
+    },
+    "ftp-destination": {
+      "smt": {
+        "model": "json",
+        "locus": "ftp:/test/output/",
+        "schema": "ftp_foofile.json",
+        "key": "*"
+      },
+      "options": {
+        "ftp": {
+          "host": "localhost",
+          "port": 21,
+          "user": "dicta",
+          "password": "data"
+        }
+      },
+      "create": true
+    }
+  }
+}

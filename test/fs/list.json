@@ -1,7 +1,7 @@
 {
   "storage": {
     "source": {
-      "smt": "json|./test/|*.json|*",
+      "smt": "json|./test/|foofile_*.json|*",
       "options": {
         "list": {
           "recursive": true

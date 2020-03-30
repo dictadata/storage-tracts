@@ -1,0 +1,19 @@
+{
+  "storage": {
+    "source": {
+      "smt": "json|ftp:/test/data/|foofile.json|*",
+      "options": {
+        "ftp": {
+          "host": "localhost",
+          "port": 21,
+          "user": "dicta",
+          "password": "data"
+        },
+        "reader": {
+          "max_read": 100
+        }
+      },
+      "outputFile": "./test/output/ftp_codify.json"
+    }
+  }
+}
