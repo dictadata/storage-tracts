@@ -54,7 +54,6 @@ function parseArgs() {
   try {
     parseArgs();
     config.load(appArgs.configfile);
-    logger.configLogger(config.log);
     logger.verbose("storage-etl starting...");
 
     if (!appArgs.command) {
