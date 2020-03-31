@@ -2,10 +2,8 @@
   "source": {
     "smt": "jsonl|S3:dictadata.org/test/|*.json|*",
     "options": {
-      "aws": {
-        "accessKeyId": "",
-        "secretAccessKey": "",
-        "region": ""
+      "s3": {
+        "aws_profile": ""
       },
       "reader": {
         "max_read": 8

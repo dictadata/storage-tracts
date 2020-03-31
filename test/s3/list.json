@@ -1,13 +1,15 @@
 {
   "storage": {
     "source": {
-      "smt": "csv|S3:dictadata.org|*.csv|*",
+      "smt": "csv|S3:dictadata.org/test/|*.csv|*",
       "options": {
-        "recursive": true
+        "s3": {
+          "aws_profile": ""
+        },
+        "list": {
+          "recursive": true
+        }
       }
-    },
-    "list": {
-      "max_constructs": 10
     },
     "outputFile": "./test/output/s3_list.json"
   }
