@@ -1,0 +1,55 @@
+{
+  "storage": {
+    "csv-source": {
+      "smt": "json|./test/data/|foofile.json|*",
+      "options": {
+      },
+      "codify": true
+    },
+    "csv-destination": {
+      "smt": {
+        "model": "csv",
+        "locus": "./test/output/",
+        "schema": "xlsx_foofile.csv",
+        "key": "*"
+      },
+      "options": {
+      },
+      "create": true
+    },
+    "json-source": {
+      "smt": "json|./test/data/|foofile.json|*",
+      "options": {
+      },
+      "codify": true
+    },
+    "json-destination": {
+      "smt": {
+        "model": "json",
+        "locus": "./test/output/",
+        "schema": "xlsx_foofile.json",
+        "key": "*"
+      },
+      "options": {
+      },
+      "create": true
+    },
+    "xlsx-source": {
+      "smt": "xlsx|./test/data/foofile.xlsx|foo|*",
+      "options": {
+      },
+      "codify": true
+    },
+    "xlsx-destination": {
+      "smt": {
+        "model": "xlsx",
+        "locus": "./test/output/xlsx_foofile.xlsx",
+        "schema": "fooee",
+        "key": "*"
+      },
+      "options": {
+      },
+      "create": true
+    }
+  }
+}
