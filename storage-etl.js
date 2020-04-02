@@ -69,8 +69,13 @@ function parseArgs() {
       return;
     }
 
+    if (Object.keys(config.storage).length <= 0 )
+      throw new Error("No storage sources defined");
     let source = config.storage[appArgs.source];
+    if (!source)
+      throw new Error("Storage source not defined: " + appArgs.source);
     let destination = config.storage[appArgs.destination];
+
     switch (appArgs.command) {
       case 'codify':
         retcode = await codify(source, config.transforms);
@@ -82,6 +87,8 @@ function parseArgs() {
         retcode = await scan(source, config.transforms);
         break;
       case 'transfer':
+        if (!destination)
+          throw new Error("Storage destination not defined: " + appArgs.destination);
         retcode = await transfer(source, destination, config.transforms);
         break;
       default:

@@ -2,13 +2,11 @@
   "storage": {
     "csv-source": {
       "smt": "csv|./test/data/|foofile.csv|*",
-      "options": {},
-      "codify": true
+      "options": {}
     },
     "json-source": {
       "smt": "json|./test/data/|foofile.json|*",
-      "options": {},
-      "codify": true
+      "options": {}
     },
     "csv-destination": {
       "smt": {

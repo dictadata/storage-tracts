@@ -295,6 +295,288 @@
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
+    },
+
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "xlsx list",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "list",
+        "-c",
+        "${workspaceFolder}/test/xlsx/list.json"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "xlsx codify",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "codify",
+        "-c",
+        "${workspaceFolder}/test/xlsx/codify.json",
+        "source"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "xlsx transfer json > sheet",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/xlsx/transfer.json",
+        "json-source",
+        "xlsx-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "xlsx transfer sheet > json",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/xlsx/transfer.json",
+        "xlsx-source",
+        "json-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "xlsx transform json > etl2",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/xlsx/transform.json",
+        "json-source",
+        "etl2-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "elasticsearch list",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "list",
+        "-c",
+        "${workspaceFolder}/test/elasticsearch/list.json"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "elasticsearch codify",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "codify",
+        "-c",
+        "${workspaceFolder}/test/elasticsearch/codify.json",
+        "source"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "elasticsearch transfer json > index",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/elasticsearch/transfer.json",
+        "json-source",
+        "elasticsearch-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "elasticsearch transfer index > json",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/elasticsearch/transfer.json",
+        "elasticsearch-source",
+        "json-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "elasticsearch transform json > etl2",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/elasticsearch/transform.json",
+        "json-source",
+        "etl2-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "mysql list",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "list",
+        "-c",
+        "${workspaceFolder}/test/mysql/list.json"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "mysql codify",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "codify",
+        "-c",
+        "${workspaceFolder}/test/mysql/codify.json",
+        "source"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "mysql transfer csv > table",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/mysql/transfer.json",
+        "csv-source",
+        "mysql-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "mysql transfer table > csv",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/mysql/transfer.json",
+        "mysql-source",
+        "csv-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "mysql transform csv > etl2",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/mysql/transform.json",
+        "csv-source",
+        "etl2-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "rest codify",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "codify",
+        "-c",
+        "${workspaceFolder}/test/rest/codify.json",
+        "source"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "rest transfer > json",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/rest/transfer.json",
+        "rest-source",
+        "json-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "rest transfrom > json",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/rest/transform.json",
+        "rest-source",
+        "json-destination"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
     }
 
   ]

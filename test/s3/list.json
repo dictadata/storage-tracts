@@ -1,16 +1,16 @@
 {
   "storage": {
     "source": {
-      "smt": "csv|S3:dictadata.org/test/|*.csv|*",
+      "smt": "json|S3:dictadata.org/test/|foofile_*.json|*",
       "options": {
         "s3": {
-          "aws_profile": ""
+          "aws_profile": "drewlab"
         },
         "list": {
           "recursive": true
         }
-      }
-    },
-    "outputFile": "./test/output/s3_list.json"
+      },
+      "outputFile": "./test/output/s3_list.json"
+    }
   }
 }

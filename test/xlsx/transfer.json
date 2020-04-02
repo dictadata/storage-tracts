@@ -3,8 +3,7 @@
     "csv-source": {
       "smt": "json|./test/data/|foofile.json|*",
       "options": {
-      },
-      "codify": true
+      }
     },
     "csv-destination": {
       "smt": {
@@ -20,8 +19,7 @@
     "json-source": {
       "smt": "json|./test/data/|foofile.json|*",
       "options": {
-      },
-      "codify": true
+      }
     },
     "json-destination": {
       "smt": {
@@ -37,8 +35,7 @@
     "xlsx-source": {
       "smt": "xlsx|./test/data/foofile.xlsx|foo|*",
       "options": {
-      },
-      "codify": true
+      }
     },
     "xlsx-destination": {
       "smt": {

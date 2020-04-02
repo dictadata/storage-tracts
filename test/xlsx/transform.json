@@ -5,7 +5,7 @@
       "options": {}
     },
     "etl2-destination": {
-      "smt": "elasticsearch|http://localhost:9200|foo_schema_etl2|=Foo",
+      "smt": "xlsx|./test/output/xlsx_foofile.xlsx|etl2|*",
       "options": {}
     }
   },

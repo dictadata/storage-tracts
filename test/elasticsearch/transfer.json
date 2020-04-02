@@ -2,8 +2,7 @@
   "storage": {
     "json-source": {
       "smt": "json|./test/data/|foofile.json|*",
-      "options": {},
-      "codify": true
+      "options": {}
     },
     "json-destination": {
       "smt": "json|./test/output/|elasticsearch_foofile.json|*",
@@ -13,8 +12,7 @@
     "elasticsearch-source": {
       "smt": "elastic|http://localhost:9200|foo_schema|*",
       "options": {
-      },
-      "codify": true
+      }
     },
     "elasticsearch-destination": {
       "smt": {

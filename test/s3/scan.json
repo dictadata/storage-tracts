@@ -1,29 +1,24 @@
 {
-  "source": {
-    "smt": "jsonl|S3:dictadata.org/test/|*.json|*",
-    "options": {
-      "s3": {
-        "aws_profile": ""
+  "storage": {
+    "source": {
+      "smt": "json|S3:dictadata.org/test/data/|*.json|*",
+      "options": {
+        "s3": {
+          "aws_profile": "dictadata"
+        },
+        "reader": {
+          "max_read": 10
+        },
+        "list": {
+          "schema": "foofile_*.json",
+          "recursive": false
+        },
+        "codify": {
+          "encoding": {},
+          "statistics": true
+        }
       },
-      "reader": {
-        "max_read": 8
-      }
+      "outputFile": "./test/output/s3_scan.json"
     }
-  },
-  "list": {
-    "filespec": "*.log.gz",
-    "recursive": true
-  },
-  "codify": {
-    "notation": "dot",
-    "statistics": {
-      "count": true,
-      "minimum": true,
-      "maximum": true,
-      "length": true,
-      "nulls": true,
-      "dateField": "at"
-    }
-  },
-  "outputFile": "./test/output/scan_encoding.json"
+  }
 }

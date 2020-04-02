@@ -1,0 +1,29 @@
+{
+  "storage": {
+    "csv-source": {
+      "smt": "csv|./test/data/|foofile.csv|*",
+      "options": {}
+    },
+    "csv-destination": {
+      "smt": "csv|./test/output/|mysql_foofile.csv|*",
+      "options": {},
+      "create": true
+    },
+    "mysql-source": {
+      "smt": "mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema|*",
+      "options": {
+      }
+    },
+    "mysql-destination": {
+      "smt": {
+        "model": "mysql",
+        "locus": "host=localhost;user=dicta;password=dicta;database=storage_node",
+        "schema": "foo_schema_etl",
+        "key": "*"
+      },
+      "options": {
+      },
+      "create": true
+    }
+  }
+}

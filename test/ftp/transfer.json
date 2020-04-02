@@ -2,8 +2,7 @@
   "storage": {
     "local-source": {
       "smt": "json|./test/data/|foofile.json|*",
-      "options": {},
-      "codify": true
+      "options": {}
     },
     "local-destination": {
       "smt": "json|./test/output/|ftp_foofile.json|*",
@@ -19,8 +18,7 @@
           "user": "dicta",
           "password": "data"
         }
-      },
-      "codify": true
+      }
     },
     "ftp-destination": {
       "smt": {

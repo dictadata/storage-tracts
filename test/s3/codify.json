@@ -1,7 +1,7 @@
 {
   "storage": {
     "source": {
-      "smt": "json|s3:/test/data/|foofile.json|*",
+      "smt": "json|s3:dictadata.org/test/data/|foofile.json|*",
       "options": {
         "s3": {
           "aws_profile": ""
@@ -10,7 +10,7 @@
           "max_read": 10
         }
       },
-      "outputFile": "./test/output/ftp_codify.json"
+      "outputFile": "./test/output/s3_codify.json"
     }
   }
 }

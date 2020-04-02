@@ -1,0 +1,23 @@
+{
+  "storage": {
+    "rest-source": {
+      "smt": "rest|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*",
+      "options": {
+        "headers": {
+          "Accept": "application/ld+json",
+          "User-Agent": "@dictadata.org/storage-node (info@dictadata.org)"
+        },
+        "reader": {
+          "extract": {
+            "headers": "",
+            "data": "periods"
+          }
+        }
+      }
+    },
+    "json-destination": {
+      "smt": "json|./test/output/|rest-transfer.json|*",
+      "options": {}
+    }
+  }
+}
