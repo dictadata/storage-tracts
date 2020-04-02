@@ -1,7 +1,7 @@
 {
   "storage": {
     "source": {
-      "smt": "csv|ftp:/test/data/|*.csv|*",
+      "smt": "json|ftp:/test/|foofile_*.json|*",
       "options": {
         "ftp": {
           "host": "localhost",
