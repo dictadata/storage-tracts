@@ -1,17 +1,18 @@
 {
   "storage": {
     "source": {
-      "smt": "json|test/data/|foofile_*.json|*",
+      "smt": "json|test/data/|*.json|*",
       "options": {
         "reader": {
-          "max_read": 8
+          "max_read": 10
         },
         "list": {
-          "filespec": "foofile_*.json",
+          "schema": "foofile_*.json",
           "recursive": false
         },
         "codify": {
-          "encoding": {}
+          "encoding": {},
+          "statistics": true
         }
       },
       "outputFile": "./test/output/fs_scan.json"
