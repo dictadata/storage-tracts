@@ -5,27 +5,21 @@
       "options": {}
     },
     "destination": {
-      "smt": "elasticsearch|http://localhost:9200|etl-2|=Foo",
+      "smt": "elasticsearch|http://localhost:9200|foo_schema_etl2|=Foo",
       "options": {}
     }
   },
   "transforms": {
     "filter": {
       "match": {
-        "Bar": {
-          "op": "eq",
-          "value": "row"
-        }
+        "Bar":"row"
       },
       "drop": {
-        "Baz": {
-          "op": "eq",
-          "value": 5678
-        }
+        "Baz": {"eq": 5678 }
       }
     },
     "fields": {
-      "inject": {
+      "inject_after": {
         "Fie": "where's fum?"
       },
       "mapping": {

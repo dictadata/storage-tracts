@@ -1,0 +1,13 @@
+{
+  "storage": {
+    "source": {
+      "smt": "elasticsearch|http://localhost:9200|*|*",
+      "options": {
+        "list": {
+          "schema": "foo*"
+        }
+      },
+      "outputFile": "./test/output/elasticsearch_list.json"
+    }
+  }
+}

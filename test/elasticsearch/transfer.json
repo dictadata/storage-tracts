@@ -1,0 +1,31 @@
+{
+  "storage": {
+    "json-source": {
+      "smt": "json|./test/data/|foofile.json|*",
+      "options": {},
+      "codify": true
+    },
+    "json-destination": {
+      "smt": "json|./test/output/|elasticsearch_foofile.json|*",
+      "options": {},
+      "create": true
+    },
+    "elasticsearch-source": {
+      "smt": "elastic|http://localhost:9200|foo_schema|*",
+      "options": {
+      },
+      "codify": true
+    },
+    "elasticsearch-destination": {
+      "smt": {
+        "model": "elasticsearch",
+        "locus": "http://localhost:9200",
+        "schema": "foo_schema_etl.json",
+        "key": "*"
+      },
+      "options": {
+      },
+      "create": true
+    }
+  }
+}
