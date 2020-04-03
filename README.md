@@ -26,7 +26,7 @@ Node.js version 12.0 or higher.  Download the installer from https://nodejs.org/
 
 - A config file specifies the source and destination SMT addresses along with encoding, transform and transfer information.
 - Source and destination can be supported and compatible storage source.
-- Scan function supports local folders and AWS S3 buckets.
+- Scan function supports file storage like local folders, FTP and AWS S3 buckets.
 - Transforms are optional. If specified then fields will be transformed between input and output.
 - JSON files only support an array of objects e.g. [ {}, {}, ...].
 
@@ -48,46 +48,48 @@ The transforms file is .json format. It uses dot notation to reference propertie
 
 ```
 {
-  "source": {
-    "smt": "json|./test/data/|foofile.json|*",
-    "options": {},
-    "codify": true
-  },
-  "destination": {
-    "smt": {
-      "model": "csv",
-      "locus": "./test/output/",
-      "schema": "etl-1.csv",
-      "key": "*"
+  "storage": {
+    "source": {
+      "smt": "json|./test/data/|foofile.json|*",
+      "options": {}
     },
-    "options": {},
-    "create": true
+    "destination": {
+      "smt": {
+        "model": "csv",
+        "locus": "./test/output/",
+        "schema": "etl-1.csv",
+        "key": "*"
+      },
+      "options": {},
+      "create": true
+    }
   },
   "transforms": {
-    "inject": {
-      "Fie": "where's fum?"
-    },
-    "match": {
-      "Bar": {
-        "op": "eq",
-        "value": "row"
+    "filter": {
+      "match": {
+        "Bar": "row"
+      }
+      },
+      "drop": {
+        "Baz": {
+          "eq": 5678
+        }
       }
     },
-    "drop": {
-      "Baz": {
-        "op": "eq",
-        "value": 5678
+    "fields": {
+      "inject": {
+        "Fie": "where's fum?"
+      },
+      "mapping": {
+        "Foo": "foo",
+        "Bar": "bar",
+        "Baz": "baz",
+        "Fobe": "fobe",
+        "Dt Test": "dt_test",
+        "enabled": "enabled",
+        "subObj1.state": "state",
+        "subObj2.subsub.izze": "izze"
       }
-    },
-    "mapping": {
-      "Foo": "foo",
-      "Bar": "bar",
-      "Baz": "baz",
-      "Fobe": "fobe",
-      "Dt Test": "dt_test",
-      "enabled": "enabled",
-      "subObj1.state": "state",
-      "subObj2.subsub.izze": "izze"
     }
   }
 }
@@ -172,26 +174,30 @@ storage-etl transfer weather.json
 weather.json:
 ```
 {
-  "source": {
-    "smt": "rest|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*",
-    "options": {
-      "headers": {
-        "Accept": "application/ld+json",
-        "User-Agent": "@dictadata.org/storage-node contact:drew@dictadata.org"
-      },
-      "extract": {
-        "headers": "",
-        "data": "periods"
+  "storage": {
+    "source": {
+      "smt": "rest|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*",
+      "options": {
+        "headers": {
+          "Accept": "application/ld+json",
+          "User-Agent": "@dictadata.org/storage-node contact:info@dictadata.org"
+        },
+        "extract": {
+          "headers": "",
+          "data": "periods"
+        }
       }
+    },
+    "destination": {
+      "smt": "csv|./test/output/|etl-3-weather.csv|*",
+      "options": {}
     }
   },
-  "destination": {
-    "smt": "csv|./test/output/|etl-3-weather.csv|*",
-    "options": {}
-  },
   "transforms": {
-    "inject": {
-      "Fie": "It's always sunny in Philadelphia?"
+    "fields": {
+      "inject": {
+        "Fie": "It's always sunny in Philadelphia?"
+      }
     }
   }
 }

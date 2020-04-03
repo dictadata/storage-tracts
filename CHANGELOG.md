@@ -1,3 +1,7 @@
+- version 1.1.1
+  - support for spreadsheets including Excel .xlsx, .xls and Open Docs .ods workbooks
+  - list schemas in a storage source
+  - update to @idctadata/storage-junctions v1.1.2
 - version 1.1.0
   - update to @dictadata/storage-junctions v1.1.0
     - adds support for Excel workbooks and FTP file storage
