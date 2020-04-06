@@ -1,3 +1,5 @@
+- version 1.1.4
+  - require xlsx as local package
 - version 1.1.3
   - logger configuration changes
 - version 1.1.2
