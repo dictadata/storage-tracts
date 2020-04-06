@@ -1,3 +1,5 @@
+- version 1.1.3
+  - logger configuration changes
 - version 1.1.2
   - update to @idctadata/storage-junctions v1.1.3
 - version 1.1.1
