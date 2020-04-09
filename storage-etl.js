@@ -14,7 +14,7 @@ const transfer = require('./lib/transfer');
 
 const appArgs = {
   command: '',
-  configfile: 'config.json',
+  configfile: 'etl_config.json',
   source: 'source',
   destination: 'destination'
 }
@@ -62,11 +62,17 @@ function parseArgs() {
       console.log("etl command [-c configfile] [source] [destination] [transform]");
       console.log("");
       console.log("Commands:");
+      console.log("  config - create example etl_config.json file in the current directory");
       console.log("  codify - determine storage encoding for a single schema");
       console.log("  list - listing of schema names in data source");
       console.log("  scan - scan data source to determine storage encoding by codifying multiple schemas");
       console.log("  transfer - transfer data between two data sources, with optional transform");
       return;
+    }
+
+    if (appArgs.command === 'config') {
+      config.create();
+      return 0;
     }
 
     if (Object.keys(config.storage).length <= 0 )
@@ -77,6 +83,9 @@ function parseArgs() {
     let destination = config.storage[appArgs.destination];
 
     switch (appArgs.command) {
+      case 'config':
+        config.create();
+        break;
       case 'codify':
         retcode = await codify(source, config.transforms);
         break;
