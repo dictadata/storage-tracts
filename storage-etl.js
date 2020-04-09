@@ -28,18 +28,22 @@ function parseArgs() {
   let i = 2;
   while (i < process.argv.length) {
     if (!myArgs.command) {
+      // command
       myArgs.command = process.argv[i];
     }
     else if (process.argv[i] === "-c") {
+      // configFile
       if (i + 1 < process.argv.length) {
         myArgs.configfile = process.argv[i + 1];
         ++i;
       }
     }
     else if (!myArgs.source) {
+      // source
       myArgs.source = process.argv[i];
     }
     else if (!myArgs.destination) {
+      // destination
       myArgs.destination = process.argv[i];
     }
     ++i;
