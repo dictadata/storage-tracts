@@ -10,27 +10,31 @@
     }
   },
   "transforms": {
-    "filter": {
-      "match": {
-        "Bar":"row"
+    "transform-xlsx": {
+      "filter": {
+        "match": {
+          "Bar": "row"
+        },
+        "drop": {
+          "Baz": {
+            "eq": 5678
+          }
+        }
       },
-      "drop": {
-        "Baz": {"eq": 5678 }
-      }
-    },
-    "fields": {
-      "inject_after": {
-        "Fie": "where's fum?"
-      },
-      "mapping": {
-        "Foo": "foo",
-        "Bar": "bar",
-        "Baz": "baz",
-        "Fobe": "fobe",
-        "Dt Test": "dt_test",
-        "enabled": "enabled",
-        "subObj1.state": "state",
-        "subObj2.subsub.izze": "izze"
+      "select": {
+        "inject_after": {
+          "Fie": "where's fum?"
+        },
+        "fields": {
+          "Foo": "foo",
+          "Bar": "bar",
+          "Baz": "baz",
+          "Fobe": "fobe",
+          "Dt Test": "dt_test",
+          "enabled": "enabled",
+          "subObj1.state": "state",
+          "subObj2.subsub.izze": "izze"
+        }
       }
     }
   }

@@ -1,8 +1,10 @@
 {
-  "mapping": {
-    "Foo": "foo",
-    "Bar": "bar",
-    "Baz": "baz",
-    "State.Enabled": "enabled"
+  "select": {
+    "fields": {
+      "Foo": "foo",
+      "Bar": "bar",
+      "Baz": "baz",
+      "State.Enabled": "enabled"
+    }
   }
 }

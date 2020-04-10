@@ -1,12 +1,14 @@
 {
-  "mapping": {
-    "Foo": "foo",
-    "Bar": "bar",
-    "Baz": "baz",
-    "Fobe": "fobe",
-    "Dt Test": "dt_test",
-    "enabled": "enabled",
-    "subObj1.state": "state",
-    "subObj2.subsub.izze": "izze"
+  "select": {
+    "fields": {
+      "Foo": "foo",
+      "Bar": "bar",
+      "Baz": "baz",
+      "Fobe": "fobe",
+      "Dt Test": "dt_test",
+      "enabled": "enabled",
+      "subObj1.state": "state",
+      "subObj2.subsub.izze": "izze"
+    }
   }
 }

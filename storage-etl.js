@@ -16,7 +16,8 @@ const appArgs = {
   command: '',
   configfile: 'etl_config.json',
   source: 'source',
-  destination: 'destination'
+  destination: 'destination',
+  transform: 'transform'
 }
 
 function parseArgs() {
@@ -46,6 +47,10 @@ function parseArgs() {
       // destination
       myArgs.destination = process.argv[i];
     }
+    else if (!myArgs.transform) {
+      // destination
+      myArgs.transform = process.argv[i];
+    }
     ++i;
   }
 
@@ -63,14 +68,14 @@ function parseArgs() {
     if (!appArgs.command) {
       console.log("Transfer, transform and codify data storage sources.");
       console.log("");
-      console.log("etl command [-c configfile] [source] [destination] [transform]");
+      console.log("etl command [-c configfile] [source-name] [destination-name] [transforms-name]");
       console.log("");
       console.log("Commands:");
       console.log("  config - create example etl_config.json file in the current directory");
       console.log("  codify - determine storage encoding for a single schema");
       console.log("  list - listing of schema names in data source");
       console.log("  scan - scan data source to determine storage encoding by codifying multiple schemas");
-      console.log("  transfer - transfer data between two data sources, with optional transform");
+      console.log("  transfer - transfer data between two data sources, with optional transforms");
       return;
     }
 
@@ -85,24 +90,25 @@ function parseArgs() {
     if (!source)
       throw new Error("Storage source not defined: " + appArgs.source);
     let destination = config.storage[appArgs.destination];
+    let transforms = config.transforms[appArgs.transform];
 
     switch (appArgs.command) {
       case 'config':
         config.create();
         break;
       case 'codify':
-        retcode = await codify(source, config.transforms);
+        retcode = await codify(source, transforms);
         break;
       case 'list':
         retcode = await list(source);
         break;
       case 'scan':
-        retcode = await scan(source, config.transforms);
+        retcode = await scan(source, transforms);
         break;
       case 'transfer':
         if (!destination)
           throw new Error("Storage destination not defined: " + appArgs.destination);
-        retcode = await transfer(source, destination, config.transforms);
+        retcode = await transfer(source, destination, transforms);
         break;
       default:
         console.log("unknown command: " + appArgs.command);

@@ -21,10 +21,12 @@
     }
   },
   "transforms": {
-    "fields": {
-      "remove": ["icon"],
-      "inject_after": {
-        "Fie": "It's always sunny in Philadelphia!"
+    "transform-weather": {
+      "fields": {
+        "remove": [ "icon" ],
+        "inject_after": {
+          "Fie": "It's always sunny in Philadelphia!"
+        }
       }
     }
   }

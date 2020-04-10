@@ -24,6 +24,19 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "etl_config.json",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "config"
+      ],
+      "env": {"NODE_ENV": "production", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+
+    {
+      "type": "node",
+      "request": "launch",
       "name": "fs list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
@@ -386,7 +399,8 @@
         "-c",
         "${workspaceFolder}/test/xlsx/transform.json",
         "json-source",
-        "etl2-destination"
+        "etl2-destination",
+        "transform-xlsx"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -464,7 +478,8 @@
         "-c",
         "${workspaceFolder}/test/elasticsearch/transform.json",
         "json-source",
-        "etl2-destination"
+        "etl2-destination",
+        "transform-es"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -542,7 +557,8 @@
         "-c",
         "${workspaceFolder}/test/mysql/transform.json",
         "csv-source",
-        "etl2-destination"
+        "etl2-destination",
+        "transform-mysql"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -590,7 +606,8 @@
         "-c",
         "${workspaceFolder}/test/rest/transform.json",
         "rest-source",
-        "json-destination"
+        "json-destination",
+        "transform-weather"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"

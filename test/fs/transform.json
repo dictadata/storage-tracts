@@ -30,27 +30,29 @@
     }
   },
   "transforms": {
-    "filter": {
-      "match": {
-        "Bar": "row"
+    "transform": {
+      "filter": {
+        "match": {
+          "Bar": "row"
+        },
+        "drop": {
+          "Baz": 456
+        }
       },
-      "drop": {
-        "Baz": 456
-      }
-    },
-    "fields": {
-      "inject_before": {
-        "Fie": "where's fum?"
-      },
-      "mapping": {
-        "Foo": "foo",
-        "Bar": "bar",
-        "Baz": "baz",
-        "Fobe": "fobe",
-        "Dt Test": "dt_test",
-        "enabled": "enabled",
-        "subObj1.state": "state",
-        "subObj2.subsub.izze": "izze"
+      "select": {
+        "inject_before": {
+          "Fie": "where's fum?"
+        },
+        "fields": {
+          "Foo": "foo",
+          "Bar": "bar",
+          "Baz": "baz",
+          "Fobe": "fobe",
+          "Dt Test": "dt_test",
+          "enabled": "enabled",
+          "subObj1.state": "state",
+          "subObj2.subsub.izze": "izze"
+        }
       }
     }
   }
