@@ -22,7 +22,7 @@
   },
   "transforms": {
     "transform-weather": {
-      "fields": {
+      "select": {
         "remove": [ "icon" ],
         "inject_after": {
           "Fie": "It's always sunny in Philadelphia!"
