@@ -76,11 +76,11 @@ The transforms file is .json format. It uses dot notation to reference propertie
         }
       }
     },
-    "fields": {
+    "select": {
       "inject": {
         "Fie": "where's fum?"
       },
-      "mapping": {
+      "fields": {
         "Foo": "foo",
         "Bar": "bar",
         "Baz": "baz",
@@ -194,7 +194,7 @@ weather.json:
     }
   },
   "transforms": {
-    "fields": {
+    "select": {
       "inject": {
         "Fie": "It's always sunny in Philadelphia?"
       }

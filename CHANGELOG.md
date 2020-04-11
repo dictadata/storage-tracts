@@ -1,3 +1,8 @@
+- version 1.1.6
+  - refactor etl_config.json to have transforms property to contain named transforms
+  - update to @idctadata/storage-junctions 1.1.6
+- version 1.1.5
+  - add "config" command to generate sample "./etl_config.json" file
 - version 1.1.4
   - require xlsx as local package
 - version 1.1.3
