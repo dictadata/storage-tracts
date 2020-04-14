@@ -4,7 +4,7 @@
       "smt": "json|S3:dictadata.org/test/|foofile_*.json|*",
       "options": {
         "s3": {
-          "aws_profile": "drewlab"
+          "aws_profile": "dictadata"
         },
         "list": {
           "recursive": true
