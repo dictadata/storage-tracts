@@ -13,43 +13,33 @@ const scan = require('./lib/scan');
 const transfer = require('./lib/transfer');
 
 const appArgs = {
-  command: '',
+  command: 'transfer',
   configfile: 'etl_config.json',
-  source: 'source',
-  destination: 'destination',
-  transform: 'transform'
+  tract: 'transfer'
 }
 
 function parseArgs() {
-  // ["node.exe", "storage-etl.js", command, "-c", configfile, source, destination]
+  // process.argv = ["node.exe", "storage-etl.js", command, "-c", configfile, tract]
   // only command is required
 
   const myArgs = {}
 
   let i = 2;
   while (i < process.argv.length) {
-    if (!myArgs.command) {
-      // command
-      myArgs.command = process.argv[i];
-    }
-    else if (process.argv[i] === "-c") {
+    if (process.argv[i] === "-c") {
       // configFile
       if (i + 1 < process.argv.length) {
         myArgs.configfile = process.argv[i + 1];
         ++i;
       }
     }
-    else if (!myArgs.source) {
-      // source
-      myArgs.source = process.argv[i];
+    else if (!myArgs.command) {
+      // command
+      myArgs.command = process.argv[i];
     }
-    else if (!myArgs.destination) {
-      // destination
-      myArgs.destination = process.argv[i];
-    }
-    else if (!myArgs.transform) {
-      // destination
-      myArgs.transform = process.argv[i];
+    else if (!myArgs.tract) {
+      // tract
+      myArgs.tract = process.argv[i];
     }
     ++i;
   }
@@ -68,14 +58,14 @@ function parseArgs() {
     if (!appArgs.command) {
       console.log("Transfer, transform and codify data storage sources.");
       console.log("");
-      console.log("etl command [-c configfile] [source-name] [destination-name] [transforms-name]");
+      console.log("etl command [-c configfile] [tract-name]");
       console.log("");
       console.log("Commands:");
       console.log("  config - create example etl_config.json file in the current directory");
       console.log("  codify - determine storage encoding for a single schema");
       console.log("  list - listing of schema names in data source");
       console.log("  scan - scan data source to determine storage encoding by codifying multiple schemas");
-      console.log("  transfer - transfer data between two data sources, with optional transforms");
+      console.log("  transfer - transfer data between data sources, with optional transforms");
       return;
     }
 
@@ -84,31 +74,27 @@ function parseArgs() {
       return 0;
     }
 
-    if (Object.keys(config.storage).length <= 0 )
-      throw new Error("No storage sources defined");
-    let source = config.storage[appArgs.source];
-    if (!source)
-      throw new Error("Storage source not defined: " + appArgs.source);
-    let destination = config.storage[appArgs.destination];
-    let transforms = config.transforms[appArgs.transform];
+    if (Object.keys(config).length <= 0 )
+      throw new Error("No storage tracts defined");
+    let tract = config[appArgs.tract];
+    if (!tract)
+      throw new Error("Storage tract not defined: " + appArgs.tract);
 
     switch (appArgs.command) {
       case 'config':
         config.create();
         break;
       case 'codify':
-        retcode = await codify(source, transforms);
+        retcode = await codify(tract);
         break;
       case 'list':
-        retcode = await list(source);
+        retcode = await list(tract);
         break;
       case 'scan':
-        retcode = await scan(source, transforms);
+        retcode = await scan(tract);
         break;
       case 'transfer':
-        if (!destination)
-          throw new Error("Storage destination not defined: " + appArgs.destination);
-        retcode = await transfer(source, destination, transforms);
+        retcode = await transfer(tract);
         break;
       default:
         console.log("unknown command: " + appArgs.command);
