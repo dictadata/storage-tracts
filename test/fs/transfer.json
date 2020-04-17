@@ -1,58 +1,54 @@
 {
-  "storage": {
-    "csv-source": {
-      "smt": "csv|./test/data/|foofile.csv|*",
-      "options": {
-      }
+  "csv-output": {
+    "origin": {
+      "smt": "csv|./test/data/|foofile.csv|*"
     },
-    "csv-destination": {
+    "terminal": {
       "smt": {
         "model": "csv",
         "locus": "./test/output/",
         "schema": "fs_foofile.csv",
         "key": "*"
-      },
-      "options": {
-      },
-      "create": true
-    },
-    "csv2-destination": {
-      "smt": {
-        "model": "csv",
-        "locus": "./test/output/",
-        "schema": "fs_foofile2.csv",
-        "key": "*"
-      },
-      "options": {
-      },
-      "create": true
-    },
-    "json-source": {
-      "smt": "json|./test/data/|foofile.json|*",
-      "options": {
       }
+    }
+  },
+  "json-output": {
+    "origin": {
+      "smt": "json|./test/data/|foofile.json|*"
     },
-    "json-destination": {
+    "terminal": {
       "smt": {
         "model": "json",
         "locus": "./test/output/",
         "schema": "fs_foofile.json",
         "key": "*"
-      },
-      "options": {
-      },
-      "create": true
+      }
+    }
+  },
+  "csv-json": {
+    "origin": {
+      "smt": "csv|./test/data/|foofile.csv|*"
     },
-    "json2-destination": {
+    "terminal": {
       "smt": {
         "model": "json",
         "locus": "./test/output/",
-        "schema": "fs_foofile2.json",
+        "schema": "fs_foofile_csv.json",
         "key": "*"
-      },
-      "options": {
-      },
-      "create": true
+      }
+    }
+  },
+  "json-csv": {
+    "origin": {
+      "smt": "json|./test/data/|foofile.json|*"
+    },
+   "terminal": {
+      "smt": {
+        "model": "csv",
+        "locus": "./test/output/",
+        "schema": "fs_foofile_json.csv",
+        "key": "*"
+      }
     }
   }
 }

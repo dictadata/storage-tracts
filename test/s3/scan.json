@@ -1,6 +1,6 @@
 {
-  "storage": {
-    "source": {
+  "scan": {
+    "origin": {
       "smt": "json|S3:dictadata.org/test/data/|*.json|*",
       "options": {
         "s3": {
@@ -17,8 +17,8 @@
           "encoding": {},
           "statistics": true
         }
-      },
-      "outputFile": "./test/output/s3_scan.json"
-    }
+      }
+    },
+    "terminal": "./test/output/s3_scan.json"
   }
 }

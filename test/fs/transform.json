@@ -1,36 +1,9 @@
 {
-  "storage": {
-    "csv-source": {
-      "smt": "csv|./test/data/|foofile.csv|*",
-      "options": {}
+  "csv-json": {
+    "origin": {
+      "smt": "csv|./test/data/|foofile.csv|*"
     },
-    "json-source": {
-      "smt": "json|./test/data/|foofile.json|*",
-      "options": {}
-    },
-    "csv-destination": {
-      "smt": {
-        "model": "csv",
-        "locus": "./test/output/",
-        "schema": "fs_transform.csv",
-        "key": "*"
-      },
-      "options": {},
-      "create": true
-    },
-    "json-destination": {
-      "smt": {
-        "model": "json",
-        "locus": "./test/output/",
-        "schema": "fs_transform.json",
-        "key": "*"
-      },
-      "options": {},
-      "create": true
-    }
-  },
-  "transforms": {
-    "transform": {
+    "transforms": {
       "filter": {
         "match": {
           "Bar": "row"
@@ -41,7 +14,47 @@
       },
       "select": {
         "inject_before": {
-          "Fie": "where's fum?"
+          "fie": "where's fum?"
+        },
+        "inject_after": {
+          "state": "unknown"
+        },
+        "fields": {
+          "Foo": "foo",
+          "Bar": "bar",
+          "Baz": "baz",
+          "Fobe": "fobe",
+          "Dt Test": "dt_test"
+        },
+        "remove": ["fobe"]
+      }
+    },
+    "terminal": {
+      "smt": {
+        "model": "json",
+        "locus": "./test/output/",
+        "schema": "fs_transform.json",
+        "key": "*"
+      },
+      "encoding": "./test/data/foo_encoding_t.json"
+    }
+  },
+  "json-csv": {
+    "origin": {
+      "smt": "json|./test/data/|foofile.json|*"
+    },
+    "transforms": {
+      "filter": {
+        "match": {
+          "Bar": "row"
+        },
+        "drop": {
+          "Baz": 456
+        }
+      },
+      "select": {
+        "inject_before": {
+          "fie": "where's fum?"
         },
         "fields": {
           "Foo": "foo",
@@ -49,11 +62,19 @@
           "Baz": "baz",
           "Fobe": "fobe",
           "Dt Test": "dt_test",
-          "enabled": "enabled",
-          "subObj1.state": "state",
-          "subObj2.subsub.izze": "izze"
-        }
+          "subObj1.state": "state"
+        },
+        "remove": ["fobe"]
       }
+    },
+    "terminal": {
+      "smt": {
+        "model": "csv",
+        "locus": "./test/output/",
+        "schema": "fs_transform.csv",
+        "key": "*"
+      },
+      "encoding": "./test/data/foo_encoding_t.json"
     }
   }
 }

@@ -1,29 +1,23 @@
 {
-  "storage": {
-    "json-source": {
-      "smt": "json|./test/data/|foofile.json|*",
-      "options": {}
+  "json-index": {
+    "origin": {
+      "smt": "json|./test/data/|foofile.json|*"
     },
-    "json-destination": {
-      "smt": "json|./test/output/|elasticsearch_foofile.json|*",
-      "options": {},
-      "create": true
-    },
-    "elasticsearch-source": {
-      "smt": "elastic|http://localhost:9200|foo_schema|*",
-      "options": {
-      }
-    },
-    "elasticsearch-destination": {
+    "terminal": {
       "smt": {
         "model": "elasticsearch",
         "locus": "http://localhost:9200",
-        "schema": "foo_schema_etl.json",
+        "schema": "foo_schema_etl",
         "key": "*"
-      },
-      "options": {
-      },
-      "create": true
+      }
+    }
+  },
+  "index-json": {
+    "origin": {
+      "smt": "elastic|http://localhost:9200|foo_schema|*"
+    },
+    "terminal": {
+      "smt": "json|./test/output/|elasticsearch_foofile.json|*"
     }
   }
 }

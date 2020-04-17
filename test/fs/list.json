@@ -1,13 +1,13 @@
 {
-  "storage": {
-    "source": {
+  "list": {
+    "origin": {
       "smt": "json|./test/|foofile_*.json|*",
       "options": {
         "list": {
           "recursive": true
         }
-      },
-      "outputFile": "./test/output/fs_list.json"
-    }
+      }
+    },
+    "terminal": "./test/output/fs_list.json"
   }
 }

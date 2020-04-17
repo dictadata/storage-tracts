@@ -1,6 +1,6 @@
 {
-  "storage": {
-    "rest-source": {
+  "rest-json": {
+    "origin": {
       "smt": "rest|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*",
       "options": {
         "headers": {
@@ -15,9 +15,8 @@
         }
       }
     },
-    "json-destination": {
-      "smt": "json|./test/output/|rest-transfer.json|*",
-      "options": {}
+    "terminal": {
+      "smt": "json|./test/output/|rest-transfer.json|*"
     }
   }
 }

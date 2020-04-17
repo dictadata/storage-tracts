@@ -1,6 +1,6 @@
 {
-  "storage": {
-    "source": {
+  "scan": {
+    "origin": {
       "smt": "json|test/data/|*.json|*",
       "options": {
         "reader": {
@@ -14,8 +14,8 @@
           "encoding": {},
           "statistics": true
         }
-      },
-      "outputFile": "./test/output/fs_scan.json"
-    }
+      }
+    },
+    "terminal": "./test/output/fs_scan.json"
   }
 }

@@ -1,6 +1,6 @@
 {
-  "storage": {
-    "source": {
+  "codify": {
+    "origin": {
       "smt": "json|ftp:/test/data/|foofile.json|*",
       "options": {
         "ftp": {
@@ -12,8 +12,8 @@
         "reader": {
           "max_read": 100
         }
-      },
-      "outputFile": "./test/output/ftp_codify.json"
-    }
+      }
+    },
+    "terminal": "./test/output/ftp_codify.json"
   }
 }

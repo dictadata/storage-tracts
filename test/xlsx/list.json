@@ -1,13 +1,13 @@
 {
-  "storage": {
-    "source": {
+  "list": {
+    "origin": {
       "smt": "xlsx|./test/data/foofile.xlsx|*|*",
       "options": {
         "list": {
           "schema": "foo*"
         }
-      },
-      "outputFile": "./test/output/xlsx_list.json"
-    }
+      }
+    },
+    "terminal": "./test/output/xlsx_list.json"
   }
 }

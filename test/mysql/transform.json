@@ -1,23 +1,16 @@
 {
-  "storage": {
-    "csv-source": {
-      "smt": "csv|./test/data/|foofile.csv|*",
-      "options": {}
+  "json-etl2": {
+    "origin": {
+      "smt": "json|./test/data/|foofile.json|*"
     },
-    "etl2-destination": {
-      "smt": "mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema_etl2|=Foo",
-      "options": {}
-    }
-  },
-  "transforms": {
-    "transform-mysql": {
+    "transforms": {
       "filter": {
         "match": {
           "Bar": "row"
         },
         "drop": {
           "Baz": {
-            "eq": 5678
+            "eq": 456
           }
         }
       },
@@ -31,11 +24,14 @@
           "Baz": "baz",
           "Fobe": "fobe",
           "Dt Test": "dt_test",
-          "enabled": "enabled",
-          "subObj1.state": "state",
-          "subObj2.subsub.izze": "izze"
-        }
+          "subObj1.state": "state"
+        },
+        "remove": ["fobe"]
       }
+    },
+    "terminal": {
+      "smt": "mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema_etl2|=Foo",
+      "encoding": "./test/data/foo_encoding_t.json"
     }
   }
 }

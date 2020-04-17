@@ -24,7 +24,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "etl_config.json",
+      "name": "config : etl_config.json",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
@@ -57,8 +57,7 @@
       "args": [
         "codify",
         "-c",
-        "${workspaceFolder}/test/fs/codify.json",
-        "source"
+        "${workspaceFolder}/test/fs/codify.json"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -87,8 +86,7 @@
         "transfer",
         "-c",
         "${workspaceFolder}/test/fs/transfer.json",
-        "csv-source",
-        "csv-destination"
+        "csv-output"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -103,8 +101,7 @@
         "transfer",
         "-c",
         "${workspaceFolder}/test/fs/transfer.json",
-        "json-source",
-        "json-destination"
+        "json-output"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -119,8 +116,7 @@
         "transfer",
         "-c",
         "${workspaceFolder}/test/fs/transfer.json",
-        "csv-source",
-        "json2-destination"
+        "csv-json"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -135,8 +131,7 @@
         "transfer",
         "-c",
         "${workspaceFolder}/test/fs/transfer.json",
-        "json-source",
-        "csv2-destination"
+        "json-csv"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -151,8 +146,7 @@
         "transfer",
         "-c",
         "${workspaceFolder}/test/fs/transform.json",
-        "csv-source",
-        "json-destination"
+        "csv-json"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -167,13 +161,11 @@
         "transfer",
         "-c",
         "${workspaceFolder}/test/fs/transform.json",
-        "json-source",
-        "csv-destination"
+        "json-csv"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
     },
-
 
     {
       "type": "node",
@@ -198,8 +190,7 @@
       "args": [
         "codify",
         "-c",
-        "${workspaceFolder}/test/ftp/codify.json",
-        "source"
+        "${workspaceFolder}/test/ftp/codify.json"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -228,8 +219,7 @@
         "transfer",
         "-c",
         "${workspaceFolder}/test/ftp/transfer.json",
-        "local-source",
-        "ftp-destination"
+        "local-ftp"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -244,8 +234,7 @@
         "transfer",
         "-c",
         "${workspaceFolder}/test/ftp/transfer.json",
-        "ftp-source",
-        "local-destination"
+        "ftp-local"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -274,8 +263,7 @@
       "args": [
         "codify",
         "-c",
-        "${workspaceFolder}/test/s3/codify.json",
-        "source"
+        "${workspaceFolder}/test/s3/codify.json"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -304,8 +292,7 @@
         "transfer",
         "-c",
         "${workspaceFolder}/test/s3/transfer.json",
-        "local-source",
-        "s3-destination"
+        "local-s3"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -320,8 +307,7 @@
         "transfer",
         "-c",
         "${workspaceFolder}/test/s3/transfer.json",
-        "s3-source",
-        "local-destination"
+        "s3-local"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -350,8 +336,7 @@
       "args": [
         "codify",
         "-c",
-        "${workspaceFolder}/test/xlsx/codify.json",
-        "source"
+        "${workspaceFolder}/test/xlsx/codify.json"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -359,15 +344,14 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "xlsx transfer json > sheet",
+      "name": "xlsx transfer csv > sheet",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
         "transfer",
         "-c",
         "${workspaceFolder}/test/xlsx/transfer.json",
-        "json-source",
-        "xlsx-destination"
+        "csv-sheet"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -375,15 +359,14 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "xlsx transfer sheet > json",
+      "name": "xlsx transfer sheet > csv",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
         "transfer",
         "-c",
         "${workspaceFolder}/test/xlsx/transfer.json",
-        "xlsx-source",
-        "json-destination"
+        "sheet-csv"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -398,9 +381,7 @@
         "transfer",
         "-c",
         "${workspaceFolder}/test/xlsx/transform.json",
-        "json-source",
-        "etl2-destination",
-        "transform-xlsx"
+        "json-etl2"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -429,8 +410,7 @@
       "args": [
         "codify",
         "-c",
-        "${workspaceFolder}/test/elasticsearch/codify.json",
-        "source"
+        "${workspaceFolder}/test/elasticsearch/codify.json"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -445,8 +425,7 @@
         "transfer",
         "-c",
         "${workspaceFolder}/test/elasticsearch/transfer.json",
-        "json-source",
-        "elasticsearch-destination"
+        "json-index"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -461,8 +440,7 @@
         "transfer",
         "-c",
         "${workspaceFolder}/test/elasticsearch/transfer.json",
-        "elasticsearch-source",
-        "json-destination"
+        "index-json"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -470,16 +448,14 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "elasticsearch transform json > etl2",
+      "name": "elasticsearch transform json > etl",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
         "transfer",
         "-c",
         "${workspaceFolder}/test/elasticsearch/transform.json",
-        "json-source",
-        "etl2-destination",
-        "transform-es"
+        "json-etl2"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -508,8 +484,7 @@
       "args": [
         "codify",
         "-c",
-        "${workspaceFolder}/test/mysql/codify.json",
-        "source"
+        "${workspaceFolder}/test/mysql/codify.json"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -524,8 +499,7 @@
         "transfer",
         "-c",
         "${workspaceFolder}/test/mysql/transfer.json",
-        "csv-source",
-        "mysql-destination"
+        "csv-table"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -540,8 +514,7 @@
         "transfer",
         "-c",
         "${workspaceFolder}/test/mysql/transfer.json",
-        "mysql-source",
-        "csv-destination"
+        "table-csv"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -549,16 +522,14 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "mysql transform csv > etl2",
+      "name": "mysql transform json > etl2",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
         "transfer",
         "-c",
         "${workspaceFolder}/test/mysql/transform.json",
-        "csv-source",
-        "etl2-destination",
-        "transform-mysql"
+        "json-etl2"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -573,8 +544,7 @@
       "args": [
         "codify",
         "-c",
-        "${workspaceFolder}/test/rest/codify.json",
-        "source"
+        "${workspaceFolder}/test/rest/codify.json"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -589,8 +559,7 @@
         "transfer",
         "-c",
         "${workspaceFolder}/test/rest/transfer.json",
-        "rest-source",
-        "json-destination"
+        "rest-json"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
@@ -605,13 +574,10 @@
         "transfer",
         "-c",
         "${workspaceFolder}/test/rest/transform.json",
-        "rest-source",
-        "json-destination",
-        "transform-weather"
+        "forecast"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"
     }
-
   ]
 }

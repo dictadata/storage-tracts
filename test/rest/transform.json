@@ -1,6 +1,6 @@
 {
-  "storage": {
-    "rest-source": {
+  "forecast": {
+    "origin": {
       "smt": "rest|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*",
       "options": {
         "headers": {
@@ -15,19 +15,13 @@
         }
       }
     },
-    "json-destination": {
-      "smt": "json|./test/output/|rest-transform.json|*",
-      "options": {}
-    }
-  },
-  "transforms": {
-    "transform-weather": {
+    "transforms": {
       "select": {
-        "remove": [ "icon" ],
-        "inject_after": {
-          "Fie": "It's always sunny in Philadelphia!"
-        }
+        "fields": [ "name", "temperature", "temperatureUnit", "windSpeed", "windDirection", "shortForecast" ]
       }
+    },
+    "terminal": {
+      "smt": "json|./test/output/|rest-transform.json|*"
     }
   }
 }

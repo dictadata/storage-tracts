@@ -1,29 +1,26 @@
 {
-  "storage": {
-    "json-source": {
-      "smt": "json|./test/data/|foofile.json|*",
-      "options": {}
+  "json-etl2": {
+    "origin": {
+      "smt": "json|./test/data/|foofile.json|*"
     },
-    "etl2-destination": {
+    "terminal": {
       "smt": "xlsx|./test/output/xlsx_foofile.xlsx|etl2|*",
-      "options": {}
-    }
-  },
-  "transforms": {
-    "transform-xlsx": {
+      "encoding": "./test/data/foo_encoding_t.json"
+    },
+    "transforms": {
       "filter": {
         "match": {
           "Bar": "row"
         },
         "drop": {
           "Baz": {
-            "eq": 5678
+            "eq": 456
           }
         }
       },
       "select": {
-        "inject_after": {
-          "Fie": "where's fum?"
+        "inject_before": {
+          "fie": "where's fum?"
         },
         "fields": {
           "Foo": "foo",
@@ -31,10 +28,9 @@
           "Baz": "baz",
           "Fobe": "fobe",
           "Dt Test": "dt_test",
-          "enabled": "enabled",
-          "subObj1.state": "state",
-          "subObj2.subsub.izze": "izze"
-        }
+          "subObj1.state": "state"
+        },
+        "remove": ["fobe"]
       }
     }
   }

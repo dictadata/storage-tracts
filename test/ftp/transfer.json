@@ -1,15 +1,14 @@
 {
-  "storage": {
-    "local-source": {
-      "smt": "json|./test/data/|foofile.json|*",
-      "options": {}
+  "local-ftp": {
+    "origin": {
+      "smt": "json|./test/data/|foofile.json|*"
     },
-    "local-destination": {
-      "smt": "json|./test/output/|ftp_foofile.json|*",
-      "options": {},
-      "create": true
-    },
-    "ftp-source": {
+    "terminal": {
+      "smt": "json|./test/output/|ftp_foofile.json|*"
+    }
+  },
+  "ftp-local": {
+    "origin": {
       "smt": "json|ftp:/test/data/|foofile.json|*",
       "options": {
         "ftp": {
@@ -20,7 +19,7 @@
         }
       }
     },
-    "ftp-destination": {
+    "terminal": {
       "smt": {
         "model": "json",
         "locus": "ftp:/test/output/",
@@ -34,8 +33,7 @@
           "user": "dicta",
           "password": "data"
         }
-      },
-      "create": true
+      }
     }
   }
 }

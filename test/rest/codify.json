@@ -1,6 +1,6 @@
 {
-  "storage": {
-    "source": {
+  "codify": {
+    "origin": {
       "smt": "rest|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*",
       "options": {
         "headers": {
@@ -14,8 +14,8 @@
             "data": "periods"
           }
         }
-      },
-      "outputFile": "./test/output/rest_codify.json"
-    }
+      }
+    },
+    "terminal": "./test/output/rest_codify.json"
   }
 }

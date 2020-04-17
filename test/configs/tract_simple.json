@@ -1,7 +1,7 @@
 {
-  "tract_name": {
-    "source": {},
+  "tract-name": {
+    "origin": {},
     "transforms": {},
-    "destination": {}
+    "terminal": {}
   }
 }

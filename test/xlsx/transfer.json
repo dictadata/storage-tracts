@@ -1,52 +1,28 @@
 {
-  "storage": {
-    "csv-source": {
-      "smt": "json|./test/data/|foofile.json|*",
-      "options": {
-      }
+  "csv-sheet": {
+    "origin": {
+      "smt": "csv|./test/data/|foofile.csv|*"
     },
-    "csv-destination": {
-      "smt": {
-        "model": "csv",
-        "locus": "./test/output/",
-        "schema": "xlsx_foofile.csv",
-        "key": "*"
-      },
-      "options": {
-      },
-      "create": true
-    },
-    "json-source": {
-      "smt": "json|./test/data/|foofile.json|*",
-      "options": {
-      }
-    },
-    "json-destination": {
-      "smt": {
-        "model": "json",
-        "locus": "./test/output/",
-        "schema": "xlsx_foofile.json",
-        "key": "*"
-      },
-      "options": {
-      },
-      "create": true
-    },
-    "xlsx-source": {
-      "smt": "xlsx|./test/data/foofile.xlsx|foo|*",
-      "options": {
-      }
-    },
-    "xlsx-destination": {
+    "terminal": {
       "smt": {
         "model": "xlsx",
         "locus": "./test/output/xlsx_foofile.xlsx",
         "schema": "fooee",
         "key": "*"
-      },
-      "options": {
-      },
-      "create": true
+      }
+    }
+  },
+  "sheet-csv": {
+    "origin": {
+      "smt": "xlsx|./test/data/foofile.xlsx|foo|*"
+    },
+    "terminal": {
+      "smt": {
+        "model": "csv",
+        "locus": "./test/output/",
+        "schema": "xlsx_foofile.csv",
+        "key": "*"
+      }
     }
   }
 }

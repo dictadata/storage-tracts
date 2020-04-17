@@ -1,6 +1,6 @@
 {
-  "storage": {
-    "source": {
+  "list": {
+    "origin": {
       "smt": "json|ftp:/test/|foofile_*.json|*",
       "options": {
         "ftp": {
@@ -12,8 +12,8 @@
         "list": {
           "recursive": true
         }
-      },
-      "outputFile": "./test/output/ftp_list.json"
-    }
+      }
+    },
+    "terminal": "./test/output/ftp_list.json"
   }
 }

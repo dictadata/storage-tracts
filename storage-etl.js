@@ -44,6 +44,9 @@ function parseArgs() {
     ++i;
   }
 
+  if (myArgs.command && !myArgs.tract)
+    myArgs.tract = myArgs.command;
+
   Object.assign(appArgs, myArgs);
 }
 

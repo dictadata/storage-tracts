@@ -1,6 +1,6 @@
 {
-  "storage": {
-    "source": {
+  "list": {
+    "origin": {
       "smt": "json|S3:dictadata.org/test/|foofile_*.json|*",
       "options": {
         "s3": {
@@ -9,8 +9,8 @@
         "list": {
           "recursive": true
         }
-      },
-      "outputFile": "./test/output/s3_list.json"
-    }
+      }
+    },
+    "terminal": "./test/output/s3_list.json"
   }
 }

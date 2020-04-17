@@ -1,11 +1,11 @@
 {
-  "tract_name_1": {
-    "source": {}
+  "source_name_1": {
+    "origin": {}
   },
-  "tract_name_2": {
-    "source": {}
+  "source_name_2": {
+    "origin": {}
   },
-  "tract_name_3": {
-    "source": {}
+  "source_name_3": {
+    "origin": {}
   }
 }

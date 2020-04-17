@@ -1,26 +1,9 @@
 {
-  "storage": {
-    "local-source": {
-      "smt": "json|./test/data/|foofile.json|*",
-      "options": {}
+  "local-s3": {
+    "origin": {
+      "smt": "json|./test/data/|foofile.json|*"
     },
-    "local-destination": {
-      "smt": "json|./test/output/|s3_foofile.json|*",
-      "options": {},
-      "create": true
-    },
-    "s3-source": {
-      "smt": "json|s3:dictadata.org/test/data/|foofile.json|*",
-      "options": {
-        "s3": {
-          "host": "localhost",
-          "port": 21,
-          "user": "dicta",
-          "password": "data"
-        }
-      }
-    },
-    "s3-destination": {
+    "terminal": {
       "smt": {
         "model": "json",
         "locus": "s3:dictadata.org/test/output/",
@@ -29,13 +12,22 @@
       },
       "options": {
         "s3": {
-          "host": "localhost",
-          "port": 21,
-          "user": "dicta",
-          "password": "data"
+          "aws_profile": "dictadata"
         }
-      },
-      "create": true
+      }
+    }
+  },
+  "s3-local": {
+    "origin": {
+      "smt": "json|s3:dictadata.org/test/data/|foofile.json|*",
+      "options": {
+        "s3": {
+          "aws_profile": "dictadata"
+        }
+      }
+    },
+    "terminal": {
+      "smt": "json|./test/output/|s3_foofile.json|*"
     }
   }
 }
