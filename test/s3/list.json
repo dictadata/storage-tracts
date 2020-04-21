@@ -6,9 +6,7 @@
         "s3": {
           "aws_profile": "dictadata"
         },
-        "list": {
-          "recursive": true
-        }
+        "recursive": true
       }
     },
     "terminal": "./test/output/s3_list.json"

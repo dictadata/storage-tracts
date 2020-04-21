@@ -6,17 +6,11 @@
         "s3": {
           "aws_profile": "dictadata"
         },
-        "reader": {
-          "max_read": 10
-        },
-        "list": {
-          "schema": "foofile_*.json",
-          "recursive": false
-        },
-        "codify": {
-          "encoding": {},
-          "statistics": true
-        }
+        "max_read": 100,
+        "schema": "foofile_*.json",
+        "recursive": false,
+        "encoding": {},
+        "statistics": true
       }
     },
     "terminal": "./test/output/s3_scan.json"

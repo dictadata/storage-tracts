@@ -6,9 +6,7 @@
         "s3": {
           "aws_profile": "dictadata"
         },
-        "reader": {
-          "max_read": 10
-        }
+        "max_read": 100
       }
     },
     "terminal": "./test/output/s3_codify.json"

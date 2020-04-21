@@ -9,9 +9,7 @@
           "user": "dicta",
           "password": "data"
         },
-        "list": {
-          "recursive": true
-        }
+        "recursive": true
       }
     },
     "terminal": "./test/output/ftp_list.json"

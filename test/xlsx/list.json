@@ -3,9 +3,7 @@
     "origin": {
       "smt": "xlsx|./test/data/foofile.xlsx|*|*",
       "options": {
-        "list": {
-          "schema": "foo*"
-        }
+        "schema": "foo*"
       }
     },
     "terminal": "./test/output/xlsx_list.json"

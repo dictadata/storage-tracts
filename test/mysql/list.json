@@ -3,9 +3,7 @@
     "origin": {
       "smt": "mysql|host=localhost;user=dicta;password=dicta;database=storage_node|*|*",
       "options": {
-        "list": {
-          "schema": "foo*"
-        }
+        "schema": "foo*"
       }
     },
     "terminal": "./test/output/mysql_list.json"

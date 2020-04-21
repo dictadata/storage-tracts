@@ -7,12 +7,10 @@
           "Accept": "application/ld+json",
           "User-Agent": "@dictadata.org/storage-node contact:info@dictadata.org"
         },
-        "reader": {
-          "max_read": 100,
-          "extract": {
-            "headers": "",
-            "data": "periods"
-          }
+        "max_read": 100,
+        "extract": {
+          "names": "",
+          "data": "periods"
         }
       }
     },

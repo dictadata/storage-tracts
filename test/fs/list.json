@@ -3,9 +3,7 @@
     "origin": {
       "smt": "json|./test/|foofile_*.json|*",
       "options": {
-        "list": {
-          "recursive": true
-        }
+        "recursive": true
       }
     },
     "terminal": "./test/output/fs_list.json"

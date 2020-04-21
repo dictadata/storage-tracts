@@ -3,9 +3,7 @@
     "origin": {
       "smt": "elasticsearch|http://localhost:9200|foo_schema|*",
       "options": {
-        "reader": {
-          "max_read": 100
-        }
+        "max_read": 100
       }
     },
     "terminal": "./test/output/elasticsearch_codify.json"

@@ -3,9 +3,7 @@
     "origin": {
       "smt": "elasticsearch|http://localhost:9200|*|*",
       "options": {
-        "list": {
-          "schema": "foo*"
-        }
+        "schema": "foo*"
       }
     },
     "terminal": "./test/output/elasticsearch_list.json"
