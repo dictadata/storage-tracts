@@ -33,7 +33,7 @@
     },
     "Fobe": {
       "name": "Fobe",
-      "type": "float",
+      "type": "number",
       "size": 0,
       "default": null,
       "isNullable": true,
