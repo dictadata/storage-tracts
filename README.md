@@ -48,12 +48,40 @@ The transforms file is .json format. It uses dot notation to reference propertie
 
 ```
 {
-  "storage": {
-    "source": {
+  "transfer-1": {
+    "origin": {
       "smt": "json|./test/data/|foofile.json|*",
       "options": {}
     },
-    "destination": {
+    "transforms": {
+      "filter": {
+        "match": {
+          "Bar": "row"
+        }
+        },
+        "drop": {
+          "Baz": {
+            "eq": 5678
+          }
+        }
+      },
+      "select": {
+        "inject_before": {
+          "Fie": "where's fum?"
+        },
+        "fields": {
+          "Foo": "foo",
+          "Bar": "bar",
+          "Baz": "baz",
+          "Fobe": "fobe",
+          "Dt Test": "dt_test",
+          "enabled": "enabled",
+          "subObj1.state": "state",
+          "subObj2.subsub.izze": "izze"
+        }
+      }
+    },
+    "terminal": {
       "smt": {
         "model": "csv",
         "locus": "./test/output/",
@@ -61,35 +89,7 @@ The transforms file is .json format. It uses dot notation to reference propertie
         "key": "*"
       },
       "options": {},
-      "create": true
-    }
-  },
-  "transforms": {
-    "filter": {
-      "match": {
-        "Bar": "row"
-      }
-      },
-      "drop": {
-        "Baz": {
-          "eq": 5678
-        }
-      }
-    },
-    "select": {
-      "inject": {
-        "Fie": "where's fum?"
-      },
-      "fields": {
-        "Foo": "foo",
-        "Bar": "bar",
-        "Baz": "baz",
-        "Fobe": "fobe",
-        "Dt Test": "dt_test",
-        "enabled": "enabled",
-        "subObj1.state": "state",
-        "subObj2.subsub.izze": "izze"
-      }
+      "encoding": "filename.json"
     }
   }
 }
@@ -174,8 +174,8 @@ storage-etl transfer weather.json
 weather.json:
 ```
 {
-  "storage": {
-    "source": {
+  "forecast": {
+    "origin": {
       "smt": "rest|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*",
       "options": {
         "headers": {
@@ -183,21 +183,21 @@ weather.json:
           "User-Agent": "@dictadata.org/storage-node contact:info@dictadata.org"
         },
         "extract": {
-          "headers": "",
+          "names": "",
           "data": "periods"
         }
       }
     },
-    "destination": {
+    "transforms": {
+      "select": {
+        "inject": {
+          "Fie": "It's always sunny in Philadelphia?"
+        }
+      }
+    },
+    "terminal": {
       "smt": "csv|./test/output/|etl-3-weather.csv|*",
       "options": {}
-    }
-  },
-  "transforms": {
-    "select": {
-      "inject": {
-        "Fie": "It's always sunny in Philadelphia?"
-      }
     }
   }
 }

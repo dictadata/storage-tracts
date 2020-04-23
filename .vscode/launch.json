@@ -11,7 +11,7 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": [
         "run-script",
-        "debug"
+        "verbose"
       ],
       "port": 9229,
       "skipFiles": [
@@ -575,6 +575,21 @@
         "-c",
         "${workspaceFolder}/test/rest/transform.json",
         "forecast"
+      ],
+      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "rest conjoin",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/rest/conjoin.json",
+        "gps_forecast"
       ],
       "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
       "outputCapture": "std"

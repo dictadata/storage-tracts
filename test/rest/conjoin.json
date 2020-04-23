@@ -1,0 +1,33 @@
+{
+  "gps_forecast": {
+    "origin": {
+      "smt": "rest|https://api.weather.gov/points/39.7456,-97.0892||=*",
+      "options": {
+        "headers": {
+          "Accept": "application/ld+json",
+          "User-Agent": "@dictadata.org/storage-node contact:info@dictadata.org"
+        },
+        "fields": ["cwa","gridX","gridY"]
+      }
+    },
+    "transforms": {
+      "conjoin": {
+        "smt": "rest|https://api.weather.gov/gridpoints/${cwa}/${gridX},${gridY}/|forecast|=*",
+        "options": {
+          "headers": {
+            "Accept": "application/ld+json",
+            "User-Agent": "@dictadata.org/storage-node contact:info@dictadata.org"
+          },
+          "extract": {
+            "data": "periods",
+            "names": ""
+          }
+        }
+      }
+    },
+    "terminal": {
+      "smt": "csv|./test/output/|rest_conjoin.csv|*",
+      "encoding": "./test/data/forecast_encoding.json"
+    }
+  }
+}
