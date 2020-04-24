@@ -3,7 +3,8 @@
     "origin": {
       "smt": "json|test/data/|foofile.json|*",
       "options": {
-        "max_read": 100
+        "max_read": 100,
+        "encoding_format": "short"
       }
     },
     "terminal": "./test/output/fs_codify.json"
