@@ -1,6 +1,8 @@
+- version 1.1.8
+  - update dependencies
 - version 1.1.7
   - fix for mysql boolean as tinyint(1)
-  - update to @idctadata/storage-junctions 1.1.7
+  - update to @dictadata/storage-junctions 1.1.7
 - version 1.1.6
   - refactor etl_config.json to have transforms property to contain named transforms
   - update to @idctadata/storage-junctions 1.1.6
