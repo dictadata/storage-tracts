@@ -1,3 +1,5 @@
+- version 1.2.0
+  - update dependencies for @dictadata/storage-junctions 1.2.0
 - version 1.1.8
   - update dependencies
 - version 1.1.7
