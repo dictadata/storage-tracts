@@ -1,0 +1,32 @@
+{
+  "foofile": {
+    "origin": {
+      "smt": "csv|./test/data/|foofile.csv|*",
+      "options": {},
+      "encoding": {}
+    },
+    "transforms": {
+      "filter": {},
+      "select": {}
+    },
+    "terminal": {
+      "smt": "json|./test/output/|foofile.json|*",
+      "options": {},
+      "encoding": {},
+      "create": true
+    }
+  },
+  "_plugins": {
+    "filesystems": {
+      "webbrowser-filesystem": [
+        "http"
+      ]
+    },
+    "junctions": {}
+  },
+  "_log": {
+    "logPath": "./log",
+    "logPrefix": "etl",
+    "logLevel": "info"
+  }
+}
