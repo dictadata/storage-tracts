@@ -11,6 +11,7 @@ const codify = require('./lib/codify');
 const list = require("./lib/list");
 const scan = require('./lib/scan');
 const transfer = require('./lib/transfer');
+const donwload = require('./lib/download');
 
 const appArgs = {
   command: 'transfer',
@@ -69,6 +70,7 @@ function parseArgs() {
       console.log("  list - listing of schema names in data source");
       console.log("  scan - scan data source to determine storage encoding by codifying multiple schemas");
       console.log("  transfer - transfer data between data sources, with optional transforms");
+      console.log("  download - download from remote files systems to the local file system");
       return;
     }
 
@@ -77,7 +79,7 @@ function parseArgs() {
       return 0;
     }
 
-    if (Object.keys(config).length <= 0 )
+    if (Object.keys(config).length <= 0)
       throw new Error("No storage tracts defined");
     let tract = config[appArgs.tract];
     if (!tract)
@@ -98,6 +100,9 @@ function parseArgs() {
         break;
       case 'transfer':
         retcode = await transfer(tract);
+        break;
+      case 'download':
+        retcode = await download(tract);
         break;
       default:
         console.log("unknown command: " + appArgs.command);

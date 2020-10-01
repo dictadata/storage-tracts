@@ -1,24 +1,28 @@
 {
   "foofile": {
     "origin": {
-      "smt": "csv|./test/data/|foofile.csv|*",
-      "options": {},
-      "encoding": {}
+      "smt": "csv|http://localhost/test/data/|*.csv|*",
+      "options": {
+        "recursive": false,
+        "saveFiles": true
+      }
     },
-    "transforms": {
-      "filter": {},
-      "select": {}
+    "terminal": "./test/output/downloads/"
+  },
+  "shapefiles": {
+    "options": {
+      "smt": "shp|http://ec2-3-208-205-6.compute-1.amazonaws.com/shapefiles/|*.*|*",
+      "options": {
+        "recursive": true,
+        "saveFiles": true,
+        "savePaths": true
+      }
     },
-    "terminal": {
-      "smt": "json|./test/output/|foofile.json|*",
-      "options": {},
-      "encoding": {},
-      "create": true
-    }
+    "terminal": "./test/output/shapefiles/"
   },
   "_plugins": {
     "filesystems": {
-      "webbrowser-filesystem": [
+      "@dictadata/webbrowser-filesystem": [
         "http"
       ]
     },
