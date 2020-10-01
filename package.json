@@ -25,6 +25,7 @@
   ],
   "dependencies": {
     "@dictadata/storage-junctions": "^1.2.0",
+    "@dictadata/webbrowser-filesystem": "file:../../@dictadata/webbrowser-filesystem",
     "winston": "^3.2.1",
     "winston-daily-rotate-file": "^4.4.2"
   },
