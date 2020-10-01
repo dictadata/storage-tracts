@@ -7,10 +7,10 @@
         "saveFiles": true
       }
     },
-    "terminal": "./test/output/downloads/"
+    "terminal": "./test/output/list.json"
   },
   "shapefiles": {
-    "options": {
+    "origin": {
       "smt": "shp|http://ec2-3-208-205-6.compute-1.amazonaws.com/shapefiles/|*.*|*",
       "options": {
         "recursive": true,
