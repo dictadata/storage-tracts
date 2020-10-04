@@ -1,5 +1,5 @@
 {
-  "foofile": {
+  "list": {
     "origin": {
       "smt": "csv|http://localhost/test/data/|*.csv|*",
       "options": {
