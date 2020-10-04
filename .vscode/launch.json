@@ -17,10 +17,12 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "debug"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
-
     {
       "type": "node",
       "request": "launch",
@@ -30,10 +32,12 @@
       "args": [
         "config"
       ],
-      "env": {"NODE_ENV": "production", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "production",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
-
     {
       "type": "node",
       "request": "launch",
@@ -45,7 +49,10 @@
         "-c",
         "${workspaceFolder}/test/fs/list.json"
       ],
-      "env": {"NODE_ENV": "production", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "production",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -59,7 +66,10 @@
         "-c",
         "${workspaceFolder}/test/fs/codify.json"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -73,7 +83,10 @@
         "-c",
         "${workspaceFolder}/test/fs/scan.json"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -88,7 +101,10 @@
         "${workspaceFolder}/test/fs/transfer.json",
         "csv-output"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -103,7 +119,10 @@
         "${workspaceFolder}/test/fs/transfer.json",
         "json-output"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -118,7 +137,10 @@
         "${workspaceFolder}/test/fs/transfer.json",
         "csv-json"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -133,7 +155,10 @@
         "${workspaceFolder}/test/fs/transfer.json",
         "json-csv"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -148,7 +173,10 @@
         "${workspaceFolder}/test/fs/transform.json",
         "csv-json"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -163,10 +191,12 @@
         "${workspaceFolder}/test/fs/transform.json",
         "json-csv"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
-
     {
       "type": "node",
       "request": "launch",
@@ -178,7 +208,10 @@
         "-c",
         "${workspaceFolder}/test/ftp/list.json"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -192,7 +225,10 @@
         "-c",
         "${workspaceFolder}/test/ftp/codify.json"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -206,7 +242,10 @@
         "-c",
         "${workspaceFolder}/test/ftp/scan.json"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -221,7 +260,10 @@
         "${workspaceFolder}/test/ftp/transfer.json",
         "local-ftp"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -236,10 +278,99 @@
         "${workspaceFolder}/test/ftp/transfer.json",
         "ftp-local"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
-
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "http list",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "list",
+        "-c",
+        "${workspaceFolder}/test/http/list.json"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "http codify",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "codify",
+        "-c",
+        "${workspaceFolder}/test/http/codify.json"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "http scan",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "scan",
+        "-c",
+        "${workspaceFolder}/test/http/scan.json"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "http transfer local > http",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/http/transfer.json",
+        "local-http"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "http transfer http > local",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/http/transfer.json",
+        "http-local"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
     {
       "type": "node",
       "request": "launch",
@@ -251,7 +382,10 @@
         "-c",
         "${workspaceFolder}/test/s3/list.json"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -265,7 +399,10 @@
         "-c",
         "${workspaceFolder}/test/s3/codify.json"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -279,7 +416,10 @@
         "-c",
         "${workspaceFolder}/test/s3/scan.json"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -294,7 +434,10 @@
         "${workspaceFolder}/test/s3/transfer.json",
         "local-s3"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -309,10 +452,12 @@
         "${workspaceFolder}/test/s3/transfer.json",
         "s3-local"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
-
     {
       "type": "node",
       "request": "launch",
@@ -324,7 +469,10 @@
         "-c",
         "${workspaceFolder}/test/xlsx/list.json"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -338,7 +486,10 @@
         "-c",
         "${workspaceFolder}/test/xlsx/codify.json"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -353,7 +504,10 @@
         "${workspaceFolder}/test/xlsx/transfer.json",
         "csv-sheet"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -368,7 +522,10 @@
         "${workspaceFolder}/test/xlsx/transfer.json",
         "sheet-csv"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -383,10 +540,12 @@
         "${workspaceFolder}/test/xlsx/transform.json",
         "json-etl2"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
-
     {
       "type": "node",
       "request": "launch",
@@ -398,7 +557,10 @@
         "-c",
         "${workspaceFolder}/test/elasticsearch/list.json"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -412,7 +574,10 @@
         "-c",
         "${workspaceFolder}/test/elasticsearch/codify.json"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -427,7 +592,10 @@
         "${workspaceFolder}/test/elasticsearch/transfer.json",
         "json-index"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -442,7 +610,10 @@
         "${workspaceFolder}/test/elasticsearch/transfer.json",
         "index-json"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -457,10 +628,12 @@
         "${workspaceFolder}/test/elasticsearch/transform.json",
         "json-etl2"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
-
     {
       "type": "node",
       "request": "launch",
@@ -472,7 +645,10 @@
         "-c",
         "${workspaceFolder}/test/mysql/list.json"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -486,7 +662,10 @@
         "-c",
         "${workspaceFolder}/test/mysql/codify.json"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -501,7 +680,10 @@
         "${workspaceFolder}/test/mysql/transfer.json",
         "csv-table"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -516,7 +698,10 @@
         "${workspaceFolder}/test/mysql/transfer.json",
         "table-csv"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -531,10 +716,12 @@
         "${workspaceFolder}/test/mysql/transform.json",
         "json-etl2"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
-
     {
       "type": "node",
       "request": "launch",
@@ -546,7 +733,10 @@
         "-c",
         "${workspaceFolder}/test/rest/codify.json"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -561,7 +751,10 @@
         "${workspaceFolder}/test/rest/transfer.json",
         "rest-json"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -576,7 +769,10 @@
         "${workspaceFolder}/test/rest/transform.json",
         "forecast"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     },
     {
@@ -591,7 +787,10 @@
         "${workspaceFolder}/test/rest/conjoin.json",
         "gps_forecast"
       ],
-      "env": {"NODE_ENV": "development", "LOG_LEVEL": "verbose"},
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
       "outputCapture": "std"
     }
   ]
