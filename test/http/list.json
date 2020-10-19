@@ -1,0 +1,11 @@
+{
+  "list": {
+    "origin": {
+      "smt": "json|http://localhost/test/|foofile_*.json|*",
+      "options": {
+        "recursive": true
+      }
+    },
+    "terminal": "./test/output/http_list.json"
+  }
+}

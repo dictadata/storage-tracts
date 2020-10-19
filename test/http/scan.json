@@ -1,0 +1,15 @@
+{
+  "scan": {
+    "origin": {
+      "smt": "json|http://localhost/test/data/|*|*",
+      "options": {
+        "max_read": 100,
+        "schema": "foofile_*.json",
+        "recursive": false,
+        "encoding": {},
+        "statistics": true
+      }
+    },
+    "terminal": "./test/output/ftp_scan.json"
+  }
+}
