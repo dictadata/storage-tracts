@@ -26,11 +26,13 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "config : etl_config.json",
+      "name": "create config",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
-        "config"
+        "config",
+        "-c",
+        "./test/output/etl_config.json"
       ],
       "env": {
         "NODE_ENV": "production",
@@ -277,6 +279,42 @@
         "-c",
         "${workspaceFolder}/test/ftp/transfer.json",
         "ftp-local"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "ftp download",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "download",
+        "-c",
+        "${workspaceFolder}/test/ftp/up_down.json",
+        "ftp-download"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "ftp upload",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "upload",
+        "-c",
+        "${workspaceFolder}/test/ftp/up_down.json",
+        "ftp-upload"
       ],
       "env": {
         "NODE_ENV": "development",
