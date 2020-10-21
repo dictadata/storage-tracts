@@ -6,6 +6,8 @@
         "recursive": true
       }
     },
-    "terminal": "./test/output/http_list.json"
+    "terminal": {
+      "output": "./test/output/http_list.json"
+    }
   }
 }

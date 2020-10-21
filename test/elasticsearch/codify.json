@@ -6,6 +6,8 @@
         "max_read": 100
       }
     },
-    "terminal": "./test/output/elasticsearch_codify.json"
+    "terminal": {
+      "output": "./test/output/elasticsearch_codify.json"
+    }
   }
 }

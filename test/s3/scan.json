@@ -1,7 +1,7 @@
 {
   "scan": {
     "origin": {
-      "smt": "json|S3:dictadata.org/test/data/|*.json|*",
+      "smt": "json|S3:dictadata.org/test/data/|*|*",
       "options": {
         "s3": {
           "aws_profile": "dictadata"
@@ -9,10 +9,11 @@
         "max_read": 100,
         "schema": "foofile_*.json",
         "recursive": false,
-        "encoding": {},
         "statistics": true
       }
     },
-    "terminal": "./test/output/s3_scan.json"
+    "terminal": {
+      "output": "./test/output/s3_scan.json"
+    }
   }
 }

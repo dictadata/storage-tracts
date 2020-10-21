@@ -6,6 +6,8 @@
         "max_read": 100
       }
     },
-    "terminal": "./test/output/mysql_codify.json"
+    "terminal": {
+      "output": "./test/output/mysql_codify.json"
+    }
   }
 }

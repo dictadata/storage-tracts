@@ -4,36 +4,22 @@
       "smt": "json|./test/data/|foofile.json|*"
     },
     "terminal": {
-      "smt": "json|./test/output/|ftp_foofile.json|*"
+      "smt": {
+        "model": "json",
+        "locus": "ftp://dicta:data@localhost/test/output/",
+        "schema": "ftp_foofile.json",
+        "key": "*"
+      }
     }
   },
   "ftp-local": {
     "origin": {
-      "smt": "json|ftp:/test/data/|foofile.json|*",
-      "options": {
-        "ftp": {
-          "host": "localhost",
-          "port": 21,
-          "user": "dicta",
-          "password": "data"
-        }
-      }
+      "smt": "json|ftp://dicta:data@localhost/test/data/|foofile.json|*",
+      "options": {}
     },
     "terminal": {
-      "smt": {
-        "model": "json",
-        "locus": "ftp:/test/output/",
-        "schema": "ftp_foofile.json",
-        "key": "*"
-      },
-      "options": {
-        "ftp": {
-          "host": "localhost",
-          "port": 21,
-          "user": "dicta",
-          "password": "data"
-        }
-      }
+      "smt": "json|./test/output/|ftp_foofile.json|*",
+      "options": {}
     }
   }
 }

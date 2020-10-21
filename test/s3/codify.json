@@ -9,6 +9,8 @@
         "max_read": 100
       }
     },
-    "terminal": "./test/output/s3_codify.json"
+    "terminal": {
+      "output": "./test/output/s3_codify.json"
+    }
   }
 }

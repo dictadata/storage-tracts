@@ -1,17 +1,13 @@
 {
   "codify": {
     "origin": {
-      "smt": "json|ftp:/test/data/|foofile.json|*",
+      "smt": "json|ftp://dicta:data@localhost/test/data/|foofile.json|*",
       "options": {
-        "ftp": {
-          "host": "localhost",
-          "port": 21,
-          "user": "dicta",
-          "password": "data"
-        },
         "max_read": 100
       }
     },
-    "terminal": "./test/output/ftp_codify.json"
+    "terminal": {
+      "output": "./test/output/ftp_codify.json"
+    }
   }
 }

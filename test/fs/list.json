@@ -6,6 +6,8 @@
         "recursive": true
       }
     },
-    "terminal": "./test/output/fs_list.json"
+    "terminal": {
+      "output": "./test/output/fs_list.json"
+    }
   }
 }

@@ -9,6 +9,8 @@
         "recursive": true
       }
     },
-    "terminal": "./test/output/s3_list.json"
+    "terminal": {
+      "output": "./test/output/s3_list.json"
+    }
   }
 }

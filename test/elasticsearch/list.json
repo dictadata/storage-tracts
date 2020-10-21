@@ -6,6 +6,8 @@
         "schema": "foo*"
       }
     },
-    "terminal": "./test/output/elasticsearch_list.json"
+    "terminal": {
+      "output": "./test/output/elasticsearch_list.json"
+    }
   }
 }
