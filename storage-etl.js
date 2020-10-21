@@ -16,7 +16,7 @@ const upload = require('./lib/upload');
 
 const appArgs = {
   command: 'transfer',
-  configfile: 'etl_config.json',
+  configfile: './etl_config.json',
   tract: 'transfer'
 }
 
@@ -24,7 +24,7 @@ function parseArgs() {
   // process.argv = ["node.exe", "storage-etl.js", command, "-c", configfile, tract]
   // only command is required
 
-  const myArgs = {}
+  const myArgs = {};
 
   let i = 2;
   while (i < process.argv.length) {
@@ -59,9 +59,8 @@ function parseArgs() {
   let retcode = 0;
 
   try {
-    parseArgs();
-    config.load(appArgs.configfile);
     logger.verbose("storage-etl starting...");
+    parseArgs();
 
     if (!appArgs.command) {
       console.log("Transfer, transform and codify data storage sources.");
@@ -79,14 +78,17 @@ function parseArgs() {
       return;
     }
 
-    if (appArgs.command === 'config') {
-      config.create();
+    let tracts = {};
+    if (appArgs.command !== 'config')
+      tracts = config.loadTracts(appArgs.configfile);
+    else {
+      config.create(appArgs.configfile);
       return 0;
     }
 
-    if (Object.keys(config).length <= 0)
+    if (Object.keys(tracts).length <= 0)
       throw new Error("No storage tracts defined");
-    let tract = config[appArgs.tract];
+    let tract = tracts[appArgs.tract];
     if (!tract)
       throw new Error("Storage tract not defined: " + appArgs.tract);
 
