@@ -23,6 +23,9 @@
     "elasticsearch",
     "mysql"
   ],
+  "engines": {
+    "node": ">=15.0.1"
+  },
   "dependencies": {
     "@dictadata/storage-junctions": "^1.2.1",
     "winston": "^3.2.1",
@@ -32,8 +35,5 @@
     "eslint": "^7.11.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1"
-  },
-  "engines": {
-    "node": ">=12.0.0"
   }
 }
