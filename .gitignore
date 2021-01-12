@@ -15,4 +15,4 @@ selenium-debug.log
 *.njsproj
 *.sln
 
-etl_config.json
+etl_tracts.json

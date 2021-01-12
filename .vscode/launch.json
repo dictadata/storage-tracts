@@ -5,18 +5,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "run debug",
       "runtimeExecutable": "npm",
-      "runtimeArgs": [
-        "run-script",
-        "debug"
-      ],
-      "port": 9229,
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
+      "runtimeArgs": ["run-script", "debug"],
+      "skipFiles": ["<node_internals>/**"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -24,16 +18,12 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "create config",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "config",
-        "-c",
-        "./test/output/etl_config.json"
-      ],
+      "args": ["config", "-c", "./test/output/etl_tracts.json"],
       "env": {
         "NODE_ENV": "production",
         "LOG_LEVEL": "verbose"
@@ -41,16 +31,12 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "fs list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "list",
-        "-c",
-        "${workspaceFolder}/test/fs/list.json"
-      ],
+      "args": ["list", "-c", "${workspaceFolder}/test/fs/list.json"],
       "env": {
         "NODE_ENV": "production",
         "LOG_LEVEL": "verbose"
@@ -58,16 +44,12 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "fs codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "codify",
-        "-c",
-        "${workspaceFolder}/test/fs/codify.json"
-      ],
+      "args": ["codify", "-c", "${workspaceFolder}/test/fs/codify.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -75,16 +57,12 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "fs scan",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "scan",
-        "-c",
-        "${workspaceFolder}/test/fs/scan.json"
-      ],
+      "args": ["scan", "-c", "${workspaceFolder}/test/fs/scan.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -92,7 +70,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "fs transfer csv > output",
       "cwd": "${workspaceFolder}",
@@ -110,7 +88,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "fs transfer json > output",
       "cwd": "${workspaceFolder}",
@@ -128,7 +106,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "fs transfer csv > json",
       "cwd": "${workspaceFolder}",
@@ -146,7 +124,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "fs transfer json > csv",
       "cwd": "${workspaceFolder}",
@@ -164,7 +142,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "fs transform csv > json",
       "cwd": "${workspaceFolder}",
@@ -182,7 +160,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "fs transform json > csv",
       "cwd": "${workspaceFolder}",
@@ -200,16 +178,12 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "ftp list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "list",
-        "-c",
-        "${workspaceFolder}/test/ftp/list.json"
-      ],
+      "args": ["list", "-c", "${workspaceFolder}/test/ftp/list.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -217,16 +191,12 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "ftp codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "codify",
-        "-c",
-        "${workspaceFolder}/test/ftp/codify.json"
-      ],
+      "args": ["codify", "-c", "${workspaceFolder}/test/ftp/codify.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -234,16 +204,12 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "ftp scan",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "scan",
-        "-c",
-        "${workspaceFolder}/test/ftp/scan.json"
-      ],
+      "args": ["scan", "-c", "${workspaceFolder}/test/ftp/scan.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -251,7 +217,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "ftp transfer local > ftp",
       "cwd": "${workspaceFolder}",
@@ -269,7 +235,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "ftp transfer ftp > local",
       "cwd": "${workspaceFolder}",
@@ -287,7 +253,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "ftp download",
       "cwd": "${workspaceFolder}",
@@ -305,7 +271,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "ftp upload",
       "cwd": "${workspaceFolder}",
@@ -323,16 +289,12 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "http list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "list",
-        "-c",
-        "${workspaceFolder}/test/http/list.json"
-      ],
+      "args": ["list", "-c", "${workspaceFolder}/test/http/list.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -340,16 +302,12 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "http codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "codify",
-        "-c",
-        "${workspaceFolder}/test/http/codify.json"
-      ],
+      "args": ["codify", "-c", "${workspaceFolder}/test/http/codify.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -357,16 +315,12 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "http scan",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "scan",
-        "-c",
-        "${workspaceFolder}/test/http/scan.json"
-      ],
+      "args": ["scan", "-c", "${workspaceFolder}/test/http/scan.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -374,25 +328,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
-      "request": "launch",
-      "name": "http transfer local > http",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "transfer",
-        "-c",
-        "${workspaceFolder}/test/http/transfer.json",
-        "local-http"
-      ],
-      "env": {
-        "NODE_ENV": "development",
-        "LOG_LEVEL": "verbose"
-      },
-      "outputCapture": "std"
-    },
-    {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "http transfer http > local",
       "cwd": "${workspaceFolder}",
@@ -410,16 +346,12 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "s3 list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "list",
-        "-c",
-        "${workspaceFolder}/test/s3/list.json"
-      ],
+      "args": ["list", "-c", "${workspaceFolder}/test/s3/list.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -427,16 +359,12 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "s3 codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "codify",
-        "-c",
-        "${workspaceFolder}/test/s3/codify.json"
-      ],
+      "args": ["codify", "-c", "${workspaceFolder}/test/s3/codify.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -444,16 +372,12 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "s3 scan",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "scan",
-        "-c",
-        "${workspaceFolder}/test/s3/scan.json"
-      ],
+      "args": ["scan", "-c", "${workspaceFolder}/test/s3/scan.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -461,7 +385,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "s3 transfer local > s3",
       "cwd": "${workspaceFolder}",
@@ -479,7 +403,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "s3 transfer s3 > local",
       "cwd": "${workspaceFolder}",
@@ -497,16 +421,12 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "xlsx list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "list",
-        "-c",
-        "${workspaceFolder}/test/xlsx/list.json"
-      ],
+      "args": ["list", "-c", "${workspaceFolder}/test/xlsx/list.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -514,16 +434,12 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "xlsx codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "codify",
-        "-c",
-        "${workspaceFolder}/test/xlsx/codify.json"
-      ],
+      "args": ["codify", "-c", "${workspaceFolder}/test/xlsx/codify.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -531,7 +447,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "xlsx transfer csv > sheet",
       "cwd": "${workspaceFolder}",
@@ -549,7 +465,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "xlsx transfer sheet > csv",
       "cwd": "${workspaceFolder}",
@@ -567,7 +483,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "xlsx transform json > etl2",
       "cwd": "${workspaceFolder}",
@@ -585,16 +501,12 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "elasticsearch list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "list",
-        "-c",
-        "${workspaceFolder}/test/elasticsearch/list.json"
-      ],
+      "args": ["list", "-c", "${workspaceFolder}/test/elasticsearch/list.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -602,7 +514,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "elasticsearch codify",
       "cwd": "${workspaceFolder}",
@@ -619,7 +531,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "elasticsearch transfer json > index",
       "cwd": "${workspaceFolder}",
@@ -637,7 +549,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "elasticsearch transfer index > json",
       "cwd": "${workspaceFolder}",
@@ -655,7 +567,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "elasticsearch transform json > etl",
       "cwd": "${workspaceFolder}",
@@ -673,16 +585,12 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "mysql list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "list",
-        "-c",
-        "${workspaceFolder}/test/mysql/list.json"
-      ],
+      "args": ["list", "-c", "${workspaceFolder}/test/mysql/list.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -690,16 +598,12 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "mysql codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "codify",
-        "-c",
-        "${workspaceFolder}/test/mysql/codify.json"
-      ],
+      "args": ["codify", "-c", "${workspaceFolder}/test/mysql/codify.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -707,7 +611,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "mysql transfer csv > table",
       "cwd": "${workspaceFolder}",
@@ -725,7 +629,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "mysql transfer table > csv",
       "cwd": "${workspaceFolder}",
@@ -743,7 +647,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "mysql transform json > etl2",
       "cwd": "${workspaceFolder}",
@@ -761,16 +665,12 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "rest codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "codify",
-        "-c",
-        "${workspaceFolder}/test/rest/codify.json"
-      ],
+      "args": ["codify", "-c", "${workspaceFolder}/test/rest/codify.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -778,7 +678,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "rest transfer > json",
       "cwd": "${workspaceFolder}",
@@ -796,7 +696,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "rest transfrom > json",
       "cwd": "${workspaceFolder}",
@@ -814,7 +714,7 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
       "name": "rest conjoin",
       "cwd": "${workspaceFolder}",
