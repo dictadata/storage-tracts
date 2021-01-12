@@ -1,12 +1,15 @@
 {
   "csv-table": {
     "origin": {
-      "smt": "csv|./test/data/|foofile.csv|*"
+      "smt": "csv|./test/data/|foofile.csv|*",
+      "options": {
+        "csvHeader": true
+      }
     },
     "terminal": {
       "smt": {
         "model": "mysql",
-        "locus": "host=localhost;user=dicta;password=dicta;database=storage_node",
+        "locus": "host=localhost;user=dicta;password=data;database=storage_node",
         "schema": "foo_schema_etl",
         "key": "*"
       }
@@ -14,10 +17,13 @@
   },
   "table-csv": {
     "origin": {
-      "smt": "mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema|*"
+      "smt": "mysql|host=localhost;user=dicta;password=data;database=storage_node|foo_schema|*"
     },
     "terminal": {
-      "smt": "csv|./test/output/|mysql_foofile.csv|*"
+      "smt": "csv|./test/output/|mysql_foofile.csv|*",
+      "options": {
+        "csvHeader": true
+      }
     }
   }
 }

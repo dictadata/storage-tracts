@@ -1,7 +1,10 @@
 {
   "csv-output": {
     "origin": {
-      "smt": "csv|./test/data/|foofile.csv|*"
+      "smt": "csv|./test/data/|foofile.csv|*",
+      "options": {
+        "csvHeader": true
+      }
     },
     "terminal": {
       "smt": {
@@ -9,6 +12,9 @@
         "locus": "./test/output/",
         "schema": "fs_foofile.csv",
         "key": "*"
+      },
+      "options": {
+        "csvHeader": true
       }
     }
   },
@@ -27,7 +33,10 @@
   },
   "csv-json": {
     "origin": {
-      "smt": "csv|./test/data/|foofile.csv|*"
+      "smt": "csv|./test/data/|foofile.csv|*",
+      "options": {
+        "csvHeader": true
+      }
     },
     "terminal": {
       "smt": {
@@ -48,6 +57,9 @@
         "locus": "./test/output/",
         "schema": "fs_foofile_json.csv",
         "key": "*"
+      },
+      "options": {
+        "csvHeader": true
       }
     }
   }

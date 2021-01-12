@@ -1,7 +1,7 @@
 {
   "codify": {
     "origin": {
-      "smt": "mysql|host=localhost;user=dicta;password=dicta;database=storage_node|foo_schema|*",
+      "smt": "mysql|host=localhost;user=dicta;password=data;database=storage_node|foo_schema|*",
       "options": {
         "max_read": 100
       }

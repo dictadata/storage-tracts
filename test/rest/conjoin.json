@@ -27,6 +27,9 @@
     },
     "terminal": {
       "smt": "csv|./test/output/|rest_conjoin.csv|*",
+      "options": {
+        "csvHeader": true
+      },
       "encoding": "./test/data/forecast_encoding.json"
     }
   }

@@ -1,7 +1,10 @@
 {
   "csv-json": {
     "origin": {
-      "smt": "csv|./test/data/|foofile.csv|*"
+      "smt": "csv|./test/data/|foofile.csv|*",
+      "options": {
+        "csvHeader": true
+      }
     },
     "transforms": {
       "filter": {
@@ -73,6 +76,9 @@
         "locus": "./test/output/",
         "schema": "fs_transform.csv",
         "key": "*"
+      },
+      "options": {
+        "csvHeader": true
       },
       "encoding": "./test/data/foo_encoding_t.json"
     }

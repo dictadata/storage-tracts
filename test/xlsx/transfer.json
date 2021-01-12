@@ -1,7 +1,10 @@
 {
   "csv-sheet": {
     "origin": {
-      "smt": "csv|./test/data/|foofile.csv|*"
+      "smt": "csv|./test/data/|foofile.csv|*",
+      "options": {
+        "csvHeader": true
+      }
     },
     "terminal": {
       "smt": {
@@ -22,6 +25,9 @@
         "locus": "./test/output/",
         "schema": "xlsx_foofile.csv",
         "key": "*"
+      },
+      "options": {
+        "csvHeader": true
       }
     }
   }
