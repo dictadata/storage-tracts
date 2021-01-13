@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 1.2.2
+  - update dependency to @dictadata/storage-junctions 1.2.6
 - version 1.2.1
   - rename etl_config.json to etl_tracts.json
   - storage-junction updates for:
