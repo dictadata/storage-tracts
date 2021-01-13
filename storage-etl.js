@@ -67,7 +67,7 @@ function parseArgs() {
     parseArgs();
 
     if (!appArgs.command) {
-      console.log("Transfer, transform and codify data.");
+      console.log("Transfer, transform and codify data between local and distributed storage sources.");
       console.log("");
       console.log("storage-etl command [-c tractsFile] [tractName]");
       console.log("");

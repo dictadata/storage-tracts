@@ -1,10 +1,10 @@
 # @dictadata/storage-etl 1.1.0
 
-Command line ETL utilitiy to transfer and optionally transform data between distributed storage sources.
+Command line ETL utilitiy to transfer, transform and codify data between local and distributed storage sources.
 
 ## Prerequisites
 
-Node.js version 12.0 or higher.  Download the installer from https://nodejs.org/en/download/
+Node.js version 15.0 or higher.  Download the installer from https://nodejs.org/en/download/.
 
 ## Installation
 
@@ -13,166 +13,112 @@ Node.js version 12.0 or higher.  Download the installer from https://nodejs.org/
 ## Command Line Usage
 
 ```bash
-  etl command [-c configfile] [source] [destination]
+  storage-etl command [-c tractsFile] [tractName]
 
   Commands:
-    codify - determine storage encoding for a single schema
-    list - listing of schema names in data source
-    scan - scan data source to determine storage encoding by codifying multiple schemas
-    transfer - transfer data between two data sources, with optional transform
+    config - create example etl_tracts.json file in the current directory.
+    codify - determine storage encoding by codifying a single data source schema.
+    list - listing of schema names in a data source.
+    scan - list data source and determine storage encoding by codifying multiple schemas.
+    transfer - transfer data between data sources with optional transforms.
+    download - download schemas from remote files system to the local file system.
+    upload - upload schemas from local file system to remote file system.
+  
+  tractsFile
+    Configuration file that defines tracts, plug-ins and logging.
+    Default configuration file is ./etl_tracts.json
+  
+  tractName
+    The tract to follow in the configuration file.
+    Default tractName is the command name.
 ```
 
-## Config File
+## Tracts Configuration File
 
-- A config file specifies the source and destination SMT addresses along with encoding, transform and transfer information.
-- Source and destination can be supported and compatible storage source.
-- Scan function supports file storage like local folders, FTP and AWS S3 buckets.
-- Transforms are optional. If specified then fields will be transformed between input and output.
-- JSON files only support an array of objects e.g. [ {}, {}, ...].
+- A tracts configuration specifies the source and destination SMT addresses along with options, encoding, transform and output information.
+- Source and destination MUST be supported and compatible storage sources.
+- Scan functionality supports file storage such as local folders, FTP and AWS S3 buckets.
+- Transforms are optional. If specified then fields will be transformed between source and destination.
 
-## Transform
+## Examples
 
-The transforms file is .json format. It uses dot notation to reference properties in the source and target records.
+### Transfer and transform a .json file to "flat" .csv file
 
-```
-  {
-      "sourceField": "targetField",
-      "sourceProperty.field1": "targetField2",
-      "sourceProperty.field2": "targetProperty.field",
-      "source.sub.field": "targetField3",
-      ...
-  }
-```
+    storage-etl transfer -c etl_flatten.json
 
-## Transfer config File Format
-
-```
+etl_flatten.json:
+```json
 {
-  "transfer-1": {
+  "transfer": {
     "origin": {
-      "smt": "json|./test/data/|foofile.json|*",
-      "options": {}
+      "smt": "json|./test/data/|foofile.json|*"
     },
     "transforms": {
-      "filter": {
-        "match": {
-          "Bar": "row"
-        }
-        },
-        "drop": {
-          "Baz": {
-            "eq": 5678
-          }
-        }
-      },
       "select": {
-        "inject_before": {
-          "Fie": "where's fum?"
-        },
         "fields": {
           "Foo": "foo",
           "Bar": "bar",
           "Baz": "baz",
-          "Fobe": "fobe",
-          "Dt Test": "dt_test",
-          "enabled": "enabled",
-          "subObj1.state": "state",
-          "subObj2.subsub.izze": "izze"
+          "State.Enabled": "enabled"
         }
       }
     },
     "terminal": {
-      "smt": {
-        "model": "csv",
-        "locus": "./test/output/",
-        "schema": "etl-1.csv",
-        "key": "*"
-      },
-      "options": {},
-      "encoding": "filename.json"
+      "smt": "csv|./test/output/|fooflat.csv|*",
+      "options": {
+        "csvHeader": true
+      }
     }
   }
 }
 ```
 
-
-## Examples
-
-### Convert a .csv file to .json
-
-    storage-etl convert foofile.csv foofile_out.json
-
-foofile.csv
-
-    Foo, Bar, Baz, Enabled
-    first, 123, 2018-10-07, true
-    second, 456, 2018-10-07, false
-    third, 789, 2018-10-18, true
-
-Generates foofile_out.json
-
-    [
-      {"Foo":"first","Bar":"123","Baz":"2018-10-07","Enabled":"true"},
-      {"Foo":"second","Bar":"456","Baz":"2018-10-07","Enabled":"false"},
-      {"Foo":"third","Bar":"789","Baz":"2018-10-18","Enabled":"true"}
-    ]
-
-### Convert and transform a .json file to "flat" .csv
-
-    storage-etl convert foofile.json foofile_out.csv transforms.json
-
-foofile.json
-
-    [
-      {
-        "Foo": "first",
-        "Bar": "123",
-        "Baz": "2018-10-07",
-        "State": {
-          "Enabled": "true"
-        }
-      },
-      {
-        "Foo": "second",
-        "Bar": "456",
-        "Baz": "2018-10-07",
-        "State": {
-          "Enabled": "false"
-        }
-      },
-      {
-        "Foo": "third",
-        "Bar": "789",
-        "Baz": "2018-10-18",
-        "State": {
-          "Enabled": "true"
-        }
-      }
-    ]
-
-transform.json
-
-    {
-      "Foo": "foo",
-      "Bar": "bar",
-      "Baz": "baz",
-      "State.Enabled": "enabled"
+foofile.json:
+```json
+[
+  {
+    "Foo": "first",
+    "Bar": 123,
+    "Baz": "2018-10-07",
+    "State": {
+      "Enabled": true
     }
+  },
+  {
+    "Foo": "second",
+    "Bar": 456,
+    "Baz": "2018-10-07",
+    "State": {
+      "Enabled": false
+    }
+  },
+  {
+    "Foo": "third",
+    "Bar": 789,
+    "Baz": "2018-10-18",
+    "State": {
+      "Enabled": true
+    }
+  }
+]
+```
 
-Generates foofile_out.csv
-
-    foo,bar,baz
-    first,123,2018-10-07
-    second,456,2018-10-07
-    third,789,2018-10-18
+fooflat.csv
+```json
+  "foo","bar","baz","enabled"
+  "first",123,"2018-10-07",true
+  "second",456,"2018-10-07",false
+  "third",789,"2018-10-18",true
+```
 
 ### NOSA Weather Service transfer
 
 ```
-storage-etl transfer weather.json
+storage-etl transfer -c etl_weather.json forecast
 ```
-weather.json:
-```
+
+etl_weather.json:
+```json
 {
   "forecast": {
     "origin": {
@@ -188,16 +134,11 @@ weather.json:
         }
       }
     },
-    "transforms": {
-      "select": {
-        "inject": {
-          "Fie": "It's always sunny in Philadelphia?"
-        }
-      }
-    },
     "terminal": {
       "smt": "csv|./test/output/|etl-3-weather.csv|*",
-      "options": {}
+      "options": {
+        "csvHeader": true
+      }
     }
   }
 }

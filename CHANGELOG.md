@@ -1,3 +1,10 @@
+# CHANGELOG:  @dictadata/storage-etl
+
+- version 1.2.1
+  - rename etl_config.json to etl_tracts.json
+  - storage-junction updates for:
+    - stream/promises
+    - csv options.csvHeader
 - version 1.2.0
   - update dependencies for @dictadata/storage-junctions 1.2.0
 - version 1.1.8
@@ -6,10 +13,10 @@
   - fix for mysql boolean as tinyint(1)
   - update to @dictadata/storage-junctions 1.1.7
 - version 1.1.6
-  - refactor etl_config.json to have transforms property to contain named transforms
+  - refactor etl_tracts.json to have transforms property to contain named transforms
   - update to @idctadata/storage-junctions 1.1.6
 - version 1.1.5
-  - add "config" command to generate sample "./etl_config.json" file
+  - add "config" command to generate sample "./etl_tracts.json" file
 - version 1.1.4
   - require xlsx as local package
 - version 1.1.3
