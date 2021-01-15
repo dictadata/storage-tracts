@@ -1,0 +1,13 @@
+{
+  "list": {
+    "origin": {
+      "smt": "mssql|server=localhost;username=dicta;password=data;database=storage_node|*|*",
+      "options": {
+        "schema": "foo*"
+      }
+    },
+    "terminal": {
+      "output": "./test/output/mssql_list.json"
+    }
+  }
+}
