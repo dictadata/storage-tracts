@@ -143,7 +143,7 @@ function parseArgs() {
   if (retcode === 0)
     logger.verbose("OK");
   else
-    console.log("ETL failed, check error log.");
+    console.log(retcode + " ETL failed, check error log.");
 
   return retcode;
 })();
