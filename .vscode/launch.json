@@ -587,6 +587,86 @@
     {
       "type": "pwa-node",
       "request": "launch",
+      "name": "mssql list",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": ["list", "-c", "${workspaceFolder}/test/mssql/list.json"],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "mssql codify",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": ["codify", "-c", "${workspaceFolder}/test/mssql/codify.json"],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "mssql transfer csv > table",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/mssql/transfer.json",
+        "csv-table"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "mssql transfer table > csv",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/mssql/transfer.json",
+        "table-csv"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "mssql transform json > etl2",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/mssql/transform.json",
+        "json-etl2"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
       "name": "mysql list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
