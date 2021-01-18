@@ -1,6 +1,6 @@
 # CHANGELOG:  @dictadata/storage-etl
 
-- version 1.3.0
+- version 1.3.1
   - support for Microsoft SQL Server (mssql)
   - update dependency to @dictadata/storage-junctions 1.3.0
 - version 1.2.3
