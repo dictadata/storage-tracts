@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 1.3.2
+  - codify: if not filesystem source and no transforms get encoding from source
 - version 1.3.1
   - support for Microsoft SQL Server (mssql)
   - update dependency to @dictadata/storage-junctions 1.3.0
