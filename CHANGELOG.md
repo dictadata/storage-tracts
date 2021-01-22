@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 1.3.3
+  - support for enhanced map and list storage encodings
+  - update dependency to @dictadata/storage-junctions 1.3.2
 - version 1.3.2
   - codify: if not filesystem source and no transforms get encoding from source
 - version 1.3.1
