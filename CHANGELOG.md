@@ -1,5 +1,9 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 1.4.0
+  - add support for Oracle databases
+  - update dependency to @dictadata/storage-junctions 1.4.3
+  - update dependency for Winston
 - version 1.3.3
   - support for enhanced map and list storage encodings
   - update dependency to @dictadata/storage-junctions 1.3.2
