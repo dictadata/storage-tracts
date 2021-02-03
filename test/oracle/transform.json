@@ -1,0 +1,37 @@
+{
+  "json-etl2": {
+    "origin": {
+      "smt": "json|./test/data/|foofile.json|*"
+    },
+    "transforms": {
+      "filter": {
+        "match": {
+          "Bar": "row"
+        },
+        "drop": {
+          "Baz": {
+            "eq": 456
+          }
+        }
+      },
+      "select": {
+        "inject_after": {
+          "Fie": "where's fum?"
+        },
+        "fields": {
+          "Foo": "foo",
+          "Bar": "bar",
+          "Baz": "baz",
+          "Fobe": "fobe",
+          "Dt Test": "dt_test",
+          "subObj1.state": "state"
+        },
+        "remove": ["fobe"]
+      }
+    },
+    "terminal": {
+      "smt": "oracle|connectString=localhost/xepdb1;user=dicta;password=data|foo_schema_etl2|=Foo",
+      "encoding": "./test/data/foo_encoding_t.json"
+    }
+  }
+}

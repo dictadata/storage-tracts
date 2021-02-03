@@ -747,6 +747,86 @@
     {
       "type": "pwa-node",
       "request": "launch",
+      "name": "oracle list",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": ["list", "-c", "${workspaceFolder}/test/oracle/list.json"],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "oracle codify",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": ["codify", "-c", "${workspaceFolder}/test/oracle/codify.json"],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "oracle transfer csv > table",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/oracle/transfer.json",
+        "csv-table"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "oracle transfer table > csv",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/oracle/transfer.json",
+        "table-csv"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "oracle transform json > etl2",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/oracle/transform.json",
+        "json-etl2"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "debug"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
       "name": "rest codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",

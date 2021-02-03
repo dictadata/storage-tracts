@@ -1,0 +1,29 @@
+{
+  "csv-table": {
+    "origin": {
+      "smt": "csv|./test/data/|foofile.csv|*",
+      "options": {
+        "csvHeader": true
+      }
+    },
+    "terminal": {
+      "smt": {
+        "model": "oracle",
+        "locus": "connectString=localhost/xepdb1;user=dicta;password=data",
+        "schema": "foo_schema_etl",
+        "key": "*"
+      }
+    }
+  },
+  "table-csv": {
+    "origin": {
+      "smt": "oracle|connectString=localhost/xepdb1;user=dicta;password=data|foo_schema|*"
+    },
+    "terminal": {
+      "smt": "csv|./test/output/|oracle_foofile.csv|*",
+      "options": {
+        "csvHeader": true
+      }
+    }
+  }
+}
