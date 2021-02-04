@@ -31,6 +31,11 @@
       "outputCapture": "std"
     },
     {
+      "type": "node-terminal",
+      "name": "--- file systems & junctions",
+      "request": "launch"
+    },
+    {
       "type": "pwa-node",
       "request": "launch",
       "name": "fs list",
@@ -421,84 +426,9 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
-      "request": "launch",
-      "name": "xlsx list",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["list", "-c", "${workspaceFolder}/test/xlsx/list.json"],
-      "env": {
-        "NODE_ENV": "development",
-        "LOG_LEVEL": "verbose"
-      },
-      "outputCapture": "std"
-    },
-    {
-      "type": "pwa-node",
-      "request": "launch",
-      "name": "xlsx codify",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["codify", "-c", "${workspaceFolder}/test/xlsx/codify.json"],
-      "env": {
-        "NODE_ENV": "development",
-        "LOG_LEVEL": "verbose"
-      },
-      "outputCapture": "std"
-    },
-    {
-      "type": "pwa-node",
-      "request": "launch",
-      "name": "xlsx transfer csv > sheet",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "transfer",
-        "-c",
-        "${workspaceFolder}/test/xlsx/transfer.json",
-        "csv-sheet"
-      ],
-      "env": {
-        "NODE_ENV": "development",
-        "LOG_LEVEL": "verbose"
-      },
-      "outputCapture": "std"
-    },
-    {
-      "type": "pwa-node",
-      "request": "launch",
-      "name": "xlsx transfer sheet > csv",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "transfer",
-        "-c",
-        "${workspaceFolder}/test/xlsx/transfer.json",
-        "sheet-csv"
-      ],
-      "env": {
-        "NODE_ENV": "development",
-        "LOG_LEVEL": "verbose"
-      },
-      "outputCapture": "std"
-    },
-    {
-      "type": "pwa-node",
-      "request": "launch",
-      "name": "xlsx transform json > etl2",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "transfer",
-        "-c",
-        "${workspaceFolder}/test/xlsx/transform.json",
-        "json-etl2"
-      ],
-      "env": {
-        "NODE_ENV": "development",
-        "LOG_LEVEL": "verbose"
-      },
-      "outputCapture": "std"
+      "type": "node-terminal",
+      "name": "--- storage junctions",
+      "request": "launch"
     },
     {
       "type": "pwa-node",
@@ -884,6 +814,86 @@
         "-c",
         "${workspaceFolder}/test/rest/conjoin.json",
         "gps_forecast"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "xlsx list",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": ["list", "-c", "${workspaceFolder}/test/xlsx/list.json"],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "xlsx codify",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": ["codify", "-c", "${workspaceFolder}/test/xlsx/codify.json"],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "xlsx transfer csv > sheet",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/xlsx/transfer.json",
+        "csv-sheet"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "xlsx transfer sheet > csv",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/xlsx/transfer.json",
+        "sheet-csv"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "xlsx transform json > etl2",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/xlsx/transform.json",
+        "json-etl2"
       ],
       "env": {
         "NODE_ENV": "development",
