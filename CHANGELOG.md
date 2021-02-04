@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 1.4.1
+  - update dependency to @dictadata/storage-junctions 1.4.4
 - version 1.4.0
   - add support for Oracle databases
   - update dependency to @dictadata/storage-junctions 1.4.3
