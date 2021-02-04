@@ -15,9 +15,6 @@
         }
       },
       "select": {
-        "inject_after": {
-          "Fie": "where's fum?"
-        },
         "fields": {
           "Foo": "foo",
           "Bar": "bar",
@@ -25,6 +22,9 @@
           "Fobe": "fobe",
           "Dt Test": "dt_test",
           "subObj1.state": "state"
+        },
+        "inject_after": {
+          "fie": "where's fum?"
         },
         "remove": ["fobe"]
       }
