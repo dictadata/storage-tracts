@@ -7,7 +7,7 @@
       }
     },
     "terminal": {
-      "output": "./test/output/http_list.json"
+      "output": "./output/http_list.json"
     }
   }
 }

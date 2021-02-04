@@ -3,6 +3,7 @@ dist/
 test/output
 test/unit/coverage
 test/e2e/reports
+output/
 
 log/
 *.log

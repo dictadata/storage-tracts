@@ -6,7 +6,7 @@
     "terminal": {
       "smt": {
         "model": "json",
-        "locus": "s3:dictadata.org/test/output/",
+        "locus": "s3:dictadata.org/output/",
         "schema": "s3_foofile.json",
         "key": "*"
       },
@@ -27,7 +27,7 @@
       }
     },
     "terminal": {
-      "smt": "json|./test/output/|s3_foofile.json|*"
+      "smt": "json|./output/|s3_foofile.json|*"
     }
   }
 }

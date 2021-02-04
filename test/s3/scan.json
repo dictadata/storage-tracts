@@ -13,7 +13,7 @@
       }
     },
     "terminal": {
-      "output": "./test/output/s3_scan.json"
+      "output": "./output/s3_scan.json"
     }
   }
 }

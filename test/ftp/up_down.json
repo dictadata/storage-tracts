@@ -6,7 +6,7 @@
       }
     },
     "terminal": {
-      "smt": "*|ftp://dicta:data@localhost/test/output/uploads/|*|*"
+      "smt": "*|ftp://dicta:data@localhost/output/uploads/|*|*"
     }
   },
   "ftp-download": {
@@ -16,7 +16,7 @@
     },
     "terminal": {
       "options": {
-        "downloads": "./test/output/downloads/"
+        "downloads": "./output/downloads/"
       }
     }
   }

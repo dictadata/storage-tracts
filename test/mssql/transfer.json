@@ -20,7 +20,7 @@
       "smt": "mssql|server=localhost;username=dicta;password=data;database=storage_node|foo_schema|*"
     },
     "terminal": {
-      "smt": "csv|./test/output/|mssql_foofile.csv|*",
+      "smt": "csv|./output/|mssql_foofile.csv|*",
       "options": {
         "csvHeader": true
       }

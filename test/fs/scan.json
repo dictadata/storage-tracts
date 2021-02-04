@@ -10,7 +10,7 @@
       }
     },
     "terminal": {
-      "output": "./test/output/fs_scan.json"
+      "output": "./output/fs_scan.json"
     }
   }
 }

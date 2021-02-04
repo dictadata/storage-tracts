@@ -7,7 +7,7 @@
       }
     },
     "terminal": {
-      "output": "./test/output/fs_list.json"
+      "output": "./output/fs_list.json"
     }
   }
 }

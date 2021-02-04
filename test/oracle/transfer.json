@@ -20,7 +20,7 @@
       "smt": "oracle|connectString=localhost/xepdb1;user=dicta;password=data|foo_schema|*"
     },
     "terminal": {
-      "smt": "csv|./test/output/|oracle_foofile.csv|*",
+      "smt": "csv|./output/|oracle_foofile.csv|*",
       "options": {
         "csvHeader": true
       }

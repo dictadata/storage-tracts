@@ -9,7 +9,7 @@
     "terminal": {
       "smt": {
         "model": "xlsx",
-        "locus": "./test/output/xlsx_foofile.xlsx",
+        "locus": "./output/xlsx_foofile.xlsx",
         "schema": "fooee",
         "key": "*"
       }
@@ -22,7 +22,7 @@
     "terminal": {
       "smt": {
         "model": "csv",
-        "locus": "./test/output/",
+        "locus": "./output/",
         "schema": "xlsx_foofile.csv",
         "key": "*"
       },

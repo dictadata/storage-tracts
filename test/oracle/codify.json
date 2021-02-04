@@ -7,7 +7,7 @@
       }
     },
     "terminal": {
-      "output": "./test/output/oracle_codify.json"
+      "output": "./output/oracle_codify.json"
     }
   }
 }

@@ -8,7 +8,7 @@
       }
     },
     "terminal": {
-      "output": "./test/output/fs_codify_short.json"
+      "output": "./output/fs_codify_short.json"
     }
   }
 }

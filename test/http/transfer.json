@@ -6,7 +6,7 @@
     "terminal": {
       "smt": {
         "model": "json",
-        "locus": "http://dicta:data@localhost/test/output/",
+        "locus": "http://dicta:data@localhost/output/",
         "schema": "http_foofile.json",
         "key": "*"
       }
@@ -18,7 +18,7 @@
       "options": {}
     },
     "terminal": {
-      "smt": "json|./test/output/|http_foofile.json|*",
+      "smt": "json|./output/|http_foofile.json|*",
       "options": {}
     }
   }

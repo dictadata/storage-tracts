@@ -10,7 +10,7 @@
       }
     },
     "terminal": {
-      "output": "./test/output/s3_list.json"
+      "output": "./output/s3_list.json"
     }
   }
 }

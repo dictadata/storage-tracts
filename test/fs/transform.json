@@ -35,7 +35,7 @@
     "terminal": {
       "smt": {
         "model": "json",
-        "locus": "./test/output/",
+        "locus": "./output/",
         "schema": "fs_transform.json",
         "key": "*"
       },
@@ -73,7 +73,7 @@
     "terminal": {
       "smt": {
         "model": "csv",
-        "locus": "./test/output/",
+        "locus": "./output/",
         "schema": "fs_transform.csv",
         "key": "*"
       },

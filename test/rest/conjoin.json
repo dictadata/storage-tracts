@@ -26,7 +26,7 @@
       }
     },
     "terminal": {
-      "smt": "csv|./test/output/|rest_conjoin.csv|*",
+      "smt": "csv|./output/|rest_conjoin.csv|*",
       "options": {
         "csvHeader": true
       },

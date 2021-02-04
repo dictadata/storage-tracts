@@ -14,7 +14,7 @@
       }
     },
     "terminal": {
-      "smt": "json|./test/output/|rest-transfer.json|*"
+      "smt": "json|./output/|rest-transfer.json|*"
     }
   }
 }
