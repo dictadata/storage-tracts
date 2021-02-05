@@ -3,12 +3,36 @@
     "origin": {
       "smt": "json|test/data/|foofile.json|*",
       "options": {
-        "max_read": 100,
-        "encoding_format": "short"
+        "max_read": 100
       }
     },
     "terminal": {
-      "output": "./output/fs_codify_short.json"
+      "output": "./output/fs_codify.json"
+    }
+  },
+  "types_only": {
+    "origin": {
+      "smt": "json|test/data/|foofile.json|*",
+      "options": {
+        "max_read": 100,
+        "encoding_format": "types_only"
+      }
+    },
+    "terminal": {
+      "output": "./output/fs_codify_types.json"
+    }
+  },
+  "all": {
+    "origin": {
+      "smt": "json|test/data/|foofile.json|*",
+      "options": {
+        "max_read": 100,
+        "encoding_format": "all"
+      }
+    },
+    "terminal": {
+      "output": "./output/fs_codify_all.json"
     }
   }
+
 }
