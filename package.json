@@ -1,6 +1,6 @@
 {
   "name": "@dictadata/storage-etl",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Command line ETL utility to transfer and optionally transform data between local and/or distributed sources.",
   "author": "Drew O. Letcher",
   "license": "MIT",
@@ -8,7 +8,7 @@
   "main": "storage-etl.js",
   "scripts": {
     "start": "node storage-etl.js config",
-    "debug": "node --inspect --preserve-symlinks storage-etl.js codify -c \"/projects/@remedium-systems/adt-api/mysql/easyweb6_oldb/etl_tracts.json\" units"
+    "debug": "node --inspect --preserve-symlinks storage-etl.js -c \"test/splitter/splits.json\" transfer split"
   },
   "bin": {
     "etl": "./storage-etl.js",
@@ -27,7 +27,7 @@
     "node": ">=15.0.1"
   },
   "dependencies": {
-    "@dictadata/storage-junctions": "^1.4.4",
+    "@dictadata/storage-junctions": "^1.4.6",
     "winston": "^3.2.1",
     "winston-daily-rotate-file": "^4.4.2"
   },

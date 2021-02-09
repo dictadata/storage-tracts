@@ -66,7 +66,7 @@ etl_flatten.json:
     "terminal": {
       "smt": "csv|./output/|fooflat.csv|*",
       "options": {
-        "csvHeader": true
+        "header": true
       }
     }
   }
@@ -137,7 +137,7 @@ etl_weather.json:
     "terminal": {
       "smt": "csv|./output/|etl-3-weather.csv|*",
       "options": {
-        "csvHeader": true
+        "header": true
       }
     }
   }

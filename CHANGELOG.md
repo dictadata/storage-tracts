@@ -1,5 +1,10 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 1.4.2
+  - update dependency to @dictadata/storage-junctions 1.4.6
+  - new splitter-junction
+  - new compase and decompose (flatten) transforms
+  - new encoder transform
 - version 1.4.1
   - update dependency to @dictadata/storage-junctions 1.4.4
 - version 1.4.0
@@ -22,7 +27,7 @@
   - rename etl_config.json to etl_tracts.json
   - storage-junction updates for:
     - stream/promises
-    - csv options.csvHeader
+    - csv options.header
 - version 1.2.0
   - update dependencies for @dictadata/storage-junctions 1.2.0
 - version 1.1.8
