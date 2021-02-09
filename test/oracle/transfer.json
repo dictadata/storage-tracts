@@ -3,7 +3,7 @@
     "origin": {
       "smt": "csv|./test/data/|foofile.csv|*",
       "options": {
-        "csvHeader": true
+        "header": true
       }
     },
     "terminal": {
@@ -22,7 +22,7 @@
     "terminal": {
       "smt": "csv|./output/|oracle_foofile.csv|*",
       "options": {
-        "csvHeader": true
+        "header": true
       }
     }
   }

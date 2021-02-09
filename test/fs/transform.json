@@ -3,7 +3,7 @@
     "origin": {
       "smt": "csv|./test/data/|foofile.csv|*",
       "options": {
-        "csvHeader": true
+        "header": true
       }
     },
     "transforms": {
@@ -78,7 +78,7 @@
         "key": "*"
       },
       "options": {
-        "csvHeader": true
+        "header": true
       },
       "encoding": "./test/data/foo_encoding_t.json"
     }
