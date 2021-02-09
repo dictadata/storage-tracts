@@ -1,0 +1,20 @@
+{
+  "split": {
+    "origin": {
+      "smt": "json|./test/data/|db_schema.json|*"
+    },
+    "terminal": {
+      "smt": "split|*|*|*",
+      "encoding": "./test/data/db_schema_encoding.json",
+      "options": {
+        "splitOn": "TABLE_NAME"
+      },
+      "tract": {
+        "terminal": {
+          "smt": "json|./output/DB/|db_*|*",
+          "options": {}
+        }
+      }
+    }
+  }
+}

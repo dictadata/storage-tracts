@@ -1,0 +1,41 @@
+{
+  "tabledefs": {
+    "origin": {
+      "smt": "json|./test/data/|db_schema.json|*",
+      "encoding": "./test/data/db_schema_encoding.json",
+      "options": {}
+    },
+    "tranforms": {
+      "select": {
+        "fields": {
+          "COLUMN_NAME": "NAME",
+          "COLUMN_ID": "ORDINAL",
+          "DATA_TYPE": "TYPE",
+          "DATA_LENGTH": "LENGTH",
+          "DATA_PRECISION": "PRECISION",
+          "DATA_SCALE": "SCALE",
+          "NULLABLE": "NULLABLE",
+          "SCHEMA_NAME": "SCHEMA_NAME",
+          "TABLE_NAME": "TABLE_NAME"
+        }
+      },
+      "encoder": {
+        "junction": "OracleJunction"
+      },
+      "terminal": {
+        "smt": "splitter|*|*|*",
+        "options": {
+          "splitOn": "TABLE_NAME"
+        },
+        "tract": {
+          "transforms": {
+          },
+          "terminal": {
+            "smt": "json|./test/data/DBENCODING/|*.json|*",
+            "options": {}
+          }
+        }
+      }
+    }
+  }
+}
