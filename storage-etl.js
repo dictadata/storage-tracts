@@ -16,9 +16,10 @@ const upload = require('./lib/upload');
 
 // set program argument defaults
 const appArgs = {
-  command: '',
   tractsFile: './etl_tracts.json',
-  tract: ''  // default tract name is the command name
+  command: '',
+  tract: '',  // default tract name is the command name
+  schema: ''  // replacement value
 }
 
 /**
@@ -46,6 +47,10 @@ function parseArgs() {
       // tract
       myArgs.tract = process.argv[i];
     }
+    else if (!myArgs.schema) {
+      // tract
+      myArgs.schema = process.argv[i];
+    }
     ++i;
   }
 
@@ -69,7 +74,7 @@ function parseArgs() {
     if (!appArgs.command) {
       console.log("Transfer, transform and codify data between local and distributed storage sources.");
       console.log("");
-      console.log("storage-etl command [-c tractsFile] [tractName]");
+      console.log("storage-etl [-c tractsFile] [command] [tractName] [schemaName]");
       console.log("");
       console.log("Commands:");
       console.log("  config - create example etl_tracts.json file in the current directory.");
@@ -87,13 +92,16 @@ function parseArgs() {
       console.log("tractName");
       console.log("  The tract to follow in the configuration file.");
       console.log("  Default tractName is the command name.");
+      console.log("schemaName");
+      console.log("  A string value that will be replaced in the tract with regex.");
+      console.log("  All occurences of ${schema} in the tract will be replace with schemaName.");
 
       return;
     }
 
     let tracts = {};
     if (appArgs.command !== 'config')
-      tracts = await config.loadTracts(appArgs.tractsFile);
+      tracts = await config.loadTracts(appArgs.tractsFile, appArgs.schema);
     else {
       await config.createTracts(appArgs.tractsFile);
       return 0;
