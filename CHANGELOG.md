@@ -1,8 +1,11 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 1.4.5
+  - support for default Oracle data formats "DD-MON-YY" "DD-MON-YY HH:MI:SS"
+  - update dependency to @dictadata/storage-junctions 1.4.8
 - version 1.4.4
   - storeBulk method for mysql-junction and mssql-junction
-  - update dependency to @dictadata/storage-junctions 1.4.6
+  - update dependency to @dictadata/storage-junctions 1.4.7
 - version 1.4.3
   - add command line option to provide a schema name replacement
 - version 1.4.2
