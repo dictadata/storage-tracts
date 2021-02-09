@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 1.4.3
+  - add command line option to provide a schema name replacement
 - version 1.4.2
   - update dependency to @dictadata/storage-junctions 1.4.6
   - new splitter-junction
