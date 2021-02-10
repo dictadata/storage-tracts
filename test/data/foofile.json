@@ -97,5 +97,16 @@
     "subObj1": {
       "state": "running"
     }
+  },
+  {
+    "Foo": "eighth",
+    "Bar": "bigger data",
+    "Baz": "12",
+    "Fobe": "3.44",
+    "Dt Test": "10-OCT-18",
+    "enabled": "false",
+    "subObj1": {
+      "state": "running"
+    }
   }
 ]
