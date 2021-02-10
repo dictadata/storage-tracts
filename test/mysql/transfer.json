@@ -25,5 +25,26 @@
         "header": true
       }
     }
+  },
+  "bulkload": {
+    "origin": {
+      "smt": "csv|./test/data/|timeseries.csv|*",
+      "options": {},
+      "encoding": {
+        "time": "date",
+        "temp": "number"
+      }
+    },
+    "terminal": {
+      "smt": {
+        "model": "mysql",
+        "locus": "host=localhost;user=dicta;password=data;database=storage_node",
+        "schema": "timeseries",
+        "key": "*"
+      },
+      "options": {
+        "bulkLoad": false
+      }
+    }
   }
 }

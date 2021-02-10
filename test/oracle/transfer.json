@@ -25,5 +25,26 @@
         "header": true
       }
     }
+  },
+  "bulkload": {
+    "origin": {
+      "smt": "csv|./test/data/|timeseries.csv|*",
+      "options": {},
+      "encoding": {
+        "time": "date",
+        "temp": "number"
+      }
+    },
+    "terminal": {
+      "smt": {
+        "model": "oracle",
+        "locus": "connectString=localhost/xepdb1;user=dicta;password=data",
+        "schema": "timeseries",
+        "key": "*"
+      },
+      "options": {
+        "bulkLoad": true
+      }
+    }
   }
 }

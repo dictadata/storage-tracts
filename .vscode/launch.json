@@ -610,6 +610,24 @@
     {
       "type": "pwa-node",
       "request": "launch",
+      "name": "mssql transfer bulk load",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/mssql/transfer.json",
+        "bulkload"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
       "name": "mssql transform json > etl2",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
@@ -690,6 +708,24 @@
     {
       "type": "pwa-node",
       "request": "launch",
+      "name": "mysql transfer bulk load",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/mysql/transfer.json",
+        "bulkload"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
       "name": "mysql transform json > etl2",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
@@ -760,6 +796,24 @@
         "-c",
         "${workspaceFolder}/test/oracle/transfer.json",
         "table-csv"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "oracle transfer bulk load",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "transfer",
+        "-c",
+        "${workspaceFolder}/test/oracle/transfer.json",
+        "bulkload"
       ],
       "env": {
         "NODE_ENV": "development",
