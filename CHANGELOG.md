@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 1.4.6
+  - Oracle bulk load transfers
+  - update dependency to @dictadata/storage-junctions 1.4.9
 - version 1.4.5
   - support for default Oracle data formats "DD-MON-YY" "DD-MON-YY HH:MI:SS"
   - update dependency to @dictadata/storage-junctions 1.4.8
