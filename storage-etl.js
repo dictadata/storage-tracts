@@ -68,13 +68,13 @@ function parseArgs() {
   let retcode = 0;
 
   try {
-    logger.verbose("storage-etl starting...");
+    console.log("storage-etl (etl) " + config.version);
     parseArgs();
 
     if (!appArgs.command) {
       console.log("Transfer, transform and codify data between local and distributed storage sources.");
       console.log("");
-      console.log("storage-etl [-c tractsFile] [command] [tractName] [schemaName]");
+      console.log("etl [-c tractsFile] [command] [tractName] [schemaName]");
       console.log("");
       console.log("Commands:");
       console.log("  config - create example etl_tracts.json file in the current directory.");
