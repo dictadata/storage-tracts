@@ -1,5 +1,9 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 1.4.7
+  - customizable stringBreakpoints for sizing database string types
+  - improved handling of date strings
+  - update dependency to @dictadata/storage-junctions 1.4.10
 - version 1.4.6
   - Oracle bulk load transfers
   - update dependency to @dictadata/storage-junctions 1.4.9
