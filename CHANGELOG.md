@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 1.4.8
+  - don't apply db updates if only key fields in table
+  - update dependency to @dictadata/storage-junctions 1.4.11
 - version 1.4.7
   - customizable stringBreakpoints for sizing database string types
   - improved handling of date strings
