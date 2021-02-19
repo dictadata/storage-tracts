@@ -13,9 +13,15 @@ let category = process.argv.length > 2 ? process.argv[2] : "";
       console.log(config.name);
       if (config.type === "pwa-node" && config.request === "launch" && config.program) {
         let script = config.program.replace("${workspaceFolder}", ".");
+        
         let args = [script];
-        if (config.args)
-          args = args.concat(config.args);
+        if (config.args) {
+          for (let arg of config.args) {
+            arg = arg.replace("${workspaceFolder}", ".");
+            args.push(arg);
+          }
+        }
+
         let exitcode = await runTest(args);
         if (exitcode !== 0)
           break;
