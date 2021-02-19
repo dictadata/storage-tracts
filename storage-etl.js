@@ -13,6 +13,7 @@ const scan = require('./lib/scan');
 const transfer = require('./lib/transfer');
 const download = require('./lib/download');
 const upload = require('./lib/upload');
+const path = require('path');
 
 // set program argument defaults
 const appArgs = {
@@ -25,18 +26,20 @@ const appArgs = {
 /**
  * parseArgs
  *   only command is required
- *   example process.argv  ["node.exe", "storage-etl.js", "-c", <tractsFile>, <command>, <tract>]
+ *   example process.argv  ["node.exe", "storage-etl.js", "-t", <tractsFile>, <command>, <tract>, [schemaName]]
  */
 function parseArgs() {
   const myArgs = {};
 
   let i = 2;
   while (i < process.argv.length) {
-    if (process.argv[i] === "-c") {
+    if (process.argv[i] === "-c" || process.argv[i] === "-t") {
       // tractsFile
       if (i + 1 < process.argv.length) {
         myArgs.tractsFile = process.argv[i + 1];
         ++i;
+        if (!path.extname(myArgs.tractsFile))
+          myArgs.tractsFile += ".json";
       }
     }
     else if (!myArgs.command) {
@@ -74,7 +77,7 @@ function parseArgs() {
     if (!appArgs.command) {
       console.log("Transfer, transform and codify data between local and distributed storage sources.");
       console.log("");
-      console.log("etl [-c tractsFile] [command] [tractName] [schemaName]");
+      console.log("etl [-t tractsFile] [command] [tractName] [schemaName]");
       console.log("");
       console.log("Commands:");
       console.log("  config - create example etl_tracts.json file in the current directory.");
@@ -86,8 +89,8 @@ function parseArgs() {
       console.log("  upload - upload schemas from local file system to remote file system.");
       console.log("");
       console.log("tractsFile");
-      console.log("  Configuration file that defines tracts, plug-ins and logging.");
-      console.log("  Default configuration file is ./etl_tracts.json");
+      console.log("  JSON configuration file that defines tracts, plug-ins and logging.");
+      console.log("  Default configuration file is ./etl_tracts");
       console.log("");
       console.log("tractName");
       console.log("  The tract to follow in the configuration file.");
@@ -95,7 +98,6 @@ function parseArgs() {
       console.log("schemaName");
       console.log("  A string value that will be replaced in the tract with regex.");
       console.log("  All occurences of ${schema} in the tract will be replace with schemaName.");
-
       return;
     }
 
@@ -137,7 +139,7 @@ function parseArgs() {
         retcode = await upload(tract);
         break;
       default:
-        console.log("unknown command: " + appArgs.command);
+        logger.error("unknown command: " + appArgs.command);
         retcode = -1;
         break;
     }
@@ -151,7 +153,7 @@ function parseArgs() {
   if (retcode === 0)
     logger.verbose("OK");
   else
-    console.log(retcode + " ETL failed, check error log.");
+    logger.error(retcode + " ETL failed, check error log.");
 
   return retcode;
 })();
