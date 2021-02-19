@@ -68,7 +68,7 @@ function parseArgs() {
  * Program entry point.
  */
 (async () => {
-  let retcode = 0;
+  let retCode = 0;
 
   try {
     console.log("storage-etl (etl) " + config.version);
@@ -121,39 +121,39 @@ function parseArgs() {
         await config.createTracts();  
         break;
       case 'codify':
-        retcode = await codify(tract);
+        retCode = await codify(tract);
         break;
       case 'list':
-        retcode = await list(tract);
+        retCode = await list(tract);
         break;
       case 'scan':
-        retcode = await scan(tract);
+        retCode = await scan(tract);
         break;
       case 'transfer':
-        retcode = await transfer(tract);
+        retCode = await transfer(tract);
         break;
       case 'download':
-        retcode = await download(tract);
+        retCode = await download(tract);
         break;
       case 'upload':
-        retcode = await upload(tract);
+        retCode = await upload(tract);
         break;
       default:
         logger.error("unknown command: " + appArgs.command);
-        retcode = -1;
+        retCode = 1;
         break;
     }
 
   }
   catch (err) {
     logger.error(err);
-    retcode = -1;
+    retCode = 1;
   }
 
-  if (retcode === 0)
+  if (retCode === 0)
     logger.verbose("OK");
   else
-    logger.error(retcode + " ETL failed, check error log.");
+    logger.error(retCode + " ETL failed, check error log.");
 
-  return retcode;
+  process.exitCode = retCode;
 })();

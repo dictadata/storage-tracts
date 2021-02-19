@@ -4,29 +4,35 @@ const { spawn } = require('child_process');
 let category = process.argv.length > 2 ? process.argv[2] : "";
 
 (async () => {
-  let l = fs.readFileSync("./.vscode/launch.json", "utf-8");
-  let lj = l.replace(/\/\/.*/g, "");
-  var launch = JSON.parse(lj);
+  try {
+    let l = fs.readFileSync("./.vscode/launch.json", "utf-8");
+    let lj = l.replace(/\/\/.*/g, "");
+    var launch = JSON.parse(lj);
 
-  for (let config of launch.configurations) {
-    if (!category || config.name.indexOf(category) === 0) {
-      console.log(config.name);
-      if (config.type === "pwa-node" && config.request === "launch" && config.program) {
-        let script = config.program.replace("${workspaceFolder}", ".");
+    for (let config of launch.configurations) {
+      if (!category || config.name.indexOf(category) === 0) {
+        console.log(config.name);
+        if (config.type === "pwa-node" && config.request === "launch" && config.program) {
+          let script = config.program.replace("${workspaceFolder}", ".");
         
-        let args = [script];
-        if (config.args) {
-          for (let arg of config.args) {
-            arg = arg.replace("${workspaceFolder}", ".");
-            args.push(arg);
+          let args = [script];
+          if (config.args) {
+            for (let arg of config.args) {
+              arg = arg.replace("${workspaceFolder}", ".");
+              args.push(arg);
+            }
           }
-        }
 
-        let exitcode = await runTest(args);
-        if (exitcode !== 0)
-          break;
+          let exitcode = await runTest(args);
+          if (exitcode !== 0)
+            break;
+        }
       }
     }
+  }
+  catch (err) {
+    console.log(err.message);
+    process.exitCode = 1;
   }
 })();
 
