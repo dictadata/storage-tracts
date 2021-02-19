@@ -1,17 +1,18 @@
 const fs = require("fs");
 const { spawn } = require('child_process');
 
-let category = process.argv.length > 2 ? process.argv[2] : "";
+let testName = process.argv.length > 2 ? process.argv[2] : "";
 
 (async () => {
   try {
     let l = fs.readFileSync("./.vscode/launch.json", "utf-8");
-    let lj = l.replace(/\/\/.*/g, "");
+    let lj = l.replace(/\/\/.*/g, "");  // remove comments
     var launch = JSON.parse(lj);
 
     for (let config of launch.configurations) {
-      if (!category || config.name.indexOf(category) === 0) {
+      if (!testName || config.name.indexOf(testName) >= 0) {
         console.log(config.name);
+
         if (config.type === "pwa-node" && config.request === "launch" && config.program) {
           let script = config.program.replace("${workspaceFolder}", ".");
         
