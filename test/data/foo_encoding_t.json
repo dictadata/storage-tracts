@@ -10,7 +10,7 @@
       "size": 64,
       "default": null,
       "isNullable": false,
-      "isKey": true,
+      "isKey": false,
       "label": "Fie"
     },
     "dt_test": {
@@ -54,8 +54,8 @@
       "type": "keyword",
       "size": 64,
       "default": null,
-      "isNullable": false,
-      "isKey": true,
+      "isNullable": true,
+      "isKey": false,
       "label": "State"
     }
   }
