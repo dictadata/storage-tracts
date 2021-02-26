@@ -151,7 +151,7 @@ function parseArgs() {
   }
 
   if (retCode === 0)
-    logger.verbose("OK");
+    logger.info("OK");
   else
     logger.error(retCode + " ETL failed, check error log.");
 

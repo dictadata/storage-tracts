@@ -4,7 +4,7 @@
       "smt": "json|./test/data/|*|*",
       "options": {
         "max_read": 100,
-        "schema": "foofile_*.json",
+        "schema": "foofile*.json",
         "recursive": false,
         "statistics": true
       }

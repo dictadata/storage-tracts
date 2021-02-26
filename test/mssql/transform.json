@@ -1,7 +1,7 @@
 {
   "json-etl2": {
     "origin": {
-      "smt": "json|./test/data/|foofile.json|*"
+      "smt": "json|./test/data/|foofile_01.json|*"
     },
     "transforms": {
       "filter": {
@@ -30,8 +30,10 @@
       }
     },
     "terminal": {
-      "smt": "mssql|server=localhost;username=dicta;password=data;database=storage_node|foo_schema_etl2|=Foo",
-      "encoding": "./test/data/foo_encoding_t.json"
+      "smt": "mssql|server=localhost;username=dicta;password=data;database=storage_node|foo_schema_etl2|=foo",
+      "options": {
+        "encoding": "./test/data/foo_encoding_t.json"
+      }
     }
   }
 }

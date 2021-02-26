@@ -31,7 +31,9 @@
     },
     "terminal": {
       "smt": "oracle|connectString=localhost/xepdb1;user=dicta;password=data|foo_schema_etl2|=Foo",
-      "encoding": "./test/data/foo_encoding_t.json"
+      "options": {
+        "encoding": "./test/data/foo_encoding_t.json"
+      }
     }
   }
 }

@@ -39,7 +39,9 @@
         "schema": "fs_transform.json",
         "key": "*"
       },
-      "encoding": "./test/data/foo_encoding_t.json"
+      "options": {
+        "encoding": "./test/data/foo_encoding_t.json"
+      }
     }
   },
   "json-csv": {
@@ -78,9 +80,9 @@
         "key": "*"
       },
       "options": {
-        "header": true
-      },
-      "encoding": "./test/data/foo_encoding_t.json"
+        "header": true,
+        "encoding": "./test/data/foo_encoding_t.json"
+      }
     }
   }
 }

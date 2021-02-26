@@ -5,9 +5,9 @@
     },
     "terminal": {
       "smt": "split|*|*|*",
-      "encoding": "./test/data/db_schema_encoding.json",
       "options": {
-        "splitOn": "TABLE_NAME"
+        "splitOn": "TABLE_NAME",
+        "encoding": "./test/data/db_schema_encoding.json"
       },
       "tract": {
         "terminal": {

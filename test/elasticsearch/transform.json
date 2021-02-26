@@ -5,7 +5,9 @@
     },
     "terminal": {
       "smt": "elasticsearch|http://localhost:9200|foo_schema_etl2|=Foo",
-      "encoding": "./test/data/foo_encoding_t.json"
+      "options": {
+        "encoding": "./test/data/foo_encoding_t.json"
+      }
     },
     "transforms": {
       "filter": {

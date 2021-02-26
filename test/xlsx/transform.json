@@ -5,7 +5,9 @@
     },
     "terminal": {
       "smt": "xlsx|./output/xlsx_foofile.xlsx|etl2|*",
-      "encoding": "./test/data/foo_encoding_t.json"
+      "optios": {
+        "encoding": "./test/data/foo_encoding_t.json"
+      }
     },
     "transforms": {
       "filter": {
