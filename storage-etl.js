@@ -6,6 +6,7 @@
 
 const config = require('./lib/config');
 const logger = require('./lib/logger')
+const { StorageError } = require("@dictadata/storage-junctions").Types;
 
 const codify = require('./lib/codify');
 const list = require("./lib/list");
@@ -110,10 +111,10 @@ function parseArgs() {
     }
 
     if (Object.keys(tracts).length <= 0)
-      throw new Error("No storage tracts defined");
+      throw new StorageError(400, "No storage tracts defined");
     let tract = tracts[appArgs.tract];
     if (!tract)
-      throw new Error("Storage tract not defined: " + appArgs.tract);
+      throw new StorageError(400, "Storage tract not defined: " + appArgs.tract);
 
     switch (appArgs.command) {
       case 'config':
