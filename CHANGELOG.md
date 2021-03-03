@@ -1,5 +1,10 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 1.5.1
+  - updated tracts format, move encoding into options
+  - for terminal file junctions set file extension if not provided
+  - automated testing scripts
+  - update dependency to @dictadata/storage-junctions 1.5.1
 - version 1.4.8
   - don't apply db updates if only key fields in table
   - update dependency to @dictadata/storage-junctions 1.4.11
