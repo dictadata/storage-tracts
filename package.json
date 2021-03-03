@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@dictadata/storage-junctions": "^1.4.11",
+    "colors": "^1.4.0",
     "winston": "^3.2.1",
     "winston-daily-rotate-file": "^4.4.2"
   },

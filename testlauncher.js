@@ -1,5 +1,6 @@
 const fs = require("fs");
 const { spawn } = require('child_process');
+const colors = require('colors');
 
 let testName = process.argv.length > 2 ? process.argv[2] : "";
 
@@ -11,7 +12,7 @@ let testName = process.argv.length > 2 ? process.argv[2] : "";
 
     for (let config of launch.configurations) {
       if (!testName || config.name.indexOf(testName) >= 0) {
-        console.log(config.name);
+        console.log(config.name.bgBlue);
 
         if (config.type === "pwa-node" && config.request === "launch" && config.program) {
           let script = config.program.replace("${workspaceFolder}", ".");
@@ -32,7 +33,7 @@ let testName = process.argv.length > 2 ? process.argv[2] : "";
     }
   }
   catch (err) {
-    console.log(err.message);
+    console.log(err.message.bgRed);
     process.exitCode = 1;
   }
 })();
@@ -53,7 +54,10 @@ async function runTest(args) {
     });
 
     program.on('close', (code) => {
-      console.log(`child process close with code ${code}`);
+     if (code === 0)
+        console.log(`child process close with code ${code}`.blue);
+      else
+        console.log(`child process close with code ${code}`.bgRed);
       resolve(code);
     });
 
@@ -63,7 +67,7 @@ async function runTest(args) {
     });
 
     program.on('error', (error) => {
-      console.log(`child process error ${error.message}`);
+      console.log(`child process error ${error.message}`.bgRed);
       resolve(code);
     });
 /*
