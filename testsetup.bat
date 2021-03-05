@@ -1,2 +1,4 @@
-sc start elasticsearch
-sc start mysql80
+sc start Elasticsearch
+sc start MySQL80
+sc start MSSQLSERVER
+sc start OracleServiceXE
