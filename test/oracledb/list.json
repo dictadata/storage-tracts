@@ -1,0 +1,13 @@
+{
+  "list": {
+    "origin": {
+      "smt": "oracledb|connectString=localhost/xepdb1;user=dicta;password=data|*|*",
+      "options": {
+        "schema": "foo*"
+      }
+    },
+    "terminal": {
+      "output": "./data/output/oracledb/list.json"
+    }
+  }
+}

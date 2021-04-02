@@ -1,12 +1,12 @@
 {
   "local-http": {
     "origin": {
-      "smt": "json|./test/data/|foofile.json|*"
+      "smt": "json|./data/test/|foofile.json|*"
     },
     "terminal": {
       "smt": {
         "model": "json",
-        "locus": "http://dicta:data@localhost/test/output/",
+        "locus": "http://dicta:data@localhost/data/output/",
         "schema": "http_foofile.json",
         "key": "*"
       }
@@ -14,11 +14,11 @@
   },
   "http-local": {
     "origin": {
-      "smt": "json|http://dicta:data@localhost/test/data/|foofile.json|*",
+      "smt": "json|http://dicta:data@localhost/data/test/|foofile.json|*",
       "options": {}
     },
     "terminal": {
-      "smt": "json|./output/|http_foofile.json|*",
+      "smt": "json|./data/output/http/|foofile.json|*",
       "options": {}
     }
   }

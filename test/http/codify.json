@@ -1,13 +1,13 @@
 {
   "codify": {
     "origin": {
-      "smt": "json|http://localhost/test/data/|foofile.json|*",
+      "smt": "json|http://localhost/data/test/|foofile.json|*",
       "options": {
         "max_read": 100
       }
     },
     "terminal": {
-      "output": "./output/http_codify.json"
+      "output": "./data/output/http/codify.json"
     }
   }
 }

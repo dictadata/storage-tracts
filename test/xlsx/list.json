@@ -1,13 +1,13 @@
 {
   "list": {
     "origin": {
-      "smt": "xlsx|./test/data/foofile.xlsx|*|*",
+      "smt": "xlsx|./data/test/foofile.xlsx|*|*",
       "options": {
         "schema": "foo*"
       }
     },
     "terminal": {
-      "output": "./output/xlsx_list.json"
+      "output": "./data/output/xlsx/list.json"
     }
   }
 }

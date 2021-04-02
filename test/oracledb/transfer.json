@@ -1,14 +1,14 @@
 {
   "csv-table": {
     "origin": {
-      "smt": "csv|./test/data/|foofile.csv|*",
+      "smt": "csv|./data/test/|foofile.csv|*",
       "options": {
         "header": true
       }
     },
     "terminal": {
       "smt": {
-        "model": "oracle",
+        "model": "oracledb",
         "locus": "connectString=localhost/xepdb1;user=dicta;password=data",
         "schema": "foo_schema_etl",
         "key": "*"
@@ -17,10 +17,10 @@
   },
   "table-csv": {
     "origin": {
-      "smt": "oracle|connectString=localhost/xepdb1;user=dicta;password=data|foo_schema|*"
+      "smt": "oracledb|connectString=localhost/xepdb1;user=dicta;password=data|foo_schema|*"
     },
     "terminal": {
-      "smt": "csv|./output/|oracle_foofile.csv|*",
+      "smt": "csv|./data/output/oracledb/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -28,7 +28,7 @@
   },
   "bulkload": {
     "origin": {
-      "smt": "csv|./test/data/|timeseries.csv|*",
+      "smt": "csv|./data/test/|timeseries.csv|*",
       "options": {
         "encoding": {
           "time": "date",
@@ -38,7 +38,7 @@
     },
     "terminal": {
       "smt": {
-        "model": "oracle",
+        "model": "oracledb",
         "locus": "connectString=localhost/xepdb1;user=dicta;password=data",
         "schema": "timeseries",
         "key": "*"

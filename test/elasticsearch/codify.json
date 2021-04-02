@@ -7,7 +7,7 @@
       }
     },
     "terminal": {
-      "output": "./output/elasticsearch_codify.json"
+      "output": "./data/output/elasticsearch/codify.json"
     }
   }
 }

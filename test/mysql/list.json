@@ -7,7 +7,7 @@
       }
     },
     "terminal": {
-      "output": "./output/mysql_list.json"
+      "output": "./data/output/mysql/list.json"
     }
   }
 }

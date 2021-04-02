@@ -7,7 +7,7 @@
       }
     },
     "terminal": {
-      "output": "./output/mysql_codify.json"
+      "output": "./data/output/mysql/codify.json"
     }
   }
 }

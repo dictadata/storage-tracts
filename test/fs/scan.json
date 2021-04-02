@@ -1,7 +1,7 @@
 {
   "scan": {
     "origin": {
-      "smt": "json|./test/data/|*|*",
+      "smt": "json|./data/test/|*|*",
       "options": {
         "max_read": 100,
         "schema": "foofile*.json",
@@ -10,7 +10,7 @@
       }
     },
     "terminal": {
-      "output": "./output/fs_scan.json"
+      "output": "./data/output/fs/scan.json"
     }
   }
 }

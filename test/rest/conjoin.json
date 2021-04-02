@@ -26,10 +26,10 @@
       }
     },
     "terminal": {
-      "smt": "csv|./output/|rest_conjoin.csv|*",
+      "smt": "csv|./data/output/rest/|conjoin.csv|*",
       "options": {
         "header": true,
-        "encoding": "./test/data/forecast_encoding.json"
+        "encoding": "./data/test/forecast_encoding.json"
       }
     }
   }

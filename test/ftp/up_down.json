@@ -2,21 +2,21 @@
   "ftp-upload": {
     "origin": {
       "options": {
-        "uploads": "./test/data/*.json"
+        "uploads": "./data/test/*.json"
       }
     },
     "terminal": {
-      "smt": "*|ftp://dicta:data@localhost/test/output/uploads/|*|*"
+      "smt": "*|ftp://dicta:data@localhost/data/output/uploads/|*|*"
     }
   },
   "ftp-download": {
     "origin": {
-      "smt": "json|ftp://dicta:data@localhost/test/data/|*.json|*",
+      "smt": "json|ftp://dicta:data@localhost/data/test/|*.json|*",
       "options": {}
     },
     "terminal": {
       "options": {
-        "downloads": "./output/downloads/"
+        "downloads": "./data/output/ftp/downloads/"
       }
     }
   }

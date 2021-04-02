@@ -23,7 +23,7 @@
       "name": "create config",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["config", "-c", "./output/etl_tracts.json"],
+      "args": ["config", "-c", "./data/output/etl_tracts.json"],
       "env": {
         "NODE_ENV": "production",
         "LOG_LEVEL": "verbose"
@@ -744,10 +744,10 @@
     {
       "type": "pwa-node",
       "request": "launch",
-      "name": "oracle list",
+      "name": "oracledb list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["list", "-c", "${workspaceFolder}/test/oracle/list.json"],
+      "args": ["list", "-c", "${workspaceFolder}/test/oracledb/list.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -757,10 +757,10 @@
     {
       "type": "pwa-node",
       "request": "launch",
-      "name": "oracle codify",
+      "name": "oracledb codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["codify", "-c", "${workspaceFolder}/test/oracle/codify.json"],
+      "args": ["codify", "-c", "${workspaceFolder}/test/oracledb/codify.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -770,13 +770,13 @@
     {
       "type": "pwa-node",
       "request": "launch",
-      "name": "oracle transfer csv > table",
+      "name": "oracledb transfer csv > table",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
         "transfer",
         "-c",
-        "${workspaceFolder}/test/oracle/transfer.json",
+        "${workspaceFolder}/test/oracledb/transfer.json",
         "csv-table"
       ],
       "env": {
@@ -788,13 +788,13 @@
     {
       "type": "pwa-node",
       "request": "launch",
-      "name": "oracle transfer table > csv",
+      "name": "oracledb transfer table > csv",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
         "transfer",
         "-c",
-        "${workspaceFolder}/test/oracle/transfer.json",
+        "${workspaceFolder}/test/oracledb/transfer.json",
         "table-csv"
       ],
       "env": {
@@ -806,13 +806,13 @@
     {
       "type": "pwa-node",
       "request": "launch",
-      "name": "oracle transfer bulk load",
+      "name": "oracledb transfer bulk load",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
         "transfer",
         "-c",
-        "${workspaceFolder}/test/oracle/transfer.json",
+        "${workspaceFolder}/test/oracledb/transfer.json",
         "bulkload"
       ],
       "env": {
@@ -824,13 +824,13 @@
     {
       "type": "pwa-node",
       "request": "launch",
-      "name": "oracle transform json > etl2",
+      "name": "oracledb transform json > etl2",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
         "transfer",
         "-c",
-        "${workspaceFolder}/test/oracle/transform.json",
+        "${workspaceFolder}/test/oracledb/transform.json",
         "json-etl2"
       ],
       "env": {

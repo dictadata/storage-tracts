@@ -1,14 +1,14 @@
-node_modules/
 dist/
-test/output
+log/
+node_modules/
+output/
 test/unit/coverage
 test/e2e/reports
-output/
 
-log/
 *.log
 npm-debug.log*
 selenium-debug.log
+.vscode/.settings.json
 
 # Editor directories and files
 *.suo

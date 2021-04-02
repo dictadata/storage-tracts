@@ -6,7 +6,7 @@
 
 const config = require('./lib/config');
 const logger = require('./lib/logger')
-const { StorageError } = require("@dictadata/storage-junctions").Types;
+const { StorageError } = require("@dictadata/storage-junctions").types;
 const colors = require('colors');
 
 const codify = require('./lib/codify');

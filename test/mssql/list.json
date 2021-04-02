@@ -7,7 +7,7 @@
       }
     },
     "terminal": {
-      "output": "./output/mssql_list.json"
+      "output": "./data/output/mssql/list.json"
     }
   }
 }

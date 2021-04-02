@@ -1,13 +1,13 @@
 {
   "codify": {
     "origin": {
-      "smt": "xlsx|./test/data/foofile.xlsx|foo|*",
+      "smt": "xlsx|./data/test/foofile.xlsx|foo|*",
       "options": {
         "max_read": 100
       }
     },
     "terminal": {
-      "output": "./output/xlsx_codify.json"
+      "output": "./data/output/xlsx/codify.json"
     }
   }
 }

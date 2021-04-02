@@ -1,7 +1,7 @@
 {
   "scan": {
     "origin": {
-      "smt": "json|http://localhost/test/data/|*|*",
+      "smt": "json|http://localhost/data/test/|*|*",
       "options": {
         "max_read": 100,
         "schema": "foofile_*.json",
@@ -10,7 +10,7 @@
       }
     },
     "terminal": {
-      "output": "./output/ftp_scan.json"
+      "output": "./data/output/ftp/scan.json"
     }
   }
 }

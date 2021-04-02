@@ -1,7 +1,7 @@
 {
   "csv-output": {
     "origin": {
-      "smt": "csv|./test/data/|foofile.csv|*",
+      "smt": "csv|./data/test/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -9,7 +9,7 @@
     "terminal": {
       "smt": {
         "model": "csv",
-        "locus": "./output/",
+        "locus": "./data/output/transfer/",
         "schema": "fs_foofile.csv",
         "key": "*"
       },
@@ -20,12 +20,12 @@
   },
   "json-output": {
     "origin": {
-      "smt": "json|./test/data/|foofile.json|*"
+      "smt": "json|./data/test/|foofile.json|*"
     },
     "terminal": {
       "smt": {
         "model": "json",
-        "locus": "./output/",
+        "locus": "./data/output/transfer/",
         "schema": "fs_foofile.json",
         "key": "*"
       }
@@ -33,7 +33,7 @@
   },
   "csv-json": {
     "origin": {
-      "smt": "csv|./test/data/|foofile.csv|*",
+      "smt": "csv|./data/test/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -41,7 +41,7 @@
     "terminal": {
       "smt": {
         "model": "json",
-        "locus": "./output/",
+        "locus": "./data/output/transfer/",
         "schema": "fs_foofile_csv.json",
         "key": "*"
       }
@@ -49,12 +49,12 @@
   },
   "json-csv": {
     "origin": {
-      "smt": "json|./test/data/|foofile.json|*"
+      "smt": "json|./data/test/|foofile.json|*"
     },
    "terminal": {
       "smt": {
         "model": "csv",
-        "locus": "./output/",
+        "locus": "./data/output/transfer/",
         "schema": "fs_foofile_json.csv",
         "key": "*"
       },

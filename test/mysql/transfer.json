@@ -1,7 +1,7 @@
 {
   "csv-table": {
     "origin": {
-      "smt": "csv|./test/data/|foofile.csv|*",
+      "smt": "csv|./data/test/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -20,7 +20,7 @@
       "smt": "mysql|host=localhost;user=dicta;password=data;database=storage_node|foo_schema|*"
     },
     "terminal": {
-      "smt": "csv|./output/|mysql_foofile.csv|*",
+      "smt": "csv|./data/output/mysql/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -28,7 +28,7 @@
   },
   "bulkload": {
     "origin": {
-      "smt": "csv|./test/data/|timeseries.csv|*",
+      "smt": "csv|./data/test/|timeseries.csv|*",
       "options": {
         "encoding": {
           "time": "date",

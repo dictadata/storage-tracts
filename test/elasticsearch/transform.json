@@ -1,12 +1,12 @@
 {
   "json-etl2": {
     "origin": {
-      "smt": "json|./test/data/|foofile.json|*"
+      "smt": "json|./data/test/|foofile.json|*"
     },
     "terminal": {
       "smt": "elasticsearch|http://localhost:9200|foo_schema_etl2|=Foo",
       "options": {
-        "encoding": "./test/data/foo_encoding_t.json"
+        "encoding": "./data/test/foo_encoding_t.json"
       }
     },
     "transforms": {

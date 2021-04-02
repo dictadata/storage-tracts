@@ -1,7 +1,7 @@
 {
   "csv-json": {
     "origin": {
-      "smt": "csv|./test/data/|foofile.csv|*",
+      "smt": "csv|./data/test/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -35,18 +35,18 @@
     "terminal": {
       "smt": {
         "model": "json",
-        "locus": "./output/",
-        "schema": "fs_transform.json",
+        "locus": "./data/output/fs/",
+        "schema": "transform.json",
         "key": "*"
       },
       "options": {
-        "encoding": "./test/data/foo_encoding_t.json"
+        "encoding": "./data/test/foo_encoding_t.json"
       }
     }
   },
   "json-csv": {
     "origin": {
-      "smt": "json|./test/data/|foofile.json|*"
+      "smt": "json|./data/test/|foofile.json|*"
     },
     "transforms": {
       "filter": {
@@ -75,13 +75,13 @@
     "terminal": {
       "smt": {
         "model": "csv",
-        "locus": "./output/",
-        "schema": "fs_transform.csv",
+        "locus": "./data/output/fs/",
+        "schema": "transform.csv",
         "key": "*"
       },
       "options": {
         "header": true,
-        "encoding": "./test/data/foo_encoding_t.json"
+        "encoding": "./data/test/foo_encoding_t.json"
       }
     }
   }

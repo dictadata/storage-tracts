@@ -1,13 +1,13 @@
 {
   "list": {
     "origin": {
-      "smt": "json|ftp://dicta:data@localhost/test/|foofile_*.json|*",
+      "smt": "json|ftp://dicta:data@localhost/data/|foofile_*.json|*",
       "options": {
         "recursive": true
       }
     },
     "terminal": {
-      "output": "./output/ftp_list.json"
+      "output": "./data/output/ftp/list.json"
     }
   }
 }

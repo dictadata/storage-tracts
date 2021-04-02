@@ -1,13 +1,13 @@
 {
   "list": {
     "origin": {
-      "smt": "json|http://localhost/test/|foofile_*.json|*",
+      "smt": "json|http://localhost/data/|foofile_*.json|*",
       "options": {
         "recursive": true
       }
     },
     "terminal": {
-      "output": "./output/http_list.json"
+      "output": "./data/output/http/list.json"
     }
   }
 }

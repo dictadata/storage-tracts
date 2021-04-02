@@ -19,7 +19,7 @@
       }
     },
     "terminal": {
-      "smt": "json|./output/|rest-transform.json|*"
+      "smt": "json|./data/output/|rest-transform.json|*"
     }
   }
 }

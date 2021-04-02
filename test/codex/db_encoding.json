@@ -1,9 +1,9 @@
 {
   "tabledefs": {
     "origin": {
-      "smt": "json|./test/data/|db_schema.json|*",
+      "smt": "json|./data/test/|db_schema.json|*",
       "options": {
-        "encoding": "./test/data/db_schema_encoding.json"
+        "encoding": "./data/test/db_schema_encoding.json"
       }
     },
     "tranforms": {
@@ -21,7 +21,7 @@
         }
       },
       "encoder": {
-        "junction": "OracleJunction"
+        "junction": "OracleDBJunction"
       },
       "terminal": {
         "smt": "splitter|*|*|*",
@@ -32,7 +32,7 @@
           "transforms": {
           },
           "terminal": {
-            "smt": "json|./test/data/DBENCODING/|*.json|*",
+            "smt": "json|./data/test/DBENCODING/|*.json|*",
             "options": {}
           }
         }
