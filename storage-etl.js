@@ -4,17 +4,17 @@
  */
 "use strict";
 
-const config = require('./lib/config');
-const logger = require('./lib/logger')
+const config = require('./storage/etl/config');
+const logger = require('./storage/etl/logger')
 const { StorageError } = require("@dictadata/storage-junctions").types;
 const colors = require('colors');
 
-const codify = require('./lib/codify');
-const list = require("./lib/list");
-const scan = require('./lib/scan');
-const transfer = require('./lib/transfer');
-const download = require('./lib/download');
-const upload = require('./lib/upload');
+const codify = require('./storage/etl/codify');
+const list = require("./storage/etl/list");
+const scan = require('./storage/etl/scan');
+const transfer = require('./storage/etl/transfer');
+const download = require('./storage/etl/download');
+const upload = require('./storage/etl/upload');
 const path = require('path');
 
 // set program argument defaults

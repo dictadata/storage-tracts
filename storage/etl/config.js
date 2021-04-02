@@ -6,7 +6,7 @@
 const { StorageError } = require("@dictadata/storage-junctions").types;
 const { typeOf, logger } = require("@dictadata/storage-junctions").utils;
 
-const Package = require('../package.json');
+const Package = require('../../package.json');
 const fs = require('fs');
 
 exports.version = Package.version;
