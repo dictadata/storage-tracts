@@ -1,7 +1,7 @@
 {
   "list": {
     "origin": {
-      "smt": "json|S3:dictadata.org/test/|foofile_*.json|*",
+      "smt": "json|S3:dictadata.org/data/test/|foofile_*.json|*",
       "options": {
         "s3": {
           "aws_profile": "dictadata"

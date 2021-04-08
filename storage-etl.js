@@ -4,9 +4,9 @@
  */
 "use strict";
 
+const { StorageError } = require("@dictadata/storage-junctions").types;
 const config = require('./storage/etl/config');
 const logger = require('./storage/etl/logger')
-const { StorageError } = require("@dictadata/storage-junctions").types;
 const colors = require('colors');
 
 const codify = require('./storage/etl/codify');
