@@ -16,12 +16,16 @@
   },
   "keywords": [
     "ETL",
-    "transform",
     "json",
     "csv",
     "xlsx",
     "elasticsearch",
-    "mysql"
+    "mssql",
+    "mysql",
+    "oracledb",
+    "rest",
+    "data management",
+    "database migration"
   ],
   "engines": {
     "node": ">=15.0.1"
@@ -29,6 +33,7 @@
   "dependencies": {
     "@dictadata/s3-filesystem": "^1.7.1",
     "@dictadata/storage-junctions": "^1.7.3",
+    "@dictadata/xlsx-junction": "^1.7.1",
     "colors": "^1.4.0",
     "winston": "^3.2.1",
     "winston-daily-rotate-file": "^4.4.2"

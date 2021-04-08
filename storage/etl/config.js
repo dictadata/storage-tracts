@@ -5,7 +5,7 @@
 
 const storage = require("@dictadata/storage-junctions");
 const S3FileSystem = require("@dictadata/s3-filesystem");
-//const TransportDBJunction = require("@dictadata/transportdb-junction");
+const XlsxJunction = require("@dictadata/Xlsx-junction");
 const { StorageError } = require("@dictadata/storage-junctions").types;
 const { typeOf, logger } = require("@dictadata/storage-junctions").utils;
 
@@ -118,7 +118,9 @@ exports.loadTracts = async (tractsFilename, schema) => {
 storage.FileSystems.use("s3", S3FileSystem);
 
 // standard junction plugins
-//storage.use("transportdb", TransportDBJunction);
+storage.use("xlsx", XlsxJunction);
+storage.use("xls", XlsxJunction);
+storage.use("ods", XlsxJunction);
 
 async function loadPlugins(plugins) {
 

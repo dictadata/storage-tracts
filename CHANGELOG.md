@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 1.7.1
+  - update dependency to @dictadata/storage-junctions 1.7.3
+  - include @dictadata/xlsx-junction and @dictdata/s3-filesystem as separate projects
 - version 1.5.1
   - updated tracts format, move encoding into options
   - for terminal file junctions set file extension if not provided
