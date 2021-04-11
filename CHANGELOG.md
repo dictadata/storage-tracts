@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 1.7.2
+  - updates for testing with st_launcher
+  - update dependencies
 - version 1.7.1
   - update dependency to @dictadata/storage-junctions 1.7.3
   - include @dictadata/xlsx-junction and @dictdata/s3-filesystem as separate projects

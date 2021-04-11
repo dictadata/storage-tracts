@@ -1,19 +1,23 @@
 {
   "name": "@dictadata/storage-etl",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "Command line ETL utility to transfer and optionally transform data between local and/or distributed sources.",
   "author": "Drew O. Letcher",
   "license": "MIT",
-  "repository": "gitlab:dictadata/js/storage-etl",
   "main": "storage-etl.js",
-  "scripts": {
-    "start": "node storage-etl.js config",
-    "debug": "node --inspect --preserve-symlinks storage-etl.js -c \"test/mysql/transfer.json\" transfer bulkload"
-  },
   "bin": {
     "etl": "./storage-etl.js",
     "storage-etl": "./storage-etl.js"
   },
+  "scripts": {
+    "start": "node storage-etl.js config",
+    "debug": "node --inspect --preserve-symlinks storage-etl.js -c \"test/mysql/transfer.json\" transfer bulkload"
+  },
+  "repository": "gitlab:dictadata/js/storage-etl",
+  "bugs": {
+    "url": "https://gitlab.com/dictadata/js/storage-etl/issues"
+  },
+  "homepage": "https://gitlab.com/dictadata/js/storage-etl#readme",
   "keywords": [
     "ETL",
     "json",
@@ -31,15 +35,15 @@
     "node": ">=15.0.1"
   },
   "dependencies": {
-    "@dictadata/s3-filesystem": "^1.7.1",
-    "@dictadata/storage-junctions": "^1.7.3",
-    "@dictadata/xlsx-junction": "^1.7.1",
+    "@dictadata/s3-filesystem": "^1.7.2",
+    "@dictadata/storage-junctions": "^1.7.4",
+    "@dictadata/xlsx-junction": "^1.7.2",
     "colors": "^1.4.0",
     "winston": "^3.2.1",
     "winston-daily-rotate-file": "^4.4.2"
   },
   "devDependencies": {
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1"
+    "eslint-plugin-promise": "^5.1.0"
   }
 }
