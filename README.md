@@ -1,14 +1,16 @@
 # @dictadata/storage-etl 1.5.0
 
-Command line ETL utilitiy to transfer, transform and codify data between local and distributed storage sources.
+Command line ETL utilitiy to transfer, transform and codify data between local and distributed storage.
 
 ## Prerequisites
 
-Node.js version 15.0 or higher.  Download the installer from https://nodejs.org/en/download/.
+Node.js version 15.0 or higher.  Download the installer from [https://nodejs.org/en/download/](https://nodejs.org/en/download/).
 
 ## Installation
 
+```bash
     npm install -g @dictadata/storage-etl
+```
 
 ## Command Line Usage
 
@@ -17,10 +19,11 @@ Node.js version 15.0 or higher.  Download the installer from https://nodejs.org/
 
   Commands:
     config - create example etl_tracts.json file in the current directory.
-    codify - determine storage encoding by codifying a single data source schema.
-    list - listing of schema names in a data source.
-    scan - list data source and determine storage encoding by codifying multiple schemas.
-    transfer - transfer data between data sources with optional transforms.
+    list - listing of schema names in a data store.
+    codify - determine schema encoding by codifying a single data store schema.
+    scan - list data store and determine schema encoding by codifying multiple schemas.
+    transfer - transfer data between data stores with optional transforms.
+    dull - remove data from a data store.
     download - download schemas from remote files system to the local file system.
     upload - upload schemas from local file system to remote file system.
   
@@ -35,18 +38,21 @@ Node.js version 15.0 or higher.  Download the installer from https://nodejs.org/
 
 ## Tracts Configuration File
 
-- A tracts configuration specifies the source and destination SMT addresses along with options, encoding, transform and output information.
-- Source and destination MUST be supported and compatible storage sources.
+- A tract configuration specifies the origin and terminal SMT addresses along with options, encoding, transforms and output information.
+- Origin and terminal MUST both be supported and compatible key stores or record stores.
 - Scan functionality supports file storage such as local folders, FTP and AWS S3 buckets.
-- Transforms are optional. If specified then fields will be transformed between source and destination.
+- Transforms are optional. If specified then fields will be transformed between origin and terminal.
 
 ## Examples
 
 ### Transfer and transform a .json file to "flat" .csv file
 
+```bash
     storage-etl transfer -c etl_flatten.json
+```
 
 etl_flatten.json:
+
 ```json
 {
   "transfer": {
@@ -74,6 +80,7 @@ etl_flatten.json:
 ```
 
 foofile.json:
+
 ```json
 [
   {
@@ -104,6 +111,7 @@ foofile.json:
 ```
 
 fooflat.csv
+
 ```json
   "foo","bar","baz","enabled"
   "first",123,"2018-10-07",true
@@ -113,11 +121,12 @@ fooflat.csv
 
 ### NOSA Weather Service transfer
 
-```
+```bash
 storage-etl transfer -c etl_weather.json forecast
 ```
 
 etl_weather.json:
+
 ```json
 {
   "forecast": {

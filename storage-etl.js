@@ -7,14 +7,16 @@
 const { StorageError } = require("@dictadata/storage-junctions").types;
 const config = require('./storage/etl/config');
 const logger = require('./storage/etl/logger')
-const colors = require('colors');
 
-const codify = require('./storage/etl/codify');
 const list = require("./storage/etl/list");
+const codify = require('./storage/etl/codify');
 const scan = require('./storage/etl/scan');
 const transfer = require('./storage/etl/transfer');
+const dull = require('./storage/etl/dull');
 const download = require('./storage/etl/download');
 const upload = require('./storage/etl/upload');
+
+const colors = require('colors');
 const path = require('path');
 
 // set program argument defaults
@@ -77,18 +79,19 @@ function parseArgs() {
     parseArgs();
 
     if (!appArgs.command) {
-      console.log("Transfer, transform and codify data between local and distributed storage sources.");
+      console.log("Transfer, transform and codify data between local and distributed storage stores.");
       console.log("");
       console.log("etl [-t tractsFile] [command] [tractName] [schemaName]");
       console.log("");
       console.log("Commands:");
       console.log("  config - create example etl_tracts.json file in the current directory.");
-      console.log("  codify - determine storage encoding by codifying a single data source schema.");
-      console.log("  list - listing of schema names in a data source.");
-      console.log("  scan - list data source and determine storage encoding by codifying multiple schemas.");
-      console.log("  transfer - transfer data between data sources with optional transforms.");
-      console.log("  download - download schemas from remote files system to the local file system.");
-      console.log("  upload - upload schemas from local file system to remote file system.");
+      console.log("  list - listing of schema names in a data store.");
+      console.log("  codify - determine schema encoding by codifying a single schema.");
+      console.log("  scan - list data store and determine schema encoding by codifying multiple schemas.");
+      console.log("  transfer - transfer data between data stores with optional transforms.");
+      console.log("  dull - remove data from a data store.");
+      console.log("  download - download schema data from remote files system to the local file system.");
+      console.log("  upload - upload schema data from local file system to remote file system.");
       console.log("");
       console.log("tractsFile");
       console.log("  JSON configuration file that defines tracts, plug-ins and logging.");
@@ -97,9 +100,11 @@ function parseArgs() {
       console.log("tractName");
       console.log("  The tract to follow in the configuration file.");
       console.log("  Default tractName is the command name.");
+      console.log("");
       console.log("schemaName");
       console.log("  A string value that will be replaced in the tract with regex.");
       console.log("  All occurences of ${schema} in the tract will be replace with schemaName.");
+      console.log("");
       return;
     }
 
@@ -122,17 +127,20 @@ function parseArgs() {
         // should never get here, see above 'config' code
         await config.createTracts();  
         break;
-      case 'codify':
-        retCode = await codify(tract);
-        break;
       case 'list':
         retCode = await list(tract);
+        break;
+      case 'codify':
+        retCode = await codify(tract);
         break;
       case 'scan':
         retCode = await scan(tract);
         break;
       case 'transfer':
         retCode = await transfer(tract);
+        break;
+      case 'dull':
+        retCode = await dull(tract);
         break;
       case 'download':
         retCode = await download(tract);
