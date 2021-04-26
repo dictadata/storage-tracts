@@ -45,7 +45,7 @@ exports.createTracts = async function (tractsFilename) {
           "smt": "json|./|foofile.json|*",
           "options": {
             "encoding": {},
-            "noCreate": false
+            "append": false
           }
         }
       },

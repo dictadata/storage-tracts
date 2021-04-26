@@ -7,7 +7,7 @@ const storage = require("@dictadata/storage-junctions");
 const { typeOf, logger } = require("@dictadata/storage-junctions").utils;
 
 const fs = require('fs/promises');
-const { finished } = require('stream/promises');
+const stream = require('stream/promises');
 
 /**
  *
@@ -22,12 +22,12 @@ module.exports = async (tract) => {
     let reader = null;
     let writers = [];
     let pattern = {
-      match: {
-      }
+      match: {}
     }
     pattern.match[tract.state.field] = {
       "gt": tract.state.value
     };
+    let transforms = tract.transforms || {};
 
     logger.verbose(">>> Origin Tract");
     if (!tract.origin.options) tract.origin.options = {};
@@ -44,14 +44,33 @@ module.exports = async (tract) => {
     jo = await storage.activate(tract.origin.smt, tract.origin.options);
 
     logger.verbose(">>> getEncoding");
-    let results = await jo.getEncoding();
-    let encoding = results.data["encoding"];
+    let encoding = {};
+    // if not a filesystem based source and no transforms defined
+    // then get source encoding
+    if (jo.capabilities.encoding && !transforms.length) {
+      let results = await jo.getEncoding();
+      encoding = results.data["encoding"];
+    }
+    else {
+      // if filesystem based source or transforms defined
+      // then run some data through the codifier
+      let pipes = [];
+      pipes.push(jo.createReadStream(tract.origin.options || { max_read: 100 }));
+
+      for (let [tfType, options] of Object.entries(transforms))
+        pipes.push(jo.createTransform(tfType, options));
+    
+      let ct = jo.createTransform('codify');
+      pipes.push(ct);
+
+      await stream.pipeline(pipes);
+      encoding = ct.encoding;
+    }
 
     logger.verbose(">>> createReadStream");
     reader = jo.createReadStream(pattern);
 
     logger.verbose(">>> origin transforms");
-    let transforms = tract.transforms || {};
     for (let [tfName, tfOptions] of Object.entries(transforms)) {
       let tfType = tfName.split("-")[0];
       reader = reader.pipe(jo.createTransform(tfType, tfOptions));
@@ -77,7 +96,7 @@ module.exports = async (tract) => {
       let jt = await storage.activate(terminal.smt, terminal.options);
       jtl.push(jt);
 
-      if (!terminal.options.noCreate) {
+      if (!terminal.options.append && jt.capabilities.encoding) {
         logger.verbose(">>> createSchema");
         encoding = await jt.createSchema();
       }
@@ -95,7 +114,7 @@ module.exports = async (tract) => {
         let jt = await storage.activate(branch.terminal.smt, branch.terminal.options);
         jtl.push(jt);
 
-        if (!terminal.options.noCreate) {
+        if (!terminal.options.append && jt.capabilities.encoding) {
           logger.verbose(">>> createSchema");
           encoding = await jt.createSchema();
         }
@@ -118,9 +137,9 @@ module.exports = async (tract) => {
     }
 
     logger.verbose(">>> wait on transfer");
-    await finished(reader);
+    await stream.finished(reader);
     for (let writer of writers)
-      await finished(writer);
+      await stream.finished(writer);
 
     logger.verbose(">>> completed");
   }

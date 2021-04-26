@@ -29,7 +29,7 @@ module.exports = async (tract) => {
     let encoding = {};
     // if not a filesystem based source and no transforms defined
     // then get source encoding
-    if (!storage.FileSystems.isUsedBy(jo.engram.model) && !transforms.length) {
+    if (jo.capabilities.encoding && !transforms.length) {
       let results = await jo.getEncoding();
       encoding = results.data["encoding"];
     }
@@ -46,8 +46,7 @@ module.exports = async (tract) => {
       pipes.push(ct);
 
       await stream.pipeline(pipes);
-      let results = await ct.getEncoding();
-      encoding = results.data["encoding"];
+      encoding = ct.encoding;
     }
 
     if (origin.options.encoding_format === "types_only") {
