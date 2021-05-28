@@ -11,7 +11,7 @@
   },
   "ftp-download": {
     "origin": {
-      "smt": "json|ftp://dicta:data@localhost/data/test/|*.json|*",
+      "smt": "json|ftp://anonymous:anonymous@ftp2.census.gov/geo/tiger/TIGER2020/COUNTY/|*.zip|*",
       "options": {}
     },
     "terminal": {

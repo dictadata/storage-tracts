@@ -40,7 +40,7 @@
     "@dictadata/xlsx-junction": "^1.7.3",
     "colors": "^1.4.0",
     "winston": "^3.2.1",
-    "winston-daily-rotate-file": "^4.4.2"
+    "winston-daily-rotate-file": "^4.5.5"
   },
   "devDependencies": {
     "eslint-plugin-node": "^11.1.0",
