@@ -1,0 +1,12 @@
+{
+  "zip-local": {
+    "origin": {
+      "smt": "json|zip:./data/test/foofile.zip|foofile.json|*",
+      "options": {}
+    },
+    "terminal": {
+      "smt": "json|./data/output/zip/|foofile.json|*",
+      "options": {}
+    }
+  }
+}

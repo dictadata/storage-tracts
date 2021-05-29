@@ -10,7 +10,7 @@
       }
     },
     "terminal": {
-      "output": "./data/output/ftp/scan.json"
+      "output": "./data/output/http/scan.json"
     }
   }
 }

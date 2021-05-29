@@ -1,0 +1,16 @@
+{
+  "scan": {
+    "origin": {
+      "smt": "json|zip:./data/test/foofile.zip|*|*",
+      "options": {
+        "max_read": 100,
+        "schema": "foo*.json",
+        "recursive": true,
+        "statistics": true
+      }
+    },
+    "terminal": {
+      "output": "./data/output/zip/scan.json"
+    }
+  }
+}

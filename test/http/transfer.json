@@ -1,17 +1,4 @@
 {
-  "local-http": {
-    "origin": {
-      "smt": "json|./data/test/|foofile.json|*"
-    },
-    "terminal": {
-      "smt": {
-        "model": "json",
-        "locus": "http://dicta:data@localhost/data/output/",
-        "schema": "http_foofile.json",
-        "key": "*"
-      }
-    }
-  },
   "http-local": {
     "origin": {
       "smt": "json|http://dicta:data@localhost/data/test/|foofile.json|*",
