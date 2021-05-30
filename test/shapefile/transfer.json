@@ -1,20 +1,20 @@
 {
   "shp-json": {
     "origin": {
-      "smt": "shp|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*",
-      "options": {
-        "headers": {
-          "Accept": "application/ld+json",
-          "User-Agent": "@dictadata.org/storage-node (info@dictadata.org)"
-        },
-        "extract": {
-          "names": "",
-          "data": "periods"
-        }
-      }
+      "smt": "shp|./data/test/shapefile/|polygons|*",
+      "options": {}
     },
     "terminal": {
-      "smt": "json|./data/output/shapefile/|transfer.json|*"
+      "smt": "json|./data/output/shapefile/|polygons.json|*"
+    }
+  },
+    "zip-json": {
+    "origin": {
+      "smt": "shp|zip:./data/test/shapefile/points.zip|points|*",
+      "options": {}
+    },
+    "terminal": {
+      "smt": "json|./data/output/shapefile/|points.json|*"
     }
   }
 }

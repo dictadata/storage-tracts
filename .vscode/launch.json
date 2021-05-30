@@ -986,7 +986,7 @@
         "transfer",
         "-c",
         "${workspaceFolder}/test/shapefile/transfer.json",
-        "shapefile-json"
+        "shp-json"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -997,32 +997,14 @@
     {
       "type": "pwa-node",
       "request": "launch",
-      "name": "shapefile transfrom > json",
+      "name": "shapefile zip > json",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
         "transfer",
         "-c",
-        "${workspaceFolder}/test/shapefile/transform.json",
-        "forecast"
-      ],
-      "env": {
-        "NODE_ENV": "development",
-        "LOG_LEVEL": "verbose"
-      },
-      "outputCapture": "std"
-    },
-    {
-      "type": "pwa-node",
-      "request": "launch",
-      "name": "shapefile conjoin",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "transfer",
-        "-c",
-        "${workspaceFolder}/test/shapefile/conjoin.json",
-        "gps_forecast"
+        "${workspaceFolder}/test/shapefile/transfer.json",
+        "zip-json"
       ],
       "env": {
         "NODE_ENV": "development",
