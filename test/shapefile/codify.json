@@ -12,7 +12,7 @@
       }
     },
     "terminal": {
-      "output": "./data/output/shapfile/polygons_encoding.json"
+      "output": "./data/output/shapefile/polygons_encoding.json"
     }
   }
 }

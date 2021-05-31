@@ -8,13 +8,55 @@
       "smt": "json|./data/output/shapefile/|polygons.json|*"
     }
   },
-    "zip-json": {
+  "zip-json": {
     "origin": {
       "smt": "shp|zip:./data/test/shapefile/points.zip|points|*",
       "options": {}
     },
     "terminal": {
       "smt": "json|./data/output/shapefile/|points.json|*"
+    }
+  },
+  "points-elastic": {
+    "origin": {
+      "smt": "shp|zip:./data/test/shapefile/points.zip|points|*",
+      "options": {}
+    },
+    "terminal": {
+      "smt": {
+        "model": "elasticsearch",
+        "locus": "http://localhost:9200",
+        "schema": "shapes",
+        "key": "*"
+      }
+    }
+  },
+  "polygons-elastic": {
+    "origin": {
+      "smt": "shp|./data/test/shapefile/|polygons|*",
+      "options": {}
+    },
+    "terminal": {
+      "smt": {
+        "model": "elasticsearch",
+        "locus": "http://localhost:9200",
+        "schema": "shapes",
+        "key": "*"
+      }
+    }
+  },
+  "elastic-json": {
+    "origin": {
+      "smt": {
+        "model": "elasticsearch",
+        "locus": "http://localhost:9200",
+        "schema": "shapes",
+        "key": "*"
+      },
+      "options": {}
+    },
+    "terminal": {
+      "smt": "json|./data/output/shapefile/|shapes.json|*"
     }
   }
 }

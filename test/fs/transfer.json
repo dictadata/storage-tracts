@@ -9,7 +9,7 @@
     "terminal": {
       "smt": {
         "model": "csv",
-        "locus": "./data/output/transfer/",
+        "locus": "./data/output/fs/",
         "schema": "fs_foofile.csv",
         "key": "*"
       },
@@ -25,7 +25,7 @@
     "terminal": {
       "smt": {
         "model": "json",
-        "locus": "./data/output/transfer/",
+        "locus": "./data/output/fs/",
         "schema": "fs_foofile.json",
         "key": "*"
       }
@@ -41,7 +41,7 @@
     "terminal": {
       "smt": {
         "model": "json",
-        "locus": "./data/output/transfer/",
+        "locus": "./data/output/fs/",
         "schema": "fs_foofile_csv.json",
         "key": "*"
       }
@@ -54,7 +54,7 @@
    "terminal": {
       "smt": {
         "model": "csv",
-        "locus": "./data/output/transfer/",
+        "locus": "./data/output/fs/",
         "schema": "fs_foofile_json.csv",
         "key": "*"
       },

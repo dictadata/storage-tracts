@@ -70,7 +70,7 @@ etl_flatten.json:
       }
     },
     "terminal": {
-      "smt": "csv|./output/|fooflat.csv|*",
+      "smt": "csv|./data/output/|fooflat.csv|*",
       "options": {
         "header": true
       }
@@ -144,7 +144,7 @@ etl_weather.json:
       }
     },
     "terminal": {
-      "smt": "csv|./output/|etl-3-weather.csv|*",
+      "smt": "csv|./data/output/|etl-3-weather.csv|*",
       "options": {
         "header": true
       }
