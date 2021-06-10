@@ -20,7 +20,7 @@ module.exports = async (tract) => {
 
   var jo;
   try {
-    let transforms = tract.transforms || {};
+    let transforms = tract.transform || tract.transforms || {};
     if (!tract.origin.options) tract.origin.options = {};
     let encoding = tract.origin.options.encoding || {};
 

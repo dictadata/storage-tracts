@@ -27,7 +27,7 @@ module.exports = async (tract) => {
     pattern.match[tract.state.field] = {
       "gt": tract.state.value
     };
-    let transforms = tract.transforms || {};
+    let transforms = tract.transform || tract.transforms || {};
 
     logger.verbose(">>> Origin Tract");
     if (!tract.origin.options) tract.origin.options = {};
@@ -121,7 +121,7 @@ module.exports = async (tract) => {
 
         let writer = null;
         logger.verbose(">>> transforms");
-        let transforms = branch.transforms || {};
+        let transforms = branch.transform || branch.transforms || {};
         for (let [tfName, tfOptions] of Object.entries(transforms)) {
           let tfType = tfName.split("-")[0];
           let t = jt.createTransform(tfType, tfOptions);

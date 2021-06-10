@@ -6,7 +6,7 @@
         "header": true
       }
     },
-    "transforms": {
+    "transform": {
       "filter": {
         "match": {
           "Bar": "row"
@@ -48,7 +48,7 @@
     "origin": {
       "smt": "json|./data/test/|foofile.json|*"
     },
-    "transforms": {
+    "transform": {
       "filter": {
         "match": {
           "Bar": "row"

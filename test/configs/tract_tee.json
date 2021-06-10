@@ -1,10 +1,10 @@
 {
   "tract-name": {
     "origin": {},
-    "transforms": {},
+    "transform": {},
     "terminal": [
       {
-        "transforms": {},
+        "transform": {},
         "terminal": {}
       }
     ]

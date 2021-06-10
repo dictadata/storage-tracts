@@ -37,7 +37,7 @@ exports.createTracts = async function (tractsFilename) {
             "encoding": {}
           }
         },
-        "transforms": {
+        "transform": {
           "filter": {},
           "select": {}
         },

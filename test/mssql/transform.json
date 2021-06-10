@@ -3,7 +3,7 @@
     "origin": {
       "smt": "json|./data/test/|foofile_01.json|*"
     },
-    "transforms": {
+    "transform": {
       "filter": {
         "match": {
           "Bar": "row"

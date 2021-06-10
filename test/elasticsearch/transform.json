@@ -9,7 +9,7 @@
         "encoding": "./data/test/foo_encoding_t.json"
       }
     },
-    "transforms": {
+    "transform": {
       "filter": {
         "match": { "Bar": "row" },
         "drop": {

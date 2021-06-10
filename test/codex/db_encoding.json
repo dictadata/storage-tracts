@@ -29,7 +29,7 @@
           "splitOn": "TABLE_NAME"
         },
         "tract": {
-          "transforms": {
+          "transform": {
           },
           "terminal": {
             "smt": "json|./data/test/DBENCODING/|*.json|*",

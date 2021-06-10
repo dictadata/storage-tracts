@@ -22,7 +22,7 @@ module.exports = async (tract) => {
     let origin = tract.origin || {};
     if (!Object.prototype.hasOwnProperty.call(origin, "options"))
       origin.options = {};
-    let transforms = tract.transforms || {};
+    let transforms = tract.transform || tract.transforms || {};
 
     jo = await storage.activate(origin.smt, origin.options);
 

@@ -13,7 +13,7 @@
         }
       }
     },
-    "transforms": {
+    "transform": {
       "select": {
         "fields": [ "name", "temperature", "temperatureUnit", "windSpeed", "windDirection", "shortForecast" ]
       }

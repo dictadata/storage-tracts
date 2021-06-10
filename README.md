@@ -59,7 +59,7 @@ etl_flatten.json:
     "origin": {
       "smt": "json|./data/test/|foofile.json|*"
     },
-    "transforms": {
+    "transform": {
       "select": {
         "fields": {
           "Foo": "foo",
