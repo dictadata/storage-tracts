@@ -1,13 +1,13 @@
 {
   "codify": {
     "origin": {
-      "smt": "json|zip:./data/test/foofile.zip|foofile.json|*",
+      "smt": "json|zip:./test/data/foofile.zip|foofile.json|*",
       "options": {
         "max_read": 100
       }
     },
     "terminal": {
-      "output": "./data/output/zip/codify.json"
+      "output": "./test/data/output/zip/codify.json"
     }
   }
 }

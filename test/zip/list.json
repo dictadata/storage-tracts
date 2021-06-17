@@ -1,13 +1,13 @@
 {
   "list": {
     "origin": {
-      "smt": "json|zip:./data/test/foofile.zip|foo*.json|*",
+      "smt": "json|zip:./test/data/foofile.zip|foo*.json|*",
       "options": {
         "recursive": true
       }
     },
     "terminal": {
-      "output": "./data/output/zip/list.json"
+      "output": "./test/data/output/zip/list.json"
     }
   }
 }

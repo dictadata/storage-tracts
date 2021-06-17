@@ -1,7 +1,7 @@
 {
   "csv-table": {
     "origin": {
-      "smt": "csv|./data/test/|foofile.csv|*",
+      "smt": "csv|./test/data/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -20,7 +20,7 @@
       "smt": "oracledb|connectString=localhost/xepdb1;user=dicta;password=data|foo_schema|*"
     },
     "terminal": {
-      "smt": "csv|./data/output/oracledb/|foofile.csv|*",
+      "smt": "csv|./test/data/output/oracledb/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -28,7 +28,7 @@
   },
   "bulkload": {
     "origin": {
-      "smt": "csv|./data/test/|timeseries.csv|*",
+      "smt": "csv|./test/data/|timeseries.csv|*",
       "options": {
         "encoding": {
           "time": "date",

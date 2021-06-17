@@ -4,7 +4,7 @@
       "smt": "mssql|server=localhost;username=dicta;password=data;database=storage_node|${schema}|*"
     },
     "terminal": {
-      "smt": "json|./data/output/mssql/|schema_${schema}.json|*"
+      "smt": "json|./test/data/output/mssql/|schema_${schema}.json|*"
     }
   }
 }

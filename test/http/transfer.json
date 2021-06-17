@@ -5,7 +5,7 @@
       "options": {}
     },
     "terminal": {
-      "smt": "json|./data/output/http/|foofile.json|*",
+      "smt": "json|./test/data/output/http/|foofile.json|*",
       "options": {}
     }
   }

@@ -7,7 +7,7 @@
       }
     },
     "terminal": {
-      "output": "./data/output/http/list.json"
+      "output": "./test/data/output/http/list.json"
     }
   }
 }

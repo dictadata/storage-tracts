@@ -1,7 +1,7 @@
 {
   "local-s3": {
     "origin": {
-      "smt": "json|./data/test/|foofile.json|*"
+      "smt": "json|./test/data/|foofile.json|*"
     },
     "terminal": {
       "smt": {
@@ -27,7 +27,7 @@
       }
     },
     "terminal": {
-      "smt": "json|./data/output/s3/|foofile.json|*"
+      "smt": "json|./test/data/output/s3/|foofile.json|*"
     }
   }
 }

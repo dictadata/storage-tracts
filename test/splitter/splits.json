@@ -1,17 +1,17 @@
 {
   "split": {
     "origin": {
-      "smt": "json|./data/test/|db_schema.json|*"
+      "smt": "json|./test/data/|db_schema.json|*"
     },
     "terminal": {
       "smt": "split|*|*|*",
       "options": {
         "splitOn": "TABLE_NAME",
-        "encoding": "./data/test/db_schema_encoding.json"
+        "encoding": "./test/data/db_schema_encoding.json"
       },
       "tract": {
         "terminal": {
-          "smt": "json|./data/output/DB/|db_*|*",
+          "smt": "json|./test/data/output/DB/|db_*|*",
           "options": {}
         }
       }

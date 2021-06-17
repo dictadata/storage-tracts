@@ -49,7 +49,7 @@ module.exports = async (tract) => {
       // if filesystem based source or transforms defined
       // then run some data through the codifier
       let pipes = [];
-      pipes.push(jo.createReadStream(tract.origin.options || { max_read: 100 }));
+      pipes.push(jo.createReader(tract.origin.options || { max_read: 100 }));
 
       for (let [tfType, options] of Object.entries(transforms))
         pipes.push(jo.createTransform(tfType, options));
@@ -62,7 +62,7 @@ module.exports = async (tract) => {
     }
 
     logger.verbose(">>> createReadStream");
-    reader = jo.createReadStream();
+    reader = jo.createReader();
 
     logger.verbose(">>> origin transforms");
     for (let [tfName, tfOptions] of Object.entries(transforms)) {
@@ -96,7 +96,7 @@ module.exports = async (tract) => {
       }
 
       logger.verbose(">>> createWriteStream");
-      let writer = jt.createWriteStream();
+      let writer = jt.createWriter();
       writer = reader.pipe(writer);
       writers.push(writer);
     }
@@ -123,7 +123,7 @@ module.exports = async (tract) => {
         }
         logger.verbose(">>> createWriteStream");
         // add terminal
-        let w = jt.createWriteStream();
+        let w = jt.createWriter();
         writer = (writer) ? writer.pipe(w) : reader.pipe(w);
 
         writers.push(writer);

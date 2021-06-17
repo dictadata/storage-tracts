@@ -7,7 +7,7 @@
       }
     },
     "terminal": {
-      "output": "./data/output/ftp/list.json"
+      "output": "./test/data/output/ftp/list.json"
     }
   }
 }

@@ -1,25 +1,25 @@
 {
   "shp-json": {
     "origin": {
-      "smt": "shp|./data/test/shapefile/|polygons|*",
+      "smt": "shp|./test/data/shapes/|polygons|*",
       "options": {}
     },
     "terminal": {
-      "smt": "json|./data/output/shapefile/|polygons.json|*"
+      "smt": "json|./test/data/output/shapefile/|polygons.json|*"
     }
   },
   "zip-json": {
     "origin": {
-      "smt": "shp|zip:./data/test/shapefile/points.zip|points|*",
+      "smt": "shp|zip:./test/data/shapes/points.zip|points|*",
       "options": {}
     },
     "terminal": {
-      "smt": "json|./data/output/shapefile/|points.json|*"
+      "smt": "json|./test/data/output/shapefile/|points.json|*"
     }
   },
   "points-elastic": {
     "origin": {
-      "smt": "shp|zip:./data/test/shapefile/points.zip|points|*",
+      "smt": "shp|zip:./test/data/shapes/points.zip|points|*",
       "options": {}
     },
     "terminal": {
@@ -33,7 +33,7 @@
   },
   "polygons-elastic": {
     "origin": {
-      "smt": "shp|./data/test/shapefile/|polygons|*",
+      "smt": "shp|./test/data/shapes/|polygons|*",
       "options": {}
     },
     "terminal": {
@@ -56,7 +56,7 @@
       "options": {}
     },
     "terminal": {
-      "smt": "json|./data/output/shapefile/|shapes.json|*"
+      "smt": "json|./test/data/output/shapefile/|shapes.json|*"
     }
   }
 }

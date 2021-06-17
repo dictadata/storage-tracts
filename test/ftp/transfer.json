@@ -1,12 +1,12 @@
 {
   "local-ftp": {
     "origin": {
-      "smt": "json|./data/test/|foofile.json|*"
+      "smt": "json|./test/data/|foofile.json|*"
     },
     "terminal": {
       "smt": {
         "model": "json",
-        "locus": "ftp://dicta:data@localhost/data/output/",
+        "locus": "ftp://dicta:data@localhost/data/test/output/",
         "schema": "ftp_foofile.json",
         "key": "*"
       }
@@ -18,7 +18,7 @@
       "options": {}
     },
     "terminal": {
-      "smt": "json|./data/output/ftp/|foofile.json|*",
+      "smt": "json|./test/data/output/ftp/|foofile.json|*",
       "options": {}
     }
   }

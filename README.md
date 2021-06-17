@@ -57,7 +57,7 @@ etl_flatten.json:
 {
   "transfer": {
     "origin": {
-      "smt": "json|./data/test/|foofile.json|*"
+      "smt": "json|./test/data/|foofile.json|*"
     },
     "transform": {
       "select": {
@@ -70,7 +70,7 @@ etl_flatten.json:
       }
     },
     "terminal": {
-      "smt": "csv|./data/output/|fooflat.csv|*",
+      "smt": "csv|./test/data/output/|fooflat.csv|*",
       "options": {
         "header": true
       }
@@ -144,7 +144,7 @@ etl_weather.json:
       }
     },
     "terminal": {
-      "smt": "csv|./data/output/|etl-3-weather.csv|*",
+      "smt": "csv|./test/data/output/|etl-3-weather.csv|*",
       "options": {
         "header": true
       }

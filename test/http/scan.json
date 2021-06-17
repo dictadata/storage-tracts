@@ -10,7 +10,7 @@
       }
     },
     "terminal": {
-      "output": "./data/output/http/scan.json"
+      "output": "./test/data/output/http/scan.json"
     }
   }
 }

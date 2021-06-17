@@ -1,9 +1,9 @@
 {
   "tabledefs": {
     "origin": {
-      "smt": "json|./data/test/|db_schema.json|*",
+      "smt": "json|./test/data/|db_schema.json|*",
       "options": {
-        "encoding": "./data/test/db_schema_encoding.json"
+        "encoding": "./test/data/db_schema_encoding.json"
       }
     },
     "tranforms": {
@@ -32,7 +32,7 @@
           "transform": {
           },
           "terminal": {
-            "smt": "json|./data/test/DBENCODING/|*.json|*",
+            "smt": "json|./test/data/DBENCODING/|*.json|*",
             "options": {}
           }
         }

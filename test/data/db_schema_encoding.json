@@ -1,7 +1,7 @@
 {
  "smt": {
   "model": "json",
-  "locus": "./data/db_schema.json",
+  "locus": "./test/data/db_schema.json",
   "schema": "*",
   "key": "*"
  },

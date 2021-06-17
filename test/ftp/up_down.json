@@ -2,11 +2,11 @@
   "ftp-upload": {
     "origin": {
       "options": {
-        "uploads": "./data/test/*.json"
+        "uploads": "./test/data/*.json"
       }
     },
     "terminal": {
-      "smt": "*|ftp://dicta:data@localhost/data/output/uploads/|*|*"
+      "smt": "*|ftp://dicta:data@localhost/data/test/output/uploads/|*|*"
     }
   },
   "ftp-download": {
@@ -16,7 +16,7 @@
     },
     "terminal": {
       "options": {
-        "downloads": "./data/output/ftp/downloads/"
+        "downloads": "./test/data/output/ftp/downloads/"
       }
     }
   }

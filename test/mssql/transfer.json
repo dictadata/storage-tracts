@@ -1,7 +1,7 @@
 {
   "csv-table": {
     "origin": {
-      "smt": "csv|./data/test/|foofile.csv|*",
+      "smt": "csv|./test/data/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -20,7 +20,7 @@
       "smt": "mssql|server=localhost;username=dicta;password=data;database=storage_node|foo_schema|*"
     },
     "terminal": {
-      "smt": "csv|./data/output/mssql/|foofile.csv|*",
+      "smt": "csv|./test/data/output/mssql/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -28,7 +28,7 @@
   },
   "bulkload": {
     "origin": {
-      "smt": "csv|./data/test/|timeseries.csv|*",
+      "smt": "csv|./test/data/|timeseries.csv|*",
       "options": {
         "encoding": {
           "time": "date",

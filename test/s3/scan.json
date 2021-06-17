@@ -1,7 +1,7 @@
 {
   "scan": {
     "origin": {
-      "smt": "json|S3:dictadata.org/data/test/|*|*",
+      "smt": "json|s3:dictadata.org/data/test/|*|*",
       "options": {
         "s3": {
           "aws_profile": "dictadata"
@@ -13,7 +13,7 @@
       }
     },
     "terminal": {
-      "output": "./data/output/s3/scan.json"
+      "output": "./test/data/output/s3/scan.json"
     }
   }
 }

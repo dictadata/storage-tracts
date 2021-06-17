@@ -37,7 +37,7 @@ module.exports = async (tract) => {
       // if filesystem based source or transforms defined
       // then run some data through the codifier
       let pipes = [];
-      pipes.push(jo.createReadStream(origin.options || { max_read: 100 }));
+      pipes.push(jo.createReader(origin.options || { max_read: 100 }));
 
       for (let [tfType, options] of Object.entries(transforms))
         pipes.push(jo.createTransform(tfType, options));

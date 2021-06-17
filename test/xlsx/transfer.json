@@ -1,7 +1,7 @@
 {
   "csv-sheet": {
     "origin": {
-      "smt": "csv|./data/test/|foofile.csv|*",
+      "smt": "csv|./test/data/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -9,7 +9,7 @@
     "terminal": {
       "smt": {
         "model": "xlsx",
-        "locus": "./data/output/xlsx/foofile.xlsx",
+        "locus": "./test/data/output/xlsx/foofile.xlsx",
         "schema": "fooee",
         "key": "*"
       }
@@ -17,12 +17,12 @@
   },
   "sheet-csv": {
     "origin": {
-      "smt": "xlsx|./data/test/foofile.xlsx|foo|*"
+      "smt": "xlsx|./test/data/foofile.xlsx|foo|*"
     },
     "terminal": {
       "smt": {
         "model": "csv",
-        "locus": "./data/output/",
+        "locus": "./test/data/output/",
         "schema": "xlsx_foofile.csv",
         "key": "*"
       },

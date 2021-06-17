@@ -34,7 +34,7 @@ module.exports = async (tract) => {
 
     if (source.codify || Object.keys(transforms).length > 0) {
       let pipes = [];
-      pipes.push(j1.createReadStream(source.options || { max_read: 100 }));
+      pipes.push(j1.createReader(source.options || { max_read: 100 }));
       for (let [tfType, tfOptions] of Object.entries(transforms))
         pipes.push(j1.createTransform(tfType, tfOptions));
       let ct = j1.createTransform('codify');
@@ -51,10 +51,10 @@ module.exports = async (tract) => {
 
     logger.verbose("transfer pipeline ...");
     var pipes = [];
-    pipes.push(j1.createReadStream());
+    pipes.push(j1.createReader());
     for (let [tfType, options] of Object.entries(transforms))
       pipes.push(j1.createTransform(tfType, options));
-    pipes.push(j2.createWriteStream());
+    pipes.push(j2.createWriter());
 
     await stream.pipeline(pipes);
   }

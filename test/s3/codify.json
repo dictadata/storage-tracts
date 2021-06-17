@@ -10,7 +10,7 @@
       }
     },
     "terminal": {
-      "output": "./data/output/s3/codify.json"
+      "output": "./test/data/output/s3/codify.json"
     }
   }
 }

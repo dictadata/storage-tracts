@@ -33,7 +33,7 @@ module.exports = async (tract) => {
     for (let entry of list) {
       logger.verbose(entry.name);
       let pipes = [];
-      pipes.push(jo.createReadStream({ schema: entry.name }));
+      pipes.push(jo.createReader({ schema: entry.name }));
 
       for (let [tfType, toptions] of Object.entries(transforms))
         pipes.push(jo.createTransform(tfType, toptions));

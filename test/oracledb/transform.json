@@ -1,7 +1,7 @@
 {
   "json-etl2": {
     "origin": {
-      "smt": "json|./data/test/|foofile.json|*"
+      "smt": "json|./test/data/|foofile.json|*"
     },
     "transform": {
       "filter": {
@@ -32,7 +32,7 @@
     "terminal": {
       "smt": "oracledb|connectString=localhost/xepdb1;user=dicta;password=data|foo_schema_etl2|*",
       "options": {
-        "encoding": "./data/test/foo_encoding_t.json"
+        "encoding": "./test/data/foo_encoding_t.json"
       }
     }
   }

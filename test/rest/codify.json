@@ -1,36 +1,6 @@
 {
   "codify": {
     "origin": {
-      "smt": {
-        "model": "rest",
-        "locus": "https://api.panerabread.com/iboh/food-usage/v1",
-        "schema": "/franchiseFoodUsage",
-        "key": "*"
-      },
-      "options": {
-        "headers": {
-          "Accept": "application/json",
-          "User-Agent": "PANSI001 Panera Bread Iowa"
-        },
-        "auth": "LUmqJEKNBGBjOKDmYHgNSuKGrO3NF1Ar:rmGPLedjUFu24KKS",
-        "extract": {
-          "names": "headers",
-          "data": "rows"
-        },
-        "max_read": 100,
-        "timeout": 15000,
-        "params": {
-          "companyCode": "PANSI001",
-          "reportDate": "2021-04-20"
-        }
-      }
-    },
-    "terminal": {
-      "output": "./foodusage_encoding.json"
-    }
-  },
-  "codify_orig": {
-    "origin": {
       "smt": "rest|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*",
       "options": {
         "headers": {
@@ -39,13 +9,13 @@
         },
         "max_read": 100,
         "extract": {
-          "names": "",
-          "data": "periods"
+          "data": "periods",
+          "names": ""
         }
       }
     },
     "terminal": {
-      "output": "./data/output/rest/codify.json"
+      "output": "./test/data/output/rest/codify.json"
     }
   }
 }
