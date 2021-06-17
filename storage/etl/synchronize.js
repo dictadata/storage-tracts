@@ -67,7 +67,7 @@ module.exports = async (tract) => {
       encoding = ct.encoding;
     }
 
-    logger.verbose(">>> createReadStream");
+    logger.verbose(">>> createReader");
     reader = jo.createReader(pattern);
 
     logger.verbose(">>> origin transforms");
@@ -101,7 +101,7 @@ module.exports = async (tract) => {
         encoding = await jt.createSchema();
       }
 
-      logger.verbose(">>> createWriteStream");
+      logger.verbose(">>> createWriter");
       let writer = jt.createWriter();
       writer = reader.pipe(writer);
       writers.push(writer);
@@ -127,7 +127,7 @@ module.exports = async (tract) => {
           let t = jt.createTransform(tfType, tfOptions);
           writer = (writer) ? writer.pipe(t) : reader.pipe(t);
         }
-        logger.verbose(">>> createWriteStream");
+        logger.verbose(">>> createWriter");
         // add terminal
         let w = jt.createWriter();
         writer = (writer) ? writer.pipe(w) : reader.pipe(w);
