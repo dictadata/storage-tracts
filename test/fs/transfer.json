@@ -1,5 +1,6 @@
 {
   "csv-output": {
+    "command": "transfer",
     "origin": {
       "smt": "csv|./test/data/|foofile.csv|*",
       "options": {
@@ -19,6 +20,7 @@
     }
   },
   "json-output": {
+    "command": "transfer",
     "origin": {
       "smt": "json|./test/data/|foofile.json|*"
     },
@@ -32,6 +34,7 @@
     }
   },
   "csv-json": {
+    "command": "transfer",
     "origin": {
       "smt": "csv|./test/data/|foofile.csv|*",
       "options": {
@@ -48,6 +51,7 @@
     }
   },
   "json-csv": {
+    "command": "transfer",
     "origin": {
       "smt": "json|./test/data/|foofile.json|*"
     },

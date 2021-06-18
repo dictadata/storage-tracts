@@ -22,15 +22,14 @@ const path = require('path');
 // set program argument defaults
 const appArgs = {
   tractsFile: './etl_tracts.json',
-  command: '',
-  tract: '',  // default tract name is the command name
-  schema: ''  // replacement value
+  tractName: '',  // tract name to process
+  schemaName: ''  // replacement value
 }
 
 /**
  * parseArgs
- *   only command is required
- *   example process.argv  ["node.exe", "storage-etl.js", "-t", <tractsFile>, <command>, <tract>, [schemaName]]
+ *   only tractName is required
+ *   example process.argv  ["node.exe", "storage-etl.js", "-t", <tractsFile>, <tractName>, [schemaName]]
  */
 function parseArgs() {
   const myArgs = {};
@@ -46,27 +45,18 @@ function parseArgs() {
           myArgs.tractsFile += ".json";
       }
     }
-    else if (!myArgs.command) {
-      // command
-      myArgs.command = process.argv[i];
+    else if (!myArgs.tractName) {
+      myArgs.tractName = process.argv[i];
     }
-    else if (!myArgs.tract) {
-      // tract
-      myArgs.tract = process.argv[i];
-    }
-    else if (!myArgs.schema) {
-      // tract
-      myArgs.schema = process.argv[i];
+    else if (!myArgs.schemaName) {
+      myArgs.schemaName = process.argv[i];
     }
     ++i;
   }
 
-  // tract name defaults to command name
-  if (myArgs.command && !myArgs.tract)
-    myArgs.tract = myArgs.command;
-
   Object.assign(appArgs, myArgs);
 }
+
 
 /**
  * Program entry point.
@@ -78,10 +68,22 @@ function parseArgs() {
     console.log("storage-etl (etl) " + config.version);
     parseArgs();
 
-    if (!appArgs.command) {
+    if (!appArgs.tractName) {
       console.log("Transfer, transform and codify data between local and distributed storage stores.");
       console.log("");
-      console.log("etl [-t tractsFile] [command] [tractName] [schemaName]");
+      console.log("etl [-t tractsFile] [tractName] [schemaName]");
+      console.log("");
+      console.log("tractsFile");
+      console.log("  JSON configuration file that defines tracts, plug-ins and logging.");
+      console.log("  Default configuration file is ./etl_tracts");
+      console.log("");
+      console.log("tractName");
+      console.log("  The tract to process in the configuration file.");
+      console.log("  If a 'command' is not defined in the tract then command defaults to the tractName.");
+      console.log("");
+      console.log("schemaName");
+      console.log("  A string value that will replace the string '${schema}' in the tract.");
+      console.log("  The value will replace all occurences of ${schema} using regex.");
       console.log("");
       console.log("Commands:");
       console.log("  config - create example etl_tracts.json file in the current directory.");
@@ -92,66 +94,39 @@ function parseArgs() {
       console.log("  dull - remove data from a data store.");
       console.log("  download - download schema data from remote files system to the local file system.");
       console.log("  upload - upload schema data from local file system to remote file system.");
-      console.log("");
-      console.log("tractsFile");
-      console.log("  JSON configuration file that defines tracts, plug-ins and logging.");
-      console.log("  Default configuration file is ./etl_tracts");
-      console.log("");
-      console.log("tractName");
-      console.log("  The tract to follow in the configuration file.");
-      console.log("  Default tractName is the command name.");
-      console.log("");
-      console.log("schemaName");
-      console.log("  A string value that will be replaced in the tract with regex.");
-      console.log("  All occurences of ${schema} in the tract will be replace with schemaName.");
+      console.log("  all - run all tracts in sequence.");
+      console.log("  parallel - run all tracts in parallel.");
       console.log("");
       return;
     }
 
     let tracts = {};
-    if (appArgs.command !== 'config')
-      tracts = await config.loadTracts(appArgs.tractsFile, appArgs.schema);
-    else {
+    if (appArgs.tractName === 'config') {
       await config.createTracts(appArgs.tractsFile);
       return 0;
+    } else {
+      tracts = await config.loadTracts(appArgs.tractsFile, appArgs.schemaName);
     }
 
     if (Object.keys(tracts).length <= 0)
-      throw new StorageError(400, "No storage tracts defined");
-    let tract = tracts[appArgs.tract];
-    if (!tract)
-      throw new StorageError(400, "Storage tract not defined: " + appArgs.tract);
+      throw new StorageError(400, "no storage tracts defined");
 
-    switch (appArgs.command) {
-      case 'config':
-        // should never get here, see above 'config' code
-        await config.createTracts();  
-        break;
-      case 'list':
-        retCode = await list(tract);
-        break;
-      case 'codify':
-        retCode = await codify(tract);
-        break;
-      case 'scan':
-        retCode = await scan(tract);
-        break;
-      case 'transfer':
-        retCode = await transfer(tract);
-        break;
-      case 'dull':
-        retCode = await dull(tract);
-        break;
-      case 'download':
-        retCode = await download(tract);
-        break;
-      case 'upload':
-        retCode = await upload(tract);
-        break;
-      default:
-        logger.error("unknown command: " + appArgs.command);
-        retCode = 1;
-        break;
+    if (appArgs.tractName === "all") {
+      for (let name of Object.keys(tracts)) {
+        if (name[0] === "_") continue;
+        await processTract(name, tracts[name]);
+      }
+    }
+    else if (appArgs.tractName === "parallel") {
+      let tasks = [];
+      for (let name of Object.keys(tracts)) {
+        if (name[0] === "_") continue;
+        tasks.push(processTract(name, tracts[name]));
+      }
+      Promise.allSettled(tasks);
+    }
+    else {
+      await processTract(appArgs.tractName, tracts[appArgs.tractName]);
     }
 
   }
@@ -167,3 +142,41 @@ function parseArgs() {
 
   process.exitCode = retCode;
 })();
+
+
+/**
+ * 
+ * @param {*} tractName 
+ * @param {*} tract 
+ */
+async function processTract(tractName, tract) {
+  if (typeof tract !== 'object')
+    throw new StorageError(422, "storage tract not found " + tractName);
+
+  let command = tract["command"] || tractName.substr(0, tractName.indexOf('_')) || tractName;
+
+  switch (command) {
+    case 'config':
+      // should never get here, see above 'config' code
+      return config.createTracts();
+    case 'list':
+      return list(tract);
+    case 'codify':
+      return codify(tract);
+    case 'scan':
+      return scan(tract);
+      break;
+    case 'transfer':
+      return transfer(tract);
+    case 'dull':
+      return dull(tract);
+    case 'download':
+      return download(tract);
+    case 'upload':
+      return upload(tract);
+    default:
+      logger.error("unknown command: " + command);
+      return "error";
+  }
+
+}

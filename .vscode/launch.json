@@ -108,69 +108,10 @@
     {
       "type": "pwa-node",
       "request": "launch",
-      "name": "fs transfer csv > output",
+      "name": "fs transfer",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "transfer",
-        "-c",
-        "${workspaceFolder}/test/fs/transfer.json",
-        "csv-output"
-      ],
-      "env": {
-        "NODE_ENV": "development",
-        "LOG_LEVEL": "verbose"
-      },
-      "outputCapture": "std"
-    },
-    {
-      "type": "pwa-node",
-      "request": "launch",
-      "name": "fs transfer json > output",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "transfer",
-        "-c",
-        "${workspaceFolder}/test/fs/transfer.json",
-        "json-output"
-      ],
-      "env": {
-        "NODE_ENV": "development",
-        "LOG_LEVEL": "verbose"
-      },
-      "outputCapture": "std"
-    },
-    {
-      "type": "pwa-node",
-      "request": "launch",
-      "name": "fs transfer csv > json",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "transfer",
-        "-c",
-        "${workspaceFolder}/test/fs/transfer.json",
-        "csv-json"
-      ],
-      "env": {
-        "NODE_ENV": "development",
-        "LOG_LEVEL": "verbose"
-      },
-      "outputCapture": "std"
-    },
-    {
-      "type": "pwa-node",
-      "request": "launch",
-      "name": "fs transfer json > csv",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
-      "args": [
-        "transfer",
-        "-c",
-        "${workspaceFolder}/test/fs/transfer.json",
-        "json-csv"
-      ],
+      "args": ["-c", "${workspaceFolder}/test/fs/transfer.json", "all"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
