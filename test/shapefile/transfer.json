@@ -58,5 +58,33 @@
     "terminal": {
       "smt": "json|./test/data/output/shapefile/|shapes.json|*"
     }
+  },
+
+  "download": {
+    "origin": {
+      "smt": "json|ftp://anonymous:anonymous@ftp2.census.gov/geo/tiger/TIGER2020/COUNTY/|*.zip|*",
+      "options": {}
+    },
+    "terminal": {
+      "downloads": "c:/var/data/www2.census.gov/",
+      "keep_rpath": true
+    }
+  },
+  "tl_2020_us_state": {
+    "origin": {
+      "smt": "shp|zip:/var/data/www2.census.gov/geo/tiger/TIGER2020/STATE/tl_2020_us_state.zip|tl_2020_us_state|*"
+    },
+    "terminal": {
+      "smt": "json|./data/output/shapefile/|tl_2020_us_state.json|*"
+    }
+  },
+  "el_json": {
+    "origin": {
+      "smt": "elasticsearch|http://localhost:9200|TIGER2020|*"
+    },
+    "terminal": {
+      "smt": "json|./|tl_2020_us_state.json|*"
+    }
   }
+}
 }
