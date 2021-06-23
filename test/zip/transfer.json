@@ -1,5 +1,6 @@
 {
   "zip-local": {
+   "action": "transfer",
     "origin": {
       "smt": "json|zip:./test/data/foofile.zip|foofile.json|*",
       "options": {}

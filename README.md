@@ -15,9 +15,9 @@ Node.js version 15.0 or higher.  Download the installer from [https://nodejs.org
 ## Command Line Usage
 
 ```bash
-  storage-etl command [-c tractsFile] [tractName]
+  storage-etl action [-c tractsFile] [tractName]
 
-  Commands:
+  Actions:
     config - create example etl_tracts.json file in the current directory.
     list - listing of schema names in a data store.
     codify - determine schema encoding by codifying a single data store schema.
@@ -33,7 +33,7 @@ Node.js version 15.0 or higher.  Download the installer from [https://nodejs.org
   
   tractName
     The tract to follow in the configuration file.
-    Default tractName is the command name.
+    Default tractName is the action name.
 ```
 
 ## Tracts Configuration File

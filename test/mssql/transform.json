@@ -1,5 +1,6 @@
 {
   "json-etl2": {
+    "action": "transfer",
     "origin": {
       "smt": "json|./test/data/|foofile_01.json|*"
     },

@@ -1,5 +1,6 @@
 {
   "local-s3": {
+    "action": "transfer",
     "origin": {
       "smt": "json|./test/data/|foofile.json|*"
     },
@@ -18,6 +19,7 @@
     }
   },
   "s3-local": {
+    "action": "transfer",
     "origin": {
       "smt": "json|s3:dictadata.org/data/test/|foofile.json|*",
       "options": {

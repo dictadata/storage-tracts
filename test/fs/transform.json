@@ -1,5 +1,6 @@
 {
   "csv-json": {
+    "action": "transfer",
     "origin": {
       "smt": "csv|./test/data/|foofile.csv|*",
       "options": {
@@ -45,6 +46,7 @@
     }
   },
   "json-csv": {
+    "action": "transfer",
     "origin": {
       "smt": "json|./test/data/|foofile.json|*"
     },

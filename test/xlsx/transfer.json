@@ -1,5 +1,6 @@
 {
   "csv-sheet": {
+    "action": "transfer",
     "origin": {
       "smt": "csv|./test/data/|foofile.csv|*",
       "options": {
@@ -16,6 +17,7 @@
     }
   },
   "sheet-csv": {
+    "action": "transfer",
     "origin": {
       "smt": "xlsx|./test/data/foofile.xlsx|foo|*"
     },

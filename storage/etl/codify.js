@@ -66,7 +66,7 @@ module.exports = async (tract) => {
       }
     }
 
-    logger.verbose(encoding);
+    //logger.verbose(JSON.stringify(encoding, null, " "));
     logger.debug(JSON.stringify(encoding.fields, null, " "));
     if (tract.terminal.output) {
       logger.info("encoding saved to " + tract.terminal.output);

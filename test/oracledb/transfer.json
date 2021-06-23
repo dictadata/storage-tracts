@@ -1,5 +1,6 @@
 {
   "csv-table": {
+    "action": "transfer",
     "origin": {
       "smt": "csv|./test/data/|foofile.csv|*",
       "options": {
@@ -16,6 +17,7 @@
     }
   },
   "table-csv": {
+    "action": "transfer",
     "origin": {
       "smt": "oracledb|connectString=localhost/xepdb1;user=dicta;password=data|foo_schema|*"
     },
@@ -27,6 +29,7 @@
     }
   },
   "bulkload": {
+    "action": "transfer",
     "origin": {
       "smt": "csv|./test/data/|timeseries.csv|*",
       "options": {

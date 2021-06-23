@@ -72,7 +72,7 @@
   - refactor etl_tracts.json to have transforms property to contain named transforms
   - update to @idctadata/storage-junctions 1.1.6
 - version 1.1.5
-  - add "config" command to generate sample "./etl_tracts.json" file
+  - add "config" action to generate sample "./etl_tracts.json" file
 - version 1.1.4
   - require xlsx as local package
 - version 1.1.3

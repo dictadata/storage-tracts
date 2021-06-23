@@ -1,5 +1,6 @@
 {
   "http-local": {
+    "action": "transfer",
     "origin": {
       "smt": "json|http://dicta:data@localhost/data/test/|foofile.json|*",
       "options": {}

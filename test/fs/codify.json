@@ -1,5 +1,6 @@
 {
   "codify": {
+    "action": "codify",
     "origin": {
       "smt": "json|./test/data/|foofile.json|*",
       "options": {
@@ -11,6 +12,7 @@
     }
   },
   "types_only": {
+    "action": "codify",
     "origin": {
       "smt": "json|./test/data/|foofile.json|*",
       "options": {
@@ -22,7 +24,8 @@
       "output": "./test/data/output/fs/codify_types.json"
     }
   },
-  "all": {
+  "all_fields": {
+    "action": "codify",
     "origin": {
       "smt": "json|./test/data/|foofile.json|*",
       "options": {

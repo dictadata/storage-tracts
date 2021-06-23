@@ -1,5 +1,6 @@
 {
   "split": {
+    "action": "transfer",
     "origin": {
       "smt": "json|./test/data/|db_schema.json|*"
     },

@@ -1,5 +1,6 @@
 {
   "local-ftp": {
+    "action": "transfer",
     "origin": {
       "smt": "json|./test/data/|foofile.json|*"
     },
@@ -13,6 +14,7 @@
     }
   },
   "ftp-local": {
+    "action": "transfer",
     "origin": {
       "smt": "json|ftp://dicta:data@localhost/data/test/|foofile.json|*",
       "options": {}

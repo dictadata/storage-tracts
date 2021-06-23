@@ -1,5 +1,6 @@
 {
   "json-index": {
+    "action": "transfer",
     "origin": {
       "smt": "json|./test/data/|foofile.json|*"
     },
@@ -13,6 +14,7 @@
     }
   },
   "index-json": {
+    "action": "transfer",
     "origin": {
       "smt": "elastic|http://localhost:9200|foo_schema|*"
     },

@@ -79,21 +79,20 @@ function parseArgs() {
       console.log("");
       console.log("tractName");
       console.log("  The tract to process in the configuration file.");
-      console.log("  If a 'command' is not defined in the tract then command defaults to the tractName.");
+      console.log("  If a 'action' is not defined in the tract then action defaults to the tractName.");
       console.log("");
       console.log("schemaName");
       console.log("  A string value that will replace the string '${schema}' in the tract.");
       console.log("  The value will replace all occurences of ${schema} using regex.");
       console.log("");
-      console.log("Commands:");
+      console.log("Actions:");
       console.log("  config - create example etl_tracts.json file in the current directory.");
       console.log("  list - listing of schema names in a data store.");
       console.log("  codify - determine schema encoding by codifying a single schema.");
       console.log("  scan - list data store and determine schema encoding by codifying multiple schemas.");
       console.log("  transfer - transfer data between data stores with optional transforms.");
       console.log("  dull - remove data from a data store.");
-      console.log("  download - download schema data from remote files system to the local file system.");
-      console.log("  upload - upload schema data from local file system to remote file system.");
+      console.log("  copy - replicate data files between remote file system and local file system.");
       console.log("  all - run all tracts in sequence.");
       console.log("  parallel - run all tracts in parallel.");
       console.log("");
@@ -114,7 +113,9 @@ function parseArgs() {
     if (appArgs.tractName === "all") {
       for (let name of Object.keys(tracts)) {
         if (name[0] === "_") continue;
-        await processTract(name, tracts[name]);
+        retCode = await processTract(name, tracts[name]);
+        if (retCode)
+          break;
       }
     }
     else if (appArgs.tractName === "parallel") {
@@ -126,7 +127,7 @@ function parseArgs() {
       Promise.allSettled(tasks);
     }
     else {
-      await processTract(appArgs.tractName, tracts[appArgs.tractName]);
+      retCode = await processTract(appArgs.tractName, tracts[appArgs.tractName]);
     }
 
   }
@@ -153,9 +154,9 @@ async function processTract(tractName, tract) {
   if (typeof tract !== 'object')
     throw new StorageError(422, "storage tract not found " + tractName);
 
-  let command = tract["command"] || tractName.substr(0, tractName.indexOf('_')) || tractName;
+  let action = tract["action"] || tractName.substr(0, tractName.indexOf('_')) || tractName;
 
-  switch (command) {
+  switch (action) {
     case 'config':
       // should never get here, see above 'config' code
       return config.createTracts();
@@ -175,8 +176,8 @@ async function processTract(tractName, tract) {
     case 'upload':
       return upload(tract);
     default:
-      logger.error("unknown command: " + command);
-      return "error";
+      logger.error("unknown action: " + action);
+      return 1;
   }
 
 }

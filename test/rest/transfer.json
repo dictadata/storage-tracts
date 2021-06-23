@@ -1,5 +1,6 @@
 {
   "rest-json": {
+    "action": "transfer",
     "origin": {
       "smt": "rest|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*",
       "options": {
