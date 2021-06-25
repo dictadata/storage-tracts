@@ -4,7 +4,7 @@
  */
 "use strict";
 
-const { StorageError } = require("@dictadata/storage-junctions").types;
+const { StorageError } = require("@dictadata/storage-junctions/types");
 const config = require('./storage/etl/config');
 const logger = require('./storage/etl/logger')
 
@@ -13,8 +13,7 @@ const codify = require('./storage/etl/codify');
 const scan = require('./storage/etl/scan');
 const transfer = require('./storage/etl/transfer');
 const dull = require('./storage/etl/dull');
-const download = require('./storage/etl/download');
-const upload = require('./storage/etl/upload');
+const copy = require('./storage/etl/copy');
 
 const colors = require('colors');
 const path = require('path');
@@ -92,7 +91,7 @@ function parseArgs() {
       console.log("  scan - list data store and determine schema encoding by codifying multiple schemas.");
       console.log("  transfer - transfer data between data stores with optional transforms.");
       console.log("  dull - remove data from a data store.");
-      console.log("  copy - replicate data files between remote file system and local file system.");
+      console.log("  copy - copy data files between remote file system and local file system.");
       console.log("  all - run all tracts in sequence.");
       console.log("  parallel - run all tracts in parallel.");
       console.log("");
@@ -171,10 +170,8 @@ async function processTract(tractName, tract) {
       return transfer(tract);
     case 'dull':
       return dull(tract);
-    case 'download':
-      return download(tract);
-    case 'upload':
-      return upload(tract);
+    case 'copy':
+      return copy(tract);
     default:
       logger.error("unknown action: " + action);
       return 1;

@@ -155,10 +155,10 @@
     {
       "type": "pwa-node",
       "request": "launch",
-      "name": "ftp replicate",
+      "name": "ftp copy",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["all", "-c", "${workspaceFolder}/test/ftp/replicate.json"],
+      "args": ["all", "-c", "${workspaceFolder}/test/ftp/copy.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
