@@ -29,6 +29,7 @@
     }
   },
   "bulkload": {
+    "action": "transfer",
     "origin": {
       "smt": "csv|./test/data/|timeseries.csv|*",
       "options": {

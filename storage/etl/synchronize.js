@@ -4,7 +4,7 @@
 "use strict";
 
 const storage = require("@dictadata/storage-junctions");
-const { typeOf, logger } = require("@dictadata/storage-junctions").utils;
+const { typeOf, logger } = require("@dictadata/storage-junctions/utils");
 
 const fs = require('fs/promises');
 const stream = require('stream/promises');

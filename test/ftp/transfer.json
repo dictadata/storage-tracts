@@ -7,7 +7,7 @@
     "terminal": {
       "smt": {
         "model": "json",
-        "locus": "ftp://dicta:data@localhost/data/test/output/",
+        "locus": "ftp://dicta:data@localhost/data/output/",
         "schema": "ftp_foofile.json",
         "key": "*"
       }

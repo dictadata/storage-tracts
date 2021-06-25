@@ -4,7 +4,7 @@
 "use strict";
 
 // use the storage-junctions logger
-const { logger } = require('@dictadata/storage-junctions').utils;
+const { logger } = require('@dictadata/storage-junctions/utils');
 // which is the Winston logger
 const winston = require('winston');
 const { format, transports } = winston;

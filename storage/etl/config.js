@@ -6,8 +6,8 @@
 const storage = require("@dictadata/storage-junctions");
 const S3FileSystem = require("@dictadata/s3-filesystem");
 const XlsxJunction = require("@dictadata/Xlsx-junction");
-const { StorageError } = require("@dictadata/storage-junctions").types;
-const { typeOf, logger } = require("@dictadata/storage-junctions").utils;
+const { StorageError } = require("@dictadata/storage-junctions/types");
+const { typeOf, logger } = require("@dictadata/storage-junctions/utils");
 
 const Package = require('../../package.json');
 const fs = require('fs');
