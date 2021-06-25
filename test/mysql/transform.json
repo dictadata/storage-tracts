@@ -2,7 +2,7 @@
   "json-etl2": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./test/data/|foofile.json|*"
+      "smt": "json|./test/data/input/|foofile.json|*"
     },
     "transform": {
       "filter": {
@@ -33,7 +33,7 @@
     "terminal": {
       "smt": "mysql|host=localhost;user=dicta;password=data;database=storage_node|foo_schema_etl2|*",
       "options": {
-        "encoding": "./test/data/foo_encoding_t.json"
+        "encoding": "./test/data/input/foo_encoding_t.json"
       }
     }
   }

@@ -2,7 +2,7 @@
   "zip-local": {
    "action": "transfer",
     "origin": {
-      "smt": "json|zip:./test/data/foofile.zip|foofile.json|*",
+      "smt": "json|zip:./test/data/input/foofile.zip|foofile.json|*",
       "options": {}
     },
     "terminal": {

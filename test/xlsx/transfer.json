@@ -2,7 +2,7 @@
   "csv-sheet": {
     "action": "transfer",
     "origin": {
-      "smt": "csv|./test/data/|foofile.csv|*",
+      "smt": "csv|./test/data/input/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -19,7 +19,7 @@
   "sheet-csv": {
     "action": "transfer",
     "origin": {
-      "smt": "xlsx|./test/data/foofile.xlsx|foo|*"
+      "smt": "xlsx|./test/data/input/foofile.xlsx|foo|*"
     },
     "terminal": {
       "smt": {

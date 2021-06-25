@@ -2,7 +2,7 @@
   "csv-table": {
     "action": "transfer",
     "origin": {
-      "smt": "csv|./test/data/|foofile.csv|*",
+      "smt": "csv|./test/data/input/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -31,7 +31,7 @@
   "bulkload": {
     "action": "transfer",
     "origin": {
-      "smt": "csv|./test/data/|timeseries.csv|*",
+      "smt": "csv|./test/data/input/|timeseries.csv|*",
       "options": {
         "encoding": {
           "time": "date",

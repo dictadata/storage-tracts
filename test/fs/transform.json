@@ -2,7 +2,7 @@
   "csv-json": {
     "action": "transfer",
     "origin": {
-      "smt": "csv|./test/data/|foofile.csv|*",
+      "smt": "csv|./test/data/input/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -41,14 +41,14 @@
         "key": "*"
       },
       "options": {
-        "encoding": "./test/data/foo_encoding_t.json"
+        "encoding": "./test/data/input/foo_encoding_t.json"
       }
     }
   },
   "json-csv": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./test/data/|foofile.json|*"
+      "smt": "json|./test/data/input/|foofile.json|*"
     },
     "transform": {
       "filter": {
@@ -83,7 +83,7 @@
       },
       "options": {
         "header": true,
-        "encoding": "./test/data/foo_encoding_t.json"
+        "encoding": "./test/data/input/foo_encoding_t.json"
       }
     }
   }

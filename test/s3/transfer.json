@@ -2,7 +2,7 @@
   "local-s3": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./test/data/|foofile.json|*"
+      "smt": "json|./test/data/input/|foofile.json|*"
     },
     "terminal": {
       "smt": {

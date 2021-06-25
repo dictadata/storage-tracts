@@ -1,7 +1,7 @@
 {
   "list": {
     "origin": {
-      "smt": "xlsx|./test/data/foofile.xlsx|*|*",
+      "smt": "xlsx|./test/data/input/foofile.xlsx|*|*",
       "options": {
         "schema": "foo*"
       }

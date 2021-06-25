@@ -2,7 +2,7 @@
   "codify": {
     "action": "codify",
     "origin": {
-      "smt": "json|./test/data/|foofile.json|*",
+      "smt": "json|./test/data/input/|foofile.json|*",
       "options": {
         "max_read": 100
       }
@@ -14,7 +14,7 @@
   "types_only": {
     "action": "codify",
     "origin": {
-      "smt": "json|./test/data/|foofile.json|*",
+      "smt": "json|./test/data/input/|foofile.json|*",
       "options": {
         "max_read": 100,
         "encoding_format": "types_only"
@@ -27,7 +27,7 @@
   "all_fields": {
     "action": "codify",
     "origin": {
-      "smt": "json|./test/data/|foofile.json|*",
+      "smt": "json|./test/data/input/|foofile.json|*",
       "options": {
         "max_read": 100,
         "encoding_format": "all"

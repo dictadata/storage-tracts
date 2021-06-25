@@ -1,7 +1,7 @@
 {
   "list": {
     "origin": {
-      "smt": "json|zip:./test/data/foofile.zip|foo*.json|*",
+      "smt": "json|zip:./test/data/input/foofile.zip|foo*.json|*",
       "options": {
         "recursive": true
       }

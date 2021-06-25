@@ -1,7 +1,7 @@
 {
   "codify": {
     "origin": {
-      "smt": "xlsx|./test/data/foofile.xlsx|foo|*",
+      "smt": "xlsx|./test/data/input/foofile.xlsx|foo|*",
       "options": {
         "max_read": 100
       }

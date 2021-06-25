@@ -1,7 +1,7 @@
 {
   "scan": {
     "origin": {
-      "smt": "json|zip:./test/data/foofile.zip|*|*",
+      "smt": "json|zip:./test/data/input/foofile.zip|*|*",
       "options": {
         "max_read": 100,
         "schema": "foo*.json",

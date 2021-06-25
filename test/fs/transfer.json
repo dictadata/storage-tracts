@@ -2,7 +2,7 @@
   "csv-output": {
     "action": "transfer",
     "origin": {
-      "smt": "csv|./test/data/|foofile.csv|*",
+      "smt": "csv|./test/data/input/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -22,7 +22,7 @@
   "json-output": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./test/data/|foofile.json|*"
+      "smt": "json|./test/data/input/|foofile.json|*"
     },
     "terminal": {
       "smt": {
@@ -36,7 +36,7 @@
   "csv-json": {
     "action": "transfer",
     "origin": {
-      "smt": "csv|./test/data/|foofile.csv|*",
+      "smt": "csv|./test/data/input/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -53,7 +53,7 @@
   "json-csv": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./test/data/|foofile.json|*"
+      "smt": "json|./test/data/input/|foofile.json|*"
     },
    "terminal": {
       "smt": {

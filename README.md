@@ -57,7 +57,7 @@ etl_flatten.json:
 {
   "transfer": {
     "origin": {
-      "smt": "json|./test/data/|foofile.json|*"
+      "smt": "json|./test/data/input/|foofile.json|*"
     },
     "transform": {
       "select": {

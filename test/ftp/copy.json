@@ -2,7 +2,7 @@
   "upload": {
     "action": "copy",
     "origin": {
-      "smt": "*|./test/data/|*.json|*"
+      "smt": "*|./test/data/input/|*.json|*"
     },
     "terminal": {
       "smt": "*|ftp://dicta:data@localhost/data/output/uploads/|*|*"

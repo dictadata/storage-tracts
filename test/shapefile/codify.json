@@ -3,7 +3,7 @@
     "origin": {
       "smt": {
         "model": "shp",
-        "locus": "./test/data/shapes/",
+        "locus": "./test/data/input/shapes/",
         "schema": "polygons",
         "key": "*"
       },
