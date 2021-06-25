@@ -1,6 +1,6 @@
 # @dictadata/storage-etl 1.7.x
 
-Command line ETL utilitiy to transfer, transform and codify data between local and distributed storage.
+Command line ETL utilitiy to transfer, transform and codify data between local and distributed storage sources.
 
 ## Prerequisites
 
@@ -15,25 +15,33 @@ Node.js version 15.0 or higher.  Download the installer from [https://nodejs.org
 ## Command Line Usage
 
 ```bash
-  storage-etl action [-c tractsFile] [tractName]
+  Command line:
+    etl [-t tractsFile] [tractName] [schemaName]
+  or:
+    storage-etl [-t tractsFile] [tractName] [schemaName]
+
+  tractsFile
+    JSON configuration file that defines tracts, plug-ins and logging.
+    Default configuration file is ./etl_tracts.json
+  
+  tractName
+    The tract to follow in the configuration file.
+    If "action" is not defined in the tract then action defaults to the tractName.
+
+  schemaName
+    A string value that will replace the string '${schema}' in the tract.
+    The value will replace all occurences of ${schema} using regex.
 
   Actions:
     config - create example etl_tracts.json file in the current directory.
     list - listing of schema names in a data store.
     codify - determine schema encoding by codifying a single data store schema.
     scan - list data store and determine schema encoding by codifying multiple schemas.
-    transfer - transfer data between data stores with optional transforms.
     dull - remove data from a data store.
-    download - download schemas from remote files system to the local file system.
-    upload - upload schemas from local file system to remote file system.
-  
-  tractsFile
-    Configuration file that defines tracts, plug-ins and logging.
-    Default configuration file is ./etl_tracts.json
-  
-  tractName
-    The tract to follow in the configuration file.
-    Default tractName is the action name.
+    transfer - transfer data between data stores with optional transforms.
+    copy - copy data files between remote file system and local file system.
+    all - run all tracts in sequence.
+    parallel - run all tracts in parallel.
 ```
 
 ## Tracts Configuration File
@@ -55,7 +63,8 @@ etl_flatten.json:
 
 ```json
 {
-  "transfer": {
+  "transfer_foofile": {
+    "action": "transfer",
     "origin": {
       "smt": "json|./test/data/input/|foofile.json|*"
     },
@@ -127,9 +136,11 @@ storage-etl transfer -c etl_weather.json forecast
 
 etl_weather.json:
 
+Note, in the tract below the action is implied in the tract name "transfer_forecast".  This tract will be passed to the transfer action.
+
 ```json
 {
-  "forecast": {
+  "transfer_forecast": {
     "origin": {
       "smt": "rest|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*",
       "options": {

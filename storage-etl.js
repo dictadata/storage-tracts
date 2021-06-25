@@ -68,7 +68,7 @@ function parseArgs() {
     parseArgs();
 
     if (!appArgs.tractName) {
-      console.log("Transfer, transform and codify data between local and distributed storage stores.");
+      console.log("Transfer, transform and codify data between local and distributed storage sources.");
       console.log("");
       console.log("etl [-t tractsFile] [tractName] [schemaName]");
       console.log("");
@@ -77,8 +77,8 @@ function parseArgs() {
       console.log("  Default configuration file is ./etl_tracts");
       console.log("");
       console.log("tractName");
-      console.log("  The tract to process in the configuration file.");
-      console.log("  If a 'action' is not defined in the tract then action defaults to the tractName.");
+      console.log("  The tract to follow in the configuration file.");
+      console.log("  If 'action' is not defined in the tract then action defaults to the tractName.");
       console.log("");
       console.log("schemaName");
       console.log("  A string value that will replace the string '${schema}' in the tract.");

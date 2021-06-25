@@ -1,9 +1,17 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 1.8.0
+  - update to @dictadata/storage-junctions 1.8.0
+  - implement ShapeFileJunction (.shp files) and ZipFileSystem (.zip files)
+  - refactor upload/download actions to copy action
+  - local file folders now configured as SMT entries
+  - refactor terminology CLI command is now CLI action
+  - implement actions "all" (sequential) and "parallel"
+  - additional testing updates
 - version 1.7.3
+  - update to @dictadata/storage-junctions 1.7.5
   - improvements to REST junction and httpRequest for querystring and web form parameters
   - implement junction capabilities
-  - update to @dictadata/storage-junctions 1.7.5
 - version 1.7.2
   - updates for testing with st_launcher
   - update dependencies
