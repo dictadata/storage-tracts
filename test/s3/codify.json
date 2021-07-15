@@ -1,7 +1,7 @@
 {
   "codify": {
     "origin": {
-      "smt": "json|s3:dictadata.org/data/test/|foofile.json|*",
+      "smt": "json|s3:dictadata.org/data/test/input/|foofile.json|*",
       "options": {
         "s3": {
           "aws_profile": "dictadata"

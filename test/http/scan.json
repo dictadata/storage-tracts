@@ -1,7 +1,7 @@
 {
   "scan": {
     "origin": {
-      "smt": "json|http://localhost/data/test/|*|*",
+      "smt": "json|http://localhost/data/dictadata.org/test/input/|*|*",
       "options": {
         "max_read": 100,
         "schema": "foofile_*.json",

@@ -2,7 +2,7 @@
   "http-local": {
     "action": "transfer",
     "origin": {
-      "smt": "json|http://dicta:data@localhost/data/test/|foofile.json|*",
+      "smt": "json|http://dicta:data@localhost/data/dictadata.org/test/input/|foofile.json|*",
       "options": {}
     },
     "terminal": {

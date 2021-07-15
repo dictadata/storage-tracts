@@ -7,7 +7,7 @@
     "terminal": {
       "smt": {
         "model": "json",
-        "locus": "s3:dictadata.org/output/",
+        "locus": "s3:dictadata.org/data/test/output/",
         "schema": "s3_foofile.json",
         "key": "*"
       },
@@ -21,7 +21,7 @@
   "s3-local": {
     "action": "transfer",
     "origin": {
-      "smt": "json|s3:dictadata.org/data/test/|foofile.json|*",
+      "smt": "json|s3:dictadata.org/data/test/input/|foofile.json|*",
       "options": {
         "s3": {
           "aws_profile": "dictadata"
