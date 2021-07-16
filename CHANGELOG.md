@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 1.8.5
+  - remove dependencies for s3-filesystem, oracledb-junction and xlsx-junction
+  - tests moved to project @dictadata/storage-etl-plugins
 - version 1.8.0
   - update to @dictadata/storage-junctions 1.8.0
   - implement ShapeFileJunction (.shp files) and ZipFileSystem (.zip files)

@@ -1,3 +1,3 @@
 rem call npm link @dictadata/storage-junctions
-call npm link @dictadata/storage-junctions @dictadata/s3-filesystem @dictadata/xlsx-junction
+call npm link @dictadata/storage-junctions
 dir node_modules\@dictadata
