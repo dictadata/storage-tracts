@@ -1,4 +1,4 @@
-# @dictadata/storage-etl 1.7.x
+# @dictadata/storage-etl 1.8.x
 
 Command line ETL utilitiy to transfer, transform and codify data between local and distributed storage sources.
 
