@@ -3,9 +3,11 @@
     "origin": {
       "smt": "rest|https://api.weather.gov/points/39.7456,-97.0892||=*",
       "options": {
-        "headers": {
-          "Accept": "application/ld+json",
-          "User-Agent": "@dictadata.org/storage-node contact:info@dictadata.org"
+        "http": {
+          "headers": {
+            "Accept": "application/ld+json",
+            "User-Agent": "@dictadata.org/storage-node contact:info@dictadata.org"
+          }
         },
         "fields": ["cwa","gridX","gridY"]
       }
@@ -14,9 +16,11 @@
       "conjoin": {
         "smt": "rest|https://api.weather.gov/gridpoints/${cwa}/${gridX},${gridY}/|forecast|=*",
         "options": {
-          "headers": {
-            "Accept": "application/ld+json",
-            "User-Agent": "@dictadata.org/storage-node contact:info@dictadata.org"
+          "http": {
+            "headers": {
+              "Accept": "application/ld+json",
+              "User-Agent": "@dictadata.org/storage-node contact:info@dictadata.org"
+            }
           },
           "extract": {
             "data": "periods",

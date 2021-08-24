@@ -76,7 +76,7 @@
       "options": {}
     },
     "terminal": {
-      "smt": "*|file:c:/var/data/www2.census.gov/|*|*",
+      "smt": "*|file:c:/var/data/www.census.gov/|*|*",
       "options": {
         "keep_rpath": true
       }
@@ -86,7 +86,7 @@
   "tl_2020_us_state": {
     "action": "transfer",
     "origin": {
-      "smt": "shp|zip:/var/data/www2.census.gov/geo/tiger/TIGER2020/STATE/tl_2020_us_state.zip|tl_2020_us_state|*"
+      "smt": "shp|zip:/var/data/www.census.gov/geo/tiger/TIGER2020/STATE/tl_2020_us_state.zip|tl_2020_us_state|*"
     },
     "terminal": {
       "smt": "json|./test/data/output/shapefile/|tl_2020_us_state.json|*"

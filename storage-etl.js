@@ -145,9 +145,9 @@ function parseArgs() {
 
 
 /**
- * 
- * @param {*} tractName 
- * @param {*} tract 
+ *
+ * @param {*} tractName
+ * @param {*} tract
  */
 async function processTract(tractName, tract) {
   if (typeof tract !== 'object')
@@ -165,7 +165,6 @@ async function processTract(tractName, tract) {
       return codify(tract);
     case 'scan':
       return scan(tract);
-      break;
     case 'transfer':
       return transfer(tract);
     case 'dull':

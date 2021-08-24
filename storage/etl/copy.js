@@ -1,6 +1,6 @@
 /**
  * lib/copy
- * 
+ *
  * copy file(s) between remote file system and local filesystem.
  */
 "use strict";
@@ -76,7 +76,7 @@ async function download(tract) {
     for (let entry of list) {
       logger.verbose(JSON.stringify(entry, null, 2));
 
-      let options = Object.assign({smt: tract.terminal.smt}, tract.terminal.options, entry);
+      let options = Object.assign({smt: tract.terminal.smt, entry: entry}, tract.terminal.options);
       let ok = await stfs.getFile(options);
       if (!ok) {
         logger.error("download failed: " + entry.href);
@@ -96,7 +96,7 @@ async function download(tract) {
 }
 
 async function upload(tract) {
-  var retCode = 0
+  var retCode = 0;
 
   var local;
   var junction;
@@ -121,7 +121,7 @@ async function upload(tract) {
     for (let entry of list) {
       logger.debug(JSON.stringify(entry, null, 2));
 
-      let options = Object.assign({ smt: tract.origin.smt }, tract.origin.options, entry);
+      let options = Object.assign({ smt: tract.origin.smt, entry: entry }, tract.origin.options);
       let ok = await stfs.putFile(options);
       if (!ok) {
         logger.error("!!! upload failed: " + entry.href);

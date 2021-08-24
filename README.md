@@ -144,9 +144,11 @@ Note, in the tract below the action is implied in the tract name "transfer_forec
     "origin": {
       "smt": "rest|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*",
       "options": {
-        "headers": {
-          "Accept": "application/ld+json",
-          "User-Agent": "@dictadata.org/storage-node contact:info@dictadata.org"
+        "http": {
+          "headers": {
+            "Accept": "application/ld+json",
+            "User-Agent": "@dictadata.org/storage-node contact:info@dictadata.org"
+          }
         },
         "extract": {
           "names": "",
