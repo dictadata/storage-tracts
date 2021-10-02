@@ -8,7 +8,7 @@
       "smt": "split|*|*|*",
       "options": {
         "splitOn": "TABLE_NAME",
-        "encoding": "./test/data/input/db_schema_encoding.json"
+        "encoding": "./test/data/input/db_schema.encoding.json"
       },
       "tract": {
         "terminal": {

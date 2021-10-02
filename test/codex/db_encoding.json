@@ -3,7 +3,7 @@
     "origin": {
       "smt": "json|./test/data/input/|db_schema.json|*",
       "options": {
-        "encoding": "./test/data/input/db_schema_encoding.json"
+        "encoding": "./test/data/input/db_schema.encoding.json"
       }
     },
     "tranforms": {

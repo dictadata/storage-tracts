@@ -7,7 +7,7 @@
     "terminal": {
       "smt": "elasticsearch|http://localhost:9200|foo_schema_etl2|=Foo",
       "options": {
-        "encoding": "./test/data/input/foo_encoding_t.json"
+        "encoding": "./test/data/input/foo_schema_t.encoding.json"
       }
     },
     "transform": {

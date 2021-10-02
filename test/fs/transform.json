@@ -41,7 +41,7 @@
         "key": "*"
       },
       "options": {
-        "encoding": "./test/data/input/foo_encoding_t.json"
+        "encoding": "./test/data/input/foo_schema_t.encoding.json"
       }
     }
   },
@@ -83,7 +83,7 @@
       },
       "options": {
         "header": true,
-        "encoding": "./test/data/input/foo_encoding_t.json"
+        "encoding": "./test/data/input/foo_schema_t.encoding.json"
       }
     }
   }
