@@ -1,5 +1,10 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 1.8.4
+  - update do @dictadata/storage-junctions 1.8.4
+  - testing updates:
+    - standardize file name convention for encoding as abc123.encoding.json
+    - use data.dictadata.net (NGINX) for ftp and http testing
 - version 1.8.3
   - remove dependencies for s3-filesystem, oracledb-junction and xlsx-junction
     - tests moved to project @dictadata/storage-etl-plugins
