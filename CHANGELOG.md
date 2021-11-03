@@ -1,7 +1,12 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 1.8.5
+  - update to @dictadata/storage-junctions 1.8.5
+    - implement dot notation for filter transform
+  - testing:
+    - refactoring of /var/data/country/state directory naming convention
 - version 1.8.4
-  - update do @dictadata/storage-junctions 1.8.4
+  - update to @dictadata/storage-junctions 1.8.4
   - testing updates:
     - standardize file name convention for encoding as abc123.encoding.json
     - use data.dictadata.net (NGINX) for ftp and http testing
