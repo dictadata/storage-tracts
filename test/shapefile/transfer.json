@@ -9,7 +9,6 @@
       "smt": "json|./test/data/output/shapefile/|polygons.json|*"
     }
   },
-  
   "zip-json": {
     "action": "transfer",
     "origin": {
@@ -20,7 +19,6 @@
       "smt": "json|./test/data/output/shapefile/|points.json|*"
     }
   },
-
   "points-elastic": {
     "action": "transfer",
     "origin": {
@@ -36,7 +34,6 @@
       }
     }
   },
-
   "polygons-elastic": {
     "action": "transfer",
     "origin": {
@@ -52,7 +49,6 @@
       }
     }
   },
-
   "elastic-json": {
     "action": "transfer",
     "origin": {
@@ -68,7 +64,6 @@
       "smt": "json|./test/data/output/shapefile/|shapes.json|*"
     }
   },
-
   "download": {
     "action": "copy",
     "origin": {
@@ -76,23 +71,21 @@
       "options": {}
     },
     "terminal": {
-      "smt": "*|file:c:/var/data/www.census.gov/|*|*",
+      "smt": "*|file:c:/var/data/US/census.gov/|*|*",
       "options": {
         "keep_rpath": true
       }
     }
   },
-
   "tl_2020_us_state": {
     "action": "transfer",
     "origin": {
-      "smt": "shp|zip:/var/data/www.census.gov/geo/tiger/TIGER2020/STATE/tl_2020_us_state.zip|tl_2020_us_state|*"
+      "smt": "shp|zip:/var/data/US/census.gov/geo/tiger/TIGER2020/STATE/tl_2020_us_state.zip|tl_2020_us_state|*"
     },
     "terminal": {
       "smt": "json|./test/data/output/shapefile/|tl_2020_us_state.json|*"
     }
   },
-
   "el_json": {
     "action": "transfer",
     "origin": {
