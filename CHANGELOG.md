@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 1.8.6
+  - update to @dictadata/storage-junctions 1.8.6
+    - add support for Elasticsearch geo_shape queries
 - version 1.8.5
   - update to @dictadata/storage-junctions 1.8.5
     - implement dot notation for filter transform
