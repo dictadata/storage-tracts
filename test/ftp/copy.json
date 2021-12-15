@@ -11,7 +11,7 @@
   "download": {
     "action": "copy",
     "origin": {
-      "smt": "*|ftp://anonymous:anonymous@ftp2.census.gov/geo/tiger/TIGER2020/COUNTY/|*.zip|*",
+      "smt": "*|ftp://anonymous:anonymous@ftp2.census.gov/geo/tiger/TIGER2020/STATE/|*.zip|*",
       "options": {}
     },
     "terminal": {

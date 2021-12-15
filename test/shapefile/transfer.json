@@ -67,7 +67,7 @@
   "download": {
     "action": "copy",
     "origin": {
-      "smt": "*|ftp://anonymous:anonymous@ftp2.census.gov/geo/tiger/TIGER2020/COUNTY/|*.zip|*",
+      "smt": "*|ftp://anonymous:anonymous@ftp2.census.gov/geo/tiger/TIGER2020/STATE/|*.zip|*",
       "options": {}
     },
     "terminal": {
@@ -89,10 +89,20 @@
   "el_json": {
     "action": "transfer",
     "origin": {
-      "smt": "elasticsearch|http://localhost:9200|census_2020|*"
+      "smt": "elasticsearch|http://localhost:9200|tiger2020|*",
+      "options": {
+        "match": {
+          "geometry": {
+            "contains": [
+              -73.985428,
+              40.748817
+            ]
+          }
+        }
+      }
     },
     "terminal": {
-      "smt": "json|./test/data/output/shapefile/|tl_2020_us_state_elastic.json|*"
+      "smt": "json|./test/data/output/shapefile/|tl_2020_us_state_NY.json|*"
     }
   }
 }
