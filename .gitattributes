@@ -24,7 +24,8 @@
 *.inc      text
 *.ini      text
 *.js       text
-*.json     text
+*.json     text eol=lf
+*.jsonc    text eol=lf
 *.jsx      text
 *.less     text
 *.od       text
