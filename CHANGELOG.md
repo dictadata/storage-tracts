@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.0.1
+  - update to @dictadata/storage-junctions 2.0.1
+  - Engram/encodings updated for Codex compatability
 - version 1.8.6
   - update to @dictadata/storage-junctions 1.8.6
     - add support for Elasticsearch geo_shape queries
