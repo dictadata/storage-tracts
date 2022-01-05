@@ -4,6 +4,7 @@
 "use strict";
 
 const storage = require("@dictadata/storage-junctions");
+const { Field } = require('@dictadata/storage-junctions/types');
 const logger = require('./logger');
 
 const fs = require('fs');
@@ -31,7 +32,7 @@ module.exports = async (tract) => {
     // then get source encoding
     if (jo.capabilities.encoding && !transforms.length) {
       let results = await jo.getEncoding();
-      encoding = results.data["encoding"];
+      encoding = results.data[ "encoding" ];
     }
     else {
       // if filesystem based source or transforms defined
@@ -39,9 +40,9 @@ module.exports = async (tract) => {
       let pipes = [];
       pipes.push(jo.createReader(origin.options || { max_read: 100 }));
 
-      for (let [tfType, options] of Object.entries(transforms))
+      for (let [ tfType, options ] of Object.entries(transforms))
         pipes.push(jo.createTransform(tfType, options));
-    
+
       let ct = jo.createTransform('codify');
       pipes.push(ct);
 
@@ -51,17 +52,17 @@ module.exports = async (tract) => {
 
     if (origin.options.encoding_format === "types_only") {
       // replace field property with storage type (string)
-      for (let [name, field] of Object.entries(encoding.fields)) {
-        encoding.fields[name] = field.type;
+      for (let [ name, field ] of Object.entries(encoding.fields)) {
+        encoding.fields[ name ] = field.type;
       }
     }
     else if (origin.options.encoding_format !== "all") {
       // replace field property with object containing non-default properties
-      let _default = new storage.Field("_default_");
-      for (let [fname, field] of Object.entries(encoding.fields)) {
-        for (let [pname, value] of Object.entries(field)) {
-          if (Object.prototype.hasOwnProperty.call(_default, pname) && value === _default[pname])
-            delete field[pname];
+      let _default = new Field("_default_");
+      for (let [ fname, field ] of Object.entries(encoding.fields)) {
+        for (let [ pname, value ] of Object.entries(field)) {
+          if (Object.prototype.hasOwnProperty.call(_default, pname) && value === _default[ pname ])
+            delete field[ pname ];
         }
       }
     }
