@@ -1,9 +1,10 @@
 {
+  "description": "not sure this works",
   "tabledefs": {
     "origin": {
-      "smt": "json|./test/data/input/|db_schema.json|*",
+      "smt": "json|./|db_schema.json|*",
       "options": {
-        "encoding": "./test/data/input/db_schema.encoding.json"
+        "encoding": "./db_schema.encoding.json"
       }
     },
     "tranforms": {
@@ -29,10 +30,9 @@
           "splitOn": "TABLE_NAME"
         },
         "tract": {
-          "transform": {
-          },
+          "transform": {},
           "terminal": {
-            "smt": "json|./test/data/output/DBENCODING/|*.json|*",
+            "smt": "json|./|*.json|*",
             "options": {}
           }
         }

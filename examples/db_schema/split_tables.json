@@ -2,17 +2,17 @@
   "split": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./test/data/input/|db_schema.json|*"
+      "smt": "json|./|db_schema.json|*"
     },
     "terminal": {
       "smt": "split|*|*|*",
       "options": {
         "splitOn": "TABLE_NAME",
-        "encoding": "./test/data/input/db_schema.encoding.json"
+        "encoding": "./db_schema.encoding.json"
       },
       "tract": {
         "terminal": {
-          "smt": "json|./test/data/output/DB/|db_*|*",
+          "smt": "json|./|table_*|*",
           "options": {}
         }
       }
