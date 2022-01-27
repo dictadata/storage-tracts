@@ -5,7 +5,7 @@
 
 const storage = require("@dictadata/storage-junctions");
 const { StorageError } = require("@dictadata/storage-junctions/types");
-const { typeOf, logger } = require("@dictadata/storage-junctions/utils");
+const { typeOf, logger, hasOwnProperty } = require("@dictadata/storage-junctions/utils");
 
 const Package = require('../../package.json');
 const fs = require('fs');
@@ -13,10 +13,16 @@ const fs = require('fs');
 exports.version = Package.version;
 
 var defaults = {
-  "_log": {
-    logPath: "./log",
-    logPrefix: "etl",
-    logLevel: "info"
+  "_config": {
+    "log": {
+      logPath: "./log",
+      logPrefix: "etl",
+      logLevel: "info"
+    },
+    "plugins": {
+      "filesystems": [],
+      "junctions": []
+    }
   }
 };
 
@@ -47,18 +53,20 @@ exports.createTracts = async function (tractsFilename) {
           }
         }
       },
-      "_plugins": {
-        "filesystems": {
-          "package_name": ["prefix"]
+      "_congig": {
+        "plugins": {
+          "filesystems": {
+            "package_name": [ "prefix" ]
+          },
+          "junctions": {
+            "package_name": [ "model" ]
+          }
         },
-        "junctions": {
-          "package_name": ["model"]
+        "log": {
+          "logPath": "./log",
+          "logPrefix": "etl",
+          "logLevel": "info"
         }
-      },
-      "_log": {
-        "logPath": "./log",
-        "logPrefix": "etl",
-        "logLevel": "info"
       }
     };
 
@@ -85,13 +93,10 @@ exports.loadTracts = async (tractsFilename, schema) => {
     let appConfig = JSON.parse(text);
     tracts = Object.assign({}, defaults, appConfig);
 
-    logger.configETLLogger(tracts._log);
-
     // check tract properties
-    for (let [name, tract] of Object.entries(tracts)) {
-      if (name === "_log") continue;
-      if (name === "_plugins") {
-        loadPlugins(tracts["_plugins"]);
+    for (let [ name, tract ] of Object.entries(tracts)) {
+      if (name === "_config") {
+        loadConfig(tracts[ "_config" ]);
         continue;
       }
 
@@ -112,20 +117,29 @@ exports.loadTracts = async (tractsFilename, schema) => {
   return tracts;
 };
 
-async function loadPlugins(plugins) {
+async function loadConfig(_config) {
+
+  let logOptions = Object.assign({}, defaults, _config.log);
+  logger.configLogger(logOptions);
+
+  let plugins = _config.plugins || {};
 
   // register filesystem plugins
-  for (let [name, prefixes] of Object.entries(plugins["filesystems"])) {
-    let stfs = require(name);
-    for (let prefix of prefixes)
-      storage.FileSystems.use(prefix, stfs);
+  if (hasOwnProperty(plugins, "filesystems")) {
+    for (let [ name, prefixes ] of Object.entries(plugins[ "filesystems" ])) {
+      let stfs = require(name);
+      for (let prefix of prefixes)
+        storage.FileSystems.use(prefix, stfs);
+    }
   }
 
   // register junction plugins
-  for (let [name, models] of Object.entries(plugins["junctions"])) {
-    let junction = require(name);
-    for (let model of models)
-      storage.use(model, junction);
+  if (hasOwnProperty(plugins, "junctions")) {
+    for (let [ name, models ] of Object.entries(plugins[ "junctions" ])) {
+      let junction = require(name);
+      for (let model of models)
+        storage.use(model, junction);
+    }
   }
 
 }

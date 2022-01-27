@@ -35,20 +35,20 @@ function parseArgs() {
 
   let i = 2;
   while (i < process.argv.length) {
-    if (process.argv[i] === "-c" || process.argv[i] === "-t") {
+    if (process.argv[ i ] === "-c" || process.argv[ i ] === "-t") {
       // tractsFile
       if (i + 1 < process.argv.length) {
-        myArgs.tractsFile = process.argv[i + 1];
+        myArgs.tractsFile = process.argv[ i + 1 ];
         ++i;
         if (!path.extname(myArgs.tractsFile))
           myArgs.tractsFile += ".json";
       }
     }
     else if (!myArgs.tractName) {
-      myArgs.tractName = process.argv[i];
+      myArgs.tractName = process.argv[ i ];
     }
     else if (!myArgs.schemaName) {
-      myArgs.schemaName = process.argv[i];
+      myArgs.schemaName = process.argv[ i ];
     }
     ++i;
   }
@@ -78,22 +78,28 @@ function parseArgs() {
       console.log("");
       console.log("tractName");
       console.log("  The tract to follow in the configuration file.");
-      console.log("  If 'action' is not defined in the tract then action defaults to the tractName.");
+      console.log("  If 'action' is not defined in a tract then action defaults to the tractName.");
       console.log("");
       console.log("schemaName");
       console.log("  A string value that will replace the string '${schema}' in the tract.");
       console.log("  The value will replace all occurences of ${schema} using regex.");
       console.log("");
       console.log("Actions:");
-      console.log("  config - create example etl_tracts.json file in the current directory.");
+
       console.log("  list - listing of schema names in a data store.");
       console.log("  codify - determine schema encoding by codifying a single schema.");
       console.log("  scan - list data store and determine schema encoding by codifying multiple schemas.");
+
+      console.log("  copy - copy data files between remote file system and local file system.");
+
       console.log("  transfer - transfer data between data stores with optional transforms.");
       console.log("  dull - remove data from a data store.");
-      console.log("  copy - copy data files between remote file system and local file system.");
+
       console.log("  all - run all tracts in sequence.");
       console.log("  parallel - run all tracts in parallel.");
+
+      console.log("  config - create example etl_tracts.json file in the current directory.");
+
       console.log("");
       return;
     }
@@ -111,8 +117,8 @@ function parseArgs() {
 
     if (appArgs.tractName === "all") {
       for (let name of Object.keys(tracts)) {
-        if (name[0] === "_") continue;
-        retCode = await processTract(name, tracts[name]);
+        if (name[ 0 ] === "_") continue;
+        retCode = await processTract(name, tracts[ name ]);
         if (retCode)
           break;
       }
@@ -120,13 +126,13 @@ function parseArgs() {
     else if (appArgs.tractName === "parallel") {
       let tasks = [];
       for (let name of Object.keys(tracts)) {
-        if (name[0] === "_") continue;
-        tasks.push(processTract(name, tracts[name]));
+        if (name[ 0 ] === "_") continue;
+        tasks.push(processTract(name, tracts[ name ]));
       }
       Promise.allSettled(tasks);
     }
     else {
-      retCode = await processTract(appArgs.tractName, tracts[appArgs.tractName]);
+      retCode = await processTract(appArgs.tractName, tracts[ appArgs.tractName ]);
     }
 
   }
@@ -153,7 +159,7 @@ async function processTract(tractName, tract) {
   if (typeof tract !== 'object')
     throw new StorageError(422, "storage tract not found " + tractName);
 
-  let action = tract["action"] || tractName.substr(0, tractName.indexOf('_')) || tractName;
+  let action = tract[ "action" ] || tractName.substr(0, tractName.indexOf('_')) || tractName;
 
   switch (action) {
     case 'config':

@@ -15,12 +15,12 @@ module.exports = exports = logger;
 logger.level = process.env.LOG_LEVEL || 'info';
 
 var defaultOptions = {
-  logPath: "/var/log/storage-node",
+  logPath: "./log",
   logPrefix: "etl",
   logLevel: "info"
 };
 
-logger.configETLLogger = function (options) {
+logger.configLogger = function (options) {
   options = Object.assign({}, defaultOptions, options);
 
   //console.log(process.env.LOG_LEVEL);
@@ -36,6 +36,6 @@ logger.configETLLogger = function (options) {
     datePattern: 'YYYY-MM-DD',
     maxSize: '100m',
     maxFiles: (process.env.NODE_ENV === 'development') ? '1d' : '31d'
-  }) );
+  }));
 
 };
