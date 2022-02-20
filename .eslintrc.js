@@ -17,14 +17,14 @@ module.exports = {
     "logger": "readonly"
   },
   "rules": {
-    'arrow-parens': ["warn", "always"],
+    'arrow-parens': [ "warn", "always" ],
     'generator-star-spacing': 1,
     'quotes': "off",
-    'indent': ['warn', 2, { "MemberExpression": "off" }],
-    'semi': ['warn', 'always'],
+    'indent': [ 'warn', 2, { "MemberExpression": "off", "SwitchCase": 1 } ],
+    'semi': [ 'warn', 'always' ],
     'func-call-spacing': 0,
     'curly': "off",
     'no-console': process.env.NODE_ENV === 'production' ? 2 : 0,
-    'no-unused-vars': ["warn", { "argsIgnorePattern": "^_" }]
+    'no-unused-vars': [ "warn", { "argsIgnorePattern": "^_" } ]
   }
 }

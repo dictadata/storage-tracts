@@ -35,7 +35,7 @@
     "node": ">=15.0.1"
   },
   "dependencies": {
-    "@dictadata/storage-junctions": "^2.0.1",
+    "@dictadata/storage-junctions": "^2.0.2",
     "colors": "^1.4.0",
     "winston": "^3.3.3",
     "winston-daily-rotate-file": "^4.5.5"
