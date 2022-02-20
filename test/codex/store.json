@@ -1,0 +1,12 @@
+{
+  "codex": {
+    "action": "codex",
+    "store": [
+      {
+        "name": "foo_schema_two",
+        "smt": "json|./test/data/input/|foofile.json|*",
+        "encoding": "./test/data/input/foo_schema.encoding.json"
+      }
+    ]
+  }
+}

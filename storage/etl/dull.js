@@ -26,7 +26,6 @@ module.exports = async (tract) => {
     else
       results = await j1.dull(origin.options.pattern);
 
-    logger.verbose(JSON.stringify(list, null, " "));
     if (tract.terminal.output) {
       logger.info("results saved to " + tract.terminal.output);
       fs.mkdirSync(path.dirname(tract.terminal.output), { recursive: true });

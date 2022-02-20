@@ -1,0 +1,13 @@
+{
+  "codex": {
+    "action": "codex",
+    "recall": {
+      "pattern": {
+        "match": {
+          "wc": "foo_schema*"
+        }
+      },
+      "output": "./test/data/output/codex/retrieve-foo_schemas.json"
+    }
+  }
+}

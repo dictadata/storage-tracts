@@ -1,0 +1,34 @@
+{
+  "jsonfile-foo_schema": {
+    "action": "codex",
+    "store": {
+      "name": "jsonfile-foo_schema",
+      "smt": "json|./test/data/input/|foofile.json|*",
+      "encoding": "./test/data/input/foo_schema.encoding.json"
+    }
+  },
+  "elasticsearch-foo_schema": {
+    "action": "codex",
+    "store": {
+      "name": "elasticsearch-foo_schema",
+      "smt": "elasticsearch|http://localhost:9200|foo_schema|!Foo",
+      "encoding": "./test/data/input/foo_schema.encoding.json"
+    }
+  },
+  "mssql-foo_schema": {
+    "action": "codex",
+    "store": {
+      "name": "mssql-foo_schema",
+      "smt": "mssql|server=localhost;userName=dicta;password=data;database=storage_node|foo_schema|=Foo",
+      "encoding": "./test/data/input/foo_schema.encoding.json"
+    }
+  },
+  "mysql-foo_schema": {
+    "action": "codex",
+    "store": {
+      "name": "mysql-foo_schema",
+      "smt": "mysql|host=localhost;user=dicta;password=data;database=storage_node|foo_schema|=Foo",
+      "encoding": "./test/data/input/foo_schema.encoding.json"
+    }
+  }
+}

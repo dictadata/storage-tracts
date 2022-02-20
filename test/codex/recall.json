@@ -1,0 +1,9 @@
+{
+  "codex": {
+    "action": "codex",
+    "recall": {
+      "name": "jsonfile-foo_schema",
+      "output": "./test/data/output/codex/jsonfile-foo_schema.encoding.json"
+    }
+  }
+}

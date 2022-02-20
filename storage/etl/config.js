@@ -14,6 +14,10 @@ exports.version = Package.version;
 
 var defaults = {
   "_config": {
+    "codex": {
+      "smt": "",
+      "options": {}
+    },
     "log": {
       logPath: "./log",
       logPrefix: "etl",
@@ -54,6 +58,9 @@ exports.createTracts = async function (tractsFilename) {
         }
       },
       "_congig": {
+        "codex": {
+          "smt": "model|locus|schema|key"
+        },
         "plugins": {
           "filesystems": {
             "package_name": [ "prefix" ]
@@ -121,6 +128,15 @@ async function loadConfig(_config) {
 
   let logOptions = Object.assign({}, defaults, _config.log);
   logger.configLogger(logOptions);
+
+  if (hasOwnProperty("_config", "codex")) {
+    // activate codex junction
+    let codex = new storage.Codex(_config.codex);
+    await codex.activate();
+
+    // use codex for SMT name lookup
+    storage.codex = codex;
+  }
 
   let plugins = _config.plugins || {};
 
