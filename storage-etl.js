@@ -67,6 +67,7 @@ function parseArgs() {
 
   try {
     console.log("storage-etl (etl) " + config.version);
+    console.log("Copyright 2022 dictadata.org | The MIT License")
     parseArgs();
 
     if (!appArgs.tractName) {
