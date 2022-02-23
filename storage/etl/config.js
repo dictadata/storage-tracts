@@ -12,7 +12,7 @@ const fs = require('fs');
 
 exports.version = Package.version;
 
-var defaults = {
+var defaultTracts = {
   "_config": {
     "codex": {
       "smt": "",
@@ -33,17 +33,14 @@ var defaults = {
 /**
  *
  */
-exports.createTracts = async function (tractsFilename) {
+exports.sampleTracts = async function (tractsFilename) {
 
   try {
     let sampleTracts = {
       "tract-name": {
         "origin": {
-          "smt": "csv|./|foofile.csv|*",
-          "options": {
-            "header": true,
-            "encoding": {}
-          }
+          "smt": "<SMT_name>",
+          "options": {}
         },
         "transform": {
           "filter": {},
@@ -52,21 +49,20 @@ exports.createTracts = async function (tractsFilename) {
         "terminal": {
           "smt": "json|./|foofile.json|*",
           "options": {
-            "encoding": {},
-            "append": false
+            "encoding": "<schema_name.encoding.json>"
           }
         }
       },
       "_congig": {
         "codex": {
-          "smt": "model|locus|schema|key"
+          "smt": "<model>|<locus>|<schema>|<key>"
         },
         "plugins": {
           "filesystems": {
-            "package_name": [ "prefix" ]
+            "<package_name>": [ "<prefix>" ]
           },
           "junctions": {
-            "package_name": [ "model" ]
+            "<package_name>": [ "<model>" ]
           }
         },
         "log": {
@@ -93,22 +89,41 @@ exports.loadTracts = async (tractsFilename, schema) => {
   let tracts;
 
   try {
-    // read the app configuration file
+    // check for config file
+    let cfgTracts = {};
+    try {
+      let cfg = await fs.readFileSync("storage-etl.config.json", 'utf-8');
+      cfgTracts = JSON.parse(cfg);
+    }
+    catch (err) {
+      console.verbose(err.message);
+    }
+
+    // read the app tracts file
     let text = await fs.readFileSync(tractsFilename, 'utf-8');
-    if (schema)
+    if (schema) {
+      // simple text replacement of "${schema}" in tracts file
       text = text.replace(/\${schema}/g, schema);
-    let appConfig = JSON.parse(text);
-    tracts = Object.assign({}, defaults, appConfig);
+    }
+    let appTracts = JSON.parse(text);
+
+    let config = Object.assign({}, defaultTracts._config);
+    if (cfgTracts._config)
+      _copy(config, cfgTracts._config);
+    if (appTracts._config)
+      _copy(config, appTracts._config);
+    await initConfig(config);
+
+    tracts = Object.assign({}, cfgTracts, appTracts);
+    delete tracts._config;
 
     // check tract properties
     for (let [ name, tract ] of Object.entries(tracts)) {
-      if (name === "_config") {
-        loadConfig(tracts[ "_config" ]);
-        continue;
-      }
+      //if (typeof tract === "function")
+      //  continue;
 
-      if (typeof tract === "function")
-        continue;
+      if (name === "codex") continue;
+
       // check origin properties
       if (typeOf(tract.origin) !== "object")
         throw new StorageError(400, "invalid tract origin: " + name);
@@ -124,12 +139,13 @@ exports.loadTracts = async (tractsFilename, schema) => {
   return tracts;
 };
 
-async function loadConfig(_config) {
+async function initConfig(_config) {
 
-  let logOptions = Object.assign({}, defaults, _config.log);
-  logger.configLogger(logOptions);
+  //// config logger
+  logger.configLogger(_config.log);
 
-  if (hasOwnProperty("_config", "codex")) {
+  ///// codex initialization
+  if (hasOwnProperty(_config, "codex") && _config.codex.smt) {
     // activate codex junction
     let codex = new storage.Codex(_config.codex);
     await codex.activate();
@@ -138,9 +154,10 @@ async function loadConfig(_config) {
     storage.codex = codex;
   }
 
+  //// register any plugins
   let plugins = _config.plugins || {};
 
-  // register filesystem plugins
+  // filesystem plugins
   if (hasOwnProperty(plugins, "filesystems")) {
     for (let [ name, prefixes ] of Object.entries(plugins[ "filesystems" ])) {
       let stfs = require(name);
@@ -149,7 +166,7 @@ async function loadConfig(_config) {
     }
   }
 
-  // register junction plugins
+  // junction plugins
   if (hasOwnProperty(plugins, "junctions")) {
     for (let [ name, models ] of Object.entries(plugins[ "junctions" ])) {
       let junction = require(name);
@@ -158,4 +175,34 @@ async function loadConfig(_config) {
     }
   }
 
+}
+
+/**
+ * Copy all src properties to dst object.
+ * Deep copy of object properties and top level arrays.
+ * Shallow copy of reference types like Date, sub-arrays, etc.
+ * Does not copy functions.
+ * Note, recursive function.
+ * @param {object} dst
+ * @param {object} src
+ */
+function _copy(dst, src) {
+  for (let [ key, value ] of Object.entries(src)) {
+    if (typeOf(value) === "object") { // fields, ...
+      dst[ key ] = {};
+      _copy(dst[ key ], value);
+    }
+    else if (typeOf(value) === "array") {
+      dst[ key ] = [];
+      for (let item of value)
+        if (typeOf(item) === "object")
+          dst[ key ].push(_copy({}, item));
+        else
+          dst[ key ].push(item);
+    }
+    else if (typeOf(value) !== "function") {
+      dst[ key ] = value;
+    }
+  }
+  return dst;
 }

@@ -20,6 +20,7 @@ module.exports = async (tract) => {
 
   try {
     for (let [ command, entry ] of Object.entries(tract)) {
+      if (command === "action") continue;
 
       // determine function to apply
       switch (command) {
@@ -55,33 +56,35 @@ async function store(entry) {
   if (entry.encoding && typeof entry.encoding === "string") {
     // read encoding from file
     let filename = entry.encoding;
-    engram.encoding = JSON.parse(await fs.readFile(filename, "utf8"));
+    engram.encoding = JSON.parse(fs.readFileSync(filename, "utf8"));
   }
   else
     engram.encoding = entry.encoding;
 
   // store codex entry
   let results = await storage.codex.store(engram.encoding);
-  console.log(JSON.stringify(results, null, " "));
+  console.log(results.resultText);
 }
 
 async function dull(entry) {
   let results = await storage.codex.dull(entry.name);
-  logger.info(results);
+  logger.info(results.resultText);
 }
 
 async function recall(entry) {
-  var encoding = await storage.codex.recall(entry.name);
+  let results = await storage.codex.recall(entry.name);
+  console.log(results.resultText);
 
   logger.verbose("output file: " + entry.output);
   fs.mkdirSync(path.dirname(entry.output), { recursive: true });
-  fs.writeFileSync(entry.output, JSON.stringify(encoding, null, 2), "utf8");
+  fs.writeFileSync(entry.output, JSON.stringify(results.data, null, 2), "utf8");
 }
 
 async function retrieve(entry) {
   let results = await storage.codex.retrieve(entry.pattern);
+  console.log(results.resultText);
 
   logger.verbose("output file: " + entry.output);
   fs.mkdirSync(path.dirname(entry.output), { recursive: true });
-  fs.writeFileSync(entry.output, JSON.stringify(results, null, 2), "utf8");
+  fs.writeFileSync(entry.output, JSON.stringify(results.data, null, 2), "utf8");
 }

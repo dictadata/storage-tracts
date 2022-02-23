@@ -32,6 +32,76 @@
     },
     {
       "type": "node-terminal",
+      "name": "--- codex",
+      "request": "launch"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "codex store",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": ["-c", "${workspaceFolder}/test/codex/store.json", "codex"],
+      "env": {
+        "NODE_ENV": "production",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "codex recall",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": ["-c", "${workspaceFolder}/test/codex/recall.json", "codex"],
+      "env": {
+        "NODE_ENV": "production",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "codex dull",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": ["-c", "${workspaceFolder}/test/codex/dull.json", "codex"],
+      "env": {
+        "NODE_ENV": "production",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "codex retreive",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": ["-c", "${workspaceFolder}/test/codex/retrieve.json", "codex"],
+      "env": {
+        "NODE_ENV": "production",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "codex add_smt",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": ["-c", "${workspaceFolder}/test/codex/add_smt.json", "codex"],
+      "env": {
+        "NODE_ENV": "production",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "node-terminal",
       "name": "--- file systems",
       "request": "launch"
     },

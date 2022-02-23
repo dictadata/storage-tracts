@@ -16,7 +16,7 @@
   "index-json": {
     "action": "transfer",
     "origin": {
-      "smt": "elastic|http://localhost:9200|foo_schema|*"
+      "smt": "elasticsearch-foo_schema"
     },
     "terminal": {
       "smt": "json|./test/data/output/elasticsearch/|foofile.json|*"
