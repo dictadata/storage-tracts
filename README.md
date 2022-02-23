@@ -1,10 +1,10 @@
-# @dictadata/storage-etl 1.8.x
+# @dictadata/storage-etl 2.0.X
 
 Command line ETL utilitiy to transfer, transform and codify data between local and distributed storage sources.
 
 ## Prerequisites
 
-Node.js version 15.0 or higher.  Download the installer from [https://nodejs.org/en/download/](https://nodejs.org/en/download/).
+Node.js version 16 or higher.  Download the latest stable installer from [https://nodejs.org/en/download/](https://nodejs.org/en/download/).
 
 ## Installation
 
@@ -21,11 +21,11 @@ Node.js version 15.0 or higher.  Download the installer from [https://nodejs.org
     storage-etl [-t tractsFile] [tractName] [schemaName]
 
   tractsFile
-    JSON configuration file that defines tracts, plug-ins and logging.
-    Default configuration file is ./etl_tracts.json
+    JSON file that defines tracts, plug-ins and logging.
+    Default tracts file is ./etl_tracts.json
   
   tractName
-    The tract to follow in the configuration file.
+    The tract to follow in the tracts file.
     If "action" is not defined in the tract then action defaults to the tractName.
 
   schemaName
@@ -34,6 +34,7 @@ Node.js version 15.0 or higher.  Download the installer from [https://nodejs.org
 
   Actions:
     config - create example etl_tracts.json file in the current directory.
+    codex - manage codex entries
     list - listing of schema names in a data store.
     codify - determine schema encoding by codifying a single data store schema.
     scan - list data store and determine schema encoding by codifying multiple schemas.
@@ -44,9 +45,32 @@ Node.js version 15.0 or higher.  Download the installer from [https://nodejs.org
     parallel - run all tracts in parallel.
 ```
 
-## Tracts Configuration File
+## Configuration File
 
-- A tract configuration specifies the origin and terminal SMT addresses along with options, encoding, transforms and output information.
+Default configuration settings can be specified in a _config tract in **storage-etl.config.json**.  The file will be read from the current working directory.  Example configuration tract:
+
+```json
+{
+  "_config": {
+    "codex": {
+      "smt": "elasticsearch|http://localhost:9200/|dicta_codex|!name"
+    },
+    "log": {
+      "logPath": "./log",
+      "logPrefix": "etl",
+      "logLevel": "info"
+    },
+    "plugins": {
+      "filesystems": [],
+      "junctions": []
+    }
+  }
+}
+```
+
+## Tracts File
+
+- A tracts specifies the origin and terminal SMT addresses along with options, encoding, transforms and output information.
 - Origin and terminal MUST both be supported and compatible key stores or record stores.
 - Scan functionality supports file storage such as local folders, FTP and AWS S3 buckets.
 - Transforms are optional. If specified then fields will be transformed between origin and terminal.

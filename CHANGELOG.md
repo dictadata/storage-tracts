@@ -1,5 +1,9 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.0.3
+  - read config tract from **./storage-etl.config.json**
+  - update to @dictadata/storage-junctions 2.0.3
+  - codex support
 - version 2.0.1
   - update to @dictadata/storage-junctions 2.0.1
   - Engram/encodings updated for Codex compatability
