@@ -1,0 +1,8 @@
+{
+  "_config": {
+    "codex": {
+      "smt": "elasticsearch|http://localhost:9200/|dicta_codex|!name",
+      "options": {}
+    }
+  }
+}

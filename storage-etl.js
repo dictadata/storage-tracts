@@ -18,6 +18,7 @@ const codex = require('./storage/etl/codex');
 
 const colors = require('colors');
 const path = require('path');
+const { fstat } = require("fs");
 
 // set program argument defaults
 const appArgs = {
@@ -107,9 +108,10 @@ function parseArgs() {
       return;
     }
 
+    // load tracts file
     let tracts = {};
     if (appArgs.tractName === 'config') {
-      await config.createTracts(appArgs.tractsFile);
+      await config.sampleTracts(appArgs.tractsFile);
       return 0;
     } else {
       tracts = await config.loadTracts(appArgs.tractsFile, appArgs.schemaName);
