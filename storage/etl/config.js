@@ -100,7 +100,7 @@ exports.loadTracts = async (tractsFilename, schema) => {
     }
 
     // read the app tracts file
-    let text = await fs.readFileSync(tractsFilename, 'utf-8');
+    let text = fs.readFileSync(tractsFilename, 'utf-8');
     if (schema) {
       // simple text replacement of "${schema}" in tracts file
       text = text.replace(/\${schema}/g, schema);
