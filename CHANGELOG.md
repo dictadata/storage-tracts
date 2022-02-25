@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.0.6
+  - update to @dictadata/storage-junctions 2.0.6
+  - bug fixes for MySQL new StorageError()
 - version 2.0.4
   - update to @dictadata/storage-junctions 2.0.5
   - bug fixes
