@@ -1,7 +1,11 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.0.8
+  - update to @dictadata/storage-junctions 2.0.8
+  - bug fixes
+  - dependency updates for tedious and elasticsearch client
 - version 2.0.7
-  - update to @dictadata/storage-junctions 2.0.6
+  - update to @dictadata/storage-junctions 2.0.7
   - add automatic index refresh option for elasticsearch junction
   - only test using local ftp server
   - bug fix check results before caching codex entry during recall()
