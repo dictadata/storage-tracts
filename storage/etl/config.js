@@ -109,9 +109,9 @@ exports.loadTracts = async (tractsFilename, schema) => {
 
     let config = Object.assign({}, defaultTracts._config);
     if (cfgTracts._config)
-      _copy(config, cfgTracts._config);
+      _merge(config, cfgTracts._config);
     if (appTracts._config)
-      _copy(config, appTracts._config);
+      _merge(config, appTracts._config);
     await initConfig(config);
 
     tracts = Object.assign({}, cfgTracts, appTracts);
@@ -178,29 +178,31 @@ async function initConfig(_config) {
 }
 
 /**
- * Copy all src properties to dst object.
+ * Copy src properties to dst object.
  * Deep copy of object properties and top level arrays.
  * Shallow copy of reference types like Date, sub-arrays, etc.
  * Does not copy functions.
- * Note, recursive function.
+ * Note, this is a recursive function.
  * @param {object} dst
  * @param {object} src
  */
-function _copy(dst, src) {
+function _merge(dst, src) {
   for (let [ key, value ] of Object.entries(src)) {
-    if (typeOf(value) === "object") { // fields, ...
-      dst[ key ] = {};
-      _copy(dst[ key ], value);
+    if (typeOf(value) === "object") {
+      if (typeOf(dst[ key ] !== "object"))
+        dst[ key ] = {};
+      _merge(dst[ key ], value);
     }
     else if (typeOf(value) === "array") {
-      dst[ key ] = [];
+      if (typeOf(dst[ key ] !== "array"))
+        dst[ key ] = [];
       for (let item of value)
         if (typeOf(item) === "object")
-          dst[ key ].push(_copy({}, item));
+          dst[ key ].push(_merge({}, item));
         else
           dst[ key ].push(item);
     }
-    else if (typeOf(value) !== "function") {
+    else /* if (typeOf(value) !== "function") */ {
       dst[ key ] = value;
     }
   }
