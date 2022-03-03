@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.0.9
+  - bug fix: merge config objects instead of replacing properties
 - version 2.0.8
   - update to @dictadata/storage-junctions 2.0.8
   - bug fixes
