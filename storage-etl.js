@@ -101,7 +101,7 @@ function parseArgs() {
       console.log("  all - run all tracts in sequence.");
       console.log("  parallel - run all tracts in parallel.");
 
-      console.log("  cortex - manage cortex entries");
+      console.log("  cortex - manage cortex cords");
 
       console.log("  config - create example etl_tracts.json file in the current directory.");
 
