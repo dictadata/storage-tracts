@@ -49,6 +49,10 @@ module.exports = async (tract) => {
   return retCode;
 };
 
+/**
+ *
+ * @param {*} entry a cortex entry from an ETL tract
+ */
 async function store(entry) {
   let engram = new Engram(entry.smt);
   engram.name = entry.name;
@@ -62,15 +66,23 @@ async function store(entry) {
     engram.encoding = entry.encoding;
 
   // store cortex entry
-  let results = await storage.cortex.store(engram.encoding);
+  let results = await storage.cortex.store(engram);
   console.log(results.resultText);
 }
 
+/**
+ *
+ * @param {*} entry a cortex entry from an ETL tract
+ */
 async function dull(entry) {
   let results = await storage.cortex.dull(entry.name);
   logger.info(results.resultText);
 }
 
+/**
+ *
+ * @param {*} entry a cortex entry from an ETL tract
+ */
 async function recall(entry) {
   let results = await storage.cortex.recall(entry.name);
   console.log(results.resultText);
@@ -80,6 +92,10 @@ async function recall(entry) {
   fs.writeFileSync(entry.output, JSON.stringify(results.data, null, 2), "utf8");
 }
 
+/**
+ *
+ * @param {*} entry a cortex entry from an ETL tract
+ */
 async function retrieve(entry) {
   let results = await storage.cortex.retrieve(entry.pattern);
   console.log(results.resultText);
