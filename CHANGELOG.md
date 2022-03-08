@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.1.1
+  - update to @dictadata/storage-junctions 2.1.2
 - version 2.1.0
   - update to @dictadata/storage-junctions 2.1.0
   - refactor storage and cortex classes, remove codex class
