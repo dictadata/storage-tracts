@@ -34,7 +34,7 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
 
   Actions:
     config - create example etl_tracts.json file in the current directory.
-    codex - manage codex entries
+    cortex - manage cortex entries
     list - listing of schema names in a data store.
     codify - determine schema encoding by codifying a single data store schema.
     scan - list data store and determine schema encoding by codifying multiple schemas.
@@ -52,8 +52,8 @@ Default configuration settings can be specified in a _config tract in **storage-
 ```json
 {
   "_config": {
-    "codex": {
-      "smt": "elasticsearch|http://localhost:9200/|dicta_codex|!name"
+    "cortex": {
+      "smt": "elasticsearch|http://localhost:9200/|dicta_cortex|!name"
     },
     "log": {
       "logPath": "./log",

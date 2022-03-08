@@ -1,5 +1,5 @@
 /**
- * etl/codex
+ * etl/cortex
  */
 "use strict";
 
@@ -14,7 +14,7 @@ const path = require('path');
  *
  */
 module.exports = async (tract) => {
-  logger.verbose("codex ...");
+  logger.verbose("cortex ...");
   let retCode = 0;
   let fn;
 
@@ -29,7 +29,7 @@ module.exports = async (tract) => {
         case "recall": fn = recall; break;
         case "retrieve": fn = retrieve; break;
         default:
-          logger.error("unknown codex command: " + command);
+          logger.error("unknown cortex command: " + command);
           return 1;
       }
 
@@ -61,18 +61,18 @@ async function store(entry) {
   else
     engram.encoding = entry.encoding;
 
-  // store codex entry
-  let results = await storage.codex.store(engram.encoding);
+  // store cortex entry
+  let results = await storage.cortex.store(engram.encoding);
   console.log(results.resultText);
 }
 
 async function dull(entry) {
-  let results = await storage.codex.dull(entry.name);
+  let results = await storage.cortex.dull(entry.name);
   logger.info(results.resultText);
 }
 
 async function recall(entry) {
-  let results = await storage.codex.recall(entry.name);
+  let results = await storage.cortex.recall(entry.name);
   console.log(results.resultText);
 
   logger.verbose("output file: " + entry.output);
@@ -81,7 +81,7 @@ async function recall(entry) {
 }
 
 async function retrieve(entry) {
-  let results = await storage.codex.retrieve(entry.pattern);
+  let results = await storage.cortex.retrieve(entry.pattern);
   console.log(results.resultText);
 
   logger.verbose("output file: " + entry.output);

@@ -14,7 +14,7 @@ exports.version = Package.version;
 
 var defaultTracts = {
   "_config": {
-    "codex": {
+    "cortex": {
       "smt": "",
       "options": {}
     },
@@ -54,7 +54,7 @@ exports.sampleTracts = async function (tractsFilename) {
         }
       },
       "_congig": {
-        "codex": {
+        "cortex": {
           "smt": "<model>|<locus>|<schema>|<key>"
         },
         "plugins": {
@@ -96,7 +96,7 @@ exports.loadTracts = async (tractsFilename, schema) => {
       cfgTracts = JSON.parse(cfg);
     }
     catch (err) {
-      console.verbose(err.message);
+      console.log(err.message);
     }
 
     // read the app tracts file
@@ -122,7 +122,7 @@ exports.loadTracts = async (tractsFilename, schema) => {
       //if (typeof tract === "function")
       //  continue;
 
-      if (name === "codex") continue;
+      if (name === "cortex") continue;
 
       // check origin properties
       if (typeOf(tract.origin) !== "object")
@@ -144,14 +144,14 @@ async function initConfig(_config) {
   //// config logger
   logger.configLogger(_config.log);
 
-  ///// codex initialization
-  if (hasOwnProperty(_config, "codex") && _config.codex.smt) {
-    // activate codex junction
-    let codex = new storage.Codex(_config.codex);
-    await codex.activate();
+  ///// cortex initialization
+  if (hasOwnProperty(_config, "cortex") && _config.cortex.smt) {
+    // activate cortex junction
+    let cortex = new storage.Cortex(_config.cortex);
+    await cortex.activate();
 
-    // use codex for SMT name lookup
-    storage.codex = codex;
+    // use cortex for SMT name lookup
+    storage.cortex = cortex;
   }
 
   //// register any plugins

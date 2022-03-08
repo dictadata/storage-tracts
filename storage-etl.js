@@ -14,7 +14,7 @@ const scan = require('./storage/etl/scan');
 const transfer = require('./storage/etl/transfer');
 const dull = require('./storage/etl/dull');
 const copy = require('./storage/etl/copy');
-const codex = require('./storage/etl/codex');
+const cortex = require('./storage/etl/cortex');
 
 const colors = require('colors');
 const path = require('path');
@@ -101,7 +101,7 @@ function parseArgs() {
       console.log("  all - run all tracts in sequence.");
       console.log("  parallel - run all tracts in parallel.");
 
-      console.log("  codex - manage codex entries");
+      console.log("  cortex - manage cortex entries");
 
       console.log("  config - create example etl_tracts.json file in the current directory.");
 
@@ -183,8 +183,8 @@ async function processTract(tractName, tract) {
       return dull(tract);
     case 'copy':
       return copy(tract);
-    case 'codex':
-      return codex(tract);
+    case 'cortex':
+      return cortex(tract);
     default:
       logger.error("unknown action: " + action);
       return 1;

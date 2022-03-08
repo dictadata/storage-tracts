@@ -1,0 +1,15 @@
+{
+  "cortex": {
+    "action": "cortex",
+    "recall": {
+      "name": "jsonfile-foo_schema",
+      "output": "./test/data/output/cortex/recall-foo_schema.encoding.json"
+    }
+  },
+  "_config": {
+    "cortex": {
+      "smt": "elasticsearch|http://localhost:9200/|dicta_cortex|!name",
+      "options": {}
+    }
+  }
+}

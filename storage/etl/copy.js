@@ -6,7 +6,7 @@
 "use strict";
 
 const storage = require("@dictadata/storage-junctions");
-const { parseSMT, StorageError } = require('@dictadata/storage-junctions/types');
+const { SMT, StorageError } = require('@dictadata/storage-junctions/types');
 const logger = require('./logger');
 
 function prefix(locus) {
@@ -22,8 +22,8 @@ module.exports = exports = async function (tract) {
 
   try {
     // verify that one of the destinations is local file system.
-    let src_smt = parseSMT(tract.origin.smt);
-    let dst_smt = parseSMT(tract.terminal.smt);
+    let src_smt = new SMT(tract.origin.smt);
+    let dst_smt = new SMT(tract.terminal.smt);
 
     let src_prefix = prefix(src_smt.locus);
     let dst_prefix = prefix(dst_smt.locus);
@@ -76,7 +76,7 @@ async function download(tract) {
     for (let entry of list) {
       logger.verbose(JSON.stringify(entry, null, 2));
 
-      let options = Object.assign({smt: tract.terminal.smt, entry: entry}, tract.terminal.options);
+      let options = Object.assign({ smt: tract.terminal.smt, entry: entry }, tract.terminal.options);
       let ok = await stfs.getFile(options);
       if (!ok) {
         logger.error("download failed: " + entry.href);
