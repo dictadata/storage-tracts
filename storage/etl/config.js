@@ -145,14 +145,17 @@ async function initConfig(_config) {
   logger.configLogger(_config.log);
 
   ///// cortex initialization
+  let cortex;
   if (hasOwnProperty(_config, "cortex") && _config.cortex.smt) {
     // activate cortex junction
-    let cortex = new storage.Cortex(_config.cortex);
+    cortex = new storage.Cortex(_config.cortex);
     await cortex.activate();
-
-    // use cortex for SMT name lookup
-    storage.cortex = cortex;
   }
+  else
+    cortex = new storage.Cortex("memory|dictadata|cortex|!name");
+
+  // use cortex for SMT name lookup
+  storage.cortex = cortex;
 
   //// register any plugins
   let plugins = _config.plugins || {};

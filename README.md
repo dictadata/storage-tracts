@@ -34,7 +34,7 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
 
   Actions:
     config - create example etl_tracts.json file in the current directory.
-    cortex - manage cortex cords
+    cortex - manage cortex encoding definitions
     list - listing of schema names in a data store.
     codify - determine schema encoding by codifying a single data store schema.
     scan - list data store and determine schema encoding by codifying multiple schemas.
