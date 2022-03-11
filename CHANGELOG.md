@@ -1,6 +1,9 @@
 # CHANGELOG:  @dictadata/storage-etl
 
 - version 2.1.1
+  - update to @dictadata/storage-junctions 2.1.3
+  - bug fix: set a default cortex with memory junction
+- version 2.1.1
   - update to @dictadata/storage-junctions 2.1.2
 - version 2.1.0
   - update to @dictadata/storage-junctions 2.1.0
