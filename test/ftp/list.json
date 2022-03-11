@@ -1,7 +1,7 @@
 {
   "list": {
     "origin": {
-      "smt": "json|ftp://dicta:data@localhost/data/|foofile_*.json|*",
+      "smt": "json|ftp://dicta:data@127.0.0.1/data/|foofile_*.json|*",
       "options": {
         "recursive": true
       }
