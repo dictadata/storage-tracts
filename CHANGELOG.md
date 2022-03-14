@@ -1,6 +1,6 @@
 # CHANGELOG:  @dictadata/storage-etl
 
-- version 2.1.2
+- version 2.1.3
   - update to @dictadata/storage-junctions 2.1.4
   - bug fix: Elasticsearch geometery type
   - bug fix: transfer encoding management
