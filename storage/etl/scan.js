@@ -8,7 +8,7 @@ const logger = require('./logger');
 
 const fs = require('fs');
 const path = require('path');
-const stream = require('stream/promises');
+const stream = require('stream').promises;
 
 /**
  * List schemas at a locus
@@ -35,9 +35,9 @@ module.exports = async (tract) => {
       let pipes = [];
       pipes.push(jo.createReader({ schema: entry.name }));
 
-      for (let [tfType, toptions] of Object.entries(transforms))
+      for (let [ tfType, toptions ] of Object.entries(transforms))
         pipes.push(jo.createTransform(tfType, toptions));
-      
+
       pipes.push(jo.createTransform('codify', { encoding: encoding }));
 
       await stream.pipeline(pipes);

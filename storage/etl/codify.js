@@ -9,7 +9,7 @@ const logger = require('./logger');
 
 const fs = require('fs');
 const path = require('path');
-const stream = require('stream/promises');
+const stream = require('stream').promises;
 
 /**
  *
