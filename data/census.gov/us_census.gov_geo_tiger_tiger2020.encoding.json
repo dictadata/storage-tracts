@@ -1,0 +1,92 @@
+{
+  "smt": {
+    "model": "*",
+    "locus": "*",
+    "schema": "us_census_geo_tiger_tiger2020",
+    "key": "!properties.GEOID+properties.NAME"
+  },
+  "fields": {
+    "type": {
+      "name": "type",
+      "type": "keyword",
+      "size": 18
+    },
+    "properties": {
+      "name": "properties",
+      "type": "map",
+      "fields": {
+        "REGION": {
+          "name": "REGION",
+          "type": "integer"
+        },
+        "DIVISION": {
+          "name": "DIVISION",
+          "type": "integer"
+        },
+        "STATEFP": {
+          "name": "STATEFP",
+          "type": "integer"
+        },
+        "STATENS": {
+          "name": "STATENS",
+          "type": "integer"
+        },
+        "GEOID": {
+          "name": "GEOID",
+          "type": "integer"
+        },
+        "STUSPS": {
+          "name": "STUSPS",
+          "type": "keyword",
+          "size": 2
+        },
+        "NAME": {
+          "name": "NAME",
+          "type": "text",
+          "size": 44
+        },
+        "LSAD": {
+          "name": "LSAD",
+          "type": "integer"
+        },
+        "MTFCC": {
+          "name": "MTFCC",
+          "type": "keyword",
+          "size": 5
+        },
+        "FUNCSTAT": {
+          "name": "FUNCSTAT",
+          "type": "keyword",
+          "size": 1
+        },
+        "ALAND": {
+          "name": "ALAND",
+          "type": "integer",
+          "_elasticsearch": {
+            "type": "long"
+          }
+        },
+        "AWATER": {
+          "name": "AWATER",
+          "type": "integer",
+          "_elasticsearch": {
+            "type": "long"
+          }
+        },
+        "INTPTLAT": {
+          "name": "INTPTLAT",
+          "type": "number"
+        },
+        "INTPTLON": {
+          "name": "INTPTLON",
+          "type": "number"
+        }
+      }
+    },
+    "geometry": {
+      "name": "geometry",
+      "type": "geometry"
+    }
+  },
+  "_SMT": "any|*|*|*"
+}

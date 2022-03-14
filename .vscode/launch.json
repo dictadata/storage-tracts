@@ -411,6 +411,23 @@
     {
       "type": "pwa-node",
       "request": "launch",
+      "name": "elasticsearch tiger2020",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "-c",
+        "${workspaceFolder}/test/elasticsearch/tiger2020.json",
+        "all"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
       "name": "mssql list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",

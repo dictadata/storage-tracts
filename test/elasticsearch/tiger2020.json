@@ -1,0 +1,17 @@
+{
+  "transfer": {
+    "action": "transfer",
+    "origin": {
+      "smt": "shp|zip:/var/data/US/census.gov/geo/tiger/TIGER2020/STATE/tl_2020_us_state.zip|tl_2020_us_state|*",
+      "options": {
+        "encoding": "./data/census.gov/us_census.gov_geo_tiger_tiger2020.encoding.json"
+      }
+    },
+    "terminal": {
+      "smt": "tiger2020",
+      "options": {
+        "encoding": "./data/census.gov/us_census.gov_geo_tiger_tiger2020.encoding.json"
+      }
+    }
+  }
+}
