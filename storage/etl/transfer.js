@@ -22,7 +22,7 @@ module.exports = async (tract) => {
     let reader = null;
     let writers = [];
     let transforms = tract.transform || tract.transforms || {};
-    
+
     logger.verbose(">>> Origin Tract");
     if (!tract.origin.options) tract.origin.options = {};
     if (!tract.terminal.options) tract.terminal.options = {};
@@ -39,11 +39,15 @@ module.exports = async (tract) => {
 
     logger.verbose(">>> getEncoding");
     let encoding = {};
-    // if not a filesystem based source and no transforms defined
-    // then get source encoding
-    if (jo.capabilities.encoding && !transforms.length) {
+    if (tract.origin.options.encoding) {
+      // source encoding is already defined
+      encoding = tract.origin.options.encoding;
+    }
+    else if (jo.capabilities.encoding && !transforms.length) {
+      // if not a filesystem based source and no transforms defined
+      // then get encoding from source
       let results = await jo.getEncoding();
-      encoding = results.data["encoding"];
+      encoding = results.data[ "encoding" ];
     }
     else {
       // if filesystem based source or transforms defined
@@ -51,9 +55,9 @@ module.exports = async (tract) => {
       let pipes = [];
       pipes.push(jo.createReader(tract.origin.options || { max_read: 100 }));
 
-      for (let [tfType, options] of Object.entries(transforms))
+      for (let [ tfType, options ] of Object.entries(transforms))
         pipes.push(jo.createTransform(tfType, options));
-    
+
       let ct = jo.createTransform('codify');
       pipes.push(ct);
 
@@ -65,8 +69,8 @@ module.exports = async (tract) => {
     reader = jo.createReader();
 
     logger.verbose(">>> origin transforms");
-    for (let [tfName, tfOptions] of Object.entries(transforms)) {
-      let tfType = tfName.split("-")[0];
+    for (let [ tfName, tfOptions ] of Object.entries(transforms)) {
+      let tfType = tfName.split("-")[ 0 ];
       reader = reader.pipe(jo.createTransform(tfType, tfOptions));
     }
 
@@ -86,13 +90,14 @@ module.exports = async (tract) => {
       logger.verbose(">>> Terminal Tract");
       let terminal = tract.terminal;
 
-      logger.verbose(">>> create junction " + terminal.smt );
+      logger.verbose(">>> create junction " + terminal.smt);
       let jt = await storage.activate(terminal.smt, terminal.options);
       jtl.push(jt);
 
       if (!terminal.options.append && jt.capabilities.encoding) {
         logger.verbose(">>> createSchema");
-        encoding = await jt.createSchema();
+        let results = await jt.createSchema();
+        logger.verbose(results.resultText);
       }
 
       logger.verbose(">>> createWriter");
@@ -108,7 +113,7 @@ module.exports = async (tract) => {
         let jt = await storage.activate(branch.terminal.smt, branch.terminal.options);
         jtl.push(jt);
 
-        if (!terminal.options.append && jt.capabilities.encoding) {
+        if (!tract.terminal.options.append && jt.capabilities.encoding) {
           logger.verbose(">>> createSchema");
           encoding = await jt.createSchema();
         }
@@ -116,8 +121,8 @@ module.exports = async (tract) => {
         let writer = null;
         logger.verbose(">>> transforms");
         let transforms = branch.transform || branch.transforms || {};
-        for (let [tfName, tfOptions] of Object.entries(transforms)) {
-          let tfType = tfName.split("-")[0];
+        for (let [ tfName, tfOptions ] of Object.entries(transforms)) {
+          let tfType = tfName.split("-")[ 0 ];
           let t = jt.createTransform(tfType, tfOptions);
           writer = (writer) ? writer.pipe(t) : reader.pipe(t);
         }
