@@ -35,13 +35,13 @@
     "node": ">=17.0.0"
   },
   "dependencies": {
-    "@dictadata/storage-junctions": "^2.1.3",
+    "@dictadata/storage-junctions": "^2.1.4",
     "colors": "^1.4.0",
     "winston": "^3.6.0",
     "winston-daily-rotate-file": "^4.6.1"
   },
   "devDependencies": {
-    "eslint": "^8.10.0",
+    "eslint": "^8.11.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0"
   }

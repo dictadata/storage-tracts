@@ -1,5 +1,9 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.1.2
+  - update to @dictadata/storage-junctions 2.1.4
+  - bug fix: Elasticsearch geometery type
+  - bug fix: transfer encoding management
 - version 2.1.1
   - update to @dictadata/storage-junctions 2.1.3
   - bug fix: set a default cortex with memory junction
