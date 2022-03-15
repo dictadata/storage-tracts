@@ -1,92 +1,131 @@
 {
+  "name": "us_census_geo_tiger_tiger2020",
+  "type": "engram",
+  "description": "encoding for US census.gov geo tiger2020 State and County",
+  "tags": [
+    "geo",
+    "tiger",
+    "tiger2020",
+    "census.gov",
+    "boundaries"
+  ],
   "smt": {
     "model": "*",
     "locus": "*",
     "schema": "us_census_geo_tiger_tiger2020",
     "key": "!properties.GEOID+properties.NAME"
   },
-  "fields": {
-    "type": {
+  "fields": [
+    {
       "name": "type",
       "type": "keyword",
-      "size": 18
+      "size": 32
     },
-    "properties": {
+    {
       "name": "properties",
       "type": "map",
-      "fields": {
-        "REGION": {
+      "fields": [
+        {
           "name": "REGION",
           "type": "integer"
         },
-        "DIVISION": {
+        {
           "name": "DIVISION",
           "type": "integer"
         },
-        "STATEFP": {
+        {
           "name": "STATEFP",
           "type": "integer"
         },
-        "STATENS": {
+        {
           "name": "STATENS",
           "type": "integer"
         },
-        "GEOID": {
+        {
+          "name": "COUNTYFP",
+          "type": "integer"
+        },
+        {
+          "name": "COUNTYNS",
+          "type": "integer"
+        },
+        {
           "name": "GEOID",
           "type": "integer"
         },
-        "STUSPS": {
+        {
           "name": "STUSPS",
           "type": "keyword",
           "size": 2
         },
-        "NAME": {
+        {
           "name": "NAME",
           "type": "text",
-          "size": 44
+          "size": 48
         },
-        "LSAD": {
+        {
+          "name": "NAMELSAD",
+          "type": "text",
+          "size": 48
+        },
+        {
           "name": "LSAD",
           "type": "integer"
         },
-        "MTFCC": {
+        {
+          "name": "CLASSFP",
+          "type": "keyword",
+          "size": 2
+        },
+        {
           "name": "MTFCC",
           "type": "keyword",
           "size": 5
         },
-        "FUNCSTAT": {
+        {
+          "name": "CSAFP",
+          "type": "integer"
+        },
+        {
+          "name": "CBSAFP",
+          "type": "integer"
+        },
+        {
+          "name": "METDIVFP",
+          "type": "integer"
+        },
+        {
           "name": "FUNCSTAT",
           "type": "keyword",
           "size": 1
         },
-        "ALAND": {
+        {
           "name": "ALAND",
           "type": "integer",
           "_elasticsearch": {
             "type": "long"
           }
         },
-        "AWATER": {
+        {
           "name": "AWATER",
           "type": "integer",
           "_elasticsearch": {
             "type": "long"
           }
         },
-        "INTPTLAT": {
+        {
           "name": "INTPTLAT",
           "type": "number"
         },
-        "INTPTLON": {
+        {
           "name": "INTPTLON",
           "type": "number"
         }
-      }
+      ]
     },
-    "geometry": {
+    {
       "name": "geometry",
       "type": "geometry"
     }
-  },
-  "_SMT": "any|*|*|*"
+  ]
 }
