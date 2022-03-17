@@ -1,5 +1,9 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.1.5
+  - update to @dictadata/storage-junctions 2.1.5
+  - refactor: encoding.smt.key precedence over engram.smt.key
+  - refactor: tiger2020 rename schemas
 - version 2.1.4
   - refactor: transfer module encoding logic
 - version 2.1.3
