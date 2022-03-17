@@ -21,6 +21,11 @@
         "name": "mysql-foo_schema",
         "smt": "mysql|host=localhost;user=dicta;password=data;database=storage_node|foo_schema|=Foo",
         "encoding": "./test/data/input/foo_schema.encoding.json"
+      },
+      {
+        "name": "us-census-tl_2020_us_state",
+        "smt": "elasticsearch|http://localhost:9200/|us-census-tl_2020_us_state|*",
+        "encoding": "./data/census.gov/us-census-tl_YYYY_us_state.encoding.json"
       }
     ]
   },
