@@ -32,10 +32,10 @@
     "database migration"
   ],
   "engines": {
-    "node": ">=17.0.0"
+    "node": ">=16.4.0"
   },
   "dependencies": {
-    "@dictadata/storage-junctions": "^2.1.5",
+    "@dictadata/storage-junctions": "^2.1.6",
     "colors": "^1.4.0",
     "winston": "^3.6.0",
     "winston-daily-rotate-file": "^4.6.1"
