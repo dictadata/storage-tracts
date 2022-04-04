@@ -2,7 +2,10 @@
   "json-etl2": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./test/data/input/|foofile.json|*"
+      "smt": "json|./test/data/input/|foofile.json|*",
+      "options": {
+        "encoding": "./test/data/input/foo_schema.encoding.json"
+      }
     },
     "terminal": {
       "smt": "elasticsearch|http://localhost:9200|foo_schema_etl2|=Foo",
@@ -12,9 +15,13 @@
     },
     "transform": {
       "filter": {
-        "match": { "Bar": "row" },
+        "match": {
+          "Bar": "row"
+        },
         "drop": {
-          "Baz": { "eq": 456 }
+          "Baz": {
+            "eq": 456
+          }
         }
       },
       "select": {
@@ -29,7 +36,9 @@
           "Dt Test": "dt_test",
           "subObj1.state": "state"
         },
-        "remove": ["fobe"]
+        "remove": [
+          "fobe"
+        ]
       }
     }
   }

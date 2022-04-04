@@ -4,7 +4,8 @@
     "origin": {
       "smt": "csv|./test/data/input/|foofile.csv|*",
       "options": {
-        "header": true
+        "header": true,
+        "encoding": "./test/data/input/foo_schema.encoding.json"
       }
     },
     "terminal": {

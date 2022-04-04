@@ -36,7 +36,7 @@ module.exports = async (tract) => {
       tract.origin.options.encoding = encoding;
     }
 
-    logger.verbose(">>> create junction " + tract.origin.smt);
+    logger.verbose(">>> create junction " + JSON.stringify(tract.origin.smt, null, 2));
     jo = await storage.activate(tract.origin.smt, tract.origin.options);
 
     logger.verbose(">>> getEncoding");

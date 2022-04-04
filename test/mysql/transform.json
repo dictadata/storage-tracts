@@ -2,7 +2,10 @@
   "json-etl2": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./test/data/input/|foofile.json|*"
+      "smt": "json|./test/data/input/|foofile.json|*",
+      "options": {
+        "encoding": "./test/data/input/foo_schema.encoding.json"
+      }
     },
     "transform": {
       "filter": {
@@ -27,7 +30,9 @@
         "inject_after": {
           "fie": "where's fum?"
         },
-        "remove": ["fobe"]
+        "remove": [
+          "fobe"
+        ]
       }
     },
     "terminal": {

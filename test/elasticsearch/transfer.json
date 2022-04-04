@@ -2,7 +2,10 @@
   "json-index": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./test/data/input/|foofile.json|*"
+      "smt": "json|./test/data/input/|foofile.json|*",
+      "options": {
+        "encoding": "./test/data/input/foo_schema.encoding.json"
+      }
     },
     "terminal": {
       "smt": {
