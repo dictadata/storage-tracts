@@ -1,5 +1,9 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.1.6
+  - update to @dictadata/storage-junctions 2.1.5
+  - testing: explicitly define encodings for transers
+  - config node engine >= 16.4
 - version 2.1.5
   - update to @dictadata/storage-junctions 2.1.5
   - refactor: encoding.smt.key precedence over engram.smt.key
