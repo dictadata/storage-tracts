@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.2.1
+  - refactor: Codex usage
 - version 2.1.6
   - update to @dictadata/storage-junctions 2.1.5
   - testing: explicitly define encodings for transers
@@ -16,7 +18,7 @@
   - bug fix: transfer encoding management
 - version 2.1.1
   - update to @dictadata/storage-junctions 2.1.3
-  - bug fix: set a default cortex with memory junction
+  - bug fix: set a default codex with memory junction
 - version 2.1.1
   - update to @dictadata/storage-junctions 2.1.2
 - version 2.1.0
