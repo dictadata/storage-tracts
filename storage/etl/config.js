@@ -3,7 +3,7 @@
  */
 "use strict";
 
-const storage = require("@dictadata/storage-junctions");
+const Storage = require("@dictadata/storage-junctions");
 const { StorageError } = require("@dictadata/storage-junctions/types");
 const { typeOf, logger, hasOwnProperty } = require("@dictadata/storage-junctions/utils");
 
@@ -14,7 +14,7 @@ exports.version = Package.version;
 
 var defaultTracts = {
   "_config": {
-    "cortex": {
+    "codex": {
       "smt": "",
       "options": {}
     },
@@ -53,8 +53,8 @@ exports.sampleTracts = async function (tractsFilename) {
           }
         }
       },
-      "_congig": {
-        "cortex": {
+      "_config": {
+        "codex": {
           "smt": "<model>|<locus>|<schema>|<key>"
         },
         "plugins": {
@@ -122,7 +122,7 @@ exports.loadTracts = async (tractsFilename, schema) => {
       //if (typeof tract === "function")
       //  continue;
 
-      if (name === "cortex") continue;
+      if (name === "codex") continue;
 
       // check origin properties
       if (typeOf(tract.origin) !== "object")
@@ -144,18 +144,18 @@ async function initConfig(_config) {
   //// config logger
   logger.configLogger(_config.log);
 
-  ///// cortex initialization
-  let cortex;
-  if (hasOwnProperty(_config, "cortex") && _config.cortex.smt) {
-    // activate cortex junction
-    cortex = new storage.Cortex(_config.cortex);
-    await cortex.activate();
+  ///// codex initialization
+  let codex;
+  if (hasOwnProperty(_config, "codex") && _config.codex.smt) {
+    // activate codex junction
+    codex = new Storage.Codex(_config.codex);
+    await codex.activate();
   }
   else
-    cortex = new storage.Cortex("memory|dictadata|cortex|!name");
+    codex = new Storage.Codex("memory|dictadata|codex|!name");
 
-  // use cortex for SMT name lookup
-  storage.cortex = cortex;
+  // use codex for SMT name lookup
+  Storage.codex = codex;
 
   //// register any plugins
   let plugins = _config.plugins || {};
@@ -165,7 +165,7 @@ async function initConfig(_config) {
     for (let [ name, prefixes ] of Object.entries(plugins[ "filesystems" ])) {
       let stfs = require(name);
       for (let prefix of prefixes)
-        storage.FileSystems.use(prefix, stfs);
+        Storage.FileSystems.use(prefix, stfs);
     }
   }
 
@@ -174,7 +174,7 @@ async function initConfig(_config) {
     for (let [ name, models ] of Object.entries(plugins[ "junctions" ])) {
       let junction = require(name);
       for (let model of models)
-        storage.use(model, junction);
+        Storage.use(model, junction);
     }
   }
 

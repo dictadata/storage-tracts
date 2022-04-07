@@ -3,7 +3,7 @@
  */
 "use strict";
 
-const storage = require("@dictadata/storage-junctions");
+const Storage = require("@dictadata/storage-junctions");
 const { Field } = require('@dictadata/storage-junctions/types');
 const logger = require('./logger');
 
@@ -25,7 +25,7 @@ module.exports = async (tract) => {
       origin.options = {};
     let transforms = tract.transform || tract.transforms || {};
 
-    jo = await storage.activate(origin.smt, origin.options);
+    jo = await Storage.activate(origin.smt, origin.options);
 
     let encoding = {};
     // if not a filesystem based source and no transforms defined

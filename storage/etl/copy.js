@@ -5,7 +5,7 @@
  */
 "use strict";
 
-const storage = require("@dictadata/storage-junctions");
+const Storage = require("@dictadata/storage-junctions");
 const { SMT, StorageError } = require('@dictadata/storage-junctions/types');
 const logger = require('./logger');
 
@@ -64,7 +64,7 @@ async function download(tract) {
   var junction;
   try {
     logger.info("=== activate junction and filesystem");
-    junction = await storage.activate(tract.origin.smt, tract.origin.options);
+    junction = await Storage.activate(tract.origin.smt, tract.origin.options);
 
     logger.info("=== get list of desired files");
     let { data: list } = await junction.list();
@@ -103,7 +103,7 @@ async function upload(tract) {
   try {
     logger.info(">>> create generic junction for local files");
     logger.verbose("smt:" + JSON.stringify(tract.origin.smt, null, 2));
-    local = await storage.activate(tract.origin.smt, tract.origin.options);
+    local = await Storage.activate(tract.origin.smt, tract.origin.options);
 
     logger.info(">>> get list of local files");
     let { data: list } = await local.list();
@@ -112,7 +112,7 @@ async function upload(tract) {
     logger.verbose("smt:" + JSON.stringify(tract.terminal.smt, null, 2));
     if (tract.terminal.options)
       logger.verbose("options:" + JSON.stringify(tract.terminal.options));
-    junction = await storage.activate(tract.terminal.smt, tract.terminal.options);
+    junction = await Storage.activate(tract.terminal.smt, tract.terminal.options);
 
     logger.info(">>> upload files");
     // download is a filesystem level method

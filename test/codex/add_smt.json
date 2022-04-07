@@ -1,6 +1,6 @@
 {
-  "cortex": {
-    "action": "cortex",
+  "codex": {
+    "action": "codex",
     "store": [
       {
         "name": "jsonfile-foo_schema",
@@ -30,8 +30,8 @@
     ]
   },
   "_config": {
-    "cortex": {
-      "smt": "elasticsearch|http://localhost:9200/|dicta_cortex|!name",
+    "codex": {
+      "smt": "elasticsearch|http://localhost:9200/|dicta_codex|!name",
       "options": {}
     }
   }

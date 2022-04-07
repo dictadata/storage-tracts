@@ -1,0 +1,15 @@
+{
+  "codex": {
+    "action": "codex",
+    "recall": {
+      "name": "jsonfile-foo_schema",
+      "output": "./test/data/output/codex/recall-foo_schema.encoding.json"
+    }
+  },
+  "_config": {
+    "codex": {
+      "smt": "elasticsearch|http://localhost:9200/|dicta_codex|!name",
+      "options": {}
+    }
+  }
+}

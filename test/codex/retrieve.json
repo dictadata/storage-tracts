@@ -1,6 +1,6 @@
 {
-  "cortex": {
-    "action": "cortex",
+  "codex": {
+    "action": "codex",
     "retrieve": {
       "pattern": {
         "match": {
@@ -9,12 +9,12 @@
           }
         }
       },
-      "output": "./test/data/output/cortex/retrieve-foo_schemas.json"
+      "output": "./test/data/output/codex/retrieve-foo_schemas.json"
     }
   },
   "_config": {
-    "cortex": {
-      "smt": "elasticsearch|http://localhost:9200/|dicta_cortex|!name",
+    "codex": {
+      "smt": "elasticsearch|http://localhost:9200/|dicta_codex|!name",
       "options": {}
     }
   }

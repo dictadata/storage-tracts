@@ -3,7 +3,7 @@
  */
 "use strict";
 
-const storage = require("@dictadata/storage-junctions");
+const Storage = require("@dictadata/storage-junctions");
 const logger = require('./logger');
 
 const fs = require('fs');
@@ -18,7 +18,7 @@ module.exports = async (tract) => {
 
   try {
     let origin = tract.origin || {};
-    var j1 = await storage.activate(origin.smt, origin.options);
+    var j1 = await Storage.activate(origin.smt, origin.options);
 
     let { data: list } = await j1.list();
 

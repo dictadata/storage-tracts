@@ -3,7 +3,7 @@
  */
 "use strict";
 
-const storage = require("@dictadata/storage-junctions");
+const Storage = require("@dictadata/storage-junctions");
 const logger = require('./logger');
 
 const fs = require('fs');
@@ -24,7 +24,7 @@ module.exports = async (tract) => {
     if (!tract.origin.options) tract.origin.options = {};
     let encoding = tract.origin.options.encoding || {};
 
-    jo = await storage.activate(tract.origin.smt, tract.origin.options);
+    jo = await Storage.activate(tract.origin.smt, tract.origin.options);
 
     // get list of schemas to scan
     let { data: list } = await jo.list();

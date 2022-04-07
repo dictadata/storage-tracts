@@ -1,4 +1,10 @@
 {
+  "codex": {
+    "action": "codex",
+    "dull": {
+      "name": "foo_schema_two"
+    }
+  },
   "_config": {
     "codex": {
       "smt": "elasticsearch|http://localhost:9200/|dicta_codex|!name",

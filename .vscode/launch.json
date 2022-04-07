@@ -32,16 +32,16 @@
     },
     {
       "type": "node-terminal",
-      "name": "--- cortex",
+      "name": "--- codex",
       "request": "launch"
     },
     {
       "type": "pwa-node",
       "request": "launch",
-      "name": "cortex store",
+      "name": "codex store",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/cortex/store.json", "cortex"],
+      "args": ["-c", "${workspaceFolder}/test/codex/store.json", "codex"],
       "env": {
         "NODE_ENV": "production",
         "LOG_LEVEL": "verbose"
@@ -51,10 +51,10 @@
     {
       "type": "pwa-node",
       "request": "launch",
-      "name": "cortex recall",
+      "name": "codex recall",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/cortex/recall.json", "cortex"],
+      "args": ["-c", "${workspaceFolder}/test/codex/recall.json", "codex"],
       "env": {
         "NODE_ENV": "production",
         "LOG_LEVEL": "verbose"
@@ -64,10 +64,10 @@
     {
       "type": "pwa-node",
       "request": "launch",
-      "name": "cortex dull",
+      "name": "codex dull",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/cortex/dull.json", "cortex"],
+      "args": ["-c", "${workspaceFolder}/test/codex/dull.json", "codex"],
       "env": {
         "NODE_ENV": "production",
         "LOG_LEVEL": "verbose"
@@ -77,10 +77,10 @@
     {
       "type": "pwa-node",
       "request": "launch",
-      "name": "cortex retreive",
+      "name": "codex retreive",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/cortex/retrieve.json", "cortex"],
+      "args": ["-c", "${workspaceFolder}/test/codex/retrieve.json", "codex"],
       "env": {
         "NODE_ENV": "production",
         "LOG_LEVEL": "verbose"
@@ -90,10 +90,10 @@
     {
       "type": "pwa-node",
       "request": "launch",
-      "name": "cortex add_smt",
+      "name": "codex add_smt",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/cortex/add_smt.json", "cortex"],
+      "args": ["-c", "${workspaceFolder}/test/codex/add_smt.json", "codex"],
       "env": {
         "NODE_ENV": "production",
         "LOG_LEVEL": "verbose"

@@ -3,7 +3,7 @@
  */
 "use strict";
 
-const storage = require("@dictadata/storage-junctions");
+const Storage = require("@dictadata/storage-junctions");
 const { typeOf, logger } = require("@dictadata/storage-junctions/utils");
 
 const fs = require('fs/promises');
@@ -41,7 +41,7 @@ module.exports = async (tract) => {
     }
 
     logger.verbose(">>> create junction " + tract.origin.smt);
-    jo = await storage.activate(tract.origin.smt, tract.origin.options);
+    jo = await Storage.activate(tract.origin.smt, tract.origin.options);
 
     logger.verbose(">>> getEncoding");
     let encoding = {};
@@ -93,7 +93,7 @@ module.exports = async (tract) => {
       let terminal = tract.terminal;
 
       logger.verbose(">>> create junction " + terminal.smt);
-      let jt = await storage.activate(terminal.smt, terminal.options);
+      let jt = await Storage.activate(terminal.smt, terminal.options);
       jtl.push(jt);
 
       if (!terminal.options.append && jt.capabilities.encoding) {
@@ -111,7 +111,7 @@ module.exports = async (tract) => {
       logger.verbose(">>> Terminal Tee");
       for (let branch of tract.terminal) {
         logger.verbose(">>> create junction " + branch.terminal.smt);
-        let jt = await storage.activate(branch.terminal.smt, branch.terminal.options);
+        let jt = await Storage.activate(branch.terminal.smt, branch.terminal.options);
         jtl.push(jt);
 
         if (!terminal.options.append && jt.capabilities.encoding) {
