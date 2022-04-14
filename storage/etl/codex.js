@@ -54,23 +54,17 @@ module.exports = async (tract) => {
  * @param {*} entry a codex entry from an ETL tract
  */
 async function store(entry) {
-  let engram = new Engram(entry.smt);
 
   if (entry.encoding && typeof entry.encoding === "string") {
     // read encoding from file
     let filename = entry.encoding;
-    engram.encoding = JSON.parse(fs.readFileSync(filename, "utf8"));
+    let encoding = JSON.parse(fs.readFileSync(filename, "utf8"));
+    // merge encoding into entry
+    delete entry.encoding;
+    entry = Object.assign({}, encoding, entry);
   }
-  else
-    engram.encoding = entry.encoding;
 
-  // properties in tract take precedence over encoding file
-  // except for predominant Engram properties
-  for (const [ key, value ] of Object.entries(entry)) {
-    if (![ "smt", "encoding", "fields", "fieldsMap" ].includes(key)) {
-      engram[ key ] = value;
-    }
-  }
+  let engram = new Engram(entry);
 
   // store codex entry
   let results = await Storage.codex.store(engram);
