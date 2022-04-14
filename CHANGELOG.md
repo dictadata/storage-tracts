@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.2.2
+  - override engram's codex properties from tract
+  - title added to predefined codex properties
 - version 2.2.1
   - refactor: Codex usage
 - version 2.1.6
