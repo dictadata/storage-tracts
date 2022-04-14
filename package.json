@@ -1,6 +1,6 @@
 {
   "name": "@dictadata/storage-etl",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Command line ETL utility to transfer and optionally transform data between local and/or distributed sources.",
   "author": "Drew O. Letcher",
   "license": "MIT",
