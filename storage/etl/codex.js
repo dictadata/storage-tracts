@@ -55,7 +55,6 @@ module.exports = async (tract) => {
  */
 async function store(entry) {
   let engram = new Engram(entry.smt);
-  engram.name = entry.name;
 
   if (entry.encoding && typeof entry.encoding === "string") {
     // read encoding from file
@@ -64,6 +63,14 @@ async function store(entry) {
   }
   else
     engram.encoding = entry.encoding;
+
+  // properties in tract take precedence over encoding file
+  // except for predominant Engram properties
+  for (const [ key, value ] of Object.entries(entry)) {
+    if (![ "smt", "encoding", "fields", "fieldsMap" ].includes(key)) {
+      engram[ key ] = value;
+    }
+  }
 
   // store codex entry
   let results = await Storage.codex.store(engram);

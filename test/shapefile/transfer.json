@@ -89,7 +89,7 @@
   "el_json": {
     "action": "transfer",
     "origin": {
-      "smt": "elasticsearch|http://localhost:9200|tiger2020|*",
+      "smt": "elasticsearch|http://localhost:9200|us-census-tl_2020_us_state|*",
       "options": {
         "match": {
           "geometry": {

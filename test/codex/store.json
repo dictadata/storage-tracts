@@ -4,7 +4,14 @@
     "store": {
       "name": "foo_schema_two",
       "smt": "json|./test/data/input/|foofile.json|*",
-      "encoding": "./test/data/input/foo_schema.encoding.json"
+      "encoding": "./test/data/input/foo_schema.encoding.json",
+      "title": "foo schema two",
+      "description": "temporary codex entry",
+      "tags": [
+        "dictadata",
+        "foo",
+        "test"
+      ]
     }
   }
 }
