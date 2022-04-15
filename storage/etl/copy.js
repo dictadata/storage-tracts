@@ -56,20 +56,20 @@ module.exports = exports = async function (tract) {
 async function download(tract) {
   let retCode = 0;
 
-  logger.info(">>> create junction");
+  logger.verbose(">>> create origin junction " + tract.origin.smt);
   logger.verbose("smt:" + JSON.stringify(tract.origin.smt, null, 2));
   if (tract.origin.options)
     logger.verbose("options:" + JSON.stringify(tract.origin.options));
 
   var junction;
   try {
-    logger.info("=== activate junction and filesystem");
+    logger.verbose("=== activate junction and filesystem");
     junction = await Storage.activate(tract.origin.smt, tract.origin.options);
 
-    logger.info("=== get list of desired files");
+    logger.verbose("=== get list of desired files");
     let { data: list } = await junction.list();
 
-    logger.info("=== download files");
+    logger.verbose("=== download files");
     // download is a filesystem level method
     let stfs = await junction.getFileSystem();
 
@@ -101,20 +101,20 @@ async function upload(tract) {
   var local;
   var junction;
   try {
-    logger.info(">>> create generic junction for local files");
+    logger.verbose(">>> create generic junction for local files");
     logger.verbose("smt:" + JSON.stringify(tract.origin.smt, null, 2));
     local = await Storage.activate(tract.origin.smt, tract.origin.options);
 
-    logger.info(">>> get list of local files");
+    logger.verbose(">>> get list of local files");
     let { data: list } = await local.list();
 
-    logger.info(">>> create junction");
+    logger.verbose(">>> create terminal junction " + tract.terminal.smt);
     logger.verbose("smt:" + JSON.stringify(tract.terminal.smt, null, 2));
     if (tract.terminal.options)
       logger.verbose("options:" + JSON.stringify(tract.terminal.options));
     junction = await Storage.activate(tract.terminal.smt, tract.terminal.options);
 
-    logger.info(">>> upload files");
+    logger.verbose(">>> upload files");
     // download is a filesystem level method
     let stfs = await junction.getFileSystem();
 

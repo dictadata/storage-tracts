@@ -13,7 +13,7 @@ const stream = require('stream').promises;
  *
  */
 module.exports = async (tract) => {
-  logger.info("synchronize ...");
+  logger.verbose("synchronize ...");
   let retCode = 0;
 
   var jo;
@@ -23,7 +23,7 @@ module.exports = async (tract) => {
     let writers = [];
     let pattern = {
       match: {}
-    }
+    };
     pattern.match[ tract.state.field ] = {
       "gt": tract.state.value
     };
@@ -33,14 +33,7 @@ module.exports = async (tract) => {
     if (!tract.origin.options) tract.origin.options = {};
     if (!tract.terminal.options) tract.terminal.options = {};
 
-    logger.verbose(">>> check origin encoding");
-    if (tract.origin.options && typeof tract.origin.options.encoding === "string") {
-      // read encoding from file
-      let filename = tract.origin.options.encoding;
-      tract.origin.options.encoding = JSON.parse(await fs.readFile(filename, "utf8"));
-    }
-
-    logger.verbose(">>> create junction " + tract.origin.smt);
+    logger.verbose(">>> create origin junction " + tract.origin.smt);
     jo = await Storage.activate(tract.origin.smt, tract.origin.options);
 
     logger.verbose(">>> getEncoding");
@@ -76,13 +69,7 @@ module.exports = async (tract) => {
       reader = reader.pipe(jo.createTransform(tfType, tfOptions));
     }
 
-    logger.verbose(">>> check terminal encoding");
-    if (tract.terminal.options && typeof tract.terminal.options.encoding === "string") {
-      // read encoding from file
-      let filename = tract.terminal.options.encoding;
-      tract.terminal.options.encoding = JSON.parse(await fs.readFile(filename, "utf8"));
-    }
-    else {
+    if (!tract.terminal.options.encoding) {
       // use origin encoding
       tract.terminal.options.encoding = encoding;
     }
@@ -92,7 +79,7 @@ module.exports = async (tract) => {
       logger.verbose(">>> Terminal Tract");
       let terminal = tract.terminal;
 
-      logger.verbose(">>> create junction " + terminal.smt);
+      logger.verbose(">>> create terminal junction " + terminal.smt);
       let jt = await Storage.activate(terminal.smt, terminal.options);
       jtl.push(jt);
 
@@ -110,7 +97,7 @@ module.exports = async (tract) => {
       // sub-terminal tracts
       logger.verbose(">>> Terminal Tee");
       for (let branch of tract.terminal) {
-        logger.verbose(">>> create junction " + branch.terminal.smt);
+        logger.verbose(">>> create branch junction " + branch.terminal.smt);
         let jt = await Storage.activate(branch.terminal.smt, branch.terminal.options);
         jtl.push(jt);
 

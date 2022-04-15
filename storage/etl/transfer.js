@@ -13,7 +13,7 @@ const stream = require('stream').promises;
  *
  */
 module.exports = async (tract) => {
-  logger.info("transfer ...");
+  logger.verbose("transfer ...");
   let retCode = 0;
 
   var jo;
@@ -21,47 +21,37 @@ module.exports = async (tract) => {
   try {
     let reader = null;
     let writers = [];
-    let encoding = {};
     let transforms = tract.transform || tract.transforms || {};
 
     logger.verbose(">>> origin tract");
     if (!tract.origin.options) tract.origin.options = {};
     if (!tract.terminal.options) tract.terminal.options = {};
 
-    if (typeof tract.origin.options.encoding === "string") {
-      // read encoding from file
-      let filename = tract.origin.options.encoding;
-      logger.verbose(">>> read origin encoding from " + filename);
-      encoding = JSON.parse(await fs.readFile(filename, "utf8"));
-      tract.origin.options.encoding = encoding;
-    }
-
-    logger.verbose(">>> create junction " + JSON.stringify(tract.origin.smt, null, 2));
+    logger.verbose(">>> create origin junction " + JSON.stringify(tract.origin.smt, null, 2));
     jo = await Storage.activate(tract.origin.smt, tract.origin.options);
 
     logger.verbose(">>> getEncoding");
-    if (!encoding && !tract.terminal.options.encoding) {
-      if (jo.capabilities.encoding && transforms.length === 0) {
-        // if not a filesystem based source and no transforms defined
-        // then get encoding from source
-        let results = await jo.getEncoding();
-        encoding = results.data[ "encoding" ];
-      }
-      else {
-        // if filesystem based source or transforms defined
-        // then run some data through the codifier
-        let pipes = [];
-        pipes.push(jo.createReader({ max_read: tract.origin.options.max_read || 100 }));
+    let encoding = {};
+    if (jo.capabilities.encoding && transforms.length === 0) {
+      // if not a filesystem based source and no transforms defined
+      // then get encoding from source
+      let results = await jo.getEncoding();
+      encoding = results.data[ "encoding" ];
+    }
+    else {
+      // if filesystem based source or transforms defined
+      // then run some data through the codifier
+      let pipes = [];
+      pipes.push(jo.createReader({ max_read: tract.origin.options.max_read || 100 }));
 
-        for (let [ tfType, options ] of Object.entries(transforms))
-          pipes.push(jo.createTransform(tfType, options));
+      for (let [ tfType, options ] of Object.entries(transforms))
+        pipes.push(jo.createTransform(tfType, options));
 
-        let ct = jo.createTransform('codify');
-        pipes.push(ct);
+      let ct = jo.createTransform('codify');
+      pipes.push(ct);
 
-        await stream.pipeline(pipes);
-        encoding = ct.encoding;
-      }
+      await stream.pipeline(pipes);
+      encoding = ct.encoding;
     }
 
     logger.verbose(">>> createReader");
@@ -73,13 +63,7 @@ module.exports = async (tract) => {
       reader = reader.pipe(jo.createTransform(tfType, tfOptions));
     }
 
-    logger.verbose(">>> check terminal encoding");
-    if (typeof tract.terminal.options.encoding === "string") {
-      // read encoding from file
-      let filename = tract.terminal.options.encoding;
-      tract.terminal.options.encoding = JSON.parse(await fs.readFile(filename, "utf8"));
-    }
-    else {
+    if (!tract.terminal.options.encoding) {
       // use origin encoding
       tract.terminal.options.encoding = encoding;
     }
@@ -89,7 +73,7 @@ module.exports = async (tract) => {
       logger.verbose(">>> Terminal Tract");
       let terminal = tract.terminal;
 
-      logger.verbose(">>> create junction " + terminal.smt);
+      logger.verbose(">>> create terminal junction " + terminal.smt);
       let jt = await Storage.activate(terminal.smt, terminal.options);
       jtl.push(jt);
 
@@ -108,7 +92,7 @@ module.exports = async (tract) => {
       // sub-terminal tracts
       logger.verbose(">>> Terminal Tee");
       for (let branch of tract.terminal) {
-        logger.verbose(">>> create junction " + branch.terminal.smt);
+        logger.verbose(">>> create terminal junction " + branch.terminal.smt);
         let jt = await Storage.activate(branch.terminal.smt, branch.terminal.options);
         jtl.push(jt);
 

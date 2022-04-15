@@ -127,7 +127,7 @@ exports.loadTracts = async (tractsFilename, schema) => {
       // check origin properties
       if (typeOf(tract.origin) !== "object")
         throw new StorageError(400, "invalid tract origin: " + name);
-      if (typeOf(tract.terminal) !== "object")
+      if (tract.action !== "foreach" && typeOf(tract.terminal) !== "object")
         throw new StorageError(400, "invalid tract terminal: " + name);
     }
 

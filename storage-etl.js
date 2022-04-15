@@ -7,11 +7,17 @@
 const { StorageError } = require("@dictadata/storage-junctions/types");
 const config = require('./storage/etl/config');
 const logger = require('./storage/etl/logger');
-
-const processTract = require("./storage/etl/processTract");
-
-const colors = require('colors');
 const path = require('path');
+const colors = require('colors');
+
+const { addAction, onTract } = require("./storage/etl/actions");
+addAction("list", require("./storage/etl/list"));
+addAction("codify", require('./storage/etl/codify'));
+addAction("foreach", require('./storage/etl/foreach'));
+addAction("transfer", require('./storage/etl/transfer'));
+addAction("dull", require('./storage/etl/dull'));
+addAction("copy", require('./storage/etl/copy'));
+addAction("codex", require('./storage/etl/codex'));
 
 // set program argument defaults
 const appArgs = {
@@ -108,23 +114,23 @@ function parseArgs() {
       throw new StorageError(400, "no storage tracts defined");
 
     if (appArgs.tractName === "all") {
-      for (let name of Object.keys(tracts)) {
-        if (name[ 0 ] === "_") continue;
-        retCode = await processTract(name, tracts[ name ]);
+      for (const [ key, tract ] of Object.entries(tracts)) {
+        if (key[ 0 ] === "_") continue;
+        retCode = await onTract(key, tract);
         if (retCode)
           break;
       }
     }
     else if (appArgs.tractName === "parallel") {
       let tasks = [];
-      for (let name of Object.keys(tracts)) {
-        if (name[ 0 ] === "_") continue;
-        tasks.push(processTract(name, tracts[ name ]));
+      for (const [ key, tract ] of Object.entries(tracts)) {
+        if (key[ 0 ] === "_") continue;
+        tasks.push(onTract(key, tract));
       }
       Promise.allSettled(tasks);
     }
     else {
-      retCode = await processTract(appArgs.tractName, tracts[ appArgs.tractName ]);
+      retCode = await onTract(appArgs.tractName, tracts[ appArgs.tractName ]);
     }
 
   }
