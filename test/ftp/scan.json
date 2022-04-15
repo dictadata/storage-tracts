@@ -1,15 +1,25 @@
 {
   "scan": {
+    "action": "foreach",
     "origin": {
-      "smt": "json|ftp://dicta:data@127.0.0.1/data/dictadata.org/test/input/|*|*",
+      "smt": "json|ftp://dicta:data@127.0.0.1/data/dictadata.org/test/input/|foofile_*.json|*",
       "options": {
-        "max_read": 100,
-        "schema": "foofile_*.json",
-        "recursive": false
+        "recursive": false,
+        "replace_terminal_smt": false
       }
     },
-    "terminal": {
-      "output": "./test/data/output/ftp/scan.json"
+    "schema": {
+      "action": "codify",
+      "origin": {
+        "smt": "json|ftp://dicta:data@127.0.0.1/data/dictadata.org/test/input/|*|*",
+        "options": {
+          "encoding": "./test/data/output/ftp/scan.encoding.json",
+          "max_read": 100
+        }
+      },
+      "terminal": {
+        "output": "./test/data/output/ftp/scan.encoding.json"
+      }
     }
   }
 }

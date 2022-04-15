@@ -202,7 +202,7 @@
       "name": "ftp scan",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["scan", "-c", "${workspaceFolder}/test/ftp/scan.json"],
+      "args": ["-c", "${workspaceFolder}/test/ftp/scan.json", "scan"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -267,7 +267,7 @@
       "name": "http scan",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["scan", "-c", "${workspaceFolder}/test/http/scan.json"],
+      "args": ["-c", "${workspaceFolder}/test/http/scan.json", "scan"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -319,7 +319,7 @@
       "name": "zip scan",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["scan", "-c", "${workspaceFolder}/test/zip/scan.json"],
+      "args": ["-c", "${workspaceFolder}/test/zip/scan.json", "scan"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -384,6 +384,23 @@
         "-c",
         "${workspaceFolder}/test/elasticsearch/transfer.json",
         "all"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "elasticsearch load",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "-c",
+        "${workspaceFolder}/test/elasticsearch/load.json",
+        "load"
       ],
       "env": {
         "NODE_ENV": "development",
