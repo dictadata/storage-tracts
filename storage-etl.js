@@ -6,19 +6,12 @@
 
 const { StorageError } = require("@dictadata/storage-junctions/types");
 const config = require('./storage/etl/config');
-const logger = require('./storage/etl/logger')
+const logger = require('./storage/etl/logger');
 
-const list = require("./storage/etl/list");
-const codify = require('./storage/etl/codify');
-const scan = require('./storage/etl/scan');
-const transfer = require('./storage/etl/transfer');
-const dull = require('./storage/etl/dull');
-const copy = require('./storage/etl/copy');
-const codex = require('./storage/etl/codex');
+const processTract = require("./storage/etl/processTract");
 
 const colors = require('colors');
 const path = require('path');
-const { fstat } = require("fs");
 
 // set program argument defaults
 const appArgs = {
@@ -88,23 +81,16 @@ function parseArgs() {
       console.log("  The value will replace all occurences of ${schema} using regex.");
       console.log("");
       console.log("Actions:");
-
-      console.log("  list - listing of schema names in a data store.");
-      console.log("  codify - determine schema encoding by codifying a single schema.");
-      console.log("  scan - list data store and determine schema encoding by codifying multiple schemas.");
-
-      console.log("  copy - copy data files between remote file system and local file system.");
-
       console.log("  transfer - transfer data between data stores with optional transforms.");
+      console.log("  copy - copy data files between remote file system and local file system.");
+      console.log("  list - listing of schema names at a locus (data store or file system).");
+      console.log("  codify - determine schema's encoding by examining some data.");
       console.log("  dull - remove data from a data store.");
-
+      console.log("  codex - manage codex encoding definitions");
+      console.log("  foreach - list schemas at a locus and perform an action on each schema.");
       console.log("  all - run all tracts in sequence.");
       console.log("  parallel - run all tracts in parallel.");
-
-      console.log("  codex - manage codex encoding definitions");
-
       console.log("  config - create example etl_tracts.json file in the current directory.");
-
       console.log("");
       return;
     }
@@ -154,40 +140,3 @@ function parseArgs() {
 
   process.exitCode = retCode;
 })();
-
-
-/**
- *
- * @param {*} tractName
- * @param {*} tract
- */
-async function processTract(tractName, tract) {
-  if (typeof tract !== 'object')
-    throw new StorageError(422, "storage tract not found " + tractName);
-
-  let action = tract[ "action" ] || tractName.substr(0, tractName.indexOf('_')) || tractName;
-
-  switch (action) {
-    case 'config':
-      // should never get here, see above 'config' code
-      return config.createTracts();
-    case 'list':
-      return list(tract);
-    case 'codify':
-      return codify(tract);
-    case 'scan':
-      return scan(tract);
-    case 'transfer':
-      return transfer(tract);
-    case 'dull':
-      return dull(tract);
-    case 'copy':
-      return copy(tract);
-    case 'codex':
-      return codex(tract);
-    default:
-      logger.error("unknown action: " + action);
-      return 1;
-  }
-
-}

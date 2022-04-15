@@ -1,5 +1,5 @@
 /**
- * etl/scan
+ * etl/foreach
  */
 "use strict";
 
@@ -12,10 +12,10 @@ const stream = require('stream').promises;
 
 /**
  * List schemas at a locus
- * and create a composite encoding.
+ * and perform an action on each schema.
  */
 module.exports = async (tract) => {
-  logger.info("scan: " + tract.origin.smt);
+  logger.info("foreach: " + tract.origin.smt);
   let retCode = 0;
 
   var jo;
@@ -26,10 +26,10 @@ module.exports = async (tract) => {
 
     jo = await Storage.activate(tract.origin.smt, tract.origin.options);
 
-    // get list of schemas to scan
+    // get list of schemas to foreach
     let { data: list } = await jo.list();
 
-    // loop through files and codifyh
+    // loop through files and codify
     for (let entry of list) {
       logger.verbose(entry.name);
       let pipes = [];

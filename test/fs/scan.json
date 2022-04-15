@@ -1,16 +1,23 @@
 {
-  "scan": {
+  "foreach": {
     "origin": {
-      "smt": "json|./test/data/input/|*|*",
+      "smt": "json|./test/data/input/|foofile*.json|*",
       "options": {
-        "max_read": 100,
-        "schema": "foofile*.json",
-        "recursive": false,
-        "statistics": true
+        "recursive": false
       }
     },
-    "terminal": {
-      "output": "./test/data/output/fs/scan.json"
+    "schema": {
+      "action": "codify",
+      "origin": {
+        "smt": "json|./test/data/input/|*|*",
+        "options": {
+          "encoding": "./test/data/output/fs/scan.encoding.json",
+          "max_read": 100
+        }
+      },
+      "terminal": {
+        "output": "./test/data/output/fs/scan.encoding.json"
+      }
     }
   }
 }

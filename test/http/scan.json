@@ -5,8 +5,7 @@
       "options": {
         "max_read": 100,
         "schema": "foofile_*.json",
-        "recursive": false,
-        "statistics": true
+        "recursive": false
       }
     },
     "terminal": {
