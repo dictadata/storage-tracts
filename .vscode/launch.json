@@ -484,6 +484,23 @@
     {
       "type": "pwa-node",
       "request": "launch",
+      "name": "mssql load",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "-c",
+        "${workspaceFolder}/test/mssql/load.json",
+        "load"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
       "name": "mssql transform",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
@@ -527,6 +544,23 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": ["-c", "${workspaceFolder}/test/mysql/transfer.json", "all"],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "mysql load",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "-c",
+        "${workspaceFolder}/test/mysql/load.json",
+        "load"
+      ],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"

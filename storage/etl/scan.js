@@ -1,19 +1,19 @@
 /**
- * etl/foreach
+ * etl/scan
  */
 "use strict";
 
 const Storage = require("@dictadata/storage-junctions");
 const { SMT } = require("@dictadata/storage-junctions/types");
 const logger = require('./logger');
-const { onTract } = require('./actions');
+const { performAction } = require('./actions');
 
 /**
  * List schemas at a locus
  * and perform an action on each schema.
  */
 module.exports = async (tract) => {
-  logger.verbose("foreach: " + tract.origin.smt);
+  logger.verbose("scan: " + tract.origin.smt);
   let retCode = 0;
 
   var jo;
@@ -56,7 +56,7 @@ module.exports = async (tract) => {
           lpTract.terminal.output = lpTract.terminal.output.replace("${schema}", entry.name);
         }
 
-        await onTract(key, lpTract);
+        await performAction(key, lpTract);
       }
     }
 

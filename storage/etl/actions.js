@@ -12,11 +12,12 @@ function addAction(name, fn) {
 }
 
 /**
+ * If "action" is not defined in the tract then action defaults to the tractName.
  *
  * @param {*} tractName
  * @param {*} tract
  */
-async function onTract(tractName, tract) {
+async function performAction(tractName, tract) {
   if (typeof tract !== 'object')
     throw new StorageError(422, "Invalid parameter: tract " + tractName);
 
@@ -61,4 +62,4 @@ async function onTract(tractName, tract) {
 }
 
 module.exports.addAction = addAction;
-module.exports.onTract = onTract;
+module.exports.performAction = performAction;

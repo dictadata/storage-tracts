@@ -10,10 +10,10 @@ const logger = require('./storage/etl/logger');
 const path = require('path');
 const colors = require('colors');
 
-const { addAction, onTract } = require("./storage/etl/actions");
+const { addAction, performAction } = require("./storage/etl/actions");
 addAction("list", require("./storage/etl/list"));
 addAction("codify", require('./storage/etl/codify'));
-addAction("foreach", require('./storage/etl/foreach'));
+addAction("scan", require('./storage/etl/scan'));
 addAction("transfer", require('./storage/etl/transfer'));
 addAction("dull", require('./storage/etl/dull'));
 addAction("copy", require('./storage/etl/copy'));
@@ -93,7 +93,7 @@ function parseArgs() {
       console.log("  codify - determine schema's encoding by examining some data.");
       console.log("  dull - remove data from a data store.");
       console.log("  codex - manage codex encoding definitions");
-      console.log("  foreach - list schemas at a locus and perform an action on each schema.");
+      console.log("  scan - list schemas at a locus and perform an action on each schema.");
       console.log("  all - run all tracts in sequence.");
       console.log("  parallel - run all tracts in parallel.");
       console.log("  config - create example etl_tracts.json file in the current directory.");
@@ -116,7 +116,7 @@ function parseArgs() {
     if (appArgs.tractName === "all") {
       for (const [ key, tract ] of Object.entries(tracts)) {
         if (key[ 0 ] === "_") continue;
-        retCode = await onTract(key, tract);
+        retCode = await performAction(key, tract);
         if (retCode)
           break;
       }
@@ -125,12 +125,12 @@ function parseArgs() {
       let tasks = [];
       for (const [ key, tract ] of Object.entries(tracts)) {
         if (key[ 0 ] === "_") continue;
-        tasks.push(onTract(key, tract));
+        tasks.push(performAction(key, tract));
       }
       Promise.allSettled(tasks);
     }
     else {
-      retCode = await onTract(appArgs.tractName, tracts[ appArgs.tractName ]);
+      retCode = await performAction(appArgs.tractName, tracts[ appArgs.tractName ]);
     }
 
   }

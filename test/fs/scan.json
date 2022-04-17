@@ -1,6 +1,6 @@
 {
   "scan": {
-    "action": "foreach",
+    "action": "scan",
     "origin": {
       "smt": "json|./test/data/input/|foofile*.json|*",
       "options": {

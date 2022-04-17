@@ -122,12 +122,11 @@ exports.loadTracts = async (tractsFilename, schema) => {
       //if (typeof tract === "function")
       //  continue;
 
+      // validate tract properties
       if (name === "codex") continue;
-
-      // check origin properties
       if (typeOf(tract.origin) !== "object")
         throw new StorageError(400, "invalid tract origin: " + name);
-      if (tract.action !== "foreach" && typeOf(tract.terminal) !== "object")
+      if (tract.action !== "scan" && typeOf(tract.terminal) !== "object")
         throw new StorageError(400, "invalid tract terminal: " + name);
     }
 

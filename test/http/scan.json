@@ -1,6 +1,6 @@
 {
   "scan": {
-    "action": "foreach",
+    "action": "scan",
     "origin": {
       "smt": "json|http://localhost/data/dictadata.org/test/input/|foofile_*.json|*",
       "options": {
