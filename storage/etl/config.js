@@ -10,7 +10,7 @@ const { typeOf, logger, hasOwnProperty } = require("@dictadata/storage-junctions
 const Package = require('../../package.json');
 const fs = require('fs');
 
-exports.version = Package.version;
+module.exports.version = Package.version;
 
 var defaultTracts = {
   "_config": {
@@ -33,7 +33,7 @@ var defaultTracts = {
 /**
  *
  */
-exports.sampleTracts = async function (tractsFilename) {
+module.exports.sampleTracts = async function (tractsFilename) {
 
   try {
     let sampleTracts = {
@@ -85,7 +85,7 @@ exports.sampleTracts = async function (tractsFilename) {
 /**
  *
  */
-exports.loadTracts = async (tractsFilename, schema) => {
+module.exports.loadTracts = async (tractsFilename, schema) => {
   let tracts;
 
   try {
@@ -210,3 +210,5 @@ function _merge(dst, src) {
   }
   return dst;
 }
+
+module.exports._merge = _merge;

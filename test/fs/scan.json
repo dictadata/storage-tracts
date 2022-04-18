@@ -4,14 +4,13 @@
     "origin": {
       "smt": "json|./test/data/input/|foofile*.json|*",
       "options": {
-        "recursive": false,
-        "replace_terminal_smt": false
+        "recursive": false
       }
     },
     "schema": {
       "action": "codify",
       "origin": {
-        "smt": "json|./test/data/input/|*|*",
+        "smt": "json|./test/data/input/|${name}|*",
         "options": {
           "encoding": "./test/data/output/fs/scan.encoding.json",
           "max_read": 100

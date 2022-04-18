@@ -4,14 +4,13 @@
     "origin": {
       "smt": "json|./test/data/input/|foofile*.json|*",
       "options": {
-        "recursive": false,
-        "replace_terminal_smt": false
+        "recursive": false
       }
     },
     "schema": {
       "action": "transfer",
       "origin": {
-        "smt": "json|./test/data/input/|*|*",
+        "smt": "json|./test/data/input/|${name}|*",
         "options": {
           "encoding": "./test/data/input/foo_schema.encoding.json"
         }

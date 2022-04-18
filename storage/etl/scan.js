@@ -5,12 +5,13 @@
 
 const Storage = require("@dictadata/storage-junctions");
 const { SMT } = require("@dictadata/storage-junctions/types");
+const { _merge } = require('./config');
 const logger = require('./logger');
 const { performAction } = require('./actions');
 
 /**
  * List schemas at a locus
- * and perform an action on each schema.
+ * and perform action(s) on each schema.
  */
 module.exports = async (tract) => {
   logger.verbose("scan: " + tract.origin.smt);
@@ -18,12 +19,13 @@ module.exports = async (tract) => {
 
   var jo;
   try {
-    // find tract(s) for loop processing
-    // any tracts with key names that aren't reserved
+    // validate tract(s) for loop processing
+    // tracts with key names that aren't reserved
     let lpTracts = {};
     for (const [ key, value ] of Object.entries(tract)) {
-      if (key[ 0 ] !== "_" &&
-        ![ "action", "origin", "terminal", "transform" ].includes(key)) {
+      if (![ "action", "origin", "terminal", "transform", "description" ].includes(key) &&
+        key[ 0 ] !== "_" &&
+        typeof value === "object" && value.origin) {
         lpTracts[ key ] = value;
       }
     }
@@ -38,25 +40,42 @@ module.exports = async (tract) => {
     for (let entry of list) {
       logger.verbose(entry.name);
 
+      let replacements = {
+        "${rpath}": entry.rpath || entry.name,
+        "${name}": entry.name,
+        "${schema}": entry.name.substr(0, entry.name.lastIndexOf("."))
+      };
+
       for (const [ key, lpTract ] of Object.entries(lpTracts)) {
-        // replace the schema in origin.smt
-        if (typeof lpTract.origin.smt === "string")
-          lpTract.origin.smt = new SMT(lpTract.origin.smt);
-        lpTract.origin.smt.schema = entry.name;
+        let actTract = _merge({}, lpTract);
 
-        // replace the schema in terminal.smt
-        if (tract.origin.options.terminal_smt) {
-          if (typeof lpTract.terminal.smt === "string")
-            lpTract.terminal.smt = new SMT(lpTract.terminal.smt);
-          lpTract.terminal.smt.schema = entry.name;
+        // string replacements
+        for (const [ find, replace ] of Object.entries(replacements)) {
+          // replace strings in origin smt
+          if (typeof actTract.origin.smt === "string") {
+            actTract.origin.smt = actTract.origin.smt.replace(find, replace);
+          }
+          else if (typeof actTract.origin.smt === "object") {
+            actTract.origin.smt.locus = actTract.origin.smt.locus.replace(find, replace);
+            actTract.origin.smt.schema = actTract.origin.smt.schema.replace(find, replace);
+          }
+
+          // replace strings in terminal.smt
+          if (typeof actTract.terminal.smt === "string") {
+            actTract.terminal.smt = actTract.terminal.smt.replace(find, replace);
+          }
+          else if (typeof actTract.terminal.smt === "object") {
+            actTract.terminal.smt.locus = actTract.terminal.smt.locus.replace(find, replace);
+            actTract.terminal.smt.schema = actTract.terminal.smt.schema.replace(find, replace);
+          }
+
+          // replace strings in terminal.output
+          if (actTract.terminal.output) {
+            actTract.terminal.output = actTract.terminal.output.replace(find, replace);
+          }
         }
 
-        // string replacement terminal.output
-        if (lpTract.terminal.output) {
-          lpTract.terminal.output = lpTract.terminal.output.replace("${schema}", entry.name);
-        }
-
-        await performAction(key, lpTract);
+        await performAction(key, actTract);
       }
     }
 
@@ -66,6 +85,7 @@ module.exports = async (tract) => {
       //fs.mkdirSync(path.dirname(tract.terminal.output), { recursive: true });
       //fs.writeFileSync(tract.terminal.output, JSON.stringify(<results>, null, " "));
     }
+
   }
   catch (err) {
     logger.error(err);
