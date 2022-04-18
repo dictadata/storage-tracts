@@ -1,7 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
 - version 2.2.4
-  - refactor: make scan more generic, able to process any sub-action
+  - refactor: action and tract processing
+  - enhancement: make scan more generic, able to process any sub-action
 - version 2.2.3
   - refactor: merging of encoding into tract's codex entry
 - version 2.2.2
