@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.2.5
+  - bug fix: issues with scan functionality
 - version 2.2.4
   - refactor: action and tract processing
   - enhancement: make scan more generic, able to process any sub-action
