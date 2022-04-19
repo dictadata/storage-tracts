@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.2.7
+  - enhancement: output names to console for copy and scan
 - version 2.2.6
   - refactor: string replacements in scan tracts
 - version 2.2.5
