@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.2.6
+  - refactor: string replacements in scan tracts
 - version 2.2.5
   - bug fix: issues with scan functionality
 - version 2.2.4
