@@ -40,6 +40,7 @@ module.exports = async (tract) => {
     for (let entry of list) {
       logger.verbose(entry.name);
 
+      // string replacements
       let replacements = {
         "${rpath}": entry.rpath || entry.name,
         "${name}": entry.name,
@@ -47,45 +48,26 @@ module.exports = async (tract) => {
       };
 
       for (const [ key, lpTract ] of Object.entries(lpTracts)) {
-        let actTract = _merge({}, lpTract);
-
-        // string replacements
+        // replace strings
+        let txtTract = JSON.stringify(lpTract);
         for (const [ find, replace ] of Object.entries(replacements)) {
-          // replace strings in origin smt
-          if (typeof actTract.origin.smt === "string") {
-            actTract.origin.smt = actTract.origin.smt.replace(find, replace);
-          }
-          else if (typeof actTract.origin.smt === "object") {
-            actTract.origin.smt.locus = actTract.origin.smt.locus.replace(find, replace);
-            actTract.origin.smt.schema = actTract.origin.smt.schema.replace(find, replace);
-          }
-
-          // replace strings in terminal.smt
-          if (typeof actTract.terminal.smt === "string") {
-            actTract.terminal.smt = actTract.terminal.smt.replace(find, replace);
-          }
-          else if (typeof actTract.terminal.smt === "object") {
-            actTract.terminal.smt.locus = actTract.terminal.smt.locus.replace(find, replace);
-            actTract.terminal.smt.schema = actTract.terminal.smt.schema.replace(find, replace);
-          }
-
-          // replace strings in terminal.output
-          if (actTract.terminal.output) {
-            actTract.terminal.output = actTract.terminal.output.replace(find, replace);
-          }
+          txtTract = txtTract.replace(find, replace);
         }
 
+        // perform action
+        let actTract = JSON.parse(txtTract);
         await performAction(key, actTract);
       }
     }
 
+    /* could record some result logging
     if (tract.terminal && tract.terminal.output) {
-      //logger.debug(JSON.stringify(<results>, null, " "));
-      //logger.info("results saved to " + tract.terminal.output);
-      //fs.mkdirSync(path.dirname(tract.terminal.output), { recursive: true });
-      //fs.writeFileSync(tract.terminal.output, JSON.stringify(<results>, null, " "));
+      logger.debug(JSON.stringify(<results>, null, " "));
+      logger.info("results saved to " + tract.terminal.output);
+      fs.mkdirSync(path.dirname(tract.terminal.output), { recursive: true });
+      fs.writeFileSync(tract.terminal.output, JSON.stringify(<results>, null, " "));
     }
-
+    */
   }
   catch (err) {
     logger.error(err);
