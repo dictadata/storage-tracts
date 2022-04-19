@@ -12,13 +12,13 @@
       "origin": {
         "smt": "json|./test/data/input/|${name}|*",
         "options": {
-          "encoding": "./test/data/input/foo_schema.encoding.json"
+          "encoding": "./test/data/input/foo_schema_01.encoding.json"
         }
       },
       "terminal": {
         "smt": "elasticsearch|http://localhost:9200|foo_load|*",
         "options": {
-          "encoding": "./test/data/input/foo_schema.encoding.json"
+          "encoding": "./test/data/input/foo_schema_01.encoding.json"
         }
       }
     },
