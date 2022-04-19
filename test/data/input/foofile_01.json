@@ -2,10 +2,10 @@
   {
     "Foo": "first",
     "Bar": "row",
-    "Baz": "123",
-    "Fobe": "1.0",
+    "Baz": 123,
+    "Fobe": 1.0,
     "Dt Test": "2018-10-07",
-    "enabled": "true",
+    "enabled": true,
     "subObj1": {
       "state": "running"
     },
@@ -13,15 +13,16 @@
       "subsub": {
         "izze": 12
       }
-    }
+    },
+    "tags": [ "one" ]
   },
   {
     "Foo": "second",
     "Bar": "row",
-    "Baz": "456",
-    "Fobe": "2.1",
+    "Baz": 456,
+    "Fobe": 2.1,
     "Dt Test": "10/07/2018",
-    "enabled": "false",
+    "enabled": false,
     "subObj1": {
       "state": "stopped"
     },
@@ -29,15 +30,16 @@
       "subsub": {
         "izze": 88
       }
-    }
+    },
+    "tags": [ "one", "two" ]
   },
   {
     "Foo": "third",
     "Bar": "row your boat",
-    "Baz": "789",
-    "Fobe": "3",
+    "Baz": 789,
+    "Fobe": 3,
     "Dt Test": "10-18-18",
-    "enabled": "true",
+    "enabled": true,
     "subObj1": {
       "state": "paused"
     },
@@ -45,15 +47,16 @@
       "subsub": {
         "izze": 33
       }
-    }
+    },
+    "tags": [ "one", "two", "three" ]
   },
   {
     "Foo": "fourth",
     "Bar": " boat ",
-    "Baz": "0",
-    "Fobe": "4.3",
+    "Baz": 0,
+    "Fobe": 4.3,
     "Dt Test": "2018-10-10T14:13:30.500Z",
-    "enabled": "false",
+    "enabled": false,
     "subObj1": {
       "state": "running"
     },
@@ -61,15 +64,16 @@
       "subsub": {
         "izze": 12
       }
-    }
+    },
+    "tags": [ "one", "two", "three" ]
   },
   {
     "Foo": "fifth",
     "Bar": "downstream",
-    "Baz": "-12",
-    "Fobe": "+19",
+    "Baz": -12,
+    "Fobe": 19,
     "Dt Test": "10/18/18",
-    "enabled": "true",
+    "enabled": true,
     "subObj1": {
       "ex-state": "down"
     },
@@ -77,7 +81,8 @@
       "subsub": {
         "izze": 21
       }
-    }
+    },
+    "tags": [ "one", "twenty" ]
   },
   {
     "Foo": "sixth",
@@ -90,10 +95,21 @@
   {
     "Foo": "seventh",
     "Bar": "big data",
-    "Baz": "0",
-    "Fobe": "4.3",
+    "Baz": 0,
+    "Fobe": 4.3,
     "Dt Test": "2018-10-10T14:13:30.000-05:00",
-    "enabled": "false",
+    "enabled": false,
+    "subObj1": {
+      "state": "running"
+    }
+  },
+  {
+    "Foo": "eighth",
+    "Bar": "bigger data",
+    "Baz": 12,
+    "Fobe": 3.44,
+    "Dt Test": "10-OCT-18",
+    "enabled": false,
     "subObj1": {
       "state": "running"
     }
