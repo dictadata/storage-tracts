@@ -56,24 +56,27 @@ module.exports = exports = async function (tract) {
 async function download(tract) {
   let retCode = 0;
 
-  logger.verbose(">>> create origin junction " + tract.origin.smt);
-  logger.verbose("smt:" + JSON.stringify(tract.origin.smt, null, 2));
-  if (tract.origin.options)
-    logger.verbose("options:" + JSON.stringify(tract.origin.options));
-
   var junction;
   try {
-    logger.verbose("=== activate junction and filesystem");
+    logger.info("=== upload");
+
+    logger.verbose(">>> create origin junction " + tract.origin.smt);
+    logger.verbose("smt:" + JSON.stringify(tract.origin.smt, null, 2));
+    if (tract.origin.options)
+      logger.verbose("options:" + JSON.stringify(tract.origin.options));
+
+    logger.verbose(">>> activate junction and filesystem");
     junction = await Storage.activate(tract.origin.smt, tract.origin.options);
 
-    logger.verbose("=== get list of desired files");
+    logger.verbose(">>> get list of desired files");
     let { data: list } = await junction.list();
 
-    logger.verbose("=== download files");
+    logger.verbose(">>> download files");
     // download is a filesystem level method
     let stfs = await junction.getFileSystem();
 
     for (let entry of list) {
+      logger.info(entry.name);
       logger.verbose(JSON.stringify(entry, null, 2));
 
       let options = Object.assign({ smt: tract.terminal.smt, entry: entry }, tract.terminal.options);
@@ -83,6 +86,8 @@ async function download(tract) {
         retCode = 1;
       }
     }
+
+    logger.info("=== completed");
   }
   catch (err) {
     logger.error('!!! request failed: ' + err.message);
@@ -101,6 +106,8 @@ async function upload(tract) {
   var local;
   var junction;
   try {
+    logger.info("=== upload");
+
     logger.verbose(">>> create generic junction for local files");
     logger.verbose("smt:" + JSON.stringify(tract.origin.smt, null, 2));
     local = await Storage.activate(tract.origin.smt, tract.origin.options);
@@ -119,6 +126,7 @@ async function upload(tract) {
     let stfs = await junction.getFileSystem();
 
     for (let entry of list) {
+      logger.info(entry.name);
       logger.debug(JSON.stringify(entry, null, 2));
 
       let options = Object.assign({ smt: tract.origin.smt, entry: entry }, tract.origin.options);
@@ -129,7 +137,7 @@ async function upload(tract) {
       }
     }
 
-    logger.info(">>> completed");
+    logger.info("=== completed");
   }
   catch (err) {
     logger.error('!!! request failed: ' + err.message);

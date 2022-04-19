@@ -14,7 +14,8 @@ const { performAction } = require('./actions');
  * and perform action(s) on each schema.
  */
 module.exports = async (tract) => {
-  logger.verbose("scan: " + tract.origin.smt);
+  logger.info("=== scan");
+  logger.verbose(tract.origin.smt);
   let retCode = 0;
 
   var jo;
@@ -38,7 +39,7 @@ module.exports = async (tract) => {
 
     // loop through list and process each schema
     for (let entry of list) {
-      logger.verbose(entry.name);
+      logger.info(entry.name);
 
       // string replacements
       let replacements = {
@@ -68,6 +69,8 @@ module.exports = async (tract) => {
       fs.writeFileSync(tract.terminal.output, JSON.stringify(<results>, null, " "));
     }
     */
+
+    logger.info("=== completed");
   }
   catch (err) {
     logger.error(err);

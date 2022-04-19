@@ -13,7 +13,7 @@ const stream = require('stream').promises;
  *
  */
 module.exports = async (tract) => {
-  logger.verbose("transfer ...");
+  logger.info("=== transfer");
   let retCode = 0;
 
   var jo;
@@ -123,7 +123,7 @@ module.exports = async (tract) => {
     for (let writer of writers)
       await stream.finished(writer);
 
-    logger.verbose(">>> completed");
+    logger.info("=== completed");
   }
   catch (err) {
     logger.error(err);
