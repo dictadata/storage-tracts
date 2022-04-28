@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.2.8
+  - update to @dictadata/storage-junctions 2.2.3
+  - testing: update test settings
 - version 2.2.7
   - enhancement: output names to console for copy and scan
 - version 2.2.6
