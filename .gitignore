@@ -1,10 +1,7 @@
-census.gov/
 node_modules/
-
-data/output/
-test/data/output
-
 log/
 *.log
 
-# Editor directories and files
+output/
+census.gov/
+geoshapes
