@@ -73,7 +73,7 @@
     "terminal": {
       "smt": "*|file:c:/var/data/US/census.gov/|*|*",
       "options": {
-        "keep_rpath": true
+        "use_rpath": true
       }
     }
   },

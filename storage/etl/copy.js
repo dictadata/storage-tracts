@@ -58,7 +58,7 @@ async function download(tract) {
 
   var junction;
   try {
-    logger.info("=== upload");
+    logger.info("=== download");
 
     logger.verbose(">>> create origin junction " + tract.origin.smt);
     logger.verbose("smt:" + JSON.stringify(tract.origin.smt, null, 2));
