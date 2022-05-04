@@ -1,6 +1,6 @@
 {
   "name": "@dictadata/storage-etl",
-  "version": "2.2.8",
+  "version": "2.2.9",
   "description": "Command line ETL utility to transfer and optionally transform data between local and/or distributed sources.",
   "author": "Drew O. Letcher",
   "license": "MIT",
@@ -11,7 +11,8 @@
   },
   "scripts": {
     "start": "node storage-etl.js config",
-    "debug": "node --inspect --preserve-symlinks storage-etl.js -c \"test/mysql/transfer.json\" transfer bulkload"
+    "debug": "node --inspect --preserve-symlinks storage-etl.js -c \"test/mysql/transfer.json\" transfer bulkload",
+    "test": "./testrunner"
   },
   "repository": "gitlab:dictadata/js/storage-etl",
   "bugs": {
@@ -20,7 +21,8 @@
   "homepage": "https://gitlab.com/dictadata/js/storage-etl#readme",
   "keywords": [
     "dictadata.org",
-    "storage junctions",
+    "storage",
+    "junctions",
     "ETL",
     "json",
     "csv",
@@ -28,6 +30,7 @@
     "mssql",
     "mysql",
     "rest",
+    "data access",
     "data management",
     "database migration"
   ],
@@ -35,13 +38,13 @@
     "node": ">=16.4.0"
   },
   "dependencies": {
-    "@dictadata/storage-junctions": "^2.2.3",
+    "@dictadata/storage-junctions": "^2.2.4",
     "colors": "^1.4.0",
     "winston": "^3.7.2",
     "winston-daily-rotate-file": "^4.6.1"
   },
   "devDependencies": {
-    "eslint": "^8.11.0",
+    "eslint": "^8.14.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0"
   }

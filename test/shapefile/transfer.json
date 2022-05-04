@@ -89,7 +89,7 @@
   "el_json": {
     "action": "transfer",
     "origin": {
-      "smt": "elasticsearch|http://localhost:9200|us-census-tl_2020_us_state|*",
+      "smt": "elasticsearch|http://localhost:9200|geo_2020_us_state|*",
       "options": {
         "match": {
           "geometry": {
@@ -102,7 +102,7 @@
       }
     },
     "terminal": {
-      "smt": "json|./test/data/output/shapefile/|tl_2020_us_state_NY.json|*"
+      "smt": "json|./test/data/output/shapefile/|geo_2020_us_state_NY.json|*"
     }
   }
 }

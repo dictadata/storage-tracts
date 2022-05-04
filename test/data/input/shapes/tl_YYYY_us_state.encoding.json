@@ -1,5 +1,5 @@
 {
-  "name": "tl_YYYY_us_state",
+  "name": "geo_YYYY_us_state",
   "type": "engram",
   "description": "State and Equivalent Entity National Shapefile Record Layout (Current)",
   "tags": [
@@ -9,7 +9,7 @@
   "smt": {
     "model": "*",
     "locus": "*",
-    "schema": "tl_YYYY_us_state",
+    "schema": "geo_YYYY_us_state",
     "key": "!properties.GEOID"
   },
   "fields": [

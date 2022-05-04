@@ -4,13 +4,13 @@
     "origin": {
       "smt": "shp|zip:/var/data/US/census.gov/geo/tiger/TIGER2020/STATE/tl_2020_us_state.zip|tl_2020_us_state|*",
       "options": {
-        "encoding": "./data/census.gov/us-census-tl_YYYY_us_state.encoding.json"
+        "encoding": "./data/census.gov/geo_YYYY_us_state.encoding.json"
       }
     },
     "terminal": {
-      "smt": "us-census-tl_2020_us_state",
+      "smt": "geo_2020_us_state",
       "options": {
-        "encoding": "./data/census.gov/us-census-tl_YYYY_us_state.encoding.json"
+        "encoding": "./data/census.gov/geo_YYYY_us_state.encoding.json"
       }
     }
   }

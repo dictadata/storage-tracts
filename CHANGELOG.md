@@ -1,5 +1,10 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.2.9
+  - update to @dictadata/storage-junctions 2.2.4
+  - update: scan, add file exlusion list in options.exclude[]
+  - refactor: filesystem copy functions options.use_rpath
+  - bug fix: improve stream error handling
 - version 2.2.8
   - update to @dictadata/storage-junctions 2.2.3
   - testing: update test settings
