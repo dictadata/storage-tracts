@@ -42,7 +42,12 @@ module.exports = async (tract) => {
       // if filesystem based source or transforms defined
       // then run some data through the codifier
       let pipes = [];
-      pipes.push(jo.createReader({ max_read: tract.origin.options.max_read || 100 }));
+
+      let reader = jo.createReader({ max_read: tract.origin.options.max_read || 100 });
+      reader.on('error', (error) => {
+        logger.error("transfer reader: " + error.message);
+      });
+      pipes.push(reader);
 
       for (let [ tfType, options ] of Object.entries(transforms))
         pipes.push(jo.createTransform(tfType, options));
@@ -56,6 +61,9 @@ module.exports = async (tract) => {
 
     logger.verbose(">>> createReader");
     reader = jo.createReader();
+    reader.on('error', (error) => {
+      logger.error("transfer reader: " + error.message);
+    });
 
     logger.verbose(">>> origin transforms");
     for (let [ tfName, tfOptions ] of Object.entries(transforms)) {
@@ -85,6 +93,10 @@ module.exports = async (tract) => {
 
       logger.verbose(">>> createWriter");
       let writer = jt.createWriter();
+      writer.on('error', (error) => {
+        logger.error("transfer writer: " + error.message);
+      });
+
       writer = reader.pipe(writer);
       writers.push(writer);
     }
@@ -109,9 +121,14 @@ module.exports = async (tract) => {
           let t = jt.createTransform(tfType, tfOptions);
           writer = (writer) ? writer.pipe(t) : reader.pipe(t);
         }
+
         logger.verbose(">>> createWriter");
         // add terminal
         let w = jt.createWriter();
+        w.on('error', (error) => {
+          logger.error("transfer writer: " + error.message);
+        });
+
         writer = (writer) ? writer.pipe(w) : reader.pipe(w);
 
         writers.push(writer);
@@ -126,7 +143,7 @@ module.exports = async (tract) => {
     logger.info("=== completed");
   }
   catch (err) {
-    logger.error(err);
+    logger.error("transfer: " + err.message);
     retCode = 1;
   }
   finally {
