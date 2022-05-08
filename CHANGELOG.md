@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.2.10
+  - update: codex alias entries
 - version 2.2.9
   - update to @dictadata/storage-junctions 2.2.4
   - update: scan, add file exlusion list in options.exclude[]
