@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.2.11
+  - update to @dictadata/storage-junctions 2.2.5
 - version 2.2.10
   - update: codex alias entries
 - version 2.2.9
