@@ -64,7 +64,14 @@ async function store(entry) {
     entry = Object.assign({}, encoding, entry);
   }
 
-  let engram = new Engram(entry);
+  let engram;
+  if (entry.type === "engram") {
+    engram = new Engram(entry);
+  }
+  else {
+    // alias smt or ELT tract
+    engram = entry;
+  }
 
   // store codex entry
   let results = await Storage.codex.store(engram);

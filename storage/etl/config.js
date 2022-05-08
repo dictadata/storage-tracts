@@ -123,7 +123,7 @@ module.exports.loadTracts = async (tractsFilename, schema) => {
       //  continue;
 
       // validate tract properties
-      if (name === "codex") continue;
+      if (name === "codex" || tract.action === "codex") continue;
       if (typeOf(tract.origin) !== "object")
         throw new StorageError(400, "invalid tract origin: " + name);
       if (tract.action !== "scan" && typeOf(tract.terminal) !== "object")
