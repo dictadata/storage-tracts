@@ -10,10 +10,7 @@
             "User-Agent": "@dictadata.org/storage-node (info@dictadata.org)"
           }
         },
-        "extract": {
-          "names": "",
-          "data": "periods"
-        }
+        "extract": "periods"
       }
     },
     "terminal": {

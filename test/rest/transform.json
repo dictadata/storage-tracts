@@ -10,15 +10,19 @@
             "User-Agent": "@dictadata.org/storage-node (info@dictadata.org)"
           }
         },
-        "extract": {
-          "names": "",
-          "data": "periods"
-        }
+        "extract": "periods"
       }
     },
     "transform": {
       "select": {
-        "fields": [ "name", "temperature", "temperatureUnit", "windSpeed", "windDirection", "shortForecast" ]
+        "fields": [
+          "name",
+          "temperature",
+          "temperatureUnit",
+          "windSpeed",
+          "windDirection",
+          "shortForecast"
+        ]
       }
     },
     "terminal": {

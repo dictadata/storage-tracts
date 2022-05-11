@@ -10,10 +10,7 @@
           }
         },
         "max_read": 100,
-        "extract": {
-          "data": "periods",
-          "names": ""
-        }
+        "extract": "periods"
       }
     },
     "terminal": {

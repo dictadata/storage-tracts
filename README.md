@@ -174,10 +174,7 @@ Note, in the tract below the action is implied in the tract name "transfer_forec
             "User-Agent": "@dictadata.org/storage-node contact:info@dictadata.org"
           }
         },
-        "extract": {
-          "names": "",
-          "data": "periods"
-        }
+        "extract": "periods"
       }
     },
     "terminal": {
