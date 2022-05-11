@@ -43,16 +43,17 @@ module.exports = async (tract) => {
       // then run some data through the codifier
       let pipes = [];
 
-      let reader = jo.createReader({ max_read: tract.origin.options.max_read || 100 });
+      let options = Object.assign({ max_read: 100 }, tract.origin.pattern);
+      reader = jo.createReader(options);
       reader.on('error', (error) => {
         logger.error("transfer reader: " + error.message);
       });
       pipes.push(reader);
 
-      for (let [ tfType, options ] of Object.entries(transforms))
-        pipes.push(jo.createTransform(tfType, options));
+      for (let [ tfType, tfOptions ] of Object.entries(transforms))
+        pipes.push(await jo.createTransform(tfType, tfOptions));
 
-      let ct = jo.createTransform('codify');
+      let ct = await jo.createTransform('codify');
       pipes.push(ct);
 
       await stream.pipeline(pipes);
@@ -60,7 +61,7 @@ module.exports = async (tract) => {
     }
 
     logger.verbose(">>> createReader");
-    reader = jo.createReader();
+    reader = jo.createReader(tract.origin.pattern);
     reader.on('error', (error) => {
       logger.error("transfer reader: " + error.message);
     });
@@ -68,7 +69,7 @@ module.exports = async (tract) => {
     logger.verbose(">>> origin transforms");
     for (let [ tfName, tfOptions ] of Object.entries(transforms)) {
       let tfType = tfName.split("-")[ 0 ];
-      reader = reader.pipe(jo.createTransform(tfType, tfOptions));
+      reader = reader.pipe(await jo.createTransform(tfType, tfOptions));
     }
 
     if (!tract.terminal.options.encoding) {
@@ -118,7 +119,7 @@ module.exports = async (tract) => {
         let transforms = branch.transform || branch.transforms || {};
         for (let [ tfName, tfOptions ] of Object.entries(transforms)) {
           let tfType = tfName.split("-")[ 0 ];
-          let t = jt.createTransform(tfType, tfOptions);
+          let t = await jt.createTransform(tfType, tfOptions);
           writer = (writer) ? writer.pipe(t) : reader.pipe(t);
         }
 

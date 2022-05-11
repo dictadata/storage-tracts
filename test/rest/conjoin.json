@@ -8,8 +8,14 @@
             "Accept": "application/ld+json",
             "User-Agent": "@dictadata.org/storage-node contact:info@dictadata.org"
           }
-        },
-        "fields": ["cwa","gridX","gridY"]
+        }
+      },
+      "pattern": {
+        "fields": [
+          "cwa",
+          "gridX",
+          "gridY"
+        ]
       }
     },
     "transform": {
@@ -22,10 +28,7 @@
               "User-Agent": "@dictadata.org/storage-node contact:info@dictadata.org"
             }
           },
-          "extract": {
-            "data": "periods",
-            "names": ""
-          }
+          "extract": "periods"
         }
       }
     },

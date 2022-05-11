@@ -90,7 +90,7 @@
     "action": "transfer",
     "origin": {
       "smt": "elasticsearch|http://localhost:9200|geo_2020_us_state|*",
-      "options": {
+      "pattern": {
         "match": {
           "geometry": {
             "contains": [

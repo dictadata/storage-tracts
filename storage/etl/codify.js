@@ -39,16 +39,17 @@ module.exports = async (tract) => {
       // then run some data through the codifier
       let pipes = [];
 
-      let reader = jo.createReader(origin.options || { max_read: 100 });
+      let options = Object.assign({ max_read: 100 }, origin.pattern);
+      let reader = jo.createReader(options);
       reader.on('error', (error) => {
         logger.error("codify reader: " + error.message);
       });
       pipes.push(reader);
 
-      for (let [ tfType, options ] of Object.entries(transforms))
-        pipes.push(jo.createTransform(tfType, options));
+      for (let [ tfType, tfOptions ] of Object.entries(transforms))
+        pipes.push(await jo.createTransform(tfType, tfOptions));
 
-      let ct = jo.createTransform('codify');
+      let ct = await jo.createTransform('codify');
       pipes.push(ct);
 
       await stream.pipeline(pipes);
