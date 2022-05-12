@@ -1,0 +1,25 @@
+[
+ {
+  "verMade": 20,
+  "version": 20,
+  "flags": 0,
+  "method": 8,
+  "time": 1612912380000,
+  "crc": 2387348594,
+  "compressedSize": 305,
+  "size": 1156,
+  "fnameLen": 12,
+  "extraLen": 0,
+  "comLen": 0,
+  "diskStart": 0,
+  "inattr": 1,
+  "attr": 32,
+  "offset": 0,
+  "headerOffset": 1373,
+  "name": "foofile.json",
+  "isDirectory": false,
+  "comment": null,
+  "rpath": "foofile.json",
+  "date": "2021-02-09T23:13:00.000Z"
+ }
+]

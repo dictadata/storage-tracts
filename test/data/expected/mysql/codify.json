@@ -1,0 +1,103 @@
+{
+ "name": "foo_schema",
+ "type": "engram",
+ "smt": {
+  "model": "mysql",
+  "locus": "host=localhost;user=dicta;password=data;database=storage_node",
+  "schema": "foo_schema",
+  "key": "=Foo"
+ },
+ "fields": [
+  {
+   "name": "Foo",
+   "type": "keyword",
+   "size": 64,
+   "_mysql": {
+    "Field": "Foo",
+    "Type": "varchar(64)",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": ""
+   },
+   "default": null,
+   "nullable": false,
+   "key": 1
+  },
+  {
+   "name": "Bar",
+   "type": "keyword",
+   "size": 64,
+   "_mysql": {
+    "Field": "Bar",
+    "Type": "varchar(64)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+   },
+   "default": null,
+   "nullable": true
+  },
+  {
+   "name": "Baz",
+   "type": "integer",
+   "size": null,
+   "_mysql": {
+    "Field": "Baz",
+    "Type": "int",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+   },
+   "default": null,
+   "nullable": true
+  },
+  {
+   "name": "Fobe",
+   "type": "float",
+   "size": null,
+   "_mysql": {
+    "Field": "Fobe",
+    "Type": "double",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+   },
+   "default": null,
+   "nullable": true
+  },
+  {
+   "name": "Dt Test",
+   "type": "date",
+   "size": null,
+   "_mysql": {
+    "Field": "Dt Test",
+    "Type": "datetime",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+   },
+   "default": null,
+   "nullable": true
+  },
+  {
+   "name": "enabled",
+   "type": "boolean",
+   "size": 1,
+   "_mysql": {
+    "Field": "enabled",
+    "Type": "tinyint(1)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": ""
+   },
+   "default": null,
+   "nullable": true
+  }
+ ]
+}

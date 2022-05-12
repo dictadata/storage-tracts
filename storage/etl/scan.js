@@ -4,8 +4,7 @@
 "use strict";
 
 const Storage = require("@dictadata/storage-junctions");
-const { SMT } = require("@dictadata/storage-junctions/types");
-const { _merge } = require('./config');
+const output = require('./output');
 const logger = require('./logger');
 const { performAction } = require('./actions');
 
@@ -92,9 +91,7 @@ module.exports = async (tract) => {
     /* could record some result logging
     if (tract.terminal && tract.terminal.output) {
       logger.debug(JSON.stringify(<results>, null, " "));
-      logger.info("results saved to " + tract.terminal.output);
-      fs.mkdirSync(path.dirname(tract.terminal.output), { recursive: true });
-      fs.writeFileSync(tract.terminal.output, JSON.stringify(<results>, null, " "));
+      retCode = output(tract.terminal.output, <results>);
     }
     */
 

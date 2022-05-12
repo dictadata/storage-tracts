@@ -5,10 +5,9 @@
 
 const Storage = require("@dictadata/storage-junctions");
 const { Field } = require('@dictadata/storage-junctions/types');
+const output = require('./output');
 const logger = require('./logger');
 
-const fs = require('fs');
-const path = require('path');
 const stream = require('stream').promises;
 
 /**
@@ -76,9 +75,7 @@ module.exports = async (tract) => {
     //logger.verbose(JSON.stringify(encoding, null, " "));
     logger.debug(JSON.stringify(encoding.fields, null, " "));
     if (tract.terminal.output) {
-      logger.info("encoding saved to " + tract.terminal.output);
-      fs.mkdirSync(path.dirname(tract.terminal.output), { recursive: true });
-      fs.writeFileSync(tract.terminal.output, JSON.stringify(encoding, null, " "));
+      retCode = output(tract.terminal.output, encoding, true, 1);
     }
     else {
       console.log(JSON.stringify(encoding, null, " "));

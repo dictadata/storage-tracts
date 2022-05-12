@@ -1,0 +1,58 @@
+[
+ {
+  "href": "/data/dictadata.org/test/input/foofile_01.json",
+  "name": "foofile_01.json",
+  "isDir": false,
+  "date": "2021-12-18T16:17:00.000Z",
+  "size": 2057,
+  "rpath": "test/input/foofile_01.json"
+ },
+ {
+  "href": "/data/dictadata.org/test/input/foofile_02.json",
+  "name": "foofile_02.json",
+  "isDir": false,
+  "date": "2021-12-18T16:17:00.000Z",
+  "size": 2599,
+  "rpath": "test/input/foofile_02.json"
+ },
+ {
+  "href": "/data/dictadata.org/test/input/foofile_03.json",
+  "name": "foofile_03.json",
+  "isDir": false,
+  "date": "2020-03-30T05:55:00.000Z",
+  "size": 1729,
+  "rpath": "test/input/foofile_03.json"
+ },
+ {
+  "href": "/data/dictadata.org/test/input/foofile_two.json",
+  "name": "foofile_two.json",
+  "isDir": false,
+  "date": "2021-12-18T16:17:00.000Z",
+  "size": 452,
+  "rpath": "test/input/foofile_two.json"
+ },
+ {
+  "href": "/data/dictadata.org/test/output/uploads/foofile_01.json",
+  "name": "foofile_01.json",
+  "isDir": false,
+  "date": "2021-06-25T21:59:00.000Z",
+  "size": 1729,
+  "rpath": "test/output/uploads/foofile_01.json"
+ },
+ {
+  "href": "/data/dictadata.org/test/output/uploads/foofile_02.json",
+  "name": "foofile_02.json",
+  "isDir": false,
+  "date": "2021-06-25T21:59:00.000Z",
+  "size": 1729,
+  "rpath": "test/output/uploads/foofile_02.json"
+ },
+ {
+  "href": "/data/dictadata.org/test/output/uploads/foofile_03.json",
+  "name": "foofile_03.json",
+  "isDir": false,
+  "date": "2021-06-25T21:59:00.000Z",
+  "size": 1729,
+  "rpath": "test/output/uploads/foofile_03.json"
+ }
+]

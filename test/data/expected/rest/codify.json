@@ -1,0 +1,71 @@
+{
+ "name": "*",
+ "type": "engram",
+ "smt": {
+  "model": "any",
+  "locus": "*",
+  "schema": "*",
+  "key": "*"
+ },
+ "fields": [
+  {
+   "name": "number",
+   "type": "integer"
+  },
+  {
+   "name": "name",
+   "type": "text",
+   "size": 14
+  },
+  {
+   "name": "startTime",
+   "type": "date"
+  },
+  {
+   "name": "endTime",
+   "type": "date"
+  },
+  {
+   "name": "isDaytime",
+   "type": "boolean"
+  },
+  {
+   "name": "temperature",
+   "type": "integer"
+  },
+  {
+   "name": "temperatureUnit",
+   "type": "keyword",
+   "size": 1
+  },
+  {
+   "name": "temperatureTrend",
+   "type": "text"
+  },
+  {
+   "name": "windSpeed",
+   "type": "text",
+   "size": 12
+  },
+  {
+   "name": "windDirection",
+   "type": "keyword",
+   "size": 2
+  },
+  {
+   "name": "icon",
+   "type": "text",
+   "size": 79
+  },
+  {
+   "name": "shortForecast",
+   "type": "text",
+   "size": 57
+  },
+  {
+   "name": "detailedForecast",
+   "type": "text",
+   "size": 294
+  }
+ ]
+}

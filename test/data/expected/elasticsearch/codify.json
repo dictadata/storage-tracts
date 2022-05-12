@@ -1,0 +1,55 @@
+{
+ "name": "foo_schema",
+ "type": "engram",
+ "smt": {
+  "model": "elasticsearch",
+  "locus": "http://localhost:9200",
+  "schema": "foo_schema",
+  "key": "!Foo"
+ },
+ "fields": [
+  {
+   "name": "Bar",
+   "type": "keyword",
+   "_elasticsearch": {
+    "type": "keyword"
+   }
+  },
+  {
+   "name": "Baz",
+   "type": "integer",
+   "_elasticsearch": {
+    "type": "integer"
+   }
+  },
+  {
+   "name": "Dt Test",
+   "type": "date",
+   "_elasticsearch": {
+    "type": "date"
+   }
+  },
+  {
+   "name": "Fobe",
+   "type": "float",
+   "_elasticsearch": {
+    "type": "double"
+   }
+  },
+  {
+   "name": "Foo",
+   "type": "keyword",
+   "_elasticsearch": {
+    "type": "keyword"
+   },
+   "key": 1
+  },
+  {
+   "name": "enabled",
+   "type": "boolean",
+   "_elasticsearch": {
+    "type": "boolean"
+   }
+  }
+ ]
+}

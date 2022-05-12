@@ -1,0 +1,109 @@
+{
+ "name": "foo_schema",
+ "type": "engram",
+ "smt": {
+  "model": "mssql",
+  "locus": "server=localhost;userName=dicta;password=data;database=storage_node",
+  "schema": "foo_schema",
+  "key": "=Foo"
+ },
+ "fields": [
+  {
+   "name": "Foo",
+   "type": "keyword",
+   "size": 64,
+   "default": null,
+   "nullable": false,
+   "_mssql": {
+    "name": "Foo",
+    "type": "varchar",
+    "size": 64,
+    "precision": 0,
+    "scale": 0,
+    "is_nullable": false,
+    "default": null
+   },
+   "key": 1
+  },
+  {
+   "name": "Bar",
+   "type": "keyword",
+   "size": 64,
+   "default": null,
+   "nullable": true,
+   "_mssql": {
+    "name": "Bar",
+    "type": "varchar",
+    "size": 64,
+    "precision": 0,
+    "scale": 0,
+    "is_nullable": true,
+    "default": null
+   }
+  },
+  {
+   "name": "Baz",
+   "type": "integer",
+   "size": 4,
+   "default": null,
+   "nullable": true,
+   "_mssql": {
+    "name": "Baz",
+    "type": "int",
+    "size": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true,
+    "default": null
+   }
+  },
+  {
+   "name": "Fobe",
+   "type": "number",
+   "size": 8,
+   "default": null,
+   "nullable": true,
+   "_mssql": {
+    "name": "Fobe",
+    "type": "float",
+    "size": 8,
+    "precision": 53,
+    "scale": 0,
+    "is_nullable": true,
+    "default": null
+   }
+  },
+  {
+   "name": "Dt Test",
+   "type": "date",
+   "size": 8,
+   "default": null,
+   "nullable": true,
+   "_mssql": {
+    "name": "Dt Test",
+    "type": "datetime",
+    "size": 8,
+    "precision": 23,
+    "scale": 3,
+    "is_nullable": true,
+    "default": null
+   }
+  },
+  {
+   "name": "enabled",
+   "type": "boolean",
+   "size": 1,
+   "default": null,
+   "nullable": true,
+   "_mssql": {
+    "name": "enabled",
+    "type": "bit",
+    "size": 1,
+    "precision": 1,
+    "scale": 0,
+    "is_nullable": true,
+    "default": null
+   }
+  }
+ ]
+}

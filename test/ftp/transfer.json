@@ -21,7 +21,8 @@
     },
     "terminal": {
       "smt": "json|./test/data/output/ftp/|foofile.json|*",
-      "options": {}
+      "options": {},
+      "output": "./test/data/output/ftp/foofile.json"
     }
   }
 }

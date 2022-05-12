@@ -30,7 +30,9 @@
           "Fobe": "fobe",
           "Dt Test": "dt_test"
         },
-        "remove": ["fobe"]
+        "remove": [
+          "fobe"
+        ]
       }
     },
     "terminal": {
@@ -42,7 +44,8 @@
       },
       "options": {
         "encoding": "./test/data/input/foo_schema_t.encoding.json"
-      }
+      },
+      "output": "./test/data/output/fs/transform.json"
     }
   },
   "json-csv": {
@@ -71,7 +74,9 @@
           "Dt Test": "dt_test",
           "subObj1.state": "state"
         },
-        "remove": ["fobe"]
+        "remove": [
+          "fobe"
+        ]
       }
     },
     "terminal": {
@@ -84,7 +89,8 @@
       "options": {
         "header": true,
         "encoding": "./test/data/input/foo_schema_t.encoding.json"
-      }
+      },
+      "output": "./test/data/output/fs/transform.csv"
     }
   }
 }

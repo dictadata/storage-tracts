@@ -22,7 +22,8 @@
       "smt": "elasticsearch-foo_schema"
     },
     "terminal": {
-      "smt": "json|./test/data/output/elasticsearch/|foofile.json|*"
+      "smt": "json|./test/data/output/elasticsearch/|foofile.json|*",
+      "output": "./test/data/output/elasticsearch/foofile.json"
     }
   }
 }

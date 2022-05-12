@@ -5,9 +5,7 @@
 
 const Storage = require("@dictadata/storage-junctions");
 const logger = require('./logger');
-
-const fs = require('fs');
-const path = require('path');
+const output = require('./output');
 
 /**
  *
@@ -24,9 +22,7 @@ module.exports = async (tract) => {
 
     logger.verbose(JSON.stringify(list, null, " "));
     if (tract.terminal.output) {
-      logger.info("list saved to " + tract.terminal.output);
-      fs.mkdirSync(path.dirname(tract.terminal.output), { recursive: true });
-      fs.writeFileSync(tract.terminal.output, JSON.stringify(list, null, " "));
+      retCode = output(tract.terminal.output, list, true, 1);
     }
     else {
       console.log(JSON.stringify(list, null, " "));

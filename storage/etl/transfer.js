@@ -5,8 +5,8 @@
 
 const Storage = require("@dictadata/storage-junctions");
 const { logger } = require("@dictadata/storage-junctions/utils");
+const output = require('./output');
 
-const fs = require('fs/promises');
 const stream = require('stream').promises;
 
 /**
@@ -141,6 +141,9 @@ module.exports = async (tract) => {
     for (let writer of writers)
       await stream.finished(writer);
 
+    if (tract.terminal.output) {
+      retCode = output(tract.terminal.output, null, false, 2);
+    }
     logger.info("=== completed");
   }
   catch (err) {

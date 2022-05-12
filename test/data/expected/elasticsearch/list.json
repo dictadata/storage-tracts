@@ -1,0 +1,15 @@
+[
+ "foo_schema_02",
+ "foo_schema_01",
+ "foo_transfer",
+ "foo_schema_etl",
+ "foo_schema_pk",
+ "foo_schema_lg",
+ "foo_schema_etl2",
+ "foo_dbtransform",
+ "foo_transform",
+ "foo_schema",
+ "foo_schema_j",
+ "foo_schema_two",
+ "foo_load"
+]

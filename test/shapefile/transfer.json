@@ -6,7 +6,8 @@
       "options": {}
     },
     "terminal": {
-      "smt": "json|./test/data/output/shapefile/|polygons.json|*"
+      "smt": "json|./test/data/output/shapefile/|polygons.json|*",
+      "output": "./test/data/output/shapefile/polygons.json"
     }
   },
   "zip-json": {
@@ -16,7 +17,8 @@
       "options": {}
     },
     "terminal": {
-      "smt": "json|./test/data/output/shapefile/|points.json|*"
+      "smt": "json|./test/data/output/shapefile/|points.json|*",
+      "output": "./test/data/output/shapefile/points.json"
     }
   },
   "points-elastic": {
@@ -61,7 +63,8 @@
       "options": {}
     },
     "terminal": {
-      "smt": "json|./test/data/output/shapefile/|shapes.json|*"
+      "smt": "json|./test/data/output/shapefile/|shapes.json|*",
+      "output": "./test/data/output/shapefile/shapes.json"
     }
   },
   "download": {
@@ -83,7 +86,8 @@
       "smt": "shp|zip:/var/data/US/census.gov/geo/tiger/TIGER2020/STATE/tl_2020_us_state.zip|tl_2020_us_state|*"
     },
     "terminal": {
-      "smt": "json|./test/data/output/shapefile/|tl_2020_us_state.json|*"
+      "smt": "json|./test/data/output/shapefile/|tl_2020_us_state.json|*",
+      "output": "./test/data/output/shapefile/tl_2020_us_state.json"
     }
   },
   "el_json": {
@@ -102,7 +106,8 @@
       }
     },
     "terminal": {
-      "smt": "json|./test/data/output/shapefile/|geo_2020_us_state_NY.json|*"
+      "smt": "json|./test/data/output/shapefile/|geo_2020_us_state_NY.json|*",
+      "output": "./test/data/output/shapefile/geo_2020_us_state_NY.json"
     }
   }
 }

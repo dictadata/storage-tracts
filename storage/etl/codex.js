@@ -5,10 +5,10 @@
 
 const Storage = require("@dictadata/storage-junctions");
 const { Engram } = require("@dictadata/storage-junctions/types");
+const output = require('./output');
 const logger = require('./logger');
 
 const fs = require('fs');
-const path = require('path');
 
 /**
  *
@@ -36,9 +36,12 @@ module.exports = async (tract) => {
       // pass the entry(s) to the appropriate function
       if (Array.isArray(entry))
         for (let e of entry)
-          fn(e);
+          retCode = fn(e);
       else
-        fn(entry);
+        retCode = fn(entry);
+
+      if (retCode != 0)
+        break;
     }
   }
   catch (err) {
@@ -54,6 +57,7 @@ module.exports = async (tract) => {
  * @param {*} entry a codex entry from an ETL tract
  */
 async function store(entry) {
+  let retCode = 0;
 
   if (entry.encoding && typeof entry.encoding === "string") {
     // read encoding from file
@@ -76,6 +80,8 @@ async function store(entry) {
   // store codex entry
   let results = await Storage.codex.store(engram);
   console.log(results.resultText);
+
+  return retCode;
 }
 
 /**
@@ -83,8 +89,10 @@ async function store(entry) {
  * @param {*} entry a codex entry from an ETL tract
  */
 async function dull(entry) {
+  let retCode = 0;
   let results = await Storage.codex.dull(entry.name);
   logger.info(results.resultText);
+  return retCode;
 }
 
 /**
@@ -92,12 +100,12 @@ async function dull(entry) {
  * @param {*} entry a codex entry from an ETL tract
  */
 async function recall(entry) {
+  let retCode = 0;
   let results = await Storage.codex.recall(entry.name);
   console.log(results.resultText);
 
-  logger.verbose("output file: " + entry.output);
-  fs.mkdirSync(path.dirname(entry.output), { recursive: true });
-  fs.writeFileSync(entry.output, JSON.stringify(results.data, null, 2), "utf8");
+  retCode = output(entry.output, results.data);
+  return retCode;
 }
 
 /**
@@ -105,10 +113,10 @@ async function recall(entry) {
  * @param {*} entry a codex entry from an ETL tract
  */
 async function retrieve(entry) {
+  let retCode = 0;
   let results = await Storage.codex.retrieve(entry.pattern);
   console.log(results.resultText);
 
-  logger.verbose("output file: " + entry.output);
-  fs.mkdirSync(path.dirname(entry.output), { recursive: true });
-  fs.writeFileSync(entry.output, JSON.stringify(results.data, null, 2), "utf8");
+  retCode = output(entry.output, results.data);
+  return retCode;
 }

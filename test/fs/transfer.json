@@ -16,7 +16,8 @@
       },
       "options": {
         "header": true
-      }
+      },
+      "output": "./test/data/output/fs/fs_foofile.csv"
     }
   },
   "json-output": {
@@ -30,7 +31,8 @@
         "locus": "./test/data/output/fs/",
         "schema": "fs_foofile.json",
         "key": "*"
-      }
+      },
+      "output": "./test/data/output/fs/fs_foofile.json"
     }
   },
   "csv-json": {
@@ -47,7 +49,8 @@
         "locus": "./test/data/output/fs/",
         "schema": "fs_foofile_csv.json",
         "key": "*"
-      }
+      },
+      "output": "./test/data/output/fs/fs_foofile_csv.json"
     }
   },
   "json-csv": {
@@ -55,7 +58,7 @@
     "origin": {
       "smt": "json|./test/data/input/|foofile.json|*"
     },
-   "terminal": {
+    "terminal": {
       "smt": {
         "model": "csv",
         "locus": "./test/data/output/fs/",
@@ -64,7 +67,8 @@
       },
       "options": {
         "header": true
-      }
+      },
+      "output": "./test/data/output/fs/fs_foofile_json.csv"
     }
   }
 }
