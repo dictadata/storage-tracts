@@ -142,7 +142,7 @@ module.exports = async (tract) => {
       await stream.finished(writer);
 
     if (tract.terminal.output) {
-      retCode = output(tract.terminal.output, null, false, 2);
+      retCode = output(tract.terminal.output, null, false, tract.terminal.compareValues || 2);
     }
     logger.info("=== completed");
   }

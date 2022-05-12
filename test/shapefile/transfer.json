@@ -32,7 +32,7 @@
         "model": "elasticsearch",
         "locus": "http://localhost:9200",
         "schema": "shapes",
-        "key": "*"
+        "key": "!geometry.type+properties.FID"
       }
     }
   },
@@ -47,7 +47,7 @@
         "model": "elasticsearch",
         "locus": "http://localhost:9200",
         "schema": "shapes",
-        "key": "*"
+        "key": "!geometry.type+properties.FID"
       }
     }
   },
@@ -58,9 +58,14 @@
         "model": "elasticsearch",
         "locus": "http://localhost:9200",
         "schema": "shapes",
-        "key": "*"
+        "key": "!geometry.type+properties.FID"
       },
-      "options": {}
+      "pattern": {
+        "order": {
+          "geometry.type": "desc",
+          "properties.FID": "asc"
+        }
+      }
     },
     "terminal": {
       "smt": "json|./test/data/output/shapefile/|shapes.json|*",

@@ -19,7 +19,12 @@
   "index-json": {
     "action": "transfer",
     "origin": {
-      "smt": "elasticsearch-foo_schema"
+      "smt": "elasticsearch-foo_schema",
+      "pattern": {
+        "order": {
+          "Foo": "asc"
+        }
+      }
     },
     "terminal": {
       "smt": "json|./test/data/output/elasticsearch/|foofile.json|*",
