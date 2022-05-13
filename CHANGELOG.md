@@ -1,5 +1,11 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.3.0
+  - update to @dictadata/storage-junctions 2.3.0
+  - refactor: all modules use the same output method
+  - refactor: proper passing of pattern to junction.createReader()
+  - refactor: await junction.createTransform(), it is now async
+  - testing: updates for comparing output results
 - version 2.2.11
   - update to @dictadata/storage-junctions 2.2.5
 - version 2.2.10
