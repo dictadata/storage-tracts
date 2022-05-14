@@ -27,12 +27,19 @@
       "smt": "shp|zip:./test/data/input/shapes/points.zip|points|*",
       "options": {}
     },
+    "transform": {
+      "select": {
+        "inject_before": {
+          "id": "=geometry.type+properties.FID"
+        }
+      }
+    },
     "terminal": {
       "smt": {
         "model": "elasticsearch",
         "locus": "http://localhost:9200",
         "schema": "shapes",
-        "key": "!geometry.type+properties.FID"
+        "key": "!id"
       }
     }
   },
@@ -42,12 +49,19 @@
       "smt": "shp|./test/data/input/shapes/|polygons|*",
       "options": {}
     },
+    "transform": {
+      "select": {
+        "inject_before": {
+          "id": "=geometry.type+properties.FID"
+        }
+      }
+    },
     "terminal": {
       "smt": {
         "model": "elasticsearch",
         "locus": "http://localhost:9200",
         "schema": "shapes",
-        "key": "!geometry.type+properties.FID"
+        "key": "!id"
       }
     }
   },
@@ -58,12 +72,11 @@
         "model": "elasticsearch",
         "locus": "http://localhost:9200",
         "schema": "shapes",
-        "key": "!geometry.type+properties.FID"
+        "key": "!id"
       },
       "pattern": {
         "order": {
-          "geometry.type": "desc",
-          "properties.FID": "asc"
+          "id": "desc"
         }
       }
     },
@@ -91,8 +104,7 @@
       "smt": "shp|zip:/var/data/US/census.gov/geo/tiger/TIGER2020/STATE/tl_2020_us_state.zip|tl_2020_us_state|*"
     },
     "terminal": {
-      "smt": "json|./test/data/output/shapefile/|tl_2020_us_state.json|*",
-      "output": "./test/data/output/shapefile/tl_2020_us_state.json"
+      "smt": "json|./test/data/output/shapefile/|tl_2020_us_state.json|*"
     }
   },
   "el_json": {
@@ -111,8 +123,7 @@
       }
     },
     "terminal": {
-      "smt": "json|./test/data/output/shapefile/|geo_2020_us_state_NY.json|*",
-      "output": "./test/data/output/shapefile/geo_2020_us_state_NY.json"
+      "smt": "json|./test/data/output/shapefile/|geo_2020_us_state_NY.json|*"
     }
   }
 }

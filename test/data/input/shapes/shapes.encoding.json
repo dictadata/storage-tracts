@@ -3,13 +3,18 @@
     "model": "shp",
     "locus": "./test/data/input/shapefile",
     "schema": "points",
-    "key": "*"
+    "key": "!id"
   },
   "fields": [
     {
       "name": "type",
       "type": "keyword",
       "size": 7
+    },
+    {
+      "name": "id",
+      "type": "keyword",
+      "size": 20
     },
     {
       "name": "properties",
