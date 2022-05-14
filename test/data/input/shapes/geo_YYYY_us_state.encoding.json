@@ -4,6 +4,9 @@
   "description": "State and Equivalent Entity National Shapefile Record Layout (Current)",
   "tags": [
     "census.gov",
+    "administrative",
+    "district",
+    "state",
     "tigerline"
   ],
   "smt": {
