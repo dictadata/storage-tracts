@@ -140,7 +140,7 @@ function parseArgs() {
   }
 
   if (retCode === 0)
-    logger.info("OK");
+    logger.info("ETL results: OK");
   else
     logger.error(retCode + " ETL failed, check error log.");
 

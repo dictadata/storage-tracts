@@ -79,7 +79,7 @@ async function store(entry) {
 
   // store codex entry
   let results = await Storage.codex.store(engram);
-  console.log(results.resultText);
+  logger.info("codex store: " + engram.name + " " + results.resultText);
 
   return retCode;
 }
@@ -91,7 +91,7 @@ async function store(entry) {
 async function dull(entry) {
   let retCode = 0;
   let results = await Storage.codex.dull(entry.name);
-  logger.info(results.resultText);
+  logger.info("codex dull: " + entry.name + " " + results.resultText);
   return retCode;
 }
 
@@ -102,7 +102,7 @@ async function dull(entry) {
 async function recall(entry) {
   let retCode = 0;
   let results = await Storage.codex.recall(entry.name);
-  console.log(results.resultText);
+  logger.verbose("codex recall: " + entry.name + " " + results.resultText);
 
   retCode = output(entry.output, results.data);
   return retCode;
@@ -115,7 +115,7 @@ async function recall(entry) {
 async function retrieve(entry) {
   let retCode = 0;
   let results = await Storage.codex.retrieve(entry.pattern);
-  console.log(results.resultText);
+  logger.verbose("codex retrieve: " + entry.name + " " + results.resultText);
 
   retCode = output(entry.output, results.data);
   return retCode;

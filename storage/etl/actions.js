@@ -24,6 +24,8 @@ async function performAction(tractName, tract) {
   // determine action name
   let action = tract[ "action" ] || tractName.substr(0, tractName.indexOf('_')) || tractName;
 
+  logger.info("ELT " + action + " " + tractName);
+
   // check to read encodings from file
   try {
     logger.debug(">>> check origin encoding");
@@ -52,7 +54,7 @@ async function performAction(tractName, tract) {
   // process the tract
   let fn = fnActions[ action ];
   if (fn) {
-    return fn(tract);
+    return await fn(tract);
   }
   else {
     logger.error("unknown action: " + action);
