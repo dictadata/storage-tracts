@@ -1,4 +1,28 @@
 {
+  "us_national_fed_codes": {
+    "descripion": "transfer NationalFedCodes to Elasticsearch",
+    "action": "scan",
+    "origin": {
+      "smt": "*|zip:/var/data/US/usgs.gov/NationalFedCodes.zip/|*.txt|*",
+      "options": {
+        "recursive": false
+      }
+    },
+    "transfer": {
+      "action": "transfer",
+      "origin": {
+        "smt": "csv|zip:/var/data/US/usgs.gov/NationalFedCodes.zip|${rpath}|*",
+        "options": {
+          "header": true,
+          "separator": "|",
+          "encoding": "./encodings/us_national_fed_codes.encoding.json"
+        }
+      },
+      "terminal": {
+        "smt": "us_national_fed_codes"
+      }
+    }
+  },
   "rest-json": {
     "action": "transfer",
     "origin": {
