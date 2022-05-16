@@ -3,7 +3,7 @@
     "model": "*",
     "locus": "*",
     "schema": "foo_transform",
-    "key": "*"
+    "key": "=Foo"
   },
   "description": "types-only encoding for transforms",
   "fields": {

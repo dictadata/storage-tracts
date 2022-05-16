@@ -16,7 +16,7 @@
         }
       },
       "terminal": {
-        "smt": "elasticsearch|http://localhost:9200|foo_load|*",
+        "smt": "elasticsearch|http://localhost:9200|foo_load|!Foo",
         "options": {
           "encoding": "./test/data/input/foo_schema_01.encoding.json"
         }
