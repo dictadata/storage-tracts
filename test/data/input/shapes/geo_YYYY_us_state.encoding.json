@@ -53,7 +53,8 @@
           "name": "GEOID",
           "type": "keyword",
           "size": "2",
-          "description": "State identifier; state FIPS code"
+          "description": "State identifier; state FIPS code",
+          "key": 1
         },
         {
           "name": "STUSPS",
