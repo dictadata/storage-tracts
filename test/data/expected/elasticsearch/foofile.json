@@ -7,6 +7,5 @@
 {"Foo":"seventh","Bar":"big data","Baz":0,"Fobe":4.3,"Dt Test":"2018-10-10T19:13:30.000Z","enabled":false},
 {"Foo":"sixth","Bar":null,"Baz":null,"Fobe":null,"Dt Test":null,"enabled":false},
 {"Foo":"third","Bar":"row your boat","Baz":789,"Fobe":3,"Dt Test":"2018-10-18T05:00:00.000Z","enabled":true},
-{"Foo":"twenty","Bar":"Jackson","Baz":20,"Fobe":20.2,"Dt Test":"2020-10-07T13:00:00.000Z","enabled":true},
 {"Foo":"twenty","Bar":"Jackson","Baz":20,"Fobe":20.2,"Dt Test":"2020-10-07T13:00:00.000Z","enabled":true}
 ]
