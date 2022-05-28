@@ -2,29 +2,29 @@
   "shp-json": {
     "action": "transfer",
     "origin": {
-      "smt": "shp|./test/data/input/shapes/|polygons|*",
+      "smt": "shp|./data/input/shapes/|polygons|*",
       "options": {}
     },
     "terminal": {
-      "smt": "json|./test/data/output/shapefile/|polygons.json|*",
-      "output": "./test/data/output/shapefile/polygons.json"
+      "smt": "json|./data/output/shapefile/|polygons.json|*",
+      "output": "./data/output/shapefile/polygons.json"
     }
   },
   "zip-json": {
     "action": "transfer",
     "origin": {
-      "smt": "shp|zip:./test/data/input/shapes/points.zip|points|*",
+      "smt": "shp|zip:./data/input/shapes/points.zip|points|*",
       "options": {}
     },
     "terminal": {
-      "smt": "json|./test/data/output/shapefile/|points.json|*",
-      "output": "./test/data/output/shapefile/points.json"
+      "smt": "json|./data/output/shapefile/|points.json|*",
+      "output": "./data/output/shapefile/points.json"
     }
   },
   "points-elastic": {
     "action": "transfer",
     "origin": {
-      "smt": "shp|zip:./test/data/input/shapes/points.zip|points|*",
+      "smt": "shp|zip:./data/input/shapes/points.zip|points|*",
       "options": {}
     },
     "transform": {
@@ -46,7 +46,7 @@
   "polygons-elastic": {
     "action": "transfer",
     "origin": {
-      "smt": "shp|./test/data/input/shapes/|polygons|*",
+      "smt": "shp|./data/input/shapes/|polygons|*",
       "options": {}
     },
     "transform": {
@@ -81,8 +81,8 @@
       }
     },
     "terminal": {
-      "smt": "json|./test/data/output/shapefile/|shapes.json|*",
-      "output": "./test/data/output/shapefile/shapes.json"
+      "smt": "json|./data/output/shapefile/|shapes.json|*",
+      "output": "./data/output/shapefile/shapes.json"
     }
   },
   "download": {
@@ -104,7 +104,7 @@
       "smt": "shp|zip:/var/data/US/census.gov/geo/tiger/TIGER2020/STATE/tl_2020_us_state.zip|tl_2020_us_state|*"
     },
     "terminal": {
-      "smt": "json|./test/data/output/shapefile/|tl_2020_us_state.json|*"
+      "smt": "json|./data/output/shapefile/|tl_2020_us_state.json|*"
     }
   },
   "el_json": {
@@ -123,7 +123,7 @@
       }
     },
     "terminal": {
-      "smt": "json|./test/data/output/shapefile/|geo_2020_us_state_NY.json|*"
+      "smt": "json|./data/output/shapefile/|geo_2020_us_state_NY.json|*"
     }
   }
 }

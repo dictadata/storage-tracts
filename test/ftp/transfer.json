@@ -2,7 +2,7 @@
   "local-ftp": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./test/data/input/|foofile.json|*"
+      "smt": "json|./data/input/|foofile.json|*"
     },
     "terminal": {
       "smt": {
@@ -20,9 +20,9 @@
       "options": {}
     },
     "terminal": {
-      "smt": "json|./test/data/output/ftp/|foofile.json|*",
+      "smt": "json|./data/output/ftp/|foofile.json|*",
       "options": {},
-      "output": "./test/data/output/ftp/foofile.json"
+      "output": "./data/output/ftp/foofile.json"
     }
   }
 }

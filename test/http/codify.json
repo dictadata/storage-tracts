@@ -7,7 +7,7 @@
       }
     },
     "terminal": {
-      "output": "./test/data/output/http/codify.json"
+      "output": "./data/output/http/codify.json"
     }
   }
 }

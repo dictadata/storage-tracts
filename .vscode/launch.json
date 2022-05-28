@@ -23,7 +23,7 @@
       "name": "create config",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["config", "-c", "./test/data/output/etl_tracts.json"],
+      "args": ["config", "-c", "./data/output/etl_tracts.json"],
       "env": {
         "NODE_ENV": "production",
         "LOG_LEVEL": "verbose"

@@ -2,10 +2,10 @@
   "csv-table": {
     "action": "transfer",
     "origin": {
-      "smt": "csv|./test/data/input/|foofile.csv|*",
+      "smt": "csv|./data/input/|foofile.csv|*",
       "options": {
         "header": true,
-        "encoding": "./test/data/input/foo_schema.encoding.json"
+        "encoding": "./data/input/foo_schema.encoding.json"
       }
     },
     "terminal": {
@@ -23,7 +23,7 @@
       "smt": "mssql-foo_schema"
     },
     "terminal": {
-      "smt": "csv|./test/data/output/mssql/|foofile.csv|*",
+      "smt": "csv|./data/output/mssql/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -32,7 +32,7 @@
   "bulkload": {
     "action": "transfer",
     "origin": {
-      "smt": "csv|./test/data/input/|timeseries.csv|*",
+      "smt": "csv|./data/input/|timeseries.csv|*",
       "options": {
         "encoding": {
           "time": "date",

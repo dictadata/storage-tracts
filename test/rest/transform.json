@@ -26,8 +26,8 @@
       }
     },
     "terminal": {
-      "smt": "json|./test/data/output/rest/|transform.json|*",
-      "output": "./test/data/output/rest/transform.json",
+      "smt": "json|./data/output/rest/|transform.json|*",
+      "output": "./data/output/rest/transform.json",
       "compareValues": 1
     }
   }

@@ -9,7 +9,7 @@
           }
         }
       },
-      "output": "./test/data/output/codex/retrieve-foo_schemas.json"
+      "output": "./data/output/codex/retrieve-foo_schemas.json"
     }
   },
   "_config": {

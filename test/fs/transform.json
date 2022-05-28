@@ -2,7 +2,7 @@
   "csv-json": {
     "action": "transfer",
     "origin": {
-      "smt": "csv|./test/data/input/|foofile.csv|*",
+      "smt": "csv|./data/input/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -38,20 +38,20 @@
     "terminal": {
       "smt": {
         "model": "json",
-        "locus": "./test/data/output/fs/",
+        "locus": "./data/output/fs/",
         "schema": "transform.json",
         "key": "*"
       },
       "options": {
-        "encoding": "./test/data/input/foo_schema_t.encoding.json"
+        "encoding": "./data/input/foo_schema_t.encoding.json"
       },
-      "output": "./test/data/output/fs/transform.json"
+      "output": "./data/output/fs/transform.json"
     }
   },
   "json-csv": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./test/data/input/|foofile.json|*"
+      "smt": "json|./data/input/|foofile.json|*"
     },
     "transform": {
       "filter": {
@@ -82,15 +82,15 @@
     "terminal": {
       "smt": {
         "model": "csv",
-        "locus": "./test/data/output/fs/",
+        "locus": "./data/output/fs/",
         "schema": "transform.csv",
         "key": "*"
       },
       "options": {
         "header": true,
-        "encoding": "./test/data/input/foo_schema_t.encoding.json"
+        "encoding": "./data/input/foo_schema_t.encoding.json"
       },
-      "output": "./test/data/output/fs/transform.csv"
+      "output": "./data/output/fs/transform.csv"
     }
   }
 }

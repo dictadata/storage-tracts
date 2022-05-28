@@ -3,7 +3,7 @@
     "action": "codex",
     "recall": {
       "name": "foo_schema_two",
-      "output": "./test/data/output/codex/recall-foo_schema.encoding.json"
+      "output": "./data/output/codex/recall-foo_schema.encoding.json"
     }
   },
   "_config": {

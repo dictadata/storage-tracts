@@ -2,9 +2,9 @@
   "json-index": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./test/data/input/|foofile.json|*",
+      "smt": "json|./data/input/|foofile.json|*",
       "options": {
-        "encoding": "./test/data/input/foo_schema.encoding.json"
+        "encoding": "./data/input/foo_schema.encoding.json"
       }
     },
     "terminal": {
@@ -27,8 +27,8 @@
       }
     },
     "terminal": {
-      "smt": "json|./test/data/output/elasticsearch/|foofile.json|*",
-      "output": "./test/data/output/elasticsearch/foofile.json"
+      "smt": "json|./data/output/elasticsearch/|foofile.json|*",
+      "output": "./data/output/elasticsearch/foofile.json"
     }
   }
 }

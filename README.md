@@ -90,7 +90,7 @@ etl_flatten.json:
   "transfer_foofile": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./test/data/input/|foofile.json|*"
+      "smt": "json|./data/input/|foofile.json|*"
     },
     "transform": {
       "select": {
@@ -103,7 +103,7 @@ etl_flatten.json:
       }
     },
     "terminal": {
-      "smt": "csv|./test/data/output/|fooflat.csv|*",
+      "smt": "csv|./data/output/|fooflat.csv|*",
       "options": {
         "header": true
       }
@@ -178,7 +178,7 @@ Note, in the tract below the action is implied in the tract name "transfer_forec
       }
     },
     "terminal": {
-      "smt": "csv|./test/data/output/|etl-3-weather.csv|*",
+      "smt": "csv|./data/output/|etl-3-weather.csv|*",
       "options": {
         "header": true
       }

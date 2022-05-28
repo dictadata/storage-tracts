@@ -3,7 +3,7 @@
     "origin": {
       "smt": {
         "model": "shp",
-        "locus": "./test/data/input/shapes/",
+        "locus": "./data/input/shapes/",
         "schema": "polygons",
         "key": "*"
       },
@@ -12,7 +12,7 @@
       }
     },
     "terminal": {
-      "output": "./test/data/output/shapefile/polygons.encoding.json"
+      "output": "./data/output/shapefile/polygons.encoding.json"
     }
   }
 }

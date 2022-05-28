@@ -4,28 +4,28 @@
     "store": [
       {
         "name": "jsonfile-foo_schema",
-        "smt": "json|./test/data/input/|foofile.json|*",
-        "encoding": "./test/data/input/foo_schema.encoding.json"
+        "smt": "json|./data/input/|foofile.json|*",
+        "encoding": "./data/input/foo_schema.encoding.json"
       },
       {
         "name": "elasticsearch-foo_schema",
         "smt": "elasticsearch|http://localhost:9200|foo_schema|!Foo",
-        "encoding": "./test/data/input/foo_schema.encoding.json"
+        "encoding": "./data/input/foo_schema.encoding.json"
       },
       {
         "name": "mssql-foo_schema",
         "smt": "mssql|server=localhost;userName=dicta;password=data;database=storage_node|foo_schema|=Foo",
-        "encoding": "./test/data/input/foo_schema.encoding.json"
+        "encoding": "./data/input/foo_schema.encoding.json"
       },
       {
         "name": "mysql-foo_schema",
         "smt": "mysql|host=localhost;user=dicta;password=data;database=storage_node|foo_schema|=Foo",
-        "encoding": "./test/data/input/foo_schema.encoding.json"
+        "encoding": "./data/input/foo_schema.encoding.json"
       },
       {
         "name": "geo_2020_us_state",
         "smt": "elasticsearch|http://localhost:9200/|geo_2020_us_state|*",
-        "encoding": "./test/data/input/shapes/geo_YYYY_us_state.encoding.json"
+        "encoding": "./data/input/shapes/geo_YYYY_us_state.encoding.json"
       }
     ]
   },

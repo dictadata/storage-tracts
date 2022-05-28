@@ -6,9 +6,9 @@
       "options": {}
     },
     "terminal": {
-      "smt": "json|./test/data/output/http/|foofile.json|*",
+      "smt": "json|./data/output/http/|foofile.json|*",
       "options": {},
-      "output": "./test/data/output/http/foofile.json"
+      "output": "./data/output/http/foofile.json"
     }
   }
 }

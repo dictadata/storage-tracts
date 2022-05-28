@@ -1,19 +1,19 @@
 {
- "smt": {
-  "model": "json",
-  "locus": "./test/data/input/db_schema.json",
-  "schema": "*",
-  "key": "*"
- },
- "fields": {
-  "COLUMN_ID": "integer",
-  "SCHEMA_NAME": "keyword",
-  "TABLE_NAME": "keyword",
-  "COLUMN_NAME": "keyword",
-  "DATA_TYPE": "keyword",
-  "DATA_LENGTH": "integer",
-  "NULLABLE": "boolean",
-  "DATA_PRECISION": "integer",
-  "DATA_SCALE": "integer"
- }
+  "smt": {
+    "model": "json",
+    "locus": "./data/input/db_schema.json",
+    "schema": "*",
+    "key": "*"
+  },
+  "fields": {
+    "COLUMN_ID": "integer",
+    "SCHEMA_NAME": "keyword",
+    "TABLE_NAME": "keyword",
+    "COLUMN_NAME": "keyword",
+    "DATA_TYPE": "keyword",
+    "DATA_LENGTH": "integer",
+    "NULLABLE": "boolean",
+    "DATA_PRECISION": "integer",
+    "DATA_SCALE": "integer"
+  }
 }

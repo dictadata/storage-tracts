@@ -2,15 +2,15 @@
   "json-etl2": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./test/data/input/|foofile.json|*",
+      "smt": "json|./data/input/|foofile.json|*",
       "options": {
-        "encoding": "./test/data/input/foo_schema.encoding.json"
+        "encoding": "./data/input/foo_schema.encoding.json"
       }
     },
     "terminal": {
       "smt": "elasticsearch|http://localhost:9200|foo_schema_etl2|=Foo",
       "options": {
-        "encoding": "./test/data/input/foo_schema_t.encoding.json"
+        "encoding": "./data/input/foo_schema_t.encoding.json"
       }
     },
     "transform": {

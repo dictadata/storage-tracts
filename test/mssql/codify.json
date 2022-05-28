@@ -7,7 +7,7 @@
       }
     },
     "terminal": {
-      "output": "./test/data/output/mssql/codify.json"
+      "output": "./data/output/mssql/codify.json"
     }
   }
 }

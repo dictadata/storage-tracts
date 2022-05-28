@@ -14,7 +14,7 @@
       }
     },
     "terminal": {
-      "output": "./test/data/output/rest/codify.json"
+      "output": "./data/output/rest/codify.json"
     }
   }
 }

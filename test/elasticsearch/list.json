@@ -7,7 +7,7 @@
       }
     },
     "terminal": {
-      "output": "./test/data/output/elasticsearch/list.json"
+      "output": "./data/output/elasticsearch/list.json"
     }
   }
 }
