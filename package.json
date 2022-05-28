@@ -35,7 +35,7 @@
     "database migration"
   ],
   "engines": {
-    "node": ">=16.4.0"
+    "node": ">=17.0.0"
   },
   "dependencies": {
     "@dictadata/storage-junctions": "^2.3.1",
