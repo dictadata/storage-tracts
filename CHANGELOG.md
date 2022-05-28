@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.3.2
+  - update to @dictadata/storage-junctions 2.3.1
+  - update: CsvJunction supports other delimited files
 - version 2.3.1
   - update to @dictadata/storage-junctions 2.3.0
   - refactor: all modules use the same output method
