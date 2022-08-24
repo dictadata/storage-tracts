@@ -23,9 +23,9 @@
         "encoding": "./data/input/foo_schema.encoding.json"
       },
       {
-        "name": "geo_2020_us_state",
-        "smt": "elasticsearch|http://localhost:9200/|geo_2020_us_state|*",
-        "encoding": "./data/input/shapes/geo_YYYY_us_state.encoding.json"
+        "name": "tl_2020_us_state",
+        "smt": "elasticsearch|http://localhost:9200/|tl_2020_us_state|*",
+        "encoding": "./data/input/shapes/tl_YYYY_us_state.encoding.json"
       }
     ]
   },
