@@ -27,8 +27,46 @@
       }
     },
     "terminal": {
-      "smt": "json|./data/output/elasticsearch/|foofile.json|*",
-      "output": "./data/output/elasticsearch/foofile.json"
+      "smt": "json|./data/output/elasticsearch/|transfer_foofile.json|*",
+      "output": "./data/output/elasticsearch/transfer_foofile.json"
+    }
+  },
+  "fulltext": {
+    "action": "transfer",
+    "origin": {
+      "smt": "elasticsearch-foo_schema",
+      "pattern": {
+        "match": {
+          "Bar": {
+            "search": "row boat"
+          }
+        }
+      }
+    },
+    "terminal": {
+      "smt": "json|./data/output/elasticsearch/|transfer_fulltext.json|*",
+      "output": "./data/output/elasticsearch/transfer_fulltext.json"
+    }
+  },
+  "multifield": {
+    "action": "transfer",
+    "origin": {
+      "smt": "elasticsearch-foo_schema",
+      "pattern": {
+        "match": {
+          "_": {
+            "search": "first row boat",
+            "fields": [
+              "Foo",
+              "Bar"
+            ]
+          }
+        }
+      }
+    },
+    "terminal": {
+      "smt": "json|./data/output/elasticsearch/|transfer_multifield.json|*",
+      "output": "./data/output/elasticsearch/transfer_multifield.json"
     }
   }
 }
