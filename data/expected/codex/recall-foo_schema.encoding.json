@@ -3,7 +3,8 @@
     "name": "foo_schema_two",
     "type": "engram",
     "title": "foo schema two",
-    "description": "temporary codex entry",
+    "description": "just two fields: Foo Bar",
+    "source": "modified foo_schema.encoding.json",
     "tags": [
       "dictadata",
       "foo",
@@ -27,43 +28,12 @@
       },
       {
         "name": "Bar",
-        "type": "keyword",
-        "size": 64,
+        "type": "text",
+        "size": 256,
         "default": null,
         "nullable": true,
+        "key": 2,
         "label": "Bar"
-      },
-      {
-        "name": "Baz",
-        "type": "integer",
-        "size": 0,
-        "default": null,
-        "nullable": true,
-        "label": "Baz"
-      },
-      {
-        "name": "Fobe",
-        "type": "number",
-        "size": 0,
-        "default": null,
-        "nullable": true,
-        "label": "Fobe"
-      },
-      {
-        "name": "Dt Test",
-        "type": "date",
-        "size": 0,
-        "default": null,
-        "nullable": true,
-        "label": "Dt Test"
-      },
-      {
-        "name": "enabled",
-        "type": "boolean",
-        "size": 0,
-        "default": null,
-        "nullable": true,
-        "label": "enabled"
       }
     ]
   }
