@@ -1,0 +1,92 @@
+{
+  "smt": {
+    "model": "*",
+    "locus": "*",
+    "schema": "foo_schema_02",
+    "key": "=Baz+Foo"
+  },
+  "fields": [
+    {
+      "name": "Foo",
+      "type": "keyword",
+      "size": 64,
+      "default": null,
+      "nullable": false,
+      "key": 2
+    },
+    {
+      "name": "Bar",
+      "type": "text",
+      "size": 256,
+      "default": null,
+      "nullable": true
+    },
+    {
+      "name": "Baz",
+      "type": "integer",
+      "default": null,
+      "nullable": true,
+      "key": 1
+    },
+    {
+      "name": "Fobe",
+      "type": "number",
+      "default": null,
+      "nullable": true
+    },
+    {
+      "name": "Dt Test",
+      "type": "date",
+      "default": null,
+      "nullable": true
+    },
+    {
+      "name": "enabled",
+      "type": "boolean",
+      "default": null,
+      "nullable": true
+    },
+    {
+      "name": "tags",
+      "type": "list",
+      "_list": {
+        "name": "_list",
+        "type": "keyword",
+        "size": 64
+      }
+    },
+    {
+      "name": "widgets",
+      "type": "list",
+      "_list": {
+        "name": "_list",
+        "type": "map",
+        "fields": {
+          "part": {
+            "name": "part",
+            "type": "keyword",
+            "size": 512
+          },
+          "count": {
+            "name": "count",
+            "type": "integer"
+          }
+        }
+      }
+    }
+  ],
+  "indices": {
+    "foo_index_02": {
+      "unique": false,
+      "fields": [
+        {
+          "name": "Bar"
+        },
+        {
+          "name": "Fobe",
+          "order": "DESC"
+        }
+      ]
+    }
+  }
+}

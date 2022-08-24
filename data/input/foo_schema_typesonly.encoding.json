@@ -1,0 +1,11 @@
+{
+  "smt": "*|*|*|*",
+  "fields": {
+    "Foo": { "type": "keyword", "key": 1 },
+    "Bar": "text",
+    "Baz": "integer",
+    "Fobe": "number",
+    "Dt Test": "date",
+    "enabled": "boolean"
+  }
+}

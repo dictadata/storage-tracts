@@ -9,7 +9,7 @@
   "fields": {
     "Dt Test": "date",
     "Foo": "keyword",
-    "Bar": "keyword",
+    "Bar": "text",
     "Baz": "integer"
   }
 }

@@ -1,0 +1,31 @@
+{
+  "smt": {
+    "model": "*",
+    "locus": "*",
+    "schema": "foo_schema_short",
+    "key": "*"
+  },
+  "fields": {
+    "Foo": {
+      "type": "keyword",
+      "size": 64,
+      "key": 1
+    },
+    "Bar": {
+      "type": "text",
+      "size": 256
+    },
+    "Baz": {
+      "type": "integer"
+    },
+    "Fobe": {
+      "type": "number"
+    },
+    "Dt Test": {
+      "type": "date"
+    },
+    "enabled": {
+      "type": "boolean"
+    }
+  }
+}

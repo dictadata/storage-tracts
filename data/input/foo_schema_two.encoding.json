@@ -17,8 +17,8 @@
     },
     {
       "name": "Bar",
-      "type": "keyword",
-      "size": 64,
+      "type": "text",
+      "size": 256,
       "default": null,
       "nullable": true,
       "key": 2,
