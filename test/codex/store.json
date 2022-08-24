@@ -3,6 +3,7 @@
     "action": "codex",
     "store": {
       "name": "foo_schema_two",
+      "type": "engram",
       "smt": "json|./data/input/|foofile.json|*",
       "encoding": "./data/input/foo_schema_two.encoding.json",
       "title": "foo schema two",
