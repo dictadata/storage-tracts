@@ -59,27 +59,38 @@ module.exports = async (tract) => {
 async function store(entry) {
   let retCode = 0;
 
-  if (entry.encoding && typeof entry.encoding === "string") {
-    // read encoding from file
-    let filename = entry.encoding;
-    let encoding = JSON.parse(fs.readFileSync(filename, "utf8"));
-    // merge encoding into entry
-    delete entry.encoding;
-    entry = Object.assign({}, encoding, entry);
-  }
+  try {
+    if (entry.encoding && typeof entry.encoding === "string") {
+      // read encoding from file
+      let filename = entry.encoding;
+      let encoding = JSON.parse(fs.readFileSync(filename, "utf8"));
+      // merge encoding into entry
+      delete entry.encoding;
+      entry = Object.assign({}, encoding, entry);
+    }
 
-  let engram;
-  if (entry.type === "engram") {
-    engram = new Engram(entry);
-  }
-  else {
-    // alias smt or ELT tract
-    engram = entry;
-  }
+    let engram;
+    switch (entry.type) {
+      case "engram":
+        engram = new Engram(entry);
+        break;
+      case "alias":
+      case "tract":
+        // need to do some type validation like Engram above
+        engram = entry;
+        break;
+      default:
+        throw new Error("invalid codex type");
+    }
 
-  // store codex entry
-  let results = await Storage.codex.store(engram);
-  logger.info("codex store: " + engram.name + " " + results.resultText);
+    // store codex entry
+    let results = await Storage.codex.store(engram);
+    logger.info("codex store: " + engram.name + " " + results.resultText);
+  }
+  catch (err) {
+    logger.error(err);
+    retCode = 1;
+  }
 
   return retCode;
 }
