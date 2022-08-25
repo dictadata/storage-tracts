@@ -94,7 +94,7 @@ function parseArgs() {
       console.log("  dull - remove data from a data store.");
       console.log("  codex - manage codex encoding definitions");
       console.log("  scan - list schemas at a locus and perform an action on each schema.");
-      console.log("  all - run all tracts in sequence.");
+      console.log("  all | * - run all tracts in sequence.");
       console.log("  parallel - run all tracts in parallel.");
       console.log("  config - create example etl_tracts.json file in the current directory.");
       console.log("");
@@ -113,7 +113,7 @@ function parseArgs() {
     if (Object.keys(tracts).length <= 0)
       throw new StorageError(400, "no storage tracts defined");
 
-    if (appArgs.tractName === "all") {
+    if (appArgs.tractName === "all" || appArgs.tractName === "*") {
       for (const [ key, tract ] of Object.entries(tracts)) {
         if (key[ 0 ] === "_") continue;
         retCode = await performAction(key, tract);
