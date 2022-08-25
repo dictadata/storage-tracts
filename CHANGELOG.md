@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.3.5
+  - refactor: add domain and roles to codex entry
+  - update to @dictadata/storage-junctions 2.3.4
 - version 2.3.4
   - implement: full-text search pattern in elasticsearch-junction
   - update: Codex.store() validate entry's name and type
