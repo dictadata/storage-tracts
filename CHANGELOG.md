@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.3.6
+  - update: CLI parameter _tractName_ allow value of '*', along with 'all', to run all tracts in file.
 - version 2.3.5
   - refactor: add domain and roles to codex entry
   - update to @dictadata/storage-junctions 2.3.4
