@@ -147,11 +147,11 @@ async function initConfig(_config) {
   let codex;
   if (hasOwnProperty(_config, "codex") && _config.codex.smt) {
     // activate codex junction
-    codex = new Storage.Codex(_config.codex);
+    codex = new Storage.Codex(_config.codex.smt, _config.codex.options);
     await codex.activate();
   }
   else
-    codex = new Storage.Codex("memory|dictadata|codex|!name");
+    codex = new Storage.Codex("memory|dictadata|codex|*");
 
   // use codex for SMT name lookup
   Storage.codex = codex;

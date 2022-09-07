@@ -77,7 +77,7 @@
     {
       "type": "pwa-node",
       "request": "launch",
-      "name": "codex retreive",
+      "name": "codex retrieve",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": ["-c", "${workspaceFolder}/test/codex/retrieve.json", "codex"],

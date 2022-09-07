@@ -115,7 +115,8 @@ function parseArgs() {
 
     if (appArgs.tractName === "all" || appArgs.tractName === "*") {
       for (const [ key, tract ] of Object.entries(tracts)) {
-        if (key[ 0 ] === "_") continue;
+        if (key[ 0 ] === "_")
+          continue;
         retCode = await performAction(key, tract);
         if (retCode)
           break;

@@ -1,4 +1,5 @@
 {
+  "domain": "foo",
   "name": "foo_schema",
   "type": "engram",
   "title": "foo_schema encoding",

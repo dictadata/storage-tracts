@@ -53,7 +53,7 @@ Default configuration settings can be specified in a _config tract in **storage-
 {
   "_config": {
     "codex": {
-      "smt": "elasticsearch|http://localhost:9200/|dicta_codex|!name"
+      "smt": "elasticsearch|http://localhost:9200/|dicta_codex|*"
     },
     "log": {
       "logPath": "./log",

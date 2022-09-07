@@ -2,7 +2,7 @@
 
 ## By Timestamp or Sequential Identity
 
-If the data schema has a field(s) that is sequential then that field can be used to retreive new data from the source node.
+If the data schema has a field(s) that is sequential then that field can be used to retrieve new data from the source node.
 
 - Select the maximum value for the field from the destination schema.  
 - Retrieve all data from the source schema where the field is greater than the destination's maximum value.

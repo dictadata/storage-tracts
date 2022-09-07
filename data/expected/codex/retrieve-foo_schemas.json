@@ -41,52 +41,13 @@
       "foo"
     ]
   },
-  "foo_schema_typesonly": {
-    "name": "foo_schema_typesonly",
-    "type": "engram",
-    "smt": {
-      "model": "*",
-      "locus": "*",
-      "schema": "*",
-      "key": "*"
-    },
-    "fields": [
-      {
-        "name": "Foo",
-        "type": "keyword",
-        "key": 1
-      },
-      {
-        "name": "Bar",
-        "type": "text"
-      },
-      {
-        "name": "Baz",
-        "type": "integer"
-      },
-      {
-        "name": "Fobe",
-        "type": "number"
-      },
-      {
-        "name": "Dt Test",
-        "type": "date"
-      },
-      {
-        "name": "enabled",
-        "type": "boolean"
-      }
-    ],
-    "tags": [
-      "foo"
-    ]
-  },
-  "foo_schema": {
+  "foo/foo_schema": {
     "name": "foo_schema",
     "type": "engram",
+    "domain": "foo",
+    "source": "file:./data/input/foo_schema.encoding.json",
     "title": "foo_schema encoding",
     "description": "test input for foo_schema encoding",
-    "source": "file:./data/input/foo_schema.encoding.json",
     "tags": [
       "foo"
     ],
@@ -146,6 +107,46 @@
         "nullable": true,
         "label": "enabled"
       }
+    ]
+  },
+  "foo_schema_typesonly": {
+    "name": "foo_schema_typesonly",
+    "type": "engram",
+    "smt": {
+      "model": "*",
+      "locus": "*",
+      "schema": "*",
+      "key": "*"
+    },
+    "fields": [
+      {
+        "name": "Foo",
+        "type": "keyword",
+        "key": 1
+      },
+      {
+        "name": "Bar",
+        "type": "text"
+      },
+      {
+        "name": "Baz",
+        "type": "integer"
+      },
+      {
+        "name": "Fobe",
+        "type": "number"
+      },
+      {
+        "name": "Dt Test",
+        "type": "date"
+      },
+      {
+        "name": "enabled",
+        "type": "boolean"
+      }
+    ],
+    "tags": [
+      "foo"
     ]
   }
 }
