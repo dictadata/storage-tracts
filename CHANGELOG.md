@@ -1,6 +1,6 @@
 # CHANGELOG:  @dictadata/storage-etl
 
-- version 2.4.0
+- version 2.4.1
   - feature: smt_id used as key for codex directory
   - update to @dictadata/storage-junctions 2.4.0
 - version 2.3.6
