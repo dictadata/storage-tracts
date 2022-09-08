@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.4.0
+  - feature: smt_id used as key for codex directory
+  - update to @dictadata/storage-junctions 2.4.0
 - version 2.3.6
   - update: CLI parameter _tractName_ allow value of '*', along with 'all', to run all tracts in file.
 - version 2.3.5
