@@ -1,7 +1,7 @@
 {
   "list": {
     "origin": {
-      "smt": "mssql|server=localhost;username=dicta;password=data;database=storage_node|*|*",
+      "smt": "mssql|server=localhost;database=storage_node|*|*",
       "options": {
         "schema": "foo*"
       }

@@ -1,7 +1,7 @@
 {
   "transfer": {
     "origin": {
-      "smt": "mssql|server=localhost;username=dicta;password=data;database=storage_node|${schema}|*"
+      "smt": "mssql|server=localhost;database=storage_node|${schema}|*"
     },
     "terminal": {
       "smt": "json|./data/output/mssql/|schema_${schema}.json|*",

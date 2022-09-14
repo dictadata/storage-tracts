@@ -36,7 +36,7 @@
       }
     },
     "terminal": {
-      "smt": "mysql|host=localhost;user=dicta;password=data;database=storage_node|foo_schema_etl2|*",
+      "smt": "mysql|host=localhost;database=storage_node|foo_schema_etl2|*",
       "options": {
         "encoding": "./data/input/foo_schema_t.encoding.json"
       }

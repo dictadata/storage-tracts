@@ -16,7 +16,7 @@
         }
       },
       "terminal": {
-        "smt": "mssql|server=localhost;username=dicta;password=data;database=storage_node|foo_load|=Foo",
+        "smt": "mssql|server=localhost;database=storage_node|foo_load|=Foo",
         "options": {
           "encoding": "./data/input/foo_schema_01.encoding.json"
         }

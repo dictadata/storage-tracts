@@ -3,7 +3,7 @@
  "type": "engram",
  "smt": {
   "model": "mysql",
-  "locus": "host=localhost;user=dicta;password=data;database=storage_node",
+  "locus": "host=localhost;database=storage_node",
   "schema": "foo_schema",
   "key": "=Foo"
  },
