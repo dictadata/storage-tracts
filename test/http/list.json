@@ -1,7 +1,7 @@
 {
   "list": {
     "origin": {
-      "smt": "json|http://localhost/data/dictadata.org/|foofile_*.json|*",
+      "smt": "json|http://dev.dictadata.org/data/dictadata.org/|foofile_*.json|*",
       "options": {
         "recursive": true
       }

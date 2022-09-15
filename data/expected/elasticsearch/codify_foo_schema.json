@@ -3,7 +3,7 @@
  "type": "engram",
  "smt": {
   "model": "elasticsearch",
-  "locus": "http://localhost:9200",
+  "locus": "http://dev.dictadata.org:9200",
   "schema": "foo_schema",
   "key": "!Foo"
  },

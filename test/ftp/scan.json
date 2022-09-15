@@ -2,7 +2,7 @@
   "scan": {
     "action": "scan",
     "origin": {
-      "smt": "json|ftp://dicta:data@127.0.0.1/data/dictadata.org/test/input/|foofile_*.json|*",
+      "smt": "json|ftp://dev.dictadata.org/data/dictadata.org/test/input/|foofile_*.json|*",
       "options": {
         "recursive": false
       }
@@ -10,7 +10,7 @@
     "schema": {
       "action": "codify",
       "origin": {
-        "smt": "json|ftp://dicta:data@127.0.0.1/data/dictadata.org/test/input/|${name}|*",
+        "smt": "json|ftp://dev.dictadata.org/data/dictadata.org/test/input/|${name}|*",
         "options": {
           "encoding": "./data/output/ftp/scan.encoding.json",
           "max_read": 100

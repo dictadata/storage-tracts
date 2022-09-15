@@ -112,7 +112,7 @@ module.exports.loadTracts = async (tractsFilename, schema) => {
       _merge(config, cfgTracts._config);
     if (appTracts._config)
       _merge(config, appTracts._config);
-    await initConfig(config);
+    await init(config);
 
     tracts = Object.assign({}, cfgTracts, appTracts);
     delete tracts._config;
@@ -138,12 +138,16 @@ module.exports.loadTracts = async (tractsFilename, schema) => {
   return tracts;
 };
 
-async function initConfig(_config) {
+async function init(_config) {
 
   //// config logger
   logger.configLogger(_config.log);
 
-  ///// codex initialization
+  //// load auth_stash
+  if (_config.codex.auth_stash)
+    Storage.authStash.load(_config.codex.auth_stash);
+
+  //// codex initialization
   let codex;
   if (hasOwnProperty(_config, "codex") && _config.codex.smt) {
     // activate codex junction
@@ -156,7 +160,7 @@ async function initConfig(_config) {
   // use codex for SMT name lookup
   Storage.codex = codex;
 
-  //// register any plugins
+  //// register plugins
   let plugins = _config.plugins || {};
 
   // filesystem plugins

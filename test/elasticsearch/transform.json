@@ -8,7 +8,7 @@
       }
     },
     "terminal": {
-      "smt": "elasticsearch|http://localhost:9200|foo_schema_etl2|=Foo",
+      "smt": "elasticsearch|http://dev.dictadata.org:9200|foo_schema_etl2|=Foo",
       "options": {
         "encoding": "./data/input/foo_schema_t.encoding.json"
       }

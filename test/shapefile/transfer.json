@@ -37,7 +37,7 @@
     "terminal": {
       "smt": {
         "model": "elasticsearch",
-        "locus": "http://localhost:9200",
+        "locus": "http://dev.dictadata.org:9200",
         "schema": "shapes",
         "key": "!id"
       }
@@ -59,7 +59,7 @@
     "terminal": {
       "smt": {
         "model": "elasticsearch",
-        "locus": "http://localhost:9200",
+        "locus": "http://dev.dictadata.org:9200",
         "schema": "shapes",
         "key": "!id"
       }
@@ -70,7 +70,7 @@
     "origin": {
       "smt": {
         "model": "elasticsearch",
-        "locus": "http://localhost:9200",
+        "locus": "http://dev.dictadata.org:9200",
         "schema": "shapes",
         "key": "!id"
       },
@@ -88,7 +88,7 @@
   "download": {
     "action": "copy",
     "origin": {
-      "smt": "*|ftp://dicta:data@127.0.0.1/data/US/census.gov/geo/tiger/TIGER2020/STATE/|*.zip|*",
+      "smt": "*|ftp://dev.dictadata.org/data/US/census.gov/geo/tiger/TIGER2020/STATE/|*.zip|*",
       "options": {}
     },
     "terminal": {
@@ -110,7 +110,7 @@
   "el_json": {
     "action": "transfer",
     "origin": {
-      "smt": "elasticsearch|http://localhost:9200|tl_2020_us_state|*",
+      "smt": "elasticsearch|http://dev.dictadata.org:9200|tl_2020_us_state|*",
       "pattern": {
         "match": {
           "geometry": {

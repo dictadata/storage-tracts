@@ -16,7 +16,7 @@
         }
       },
       "terminal": {
-        "smt": "mysql|host=localhost;database=storage_node|foo_load|=Foo",
+        "smt": "mysql|host=dev.dictadata.org;database=storage_node|foo_load|=Foo",
         "options": {
           "encoding": "./data/input/foo_schema_01.encoding.json"
         }

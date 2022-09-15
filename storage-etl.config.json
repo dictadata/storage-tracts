@@ -1,8 +1,10 @@
 {
   "_config": {
     "codex": {
-      "smt": "elasticsearch|http://localhost:9200/|dicta_codex|*",
-      "options": {}
+      "smt": "elasticsearch|http://dev.dictadata.org:9200/|dicta_codex|*",
+      "options": {},
+      "auth_stash": "storage-etl.stash.json",
+      "engrams": {}
     }
   }
 }

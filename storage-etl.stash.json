@@ -1,0 +1,17 @@
+{
+  "http://dev.dictadata.org:9200": {
+    "apiKey": "abc123dorami"
+  },
+  "ftp://dev.dictadata.org": {
+    "username": "dicta",
+    "password": "data"
+  },
+  "server=dev.dictadata.org;database=storage_node": {
+    "username": "dicta",
+    "password": "data"
+  },
+  "host=dev.dictadata.org;database=storage_node": {
+    "username": "dicta",
+    "password": "data"
+  }
+}
