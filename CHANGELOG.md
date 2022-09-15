@@ -1,7 +1,12 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.4.2
+  - feature: authStash for storing credentials like username, password, apiKey, etc.
+  - testing: use dev.dictadata.org instead of localhost
+  - update to @dictadata/storage-junctions 2.4.1
 - version 2.4.1
   - feature: smt_id used as key for codex directory
+- version 2.4.0
   - update to @dictadata/storage-junctions 2.4.0
 - version 2.3.6
   - update: CLI parameter _tractName_ allow value of '*', along with 'all', to run all tracts in file.
