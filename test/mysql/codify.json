@@ -1,7 +1,7 @@
 {
   "codify": {
     "origin": {
-      "smt": "mysql-foo_schema",
+      "smt": "foo:mysql-foo_schema",
       "options": {
         "max_read": 100
       }

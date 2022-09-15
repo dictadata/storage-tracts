@@ -39,7 +39,7 @@ module.exports.sampleTracts = async function (tractsFilename) {
     let sampleTracts = {
       "tract-name": {
         "origin": {
-          "smt": "<SMT_name>",
+          "smt": "<smt_urn>",
           "options": {}
         },
         "transform": {

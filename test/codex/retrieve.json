@@ -11,11 +11,5 @@
       },
       "output": "./data/output/codex/retrieve-foo_schemas.json"
     }
-  },
-  "_config": {
-    "codex": {
-      "smt": "elasticsearch|http://dev.dictadata.org:9200/|dicta_codex|*",
-      "options": {}
-    }
   }
 }

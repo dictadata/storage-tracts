@@ -8,7 +8,7 @@
       }
     },
     "terminal": {
-      "smt": "tl_2020_us_state",
+      "smt": "census.gov:tl_2020_us_state",
       "options": {
         "encoding": "./data/input/shapes/tl_YYYY_us_state.encoding.json"
       }

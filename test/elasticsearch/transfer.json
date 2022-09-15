@@ -19,7 +19,7 @@
   "index-json": {
     "action": "transfer",
     "origin": {
-      "smt": "elasticsearch-foo_schema",
+      "smt": "foo:elasticsearch-foo_schema",
       "pattern": {
         "order": {
           "Foo": "asc"
@@ -34,7 +34,7 @@
   "fulltext": {
     "action": "transfer",
     "origin": {
-      "smt": "elasticsearch-foo_schema",
+      "smt": "foo:elasticsearch-foo_schema",
       "pattern": {
         "match": {
           "Bar": {
@@ -51,7 +51,7 @@
   "multifield": {
     "action": "transfer",
     "origin": {
-      "smt": "elasticsearch-foo_schema",
+      "smt": "foo:elasticsearch-foo_schema",
       "pattern": {
         "match": {
           "_": {

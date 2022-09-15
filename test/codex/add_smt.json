@@ -28,11 +28,5 @@
         "encoding": "./data/input/shapes/tl_YYYY_us_state.encoding.json"
       }
     ]
-  },
-  "_config": {
-    "codex": {
-      "smt": "elasticsearch|http://dev.dictadata.org:9200/|dicta_codex|*",
-      "options": {}
-    }
   }
 }

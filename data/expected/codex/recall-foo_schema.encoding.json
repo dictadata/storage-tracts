@@ -1,5 +1,5 @@
 {
-  "foo_schema_two": {
+  ":foo_schema_two": {
     "name": "foo_schema_two",
     "type": "engram",
     "title": "foo schema two",

@@ -19,7 +19,7 @@ module.exports = async (tract) => {
   let fn;
 
   try {
-    for (let [ command, entry ] of Object.entries(tract)) {
+    for (let [ command, request ] of Object.entries(tract)) {
       if (command === "action") continue;
 
       // determine function to apply
@@ -34,11 +34,11 @@ module.exports = async (tract) => {
       }
 
       // pass the entry(s) to the appropriate function
-      if (Array.isArray(entry))
-        for (let e of entry)
-          retCode = fn(e);
+      if (Array.isArray(request))
+        for (let req of request)
+          retCode = fn(req);
       else
-        retCode = fn(entry);
+        retCode = fn(request);
 
       if (retCode != 0)
         break;
@@ -54,7 +54,7 @@ module.exports = async (tract) => {
 
 /**
  *
- * @param {*} entry a codex entry from an ETL tract
+ * @param {Object} entry request section of tract that is a Codex entry
  */
 async function store(entry) {
   let retCode = 0;
@@ -97,37 +97,37 @@ async function store(entry) {
 
 /**
  *
- * @param {*} entry a codex entry from an ETL tract
+ * @param {Object} request section of tract with a pattern property
  */
-async function dull(entry) {
+async function dull(request) {
   let retCode = 0;
-  let results = await Storage.codex.dull(entry.name);
-  logger.info("codex dull: " + entry.name + " " + results.resultText);
+  let results = await Storage.codex.dull(request.pattern);
+  logger.info("codex dull: " + request.pattern.name + " " + results.resultText);
   return retCode;
 }
 
 /**
  *
- * @param {*} entry a codex entry from an ETL tract
+ * @param {Object} request section of tract with a pattern property
  */
-async function recall(entry) {
+async function recall(request) {
   let retCode = 0;
-  let results = await Storage.codex.recall(entry.name);
-  logger.verbose("codex recall: " + entry.name + " " + results.resultText);
+  let results = await Storage.codex.recall(request.pattern);
+  logger.verbose("codex recall: " + request.pattern.name + " " + results.resultText);
 
-  retCode = output(entry.output, results.data);
+  retCode = output(request.output, results.data);
   return retCode;
 }
 
 /**
  *
- * @param {*} entry a codex entry from an ETL tract
+ * @param {Object} request section of tract with a pattern property
  */
-async function retrieve(entry) {
+async function retrieve(request) {
   let retCode = 0;
-  let results = await Storage.codex.retrieve(entry.pattern);
-  logger.verbose("codex retrieve: " + entry.name + " " + results.resultText);
+  let results = await Storage.codex.retrieve(request.pattern);
+  logger.verbose("codex retrieve: " + results.resultText);
 
-  retCode = output(entry.output, results.data);
+  retCode = output(request.output, results.data);
   return retCode;
 }

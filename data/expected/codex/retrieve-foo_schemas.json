@@ -1,5 +1,5 @@
 {
-  "foo_schema_short": {
+  ":foo_schema_short": {
     "name": "foo_schema_short",
     "type": "engram",
     "smt": {
@@ -41,7 +41,7 @@
       "foo"
     ]
   },
-  "foo/foo_schema": {
+  "foo:foo_schema": {
     "name": "foo_schema",
     "type": "engram",
     "domain": "foo",
@@ -109,7 +109,7 @@
       }
     ]
   },
-  "foo_schema_typesonly": {
+  ":foo_schema_typesonly": {
     "name": "foo_schema_typesonly",
     "type": "engram",
     "smt": {

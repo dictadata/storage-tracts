@@ -2,7 +2,9 @@
   "codex": {
     "action": "codex",
     "recall": {
-      "name": "foo_schema_two",
+      "pattern": {
+        "name": "foo_schema_two"
+      },
       "output": "./data/output/codex/recall-foo_schema.encoding.json"
     }
   },

@@ -20,7 +20,7 @@
   "table-csv": {
     "action": "transfer",
     "origin": {
-      "smt": "mssql-foo_schema"
+      "smt": "foo:mssql-foo_schema"
     },
     "terminal": {
       "smt": "csv|./data/output/mssql/|foofile.csv|*",
