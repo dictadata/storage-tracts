@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.4.4
+  - refactor: add auth property to auth_stash objects
 - version 2.4.3
   - refactor: Codex key replace smt_id with smt_urn
 - version 2.4.2
