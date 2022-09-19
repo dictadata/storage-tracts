@@ -45,7 +45,8 @@
     },
     "terminal": {
       "smt": "json|./data/output/elasticsearch/|transfer_fulltext.json|*",
-      "output": "./data/output/elasticsearch/transfer_fulltext.json"
+      "output": "./data/output/elasticsearch/transfer_fulltext.json",
+      "compareValues": 1
     }
   },
   "multifield": {
@@ -66,7 +67,8 @@
     },
     "terminal": {
       "smt": "json|./data/output/elasticsearch/|transfer_multifield.json|*",
-      "output": "./data/output/elasticsearch/transfer_multifield.json"
+      "output": "./data/output/elasticsearch/transfer_multifield.json",
+      "compareValues": 1
     }
   }
 }
