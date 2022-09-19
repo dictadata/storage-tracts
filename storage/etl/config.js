@@ -150,12 +150,15 @@ async function init(_config) {
   //// codex initialization
   let codex;
   if (hasOwnProperty(_config, "codex") && _config.codex.smt) {
+    logger.verbose("Codex SMT: " + JSON.stringify(_config.codex.smt, null, 2));
     // activate codex junction
     codex = new Storage.Codex(_config.codex.smt, _config.codex.options);
     await codex.activate();
   }
-  else
+  else {
+    logger.verbose("Codex SMT: memory|dictadata|codex|*");
     codex = new Storage.Codex("memory|dictadata|codex|*");
+  }
 
   // use codex for SMT name lookup
   Storage.codex = codex;
