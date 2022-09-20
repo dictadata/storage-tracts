@@ -36,9 +36,9 @@ module.exports = async (tract) => {
       // pass the entry(s) to the appropriate function
       if (Array.isArray(request))
         for (let req of request)
-          retCode = fn(req);
+          retCode = await fn(req);
       else
-        retCode = fn(request);
+        retCode = await fn(request);
 
       if (retCode != 0)
         break;
