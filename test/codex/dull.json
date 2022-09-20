@@ -2,9 +2,7 @@
   "codex": {
     "action": "codex",
     "dull": {
-      "pattern": {
-        "name": "foo_schema_two"
-      }
+      "name": "foo_schema_two"
     }
   }
 }

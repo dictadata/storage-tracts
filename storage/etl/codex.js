@@ -101,8 +101,9 @@ async function store(entry) {
  */
 async function dull(request) {
   let retCode = 0;
-  let results = await Storage.codex.dull(request.pattern);
-  logger.info("codex dull: " + request.pattern.name + " " + results.resultText);
+  let pattern = request.pattern || request;
+  let results = await Storage.codex.dull(pattern);
+  logger.info("codex dull: " + (pattern.key || pattern.name) + " " + results.resultText);
   return retCode;
 }
 
@@ -112,8 +113,9 @@ async function dull(request) {
  */
 async function recall(request) {
   let retCode = 0;
-  let results = await Storage.codex.recall(request.pattern);
-  logger.verbose("codex recall: " + request.pattern.name + " " + results.resultText);
+  let pattern = request.pattern || request;
+  let results = await Storage.codex.recall(pattern);
+  logger.verbose("codex recall: " + (pattern.key || pattern.name) + " " + results.resultText);
 
   retCode = output(request.output, results.data);
   return retCode;
@@ -125,7 +127,8 @@ async function recall(request) {
  */
 async function retrieve(request) {
   let retCode = 0;
-  let results = await Storage.codex.retrieve(request.pattern);
+  let pattern = request.pattern || request;
+  let results = await Storage.codex.retrieve(pattern);
   logger.verbose("codex retrieve: " + results.resultText);
 
   retCode = output(request.output, results.data);

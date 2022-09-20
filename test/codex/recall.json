@@ -1,4 +1,10 @@
 {
+  "_config": {
+    "codex": {
+      "smt": "elasticsearch|http://dev.dictadata.org:9200/|dicta_codex|*",
+      "options": {}
+    }
+  },
   "codex": {
     "action": "codex",
     "recall": {
@@ -6,12 +12,6 @@
         "name": "foo_schema_two"
       },
       "output": "./data/output/codex/recall-foo_schema.encoding.json"
-    }
-  },
-  "_config": {
-    "codex": {
-      "smt": "elasticsearch|http://dev.dictadata.org:9200/|dicta_codex|*",
-      "options": {}
     }
   }
 }
