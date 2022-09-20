@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.5.0
+  - stable build of codex, smt_urn, auth_stash
 - version 2.4.4
   - refactor: add auth property to auth_stash objects
 - version 2.4.3
