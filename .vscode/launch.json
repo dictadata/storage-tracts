@@ -54,7 +54,7 @@
       "name": "codex recall",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-t", "${workspaceFolder}/test/codex/recall.json", "codex"],
+      "args": ["-c", "config", "-t", "${workspaceFolder}/test/codex/recall.json", "codex"],
       "env": {
         "NODE_ENV": "production",
         "LOG_LEVEL": "verbose"
@@ -67,7 +67,7 @@
       "name": "codex dull",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-t", "${workspaceFolder}/test/codex/dull.json", "codex"],
+      "args": ["-c", "dev", "-t", "${workspaceFolder}/test/codex/dull.json", "codex"],
       "env": {
         "NODE_ENV": "production",
         "LOG_LEVEL": "verbose"

@@ -48,7 +48,7 @@ function parseArgs() {
           myArgs.configFile += ".json";
       }
     }
-    if (process.argv[ i ] === "-t") {
+    else if (process.argv[ i ] === "-t") {
       // tractsFile
       if (i + 1 < process.argv.length) {
         myArgs.tractsFile = process.argv[ i + 1 ];
