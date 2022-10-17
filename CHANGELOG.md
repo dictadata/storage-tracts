@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.5.2
+  - feature: support _config section in Codex tract
 - version 2.5.1
   - update to @dictadata/storage-junctions 2.5.1
   - bug fix: use stream _destroy() instead of destroy() in reader/writer implementations
