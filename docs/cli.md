@@ -1,14 +1,18 @@
 ## Storage ETL Command Line Interface
 
 ```bash
-storage-etl (etl) 1.8.6
+storage-etl (etl) 2.5.x
 Transfer, transform and codify data between local and distributed storage sources.
 
-etl [-t tractsFile] [tractName] [schemaName]
+etl [-c configFile] [-t tractsFile] [tractName] [schemaName]
+
+configFile
+  JSON configuration file that defines codex, plug-ins and logging.
+  Default configuration file is ./storage-etl.config.json
 
 tractsFile
-  JSON configuration file that defines tracts, plug-ins and logging.
-  Default configuration file is ./etl_tracts
+  JSON file that defines tracts, plug-ins and logging.
+  Default configuration file is ./etl.tracts.json
 
 tractName
   The tract to follow in the configuration file.
@@ -16,10 +20,10 @@ tractName
 
 schemaName
   A string value that will replace the string '${schema}' in the tract.
-  The value will replace all occurences of ${schema} using regex.
+  The value will replace all occurrences of ${schema} using regex.
 
 Actions:
-  config - create example etl_tracts.json file in the current directory.
+  config - create example etl.tracts.json file in the current directory.
   list - listing of schema names in a data store.
   codify - determine schema encoding by codifying a single schema.
   scan - list data store and determine schema encoding by codifying multiple schemas.

@@ -23,7 +23,7 @@
       "name": "create config",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["config", "-c", "./data/output/etl_tracts.json"],
+      "args": ["config", "-t", "./data/output/etl.tracts.json"],
       "env": {
         "NODE_ENV": "production",
         "LOG_LEVEL": "verbose"
@@ -41,7 +41,7 @@
       "name": "codex store",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/codex/store.json", "codex"],
+      "args": ["-t", "${workspaceFolder}/test/codex/store.json", "codex"],
       "env": {
         "NODE_ENV": "production",
         "LOG_LEVEL": "verbose"
@@ -54,7 +54,7 @@
       "name": "codex recall",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/codex/recall.json", "codex"],
+      "args": ["-t", "${workspaceFolder}/test/codex/recall.json", "codex"],
       "env": {
         "NODE_ENV": "production",
         "LOG_LEVEL": "verbose"
@@ -67,7 +67,7 @@
       "name": "codex dull",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/codex/dull.json", "codex"],
+      "args": ["-t", "${workspaceFolder}/test/codex/dull.json", "codex"],
       "env": {
         "NODE_ENV": "production",
         "LOG_LEVEL": "verbose"
@@ -80,7 +80,7 @@
       "name": "codex retrieve",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/codex/retrieve.json", "codex"],
+      "args": ["-t", "${workspaceFolder}/test/codex/retrieve.json", "codex"],
       "env": {
         "NODE_ENV": "production",
         "LOG_LEVEL": "verbose"
@@ -93,7 +93,7 @@
       "name": "codex add_smt",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/codex/add_smt.json", "codex"],
+      "args": ["-t", "${workspaceFolder}/test/codex/add_smt.json", "codex"],
       "env": {
         "NODE_ENV": "production",
         "LOG_LEVEL": "verbose"
@@ -111,7 +111,7 @@
       "name": "fs list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/fs/list.json", "list"],
+      "args": ["-t", "${workspaceFolder}/test/fs/list.json", "list"],
       "env": {
         "NODE_ENV": "production",
         "LOG_LEVEL": "verbose"
@@ -124,7 +124,7 @@
       "name": "fs codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/fs/codify.json", "all"],
+      "args": ["-t", "${workspaceFolder}/test/fs/codify.json", "all"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -137,7 +137,7 @@
       "name": "fs scan",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/fs/scan.json", "scan"],
+      "args": ["-t", "${workspaceFolder}/test/fs/scan.json", "scan"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -150,7 +150,7 @@
       "name": "fs transfer",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/fs/transfer.json", "all"],
+      "args": ["-t", "${workspaceFolder}/test/fs/transfer.json", "all"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -163,7 +163,7 @@
       "name": "fs transform",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/fs/transform.json", "all"],
+      "args": ["-t", "${workspaceFolder}/test/fs/transform.json", "all"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -176,7 +176,7 @@
       "name": "ftp list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/ftp/list.json", "list"],
+      "args": ["-t", "${workspaceFolder}/test/ftp/list.json", "list"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -189,7 +189,7 @@
       "name": "ftp codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["codify", "-c", "${workspaceFolder}/test/ftp/codify.json"],
+      "args": ["codify", "-t", "${workspaceFolder}/test/ftp/codify.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -202,7 +202,7 @@
       "name": "ftp scan",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/ftp/scan.json", "scan"],
+      "args": ["-t", "${workspaceFolder}/test/ftp/scan.json", "scan"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -215,7 +215,7 @@
       "name": "ftp transfer",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/ftp/transfer.json", "all"],
+      "args": ["-t", "${workspaceFolder}/test/ftp/transfer.json", "all"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -228,7 +228,7 @@
       "name": "ftp copy",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["all", "-c", "${workspaceFolder}/test/ftp/copy.json"],
+      "args": ["all", "-t", "${workspaceFolder}/test/ftp/copy.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -241,7 +241,7 @@
       "name": "http list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["list", "-c", "${workspaceFolder}/test/http/list.json"],
+      "args": ["list", "-t", "${workspaceFolder}/test/http/list.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -254,7 +254,7 @@
       "name": "http codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["codify", "-c", "${workspaceFolder}/test/http/codify.json"],
+      "args": ["codify", "-t", "${workspaceFolder}/test/http/codify.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -267,7 +267,7 @@
       "name": "http scan",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/http/scan.json", "scan"],
+      "args": ["-t", "${workspaceFolder}/test/http/scan.json", "scan"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -280,7 +280,7 @@
       "name": "http transfer",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/http/transfer.json", "all"],
+      "args": ["-t", "${workspaceFolder}/test/http/transfer.json", "all"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -293,7 +293,7 @@
       "name": "zip list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["list", "-c", "${workspaceFolder}/test/zip/list.json"],
+      "args": ["list", "-t", "${workspaceFolder}/test/zip/list.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -306,7 +306,7 @@
       "name": "zip codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["codify", "-c", "${workspaceFolder}/test/zip/codify.json"],
+      "args": ["codify", "-t", "${workspaceFolder}/test/zip/codify.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -319,7 +319,7 @@
       "name": "zip scan",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/zip/scan.json", "scan"],
+      "args": ["-t", "${workspaceFolder}/test/zip/scan.json", "scan"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -332,7 +332,7 @@
       "name": "zip transfer",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/zip/transfer.json", "all"],
+      "args": ["-t", "${workspaceFolder}/test/zip/transfer.json", "all"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -350,7 +350,7 @@
       "name": "elasticsearch list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["list", "-c", "${workspaceFolder}/test/elasticsearch/list.json"],
+      "args": ["list", "-t", "${workspaceFolder}/test/elasticsearch/list.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -365,7 +365,7 @@
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
         "codify",
-        "-c",
+        "-t",
         "${workspaceFolder}/test/elasticsearch/codify.json"
       ],
       "env": {
@@ -381,7 +381,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
-        "-c",
+        "-t",
         "${workspaceFolder}/test/elasticsearch/transfer.json",
         "all"
       ],
@@ -398,7 +398,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
-        "-c",
+        "-t",
         "${workspaceFolder}/test/elasticsearch/load.json",
         "load"
       ],
@@ -415,7 +415,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
-        "-c",
+        "-t",
         "${workspaceFolder}/test/elasticsearch/transform.json",
         "all"
       ],
@@ -432,7 +432,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
-        "-c",
+        "-t",
         "${workspaceFolder}/test/elasticsearch/tiger2020.json",
         "all"
       ],
@@ -448,7 +448,7 @@
       "name": "mssql list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["list", "-c", "${workspaceFolder}/test/mssql/list.json"],
+      "args": ["list", "-t", "${workspaceFolder}/test/mssql/list.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -461,7 +461,7 @@
       "name": "mssql codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["codify", "-c", "${workspaceFolder}/test/mssql/codify.json"],
+      "args": ["codify", "-t", "${workspaceFolder}/test/mssql/codify.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -474,7 +474,7 @@
       "name": "mssql transfer",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/mssql/transfer.json", "all"],
+      "args": ["-t", "${workspaceFolder}/test/mssql/transfer.json", "all"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -488,7 +488,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
-        "-c",
+        "-t",
         "${workspaceFolder}/test/mssql/load.json",
         "load"
       ],
@@ -504,7 +504,7 @@
       "name": "mssql transform",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/mssql/transform.json", "all"],
+      "args": ["-t", "${workspaceFolder}/test/mssql/transform.json", "all"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -517,7 +517,7 @@
       "name": "mysql list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["list", "-c", "${workspaceFolder}/test/mysql/list.json"],
+      "args": ["list", "-t", "${workspaceFolder}/test/mysql/list.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -530,7 +530,7 @@
       "name": "mysql codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["codify", "-c", "${workspaceFolder}/test/mysql/codify.json"],
+      "args": ["codify", "-t", "${workspaceFolder}/test/mysql/codify.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -543,7 +543,7 @@
       "name": "mysql transfer",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/mysql/transfer.json", "all"],
+      "args": ["-t", "${workspaceFolder}/test/mysql/transfer.json", "all"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -557,7 +557,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
-        "-c",
+        "-t",
         "${workspaceFolder}/test/mysql/load.json",
         "load"
       ],
@@ -573,7 +573,7 @@
       "name": "mysql transform",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/mysql/transform.json", "all"],
+      "args": ["-t", "${workspaceFolder}/test/mysql/transform.json", "all"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -586,7 +586,7 @@
       "name": "rest codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["codify", "-c", "${workspaceFolder}/test/rest/codify.json"],
+      "args": ["codify", "-t", "${workspaceFolder}/test/rest/codify.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -599,7 +599,7 @@
       "name": "rest transfer",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/rest/transfer.json", "all"],
+      "args": ["-t", "${workspaceFolder}/test/rest/transfer.json", "all"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -612,7 +612,7 @@
       "name": "rest transfrom",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/rest/transform.json", "all"],
+      "args": ["-t", "${workspaceFolder}/test/rest/transform.json", "all"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -625,7 +625,7 @@
       "name": "rest conjoin",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/rest/conjoin.json", "all"],
+      "args": ["-t", "${workspaceFolder}/test/rest/conjoin.json", "all"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -638,7 +638,7 @@
       "name": "shapefile codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["codify", "-c", "${workspaceFolder}/test/shapefile/codify.json"],
+      "args": ["codify", "-t", "${workspaceFolder}/test/shapefile/codify.json"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
@@ -651,7 +651,7 @@
       "name": "shapefile transfer",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
-      "args": ["-c", "${workspaceFolder}/test/shapefile/transfer.json", "all"],
+      "args": ["-t", "${workspaceFolder}/test/shapefile/transfer.json", "all"],
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"

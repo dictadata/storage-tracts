@@ -33,7 +33,7 @@ var defaultTracts = {
 /**
  *
  */
-module.exports.sampleTracts = async function (tractsFilename) {
+module.exports.sampleTracts = async function (tractsFile) {
 
   try {
     let sampleTracts = {
@@ -73,8 +73,8 @@ module.exports.sampleTracts = async function (tractsFilename) {
       }
     };
 
-    logger.info("writing sample tracts configuration to " + tractsFilename);
-    await fs.writeFileSync(tractsFilename, JSON.stringify(sampleTracts, null, " "), { encodign: 'utf-8', flag: 'wx' });
+    logger.info("writing sample tracts configuration to " + tractsFile);
+    await fs.writeFileSync(tractsFile, JSON.stringify(sampleTracts, null, " "), { encodign: 'utf-8', flag: 'wx' });
   }
   catch (err) {
     logger.warn(err.message);
@@ -85,14 +85,14 @@ module.exports.sampleTracts = async function (tractsFilename) {
 /**
  *
  */
-module.exports.loadTracts = async (tractsFilename, schema) => {
+module.exports.loadTracts = async (appArgs) => {
   let tracts;
 
   try {
     // check for config file
     let cfgTracts = {};
     try {
-      let cfg = await fs.readFileSync("storage-etl.config.json", 'utf-8');
+      let cfg = await fs.readFileSync(appArgs.configFile, 'utf-8');
       cfgTracts = JSON.parse(cfg);
     }
     catch (err) {
@@ -100,10 +100,10 @@ module.exports.loadTracts = async (tractsFilename, schema) => {
     }
 
     // read the app tracts file
-    let text = fs.readFileSync(tractsFilename, 'utf-8');
-    if (schema) {
-      // simple text replacement of "${schema}" in tracts file
-      text = text.replace(/\${schema}/g, schema);
+    let text = fs.readFileSync(appArgs.tractsFile, 'utf-8');
+    // simple text replacement of "${schema}" in tracts file
+    if (appArgs.schema) {
+      text = text.replace(/\${schema}/g, appArgs.schema);
     }
     let appTracts = JSON.parse(text);
 
