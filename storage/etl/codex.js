@@ -10,6 +10,8 @@ const logger = require('./logger');
 
 const fs = require('fs');
 
+var _codex = null;
+
 /**
  *
  */
@@ -19,6 +21,8 @@ module.exports = async (tract) => {
   let fn;
 
   try {
+    _codex = Storage.codex;
+
     for (let [ command, request ] of Object.entries(tract)) {
       if (command === "action") continue;
 
@@ -28,12 +32,14 @@ module.exports = async (tract) => {
         case "dull": fn = dull; break;
         case "recall": fn = recall; break;
         case "retrieve": fn = retrieve; break;
+        case "config":
+        case '_config': fn = config; break;
         default:
           logger.error("unknown codex command: " + command);
           return 1;
       }
 
-      // pass the entry(s) to the appropriate function
+      // pass entry(s) to the appropriate function
       if (Array.isArray(request))
         for (let req of request)
           retCode = await fn(req);
@@ -51,6 +57,29 @@ module.exports = async (tract) => {
 
   return retCode;
 };
+
+/**
+ *
+ * @param {Object} request section of tract with a pattern property
+ */
+async function config(request) {
+  let retCode = 0;
+
+  try {
+    // activate codex
+    var codex = new Storage.Codex(request.smt, request.options);
+    await codex.activate();
+    _codex = codex;
+
+    logger.info("codex config: " + JSON.stringify(request.smt));
+  }
+  catch (err) {
+    logger.error(err);
+    retCode = 1;
+  }
+
+  return retCode;
+}
 
 /**
  *
@@ -84,7 +113,7 @@ async function store(entry) {
     }
 
     // store codex entry
-    let results = await Storage.codex.store(engram);
+    let results = await _codex.store(engram);
     logger.info("codex store: " + engram.name + " " + results.resultText);
   }
   catch (err) {
@@ -101,9 +130,18 @@ async function store(entry) {
  */
 async function dull(request) {
   let retCode = 0;
-  let pattern = request.pattern || request;
-  let results = await Storage.codex.dull(pattern);
-  logger.info("codex dull: " + (pattern.key || pattern.name) + " " + results.resultText);
+
+  try {
+    let pattern = request.pattern || request;
+    let results = await _codex.dull(pattern);
+
+    logger.info("codex dull: " + (pattern.key || pattern.name) + " " + results.resultText);
+  }
+  catch (err) {
+    logger.error(err);
+    retCode = 1;
+  }
+
   return retCode;
 }
 
@@ -113,11 +151,19 @@ async function dull(request) {
  */
 async function recall(request) {
   let retCode = 0;
-  let pattern = request.pattern || request;
-  let results = await Storage.codex.recall(pattern);
-  logger.verbose("codex recall: " + (pattern.key || pattern.name) + " " + results.resultText);
 
-  retCode = output(request.output, results.data);
+  try {
+    let pattern = request.pattern || request;
+    let results = await _codex.recall(pattern);
+    logger.verbose("codex recall: " + (pattern.key || pattern.name) + " " + results.resultText);
+
+    retCode = output(request.output, results.data);
+  }
+  catch (err) {
+    logger.error(err);
+    retCode = 1;
+  }
+
   return retCode;
 }
 
@@ -127,10 +173,18 @@ async function recall(request) {
  */
 async function retrieve(request) {
   let retCode = 0;
-  let pattern = request.pattern || request;
-  let results = await Storage.codex.retrieve(pattern);
-  logger.verbose("codex retrieve: " + results.resultText);
 
-  retCode = output(request.output, results.data);
+  try {
+    let pattern = request.pattern || request;
+    let results = await _codex.retrieve(pattern);
+    logger.verbose("codex retrieve: " + results.resultText);
+
+    retCode = output(request.output, results.data);
+  }
+  catch (err) {
+    logger.error(err);
+    retCode = 1;
+  }
+
   return retCode;
 }
