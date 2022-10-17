@@ -16,14 +16,19 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
 
 ```bash
   Command line:
-    etl [-t tractsFile] [tractName] [schemaName]
+    etl [-c configFile] [-t tractsFile] [tractName] [schemaName]
   or:
-    storage-etl [-t tractsFile] [tractName] [schemaName]
+    storage-etl [-c configFile] [-t tractsFile] [tractName] [schemaName]
+
+  configFile
+    JSON configuration file that defines codex, plug-ins and logging.
+    Supports abbreviated name; "-c dev" for "./storage-etl.dev.json"
+    Default configuration file is ./storage-etl.config.json
 
   tractsFile
     JSON file that defines tracts, plug-ins and logging.
-    Default tracts file is ./etl.tracts.json
-  
+    Default configuration file is ./etl.tracts.json
+
   tractName
     The tract to follow in the tracts file.
     If "action" is not defined in the tract then action defaults to the tractName.

@@ -2,6 +2,7 @@
 
 Storage ETL is a command line interface (CLI) for performing data export, transform and load tasks.
 
+[Command Line Interface](./cli.md)
 
 ---
 

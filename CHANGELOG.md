@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.5.3
+  - feature: add CLI argument -c for config file, e.g. "-c dev" for "storage-etl.dev.json"
 - version 2.5.2
   - feature: support _config section in Codex tract
 - version 2.5.1
