@@ -1,0 +1,3466 @@
+[
+ {
+  "href": "/shapefiles/Statewide School Districts.zip",
+  "name": "Statewide School Districts.zip",
+  "isDir": false,
+  "date": "2013-05-03T19:17:00.000Z",
+  "size": 4804817,
+  "rpath": "Statewide School Districts.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Adel Precincts.zip",
+  "name": "Adel Precincts.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:30:00.000Z",
+  "size": 250493,
+  "rpath": "City Precincts/Adel Precincts.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Albia Precincts.zip",
+  "name": "Albia Precincts.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:37:00.000Z",
+  "size": 254262,
+  "rpath": "City Precincts/Albia Precincts.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Algona.zip",
+  "name": "Algona.zip",
+  "isDir": false,
+  "date": "2011-09-20T19:56:00.000Z",
+  "size": 253740,
+  "rpath": "City Precincts/Algona.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Altoona.zip",
+  "name": "Altoona.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:30:00.000Z",
+  "size": 252276,
+  "rpath": "City Precincts/Altoona.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Ames.zip",
+  "name": "Ames.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:30:00.000Z",
+  "size": 290316,
+  "rpath": "City Precincts/Ames.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Anamosa.zip",
+  "name": "Anamosa.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:32:00.000Z",
+  "size": 12679,
+  "rpath": "City Precincts/Anamosa.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Ankeny.zip",
+  "name": "Ankeny.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:32:00.000Z",
+  "size": 34185,
+  "rpath": "City Precincts/Ankeny.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Asbury.zip",
+  "name": "Asbury.zip",
+  "isDir": false,
+  "date": "2011-09-23T20:40:00.000Z",
+  "size": 259379,
+  "rpath": "City Precincts/Asbury.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Atlantic.zip",
+  "name": "Atlantic.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:33:00.000Z",
+  "size": 7571,
+  "rpath": "City Precincts/Atlantic.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Belle Plaine.zip",
+  "name": "Belle Plaine.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:31:00.000Z",
+  "size": 499970,
+  "rpath": "City Precincts/Belle Plaine.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Bettendorf.zip",
+  "name": "Bettendorf.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:31:00.000Z",
+  "size": 265213,
+  "rpath": "City Precincts/Bettendorf.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Bloomfield.zip",
+  "name": "Bloomfield.zip",
+  "isDir": false,
+  "date": "2011-09-21T20:04:00.000Z",
+  "size": 252849,
+  "rpath": "City Precincts/Bloomfield.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Bondurant.zip",
+  "name": "Bondurant.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:33:00.000Z",
+  "size": 6668,
+  "rpath": "City Precincts/Bondurant.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Boone.zip",
+  "name": "Boone.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:31:00.000Z",
+  "size": 254294,
+  "rpath": "City Precincts/Boone.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Burlington.zip",
+  "name": "Burlington.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:31:00.000Z",
+  "size": 275497,
+  "rpath": "City Precincts/Burlington.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Camanche.zip",
+  "name": "Camanche.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:38:00.000Z",
+  "size": 260746,
+  "rpath": "City Precincts/Camanche.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Carlisle.zip",
+  "name": "Carlisle.zip",
+  "isDir": false,
+  "date": "2011-11-03T16:10:00.000Z",
+  "size": 258036,
+  "rpath": "City Precincts/Carlisle.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Carroll.zip",
+  "name": "Carroll.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:32:00.000Z",
+  "size": 260504,
+  "rpath": "City Precincts/Carroll.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Carter Lake.zip",
+  "name": "Carter Lake.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:32:00.000Z",
+  "size": 248788,
+  "rpath": "City Precincts/Carter Lake.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Cedar Falls.zip",
+  "name": "Cedar Falls.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:34:00.000Z",
+  "size": 15912,
+  "rpath": "City Precincts/Cedar Falls.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/CEDAR RAPIDS PRECINCTS 9-23.zip",
+  "name": "CEDAR RAPIDS PRECINCTS 9-23.zip",
+  "isDir": false,
+  "date": "2011-09-26T18:05:00.000Z",
+  "size": 310000,
+  "rpath": "City Precincts/CEDAR RAPIDS PRECINCTS 9-23.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Cedar Rapids.zip",
+  "name": "Cedar Rapids.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:35:00.000Z",
+  "size": 71571,
+  "rpath": "City Precincts/Cedar Rapids.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Centerville.zip",
+  "name": "Centerville.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:33:00.000Z",
+  "size": 255407,
+  "rpath": "City Precincts/Centerville.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Chariton.zip",
+  "name": "Chariton.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:33:00.000Z",
+  "size": 252221,
+  "rpath": "City Precincts/Chariton.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Charles City.zip",
+  "name": "Charles City.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:35:00.000Z",
+  "size": 7869,
+  "rpath": "City Precincts/Charles City.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Cherokee.zip",
+  "name": "Cherokee.zip",
+  "isDir": false,
+  "date": "2011-09-07T20:28:00.000Z",
+  "size": 254174,
+  "rpath": "City Precincts/Cherokee.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/CLARINDA PRECINCTS 2013.zip",
+  "name": "CLARINDA PRECINCTS 2013.zip",
+  "isDir": false,
+  "date": "2013-12-13T18:20:00.000Z",
+  "size": 251734,
+  "rpath": "City Precincts/CLARINDA PRECINCTS 2013.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Clarinda.zip",
+  "name": "Clarinda.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:38:00.000Z",
+  "size": 251981,
+  "rpath": "City Precincts/Clarinda.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Clear Lake.zip",
+  "name": "Clear Lake.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:38:00.000Z",
+  "size": 260237,
+  "rpath": "City Precincts/Clear Lake.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Clinton.zip",
+  "name": "Clinton.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:34:00.000Z",
+  "size": 271688,
+  "rpath": "City Precincts/Clinton.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Clive.zip",
+  "name": "Clive.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:46:00.000Z",
+  "size": 254702,
+  "rpath": "City Precincts/Clive.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Colfax.zip",
+  "name": "Colfax.zip",
+  "isDir": false,
+  "date": "2011-09-21T19:29:00.000Z",
+  "size": 256874,
+  "rpath": "City Precincts/Colfax.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Corning.zip",
+  "name": "Corning.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:38:00.000Z",
+  "size": 252009,
+  "rpath": "City Precincts/Corning.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Council Bluffs.zip",
+  "name": "Council Bluffs.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:36:00.000Z",
+  "size": 54867,
+  "rpath": "City Precincts/Council Bluffs.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Cresco.zip",
+  "name": "Cresco.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:35:00.000Z",
+  "size": 253250,
+  "rpath": "City Precincts/Cresco.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Creston.zip",
+  "name": "Creston.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:35:00.000Z",
+  "size": 253499,
+  "rpath": "City Precincts/Creston.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Davenport.zip",
+  "name": "Davenport.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:35:00.000Z",
+  "size": 289071,
+  "rpath": "City Precincts/Davenport.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Decorah.zip",
+  "name": "Decorah.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:38:00.000Z",
+  "size": 259039,
+  "rpath": "City Precincts/Decorah.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Denison.zip",
+  "name": "Denison.zip",
+  "isDir": false,
+  "date": "2011-09-27T21:30:00.000Z",
+  "size": 258157,
+  "rpath": "City Precincts/Denison.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Des Moines Final.zip",
+  "name": "Des Moines Final.zip",
+  "isDir": false,
+  "date": "2011-11-03T18:13:00.000Z",
+  "size": 324809,
+  "rpath": "City Precincts/Des Moines Final.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Des Moines Precincts.zip",
+  "name": "Des Moines Precincts.zip",
+  "isDir": false,
+  "date": "2011-10-11T20:47:00.000Z",
+  "size": 675491,
+  "rpath": "City Precincts/Des Moines Precincts.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/DeWitt.zip",
+  "name": "DeWitt.zip",
+  "isDir": false,
+  "date": "2011-11-03T16:04:00.000Z",
+  "size": 253050,
+  "rpath": "City Precincts/DeWitt.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Dubuque.zip",
+  "name": "Dubuque.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:37:00.000Z",
+  "size": 69336,
+  "rpath": "City Precincts/Dubuque.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Dyersville.zip",
+  "name": "Dyersville.zip",
+  "isDir": false,
+  "date": "2011-10-13T19:46:00.000Z",
+  "size": 263450,
+  "rpath": "City Precincts/Dyersville.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Eagle Grove.zip",
+  "name": "Eagle Grove.zip",
+  "isDir": false,
+  "date": "2011-11-03T16:11:00.000Z",
+  "size": 252892,
+  "rpath": "City Precincts/Eagle Grove.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Eldridge.zip",
+  "name": "Eldridge.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:39:00.000Z",
+  "size": 5142,
+  "rpath": "City Precincts/Eldridge.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Estherville.zip",
+  "name": "Estherville.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:48:00.000Z",
+  "size": 252476,
+  "rpath": "City Precincts/Estherville.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Evansdale.zip",
+  "name": "Evansdale.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:37:00.000Z",
+  "size": 262187,
+  "rpath": "City Precincts/Evansdale.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Fairfield.zip",
+  "name": "Fairfield.zip",
+  "isDir": false,
+  "date": "2011-11-22T15:48:00.000Z",
+  "size": 258292,
+  "rpath": "City Precincts/Fairfield.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Forest City.zip",
+  "name": "Forest City.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:37:00.000Z",
+  "size": 260316,
+  "rpath": "City Precincts/Forest City.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Fort Dodge.zip",
+  "name": "Fort Dodge.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:37:00.000Z",
+  "size": 262382,
+  "rpath": "City Precincts/Fort Dodge.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Fort Madison SOS.zip",
+  "name": "Fort Madison SOS.zip",
+  "isDir": false,
+  "date": "2011-08-22T16:09:00.000Z",
+  "size": 272604,
+  "rpath": "City Precincts/Fort Madison SOS.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Glenwood.zip",
+  "name": "Glenwood.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:38:00.000Z",
+  "size": 252319,
+  "rpath": "City Precincts/Glenwood.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Grimes.zip",
+  "name": "Grimes.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:39:00.000Z",
+  "size": 13874,
+  "rpath": "City Precincts/Grimes.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Grinnell.zip",
+  "name": "Grinnell.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:38:00.000Z",
+  "size": 252038,
+  "rpath": "City Precincts/Grinnell.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Hamburg.zip",
+  "name": "Hamburg.zip",
+  "isDir": false,
+  "date": "2013-04-01T15:20:00.000Z",
+  "size": 251290,
+  "rpath": "City Precincts/Hamburg.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Hampton.zip",
+  "name": "Hampton.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:38:00.000Z",
+  "size": 252025,
+  "rpath": "City Precincts/Hampton.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Harlan.zip",
+  "name": "Harlan.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:38:00.000Z",
+  "size": 251735,
+  "rpath": "City Precincts/Harlan.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Hiawatha.zip",
+  "name": "Hiawatha.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:40:00.000Z",
+  "size": 10479,
+  "rpath": "City Precincts/Hiawatha.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Humboldt.zip",
+  "name": "Humboldt.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:40:00.000Z",
+  "size": 251190,
+  "rpath": "City Precincts/Humboldt.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Ida Grove.zip",
+  "name": "Ida Grove.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:40:00.000Z",
+  "size": 250413,
+  "rpath": "City Precincts/Ida Grove.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Independence.zip",
+  "name": "Independence.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:40:00.000Z",
+  "size": 255439,
+  "rpath": "City Precincts/Independence.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Indianola.zip",
+  "name": "Indianola.zip",
+  "isDir": false,
+  "date": "2011-12-21T18:11:00.000Z",
+  "size": 762013,
+  "rpath": "City Precincts/Indianola.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Iowa City.zip",
+  "name": "Iowa City.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:41:00.000Z",
+  "size": 54871,
+  "rpath": "City Precincts/Iowa City.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Iowa Falls.zip",
+  "name": "Iowa Falls.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:49:00.000Z",
+  "size": 253910,
+  "rpath": "City Precincts/Iowa Falls.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Jefferson.zip",
+  "name": "Jefferson.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:40:00.000Z",
+  "size": 253355,
+  "rpath": "City Precincts/Jefferson.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Johnston.zip",
+  "name": "Johnston.zip",
+  "isDir": false,
+  "date": "2011-11-03T16:12:00.000Z",
+  "size": 255388,
+  "rpath": "City Precincts/Johnston.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Keokuk.zip",
+  "name": "Keokuk.zip",
+  "isDir": false,
+  "date": "2011-10-31T16:42:00.000Z",
+  "size": 526030,
+  "rpath": "City Precincts/Keokuk.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Le Claire.zip",
+  "name": "Le Claire.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:42:00.000Z",
+  "size": 9005,
+  "rpath": "City Precincts/Le Claire.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Le Mars.zip",
+  "name": "Le Mars.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:40:00.000Z",
+  "size": 259215,
+  "rpath": "City Precincts/Le Mars.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/LeClaire.zip",
+  "name": "LeClaire.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:54:00.000Z",
+  "size": 8973850,
+  "rpath": "City Precincts/LeClaire.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Madrid.zip",
+  "name": "Madrid.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:43:00.000Z",
+  "size": 3343,
+  "rpath": "City Precincts/Madrid.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Manchester.zip",
+  "name": "Manchester.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:39:00.000Z",
+  "size": 254160,
+  "rpath": "City Precincts/Manchester.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Maquoketa.zip",
+  "name": "Maquoketa.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:41:00.000Z",
+  "size": 257208,
+  "rpath": "City Precincts/Maquoketa.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Marion.zip",
+  "name": "Marion.zip",
+  "isDir": false,
+  "date": "2012-01-04T15:33:00.000Z",
+  "size": 261845,
+  "rpath": "City Precincts/Marion.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Marshalltown.zip",
+  "name": "Marshalltown.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:42:00.000Z",
+  "size": 268080,
+  "rpath": "City Precincts/Marshalltown.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Mason City.zip",
+  "name": "Mason City.zip",
+  "isDir": false,
+  "date": "2011-10-17T17:13:00.000Z",
+  "size": 271940,
+  "rpath": "City Precincts/Mason City.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Monticello.zip",
+  "name": "Monticello.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:42:00.000Z",
+  "size": 254863,
+  "rpath": "City Precincts/Monticello.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Mount Pleasant.zip",
+  "name": "Mount Pleasant.zip",
+  "isDir": false,
+  "date": "2011-10-17T19:15:00.000Z",
+  "size": 254272,
+  "rpath": "City Precincts/Mount Pleasant.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Mount Vernon.zip",
+  "name": "Mount Vernon.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:42:00.000Z",
+  "size": 249239,
+  "rpath": "City Precincts/Mount Vernon.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Muscatine.zip",
+  "name": "Muscatine.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:42:00.000Z",
+  "size": 266075,
+  "rpath": "City Precincts/Muscatine.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/New Hampton.zip",
+  "name": "New Hampton.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:42:00.000Z",
+  "size": 256013,
+  "rpath": "City Precincts/New Hampton.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Newton.zip",
+  "name": "Newton.zip",
+  "isDir": false,
+  "date": "2011-11-03T14:24:00.000Z",
+  "size": 261139,
+  "rpath": "City Precincts/Newton.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/North Liberty.zip",
+  "name": "North Liberty.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:42:00.000Z",
+  "size": 256755,
+  "rpath": "City Precincts/North Liberty.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Norwalk.zip",
+  "name": "Norwalk.zip",
+  "isDir": false,
+  "date": "2011-12-21T15:55:00.000Z",
+  "size": 253901,
+  "rpath": "City Precincts/Norwalk.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Oelwein.zip",
+  "name": "Oelwein.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:43:00.000Z",
+  "size": 253561,
+  "rpath": "City Precincts/Oelwein.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Onawa.zip",
+  "name": "Onawa.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:49:00.000Z",
+  "size": 257923,
+  "rpath": "City Precincts/Onawa.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Orange City.zip",
+  "name": "Orange City.zip",
+  "isDir": false,
+  "date": "2011-10-04T13:28:00.000Z",
+  "size": 255480,
+  "rpath": "City Precincts/Orange City.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Osage.zip",
+  "name": "Osage.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:43:00.000Z",
+  "size": 252589,
+  "rpath": "City Precincts/Osage.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Osceola.zip",
+  "name": "Osceola.zip",
+  "isDir": false,
+  "date": "2011-09-23T15:28:00.000Z",
+  "size": 258595,
+  "rpath": "City Precincts/Osceola.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Oskaloosa.zip",
+  "name": "Oskaloosa.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:43:00.000Z",
+  "size": 261141,
+  "rpath": "City Precincts/Oskaloosa.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Ottumwa.zip",
+  "name": "Ottumwa.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:40:00.000Z",
+  "size": 265417,
+  "rpath": "City Precincts/Ottumwa.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Pella.zip",
+  "name": "Pella.zip",
+  "isDir": false,
+  "date": "2011-10-17T15:51:00.000Z",
+  "size": 516302,
+  "rpath": "City Precincts/Pella.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Perry.zip",
+  "name": "Perry.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:43:00.000Z",
+  "size": 251801,
+  "rpath": "City Precincts/Perry.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Pleasant Hill.zip",
+  "name": "Pleasant Hill.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:43:00.000Z",
+  "size": 254172,
+  "rpath": "City Precincts/Pleasant Hill.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Polk City.zip",
+  "name": "Polk City.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:44:00.000Z",
+  "size": 21956,
+  "rpath": "City Precincts/Polk City.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Red Oak.zip",
+  "name": "Red Oak.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:50:00.000Z",
+  "size": 250648,
+  "rpath": "City Precincts/Red Oak.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Rock Rapids.zip",
+  "name": "Rock Rapids.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:40:00.000Z",
+  "size": 260716,
+  "rpath": "City Precincts/Rock Rapids.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Rock Valley.zip",
+  "name": "Rock Valley.zip",
+  "isDir": false,
+  "date": "2011-10-04T13:35:00.000Z",
+  "size": 253956,
+  "rpath": "City Precincts/Rock Valley.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Sergeant Bluff.zip",
+  "name": "Sergeant Bluff.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:45:00.000Z",
+  "size": 4910,
+  "rpath": "City Precincts/Sergeant Bluff.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Sheldon.zip",
+  "name": "Sheldon.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:50:00.000Z",
+  "size": 252027,
+  "rpath": "City Precincts/Sheldon.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Shenandoah.zip",
+  "name": "Shenandoah.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:43:00.000Z",
+  "size": 265086,
+  "rpath": "City Precincts/Shenandoah.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Sibley.zip",
+  "name": "Sibley.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:43:00.000Z",
+  "size": 250913,
+  "rpath": "City Precincts/Sibley.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Sigourney.zip",
+  "name": "Sigourney.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:44:00.000Z",
+  "size": 252698,
+  "rpath": "City Precincts/Sigourney.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Sioux Center.zip",
+  "name": "Sioux Center.zip",
+  "isDir": false,
+  "date": "2011-10-20T13:39:00.000Z",
+  "size": 255067,
+  "rpath": "City Precincts/Sioux Center.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Sioux City.zip",
+  "name": "Sioux City.zip",
+  "isDir": false,
+  "date": "2011-10-20T19:18:00.000Z",
+  "size": 312957,
+  "rpath": "City Precincts/Sioux City.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Spirit Lake.zip",
+  "name": "Spirit Lake.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:50:00.000Z",
+  "size": 266085,
+  "rpath": "City Precincts/Spirit Lake.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Storm Lake.zip",
+  "name": "Storm Lake.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:45:00.000Z",
+  "size": 33812,
+  "rpath": "City Precincts/Storm Lake.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Tipton.zip",
+  "name": "Tipton.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:44:00.000Z",
+  "size": 250347,
+  "rpath": "City Precincts/Tipton.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Toledo (2).zip",
+  "name": "Toledo (2).zip",
+  "isDir": false,
+  "date": "2012-01-05T15:11:00.000Z",
+  "size": 252016,
+  "rpath": "City Precincts/Toledo (2).zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Vinton.zip",
+  "name": "Vinton.zip",
+  "isDir": false,
+  "date": "2011-11-22T15:49:00.000Z",
+  "size": 251785,
+  "rpath": "City Precincts/Vinton.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Wapello.zip",
+  "name": "Wapello.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:40:00.000Z",
+  "size": 251176,
+  "rpath": "City Precincts/Wapello.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Washington.zip",
+  "name": "Washington.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:40:00.000Z",
+  "size": 268146,
+  "rpath": "City Precincts/Washington.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Waterloo.zip",
+  "name": "Waterloo.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:44:00.000Z",
+  "size": 293580,
+  "rpath": "City Precincts/Waterloo.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Waukee.zip",
+  "name": "Waukee.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:44:00.000Z",
+  "size": 255281,
+  "rpath": "City Precincts/Waukee.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Waukon.zip",
+  "name": "Waukon.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:40:00.000Z",
+  "size": 255994,
+  "rpath": "City Precincts/Waukon.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Waverly.zip",
+  "name": "Waverly.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:50:00.000Z",
+  "size": 255532,
+  "rpath": "City Precincts/Waverly.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Webster City.zip",
+  "name": "Webster City.zip",
+  "isDir": false,
+  "date": "2011-09-20T15:23:00.000Z",
+  "size": 258810,
+  "rpath": "City Precincts/Webster City.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/West Des Moines.zip",
+  "name": "West Des Moines.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:50:00.000Z",
+  "size": 280909,
+  "rpath": "City Precincts/West Des Moines.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/West Liberty.zip",
+  "name": "West Liberty.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:44:00.000Z",
+  "size": 251901,
+  "rpath": "City Precincts/West Liberty.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/West Union.zip",
+  "name": "West Union.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:44:00.000Z",
+  "size": 249878,
+  "rpath": "City Precincts/West Union.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Windsor Heights.zip",
+  "name": "Windsor Heights.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:51:00.000Z",
+  "size": 251058,
+  "rpath": "City Precincts/Windsor Heights.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Winterset.zip",
+  "name": "Winterset.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:44:00.000Z",
+  "size": 253198,
+  "rpath": "City Precincts/Winterset.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Pleasant Hill/block21data.zip",
+  "name": "block21data.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:43:00.000Z",
+  "size": 76869,
+  "rpath": "City Precincts/Pleasant Hill/block21data.zip"
+ },
+ {
+  "href": "/shapefiles/City Precincts/Pleasant Hill/Precinct2020PHill.zip",
+  "name": "Precinct2020PHill.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:43:00.000Z",
+  "size": 17898,
+  "rpath": "City Precincts/Pleasant Hill/Precinct2020PHill.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Adair.zip",
+  "name": "Adair.zip",
+  "isDir": false,
+  "date": "2011-10-05T21:09:00.000Z",
+  "size": 276206,
+  "rpath": "County Precincts/Adair.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Adams.zip",
+  "name": "Adams.zip",
+  "isDir": false,
+  "date": "2011-11-03T18:16:00.000Z",
+  "size": 279075,
+  "rpath": "County Precincts/Adams.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Allamakee.zip",
+  "name": "Allamakee.zip",
+  "isDir": false,
+  "date": "2011-11-10T18:08:00.000Z",
+  "size": 284921,
+  "rpath": "County Precincts/Allamakee.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Appanoose.zip",
+  "name": "Appanoose.zip",
+  "isDir": false,
+  "date": "2011-10-10T19:51:00.000Z",
+  "size": 291164,
+  "rpath": "County Precincts/Appanoose.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Aubudon.zip",
+  "name": "Aubudon.zip",
+  "isDir": false,
+  "date": "2011-09-15T19:23:00.000Z",
+  "size": 269898,
+  "rpath": "County Precincts/Aubudon.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Benton.zip",
+  "name": "Benton.zip",
+  "isDir": false,
+  "date": "2011-11-22T23:27:00.000Z",
+  "size": 302522,
+  "rpath": "County Precincts/Benton.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Black Hawk.zip",
+  "name": "Black Hawk.zip",
+  "isDir": false,
+  "date": "2011-11-02T16:34:00.000Z",
+  "size": 291032,
+  "rpath": "County Precincts/Black Hawk.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Boone.zip",
+  "name": "Boone.zip",
+  "isDir": false,
+  "date": "2012-01-06T22:37:00.000Z",
+  "size": 283594,
+  "rpath": "County Precincts/Boone.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Bremer.zip",
+  "name": "Bremer.zip",
+  "isDir": false,
+  "date": "2011-11-29T15:41:00.000Z",
+  "size": 267102,
+  "rpath": "County Precincts/Bremer.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Buchanan.zip",
+  "name": "Buchanan.zip",
+  "isDir": false,
+  "date": "2011-10-05T15:08:00.000Z",
+  "size": 281139,
+  "rpath": "County Precincts/Buchanan.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Buena Vista.zip",
+  "name": "Buena Vista.zip",
+  "isDir": false,
+  "date": "2011-10-18T20:07:00.000Z",
+  "size": 299310,
+  "rpath": "County Precincts/Buena Vista.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Butler.zip",
+  "name": "Butler.zip",
+  "isDir": false,
+  "date": "2011-10-12T13:31:00.000Z",
+  "size": 265233,
+  "rpath": "County Precincts/Butler.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Calhoun.zip",
+  "name": "Calhoun.zip",
+  "isDir": false,
+  "date": "2011-11-02T16:34:00.000Z",
+  "size": 276572,
+  "rpath": "County Precincts/Calhoun.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Carroll.zip",
+  "name": "Carroll.zip",
+  "isDir": false,
+  "date": "2011-11-02T16:33:00.000Z",
+  "size": 292185,
+  "rpath": "County Precincts/Carroll.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Cass.zip",
+  "name": "Cass.zip",
+  "isDir": false,
+  "date": "2011-10-10T18:40:00.000Z",
+  "size": 281528,
+  "rpath": "County Precincts/Cass.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Cedar.zip",
+  "name": "Cedar.zip",
+  "isDir": false,
+  "date": "2011-09-20T16:40:00.000Z",
+  "size": 280814,
+  "rpath": "County Precincts/Cedar.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Cerro Gordo.zip",
+  "name": "Cerro Gordo.zip",
+  "isDir": false,
+  "date": "2011-10-26T14:33:00.000Z",
+  "size": 325709,
+  "rpath": "County Precincts/Cerro Gordo.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Cherokee.zip",
+  "name": "Cherokee.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:43:00.000Z",
+  "size": 278577,
+  "rpath": "County Precincts/Cherokee.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Chickasaw.zip",
+  "name": "Chickasaw.zip",
+  "isDir": false,
+  "date": "2011-11-02T16:35:00.000Z",
+  "size": 284529,
+  "rpath": "County Precincts/Chickasaw.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Clarke.zip",
+  "name": "Clarke.zip",
+  "isDir": false,
+  "date": "2011-10-18T15:08:00.000Z",
+  "size": 269887,
+  "rpath": "County Precincts/Clarke.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Clay.zip",
+  "name": "Clay.zip",
+  "isDir": false,
+  "date": "2011-11-02T16:45:00.000Z",
+  "size": 265546,
+  "rpath": "County Precincts/Clay.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Clayton.zip",
+  "name": "Clayton.zip",
+  "isDir": false,
+  "date": "2011-11-03T18:15:00.000Z",
+  "size": 299213,
+  "rpath": "County Precincts/Clayton.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Clinton.zip",
+  "name": "Clinton.zip",
+  "isDir": false,
+  "date": "2011-11-22T22:46:00.000Z",
+  "size": 343752,
+  "rpath": "County Precincts/Clinton.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Crawford.zip",
+  "name": "Crawford.zip",
+  "isDir": false,
+  "date": "2011-10-18T14:33:00.000Z",
+  "size": 286081,
+  "rpath": "County Precincts/Crawford.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Dallas.zip",
+  "name": "Dallas.zip",
+  "isDir": false,
+  "date": "2011-11-02T16:33:00.000Z",
+  "size": 299498,
+  "rpath": "County Precincts/Dallas.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Davis.zip",
+  "name": "Davis.zip",
+  "isDir": false,
+  "date": "2011-10-17T16:11:00.000Z",
+  "size": 271379,
+  "rpath": "County Precincts/Davis.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Decatur.zip",
+  "name": "Decatur.zip",
+  "isDir": false,
+  "date": "2011-11-02T16:33:00.000Z",
+  "size": 266287,
+  "rpath": "County Precincts/Decatur.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Delaware.zip",
+  "name": "Delaware.zip",
+  "isDir": false,
+  "date": "2011-11-02T16:34:00.000Z",
+  "size": 297528,
+  "rpath": "County Precincts/Delaware.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Des Moines.zip",
+  "name": "Des Moines.zip",
+  "isDir": false,
+  "date": "2011-11-21T22:17:00.000Z",
+  "size": 295122,
+  "rpath": "County Precincts/Des Moines.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Dickinson.zip",
+  "name": "Dickinson.zip",
+  "isDir": false,
+  "date": "2011-10-12T14:07:00.000Z",
+  "size": 330882,
+  "rpath": "County Precincts/Dickinson.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Dubuque.zip",
+  "name": "Dubuque.zip",
+  "isDir": false,
+  "date": "2011-11-03T15:49:00.000Z",
+  "size": 353064,
+  "rpath": "County Precincts/Dubuque.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Emmet.zip",
+  "name": "Emmet.zip",
+  "isDir": false,
+  "date": "2011-11-02T16:44:00.000Z",
+  "size": 268059,
+  "rpath": "County Precincts/Emmet.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Fayette.zip",
+  "name": "Fayette.zip",
+  "isDir": false,
+  "date": "2011-11-02T16:35:00.000Z",
+  "size": 295797,
+  "rpath": "County Precincts/Fayette.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Floyd.zip",
+  "name": "Floyd.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:29:00.000Z",
+  "size": 33288,
+  "rpath": "County Precincts/Floyd.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Franklin.zip",
+  "name": "Franklin.zip",
+  "isDir": false,
+  "date": "2011-11-02T16:35:00.000Z",
+  "size": 274476,
+  "rpath": "County Precincts/Franklin.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Fremont.zip",
+  "name": "Fremont.zip",
+  "isDir": false,
+  "date": "2013-04-01T15:20:00.000Z",
+  "size": 270444,
+  "rpath": "County Precincts/Fremont.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Greene.zip",
+  "name": "Greene.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:51:00.000Z",
+  "size": 280062,
+  "rpath": "County Precincts/Greene.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Grundy.zip",
+  "name": "Grundy.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:46:00.000Z",
+  "size": 258286,
+  "rpath": "County Precincts/Grundy.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Guthrie.zip",
+  "name": "Guthrie.zip",
+  "isDir": false,
+  "date": "2011-11-03T15:41:00.000Z",
+  "size": 284467,
+  "rpath": "County Precincts/Guthrie.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Hamilton.zip",
+  "name": "Hamilton.zip",
+  "isDir": false,
+  "date": "2011-10-12T13:58:00.000Z",
+  "size": 285792,
+  "rpath": "County Precincts/Hamilton.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Hancock.zip",
+  "name": "Hancock.zip",
+  "isDir": false,
+  "date": "2011-11-22T23:22:00.000Z",
+  "size": 275866,
+  "rpath": "County Precincts/Hancock.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Hardin.zip",
+  "name": "Hardin.zip",
+  "isDir": false,
+  "date": "2011-10-14T13:39:00.000Z",
+  "size": 277267,
+  "rpath": "County Precincts/Hardin.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Harrison.zip",
+  "name": "Harrison.zip",
+  "isDir": false,
+  "date": "2011-10-27T19:40:00.000Z",
+  "size": 294583,
+  "rpath": "County Precincts/Harrison.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Henry.zip",
+  "name": "Henry.zip",
+  "isDir": false,
+  "date": "2011-10-18T15:12:00.000Z",
+  "size": 274091,
+  "rpath": "County Precincts/Henry.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Howard 2014.zip",
+  "name": "Howard 2014.zip",
+  "isDir": false,
+  "date": "2014-02-26T19:13:00.000Z",
+  "size": 265928,
+  "rpath": "County Precincts/Howard 2014.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Howard.zip",
+  "name": "Howard.zip",
+  "isDir": false,
+  "date": "2011-11-02T16:43:00.000Z",
+  "size": 266198,
+  "rpath": "County Precincts/Howard.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Humboldt.zip",
+  "name": "Humboldt.zip",
+  "isDir": false,
+  "date": "2011-11-02T16:03:00.000Z",
+  "size": 270568,
+  "rpath": "County Precincts/Humboldt.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Ida.zip",
+  "name": "Ida.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:30:00.000Z",
+  "size": 22114,
+  "rpath": "County Precincts/Ida.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Iowa.zip",
+  "name": "Iowa.zip",
+  "isDir": false,
+  "date": "2011-09-29T18:24:00.000Z",
+  "size": 290514,
+  "rpath": "County Precincts/Iowa.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Jackson.zip",
+  "name": "Jackson.zip",
+  "isDir": false,
+  "date": "2012-01-10T22:31:00.000Z",
+  "size": 295353,
+  "rpath": "County Precincts/Jackson.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Jasper.zip",
+  "name": "Jasper.zip",
+  "isDir": false,
+  "date": "2011-11-21T22:45:00.000Z",
+  "size": 310577,
+  "rpath": "County Precincts/Jasper.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Jefferson.zip",
+  "name": "Jefferson.zip",
+  "isDir": false,
+  "date": "2011-12-06T16:05:00.000Z",
+  "size": 285135,
+  "rpath": "County Precincts/Jefferson.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Johnson.zip",
+  "name": "Johnson.zip",
+  "isDir": false,
+  "date": "2011-11-02T16:34:00.000Z",
+  "size": 370203,
+  "rpath": "County Precincts/Johnson.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Jones.zip",
+  "name": "Jones.zip",
+  "isDir": false,
+  "date": "2011-11-08T16:20:00.000Z",
+  "size": 283423,
+  "rpath": "County Precincts/Jones.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Keokuk.zip",
+  "name": "Keokuk.zip",
+  "isDir": false,
+  "date": "2011-11-03T15:37:00.000Z",
+  "size": 663250,
+  "rpath": "County Precincts/Keokuk.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Kossuth.zip",
+  "name": "Kossuth.zip",
+  "isDir": false,
+  "date": "2011-11-03T15:10:00.000Z",
+  "size": 288343,
+  "rpath": "County Precincts/Kossuth.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Lee.zip",
+  "name": "Lee.zip",
+  "isDir": false,
+  "date": "2011-10-31T17:13:00.000Z",
+  "size": 321265,
+  "rpath": "County Precincts/Lee.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Linn final.zip",
+  "name": "Linn final.zip",
+  "isDir": false,
+  "date": "2012-01-18T17:07:00.000Z",
+  "size": 368305,
+  "rpath": "County Precincts/Linn final.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Louisa.zip",
+  "name": "Louisa.zip",
+  "isDir": false,
+  "date": "2011-09-26T20:06:00.000Z",
+  "size": 271432,
+  "rpath": "County Precincts/Louisa.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Lucas.zip",
+  "name": "Lucas.zip",
+  "isDir": false,
+  "date": "2011-11-30T20:21:00.000Z",
+  "size": 281283,
+  "rpath": "County Precincts/Lucas.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Lyon.zip",
+  "name": "Lyon.zip",
+  "isDir": false,
+  "date": "2011-11-02T16:45:00.000Z",
+  "size": 285494,
+  "rpath": "County Precincts/Lyon.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Madison.zip",
+  "name": "Madison.zip",
+  "isDir": false,
+  "date": "2022-01-13T20:31:00.000Z",
+  "size": 36521,
+  "rpath": "County Precincts/Madison.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Mahaska.zip",
+  "name": "Mahaska.zip",
+  "isDir": false,
+  "date": "2011-10-24T21:13:00.000Z",
+  "size": 301770,
+  "rpath": "County Precincts/Mahaska.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Marion.zip",
+  "name": "Marion.zip",
+  "isDir": false,
+  "date": "2011-10-14T21:08:00.000Z",
+  "size": 323657,
+  "rpath": "County Precincts/Marion.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Marshall.zip",
+  "name": "Marshall.zip",
+  "isDir": false,
+  "date": "2011-11-17T18:57:00.000Z",
+  "size": 307299,
+  "rpath": "County Precincts/Marshall.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Mills.zip",
+  "name": "Mills.zip",
+  "isDir": false,
+  "date": "2011-11-03T15:25:00.000Z",
+  "size": 273566,
+  "rpath": "County Precincts/Mills.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Mitchell.zip",
+  "name": "Mitchell.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:43:00.000Z",
+  "size": 279093,
+  "rpath": "County Precincts/Mitchell.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Monona.zip",
+  "name": "Monona.zip",
+  "isDir": false,
+  "date": "2011-11-21T19:20:00.000Z",
+  "size": 301230,
+  "rpath": "County Precincts/Monona.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Monroe.zip",
+  "name": "Monroe.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:46:00.000Z",
+  "size": 274255,
+  "rpath": "County Precincts/Monroe.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Montgomery.zip",
+  "name": "Montgomery.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:46:00.000Z",
+  "size": 275630,
+  "rpath": "County Precincts/Montgomery.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Muscatine.zip",
+  "name": "Muscatine.zip",
+  "isDir": false,
+  "date": "2011-11-03T18:17:00.000Z",
+  "size": 328813,
+  "rpath": "County Precincts/Muscatine.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/O'Brien.zip",
+  "name": "O'Brien.zip",
+  "isDir": false,
+  "date": "2011-11-02T16:45:00.000Z",
+  "size": 274800,
+  "rpath": "County Precincts/O'Brien.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Osceola.zip",
+  "name": "Osceola.zip",
+  "isDir": false,
+  "date": "2011-10-25T13:54:00.000Z",
+  "size": 272625,
+  "rpath": "County Precincts/Osceola.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Page 2013 Precincts.zip",
+  "name": "Page 2013 Precincts.zip",
+  "isDir": false,
+  "date": "2013-05-01T20:34:00.000Z",
+  "size": 272262,
+  "rpath": "County Precincts/Page 2013 Precincts.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Page.zip",
+  "name": "Page.zip",
+  "isDir": false,
+  "date": "2011-11-02T16:33:00.000Z",
+  "size": 278111,
+  "rpath": "County Precincts/Page.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Palo Alto.zip",
+  "name": "Palo Alto.zip",
+  "isDir": false,
+  "date": "2011-12-20T15:32:00.000Z",
+  "size": 272530,
+  "rpath": "County Precincts/Palo Alto.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Plymouth.zip",
+  "name": "Plymouth.zip",
+  "isDir": false,
+  "date": "2011-10-10T19:42:00.000Z",
+  "size": 311153,
+  "rpath": "County Precincts/Plymouth.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Pocahontas (2).zip",
+  "name": "Pocahontas (2).zip",
+  "isDir": false,
+  "date": "2012-01-05T15:42:00.000Z",
+  "size": 272202,
+  "rpath": "County Precincts/Pocahontas (2).zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Polk.zip",
+  "name": "Polk.zip",
+  "isDir": false,
+  "date": "2012-01-17T18:21:00.000Z",
+  "size": 447678,
+  "rpath": "County Precincts/Polk.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Pottawattamie.zip",
+  "name": "Pottawattamie.zip",
+  "isDir": false,
+  "date": "2011-09-15T18:43:00.000Z",
+  "size": 321888,
+  "rpath": "County Precincts/Pottawattamie.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Poweshiek.zip",
+  "name": "Poweshiek.zip",
+  "isDir": false,
+  "date": "2011-11-02T16:02:00.000Z",
+  "size": 280269,
+  "rpath": "County Precincts/Poweshiek.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Ringgold.zip",
+  "name": "Ringgold.zip",
+  "isDir": false,
+  "date": "2011-10-14T15:41:00.000Z",
+  "size": 276614,
+  "rpath": "County Precincts/Ringgold.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Sac.zip",
+  "name": "Sac.zip",
+  "isDir": false,
+  "date": "2011-10-26T19:29:00.000Z",
+  "size": 266575,
+  "rpath": "County Precincts/Sac.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Scott.zip",
+  "name": "Scott.zip",
+  "isDir": false,
+  "date": "2011-11-02T16:34:00.000Z",
+  "size": 353887,
+  "rpath": "County Precincts/Scott.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Shelby.zip",
+  "name": "Shelby.zip",
+  "isDir": false,
+  "date": "2011-11-21T19:20:00.000Z",
+  "size": 302799,
+  "rpath": "County Precincts/Shelby.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Sioux.zip",
+  "name": "Sioux.zip",
+  "isDir": false,
+  "date": "2011-10-20T13:27:00.000Z",
+  "size": 303372,
+  "rpath": "County Precincts/Sioux.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Story.zip",
+  "name": "Story.zip",
+  "isDir": false,
+  "date": "2011-11-03T15:38:00.000Z",
+  "size": 328623,
+  "rpath": "County Precincts/Story.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Tama.zip",
+  "name": "Tama.zip",
+  "isDir": false,
+  "date": "2011-09-30T15:50:00.000Z",
+  "size": 324437,
+  "rpath": "County Precincts/Tama.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Taylor.zip",
+  "name": "Taylor.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:46:00.000Z",
+  "size": 278195,
+  "rpath": "County Precincts/Taylor.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Union.zip",
+  "name": "Union.zip",
+  "isDir": false,
+  "date": "2011-10-19T20:15:00.000Z",
+  "size": 279477,
+  "rpath": "County Precincts/Union.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Van Buren.zip",
+  "name": "Van Buren.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:46:00.000Z",
+  "size": 274227,
+  "rpath": "County Precincts/Van Buren.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Wapello.zip",
+  "name": "Wapello.zip",
+  "isDir": false,
+  "date": "2011-10-04T16:18:00.000Z",
+  "size": 289552,
+  "rpath": "County Precincts/Wapello.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Warren precincts.zip",
+  "name": "Warren precincts.zip",
+  "isDir": false,
+  "date": "2011-12-21T17:59:00.000Z",
+  "size": 322775,
+  "rpath": "County Precincts/Warren precincts.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Washington.zip",
+  "name": "Washington.zip",
+  "isDir": false,
+  "date": "2011-10-19T16:42:00.000Z",
+  "size": 316109,
+  "rpath": "County Precincts/Washington.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Wayne.zip",
+  "name": "Wayne.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:47:00.000Z",
+  "size": 266548,
+  "rpath": "County Precincts/Wayne.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Webster.zip",
+  "name": "Webster.zip",
+  "isDir": false,
+  "date": "2011-11-17T19:08:00.000Z",
+  "size": 305024,
+  "rpath": "County Precincts/Webster.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Winnebago.zip",
+  "name": "Winnebago.zip",
+  "isDir": false,
+  "date": "2011-12-20T15:50:00.000Z",
+  "size": 562037,
+  "rpath": "County Precincts/Winnebago.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Winneshiek.zip",
+  "name": "Winneshiek.zip",
+  "isDir": false,
+  "date": "2011-10-20T13:25:00.000Z",
+  "size": 287452,
+  "rpath": "County Precincts/Winneshiek.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Woodbury.zip",
+  "name": "Woodbury.zip",
+  "isDir": false,
+  "date": "2011-10-20T20:00:00.000Z",
+  "size": 356020,
+  "rpath": "County Precincts/Woodbury.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Worth.zip",
+  "name": "Worth.zip",
+  "isDir": false,
+  "date": "2011-09-07T19:47:00.000Z",
+  "size": 264977,
+  "rpath": "County Precincts/Worth.zip"
+ },
+ {
+  "href": "/shapefiles/County Precincts/Wright.zip",
+  "name": "Wright.zip",
+  "isDir": false,
+  "date": "2011-12-29T21:18:00.000Z",
+  "size": 276162,
+  "rpath": "County Precincts/Wright.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Adair.zip",
+  "name": "Adair.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:12:00.000Z",
+  "size": 276214,
+  "rpath": "County Supervisor Districts/Adair.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Adams.zip",
+  "name": "Adams.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:12:00.000Z",
+  "size": 279164,
+  "rpath": "County Supervisor Districts/Adams.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Benton.zip",
+  "name": "Benton.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:12:00.000Z",
+  "size": 278812,
+  "rpath": "County Supervisor Districts/Benton.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Bremer.zip",
+  "name": "Bremer.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:12:00.000Z",
+  "size": 260031,
+  "rpath": "County Supervisor Districts/Bremer.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Buena Vista.zip",
+  "name": "Buena Vista.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:12:00.000Z",
+  "size": 288205,
+  "rpath": "County Supervisor Districts/Buena Vista.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Butler.zip",
+  "name": "Butler.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:12:00.000Z",
+  "size": 258115,
+  "rpath": "County Supervisor Districts/Butler.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Calhoun.zip",
+  "name": "Calhoun.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:13:00.000Z",
+  "size": 266336,
+  "rpath": "County Supervisor Districts/Calhoun.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Carroll.zip",
+  "name": "Carroll.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:13:00.000Z",
+  "size": 276120,
+  "rpath": "County Supervisor Districts/Carroll.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Cass.zip",
+  "name": "Cass.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:13:00.000Z",
+  "size": 266185,
+  "rpath": "County Supervisor Districts/Cass.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Cerro Gordo.zip",
+  "name": "Cerro Gordo.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:13:00.000Z",
+  "size": 284886,
+  "rpath": "County Supervisor Districts/Cerro Gordo.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Cherokee.zip",
+  "name": "Cherokee.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:13:00.000Z",
+  "size": 278671,
+  "rpath": "County Supervisor Districts/Cherokee.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Chickasaw.zip",
+  "name": "Chickasaw.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:13:00.000Z",
+  "size": 275537,
+  "rpath": "County Supervisor Districts/Chickasaw.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Clarke.zip",
+  "name": "Clarke.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:13:00.000Z",
+  "size": 263843,
+  "rpath": "County Supervisor Districts/Clarke.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Dallas.zip",
+  "name": "Dallas.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:13:00.000Z",
+  "size": 273051,
+  "rpath": "County Supervisor Districts/Dallas.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Delaware.zip",
+  "name": "Delaware.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:13:00.000Z",
+  "size": 278727,
+  "rpath": "County Supervisor Districts/Delaware.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Dickinson.zip",
+  "name": "Dickinson.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:13:00.000Z",
+  "size": 321002,
+  "rpath": "County Supervisor Districts/Dickinson.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Franklin.zip",
+  "name": "Franklin.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:14:00.000Z",
+  "size": 267251,
+  "rpath": "County Supervisor Districts/Franklin.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Greene.zip",
+  "name": "Greene.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:14:00.000Z",
+  "size": 274550,
+  "rpath": "County Supervisor Districts/Greene.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Grundy.zip",
+  "name": "Grundy.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:14:00.000Z",
+  "size": 257227,
+  "rpath": "County Supervisor Districts/Grundy.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Guthrie.zip",
+  "name": "Guthrie.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:14:00.000Z",
+  "size": 279231,
+  "rpath": "County Supervisor Districts/Guthrie.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Hamilton.zip",
+  "name": "Hamilton.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:14:00.000Z",
+  "size": 273670,
+  "rpath": "County Supervisor Districts/Hamilton.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Humboldt.zip",
+  "name": "Humboldt.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:14:00.000Z",
+  "size": 266086,
+  "rpath": "County Supervisor Districts/Humboldt.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Ida.zip",
+  "name": "Ida.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:14:00.000Z",
+  "size": 263252,
+  "rpath": "County Supervisor Districts/Ida.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Jackson.zip",
+  "name": "Jackson.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:14:00.000Z",
+  "size": 281060,
+  "rpath": "County Supervisor Districts/Jackson.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Jones.zip",
+  "name": "Jones.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:14:00.000Z",
+  "size": 282628,
+  "rpath": "County Supervisor Districts/Jones.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Kossuth.zip",
+  "name": "Kossuth.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:14:00.000Z",
+  "size": 275958,
+  "rpath": "County Supervisor Districts/Kossuth.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Lee.zip",
+  "name": "Lee.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:14:00.000Z",
+  "size": 289918,
+  "rpath": "County Supervisor Districts/Lee.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Linn.zip",
+  "name": "Linn.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:15:00.000Z",
+  "size": 278897,
+  "rpath": "County Supervisor Districts/Linn.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Lyon.zip",
+  "name": "Lyon.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:15:00.000Z",
+  "size": 284182,
+  "rpath": "County Supervisor Districts/Lyon.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Mitchell.zip",
+  "name": "Mitchell.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:15:00.000Z",
+  "size": 267600,
+  "rpath": "County Supervisor Districts/Mitchell.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Monona.zip",
+  "name": "Monona.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:15:00.000Z",
+  "size": 284215,
+  "rpath": "County Supervisor Districts/Monona.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Montgomery.zip",
+  "name": "Montgomery.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:15:00.000Z",
+  "size": 274271,
+  "rpath": "County Supervisor Districts/Montgomery.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Muscatine.zip",
+  "name": "Muscatine.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:15:00.000Z",
+  "size": 283049,
+  "rpath": "County Supervisor Districts/Muscatine.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/OBrien.zip",
+  "name": "OBrien.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:15:00.000Z",
+  "size": 274062,
+  "rpath": "County Supervisor Districts/OBrien.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Osceola.zip",
+  "name": "Osceola.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:15:00.000Z",
+  "size": 268984,
+  "rpath": "County Supervisor Districts/Osceola.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Page.zip",
+  "name": "Page.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:15:00.000Z",
+  "size": 266495,
+  "rpath": "County Supervisor Districts/Page.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Palo Alto.zip",
+  "name": "Palo Alto.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:16:00.000Z",
+  "size": 275771,
+  "rpath": "County Supervisor Districts/Palo Alto.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Plymouth.zip",
+  "name": "Plymouth.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:17:00.000Z",
+  "size": 286206,
+  "rpath": "County Supervisor Districts/Plymouth.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Pocahontas.zip",
+  "name": "Pocahontas.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:17:00.000Z",
+  "size": 266947,
+  "rpath": "County Supervisor Districts/Pocahontas.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Polk.zip",
+  "name": "Polk.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:17:00.000Z",
+  "size": 304864,
+  "rpath": "County Supervisor Districts/Polk.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Sac.zip",
+  "name": "Sac.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:17:00.000Z",
+  "size": 261829,
+  "rpath": "County Supervisor Districts/Sac.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Sioux.zip",
+  "name": "Sioux.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:17:00.000Z",
+  "size": 291779,
+  "rpath": "County Supervisor Districts/Sioux.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Tama.zip",
+  "name": "Tama.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:17:00.000Z",
+  "size": 287879,
+  "rpath": "County Supervisor Districts/Tama.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Taylor.zip",
+  "name": "Taylor.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:17:00.000Z",
+  "size": 272778,
+  "rpath": "County Supervisor Districts/Taylor.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Union.zip",
+  "name": "Union.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:17:00.000Z",
+  "size": 272289,
+  "rpath": "County Supervisor Districts/Union.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Warren.zip",
+  "name": "Warren.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:17:00.000Z",
+  "size": 287857,
+  "rpath": "County Supervisor Districts/Warren.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Washington.zip",
+  "name": "Washington.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:17:00.000Z",
+  "size": 303914,
+  "rpath": "County Supervisor Districts/Washington.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Webster.zip",
+  "name": "Webster.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:17:00.000Z",
+  "size": 279118,
+  "rpath": "County Supervisor Districts/Webster.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Winnebago.zip",
+  "name": "Winnebago.zip",
+  "isDir": false,
+  "date": "2012-05-31T18:27:00.000Z",
+  "size": 268282,
+  "rpath": "County Supervisor Districts/Winnebago.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Winneshiek.zip",
+  "name": "Winneshiek.zip",
+  "isDir": false,
+  "date": "2011-10-20T13:24:00.000Z",
+  "size": 279910,
+  "rpath": "County Supervisor Districts/Winneshiek.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Woodbury.zip",
+  "name": "Woodbury.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:18:00.000Z",
+  "size": 298930,
+  "rpath": "County Supervisor Districts/Woodbury.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Worth.zip",
+  "name": "Worth.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:18:00.000Z",
+  "size": 262133,
+  "rpath": "County Supervisor Districts/Worth.zip"
+ },
+ {
+  "href": "/shapefiles/County Supervisor Districts/Wright.zip",
+  "name": "Wright.zip",
+  "isDir": false,
+  "date": "2012-05-11T19:18:00.000Z",
+  "size": 540046,
+  "rpath": "County Supervisor Districts/Wright.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/A-H-S-T.zip",
+  "name": "A-H-S-T.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:09:00.000Z",
+  "size": 270319,
+  "rpath": "School Director Districts/A-H-S-T.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/AGWSR.zip",
+  "name": "AGWSR.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:08:00.000Z",
+  "size": 265339,
+  "rpath": "School Director Districts/AGWSR.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Akron-Westfield.zip",
+  "name": "Akron-Westfield.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:09:00.000Z",
+  "size": 274115,
+  "rpath": "School Director Districts/Akron-Westfield.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Albia.zip",
+  "name": "Albia.zip",
+  "isDir": false,
+  "date": "2012-08-10T19:40:00.000Z",
+  "size": 290232,
+  "rpath": "School Director Districts/Albia.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Allamakee.zip",
+  "name": "Allamakee.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:09:00.000Z",
+  "size": 294075,
+  "rpath": "School Director Districts/Allamakee.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Armstrong-Ringsted.zip",
+  "name": "Armstrong-Ringsted.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:09:00.000Z",
+  "size": 258788,
+  "rpath": "School Director Districts/Armstrong-Ringsted.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Ballard.zip",
+  "name": "Ballard.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:09:00.000Z",
+  "size": 258529,
+  "rpath": "School Director Districts/Ballard.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Battle Creek-Ida Grove.zip",
+  "name": "Battle Creek-Ida Grove.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:09:00.000Z",
+  "size": 273583,
+  "rpath": "School Director Districts/Battle Creek-Ida Grove.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Bedford 7-1-2014.zip",
+  "name": "Bedford 7-1-2014.zip",
+  "isDir": false,
+  "date": "2014-05-27T19:22:00.000Z",
+  "size": 285240,
+  "rpath": "School Director Districts/Bedford 7-1-2014.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Bedford.zip",
+  "name": "Bedford.zip",
+  "isDir": false,
+  "date": "2012-03-02T22:21:00.000Z",
+  "size": 296666,
+  "rpath": "School Director Districts/Bedford.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Belmond-Klemme.zip",
+  "name": "Belmond-Klemme.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:09:00.000Z",
+  "size": 273189,
+  "rpath": "School Director Districts/Belmond-Klemme.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Benton.zip",
+  "name": "Benton.zip",
+  "isDir": false,
+  "date": "2012-07-20T19:46:00.000Z",
+  "size": 275406,
+  "rpath": "School Director Districts/Benton.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Boyden-Hull.zip",
+  "name": "Boyden-Hull.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:10:00.000Z",
+  "size": 2792603,
+  "rpath": "School Director Districts/Boyden-Hull.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Boyer Valley.zip",
+  "name": "Boyer Valley.zip",
+  "isDir": false,
+  "date": "2012-07-11T17:06:00.000Z",
+  "size": 272492,
+  "rpath": "School Director Districts/Boyer Valley.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/CAL.zip",
+  "name": "CAL.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:10:00.000Z",
+  "size": 254901,
+  "rpath": "School Director Districts/CAL.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Calamus Wheatland.zip",
+  "name": "Calamus Wheatland.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:10:00.000Z",
+  "size": 270418,
+  "rpath": "School Director Districts/Calamus Wheatland.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/CAM.zip",
+  "name": "CAM.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:10:00.000Z",
+  "size": 267938,
+  "rpath": "School Director Districts/CAM.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Carlisle.zip",
+  "name": "Carlisle.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:10:00.000Z",
+  "size": 270157,
+  "rpath": "School Director Districts/Carlisle.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Cedar Rapids.zip",
+  "name": "Cedar Rapids.zip",
+  "isDir": false,
+  "date": "2012-07-13T13:45:00.000Z",
+  "size": 264202,
+  "rpath": "School Director Districts/Cedar Rapids.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Center Point-Urbana.zip",
+  "name": "Center Point-Urbana.zip",
+  "isDir": false,
+  "date": "2014-07-02T16:02:00.000Z",
+  "size": 260131,
+  "rpath": "School Director Districts/Center Point-Urbana.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Central Decatur 7-1-14.zip",
+  "name": "Central Decatur 7-1-14.zip",
+  "isDir": false,
+  "date": "2014-07-02T16:04:00.000Z",
+  "size": 271233,
+  "rpath": "School Director Districts/Central Decatur 7-1-14.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Central Decatur.zip",
+  "name": "Central Decatur.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:11:00.000Z",
+  "size": 274793,
+  "rpath": "School Director Districts/Central Decatur.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Central Lee.zip",
+  "name": "Central Lee.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:11:00.000Z",
+  "size": 289493,
+  "rpath": "School Director Districts/Central Lee.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Central Springs.zip",
+  "name": "Central Springs.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:11:00.000Z",
+  "size": 261740,
+  "rpath": "School Director Districts/Central Springs.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Chariton.zip",
+  "name": "Chariton.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:11:00.000Z",
+  "size": 294470,
+  "rpath": "School Director Districts/Chariton.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Charter Oak-Ute.zip",
+  "name": "Charter Oak-Ute.zip",
+  "isDir": false,
+  "date": "2012-07-11T17:06:00.000Z",
+  "size": 273348,
+  "rpath": "School Director Districts/Charter Oak-Ute.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Clarion-Golfield.zip",
+  "name": "Clarion-Golfield.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:11:00.000Z",
+  "size": 273302,
+  "rpath": "School Director Districts/Clarion-Golfield.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Clarke.zip",
+  "name": "Clarke.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:11:00.000Z",
+  "size": 274752,
+  "rpath": "School Director Districts/Clarke.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Clay Central-Everly.zip",
+  "name": "Clay Central-Everly.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:11:00.000Z",
+  "size": 267346,
+  "rpath": "School Director Districts/Clay Central-Everly.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Clear Creek Amana.zip",
+  "name": "Clear Creek Amana.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:11:00.000Z",
+  "size": 278143,
+  "rpath": "School Director Districts/Clear Creek Amana.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Colfax-Mingo.zip",
+  "name": "Colfax-Mingo.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:12:00.000Z",
+  "size": 268272,
+  "rpath": "School Director Districts/Colfax-Mingo.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/College.zip",
+  "name": "College.zip",
+  "isDir": false,
+  "date": "2012-05-09T15:09:00.000Z",
+  "size": 271905,
+  "rpath": "School Director Districts/College.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Collins Maxwell.zip",
+  "name": "Collins Maxwell.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:12:00.000Z",
+  "size": 261602,
+  "rpath": "School Director Districts/Collins Maxwell.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/CollinsMaxwell2013.zip",
+  "name": "CollinsMaxwell2013.zip",
+  "isDir": false,
+  "date": "2013-01-04T15:25:00.000Z",
+  "size": 254955,
+  "rpath": "School Director Districts/CollinsMaxwell2013.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Colo-Nesco.zip",
+  "name": "Colo-Nesco.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:12:00.000Z",
+  "size": 262207,
+  "rpath": "School Director Districts/Colo-Nesco.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Coon Rapids-Bayard.zip",
+  "name": "Coon Rapids-Bayard.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:12:00.000Z",
+  "size": 270381,
+  "rpath": "School Director Districts/Coon Rapids-Bayard.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Corning.zip",
+  "name": "Corning.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:13:00.000Z",
+  "size": 273552,
+  "rpath": "School Director Districts/Corning.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Dallas Center-Grimes.zip",
+  "name": "Dallas Center-Grimes.zip",
+  "isDir": false,
+  "date": "2012-03-22T17:13:00.000Z",
+  "size": 258099,
+  "rpath": "School Director Districts/Dallas Center-Grimes.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Davis County.zip",
+  "name": "Davis County.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:20:00.000Z",
+  "size": 296983,
+  "rpath": "School Director Districts/Davis County.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Delwood.zip",
+  "name": "Delwood.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:20:00.000Z",
+  "size": 264737,
+  "rpath": "School Director Districts/Delwood.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Des Moines.zip",
+  "name": "Des Moines.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:20:00.000Z",
+  "size": 264949,
+  "rpath": "School Director Districts/Des Moines.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Dike-New Hartford.zip",
+  "name": "Dike-New Hartford.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:21:00.000Z",
+  "size": 257717,
+  "rpath": "School Director Districts/Dike-New Hartford.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/East Buchanan.zip",
+  "name": "East Buchanan.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:21:00.000Z",
+  "size": 265873,
+  "rpath": "School Director Districts/East Buchanan.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/East Marshall.zip",
+  "name": "East Marshall.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:21:00.000Z",
+  "size": 275590,
+  "rpath": "School Director Districts/East Marshall.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/East Mills.zip",
+  "name": "East Mills.zip",
+  "isDir": false,
+  "date": "2012-07-23T13:15:00.000Z",
+  "size": 261872,
+  "rpath": "School Director Districts/East Mills.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/East Union.zip",
+  "name": "East Union.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:21:00.000Z",
+  "size": 276792,
+  "rpath": "School Director Districts/East Union.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Eastern Allamakee.zip",
+  "name": "Eastern Allamakee.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:21:00.000Z",
+  "size": 272374,
+  "rpath": "School Director Districts/Eastern Allamakee.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Eddyville-Blakesburg-Fremont.zip",
+  "name": "Eddyville-Blakesburg-Fremont.zip",
+  "isDir": false,
+  "date": "2012-08-09T21:21:00.000Z",
+  "size": 298198,
+  "rpath": "School Director Districts/Eddyville-Blakesburg-Fremont.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Eldora-New Providence.zip",
+  "name": "Eldora-New Providence.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:21:00.000Z",
+  "size": 271427,
+  "rpath": "School Director Districts/Eldora-New Providence.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Elk-Horn Kimballton.zip",
+  "name": "Elk-Horn Kimballton.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:21:00.000Z",
+  "size": 265606,
+  "rpath": "School Director Districts/Elk-Horn Kimballton.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Forest City-Woden-Crystal Lake.zip",
+  "name": "Forest City-Woden-Crystal Lake.zip",
+  "isDir": false,
+  "date": "2013-03-07T20:16:00.000Z",
+  "size": 298044,
+  "rpath": "School Director Districts/Forest City-Woden-Crystal Lake.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Forest City.zip",
+  "name": "Forest City.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:21:00.000Z",
+  "size": 267773,
+  "rpath": "School Director Districts/Forest City.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Fremont Mills.zip",
+  "name": "Fremont Mills.zip",
+  "isDir": false,
+  "date": "2012-07-23T13:15:00.000Z",
+  "size": 264209,
+  "rpath": "School Director Districts/Fremont Mills.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Galva-Holstein.zip",
+  "name": "Galva-Holstein.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:21:00.000Z",
+  "size": 262798,
+  "rpath": "School Director Districts/Galva-Holstein.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/George-Little Rock.zip",
+  "name": "George-Little Rock.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:22:00.000Z",
+  "size": 265878,
+  "rpath": "School Director Districts/George-Little Rock.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/GMG.zip",
+  "name": "GMG.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:25:00.000Z",
+  "size": 260670,
+  "rpath": "School Director Districts/GMG.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Graettinger-Terril.zip",
+  "name": "Graettinger-Terril.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:26:00.000Z",
+  "size": 265876,
+  "rpath": "School Director Districts/Graettinger-Terril.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Grinnell Newburg.zip",
+  "name": "Grinnell Newburg.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:26:00.000Z",
+  "size": 260489,
+  "rpath": "School Director Districts/Grinnell Newburg.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Griswold.zip",
+  "name": "Griswold.zip",
+  "isDir": false,
+  "date": "2012-07-23T13:15:00.000Z",
+  "size": 277839,
+  "rpath": "School Director Districts/Griswold.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Hampton-Dumont.zip",
+  "name": "Hampton-Dumont.zip",
+  "isDir": false,
+  "date": "2012-12-13T21:35:00.000Z",
+  "size": 257099,
+  "rpath": "School Director Districts/Hampton-Dumont.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Harlan.zip",
+  "name": "Harlan.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:26:00.000Z",
+  "size": 284776,
+  "rpath": "School Director Districts/Harlan.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Harmony.zip",
+  "name": "Harmony.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:26:00.000Z",
+  "size": 300172,
+  "rpath": "School Director Districts/Harmony.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Harris-Lake Park.zip",
+  "name": "Harris-Lake Park.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:26:00.000Z",
+  "size": 259805,
+  "rpath": "School Director Districts/Harris-Lake Park.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Hartley-Melvin-Sanborn.zip",
+  "name": "Hartley-Melvin-Sanborn.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:27:00.000Z",
+  "size": 268183,
+  "rpath": "School Director Districts/Hartley-Melvin-Sanborn.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Highland.zip",
+  "name": "Highland.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:27:00.000Z",
+  "size": 275357,
+  "rpath": "School Director Districts/Highland.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Howard-Winneshiek.zip",
+  "name": "Howard-Winneshiek.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:27:00.000Z",
+  "size": 275940,
+  "rpath": "School Director Districts/Howard-Winneshiek.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Hubbard-Radcliffe.zip",
+  "name": "Hubbard-Radcliffe.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:27:00.000Z",
+  "size": 264922,
+  "rpath": "School Director Districts/Hubbard-Radcliffe.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Humboldt.zip",
+  "name": "Humboldt.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:27:00.000Z",
+  "size": 267280,
+  "rpath": "School Director Districts/Humboldt.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/IKM-Manning.zip",
+  "name": "IKM-Manning.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:27:00.000Z",
+  "size": 273743,
+  "rpath": "School Director Districts/IKM-Manning.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Independence.zip",
+  "name": "Independence.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:28:00.000Z",
+  "size": 272186,
+  "rpath": "School Director Districts/Independence.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Interstate 35.zip",
+  "name": "Interstate 35.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:28:00.000Z",
+  "size": 272639,
+  "rpath": "School Director Districts/Interstate 35.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Keota.zip",
+  "name": "Keota.zip",
+  "isDir": false,
+  "date": "2012-12-13T21:35:00.000Z",
+  "size": 266511,
+  "rpath": "School Director Districts/Keota.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Lake Mills.zip",
+  "name": "Lake Mills.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:28:00.000Z",
+  "size": 261495,
+  "rpath": "School Director Districts/Lake Mills.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Lawton-Bronson.zip",
+  "name": "Lawton-Bronson.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:28:00.000Z",
+  "size": 262559,
+  "rpath": "School Director Districts/Lawton-Bronson.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Le Mars.zip",
+  "name": "Le Mars.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:28:00.000Z",
+  "size": 281361,
+  "rpath": "School Director Districts/Le Mars.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Lewis Central.zip",
+  "name": "Lewis Central.zip",
+  "isDir": false,
+  "date": "2012-07-23T13:15:00.000Z",
+  "size": 258603,
+  "rpath": "School Director Districts/Lewis Central.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Manson Northwest Webster.zip",
+  "name": "Manson Northwest Webster.zip",
+  "isDir": false,
+  "date": "2012-07-11T17:11:00.000Z",
+  "size": 262402,
+  "rpath": "School Director Districts/Manson Northwest Webster.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Maple Valley - Anthon Oto.zip",
+  "name": "Maple Valley - Anthon Oto.zip",
+  "isDir": false,
+  "date": "2012-07-11T17:05:00.000Z",
+  "size": 290750,
+  "rpath": "School Director Districts/Maple Valley - Anthon Oto.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Maquoketa Valley.zip",
+  "name": "Maquoketa Valley.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:29:00.000Z",
+  "size": 272139,
+  "rpath": "School Director Districts/Maquoketa Valley.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Marcus Meriden Cleghorn.zip",
+  "name": "Marcus Meriden Cleghorn.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:29:00.000Z",
+  "size": 270973,
+  "rpath": "School Director Districts/Marcus Meriden Cleghorn.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Martensdale-St Marys.zip",
+  "name": "Martensdale-St Marys.zip",
+  "isDir": false,
+  "date": "2012-07-05T20:02:00.000Z",
+  "size": 264983,
+  "rpath": "School Director Districts/Martensdale-St Marys.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Mediapolis.zip",
+  "name": "Mediapolis.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:30:00.000Z",
+  "size": 272396,
+  "rpath": "School Director Districts/Mediapolis.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/MOC-Floyd Valley.zip",
+  "name": "MOC-Floyd Valley.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:30:00.000Z",
+  "size": 276376,
+  "rpath": "School Director Districts/MOC-Floyd Valley.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Moravia.zip",
+  "name": "Moravia.zip",
+  "isDir": false,
+  "date": "2012-08-10T19:40:00.000Z",
+  "size": 337257,
+  "rpath": "School Director Districts/Moravia.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Mount Ayr 7-1-14.zip",
+  "name": "Mount Ayr 7-1-14.zip",
+  "isDir": false,
+  "date": "2014-03-31T14:57:00.000Z",
+  "size": 305241,
+  "rpath": "School Director Districts/Mount Ayr 7-1-14.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Mount Ayr.zip",
+  "name": "Mount Ayr.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:30:00.000Z",
+  "size": 284929,
+  "rpath": "School Director Districts/Mount Ayr.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Mount Pleasant.zip",
+  "name": "Mount Pleasant.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:30:00.000Z",
+  "size": 267786,
+  "rpath": "School Director Districts/Mount Pleasant.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Nashua-Plainfield.zip",
+  "name": "Nashua-Plainfield.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:30:00.000Z",
+  "size": 256750,
+  "rpath": "School Director Districts/Nashua-Plainfield.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/New Hampton.zip",
+  "name": "New Hampton.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:30:00.000Z",
+  "size": 272761,
+  "rpath": "School Director Districts/New Hampton.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Newell-Fonda.zip",
+  "name": "Newell-Fonda.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:30:00.000Z",
+  "size": 262144,
+  "rpath": "School Director Districts/Newell-Fonda.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Nodaway Valley.zip",
+  "name": "Nodaway Valley.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:31:00.000Z",
+  "size": 269171,
+  "rpath": "School Director Districts/Nodaway Valley.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/North Butler.zip",
+  "name": "North Butler.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:31:00.000Z",
+  "size": 261021,
+  "rpath": "School Director Districts/North Butler.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/North Cedar.zip",
+  "name": "North Cedar.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:31:00.000Z",
+  "size": 267553,
+  "rpath": "School Director Districts/North Cedar.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/North Fayette.zip",
+  "name": "North Fayette.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:31:00.000Z",
+  "size": 267259,
+  "rpath": "School Director Districts/North Fayette.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/North Iowa.zip",
+  "name": "North Iowa.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:31:00.000Z",
+  "size": 271017,
+  "rpath": "School Director Districts/North Iowa.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/North Kossuth.zip",
+  "name": "North Kossuth.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:31:00.000Z",
+  "size": 254166,
+  "rpath": "School Director Districts/North Kossuth.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/North Linn.zip",
+  "name": "North Linn.zip",
+  "isDir": false,
+  "date": "2012-05-09T15:09:00.000Z",
+  "size": 259896,
+  "rpath": "School Director Districts/North Linn.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/North Mahaska.zip",
+  "name": "North Mahaska.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:31:00.000Z",
+  "size": 276452,
+  "rpath": "School Director Districts/North Mahaska.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/North Tama.zip",
+  "name": "North Tama.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:31:00.000Z",
+  "size": 272937,
+  "rpath": "School Director Districts/North Tama.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/North Union 7-1-14.zip",
+  "name": "North Union 7-1-14.zip",
+  "isDir": false,
+  "date": "2014-04-15T20:07:00.000Z",
+  "size": 260968,
+  "rpath": "School Director Districts/North Union 7-1-14.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/North Winneshiek.zip",
+  "name": "North Winneshiek.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:31:00.000Z",
+  "size": 275934,
+  "rpath": "School Director Districts/North Winneshiek.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Northeast Hamilton.zip",
+  "name": "Northeast Hamilton.zip",
+  "isDir": false,
+  "date": "2012-12-13T21:35:00.000Z",
+  "size": 264029,
+  "rpath": "School Director Districts/Northeast Hamilton.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Orient-Macksburg.zip",
+  "name": "Orient-Macksburg.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:31:00.000Z",
+  "size": 263569,
+  "rpath": "School Director Districts/Orient-Macksburg.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Oskaloosa.zip",
+  "name": "Oskaloosa.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:31:00.000Z",
+  "size": 300365,
+  "rpath": "School Director Districts/Oskaloosa.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Panorama.zip",
+  "name": "Panorama.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:32:00.000Z",
+  "size": 263513,
+  "rpath": "School Director Districts/Panorama.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/PCM.zip",
+  "name": "PCM.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:32:00.000Z",
+  "size": 276654,
+  "rpath": "School Director Districts/PCM.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Pekin.zip",
+  "name": "Pekin.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:32:00.000Z",
+  "size": 321027,
+  "rpath": "School Director Districts/Pekin.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Pella.zip",
+  "name": "Pella.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:32:00.000Z",
+  "size": 277548,
+  "rpath": "School Director Districts/Pella.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Pleasant Valley.zip",
+  "name": "Pleasant Valley.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:32:00.000Z",
+  "size": 257249,
+  "rpath": "School Director Districts/Pleasant Valley.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Pocahontas Area.zip",
+  "name": "Pocahontas Area.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:32:00.000Z",
+  "size": 271976,
+  "rpath": "School Director Districts/Pocahontas Area.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Prairie Valley.zip",
+  "name": "Prairie Valley.zip",
+  "isDir": false,
+  "date": "2012-07-11T17:10:00.000Z",
+  "size": 260524,
+  "rpath": "School Director Districts/Prairie Valley.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Remsen-Union.zip",
+  "name": "Remsen-Union.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:32:00.000Z",
+  "size": 273768,
+  "rpath": "School Director Districts/Remsen-Union.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Riceville.zip",
+  "name": "Riceville.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:33:00.000Z",
+  "size": 264660,
+  "rpath": "School Director Districts/Riceville.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/River Valley.zip",
+  "name": "River Valley.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:33:00.000Z",
+  "size": 272236,
+  "rpath": "School Director Districts/River Valley.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Riverside.zip",
+  "name": "Riverside.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:33:00.000Z",
+  "size": 284281,
+  "rpath": "School Director Districts/Riverside.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Schaller-Crestland.zip",
+  "name": "Schaller-Crestland.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:33:00.000Z",
+  "size": 256931,
+  "rpath": "School Director Districts/Schaller-Crestland.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Sheldon.zip",
+  "name": "Sheldon.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:33:00.000Z",
+  "size": 259284,
+  "rpath": "School Director Districts/Sheldon.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Sibley-Ocheyedan.zip",
+  "name": "Sibley-Ocheyedan.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:34:00.000Z",
+  "size": 261591,
+  "rpath": "School Director Districts/Sibley-Ocheyedan.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Sigourney.zip",
+  "name": "Sigourney.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:34:00.000Z",
+  "size": 323540,
+  "rpath": "School Director Districts/Sigourney.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Sioux Central.zip",
+  "name": "Sioux Central.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:34:00.000Z",
+  "size": 326679,
+  "rpath": "School Director Districts/Sioux Central.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/South Central Calhoun 7-2014.zip",
+  "name": "South Central Calhoun 7-2014.zip",
+  "isDir": false,
+  "date": "2013-05-03T19:15:00.000Z",
+  "size": 271486,
+  "rpath": "School Director Districts/South Central Calhoun 7-2014.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/South Hamilton.zip",
+  "name": "South Hamilton.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:34:00.000Z",
+  "size": 272501,
+  "rpath": "School Director Districts/South Hamilton.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/South O'Brien.zip",
+  "name": "South O'Brien.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:34:00.000Z",
+  "size": 272653,
+  "rpath": "School Director Districts/South O'Brien.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/South Page.zip",
+  "name": "South Page.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:34:00.000Z",
+  "size": 263360,
+  "rpath": "School Director Districts/South Page.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/South Tama.zip",
+  "name": "South Tama.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:35:00.000Z",
+  "size": 281710,
+  "rpath": "School Director Districts/South Tama.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/South Winneshiek.zip",
+  "name": "South Winneshiek.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:42:00.000Z",
+  "size": 277472,
+  "rpath": "School Director Districts/South Winneshiek.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Southeast Warren.zip",
+  "name": "Southeast Warren.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:42:00.000Z",
+  "size": 268915,
+  "rpath": "School Director Districts/Southeast Warren.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Southeast-Webster Grand.zip",
+  "name": "Southeast-Webster Grand.zip",
+  "isDir": false,
+  "date": "2012-07-11T17:09:00.000Z",
+  "size": 267499,
+  "rpath": "School Director Districts/Southeast-Webster Grand.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/St Ansgar.zip",
+  "name": "St Ansgar.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:44:00.000Z",
+  "size": 268250,
+  "rpath": "School Director Districts/St Ansgar.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Turkey Valley.zip",
+  "name": "Turkey Valley.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:44:00.000Z",
+  "size": 270666,
+  "rpath": "School Director Districts/Turkey Valley.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Twin Cedars.zip",
+  "name": "Twin Cedars.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:44:00.000Z",
+  "size": 284894,
+  "rpath": "School Director Districts/Twin Cedars.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Twin Rivers.zip",
+  "name": "Twin Rivers.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:44:00.000Z",
+  "size": 254331,
+  "rpath": "School Director Districts/Twin Rivers.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Union.zip",
+  "name": "Union.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:44:00.000Z",
+  "size": 283453,
+  "rpath": "School Director Districts/Union.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/United.zip",
+  "name": "United.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:44:00.000Z",
+  "size": 261473,
+  "rpath": "School Director Districts/United.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Van Buren.zip",
+  "name": "Van Buren.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:44:00.000Z",
+  "size": 290667,
+  "rpath": "School Director Districts/Van Buren.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Vinton Shellsburg.zip",
+  "name": "Vinton Shellsburg.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:44:00.000Z",
+  "size": 262983,
+  "rpath": "School Director Districts/Vinton Shellsburg.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/WACO.zip",
+  "name": "WACO.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:45:00.000Z",
+  "size": 263576,
+  "rpath": "School Director Districts/WACO.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Wapsie Valley.zip",
+  "name": "Wapsie Valley.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:45:00.000Z",
+  "size": 274098,
+  "rpath": "School Director Districts/Wapsie Valley.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Washington.zip",
+  "name": "Washington.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:45:00.000Z",
+  "size": 289944,
+  "rpath": "School Director Districts/Washington.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Waterloo.zip",
+  "name": "Waterloo.zip",
+  "isDir": false,
+  "date": "2012-07-10T19:36:00.000Z",
+  "size": 291007,
+  "rpath": "School Director Districts/Waterloo.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Waverly-Shell Rock.zip",
+  "name": "Waverly-Shell Rock.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:45:00.000Z",
+  "size": 264526,
+  "rpath": "School Director Districts/Waverly-Shell Rock.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/West Central Valley.zip",
+  "name": "West Central Valley.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:45:00.000Z",
+  "size": 274458,
+  "rpath": "School Director Districts/West Central Valley.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/West Central.zip",
+  "name": "West Central.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:45:00.000Z",
+  "size": 258612,
+  "rpath": "School Director Districts/West Central.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/West Delaware County.zip",
+  "name": "West Delaware County.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:45:00.000Z",
+  "size": 275742,
+  "rpath": "School Director Districts/West Delaware County.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/West Fork.zip",
+  "name": "West Fork.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:45:00.000Z",
+  "size": 268864,
+  "rpath": "School Director Districts/West Fork.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/West Hancock.zip",
+  "name": "West Hancock.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:45:00.000Z",
+  "size": 265059,
+  "rpath": "School Director Districts/West Hancock.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/West Harrison.zip",
+  "name": "West Harrison.zip",
+  "isDir": false,
+  "date": "2012-07-11T17:07:00.000Z",
+  "size": 279334,
+  "rpath": "School Director Districts/West Harrison.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/West Lyon.zip",
+  "name": "West Lyon.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:46:00.000Z",
+  "size": 262068,
+  "rpath": "School Director Districts/West Lyon.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/West Monona.zip",
+  "name": "West Monona.zip",
+  "isDir": false,
+  "date": "2012-07-11T17:06:00.000Z",
+  "size": 270639,
+  "rpath": "School Director Districts/West Monona.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/West Sioux.zip",
+  "name": "West Sioux.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:46:00.000Z",
+  "size": 264143,
+  "rpath": "School Director Districts/West Sioux.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Western Dubuque.zip",
+  "name": "Western Dubuque.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:46:00.000Z",
+  "size": 301286,
+  "rpath": "School Director Districts/Western Dubuque.zip"
+ },
+ {
+  "href": "/shapefiles/School Director Districts/Woodward-Granger.zip",
+  "name": "Woodward-Granger.zip",
+  "isDir": false,
+  "date": "2012-09-24T20:46:00.000Z",
+  "size": 259907,
+  "rpath": "School Director Districts/Woodward-Granger.zip"
+ },
+ {
+  "href": "/shapefiles/Statewide Precinct Layer/pcts_04172014_0908am.zip",
+  "name": "pcts_04172014_0908am.zip",
+  "isDir": false,
+  "date": "2014-04-17T14:16:00.000Z",
+  "size": 4618798,
+  "rpath": "Statewide Precinct Layer/pcts_04172014_0908am.zip"
+ }
+]

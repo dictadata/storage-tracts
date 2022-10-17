@@ -92,5 +92,26 @@
       },
       "output": "./data/output/fs/transform.csv"
     }
+  },
+  "list_trim": {
+    "action": "transfer",
+    "description": "select fields in directory list",
+    "origin": {
+      "smt": "json|./data/input/|file_list.json|*"
+    },
+    "transforms": {
+      "select": {
+        "fields": [
+          "rpath",
+          "name",
+          "size",
+          "date"
+        ]
+      }
+    },
+    "terminal": {
+      "smt": "json|./data/output/fs/|file_list_trim.json|*",
+      "output": "./data/output/fs/file_list_trim.json"
+    }
   }
 }
