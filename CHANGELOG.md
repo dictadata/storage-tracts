@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.5.4
+  - feature: add variables section to config file for simple text replacements in tracts file.
 - version 2.5.3
   - feature: add CLI argument -c for config file, e.g. "-c dev" for "storage-etl.dev.json"
 - version 2.5.2

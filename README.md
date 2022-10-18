@@ -64,6 +64,9 @@ Default configuration settings can be specified in a _config tract in **storage-
     "plugins": {
       "filesystems": [],
       "junctions": []
+    },
+    "variables": {
+      "name1": "value1"
     }
   }
 }
@@ -183,6 +186,41 @@ Note, in the tract below the action is implied in the tract name "transfer_forec
       "options": {
         "header": true
       }
+    }
+  }
+}
+```
+
+### Variable Replacements
+
+The variables must be defined in a config file. The _config.variables section of a tracts file will be ignored.
+
+In the tracts file use the "${name}" syntax for variable names.
+
+Config file:
+
+```json
+{
+  "_config": {
+    "variables": {
+      "schema": "foofile",
+      "input": "./data/input",
+      "output": "./data/output"
+    }
+  }
+}
+```
+
+Tracts file:
+
+```json
+{
+  "transfer": {
+    "origin": {
+      "smt": "json|${input}|${schema}.json|*"
+    },
+    "terminal": {
+      "smt": "json|${output}/fs/|var_${schema}.json|*"
     }
   }
 }
