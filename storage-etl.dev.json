@@ -5,6 +5,11 @@
       "options": {},
       "auth_stash": "./storage-etl.auth.json",
       "engrams": {}
+    },
+    "variables": {
+      "schema": "foofile",
+      "input": "./data/input",
+      "output": "./data/output"
     }
   }
 }

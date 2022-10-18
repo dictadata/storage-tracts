@@ -23,14 +23,13 @@ addAction("codex", require('./storage/etl/codex'));
 const appArgs = {
   configFile: './storage-etl.config.json',
   tractsFile: './etl.tracts.json',
-  tractName: '',  // tract name to process
-  schemaName: ''  // replacement value
+  tractName: ''  // tract name to process
 }
 
 /**
  * parseArgs
  *   only tractName is required
- *   example process.argv  ["node.exe", "storage-etl.js", "-c", <configFile>, "-t", <tractsFile>, <tractName>, [schemaName]]
+ *   example process.argv  ["node.exe", "storage-etl.js", "-c", <configFile>, "-t", <tractsFile>, <tractName>]
  */
 function parseArgs() {
   const myArgs = {};
@@ -60,8 +59,8 @@ function parseArgs() {
     else if (!myArgs.tractName) {
       myArgs.tractName = process.argv[ i ];
     }
-    else if (!myArgs.schemaName) {
-      myArgs.schemaName = process.argv[ i ];
+    else {
+      console.error( ("Extra argument! " + process.argv[ i ]).bgRed );
     }
     ++i;
   }
@@ -84,23 +83,20 @@ function parseArgs() {
     if (!appArgs.tractName) {
       console.log("Transfer, transform and codify data between local and distributed storage sources.");
       console.log("");
-      console.log("etl [-c configFile] [-t tractsFile] [tractName] [schemaName]");
+      console.log("etl [-c configFile] [-t tractsFile] tractName");
       console.log("");
       console.log("configFile");
       console.log("  JSON configuration file that defines codex, plug-ins and logging.");
+      console.log("  Supports abbreviated name; '-c dev' for './storage-etl.dev.json'");
       console.log("  Default configuration file is ./storage-etl.config.json");
       console.log("");
       console.log("tractsFile");
-      console.log("  JSON file that defines tracts, plug-ins and logging.");
+      console.log("  JSON file that defines ETL tracts.");
       console.log("  Default configuration file is ./etl.tracts.json");
       console.log("");
       console.log("tractName");
-      console.log("  The tract to follow in the configuration file.");
-      console.log("  If 'action' is not defined in a tract then action defaults to the tractName.");
-      console.log("");
-      console.log("schemaName");
-      console.log("  A string value that will replace the string '${schema}' in the tract.");
-      console.log("  The value will replace all occurrences of ${schema} using regex.");
+      console.log("  The tract to follow in the tracts file. Required. Use '*' to process all tracts.");
+      console.log("  Shortcut syntax, if 'action' is not defined in the tract then action defaults to the tractName.");
       console.log("");
       console.log("Actions:");
       console.log("  transfer - transfer data between data stores with optional transforms.");

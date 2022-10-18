@@ -12,7 +12,7 @@ const fs = require('fs');
 
 module.exports.version = Package.version;
 
-var defaultTracts = {
+var configDefaults = {
   "_config": {
     "codex": {
       "smt": "",
@@ -26,7 +26,8 @@ var defaultTracts = {
     "plugins": {
       "filesystems": [],
       "junctions": []
-    }
+    },
+    "variables": {}
   }
 };
 
@@ -69,6 +70,9 @@ module.exports.sampleTracts = async function (tractsFile) {
           "logPath": "./log",
           "logPrefix": "etl",
           "logLevel": "info"
+        },
+        "variables": {
+          "var1": "value1"
         }
       }
     };
@@ -90,39 +94,39 @@ module.exports.loadTracts = async (appArgs) => {
 
   try {
     // check for config file
-    let cfgTracts = {};
+    let configFile = {};
     try {
-      let cfg = await fs.readFileSync(appArgs.configFile, 'utf-8');
-      cfgTracts = JSON.parse(cfg);
+      let configText = await fs.readFileSync(appArgs.configFile, 'utf-8');
+      configFile = JSON.parse(configText);
     }
     catch (err) {
       console.log(err.message);
     }
 
     // read the app tracts file
-    let text = fs.readFileSync(appArgs.tractsFile, 'utf-8');
-    // simple text replacement of "${schema}" in tracts file
-    if (appArgs.schema) {
-      text = text.replace(/\${schema}/g, appArgs.schema);
+    let tractsText = fs.readFileSync(appArgs.tractsFile, 'utf-8');
+    // simple text replacement of "${variables}" in tracts file
+    for (let [ name, value ] of Object.entries(configFile._config.variables)) {
+      var regex = new RegExp("\\${" + name + "}", "g");
+      tractsText = tractsText.replace(regex, value);
     }
-    let appTracts = JSON.parse(text);
+    tracts = JSON.parse(tractsText);
 
-    let config = Object.assign({}, defaultTracts._config);
-    if (cfgTracts._config)
-      _merge(config, cfgTracts._config);
-    if (appTracts._config)
-      _merge(config, appTracts._config);
-    await init(config);
+    // merge configs and initialize app
+    let _config = Object.assign({}, configDefaults._config);
+    if (configFile._config)
+      _merge(_config, configFile._config);
+    if (tracts._config) {
+      _merge(_config, tracts._config);
+      delete tracts._config;
+    }
+    await init(_config);
 
-    tracts = Object.assign({}, cfgTracts, appTracts);
-    delete tracts._config;
-
-    // check tract properties
+    // validate tract properties
     for (let [ name, tract ] of Object.entries(tracts)) {
       //if (typeof tract === "function")
       //  continue;
 
-      // validate tract properties
       if (name === "codex" || tract.action === "codex") continue;
       if (typeOf(tract.origin) !== "object")
         throw new StorageError(400, "invalid tract origin: " + name);
