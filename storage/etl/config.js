@@ -9,6 +9,7 @@ const { typeOf, logger, hasOwnProperty } = require("@dictadata/storage-junctions
 
 const Package = require('../../package.json');
 const fs = require('fs');
+const path = require('path');
 
 module.exports.version = Package.version;
 
@@ -173,7 +174,7 @@ async function init(_config) {
   // filesystem plugins
   if (hasOwnProperty(plugins, "filesystems")) {
     for (let [ name, prefixes ] of Object.entries(plugins[ "filesystems" ])) {
-      let stfs = require(name);
+      let stfs = require(path.resolve(name));
       for (let prefix of prefixes)
         Storage.FileSystems.use(prefix, stfs);
     }
@@ -182,7 +183,7 @@ async function init(_config) {
   // junction plugins
   if (hasOwnProperty(plugins, "junctions")) {
     for (let [ name, models ] of Object.entries(plugins[ "junctions" ])) {
-      let junction = require(name);
+      let junction = require(path.resolve(name));
       for (let model of models)
         Storage.use(model, junction);
     }
