@@ -21,5 +21,11 @@
       "username": "dicta",
       "password": "data"
     }
+  },
+  "ftp://ftp2.census.gov": {
+    "auth": {
+      "username": "anonymous",
+      "password": "anonymous"
+    }
   }
 }
