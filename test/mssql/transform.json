@@ -18,8 +18,8 @@
           }
         }
       },
-      "select": {
-        "fields": {
+      "mutate": {
+        "map": {
           "Foo": "foo",
           "Bar": "bar",
           "Baz": "baz",
@@ -27,7 +27,7 @@
           "Dt Test": "dt_test",
           "subObj1.state": "state"
         },
-        "inject_after": {
+        "override": {
           "fie": "where's fum?"
         },
         "remove": [

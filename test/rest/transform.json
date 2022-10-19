@@ -14,8 +14,8 @@
       }
     },
     "transform": {
-      "select": {
-        "fields": [
+      "mutate": {
+        "select": [
           "name",
           "temperature",
           "temperatureUnit",

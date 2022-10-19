@@ -28,8 +28,8 @@
       "options": {}
     },
     "transform": {
-      "select": {
-        "inject_before": {
+      "mutate": {
+        "default": {
           "id": "=geometry.type+properties.FID"
         }
       }
@@ -50,8 +50,8 @@
       "options": {}
     },
     "transform": {
-      "select": {
-        "inject_before": {
+      "mutate": {
+        "default": {
           "id": "=geometry.type+properties.FID"
         }
       }

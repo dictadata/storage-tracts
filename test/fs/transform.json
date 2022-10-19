@@ -16,14 +16,14 @@
           "Baz": 456
         }
       },
-      "select": {
-        "inject_before": {
+      "mutate": {
+        "default": {
           "fie": "where's fum?"
         },
-        "inject_after": {
+        "override": {
           "state": "unknown"
         },
-        "fields": {
+        "map": {
           "Foo": "foo",
           "Bar": "bar",
           "Baz": "baz",
@@ -62,11 +62,11 @@
           "Baz": 456
         }
       },
-      "select": {
-        "inject_before": {
+      "mutate": {
+        "default": {
           "fie": "where's fum?"
         },
-        "fields": {
+        "map": {
           "Foo": "foo",
           "Bar": "bar",
           "Baz": "baz",
@@ -100,8 +100,8 @@
       "smt": "json|./data/input/|file_list.json|*"
     },
     "transforms": {
-      "select": {
-        "fields": [
+      "mutate": {
+        "select": [
           "rpath",
           "name",
           "size",

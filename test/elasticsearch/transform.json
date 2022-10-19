@@ -24,11 +24,11 @@
           }
         }
       },
-      "select": {
-        "inject_after": {
+      "mutate": {
+        "override": {
           "fie": "where's fum?"
         },
-        "fields": {
+        "map": {
           "Foo": "foo",
           "Bar": "bar",
           "Baz": "baz",
