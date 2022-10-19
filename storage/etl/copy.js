@@ -69,7 +69,13 @@ async function download(tract) {
     junction = await Storage.activate(tract.origin.smt, tract.origin.options);
 
     logger.verbose(">>> get list of desired files");
-    let { data: list } = await junction.list();
+    let list;
+    if (junction.smt.schema.includes('*') || junction.smt.schema.includes('?'))
+      // wildcard
+      ({ data: list } = await junction.list());
+    else
+      // single file
+      list = [ { name: junction.smt.schema } ];
 
     logger.verbose(">>> download files");
     // download is a filesystem level method
