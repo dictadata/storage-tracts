@@ -147,8 +147,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/fs/list.json",
-        "list",
-        "extra"
+        "list"
       ],
       "env": {
         "NODE_ENV": "production",
@@ -252,7 +251,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/ftp/list.json",
-        "list"
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
