@@ -1,5 +1,8 @@
 /**
- * etl/transfer
+ * storage/etl/transfer
+ *
+ * stream data from datastore to datastore
+ *
  */
 "use strict";
 
@@ -7,44 +10,58 @@ const Storage = require("@dictadata/storage-junctions");
 const { logger } = require("@dictadata/storage-junctions/utils");
 const output = require('./output');
 
+const fs = require('fs');
 const stream = require('stream').promises;
 
 /**
- *
+ * transfer action
  */
 module.exports = async (tract) => {
   logger.info("=== transfer");
   let retCode = 0;
 
-  var jo;
-  var jtl = [];
+  var origin = tract.origin || {};
+  var terminal = tract.terminal || {};
+  var transforms = tract.transform || tract.transforms || {};
+  if (!origin.options) origin.options = {};
+  if (!terminal.options) terminal.options = {};
+
+  var jo, jt;  // junctions origin, terminal
   try {
-    let transforms = tract.transform || tract.transforms || {};
-
-    logger.verbose(">>> origin tract");
-    if (!tract.origin.options) tract.origin.options = {};
-    if (!tract.terminal.options) tract.terminal.options = {};
-
-    logger.verbose(">>> create origin junction " + JSON.stringify(tract.origin.smt, null, 2));
-    jo = await Storage.activate(tract.origin.smt, tract.origin.options);
-
-    logger.verbose(">>> getEncoding");
-    let encoding = {};
-    if (tract.origin.options.encoding) {
-      encoding = tract.origin.options.encoding;
+    // check if origin encoding is in a file
+    if (origin.options && typeof origin.options.encoding === "string") {
+      let filename = origin.options.encoding;
+      origin.options.encoding = JSON.parse(fs.readFileSync(filename, "utf8"));
     }
-    else if (jo.capabilities.encoding && transforms.length === 0) {
-      // if not a filesystem based source and no transforms defined
-      // then get encoding from source
-      let results = await jo.getEncoding();
+
+    // create origin junction
+    logger.verbose(">>> create origin junction " + JSON.stringify(origin.smt, null, 2));
+    jo = await Storage.activate(origin.smt, origin.options);
+
+    /// get origin encoding
+    logger.debug(">>> get origin encoding");
+    let encoding = origin.options.encoding;
+    if (!encoding && jo.capabilities.encoding) {
+      let results = await jo.getEncoding();  // load encoding from origin for validation
       encoding = results.data[ "encoding" ];
     }
-    else {
-      // if filesystem based source or transforms defined
-      // then run some data through the codifier
+
+    /// determine terminal encoding
+    logger.verbose(">>> determine terminal encoding");
+    if (terminal.options && typeof terminal.options.encoding === "string") {
+      // read encoding from file
+      let filename = terminal.options.encoding;
+      terminal.options.encoding = JSON.parse(fs.readFileSync(filename, "utf8"));
+    }
+    else if (!encoding || Object.keys(transforms).length > 0) {
+      // otherwise run some objects through transforms to create terminal encoding
+      logger.verbose(">>> codify pipeline");
       let pipes = [];
 
-      let options = Object.assign({ max_read: 100 }, tract.origin.pattern);
+      let options = Object.assign({
+        max_read: (origin.options && origin.options.max_read) || 100
+      }, origin.pattern);
+
       let reader = jo.createReader(options);
       reader.on('error', (error) => {
         logger.error("transfer reader: " + error.message);
@@ -54,102 +71,67 @@ module.exports = async (tract) => {
       for (let [ tfType, tfOptions ] of Object.entries(transforms))
         pipes.push(await jo.createTransform(tfType, tfOptions));
 
-      let ct = await jo.createTransform('codify');
-      pipes.push(ct);
+      let codify = await jo.createTransform('codify');
+      pipes.push(codify);
 
       await stream.pipeline(pipes);
-      encoding = ct.encoding;
+      terminal.options.encoding = codify.encoding;
+    }
+    else
+      // use origin encoding
+      terminal.options.encoding = encoding;
+
+    if (typeof terminal.options.encoding !== "object")
+      throw new Error("invalid terminal encoding");
+
+    //logger.debug(">>> encoding results");
+    //logger.debug(JSON.stringify(terminal.options.encoding.fields, null, " "));
+
+    /// create terminal junction
+    logger.verbose(">>> create terminal junction " + JSON.stringify(terminal.smt));
+    jt = await Storage.activate(terminal.smt, terminal.options);
+
+    logger.debug("create terminal schema");
+    if (jt.capabilities.encoding && !terminal.options.append) {
+      logger.verbose(">>> createSchema");
+      let results = await jt.createSchema();
+      if (results.resultCode !== 0)
+        logger.info("could not create storage schema: " + results.resultMessage);
     }
 
-    let reader = null;  // source
-    let pipes = [];     // source plus zero or more transforms
-    let writers = [];   // one or more destinations
 
-    logger.verbose(">>> createReader");
-    reader = jo.createReader(tract.origin.pattern);
-    pipes.push(reader);
+    /// setup pipeline
+    logger.verbose(">>> transfer pipeline");
+    let pipes = [];
+
+    // reader
+    let options = Object.assign({}, origin.pattern);
+    let reader = jo.createReader(options);
     reader.on('error', (error) => {
       logger.error("transfer reader: " + error.message);
     });
+    pipes.push(reader);
 
-    logger.verbose(">>> origin transforms");
+    // transforms
     for (let [ tfName, tfOptions ] of Object.entries(transforms)) {
       let tfType = tfName.split("-")[ 0 ];
       pipes.push(await jo.createTransform(tfType, tfOptions));
     }
 
-    if (!tract.terminal.options.encoding) {
-      // use origin encoding
-      tract.terminal.options.encoding = encoding;
-    }
+    // writer
+    let writer = jt.createWriter();
+    writer.on('error', (error) => {
+      logger.error("transfer writer: " + error.message);
+    });
+    pipes.push(writer);
 
-    if (!Array.isArray(tract.terminal)) {
-      // a single terminal object
-      logger.verbose(">>> Terminal Tract");
-      let terminal = tract.terminal;
+    // transfer data
+    logger.verbose(">>> start transfer");
+    await stream.pipeline(pipes);
 
-      logger.verbose(">>> create terminal junction " + JSON.stringify(terminal.smt,null,2));
-      let jt = await Storage.activate(terminal.smt, terminal.options);
-      jtl.push(jt);
-
-      if (!terminal.options.append && jt.capabilities.encoding) {
-        logger.verbose(">>> createSchema");
-        let results = await jt.createSchema();
-        logger.verbose(results.resultText);
-      }
-
-      logger.verbose(">>> createWriter");
-      let writer = jt.createWriter();
-      writer.on('error', (error) => {
-        logger.error("transfer writer: " + error.message);
-      });
-
-      pipes.push(writer);
-      writers.push(writer);
-      await stream.pipeline(pipes);
-    }
-    else {
-      // sub-terminal tracts
-      logger.verbose(">>> Terminal Tee");
-      for (let branch of tract.terminal) {
-        logger.verbose(">>> create terminal junction " + JSON.stringify(branch.terminal.smt,null,2));
-        let jt = await Storage.activate(branch.terminal.smt, branch.terminal.options);
-        jtl.push(jt);
-
-        if (!tract.terminal.options.append && jt.capabilities.encoding) {
-          logger.verbose(">>> createSchema");
-          encoding = await jt.createSchema();
-        }
-
-        let writer = null;
-        logger.verbose(">>> transforms");
-        let transforms = branch.transform || branch.transforms || {};
-        for (let [ tfName, tfOptions ] of Object.entries(transforms)) {
-          let tfType = tfName.split("-")[ 0 ];
-          let t = await jt.createTransform(tfType, tfOptions);
-          writer = (writer) ? writer.pipe(t) : reader.pipe(t);
-        }
-
-        logger.verbose(">>> createWriter");
-        // add terminal
-        let w = jt.createWriter();
-        w.on('error', (error) => {
-          logger.error("transfer writer: " + error.message);
-        });
-
-        writer = (writer) ? writer.pipe(w) : reader.pipe(w);
-
-        writers.push(writer);
-      }
-    }
-
-    logger.verbose(">>> wait on transfer");
-    await stream.finished(reader);
-    for (let writer of writers)
-      await stream.finished(writer);
-
-    if (tract.terminal.output) {
-      retCode = output(tract.terminal.output, null, false, tract.terminal.compareValues || 2);
+    // if testing, validate results
+    if (terminal.output) {
+      retCode = output(terminal.output, null, false, terminal.compareValues || 2);
     }
     logger.info("=== completed");
   }
@@ -160,8 +142,8 @@ module.exports = async (tract) => {
   finally {
     if (jo)
       await jo.relax();
-    for (let j of jtl)
-      await j.relax();
+    if (jt)
+      await jt.relax();
   }
 
   return retCode;
