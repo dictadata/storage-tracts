@@ -1,5 +1,12 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.5.5
+  - update to @dictadata/storage-junctions 2.5.2
+  - refactor: replace SelectTransform with MutateTransform
+  - refactor: response resultText renamed to resultMessage
+  - bug fix: resolve full path of plugins
+  - bug fix: transfer action reading origin encoding from file
+  - bug fix: list action don't read directory for single files
 - version 2.5.4
   - feature: add variables section to config file for simple text replacements in tracts file.
 - version 2.5.3
