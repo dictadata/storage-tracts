@@ -30,15 +30,15 @@ module.exports = exports = async function (tract) {
 
     if (src_prefix === 'file' && dst_prefix === 'file') {
       if (src_smt.schema !== '*')
-        download(tract);
+        await download(tract);
       else
-        upload(tract);
+        await upload(tract);
     }
     else if (src_prefix === 'file') {
-      upload(tract);
+      await upload(tract);
     }
     else if (dst_prefix === 'file') {
-      download(tract);
+      await download(tract);
     }
     else {
       throw new StorageError(400, "source and/or destination locus must be local file system");

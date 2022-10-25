@@ -1,5 +1,5 @@
 /**
- * etl/dull
+ * storage/etl/dull
  */
 "use strict";
 

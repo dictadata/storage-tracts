@@ -1,5 +1,5 @@
 /**
- * etl/codex
+ * storage/etl/codex
  */
 "use strict";
 

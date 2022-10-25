@@ -1,5 +1,5 @@
 /**
- * etl/scan
+ * storage/etl/scan
  */
 "use strict";
 
