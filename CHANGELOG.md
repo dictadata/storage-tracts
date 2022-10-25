@@ -1,7 +1,10 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 2.5.6
+  - updated: @dictadata/storage-junctions@2.5.3
+  - refactor: use origin.pattern and terminal.pattern properties
 - version 2.5.5
-  - update to @dictadata/storage-junctions 2.5.2
+  - updated: @dictadata/storage-junctions@2.5.2
   - refactor: replace SelectTransform with MutateTransform
   - refactor: response resultText renamed to resultMessage
   - bug fix: resolve full path of plugins
