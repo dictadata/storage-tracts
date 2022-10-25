@@ -59,8 +59,9 @@ module.exports = async (tract) => {
       let pipes = [];
 
       let options = Object.assign({
-        max_read: (origin.options && origin.options.max_read) || 100
-      }, origin.pattern);
+        max_read: (origin.options && origin.options.max_read) || 100,
+        pattern: origin.pattern
+      });
 
       let reader = jo.createReader(options);
       reader.on('error', (error) => {
@@ -105,8 +106,7 @@ module.exports = async (tract) => {
     let pipes = [];
 
     // reader
-    let options = Object.assign({}, origin.pattern);
-    let reader = jo.createReader(options);
+    let reader = jo.createReader({ pattern: origin.pattern });
     reader.on('error', (error) => {
       logger.error("transfer reader: " + error.message);
     });

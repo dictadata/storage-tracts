@@ -22,7 +22,7 @@ module.exports = async (tract) => {
     if (origin.options.schema)
       results = await j1.dullSchema();
     else
-      results = await j1.dull(origin.options.pattern);
+      results = await j1.dull(origin.pattern);
 
     if (tract.terminal.output) {
       retCode = output(tract.terminal.output, results);
