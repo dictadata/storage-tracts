@@ -40,6 +40,7 @@
   "dependencies": {
     "@dictadata/storage-junctions": "^2.5.3",
     "colors": "^1.4.0",
+    "dot-object": "^2.1.4",
     "winston": "^3.8.2",
     "winston-daily-rotate-file": "^4.7.1"
   },
