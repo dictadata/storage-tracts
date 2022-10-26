@@ -22,7 +22,7 @@ module.exports = async (tract) => {
 
     logger.verbose(JSON.stringify(list, null, " "));
     if (tract.terminal.output) {
-      retCode = output(tract.terminal.output, list, true, 1);
+      retCode = output(tract.terminal.output, list, 1);
     }
     else {
       console.log(JSON.stringify(list, null, " "));

@@ -75,7 +75,7 @@ module.exports = async (tract) => {
     //logger.verbose(JSON.stringify(encoding, null, " "));
     logger.debug(JSON.stringify(encoding.fields, null, " "));
     if (tract.terminal.output) {
-      retCode = output(tract.terminal.output, encoding, true, 1);
+      retCode = output(tract.terminal.output, encoding, 1);
     }
     else {
       console.log(JSON.stringify(encoding, null, " "));
