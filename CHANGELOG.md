@@ -1,5 +1,9 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 0.9.57
+  - feature: new "create" action to create empty schemas in a data source
+  - bugfix: glitch reading terminal.options.encoding from a file
+
 - version 2.5.6
   - updated: @dictadata/storage-junctions@2.5.3
   - refactor: use origin.pattern and terminal.pattern properties
