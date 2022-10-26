@@ -125,5 +125,27 @@
     "terminal": {
       "smt": "json|./data/output/shapefile/|tl_2020_us_state_NY.json|*"
     }
+  },
+  "bl_2021_ia_congress": {
+    "action": "transfer",
+    "origin": {
+      "smt": "shp|zip:/var/data/US/IA/legis.iowa.gov/Plan2/SHP/IA_ProposedPlan2_Oct2021.zip|Plan2_Congress|*",
+      "options": {
+        "encoding": "./data/input/shapes/bl_2021_ia_congress.encoding.json"
+      }
+    },
+    "transforms": {
+      "mutate": {
+        "override": {
+          "properties.STATEFP": "19"
+        }
+      }
+    },
+    "terminal": {
+      "smt": "elasticsearch|http://dev.dictadata.org:9200|bl_2021_us_congress|*",
+      "options": {
+        "encoding": "./data/input/shapes/bl_2021_ia_congress.encoding.json"
+      }
+    }
   }
 }
