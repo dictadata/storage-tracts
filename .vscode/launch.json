@@ -811,13 +811,30 @@
     {
       "type": "pwa-node",
       "request": "launch",
+      "name": "shapefile create",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "args": [
+        "-t",
+        "${workspaceFolder}/test/shapefile/create.json",
+        "create"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
       "name": "shapefile codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "args": [
-        "codify",
         "-t",
-        "${workspaceFolder}/test/shapefile/codify.json"
+        "${workspaceFolder}/test/shapefile/codify.json",
+        "codify"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -834,7 +851,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/shapefile/transfer.json",
-        "all"
+        "bl_2021_ia_congress"
       ],
       "env": {
         "NODE_ENV": "development",

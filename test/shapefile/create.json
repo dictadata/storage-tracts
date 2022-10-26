@@ -1,0 +1,14 @@
+{
+  "create": {
+    "action": "create",
+    "origin": {
+      "smt": "elasticsearch|http://dev.dictadata.org:9200|bl_2021_us_congress|*",
+      "options": {
+        "encoding": "./data/input/shapes/bl_2021_ia_congress.encoding.json"
+      }
+    },
+    "terminal": {
+      "output": "./data/output/shapefile/create.json"
+    }
+  }
+}
