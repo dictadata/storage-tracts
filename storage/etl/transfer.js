@@ -28,11 +28,7 @@ module.exports = async (tract) => {
 
   var jo, jt;  // junctions origin, terminal
   try {
-    // check if origin encoding is in a file
-    if (origin.options && typeof origin.options.encoding === "string") {
-      let filename = origin.options.encoding;
-      origin.options.encoding = JSON.parse(fs.readFileSync(filename, "utf8"));
-    }
+    // note, at this point file encodings have been read by actions.js
 
     // create origin junction
     logger.verbose(">>> create origin junction " + JSON.stringify(origin.smt, null, 2));
@@ -48,13 +44,11 @@ module.exports = async (tract) => {
 
     /// determine terminal encoding
     logger.verbose(">>> determine terminal encoding");
-    if (terminal.options && typeof terminal.options.encoding === "string") {
-      // read encoding from file
-      let filename = terminal.options.encoding;
-      terminal.options.encoding = JSON.parse(fs.readFileSync(filename, "utf8"));
+    if (terminal.options.encoding) {
+      // do nothing
     }
     else if (!encoding || Object.keys(transforms).length > 0) {
-      // otherwise run some objects through transforms to create terminal encoding
+      // run some objects through transforms to create terminal encoding
       logger.verbose(">>> codify pipeline");
       let pipes = [];
 
@@ -78,9 +72,10 @@ module.exports = async (tract) => {
       await stream.pipeline(pipes);
       terminal.options.encoding = codify.encoding;
     }
-    else
+    else {
       // use origin encoding
       terminal.options.encoding = encoding;
+    }
 
     if (typeof terminal.options.encoding !== "object")
       throw new Error("invalid terminal encoding");
