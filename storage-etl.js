@@ -12,6 +12,7 @@ const colors = require('colors');
 
 const { addAction, performAction } = require("./storage/etl/actions");
 addAction("list", require("./storage/etl/list"));
+addAction("create", require('./storage/etl/create'));
 addAction("codify", require('./storage/etl/codify'));
 addAction("scan", require('./storage/etl/scan'));
 addAction("transfer", require('./storage/etl/transfer'));
