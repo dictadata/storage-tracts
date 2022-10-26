@@ -20,9 +20,6 @@
         "default": {
           "fie": "where's fum?"
         },
-        "override": {
-          "state": "unknown"
-        },
         "map": {
           "Foo": "foo",
           "Bar": "bar",
@@ -32,7 +29,10 @@
         },
         "remove": [
           "fobe"
-        ]
+        ],
+        "override": {
+          "state": "unknown"
+        }
       }
     },
     "terminal": {
@@ -71,12 +71,14 @@
           "Bar": "bar",
           "Baz": "baz",
           "Fobe": "fobe",
-          "Dt Test": "dt_test",
-          "subObj1.state": "state"
+          "Dt Test": "dt_test"
         },
         "remove": [
           "fobe"
-        ]
+        ],
+        "override": {
+          "state": "unknown"
+        }
       }
     },
     "terminal": {

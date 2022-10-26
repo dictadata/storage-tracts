@@ -2,15 +2,9 @@
   "json-etl2": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./data/input/|foofile.json|*",
+      "smt": "json|./data/input/|foofile_01.json|*",
       "options": {
-        "encoding": "./data/input/foo_schema.encoding.json"
-      }
-    },
-    "terminal": {
-      "smt": "elasticsearch|http://dev.dictadata.org:9200|foo_schema_etl2|=Foo",
-      "options": {
-        "encoding": "./data/input/foo_schema_t.encoding.json"
+        "encoding": "./data/input/foo_schema_01.encoding.json"
       }
     },
     "transform": {
@@ -25,7 +19,7 @@
         }
       },
       "mutate": {
-        "override": {
+        "default": {
           "fie": "where's fum?"
         },
         "map": {
@@ -39,6 +33,12 @@
         "remove": [
           "fobe"
         ]
+      }
+    },
+    "terminal": {
+      "smt": "elasticsearch|http://dev.dictadata.org:9200|foo_schema_etl2|=Foo",
+      "options": {
+        "encoding": "./data/input/foo_schema_t.encoding.json"
       }
     }
   }

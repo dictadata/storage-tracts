@@ -2,9 +2,9 @@
   "json-etl2": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./data/input/|foofile.json|*",
+      "smt": "json|./data/input/|foofile_01.json|*",
       "options": {
-        "encoding": "./data/input/foo_schema.encoding.json"
+        "encoding": "./data/input/foo_schema_01.encoding.json"
       }
     },
     "transform": {
@@ -19,6 +19,9 @@
         }
       },
       "mutate": {
+        "default": {
+          "fie": "where's fum?"
+        },
         "map": {
           "Foo": "foo",
           "Bar": "bar",
@@ -26,9 +29,6 @@
           "Fobe": "fobe",
           "Dt Test": "dt_test",
           "subObj1.state": "state"
-        },
-        "override": {
-          "fie": "where's fum?"
         },
         "remove": [
           "fobe"
