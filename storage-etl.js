@@ -37,24 +37,24 @@ function parseArgs() {
 
   let i = 2;
   while (i < process.argv.length) {
+    // configFile
     if (process.argv[ i ] === "-c") {
-      // configFile
       if (i + 1 < process.argv.length) {
         myArgs.configFile = process.argv[ i + 1 ];
         ++i;
         if (!myArgs.configFile.includes("."))
           myArgs.configFile = "storage-etl." + myArgs.configFile + ".json";
         if (!path.extname(myArgs.configFile))
-          myArgs.configFile += ".json";
+          myArgs.configFile += ".config.json";
       }
     }
+    // tractsFile
     else if (process.argv[ i ] === "-t") {
-      // tractsFile
       if (i + 1 < process.argv.length) {
         myArgs.tractsFile = process.argv[ i + 1 ];
         ++i;
         if (!path.extname(myArgs.tractsFile))
-          myArgs.tractsFile += ".json";
+          myArgs.tractsFile += ".tracts.json";
       }
     }
     else if (!myArgs.tractName) {
