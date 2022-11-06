@@ -60,12 +60,11 @@ async function download(tract) {
   try {
     logger.info("=== download");
 
-    logger.verbose(">>> create origin junction " + tract.origin.smt);
     logger.verbose("smt:" + JSON.stringify(tract.origin.smt, null, 2));
     if (tract.origin.options)
       logger.verbose("options:" + JSON.stringify(tract.origin.options));
 
-    logger.verbose(">>> activate junction and filesystem");
+    logger.verbose(">>> activate junction");
     junction = await Storage.activate(tract.origin.smt, tract.origin.options);
 
     logger.verbose(">>> get list of desired files");
@@ -75,7 +74,7 @@ async function download(tract) {
       ({ data: list } = await junction.list());
     else
       // single file
-      list = [ { name: junction.smt.schema } ];
+      list = [ { name: junction.smt.schema, rpath: junction.smt.schema } ];
 
     logger.verbose(">>> download files");
     // download is a filesystem level method
