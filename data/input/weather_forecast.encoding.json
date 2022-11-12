@@ -14,7 +14,7 @@
     "type": "integer",
     "size": 0,
     "default": null,
-    "isNullable": true,
+    "nullable": true,
     "isKey": false,
     "label": "number"
    },
@@ -23,7 +23,7 @@
     "type": "text",
     "size": 0,
     "default": null,
-    "isNullable": true,
+    "nullable": true,
     "isKey": false,
     "label": "name"
    },
@@ -32,7 +32,7 @@
     "type": "date",
     "size": 0,
     "default": null,
-    "isNullable": true,
+    "nullable": true,
     "isKey": false,
     "label": "startTime"
    },
@@ -41,7 +41,7 @@
     "type": "date",
     "size": 0,
     "default": null,
-    "isNullable": true,
+    "nullable": true,
     "isKey": false,
     "label": "endTime"
    },
@@ -50,7 +50,7 @@
     "type": "boolean",
     "size": 0,
     "default": null,
-    "isNullable": true,
+    "nullable": true,
     "isKey": false,
     "label": "isDaytime"
    },
@@ -59,7 +59,7 @@
     "type": "integer",
     "size": 0,
     "default": null,
-    "isNullable": true,
+    "nullable": true,
     "isKey": false,
     "label": "temperature"
    },
@@ -68,7 +68,7 @@
     "type": "keyword",
     "size": 0,
     "default": null,
-    "isNullable": true,
+    "nullable": true,
     "isKey": false,
     "label": "temperatureUnit"
    },
@@ -77,7 +77,7 @@
     "type": "text",
     "size": 0,
     "default": null,
-    "isNullable": true,
+    "nullable": true,
     "isKey": false,
     "label": "temperatureTrend"
    },
@@ -86,7 +86,7 @@
     "type": "text",
     "size": 0,
     "default": null,
-    "isNullable": true,
+    "nullable": true,
     "isKey": false,
     "label": "windSpeed"
    },
@@ -95,7 +95,7 @@
     "type": "keyword",
     "size": 0,
     "default": null,
-    "isNullable": true,
+    "nullable": true,
     "isKey": false,
     "label": "windDirection"
    },
@@ -104,7 +104,7 @@
     "type": "text",
     "size": 0,
     "default": null,
-    "isNullable": true,
+    "nullable": true,
     "isKey": false,
     "label": "icon"
    },
@@ -113,7 +113,7 @@
     "type": "text",
     "size": 0,
     "default": null,
-    "isNullable": true,
+    "nullable": true,
     "isKey": false,
     "label": "shortForecast"
    },
@@ -122,7 +122,7 @@
     "type": "text",
     "size": 0,
     "default": null,
-    "isNullable": true,
+    "nullable": true,
     "isKey": false,
     "label": "detailedForecast"
    }
