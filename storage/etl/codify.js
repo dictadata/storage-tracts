@@ -38,7 +38,7 @@ module.exports = async (tract) => {
       // then run some data through the codifier
       let pipes = [];
 
-      let options = { max_read: 100, pattern: origin.pattern };
+      let options = { max_read: origin.options.max_read || 100, pattern: origin.pattern };
       let reader = jo.createReader(options);
       reader.on('error', (error) => {
         logger.error("codify reader: " + error.message);

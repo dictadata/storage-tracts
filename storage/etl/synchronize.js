@@ -54,7 +54,7 @@ module.exports = async (tract) => {
       // then run some data through the codifier
       let pipes = [];
 
-      let options = Object.assign({ max_read: 100 }, pattern);
+      let options = Object.assign({ max_read: tract.origin.options.max_read || 100 }, pattern);
       let reader = jo.createReader(options);
       reader.on('error', (error) => {
         logger.error("synchronize reader: " + error.message);
