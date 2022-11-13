@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "run debug",
       "runtimeExecutable": "npm",
@@ -23,11 +23,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "create config",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "config",
         "-t",
@@ -45,11 +48,14 @@
       "request": "launch"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "codex store",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/codex/store.json",
@@ -62,11 +68,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "codex recall",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-c",
         "config",
@@ -81,11 +90,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "codex dull",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-c",
         "dev",
@@ -100,11 +112,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "codex retrieve",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/codex/retrieve.json",
@@ -117,11 +132,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "codex add_smt",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/codex/add_smt.json",
@@ -139,11 +157,14 @@
       "request": "launch"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "fs list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/fs/list.json",
@@ -156,11 +177,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "fs codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/fs/codify.json",
@@ -173,11 +197,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "fs scan",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/fs/scan.json",
@@ -190,11 +217,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "fs transfer",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/fs/transfer.json",
@@ -207,11 +237,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "fs transfer vars",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-c",
         "dev",
@@ -226,11 +259,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "fs transform",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/fs/transform.json",
@@ -243,11 +279,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "ftp list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/ftp/list.json",
@@ -260,11 +299,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "ftp codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "codify",
         "-t",
@@ -277,11 +319,17 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "ftp scan",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/ftp/scan.json",
@@ -294,11 +342,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "ftp transfer",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/ftp/transfer.json",
@@ -311,11 +362,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "ftp copy",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "all",
         "-t",
@@ -328,11 +382,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "http list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "list",
         "-t",
@@ -345,11 +402,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "http codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "codify",
         "-t",
@@ -362,11 +422,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "http scan",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/http/scan.json",
@@ -379,11 +442,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "http transfer",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/http/transfer.json",
@@ -396,11 +462,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "zip list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "list",
         "-t",
@@ -413,11 +482,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "zip codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "codify",
         "-t",
@@ -430,11 +502,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "zip scan",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/zip/scan.json",
@@ -447,11 +522,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "zip transfer",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/zip/transfer.json",
@@ -469,11 +547,14 @@
       "request": "launch"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "elasticsearch list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "list",
         "-t",
@@ -486,11 +567,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "elasticsearch codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "codify",
         "-t",
@@ -503,11 +587,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "elasticsearch transfer",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/elasticsearch/transfer.json",
@@ -520,11 +607,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "elasticsearch load",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/elasticsearch/load.json",
@@ -537,11 +627,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "elasticsearch transform",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/elasticsearch/transform.json",
@@ -554,11 +647,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "elasticsearch tiger2020",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/elasticsearch/tiger2020.json",
@@ -571,11 +667,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "mssql list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "list",
         "-t",
@@ -588,11 +687,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "mssql codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "codify",
         "-t",
@@ -605,11 +707,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "mssql transfer",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/mssql/transfer.json",
@@ -622,11 +727,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "mssql load",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/mssql/load.json",
@@ -639,11 +747,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "mssql transform",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/mssql/transform.json",
@@ -656,11 +767,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "mysql list",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "list",
         "-t",
@@ -673,11 +787,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "mysql codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "codify",
         "-t",
@@ -690,11 +807,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "mysql transfer",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/mysql/transfer.json",
@@ -707,11 +827,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "mysql load",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/mysql/load.json",
@@ -724,11 +847,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "mysql transform",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/mysql/transform.json",
@@ -741,11 +867,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "rest codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "codify",
         "-t",
@@ -758,11 +887,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "rest transfer",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/rest/transfer.json",
@@ -775,11 +907,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "rest transfrom",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/rest/transform.json",
@@ -792,11 +927,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "rest conjoin",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/rest/conjoin.json",
@@ -809,11 +947,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "shapefile create",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/shapefile/create.json",
@@ -826,11 +967,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "shapefile codify",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/shapefile/codify.json",
@@ -843,11 +987,14 @@
       "outputCapture": "std"
     },
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "shapefile transfer",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/shapefile/transfer.json",
