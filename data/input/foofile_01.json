@@ -95,8 +95,8 @@
   {
     "Foo": "seventh",
     "Bar": "big data",
-    "Baz": 0,
-    "Fobe": 4.3,
+    "Baz": "1,000,000",
+    "Fobe": "4,000.3",
     "Dt Test": "2018-10-10T14:13:30.000-05:00",
     "enabled": false,
     "subObj1": {
