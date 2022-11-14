@@ -1,5 +1,9 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 0.9.59
+  - updated: @dictadata/storage-junctions@0.9.84
+  - feature: parse delimited numbers from text sources
+  - bug fix: fix issue downloading single file via HTTP
 - version 0.9.58
   - updated: @dictadata/storage-junctions@0.9.83
 - version 0.9.57
