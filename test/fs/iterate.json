@@ -1,0 +1,21 @@
+{
+  "iterate": {
+    "action": "iterate",
+    "origin": {
+      "smt": "csv|./data/input/|foo_numbers.txt|*",
+      "options": {
+        "header": false,
+        "encoding": { "filenum": "keyword" }
+      }
+    },
+    "each_file": {
+      "action": "copy",
+      "origin": {
+        "smt": "*|./data/input/|foofile_${filenum}.json|*"
+      },
+      "terminal": {
+        "smt": "*|./data/output/fs/iterate/|foofile_${filenum}.json|*"
+      }
+    }
+  }
+}

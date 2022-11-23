@@ -107,7 +107,8 @@ module.exports.loadTracts = async (appArgs) => {
     // read the app tracts file
     let tractsText = fs.readFileSync(appArgs.tractsFile, 'utf-8');
     // simple text replacement of "${variables}" in tracts file
-    for (let [ name, value ] of Object.entries(configFile._config.variables)) {
+    let variables = configFile._config.variables || {};
+    for (let [ name, value ] of Object.entries(variables)) {
       var regex = new RegExp("\\${" + name + "}", "g");
       tractsText = tractsText.replace(regex, value);
     }
@@ -131,7 +132,7 @@ module.exports.loadTracts = async (appArgs) => {
       if (name === "codex" || tract.action === "codex") continue;
       if (typeOf(tract.origin) !== "object")
         throw new StorageError(400, "invalid tract origin: " + name);
-      if (tract.action !== "scan" && typeOf(tract.terminal) !== "object")
+      if (tract.action !== "scan" && tract.action !== "iterate" && typeOf(tract.terminal) !== "object")
         throw new StorageError(400, "invalid tract terminal: " + name);
     }
 

@@ -34,16 +34,17 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
     Shortcut syntax, if "action" is not defined in the tract then action defaults to the tractName, e.g. "transfer".
 
   Actions:
-    config - create example etl.tracts.json file in the current directory.
-    codex - manage codex encoding definitions
-    list - listing of schema names in a data store.
-    codify - determine schema encoding by codifying a single data store schema.
-    scan - list data store and determine schema encoding by codifying multiple schemas.
-    dull - remove data from a data store.
     transfer - transfer data between data stores with optional transforms.
     copy - copy data files between remote file system and local file system.
-    all - run all tracts in sequence.
+    list - listing of schema names at origin, datastore or filesystem.
+    codify - determine schema encoding by examining some data.
+    dull - remove data from a data store.
+    codex - manage codex encoding definitions
+    scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.
+    iterate - retrieve from origin and perform sub-actions for each construct.
+    all | * - run all tracts in sequence.
     parallel - run all tracts in parallel.
+    config - create example etl.tracts.json file in the current directory.
 ```
 
 ## Configuration File
