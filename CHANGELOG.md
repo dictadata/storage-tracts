@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 0.9.60
+  - updated: @dictadata/storage-junctions@0.9.85
+  - feature: `iterate` action retrieves data and performs child action(s) for each construct.
 - version 0.9.59
   - updated: @dictadata/storage-junctions@0.9.84
   - feature: parse delimited numbers from text sources

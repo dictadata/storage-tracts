@@ -108,7 +108,7 @@ function parseArgs() {
       console.log("  dull - remove data from a data store.");
       console.log("  codex - manage codex encoding definitions");
       console.log("  scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.");
-      console.log("  iterate - retrieve from origin and perform sub-actions for each construct.");
+      console.log("  iterate - retrieve data and perform child action(s) for each construct.");
       console.log("  all | * - run all tracts in sequence.");
       console.log("  parallel - run all tracts in parallel.");
       console.log("  config - create example etl.tracts.json file in the current directory.");

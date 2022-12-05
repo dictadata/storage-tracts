@@ -41,7 +41,7 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
     dull - remove data from a data store.
     codex - manage codex encoding definitions
     scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.
-    iterate - retrieve from origin and perform sub-actions for each construct.
+    iterate - retrieve data and perform child action(s) for each construct.
     all | * - run all tracts in sequence.
     parallel - run all tracts in parallel.
     config - create example etl.tracts.json file in the current directory.
