@@ -31,7 +31,8 @@ module.exports = async (tract) => {
     // then get source encoding
     if (jo.capabilities.encoding && !transforms.length) {
       let results = await jo.getEncoding();
-      encoding = results.data[ "encoding" ];
+      if (results.type === "encoding")
+        encoding = results.data;
     }
     else {
       // if filesystem based source or transforms defined
