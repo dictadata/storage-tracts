@@ -38,7 +38,7 @@
     "node": ">=17.0.0"
   },
   "dependencies": {
-    "@dictadata/storage-junctions": "^0.9.85",
+    "@dictadata/storage-junctions": "^0.9.86",
     "colors": "^1.4.0",
     "dot-object": "^2.1.4",
     "winston": "^3.8.2",
