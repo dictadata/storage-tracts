@@ -11,6 +11,18 @@
       "output": "./data/output/fs/codify.json"
     }
   },
+  "codify_01": {
+    "action": "codify",
+    "origin": {
+      "smt": "json|./data/input/|foofile_01.json|*",
+      "options": {
+        "max_read": 100
+      }
+    },
+    "terminal": {
+      "output": "./data/output/fs/codify_01.json"
+    }
+  },
   "types_only": {
     "action": "codify",
     "origin": {
