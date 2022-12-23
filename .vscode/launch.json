@@ -32,9 +32,9 @@
         "--preserve-symlinks"
       ],
       "args": [
-        "config",
         "-t",
-        "./data/output/etl.tracts.json"
+        "./data/output/etl.tracts.json",
+        "config"
       ],
       "env": {
         "NODE_ENV": "production",
@@ -78,7 +78,7 @@
       ],
       "args": [
         "-c",
-        "config",
+        "etl.config.json",
         "-t",
         "${workspaceFolder}/test/codex/recall.json",
         "codex"
