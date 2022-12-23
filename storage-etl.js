@@ -23,7 +23,7 @@ addAction("codex", require('./storage/etl/codex'));
 
 // set program argument defaults
 const appArgs = {
-  configFile: './storage-etl.config.json',
+  configFile: './etl.config.json',
   tractsFile: './etl.tracts.json',
   tractName: ''  // tract name to process
 }
@@ -44,7 +44,7 @@ function parseArgs() {
         myArgs.configFile = process.argv[ i + 1 ];
         ++i;
         if (!myArgs.configFile.includes("."))
-          myArgs.configFile = "storage-etl." + myArgs.configFile + ".json";
+          myArgs.configFile = "etl.config." + myArgs.configFile + ".json";
         if (!path.extname(myArgs.configFile))
           myArgs.configFile += ".config.json";
       }
@@ -78,7 +78,7 @@ function parseArgs() {
   let retCode = 0;
 
   try {
-    console.log("storage-etl (etl) " + config.version);
+    console.log("ETL (storage-etl) " + config.version);
     console.log("Copyright 2022 dictadata.org | The MIT License")
     parseArgs();
 
@@ -89,8 +89,8 @@ function parseArgs() {
       console.log("");
       console.log("configFile");
       console.log("  JSON configuration file that defines codex, plug-ins and logging.");
-      console.log("  Supports abbreviated name; '-c dev' for './storage-etl.dev.json'");
-      console.log("  Default configuration file is ./storage-etl.config.json");
+      console.log("  Supports abbreviated name; '-c dev' for './etl.config.dev.json'");
+      console.log("  Default configuration file is ./etl.config.json");
       console.log("");
       console.log("tractsFile");
       console.log("  JSON file that defines ETL tracts.");

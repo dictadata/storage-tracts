@@ -95,19 +95,30 @@ module.exports.loadTracts = async (appArgs) => {
 
   try {
     // check for config file
-    let configFile = {};
+    let configFile;
+    let errorMessage;
     try {
       let configText = await fs.readFileSync(appArgs.configFile, 'utf-8');
       configFile = JSON.parse(configText);
     }
     catch (err) {
-      console.log(err.message);
+      errorMessage = err.message;
+    }
+    if (typeof configFile === "undefined") {
+      try {
+        let configText = await fs.readFileSync("storage-" + appArgs.configFile, 'utf-8');
+        configFile = JSON.parse(configText);
+      }
+      catch (err) {
+        console.log(errorMessage);
+        console.log(err.message);
+      }
     }
 
     // read the app tracts file
     let tractsText = fs.readFileSync(appArgs.tractsFile, 'utf-8');
     // simple text replacement of "${variables}" in tracts file
-    let variables = configFile._config.variables || {};
+    let variables = configFile?._config?.variables || {};
     for (let [ name, value ] of Object.entries(variables)) {
       var regex = new RegExp("\\${" + name + "}", "g");
       tractsText = tractsText.replace(regex, value);
@@ -116,8 +127,8 @@ module.exports.loadTracts = async (appArgs) => {
 
     // merge configs and initialize app
     let _config = Object.assign({}, configDefaults._config);
-    if (configFile._config)
-      _merge(_config, configFile._config);
+    if (configFile?._config)
+      _merge(_config, configFile?._config);
     if (tracts._config) {
       _merge(_config, tracts._config);
       delete tracts._config;
