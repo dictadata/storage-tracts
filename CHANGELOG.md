@@ -1,5 +1,10 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 0.9.61
+  - rename config files, now etl.config.json, etl.config.dev.json, etc.
+  - bug fix: continue execution if etl.config.json does not exist
+  - updated: @dictadata/storage-junctions@0.9.87
+  - bug fix: set parser option when reading jsonl and jsons streams
 - version 0.9.60
   - updated: @dictadata/storage-junctions@0.9.85
   - feature: `iterate` action retrieves data and performs child action(s) for each construct.
