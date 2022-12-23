@@ -111,7 +111,7 @@ module.exports.loadTracts = async (appArgs) => {
       }
       catch (err) {
         console.log(errorMessage);
-        console.log(err.message);
+        //console.log(err.message);
       }
     }
 

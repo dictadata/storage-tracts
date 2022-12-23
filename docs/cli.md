@@ -8,8 +8,8 @@ etl [-c configFile] [-t tractsFile] tractName
 
 configFile
   JSON configuration file that defines codex, plug-ins and logging.
-  Supports abbreviated name; "-c dev" for "./storage-etl.dev.json"
-  Default configuration file is ./storage-etl.config.json
+  Supports abbreviated name; "-c dev" for "./etl.config.dev.json"
+  Default configuration file is ./etl.config.json
 
 tractsFile
   JSON file that defines ETL tracts.

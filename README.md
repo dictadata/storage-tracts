@@ -22,8 +22,8 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
 
   configFile
     JSON configuration file that defines codex, plug-ins and logging.
-    Supports abbreviated name; "-c dev" for "./storage-etl.dev.json"
-    Default configuration file is ./storage-etl.config.json
+    Supports abbreviated name; "-c dev" for "./etl.config.dev.json"
+    Default configuration file is ./etl.config.json
 
   tractsFile
     JSON file that defines ETL tracts.
@@ -49,7 +49,7 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
 
 ## Configuration File
 
-Default configuration settings can be specified in a _config tract in **storage-etl.config.json**.  The file will be read from the current working directory.  Example configuration tract:
+Default configuration settings can be specified in a _config tract in **etl.config.json**.  The file will be read from the current working directory.  Example configuration tract:
 
 ```json
 {
