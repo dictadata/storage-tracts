@@ -125,7 +125,7 @@ module.exports = async (tract) => {
       if (!terminal.options.append && jt.capabilities.encoding) {
         logger.verbose(">>> createSchema");
         let results = await jt.createSchema();
-        logger.verbose(results.resultMessage);
+        logger.verbose(results.message);
       }
 
       logger.verbose(">>> createWriter");

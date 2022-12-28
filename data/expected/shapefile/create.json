@@ -1,4 +1,4 @@
 {
-  "resultCode": 409,
-  "resultMessage": "index exists"
+  "status": 409,
+  "message": "index exists"
 }

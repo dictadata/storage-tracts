@@ -114,7 +114,7 @@ async function store(entry) {
 
     // store codex entry
     let results = await _codex.store(engram);
-    logger.info("codex store: " + engram.name + " " + results.resultMessage);
+    logger.info("codex store: " + engram.name + " " + results.message);
   }
   catch (err) {
     logger.error(err);
@@ -135,7 +135,7 @@ async function dull(request) {
     let pattern = request.pattern || request;
     let results = await _codex.dull(pattern);
 
-    logger.info("codex dull: " + (pattern.key || pattern.name) + " " + results.resultMessage);
+    logger.info("codex dull: " + (pattern.key || pattern.name) + " " + results.message);
   }
   catch (err) {
     logger.error(err);
@@ -155,7 +155,7 @@ async function recall(request) {
   try {
     let pattern = request.pattern || request;
     let results = await _codex.recall(pattern);
-    logger.verbose("codex recall: " + (pattern.key || pattern.name) + " " + results.resultMessage);
+    logger.verbose("codex recall: " + (pattern.key || pattern.name) + " " + results.message);
 
     retCode = output(request.output, results.data);
   }
@@ -177,7 +177,7 @@ async function retrieve(request) {
   try {
     let pattern = request.pattern || request;
     let results = await _codex.retrieve(pattern);
-    logger.verbose("codex retrieve: " + results.resultMessage);
+    logger.verbose("codex retrieve: " + results.message);
 
     retCode = output(request.output, results.data);
   }

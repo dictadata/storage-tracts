@@ -1,7 +1,7 @@
 {
   "codify": {
     "origin": {
-      "smt": "json|ftp://dev.dictadata.org/data/dictadata.org/test/input/|foofile.json|*",
+      "smt": "json|ftp://dev.dictadata.org/data/dictadata.org/data/input/|foofile.json|*",
       "options": {
         "max_read": 100
       }

@@ -92,8 +92,8 @@ module.exports = async (tract) => {
     if (jt.capabilities.encoding && !terminal.options.append) {
       logger.verbose(">>> createSchema");
       let results = await jt.createSchema();
-      if (results.resultCode !== 0)
-        logger.info("could not create storage schema: " + results.resultMessage);
+      if (results.status !== 0)
+        logger.info("could not create storage schema: " + results.message);
     }
 
 
