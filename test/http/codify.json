@@ -1,7 +1,7 @@
 {
   "codify": {
     "origin": {
-      "smt": "json|http://dev.dictadata.org/data/dictadata.org/data/input/|foofile.json|*",
+      "smt": "json|http://dev.dictadata.net/data/dictadata.net/data/input/|foofile.json|*",
       "options": {
         "max_read": 100
       }

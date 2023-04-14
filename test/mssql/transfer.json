@@ -11,7 +11,7 @@
     "terminal": {
       "smt": {
         "model": "mssql",
-        "locus": "server=dev.dictadata.org;database=storage_node",
+        "locus": "server=dev.dictadata.net;database=storage_node",
         "schema": "foo_schema_etl",
         "key": "*"
       }
@@ -43,7 +43,7 @@
     "terminal": {
       "smt": {
         "model": "mssql",
-        "locus": "server=dev.dictadata.org;database=storage_node",
+        "locus": "server=dev.dictadata.net;database=storage_node",
         "schema": "timeseries",
         "key": "*"
       },

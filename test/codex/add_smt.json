@@ -2,7 +2,7 @@
   "codex": {
     "action": "codex",
     "_config": {
-      "smt": "elasticsearch|http://dev.dictadata.org:9200/|dicta_codex|*",
+      "smt": "elasticsearch|http://dev.dictadata.net:9200/|dicta_codex|*",
       "options": {
         "description": "test"
       }
@@ -15,22 +15,22 @@
       },
       {
         "name": "elasticsearch-foo_schema",
-        "smt": "elasticsearch|http://dev.dictadata.org:9200|foo_schema|!Foo",
+        "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_schema|!Foo",
         "encoding": "./data/input/foo_schema.encoding.json"
       },
       {
         "name": "mssql-foo_schema",
-        "smt": "mssql|server=dev.dictadata.org;database=storage_node|foo_schema|=Foo",
+        "smt": "mssql|server=dev.dictadata.net;database=storage_node|foo_schema|=Foo",
         "encoding": "./data/input/foo_schema.encoding.json"
       },
       {
         "name": "mysql-foo_schema",
-        "smt": "mysql|host=dev.dictadata.org;database=storage_node|foo_schema|=Foo",
+        "smt": "mysql|host=dev.dictadata.net;database=storage_node|foo_schema|=Foo",
         "encoding": "./data/input/foo_schema.encoding.json"
       },
       {
         "name": "tl_2020_us_state",
-        "smt": "elasticsearch|http://dev.dictadata.org:9200/|tl_2020_us_state|*",
+        "smt": "elasticsearch|http://dev.dictadata.net:9200/|tl_2020_us_state|*",
         "encoding": "./data/input/shapes/tl_YYYY_us_state.encoding.json"
       }
     ]

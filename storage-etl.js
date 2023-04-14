@@ -79,7 +79,7 @@ function parseArgs() {
 
   try {
     console.log("ETL (storage-etl) " + config.version);
-    console.log("Copyright 2022 dictadata.org | The MIT License")
+    console.log("Copyright 2022 dictadata.net | The MIT License")
     parseArgs();
 
     if (!appArgs.tractName) {

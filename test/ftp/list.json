@@ -2,7 +2,7 @@
   "list_local": {
     "action": "list",
     "origin": {
-      "smt": "json|ftp://dev.dictadata.org/data/|foofile_*.json|*",
+      "smt": "json|ftp://dev.dictadata.net/data/|foofile_*.json|*",
       "options": {
         "recursive": true
       }

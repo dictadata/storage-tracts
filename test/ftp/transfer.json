@@ -7,7 +7,7 @@
     "terminal": {
       "smt": {
         "model": "json",
-        "locus": "ftp://dev.dictadata.org/data/output/",
+        "locus": "ftp://dev.dictadata.net/data/output/",
         "schema": "ftp_foofile.json",
         "key": "*"
       }
@@ -16,7 +16,7 @@
   "ftp-local": {
     "action": "transfer",
     "origin": {
-      "smt": "json|ftp://dev.dictadata.org/data/dictadata.org/data/input/|foofile.json|*",
+      "smt": "json|ftp://dev.dictadata.net/data/dictadata.net/data/input/|foofile.json|*",
       "options": {}
     },
     "terminal": {

@@ -3,10 +3,10 @@
     {
       "database": "storage_node",
       "dialect": "MySQL",
-      "name": "dev.dictadata.org",
+      "name": "dev.dictadata.net",
       "password": "dicta",
       "port": 3306,
-      "server": "dev.dictadata.org",
+      "server": "dev.dictadata.net",
       "username": "dicta"
     }
   ]

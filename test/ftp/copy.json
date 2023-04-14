@@ -5,13 +5,13 @@
       "smt": "*|./data/input/|*.json|*"
     },
     "terminal": {
-      "smt": "*|ftp://dev.dictadata.org/data/output/uploads/|*|*"
+      "smt": "*|ftp://dev.dictadata.net/data/output/uploads/|*|*"
     }
   },
   "download": {
     "action": "copy",
     "origin": {
-      "smt": "*|ftp://dev.dictadata.org/data/US/census.gov/geo/tiger/TIGER2020/STATE/|*.zip|*",
+      "smt": "*|ftp://dev.dictadata.net/data/US/census.gov/geo/tiger/TIGER2020/STATE/|*.zip|*",
       "options": {}
     },
     "terminal": {

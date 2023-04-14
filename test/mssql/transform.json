@@ -36,7 +36,7 @@
       }
     },
     "terminal": {
-      "smt": "mssql|server=dev.dictadata.org;database=storage_node|foo_schema_etl2|*",
+      "smt": "mssql|server=dev.dictadata.net;database=storage_node|foo_schema_etl2|*",
       "options": {
         "encoding": "./data/input/foo_schema_t.encoding.json"
       }

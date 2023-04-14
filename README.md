@@ -55,7 +55,7 @@ Default configuration settings can be specified in a _config tract in **etl.conf
 {
   "_config": {
     "codex": {
-      "smt": "elasticsearch|http://dev.dictadata.org:9200/|dicta_codex|*"
+      "smt": "elasticsearch|http://dev.dictadata.net:9200/|dicta_codex|*"
     },
     "log": {
       "logPath": "./log",
@@ -176,7 +176,7 @@ Note, in the tract below the action is implied in the tract name "transfer_forec
         "http": {
           "headers": {
             "Accept": "application/ld+json",
-            "User-Agent": "@dictadata.org/storage-node contact:info@dictadata.org"
+            "User-Agent": "@dictadata.net/storage-node contact:info@dictadata.net"
           }
         },
         "extract": "periods"

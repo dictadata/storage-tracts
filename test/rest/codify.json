@@ -6,7 +6,7 @@
         "http": {
           "headers": {
             "Accept": "application/ld+json",
-            "User-Agent": "@dictadata.org/storage-etl contact:info@dictadata.org"
+            "User-Agent": "@dictadata.net/storage-etl contact:info@dictadata.net"
           }
         },
         "max_read": 100,

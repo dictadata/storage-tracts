@@ -7,7 +7,7 @@
         "http": {
           "headers": {
             "Accept": "application/ld+json",
-            "User-Agent": "@dictadata.org/storage-node contact:info@dictadata.org"
+            "User-Agent": "@dictadata.net/storage-node contact:info@dictadata.net"
           }
         }
       },
@@ -26,7 +26,7 @@
           "http": {
             "headers": {
               "Accept": "application/ld+json",
-              "User-Agent": "@dictadata.org/storage-node contact:info@dictadata.org"
+              "User-Agent": "@dictadata.net/storage-node contact:info@dictadata.net"
             }
           },
           "extract": "periods"
