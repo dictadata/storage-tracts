@@ -1,5 +1,9 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 0.9.63
+  - refactor: rebrand as dictadata.net
+  - feature: TLS connection options for Elasticsearch and MySQL
+  - updated: @dictadata/storage-junctions@0.9.89
 - version 0.9.62
   - updated: @dictadata/storage-junctions@0.9.87
   - refactor: StorageResults properties
