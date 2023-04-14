@@ -576,7 +576,7 @@
         "--preserve-symlinks"
       ],
       "args": [
-        "list",
+        "*",
         "-t",
         "${workspaceFolder}/test/elasticsearch/list.json"
       ],
@@ -796,7 +796,7 @@
         "--preserve-symlinks"
       ],
       "args": [
-        "list",
+        "*",
         "-t",
         "${workspaceFolder}/test/mysql/list.json"
       ],

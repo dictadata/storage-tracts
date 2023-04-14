@@ -1,13 +1,25 @@
 {
   "list": {
     "origin": {
-      "smt": "elasticsearch|http://dev.dictadata.org:9200|*|*",
+      "smt": "elasticsearch|http://dev.dictadata.net:9200|*|*",
       "options": {
         "schema": "foo*"
       }
     },
     "terminal": {
       "output": "./data/output/elasticsearch/list.json"
+    }
+  },
+  "list_origin": {
+    "action": "list",
+    "origin": {
+      "smt": "elasticsearch|https://data-origin.dictadata.net:9200|*|*",
+      "options": {
+        "schema": "foo*"
+      }
+    },
+    "terminal": {
+      "output": "./data/output/elasticsearch/list_origin.json"
     }
   }
 }
