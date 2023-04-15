@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 0.9.65
+  - updated: @dictadata/storage-junctions@0.9.91
+  - bug fix: add logger to auth_stash module
 - version 0.9.64
   - updated: @dictadata/storage-junctions@0.9.90
   - bug fix: codex connection, issue overwriting options.tls.ca with file contents
