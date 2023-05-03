@@ -20,6 +20,11 @@ module.exports = async (tract) => {
   logger.info("=== transfer");
   let retCode = 0;
 
+  if (typeof tract?.urn === "string") {
+    let results = await Storage.tracts.recall(tract.urn);
+    tract = results.data[ tract.urn ].tracts[0];
+  }
+
   var origin = tract.origin || {};
   var terminal = tract.terminal || {};
   var transforms = tract.transform || tract.transforms || {};

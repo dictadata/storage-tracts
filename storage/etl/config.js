@@ -1,5 +1,5 @@
 /**
- * storage/etl/tracts
+ * storage/etl/config
  */
 "use strict";
 
@@ -19,6 +19,10 @@ var configDefaults = {
       "smt": "",
       "options": {}
     },
+    "tracts": {
+      "smt": "",
+      "options": {}
+    },
     "log": {
       logPath: "./log",
       logPrefix: "etl",
@@ -35,13 +39,13 @@ var configDefaults = {
 /**
  *
  */
-module.exports.sampleTracts = async function (tractsFile) {
+module.exports.sampleTracts = async function (etlTracts) {
 
   try {
     let sampleTracts = {
       "tract-name": {
         "origin": {
-          "smt": "<smt_urn>",
+          "smt": "<smt|urn>",
           "options": {}
         },
         "transform": {
@@ -57,7 +61,10 @@ module.exports.sampleTracts = async function (tractsFile) {
       },
       "_config": {
         "codex": {
-          "smt": "<model>|<locus>|<schema>|<key>"
+          "smt": "<model>|<locus>|dicta_codex|*"
+        },
+        "tracts": {
+          "smt": "<model>|<locus>|dicta_tracts|*"
         },
         "plugins": {
           "filesystems": {
@@ -78,8 +85,8 @@ module.exports.sampleTracts = async function (tractsFile) {
       }
     };
 
-    logger.info("writing sample tracts configuration to " + tractsFile);
-    await fs.writeFileSync(tractsFile, JSON.stringify(sampleTracts, null, " "), { encodign: 'utf-8', flag: 'wx' });
+    logger.info("writing sample tracts configuration to " + etlTracts);
+    await fs.writeFileSync(etlTracts, JSON.stringify(sampleTracts, null, " "), { encodign: 'utf-8', flag: 'wx' });
   }
   catch (err) {
     logger.warn(err.message);
@@ -90,13 +97,14 @@ module.exports.sampleTracts = async function (tractsFile) {
 /**
  *
  */
-module.exports.loadTracts = async (appArgs) => {
-  let tracts;
+module.exports.loadETLTracts = async (appArgs) => {
+  let etl_tracts;
 
   try {
     // check for config file
     let configFile;
     let errorMessage;
+
     try {
       let configText = await fs.readFileSync(appArgs.configFile, 'utf-8');
       configFile = JSON.parse(configText);
@@ -104,47 +112,42 @@ module.exports.loadTracts = async (appArgs) => {
     catch (err) {
       errorMessage = err.message;
     }
-    if (typeof configFile === "undefined") {
-      try {
-        let configText = await fs.readFileSync("storage-" + appArgs.configFile, 'utf-8');
-        configFile = JSON.parse(configText);
-      }
-      catch (err) {
-        console.log(errorMessage);
-        //console.log(err.message);
-      }
-    }
 
-    // read the app tracts file
-    let tractsText = fs.readFileSync(appArgs.tractsFile, 'utf-8');
-    // simple text replacement of "${variables}" in tracts file
+    // read the ETL tracts file
+    let tractsText = fs.readFileSync(appArgs.etlTracts, 'utf-8');
+    // simple text replacement of "${variables}" in ETL tracts file
     let variables = configFile?._config?.variables || {};
     for (let [ name, value ] of Object.entries(variables)) {
       var regex = new RegExp("\\${" + name + "}", "g");
       tractsText = tractsText.replace(regex, value);
     }
-    tracts = JSON.parse(tractsText);
+    etl_tracts = JSON.parse(tractsText);
 
     // merge configs and initialize app
     let _config = Object.assign({}, configDefaults._config);
     if (configFile?._config)
       _merge(_config, configFile?._config);
-    if (tracts._config) {
-      _merge(_config, tracts._config);
-      delete tracts._config;
+    if (etl_tracts._config) {
+      _merge(_config, etl_tracts._config);
+      delete etl_tracts._config;
     }
     await init(_config);
 
     // validate tract properties
-    for (let [ name, tract ] of Object.entries(tracts)) {
+    for (let [ name, tract ] of Object.entries(etl_tracts)) {
       //if (typeof tract === "function")
       //  continue;
 
-      if (name === "codex" || tract.action === "codex") continue;
+      if (name === "codex" || tract.action === "codex")
+        continue;
+      if (name === "tracts" || tract.action === "tracts" || tract.urn)
+        continue;
+
       if (typeOf(tract.origin) !== "object")
-        throw new StorageError(400, "invalid tract origin: " + name);
+        throw new StorageError(400, "invalid ETL tract origin: " + name);
+
       if (tract.action !== "scan" && tract.action !== "iterate" && typeOf(tract.terminal) !== "object")
-        throw new StorageError(400, "invalid tract terminal: " + name);
+        throw new StorageError(400, "invalid ETL tract terminal: " + name);
     }
 
   }
@@ -152,7 +155,7 @@ module.exports.loadTracts = async (appArgs) => {
     logger.error(err.message);
   }
 
-  return tracts;
+  return etl_tracts;
 };
 
 async function init(_config) {
@@ -164,7 +167,7 @@ async function init(_config) {
   if (_config.codex.auth_stash)
     Storage.authStash.load(_config.codex.auth_stash);
 
-  //// codex initialization
+  //// codex datastore initialization
   let codex;
   if (hasOwnProperty(_config, "codex") && _config.codex.smt) {
     logger.verbose("Codex SMT: " + JSON.stringify(_config.codex.smt, null, 2));
@@ -176,8 +179,7 @@ async function init(_config) {
     logger.verbose("Codex SMT: memory|dictadata|codex|*");
     codex = new Storage.Codex("memory|dictadata|codex|*");
   }
-
-  // use codex for SMT name lookup
+  // make codex available "globally" and use for SMT urn lookups
   Storage.codex = codex;
 
   //// register plugins
@@ -201,6 +203,20 @@ async function init(_config) {
     }
   }
 
+  //// tracts datastore initialization
+  let tracts_store;
+  if (hasOwnProperty(_config, "tracts") && _config.tracts.smt) {
+    logger.verbose("Tracts SMT: " + JSON.stringify(_config.tracts.smt, null, 2));
+    // activate tracts junction
+    tracts_store = new Storage.Tracts(_config.tracts.smt, _config.tracts.options);
+    await tracts_store.activate();
+  }
+  else {
+    logger.verbose("Tracts SMT: memory|dictadata|tracts|*");
+    tracts_store = new Storage.Tracts("memory|dictadata|tracts|*");
+  }
+  // make tracts available "globally"
+  Storage.tracts = tracts_store;
 }
 
 /**

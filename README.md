@@ -16,17 +16,17 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
 
 ```bash
   Command line:
-    etl [-c configFile] [-t tractsFile] tractName
+    etl [-c configFile] [-t etlTracts] tractName
   or:
-    storage-etl [-c configFile] [-t tractsFile] tractName
+    storage-etl [-c configFile] [-t etlTracts] tractName
 
   configFile
     JSON configuration file that defines codex, plug-ins and logging.
     Supports abbreviated name; "-c dev" for "./etl.config.dev.json"
     Default configuration file is ./etl.config.json
 
-  tractsFile
-    JSON file that defines ETL tracts.
+  etlTracts
+    JSON ETL tracts file that defines tracts to process.
     Default configuration file is ./etl.tracts.json
 
   tractName
@@ -40,6 +40,7 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
     codify - determine schema encoding by examining some data.
     dull - remove data from a data store.
     codex - manage codex encoding definitions
+    tracts = manage ETL tract definitions
     scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.
     iterate - retrieve data and perform child action(s) for each construct.
     all | * - run all tracts in sequence.

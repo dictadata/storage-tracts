@@ -1,40 +1,44 @@
 {
- "tract-name": {
-  "origin": {
-   "smt": "<smt_urn>",
-   "options": {}
+  "tract-name": {
+    "origin": {
+      "smt": "<smt|urn>",
+      "options": {}
+    },
+    "transform": {
+      "filter": {},
+      "select": {}
+    },
+    "terminal": {
+      "smt": "json|./|foofile.json|*",
+      "options": {
+        "encoding": "<schema_name.encoding.json>"
+      }
+    }
   },
-  "transform": {
-   "filter": {},
-   "select": {}
-  },
-  "terminal": {
-   "smt": "json|./|foofile.json|*",
-   "options": {
-    "encoding": "<schema_name.encoding.json>"
-   }
+  "_config": {
+    "codex": {
+      "smt": "<model>|<locus>|dicta_codex|*"
+    },
+    "tracts": {
+      "smt": "<model>|<locus>|dicta_tracts|*"
+    },
+    "plugins": {
+      "filesystems": {
+        "<package_name>": [
+          "<prefix>"
+        ]
+      },
+      "junctions": {
+        "<package_name>": [
+          "<model>"
+        ]
+      }
+    },
+    "log": {
+      "logPath": "./log",
+      "logPrefix": "etl",
+      "logLevel": "info"
+    },
+    "variables": {}
   }
- },
- "_config": {
-  "codex": {
-   "smt": "<model>|<locus>|<schema>|<key>"
-  },
-  "plugins": {
-   "filesystems": {
-    "<package_name>": [
-     "<prefix>"
-    ]
-   },
-   "junctions": {
-    "<package_name>": [
-     "<model>"
-    ]
-   }
-  },
-  "log": {
-   "logPath": "./log",
-   "logPrefix": "etl",
-   "logLevel": "info"
-  }
- }
 }

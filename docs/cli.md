@@ -4,14 +4,14 @@
 storage-etl (etl) 2.5.x
 Transfer, transform and codify data between local and distributed storage sources.
 
-etl [-c configFile] [-t tractsFile] tractName
+etl [-c configFile] [-t etlTracts] tractName
 
 configFile
   JSON configuration file that defines codex, plug-ins and logging.
   Supports abbreviated name; "-c dev" for "./etl.config.dev.json"
   Default configuration file is ./etl.config.json
 
-tractsFile
+etlTracts
   JSON file that defines ETL tracts.
   Default configuration file is ./etl.tracts.json
 

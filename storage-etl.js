@@ -20,18 +20,19 @@ addAction("transfer", require('./storage/etl/transfer'));
 addAction("dull", require('./storage/etl/dull'));
 addAction("copy", require('./storage/etl/copy'));
 addAction("codex", require('./storage/etl/codex'));
+addAction("tracts", require('./storage/etl/tracts'));
 
 // set program argument defaults
 const appArgs = {
   configFile: './etl.config.json',
-  tractsFile: './etl.tracts.json',
+  etlTracts: './etl.tracts.json',
   tractName: ''  // tract name to process
 }
 
 /**
  * parseArgs
  *   only tractName is required
- *   example process.argv  ["node.exe", "storage-etl.js", "-c", <configFile>, "-t", <tractsFile>, <tractName>]
+ *   example process.argv  ["node.exe", "storage-etl.js", "-c", <configFile>, "-t", <etlTracts>, <tractName>]
  */
 function parseArgs() {
   const myArgs = {};
@@ -44,18 +45,18 @@ function parseArgs() {
         myArgs.configFile = process.argv[ i + 1 ];
         ++i;
         if (!myArgs.configFile.includes("."))
-          myArgs.configFile = "etl.config." + myArgs.configFile + ".json";
+          myArgs.configFile = "etl.config." + myArgs.configFile + ".json";  // dev, prod, ...
         if (!path.extname(myArgs.configFile))
           myArgs.configFile += ".config.json";
       }
     }
-    // tractsFile
+    // etlTracts
     else if (process.argv[ i ] === "-t") {
       if (i + 1 < process.argv.length) {
-        myArgs.tractsFile = process.argv[ i + 1 ];
+        myArgs.etlTracts = process.argv[ i + 1 ];
         ++i;
-        if (!path.extname(myArgs.tractsFile))
-          myArgs.tractsFile += ".tracts.json";
+        if (!path.extname(myArgs.etlTracts))
+          myArgs.etlTracts += ".tracts.json";
       }
     }
     else if (!myArgs.tractName) {
@@ -85,19 +86,19 @@ function parseArgs() {
     if (!appArgs.tractName) {
       console.log("Transfer, transform and codify data between local and distributed storage sources.");
       console.log("");
-      console.log("etl [-c configFile] [-t tractsFile] tractName");
+      console.log("etl [-c configFile] [-t etlTracts] tractName");
       console.log("");
       console.log("configFile");
       console.log("  JSON configuration file that defines codex, plug-ins and logging.");
       console.log("  Supports abbreviated name; '-c dev' for './etl.config.dev.json'");
       console.log("  Default configuration file is ./etl.config.json");
       console.log("");
-      console.log("tractsFile");
-      console.log("  JSON file that defines ETL tracts.");
-      console.log("  Default configuration file is ./etl.tracts.json");
+      console.log("etlTracts");
+      console.log("  ETL tracts JSON file defines tracts to process.");
+      console.log("  Default tract file is ./etl.tracts.json");
       console.log("");
       console.log("tractName");
-      console.log("  The tract to follow in the tracts file. Required. Use '*' to process all tracts.");
+      console.log("  The tract to follow in the ETL tracts file. Required. Use '*' to process all tracts.");
       console.log("  Shortcut syntax, if 'action' is not defined in the tract then action defaults to the tractName.");
       console.log("");
       console.log("Actions:");
@@ -107,6 +108,7 @@ function parseArgs() {
       console.log("  codify - determine schema's encoding by examining some data.");
       console.log("  dull - remove data from a data store.");
       console.log("  codex - manage codex encoding definitions");
+      console.log("  tracts - manage tract definitions");
       console.log("  scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.");
       console.log("  iterate - retrieve data and perform child action(s) for each construct.");
       console.log("  all | * - run all tracts in sequence.");
@@ -117,19 +119,20 @@ function parseArgs() {
     }
 
     // load tracts file
-    let tracts = {};
+    let etl_tracts = {};
     if (appArgs.tractName === 'config') {
-      await config.sampleTracts(appArgs.tractsFile);
+      await config.sampleTracts(appArgs.etlTracts);
       return 0;
-    } else {
-      tracts = await config.loadTracts(appArgs);
+    }
+    else {
+      etl_tracts = await config.loadETLTracts(appArgs);
     }
 
-    if (Object.keys(tracts).length <= 0)
+    if (Object.keys(etl_tracts).length <= 0)
       throw new StorageError(400, "no storage tracts defined");
 
     if (appArgs.tractName === "all" || appArgs.tractName === "*") {
-      for (const [ key, tract ] of Object.entries(tracts)) {
+      for (const [ key, tract ] of Object.entries(etl_tracts)) {
         if (key[ 0 ] === "_")
           continue;
         retCode = await performAction(key, tract);
@@ -139,14 +142,14 @@ function parseArgs() {
     }
     else if (appArgs.tractName === "parallel") {
       let tasks = [];
-      for (const [ key, tract ] of Object.entries(tracts)) {
+      for (const [ key, tract ] of Object.entries(etl_tracts)) {
         if (key[ 0 ] === "_") continue;
         tasks.push(performAction(key, tract));
       }
       Promise.allSettled(tasks);
     }
     else {
-      retCode = await performAction(appArgs.tractName, tracts[ appArgs.tractName ]);
+      retCode = await performAction(appArgs.tractName, etl_tracts[ appArgs.tractName ]);
     }
 
   }

@@ -1,29 +1,28 @@
 /**
- * storage/etl/codex
+ * storage/etl/tracts
  */
 "use strict";
 
 const Storage = require("@dictadata/storage-junctions");
-const { Engram } = require("@dictadata/storage-junctions/types");
 const output = require('./output');
 const logger = require('./logger');
 
 const fs = require('fs');
 
-var _codex;
+var _tracts;
 
 /**
  *
  */
-module.exports = async (etlTract) => {
-  logger.verbose("codex ...");
+module.exports = async (etl_tract) => {
+  logger.verbose("tracts ...");
   let retCode = 0;
   let fn;
 
   try {
-    _codex = Storage.codex;
+    _tracts = Storage.tracts;
 
-    for (let [ command, request ] of Object.entries(etlTract)) {
+    for (let [ command, request ] of Object.entries(etl_tract)) {
       if (command === "action") continue;
 
       // determine function to apply
@@ -35,7 +34,7 @@ module.exports = async (etlTract) => {
         case "config":
         case '_config': fn = config; break;
         default:
-          logger.error("unknown codex command: " + command);
+          logger.error("unknown tracts command: " + command);
           return 1;
       }
 
@@ -66,12 +65,12 @@ async function config(request) {
   let retCode = 0;
 
   try {
-    // activate codex
-    var codex = new Storage.Codex(request.smt, request.options);
-    await codex.activate();
-    _codex = codex;
+    // activate tracts
+    var tracts = new Storage.Tracts(request.smt, request.options);
+    await tracts.activate();
+    _tracts = tracts;
 
-    logger.info("codex config: " + JSON.stringify(request.smt));
+    logger.info("tracts config: " + JSON.stringify(request.smt));
   }
   catch (err) {
     logger.error(err);
@@ -83,37 +82,24 @@ async function config(request) {
 
 /**
  *
- * @param {Object} entry request section of ETL tract that is a Codex entry
+ * @param {Object} entry request section of ETL tract that is a Tracts entry
  */
 async function store(entry) {
   let retCode = 0;
 
+  // store tracts entry
   try {
-    if (entry.encoding && typeof entry.encoding === "string") {
-      // read encoding from file
-      let filename = entry.encoding;
-      let encoding = JSON.parse(fs.readFileSync(filename, "utf8"));
-      // merge encoding into entry
-      delete entry.encoding;
-      entry = Object.assign({}, encoding, entry);
+    if (typeof entry?.tracts === "string") {
+      // read tracts from file
+      let filename = entry.tracts;
+      let tracts = JSON.parse(fs.readFileSync(filename, "utf8"));
+      // merge tracts into entry
+      delete entry.tracts;
+      entry = Object.assign({}, tracts, entry);
     }
 
-    let results;
-    let engram;
-    switch (entry.type) {
-      case "engram":
-        engram = new Engram(entry);
-        results = await _codex.store(engram);
-        break;
-      case "alias":
-        results = await _codex.store(entry);
-        break;
-      case "ETL tract":
-      default:
-        throw new Error("invalid codex type");
-    }
-
-    logger.info("codex store: " + engram.name + " " + results.message);
+    let results = await _tracts.store(entry);
+    logger.info("tracts store: " + entry.name + " " + results.message);
   }
   catch (err) {
     logger.error(err);
@@ -132,9 +118,9 @@ async function dull(request) {
 
   try {
     let pattern = request.pattern || request;
-    let results = await _codex.dull(pattern);
+    let results = await _tracts.dull(pattern);
 
-    logger.info("codex dull: " + (pattern.key || pattern.name) + " " + results.message);
+    logger.info("tracts dull: " + (pattern.key || pattern.name) + " " + results.message);
   }
   catch (err) {
     logger.error(err);
@@ -153,8 +139,8 @@ async function recall(request) {
 
   try {
     let pattern = request.pattern || request;
-    let results = await _codex.recall(pattern);
-    logger.verbose("codex recall: " + (pattern.key || pattern.name) + " " + results.message);
+    let results = await _tracts.recall(pattern);
+    logger.verbose("tracts recall: " + (pattern.key || pattern.name) + " " + results.message);
 
     retCode = output(request.output, results.data);
   }
@@ -175,8 +161,8 @@ async function retrieve(request) {
 
   try {
     let pattern = request.pattern || request;
-    let results = await _codex.retrieve(pattern);
-    logger.verbose("codex retrieve: " + results.message);
+    let results = await _tracts.retrieve(pattern);
+    logger.verbose("tracts retrieve: " + results.message);
 
     retCode = output(request.output, results.data);
   }
