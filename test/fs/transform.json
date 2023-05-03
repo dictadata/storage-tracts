@@ -43,7 +43,7 @@
         "key": "*"
       },
       "options": {
-        "encoding": "./data/input/foo_schema_t.encoding.json"
+        "encoding": "./data/input/encodings/foo_schema_t.encoding.json"
       },
       "output": "./data/output/fs/transform.json"
     }
@@ -90,7 +90,7 @@
       },
       "options": {
         "header": true,
-        "encoding": "./data/input/foo_schema_t.encoding.json"
+        "encoding": "./data/input/encodings/foo_schema_t.encoding.json"
       },
       "output": "./data/output/fs/transform.csv"
     }

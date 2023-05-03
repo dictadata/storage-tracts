@@ -45,7 +45,7 @@
     "name": "foo_schema",
     "type": "engram",
     "domain": "foo",
-    "source": "file:./data/input/foo_schema.encoding.json",
+    "source": "file:./data/input/encodings/foo_schema.encoding.json",
     "title": "foo_schema encoding",
     "description": "test input for foo_schema encoding",
     "tags": [
