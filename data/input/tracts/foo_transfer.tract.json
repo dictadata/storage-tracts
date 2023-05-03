@@ -1,0 +1,32 @@
+{
+  "domain": "foo",
+  "name": "foo_transfer",
+  "type": "tract",
+  "title": "JSON to JSON",
+  "description": "JSON to JSON transfer tract.",
+  "notes": "tract definitions: 1",
+  "tags": [
+    "dictadata.net",
+    "foo",
+    "json"
+  ],
+  "tracts": [
+    {
+      "name": "json-json",
+      "action": "transfer",
+      "description": "transfer foo from json to json",
+      "origin": {
+        "smt": "json|./data/input/|foofile.json|*"
+      },
+      "terminal": {
+        "smt": {
+          "model": "json",
+          "locus": "./data/output/tracts/",
+          "schema": "transfer_foofile.json",
+          "key": "*"
+        },
+        "output": "./data/output/tracts/tracts_foofile.json"
+      }
+    }
+  ]
+}

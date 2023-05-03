@@ -5,7 +5,7 @@
       "name": "foo_schema_two",
       "type": "engram",
       "smt": "json|./data/input/|foofile.json|*",
-      "encoding": "./data/input/foo_schema_two.encoding.json",
+      "encoding": "./data/input/encodings/foo_schema_two.encoding.json",
       "title": "foo schema two",
       "description": "just two fields: Foo Bar",
       "source": "modified foo_schema.encoding.json",

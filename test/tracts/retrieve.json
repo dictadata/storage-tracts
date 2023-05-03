@@ -1,0 +1,15 @@
+{
+  "tracts": {
+    "action": "tracts",
+    "retrieve": {
+      "pattern": {
+        "match": {
+          "name": {
+            "wc": "foo_transfer*"
+          }
+        }
+      },
+      "output": "./data/output/tracts/retrieve-foo_transfers.json"
+    }
+  }
+}

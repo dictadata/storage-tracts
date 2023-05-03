@@ -1025,6 +1025,135 @@
         "LOG_LEVEL": "verbose"
       },
       "outputCapture": "std"
+    },
+    {
+      "type": "node-terminal",
+      "name": "--- tracts",
+      "request": "launch"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "tracts store",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
+      "args": [
+        "-t",
+        "${workspaceFolder}/test/tracts/store.json",
+        "tracts"
+      ],
+      "env": {
+        "NODE_ENV": "production",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "tracts recall",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
+      "args": [
+        "-c",
+        "etl.config.json",
+        "-t",
+        "${workspaceFolder}/test/tracts/recall.json",
+        "tracts"
+      ],
+      "env": {
+        "NODE_ENV": "production",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "tracts dull",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
+      "args": [
+        "-c",
+        "dev",
+        "-t",
+        "${workspaceFolder}/test/tracts/dull.json",
+        "tracts"
+      ],
+      "env": {
+        "NODE_ENV": "production",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "tracts retrieve",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
+      "args": [
+        "-t",
+        "${workspaceFolder}/test/tracts/retrieve.json",
+        "tracts"
+      ],
+      "env": {
+        "NODE_ENV": "production",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "tracts add_tracts",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
+      "args": [
+        "-t",
+        "${workspaceFolder}/test/tracts/add_tracts.json",
+        "tracts"
+      ],
+      "env": {
+        "NODE_ENV": "production",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "tracts transfer",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage-etl.js",
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ],
+      "args": [
+        "-t",
+        "${workspaceFolder}/test/tracts/transfer.json",
+        "*"
+      ],
+      "env": {
+        "NODE_ENV": "production",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
     }
   ]
 }

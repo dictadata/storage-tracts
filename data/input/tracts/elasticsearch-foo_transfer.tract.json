@@ -1,0 +1,32 @@
+{
+  "domain": "foo",
+  "name": "elasticsearch-foo_transfer",
+  "type": "tract",
+  "title": "JSON to JSON",
+  "description": "JSON to JSON transfer tract.",
+  "notes": "tract definitions: 1",
+  "tags": [
+    "dictadata.net",
+    "foo",
+    "json"
+  ],
+  "tracts": [
+    {
+      "name": "json-json",
+      "action": "transfer",
+      "description": "transfer foo from Elasticsearch to JSON",
+      "origin": {
+        "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_schema|!Foo"
+      },
+      "terminal": {
+        "smt": {
+          "model": "json",
+          "locus": "./data/output/tracts/",
+          "schema": "elasticsearch-foo_transfer.json",
+          "key": "*"
+        },
+        "output": "./data/output/tracts/elasticsearch-foo_transfer.json"
+      }
+    }
+  ]
+}

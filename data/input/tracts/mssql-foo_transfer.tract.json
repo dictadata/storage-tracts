@@ -1,0 +1,32 @@
+{
+  "domain": "foo",
+  "name": "mssql-foo_transfer",
+  "type": "tract",
+  "title": "JSON to JSON",
+  "description": "JSON to JSON transfer tract.",
+  "notes": "tract definitions: 1",
+  "tags": [
+    "dictadata.net",
+    "foo",
+    "json"
+  ],
+  "tracts": [
+    {
+      "name": "json-json",
+      "action": "transfer",
+      "description": "transfer foo from MSSQL to JSON",
+      "origin": {
+        "smt": "mssql|server=dev.dictadata.net;database=storage_node|foo_schema|=Foo"
+      },
+      "terminal": {
+        "smt": {
+          "model": "json",
+          "locus": "./data/output/tracts/",
+          "schema": "mssql-foo_transfer.json",
+          "key": "*"
+        },
+        "output": "./data/output/tracts/mssql-foo_transfer.json"
+      }
+    }
+  ]
+}
