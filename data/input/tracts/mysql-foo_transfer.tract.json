@@ -16,7 +16,10 @@
       "action": "transfer",
       "description": "transfer foo from MySQL to JSON",
       "origin": {
-        "smt": "mysql|host=dev.dictadata.net;database=storage_node|foo_schema|=Foo"
+        "smt": "mysql|host=dev.dictadata.net;database=storage_node|foo_schema|=Foo",
+        "pattern": {
+          "order": { "Foo": "asc" }
+        }
       },
       "terminal": {
         "smt": {

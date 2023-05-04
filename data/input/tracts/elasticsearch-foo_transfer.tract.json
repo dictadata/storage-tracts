@@ -16,7 +16,10 @@
       "action": "transfer",
       "description": "transfer foo from Elasticsearch to JSON",
       "origin": {
-        "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_schema|!Foo"
+        "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_schema|!Foo",
+        "pattern": {
+          "order": { "Foo": "asc" }
+        }
       },
       "terminal": {
         "smt": {
