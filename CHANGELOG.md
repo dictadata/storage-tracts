@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 0.9.66
+  - feature: Tracts storage
+  - testing updates
 - version 0.9.65
   - updated: @dictadata/storage-junctions@0.9.91
   - bug fix: add logger to auth_stash module
