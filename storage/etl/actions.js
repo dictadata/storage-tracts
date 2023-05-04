@@ -29,7 +29,7 @@ async function performAction(tractName, tract) {
   // check to read encodings from file
   try {
     logger.debug(">>> check origin encoding");
-    if (tract.origin && tract.origin.options && typeof tract.origin.options.encoding === "string") {
+    if (typeof tract.origin?.options?.encoding === "string") {
       let filename = tract.origin.options.encoding;
       tract.origin.options.encoding = JSON.parse(await fs.readFile(filename, "utf8"));
     }
@@ -41,7 +41,7 @@ async function performAction(tractName, tract) {
 
   try {
     logger.debug(">>> check terminal encoding");
-    if (tract.terminal && tract.terminal.options && typeof tract.terminal.options.encoding === "string") {
+    if (typeof tract.terminal?.options?.encoding === "string") {
       let filename = tract.terminal.options.encoding;
       tract.terminal.options.encoding = JSON.parse(await fs.readFile(filename, "utf8"));
     }

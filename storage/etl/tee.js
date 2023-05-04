@@ -30,7 +30,7 @@ module.exports = async (tract) => {
   var jtl = [];  // junction terminal list
   try {
     // check if origin encoding is in a file
-    if (origin.options && typeof origin.options.encoding === "string") {
+    if (typeof origin.options?.encoding === "string") {
       let filename = origin.options.encoding;
       origin.options.encoding = JSON.parse(fs.readFileSync(filename, "utf8"));
     }
@@ -50,7 +50,7 @@ module.exports = async (tract) => {
 
     /// determine terminal encoding
     logger.verbose(">>> determine terminal encoding");
-    if (terminal.options && typeof terminal.options.encoding === "string") {
+    if (typeof terminal.options?.encoding === "string") {
       // read encoding from file
       let filename = terminal.options.encoding;
       terminal.options.encoding = JSON.parse(fs.readFileSync(filename, "utf8"));

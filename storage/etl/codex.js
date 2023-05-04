@@ -89,7 +89,7 @@ async function store(entry) {
   let retCode = 0;
 
   try {
-    if (entry.encoding && typeof entry.encoding === "string") {
+    if (typeof entry?.encoding === "string") {
       // read encoding from file
       let filename = entry.encoding;
       let encoding = JSON.parse(fs.readFileSync(filename, "utf8"));

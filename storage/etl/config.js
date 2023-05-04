@@ -169,7 +169,7 @@ async function init(_config) {
 
   //// codex datastore initialization
   let codex;
-  if (hasOwnProperty(_config, "codex") && _config.codex.smt) {
+  if (_config.codex?.smt) {
     logger.verbose("Codex SMT: " + JSON.stringify(_config.codex.smt, null, 2));
     // activate codex junction
     codex = new Storage.Codex(_config.codex.smt, _config.codex.options);
@@ -205,7 +205,7 @@ async function init(_config) {
 
   //// tracts datastore initialization
   let tracts_store;
-  if (hasOwnProperty(_config, "tracts") && _config.tracts.smt) {
+  if (_config.tracts?.smt) {
     logger.verbose("Tracts SMT: " + JSON.stringify(_config.tracts.smt, null, 2));
     // activate tracts junction
     tracts_store = new Storage.Tracts(_config.tracts.smt, _config.tracts.options);

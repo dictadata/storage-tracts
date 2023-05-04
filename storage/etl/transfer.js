@@ -59,7 +59,7 @@ module.exports = async (tract) => {
       let pipes = [];
 
       let options = Object.assign({
-        max_read: (origin.options && origin.options.max_read) || 100,
+        max_read: origin.options?.max_read || 100,
         pattern: origin.pattern
       });
 

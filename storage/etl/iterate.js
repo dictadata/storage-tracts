@@ -25,7 +25,7 @@ module.exports = async (tract) => {
     for (const [ key, value ] of Object.entries(tract)) {
       if (![ "action", "origin", "terminal", "transform", "description" ].includes(key) &&
         key[ 0 ] !== "_" &&
-        typeof value === "object" && value.origin) {
+        value?.origin) {
         lpTracts[ key ] = value;
       }
     }
@@ -63,7 +63,7 @@ module.exports = async (tract) => {
     }
 
     /* could record some result logging
-    if (tract.terminal && tract.terminal.output) {
+    if (tract.terminal?.output) {
       logger.debug(JSON.stringify(<results>, null, " "));
       retCode = output(tract.terminal.output, <results>);
     }
