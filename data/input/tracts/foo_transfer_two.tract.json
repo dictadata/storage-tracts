@@ -24,8 +24,7 @@
           "locus": "./data/output/tracts/",
           "schema": "transfer_foofile_two.json",
           "key": "*"
-        },
-        "output": "./data/output/tracts/tracts_foofile_two.json"
+        }
       }
     }
   ]

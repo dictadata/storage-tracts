@@ -22,10 +22,9 @@
         "smt": {
           "model": "json",
           "locus": "./data/output/tracts/",
-          "schema": "jsonfile-foo_transfer.json",
+          "schema": "use_jsonfile-foo_transfer.json",
           "key": "*"
-        },
-        "output": "./data/output/tracts/jsonfile-foo_transfer.json"
+        }
       }
     }
   ]

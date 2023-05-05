@@ -25,10 +25,9 @@
         "smt": {
           "model": "json",
           "locus": "./data/output/tracts/",
-          "schema": "elasticsearch-foo_transfer.json",
+          "schema": "use_elasticsearch-foo_transfer.json",
           "key": "*"
-        },
-        "output": "./data/output/tracts/elasticsearch-foo_transfer.json"
+        }
       }
     }
   ]

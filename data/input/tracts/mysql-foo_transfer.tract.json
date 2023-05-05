@@ -25,10 +25,9 @@
         "smt": {
           "model": "json",
           "locus": "./data/output/tracts/",
-          "schema": "mysql-foo_transfer.json",
+          "schema": "use_mysql-foo_transfer.json",
           "key": "*"
-        },
-        "output": "./data/output/tracts/mysql-foo_transfer.json"
+        }
       }
     }
   ]
