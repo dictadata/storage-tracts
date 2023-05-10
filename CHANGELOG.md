@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 0.9.68
+  - refactor: rename of storage-junction Campus and Cortex classes
+  - updated: @dictadata/storage-junctions@0.9.95
 - version 0.9.67
   - bug fix: coerce smt to strings in cortex entries
   - updated: @dictadata/storage-junctions@0.9.94
