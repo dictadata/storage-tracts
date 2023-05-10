@@ -19,8 +19,8 @@
     "codex": {
       "smt": "<model>|<locus>|dicta_codex|*"
     },
-    "tracts": {
-      "smt": "<model>|<locus>|dicta_tracts|*"
+    "cortex": {
+      "smt": "<model>|<locus>|dicta_cortex|*"
     },
     "plugins": {
       "filesystems": {

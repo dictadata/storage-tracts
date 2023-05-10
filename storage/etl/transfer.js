@@ -21,7 +21,7 @@ module.exports = async (tract) => {
   let retCode = 0;
 
   if (typeof tract?.urn === "string") {
-    let results = await Storage.tracts.recall(tract.urn);
+    let results = await Storage.cortex.recall(tract.urn);
     tract = results.data[ tract.urn ].tracts[0];
   }
 

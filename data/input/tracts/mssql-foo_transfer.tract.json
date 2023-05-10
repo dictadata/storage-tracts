@@ -24,7 +24,7 @@
       "terminal": {
         "smt": {
           "model": "json",
-          "locus": "./data/output/tracts/",
+          "locus": "./data/output/cortex/",
           "schema": "use_mssql-foo_transfer.json",
           "key": "*"
         }

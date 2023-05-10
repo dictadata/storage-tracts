@@ -6,10 +6,10 @@
       "auth_stash": "./etl.auth.json",
       "engrams_cache": {}
     },
-    "tracts": {
-      "smt": "elasticsearch|http://dev.dictadata.net:9200/|dicta_tracts|*",
+    "cortex": {
+      "smt": "elasticsearch|http://dev.dictadata.net:9200/|dicta_cortex|*",
       "options": {},
-      "tracts_cache": {}
+      "cortex_cache": {}
     },
     "variables": {
       "schema": "foofile",

@@ -21,7 +21,7 @@
       "terminal": {
         "smt": {
           "model": "json",
-          "locus": "./data/output/tracts/",
+          "locus": "./data/output/cortex/",
           "schema": "use_jsonfile-foo_transfer.json",
           "key": "*"
         }

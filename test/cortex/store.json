@@ -1,6 +1,6 @@
 {
-  "tracts": {
-    "action": "tracts",
+  "cortex": {
+    "action": "cortex",
     "store": {
       "domain": "foo",
       "name": "foo_transfer_two",

@@ -1,6 +1,6 @@
 {
-  "tracts": {
-    "action": "tracts",
+  "cortex": {
+    "action": "cortex",
     "retrieve": {
       "pattern": {
         "match": {
@@ -9,7 +9,7 @@
           }
         }
       },
-      "output": "./data/output/tracts/retrieve-foo_transfers.json"
+      "output": "./data/output/cortex/retrieve-foo_transfers.json"
     }
   }
 }

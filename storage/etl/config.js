@@ -19,7 +19,7 @@ var configDefaults = {
       "smt": "",
       "options": {}
     },
-    "tracts": {
+    "cortex": {
       "smt": "",
       "options": {}
     },
@@ -39,7 +39,7 @@ var configDefaults = {
 /**
  *
  */
-module.exports.sampleTracts = async function (etlTracts) {
+module.exports.sampleTracts = async function (tractsfile) {
 
   try {
     let sampleTracts = {
@@ -63,8 +63,8 @@ module.exports.sampleTracts = async function (etlTracts) {
         "codex": {
           "smt": "<model>|<locus>|dicta_codex|*"
         },
-        "tracts": {
-          "smt": "<model>|<locus>|dicta_tracts|*"
+        "cortex": {
+          "smt": "<model>|<locus>|dicta_cortex|*"
         },
         "plugins": {
           "filesystems": {
@@ -85,8 +85,8 @@ module.exports.sampleTracts = async function (etlTracts) {
       }
     };
 
-    logger.info("writing sample tracts configuration to " + etlTracts);
-    await fs.writeFileSync(etlTracts, JSON.stringify(sampleTracts, null, " "), { encodign: 'utf-8', flag: 'wx' });
+    logger.info("writing sample tracts configuration to " + tractsfile);
+    await fs.writeFileSync(tractsfile, JSON.stringify(sampleTracts, null, " "), { encodign: 'utf-8', flag: 'wx' });
   }
   catch (err) {
     logger.warn(err.message);
@@ -97,7 +97,7 @@ module.exports.sampleTracts = async function (etlTracts) {
 /**
  *
  */
-module.exports.loadETLTracts = async (appArgs) => {
+module.exports.loadTracts = async (appArgs) => {
   let etl_tracts;
 
   try {
@@ -112,6 +112,10 @@ module.exports.loadETLTracts = async (appArgs) => {
     catch (err) {
       errorMessage = err.message;
     }
+
+    // if URN
+
+
 
     // read the ETL tracts file
     let tractsText = fs.readFileSync(appArgs.etlTracts, 'utf-8');
@@ -140,7 +144,7 @@ module.exports.loadETLTracts = async (appArgs) => {
 
       if (name === "codex" || tract.action === "codex")
         continue;
-      if (name === "tracts" || tract.action === "tracts" || tract.urn)
+      if (name === "cortex" || tract.action === "cortex" || tract.urn)
         continue;
 
       if (typeOf(tract.origin) !== "object")
@@ -203,20 +207,20 @@ async function init(_config) {
     }
   }
 
-  //// tracts datastore initialization
-  let tracts_store;
-  if (_config.tracts?.smt) {
-    logger.verbose("Tracts SMT: " + JSON.stringify(_config.tracts.smt, null, 2));
-    // activate tracts junction
-    tracts_store = new Storage.Tracts(_config.tracts.smt, _config.tracts.options);
-    await tracts_store.activate();
+  //// cortex datastore initialization
+  let cortex;
+  if (_config.cortex?.smt) {
+    logger.verbose("Cortex SMT: " + JSON.stringify(_config.cortex.smt, null, 2));
+    // activate cortex junction
+    cortex = new Storage.Cortex(_config.cortex.smt, _config.cortex.options);
+    await cortex.activate();
   }
   else {
-    logger.verbose("Tracts SMT: memory|dictadata|tracts|*");
-    tracts_store = new Storage.Tracts("memory|dictadata|tracts|*");
+    logger.verbose("Cortex SMT: memory|dictadata|cortex|*");
+    cortex = new Storage.Cortex("memory|dictadata|cortex|*");
   }
-  // make tracts available "globally"
-  Storage.tracts = tracts_store;
+  // make cortex available "globally"
+  Storage.cortex = cortex;
 }
 
 /**

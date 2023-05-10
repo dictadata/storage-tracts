@@ -1,5 +1,5 @@
 /**
- * storage/etl/tracts
+ * storage/etl/cortex
  */
 "use strict";
 
@@ -9,18 +9,18 @@ const logger = require('./logger');
 
 const fs = require('fs');
 
-var _tracts;
+var _cortex;
 
 /**
  *
  */
 module.exports = async (etl_tract) => {
-  logger.verbose("tracts ...");
+  logger.verbose("cortex ...");
   let retCode = 0;
   let fn;
 
   try {
-    _tracts = Storage.tracts;
+    _cortex = Storage.cortex;
 
     for (let [ command, request ] of Object.entries(etl_tract)) {
       if (command === "action") continue;
@@ -34,7 +34,7 @@ module.exports = async (etl_tract) => {
         case "config":
         case '_config': fn = config; break;
         default:
-          logger.error("unknown tracts command: " + command);
+          logger.error("unknown cortex command: " + command);
           return 1;
       }
 
@@ -65,12 +65,12 @@ async function config(request) {
   let retCode = 0;
 
   try {
-    // activate tracts
-    var tracts = new Storage.Tracts(request.smt, request.options);
-    await tracts.activate();
-    _tracts = tracts;
+    // activate cortex
+    var cortex = new Storage.Cortex(request.smt, request.options);
+    await cortex.activate();
+    _cortex = cortex;
 
-    logger.info("tracts config: " + JSON.stringify(request.smt));
+    logger.info("cortex config: " + JSON.stringify(request.smt));
   }
   catch (err) {
     logger.error(err);
@@ -82,15 +82,15 @@ async function config(request) {
 
 /**
  *
- * @param {Object} entry request section of ETL tract that is a Tracts entry
+ * @param {Object} entry request section of ETL tract that is a Cortex entry
  */
 async function store(entry) {
   let retCode = 0;
 
-  // store tracts entry
+  // store cortex entry
   try {
     if (typeof entry?.tracts === "string") {
-      // read tracts from file
+      // read cortex from file
       let filename = entry.tracts;
       let tracts = JSON.parse(fs.readFileSync(filename, "utf8"));
       // merge tracts into entry
@@ -98,8 +98,8 @@ async function store(entry) {
       entry = Object.assign({}, tracts, entry);
     }
 
-    let results = await _tracts.store(entry);
-    logger.info("tracts store: " + entry.name + " " + results.message);
+    let results = await _cortex.store(entry);
+    logger.info("cortex store: " + entry.name + " " + results.message);
   }
   catch (err) {
     logger.error(err);
@@ -118,9 +118,9 @@ async function dull(request) {
 
   try {
     let pattern = request.pattern || request;
-    let results = await _tracts.dull(pattern);
+    let results = await _cortex.dull(pattern);
 
-    logger.info("tracts dull: " + (pattern.key || pattern.name) + " " + results.message);
+    logger.info("cortex dull: " + (pattern.key || pattern.name) + " " + results.message);
   }
   catch (err) {
     logger.error(err);
@@ -139,8 +139,8 @@ async function recall(request) {
 
   try {
     let pattern = request.pattern || request;
-    let results = await _tracts.recall(pattern);
-    logger.verbose("tracts recall: " + (pattern.key || pattern.name) + " " + results.message);
+    let results = await _cortex.recall(pattern);
+    logger.verbose("cortex recall: " + (pattern.key || pattern.name) + " " + results.message);
 
     retCode = output(request.output, results.data);
   }
@@ -161,8 +161,8 @@ async function retrieve(request) {
 
   try {
     let pattern = request.pattern || request;
-    let results = await _tracts.retrieve(pattern);
-    logger.verbose("tracts retrieve: " + results.message);
+    let results = await _cortex.retrieve(pattern);
+    logger.verbose("cortex retrieve: " + results.message);
 
     retCode = output(request.output, results.data);
   }

@@ -1028,13 +1028,13 @@
     },
     {
       "type": "node-terminal",
-      "name": "--- tracts",
+      "name": "--- cortex",
       "request": "launch"
     },
     {
       "type": "node",
       "request": "launch",
-      "name": "tracts store",
+      "name": "cortex store",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "runtimeArgs": [
@@ -1042,8 +1042,8 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/tracts/store.json",
-        "tracts"
+        "${workspaceFolder}/test/cortex/store.json",
+        "cortex"
       ],
       "env": {
         "NODE_ENV": "production",
@@ -1054,7 +1054,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "tracts recall",
+      "name": "cortex recall",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "runtimeArgs": [
@@ -1064,8 +1064,8 @@
         "-c",
         "etl.config.json",
         "-t",
-        "${workspaceFolder}/test/tracts/recall.json",
-        "tracts"
+        "${workspaceFolder}/test/cortex/recall.json",
+        "cortex"
       ],
       "env": {
         "NODE_ENV": "production",
@@ -1076,7 +1076,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "tracts dull",
+      "name": "cortex dull",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "runtimeArgs": [
@@ -1086,8 +1086,8 @@
         "-c",
         "dev",
         "-t",
-        "${workspaceFolder}/test/tracts/dull.json",
-        "tracts"
+        "${workspaceFolder}/test/cortex/dull.json",
+        "cortex"
       ],
       "env": {
         "NODE_ENV": "production",
@@ -1098,7 +1098,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "tracts retrieve",
+      "name": "cortex retrieve",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "runtimeArgs": [
@@ -1106,8 +1106,8 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/tracts/retrieve.json",
-        "tracts"
+        "${workspaceFolder}/test/cortex/retrieve.json",
+        "cortex"
       ],
       "env": {
         "NODE_ENV": "production",
@@ -1118,7 +1118,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "tracts add_tracts",
+      "name": "cortex add",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "runtimeArgs": [
@@ -1126,8 +1126,8 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/tracts/add_tracts.json",
-        "tracts"
+        "${workspaceFolder}/test/cortex/cortex_add.json",
+        "cortex"
       ],
       "env": {
         "NODE_ENV": "production",
@@ -1138,7 +1138,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "tracts transfer",
+      "name": "cortex transfer",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage-etl.js",
       "runtimeArgs": [
@@ -1146,7 +1146,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/tracts/transfer.json",
+        "${workspaceFolder}/test/cortex/transfer.json",
         "*"
       ],
       "env": {

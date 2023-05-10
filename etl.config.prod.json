@@ -8,12 +8,12 @@
       "auth_stash": "./etl.auth.json",
       "engrams_cache": {}
     },
-    "tracts": {
-      "smt": "elasticsearch|https://data-origin.dictadata.net:9200|dicta_tracts|*",
+    "cortex": {
+      "smt": "elasticsearch|https://data-origin.dictadata.net:9200|dicta_cortex|*",
       "options": {
         "refresh": true
       },
-      "tracts_cache": {}
+      "cortex_cache": {}
     },
     "variables": {
     }

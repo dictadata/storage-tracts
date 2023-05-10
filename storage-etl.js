@@ -20,7 +20,7 @@ addAction("transfer", require('./storage/etl/transfer'));
 addAction("dull", require('./storage/etl/dull'));
 addAction("copy", require('./storage/etl/copy'));
 addAction("codex", require('./storage/etl/codex'));
-addAction("tracts", require('./storage/etl/tracts'));
+addAction("cortex", require('./storage/etl/cortex'));
 
 // set program argument defaults
 const appArgs = {
@@ -32,7 +32,7 @@ const appArgs = {
 /**
  * parseArgs
  *   only tractName is required
- *   example process.argv  ["node.exe", "storage-etl.js", "-c", <configFile>, "-t", <etlTracts>, <tractName>]
+ *   example process.argv  ["node.exe", "storage-etl.js", "-c", <configFile>, "-t", <tracts>, <tractName>]
  */
 function parseArgs() {
   const myArgs = {};
@@ -86,15 +86,15 @@ function parseArgs() {
     if (!appArgs.tractName) {
       console.log("Transfer, transform and codify data between local and distributed storage sources.");
       console.log("");
-      console.log("etl [-c configFile] [-t etlTracts] tractName");
+      console.log("etl [-c configFile] [-t tracts] tractName");
       console.log("");
       console.log("configFile");
       console.log("  JSON configuration file that defines codex, plug-ins and logging.");
       console.log("  Supports abbreviated name; '-c dev' for './etl.config.dev.json'");
       console.log("  Default configuration file is ./etl.config.json");
       console.log("");
-      console.log("etlTracts");
-      console.log("  ETL tracts JSON file defines tracts to process.");
+      console.log("tracts");
+      console.log("  ETL tracts filename or Cortex urn that contains tracts to process.");
       console.log("  Default tract file is ./etl.tracts.json");
       console.log("");
       console.log("tractName");
@@ -108,7 +108,7 @@ function parseArgs() {
       console.log("  codify - determine schema's encoding by examining some data.");
       console.log("  dull - remove data from a data store.");
       console.log("  codex - manage codex encoding definitions");
-      console.log("  tracts - manage tract definitions");
+      console.log("  cortex - manage tracts definitions");
       console.log("  scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.");
       console.log("  iterate - retrieve data and perform child action(s) for each construct.");
       console.log("  all | * - run all tracts in sequence.");
@@ -125,7 +125,7 @@ function parseArgs() {
       return 0;
     }
     else {
-      etl_tracts = await config.loadETLTracts(appArgs);
+      etl_tracts = await config.loadTracts(appArgs);
     }
 
     if (Object.keys(etl_tracts).length <= 0)

@@ -1,10 +1,10 @@
 # CHANGELOG:  @dictadata/storage-etl
 
 - version 0.9.67
-  - bug fix: coerce smt to strings in tracts entries
+  - bug fix: coerce smt to strings in cortex entries
   - updated: @dictadata/storage-junctions@0.9.94
 - version 0.9.66
-  - feature: Tracts storage
+  - feature: Cortex storage
   - testing updates
 - version 0.9.65
   - updated: @dictadata/storage-junctions@0.9.91

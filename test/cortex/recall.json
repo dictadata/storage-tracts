@@ -1,0 +1,18 @@
+{
+  "_config": {
+    "cortex": {
+      "smt": "elasticsearch|http://dev.dictadata.net:9200/|dicta_cortex|*",
+      "options": {}
+    }
+  },
+  "cortex": {
+    "action": "cortex",
+    "recall": {
+      "pattern": {
+        "domain": "foo",
+        "name": "foo_transfer_two"
+      },
+      "output": "./data/output/cortex/recall-foo_transfer.tract.json"
+    }
+  }
+}
