@@ -1,13 +1,13 @@
 {
   "list": {
     "origin": {
-      "smt": "json|http://dev.dictadata.net/data/dictadata.net/|foofile_*.json|*",
+      "smt": "json|http://dev.dictadata.net/dictadata/test/data/|foofile_*.json|*",
       "options": {
         "recursive": true
       }
     },
     "terminal": {
-      "output": "./data/output/http/list.json"
+      "output": "./test/data/output/http/list.json"
     }
   }
 }

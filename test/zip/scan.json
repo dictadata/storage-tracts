@@ -2,7 +2,7 @@
   "scan": {
     "action": "scan",
     "origin": {
-      "smt": "json|zip:./data/input/foofile.zip|foofile*.json|*",
+      "smt": "json|zip:./test/data/input/foofile.zip|foofile*.json|*",
       "options": {
         "recursive": true
       }
@@ -10,14 +10,14 @@
     "schema": {
       "action": "codify",
       "origin": {
-        "smt": "json|zip:./data/input/foofile.zip|${name}|*",
+        "smt": "json|zip:./test/data/input/foofile.zip|${name}|*",
         "options": {
-          "encoding": "./data/output/zip/scan.encoding.json",
+          "encoding": "./test/data/output/zip/scan.encoding.json",
           "max_read": 100
         }
       },
       "terminal": {
-        "output": "./data/output/zip/scan.encoding.json"
+        "output": "./test/data/output/zip/scan.encoding.json"
       }
     }
   }

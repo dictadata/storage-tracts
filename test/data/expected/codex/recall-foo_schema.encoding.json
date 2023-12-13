@@ -12,7 +12,7 @@
     ],
     "smt": {
       "model": "json",
-      "locus": "./data/input/",
+      "locus": "./test/data/input/",
       "schema": "foofile.json",
       "key": "*"
     },

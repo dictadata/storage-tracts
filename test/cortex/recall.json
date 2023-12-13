@@ -12,7 +12,7 @@
         "domain": "foo",
         "name": "foo_transfer_two"
       },
-      "output": "./data/output/cortex/recall-foo_transfer.tract.json"
+      "output": "./test/data/output/cortex/recall-foo_transfer.tract.json"
     }
   }
 }

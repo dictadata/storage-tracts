@@ -2,7 +2,7 @@
   "load": {
     "action": "scan",
     "origin": {
-      "smt": "json|./data/input/|foofile*.json|*",
+      "smt": "json|./test/data/input/|foofile*.json|*",
       "options": {
         "recursive": false
       }
@@ -10,15 +10,15 @@
     "schema": {
       "action": "transfer",
       "origin": {
-        "smt": "json|./data/input/|${name}|*",
+        "smt": "json|./test/data/input/|${name}|*",
         "options": {
-          "encoding": "./data/input/encodings/foo_schema_01.encoding.json"
+          "encoding": "./test/data/input/encodings/foo_schema_01.encoding.json"
         }
       },
       "terminal": {
         "smt": "mysql|host=dev.dictadata.net;database=storage_node|foo_load|=Foo",
         "options": {
-          "encoding": "./data/input/encodings/foo_schema_01.encoding.json"
+          "encoding": "./test/data/input/encodings/foo_schema_01.encoding.json"
         }
       }
     }

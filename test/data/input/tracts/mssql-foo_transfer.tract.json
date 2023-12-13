@@ -1,6 +1,6 @@
 {
   "domain": "foo",
-  "name": "mysql-foo_transfer",
+  "name": "mssql-foo_transfer",
   "type": "tract",
   "title": "JSON to JSON",
   "description": "JSON to JSON transfer tract.",
@@ -14,9 +14,9 @@
     {
       "name": "json-json",
       "action": "transfer",
-      "description": "transfer foo from MySQL to JSON",
+      "description": "transfer foo from MSSQL to JSON",
       "origin": {
-        "smt": "mysql|host=dev.dictadata.net;database=storage_node|foo_schema|=Foo",
+        "smt": "mssql|server=dev.dictadata.net;database=storage_node|foo_schema|=Foo",
         "pattern": {
           "order": { "Foo": "asc" }
         }
@@ -24,8 +24,8 @@
       "terminal": {
         "smt": {
           "model": "json",
-          "locus": "./data/output/cortex/",
-          "schema": "use_mysql-foo_transfer.json",
+          "locus": "./test/data/output/cortex/",
+          "schema": "use_mssql-foo_transfer.json",
           "key": "*"
         }
       }

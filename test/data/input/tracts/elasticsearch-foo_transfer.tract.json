@@ -1,6 +1,6 @@
 {
   "domain": "foo",
-  "name": "mssql-foo_transfer",
+  "name": "elasticsearch-foo_transfer",
   "type": "tract",
   "title": "JSON to JSON",
   "description": "JSON to JSON transfer tract.",
@@ -14,9 +14,9 @@
     {
       "name": "json-json",
       "action": "transfer",
-      "description": "transfer foo from MSSQL to JSON",
+      "description": "transfer foo from Elasticsearch to JSON",
       "origin": {
-        "smt": "mssql|server=dev.dictadata.net;database=storage_node|foo_schema|=Foo",
+        "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_schema|!Foo",
         "pattern": {
           "order": { "Foo": "asc" }
         }
@@ -24,8 +24,8 @@
       "terminal": {
         "smt": {
           "model": "json",
-          "locus": "./data/output/cortex/",
-          "schema": "use_mssql-foo_transfer.json",
+          "locus": "./test/data/output/cortex/",
+          "schema": "use_elasticsearch-foo_transfer.json",
           "key": "*"
         }
       }

@@ -1,7 +1,7 @@
 {
   "smt": {
     "model": "shp",
-    "locus": "./data/input/shapefile",
+    "locus": "./test/data/input/shapefile",
     "schema": "points",
     "key": "!id"
   },

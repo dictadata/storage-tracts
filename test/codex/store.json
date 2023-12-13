@@ -4,8 +4,8 @@
     "store": {
       "name": "foo_schema_two",
       "type": "engram",
-      "smt": "json|./data/input/|foofile.json|*",
-      "encoding": "./data/input/encodings/foo_schema_two.encoding.json",
+      "smt": "json|./test/data/input/|foofile.json|*",
+      "encoding": "./test/data/input/encodings/foo_schema_two.encoding.json",
       "title": "foo schema two",
       "description": "just two fields: Foo Bar",
       "source": "modified foo_schema.encoding.json",

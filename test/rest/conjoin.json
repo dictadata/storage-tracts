@@ -34,10 +34,10 @@
       }
     },
     "terminal": {
-      "smt": "csv|./data/output/rest/|conjoin.csv|*",
+      "smt": "csv|./test/data/output/rest/|conjoin.csv|*",
       "options": {
         "header": true,
-        "encoding": "./data/input/encodings/weather_forecast.encoding.json"
+        "encoding": "./test/data/input/encodings/weather_forecast.encoding.json"
       }
     }
   }

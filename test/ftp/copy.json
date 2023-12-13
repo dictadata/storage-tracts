@@ -2,20 +2,20 @@
   "upload": {
     "action": "copy",
     "origin": {
-      "smt": "*|./data/input/|*.json|*"
+      "smt": "*|./test/data/input/|*.json|*"
     },
     "terminal": {
-      "smt": "*|ftp://dev.dictadata.net/data/output/uploads/|*|*"
+      "smt": "*|ftp://dev.dictadata.net/dictadata/test/data/output/uploads/|*|*"
     }
   },
   "download": {
     "action": "copy",
     "origin": {
-      "smt": "*|ftp://dev.dictadata.net/data/US/census.gov/geo/tiger/TIGER2020/STATE/|*.zip|*",
+      "smt": "*|ftp://dev.dictadata.net/dictadata/US/census.gov/geo/tiger/TIGER2020/STATE/|*.zip|*",
       "options": {}
     },
     "terminal": {
-      "smt": "*|./data/output/ftp/downloads/|*|*"
+      "smt": "*|./test/data/output/ftp/downloads/|*|*"
     }
   }
 }

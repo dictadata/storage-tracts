@@ -2,13 +2,13 @@
   "http-local": {
     "action": "transfer",
     "origin": {
-      "smt": "json|http://dev.dictadata.net/data/dictadata.net/data/input/|foofile.json|*",
+      "smt": "json|http://dev.dictadata.net/dictadata/test/data/input/|foofile.json|*",
       "options": {}
     },
     "terminal": {
-      "smt": "json|./data/output/http/|foofile.json|*",
+      "smt": "json|./test/data/output/http/|foofile.json|*",
       "options": {},
-      "output": "./data/output/http/foofile.json"
+      "output": "./test/data/output/http/foofile.json"
     }
   }
 }

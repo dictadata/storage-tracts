@@ -1,13 +1,13 @@
 {
   "codify": {
     "origin": {
-      "smt": "json|http://dev.dictadata.net/data/dictadata.net/data/input/|foofile.json|*",
+      "smt": "json|http://dev.dictadata.net/dictadata/test/data/input/|foofile.json|*",
       "options": {
         "max_read": 100
       }
     },
     "terminal": {
-      "output": "./data/output/http/codify.json"
+      "output": "./test/data/output/http/codify.json"
     }
   }
 }

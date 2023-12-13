@@ -7,7 +7,7 @@
       }
     },
     "terminal": {
-      "output": "./data/output/mysql/list.json"
+      "output": "./test/data/output/mysql/list.json"
     }
   },
   "list_origin": {
@@ -19,7 +19,7 @@
       }
     },
     "terminal": {
-      "output": "./data/output/mysql/list_origin.json"
+      "output": "./test/data/output/mysql/list_origin.json"
     }
   }
 }

@@ -44,7 +44,7 @@
     },
     "ssl": {
       "ca": "~/.dictadata/ec2_mysql-ca.pem",
-      "rejectUnauthorized": true
+      "rejectUnauthorized": false
     }
   }
 }

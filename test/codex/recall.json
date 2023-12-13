@@ -11,7 +11,7 @@
       "pattern": {
         "name": "foo_schema_two"
       },
-      "output": "./data/output/codex/recall-foo_schema.encoding.json"
+      "output": "./test/data/output/codex/recall-foo_schema.encoding.json"
     }
   }
 }

@@ -7,7 +7,7 @@
       }
     },
     "terminal": {
-      "output": "./data/output/elasticsearch/list.json"
+      "output": "./test/data/output/elasticsearch/list.json"
     }
   },
   "list_origin": {
@@ -19,7 +19,7 @@
       }
     },
     "terminal": {
-      "output": "./data/output/elasticsearch/list_origin.json"
+      "output": "./test/data/output/elasticsearch/list_origin.json"
     }
   }
 }

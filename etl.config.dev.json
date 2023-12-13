@@ -13,8 +13,8 @@
     },
     "variables": {
       "schema": "foofile",
-      "input": "./data/input",
-      "output": "./data/output"
+      "input": "./test/data/input",
+      "output": "./test/data/output"
     }
   }
 }

@@ -4,11 +4,11 @@
     "origin": {
       "smt": "elasticsearch|http://dev.dictadata.net:9200|bl_2021_us_congress|*",
       "options": {
-        "encoding": "./data/input/encodings/bl_2021_ia_congress.encoding.json"
+        "encoding": "./test/data/input/encodings/bl_2021_ia_congress.encoding.json"
       }
     },
     "terminal": {
-      "output": "./data/output/shapefile/create.json"
+      "output": "./test/data/output/shapefile/create.json"
     }
   }
 }

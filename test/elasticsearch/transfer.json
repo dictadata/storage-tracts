@@ -2,9 +2,9 @@
   "json-index": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./data/input/|foofile.json|*",
+      "smt": "json|./test/data/input/|foofile.json|*",
       "options": {
-        "encoding": "./data/input/encodings/foo_schema.encoding.json"
+        "encoding": "./test/data/input/encodings/foo_schema.encoding.json"
       }
     },
     "terminal": {
@@ -27,8 +27,8 @@
       }
     },
     "terminal": {
-      "smt": "json|./data/output/elasticsearch/|transfer_foofile.json|*",
-      "output": "./data/output/elasticsearch/transfer_foofile.json"
+      "smt": "json|./test/data/output/elasticsearch/|transfer_foofile.json|*",
+      "output": "./test/data/output/elasticsearch/transfer_foofile.json"
     }
   },
   "fulltext": {
@@ -44,8 +44,8 @@
       }
     },
     "terminal": {
-      "smt": "json|./data/output/elasticsearch/|transfer_fulltext.json|*",
-      "output": "./data/output/elasticsearch/transfer_fulltext.json",
+      "smt": "json|./test/data/output/elasticsearch/|transfer_fulltext.json|*",
+      "output": "./test/data/output/elasticsearch/transfer_fulltext.json",
       "compareValues": 1
     }
   },
@@ -66,8 +66,8 @@
       }
     },
     "terminal": {
-      "smt": "json|./data/output/elasticsearch/|transfer_multifield.json|*",
-      "output": "./data/output/elasticsearch/transfer_multifield.json",
+      "smt": "json|./test/data/output/elasticsearch/|transfer_multifield.json|*",
+      "output": "./test/data/output/elasticsearch/transfer_multifield.json",
       "compareValues": 1
     }
   }

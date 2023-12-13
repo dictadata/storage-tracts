@@ -1,6 +1,6 @@
 {
   "domain": "foo",
-  "name": "elasticsearch-foo_transfer",
+  "name": "foo_transfer_two",
   "type": "tract",
   "title": "JSON to JSON",
   "description": "JSON to JSON transfer tract.",
@@ -14,18 +14,15 @@
     {
       "name": "json-json",
       "action": "transfer",
-      "description": "transfer foo from Elasticsearch to JSON",
+      "description": "transfer foo from JSON to JSON",
       "origin": {
-        "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_schema|!Foo",
-        "pattern": {
-          "order": { "Foo": "asc" }
-        }
+        "smt": "json|./test/data/input/|foofile_two.json|*"
       },
       "terminal": {
         "smt": {
           "model": "json",
-          "locus": "./data/output/cortex/",
-          "schema": "use_elasticsearch-foo_transfer.json",
+          "locus": "./test/data/output/cortex/",
+          "schema": "transfer_foofile_two.json",
           "key": "*"
         }
       }

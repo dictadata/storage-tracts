@@ -2,9 +2,9 @@
   "json-etl2": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./data/input/|foofile_01.json|*",
+      "smt": "json|./test/data/input/|foofile_01.json|*",
       "options": {
-        "encoding": "./data/input/encodings/foo_schema_01.encoding.json"
+        "encoding": "./test/data/input/encodings/foo_schema_01.encoding.json"
       }
     },
     "transform": {
@@ -38,7 +38,7 @@
     "terminal": {
       "smt": "mysql|host=dev.dictadata.net;database=storage_node|foo_schema_etl2|*",
       "options": {
-        "encoding": "./data/input/encodings/foo_schema_t.encoding.json"
+        "encoding": "./test/data/input/encodings/foo_schema_t.encoding.json"
       }
     }
   }

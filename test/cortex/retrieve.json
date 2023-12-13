@@ -9,7 +9,7 @@
           }
         }
       },
-      "output": "./data/output/cortex/retrieve-foo_transfers.json"
+      "output": "./test/data/output/cortex/retrieve-foo_transfers.json"
     }
   }
 }

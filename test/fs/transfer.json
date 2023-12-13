@@ -2,7 +2,7 @@
   "csv-output": {
     "action": "transfer",
     "origin": {
-      "smt": "csv|./data/input/|foofile.csv|*",
+      "smt": "csv|./test/data/input/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -10,35 +10,35 @@
     "terminal": {
       "smt": {
         "model": "csv",
-        "locus": "./data/output/fs/",
+        "locus": "./test/data/output/fs/",
         "schema": "fs_foofile.csv",
         "key": "*"
       },
       "options": {
         "header": true
       },
-      "output": "./data/output/fs/fs_foofile.csv"
+      "output": "./test/data/output/fs/fs_foofile.csv"
     }
   },
   "json-output": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./data/input/|foofile.json|*"
+      "smt": "json|./test/data/input/|foofile.json|*"
     },
     "terminal": {
       "smt": {
         "model": "json",
-        "locus": "./data/output/fs/",
+        "locus": "./test/data/output/fs/",
         "schema": "fs_foofile.json",
         "key": "*"
       },
-      "output": "./data/output/fs/fs_foofile.json"
+      "output": "./test/data/output/fs/fs_foofile.json"
     }
   },
   "csv-json": {
     "action": "transfer",
     "origin": {
-      "smt": "csv|./data/input/|foofile.csv|*",
+      "smt": "csv|./test/data/input/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -46,29 +46,29 @@
     "terminal": {
       "smt": {
         "model": "json",
-        "locus": "./data/output/fs/",
+        "locus": "./test/data/output/fs/",
         "schema": "fs_foofile_csv.json",
         "key": "*"
       },
-      "output": "./data/output/fs/fs_foofile_csv.json"
+      "output": "./test/data/output/fs/fs_foofile_csv.json"
     }
   },
   "json-csv": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./data/input/|foofile.json|*"
+      "smt": "json|./test/data/input/|foofile.json|*"
     },
     "terminal": {
       "smt": {
         "model": "csv",
-        "locus": "./data/output/fs/",
+        "locus": "./test/data/output/fs/",
         "schema": "fs_foofile_json.csv",
         "key": "*"
       },
       "options": {
         "header": true
       },
-      "output": "./data/output/fs/fs_foofile_json.csv"
+      "output": "./test/data/output/fs/fs_foofile_json.csv"
     }
   }
 }

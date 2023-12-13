@@ -2,7 +2,7 @@
   "csv-json": {
     "action": "transfer",
     "origin": {
-      "smt": "csv|./data/input/|foofile.csv|*",
+      "smt": "csv|./test/data/input/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -38,20 +38,20 @@
     "terminal": {
       "smt": {
         "model": "json",
-        "locus": "./data/output/fs/",
+        "locus": "./test/data/output/fs/",
         "schema": "transform.json",
         "key": "*"
       },
       "options": {
-        "encoding": "./data/input/encodings/foo_schema_t.encoding.json"
+        "encoding": "./test/data/input/encodings/foo_schema_t.encoding.json"
       },
-      "output": "./data/output/fs/transform.json"
+      "output": "./test/data/output/fs/transform.json"
     }
   },
   "json-csv": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./data/input/|foofile.json|*"
+      "smt": "json|./test/data/input/|foofile.json|*"
     },
     "transform": {
       "filter": {
@@ -84,22 +84,22 @@
     "terminal": {
       "smt": {
         "model": "csv",
-        "locus": "./data/output/fs/",
+        "locus": "./test/data/output/fs/",
         "schema": "transform.csv",
         "key": "*"
       },
       "options": {
         "header": true,
-        "encoding": "./data/input/encodings/foo_schema_t.encoding.json"
+        "encoding": "./test/data/input/encodings/foo_schema_t.encoding.json"
       },
-      "output": "./data/output/fs/transform.csv"
+      "output": "./test/data/output/fs/transform.csv"
     }
   },
   "list_trim": {
     "action": "transfer",
     "description": "select fields in directory list",
     "origin": {
-      "smt": "json|./data/input/|file_list.json|*"
+      "smt": "json|./test/data/input/|file_list.json|*"
     },
     "transforms": {
       "mutate": {
@@ -112,8 +112,8 @@
       }
     },
     "terminal": {
-      "smt": "json|./data/output/fs/|file_list_trim.json|*",
-      "output": "./data/output/fs/file_list_trim.json"
+      "smt": "json|./test/data/output/fs/|file_list_trim.json|*",
+      "output": "./test/data/output/fs/file_list_trim.json"
     }
   }
 }

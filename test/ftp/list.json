@@ -2,13 +2,13 @@
   "list_local": {
     "action": "list",
     "origin": {
-      "smt": "json|ftp://dev.dictadata.net/data/|foofile_*.json|*",
+      "smt": "json|ftp://dev.dictadata.net/dictadata/test/data/|foofile_*.json|*",
       "options": {
         "recursive": true
       }
     },
     "terminal": {
-      "output": "./data/output/ftp/list.json"
+      "output": "./test/data/output/ftp/list.json"
     }
   },
   "list_tiger": {
@@ -20,7 +20,7 @@
       }
     },
     "terminal": {
-      "output": "./data/output/ftp/list_tiger.json"
+      "output": "./test/data/output/ftp/list_tiger.json"
     }
   }
 }

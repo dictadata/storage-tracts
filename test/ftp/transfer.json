@@ -2,12 +2,12 @@
   "local-ftp": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./data/input/|foofile.json|*"
+      "smt": "json|./test/data/input/|foofile.json|*"
     },
     "terminal": {
       "smt": {
         "model": "json",
-        "locus": "ftp://dev.dictadata.net/data/output/",
+        "locus": "ftp://dev.dictadata.net/dictadata/test/data/output/",
         "schema": "ftp_foofile.json",
         "key": "*"
       }
@@ -16,13 +16,13 @@
   "ftp-local": {
     "action": "transfer",
     "origin": {
-      "smt": "json|ftp://dev.dictadata.net/data/dictadata.net/data/input/|foofile.json|*",
+      "smt": "json|ftp://dev.dictadata.net/dictadata/test/data/input/|foofile.json|*",
       "options": {}
     },
     "terminal": {
-      "smt": "json|./data/output/ftp/|foofile.json|*",
+      "smt": "json|./test/data/output/ftp/|foofile.json|*",
       "options": {},
-      "output": "./data/output/ftp/foofile.json"
+      "output": "./test/data/output/ftp/foofile.json"
     }
   }
 }

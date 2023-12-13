@@ -17,10 +17,10 @@
      "action": "transfer",
      "description": "transfer foo from json to json",
      "origin": {
-      "smt": "json|./data/input/|foofile.json|*"
+      "smt": "json|./test/data/input/|foofile.json|*"
      },
      "terminal": {
-      "smt": "json|./data/output/cortex/|transfer_foofile.json|*"
+      "smt": "json|./test/data/output/cortex/|transfer_foofile.json|*"
      }
     }
    ],

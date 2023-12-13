@@ -2,29 +2,29 @@
   "shp-json": {
     "action": "transfer",
     "origin": {
-      "smt": "shp|./data/input/shapes/|polygons|*",
+      "smt": "shp|./test/data/input/shapes/|polygons|*",
       "options": {}
     },
     "terminal": {
-      "smt": "json|./data/output/shapefile/|polygons.json|*",
-      "output": "./data/output/shapefile/polygons.json"
+      "smt": "json|./test/data/output/shapefile/|polygons.json|*",
+      "output": "./test/data/output/shapefile/polygons.json"
     }
   },
   "zip-json": {
     "action": "transfer",
     "origin": {
-      "smt": "shp|zip:./data/input/shapes/points.zip|points|*",
+      "smt": "shp|zip:./test/data/input/shapes/points.zip|points|*",
       "options": {}
     },
     "terminal": {
-      "smt": "json|./data/output/shapefile/|points.json|*",
-      "output": "./data/output/shapefile/points.json"
+      "smt": "json|./test/data/output/shapefile/|points.json|*",
+      "output": "./test/data/output/shapefile/points.json"
     }
   },
   "points-elastic": {
     "action": "transfer",
     "origin": {
-      "smt": "shp|zip:./data/input/shapes/points.zip|points|*",
+      "smt": "shp|zip:./test/data/input/shapes/points.zip|points|*",
       "options": {}
     },
     "transform": {
@@ -46,7 +46,7 @@
   "polygons-elastic": {
     "action": "transfer",
     "origin": {
-      "smt": "shp|./data/input/shapes/|polygons|*",
+      "smt": "shp|./test/data/input/shapes/|polygons|*",
       "options": {}
     },
     "transform": {
@@ -81,18 +81,18 @@
       }
     },
     "terminal": {
-      "smt": "json|./data/output/shapefile/|shapes.json|*",
-      "output": "./data/output/shapefile/shapes.json"
+      "smt": "json|./test/data/output/shapefile/|shapes.json|*",
+      "output": "./test/data/output/shapefile/shapes.json"
     }
   },
   "download": {
     "action": "copy",
     "origin": {
-      "smt": "*|ftp://dev.dictadata.net/data/US/census.gov/geo/tiger/TIGER2020/STATE/|*.zip|*",
+      "smt": "*|ftp://dev.dictadata.net/dictadata/US/census.gov/geo/tiger/TIGER2020/STATE/|*.zip|*",
       "options": {}
     },
     "terminal": {
-      "smt": "*|file:c:/var/data/US/census.gov/|*|*",
+      "smt": "*|file:c:/var/dictadata/US/census.gov/|*|*",
       "options": {
         "use_rpath": true
       }
@@ -101,10 +101,10 @@
   "tl_2020_us_state": {
     "action": "transfer",
     "origin": {
-      "smt": "shp|zip:/var/data/US/census.gov/geo/tiger/TIGER2020/STATE/tl_2020_us_state.zip|tl_2020_us_state|*"
+      "smt": "shp|zip:/var/dictadata/US/census.gov/geo/tiger/TIGER2020/STATE/tl_2020_us_state.zip|tl_2020_us_state|*"
     },
     "terminal": {
-      "smt": "json|./data/output/shapefile/|tl_2020_us_state.json|*"
+      "smt": "json|./test/data/output/shapefile/|tl_2020_us_state.json|*"
     }
   },
   "el_json": {
@@ -123,15 +123,15 @@
       }
     },
     "terminal": {
-      "smt": "json|./data/output/shapefile/|tl_2020_us_state_NY.json|*"
+      "smt": "json|./test/data/output/shapefile/|tl_2020_us_state_NY.json|*"
     }
   },
   "bl_2021_ia_congress": {
     "action": "transfer",
     "origin": {
-      "smt": "shp|zip:/var/data/US/IA/legis.iowa.gov/Plan2/SHP/IA_ProposedPlan2_Oct2021.zip|Plan2_Congress|*",
+      "smt": "shp|zip:/var/dictadata/US/IA/legis.iowa.gov/Plan2/SHP/IA_ProposedPlan2_Oct2021.zip|Plan2_Congress|*",
       "options": {
-        "encoding": "./data/input/encodings/bl_2021_ia_congress.encoding.json"
+        "encoding": "./test/data/input/encodings/bl_2021_ia_congress.encoding.json"
       }
     },
     "transforms": {
@@ -144,7 +144,7 @@
     "terminal": {
       "smt": "elasticsearch|http://dev.dictadata.net:9200|bl_2021_us_congress|*",
       "options": {
-        "encoding": "./data/input/encodings/bl_2021_ia_congress.encoding.json"
+        "encoding": "./test/data/input/encodings/bl_2021_ia_congress.encoding.json"
       }
     }
   }

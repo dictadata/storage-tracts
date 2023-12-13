@@ -2,7 +2,7 @@
   "scan": {
     "action": "scan",
     "origin": {
-      "smt": "json|./data/input/|foofile*.json|*",
+      "smt": "json|./test/data/input/|foofile*.json|*",
       "options": {
         "recursive": false
       }
@@ -10,14 +10,14 @@
     "schema": {
       "action": "codify",
       "origin": {
-        "smt": "json|./data/input/|${name}|*",
+        "smt": "json|./test/data/input/|${name}|*",
         "options": {
-          "encoding": "./data/output/fs/scan.encoding.json",
+          "encoding": "./test/data/output/fs/scan.encoding.json",
           "max_read": 100
         }
       },
       "terminal": {
-        "output": "./data/output/fs/scan.encoding.json"
+        "output": "./test/data/output/fs/scan.encoding.json"
       }
     }
   }

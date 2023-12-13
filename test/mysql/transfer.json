@@ -2,10 +2,10 @@
   "csv-table": {
     "action": "transfer",
     "origin": {
-      "smt": "csv|./data/input/|foofile.csv|*",
+      "smt": "csv|./test/data/input/|foofile.csv|*",
       "options": {
         "header": true,
-        "encoding": "./data/input/encodings/foo_schema.encoding.json"
+        "encoding": "./test/data/input/encodings/foo_schema.encoding.json"
       }
     },
     "terminal": {
@@ -23,7 +23,7 @@
       "smt": "foo:mysql-foo_schema"
     },
     "terminal": {
-      "smt": "csv|./data/output/mysql/|foofile.csv|*",
+      "smt": "csv|./test/data/output/mysql/|foofile.csv|*",
       "options": {
         "header": true
       }
@@ -32,7 +32,7 @@
   "bulkload": {
     "action": "transfer",
     "origin": {
-      "smt": "csv|./data/input/|timeseries.csv|*",
+      "smt": "csv|./test/data/input/|timeseries.csv|*",
       "options": {
         "encoding": {
           "time": "date",

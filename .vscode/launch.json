@@ -33,7 +33,7 @@
       ],
       "args": [
         "-t",
-        "./data/output/etl.tracts.json",
+        "./test/data/output/etl.tracts.json",
         "config"
       ],
       "env": {

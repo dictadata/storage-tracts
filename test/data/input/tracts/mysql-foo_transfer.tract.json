@@ -1,6 +1,6 @@
 {
   "domain": "foo",
-  "name": "jsonfile-foo_transfer",
+  "name": "mysql-foo_transfer",
   "type": "tract",
   "title": "JSON to JSON",
   "description": "JSON to JSON transfer tract.",
@@ -14,15 +14,18 @@
     {
       "name": "json-json",
       "action": "transfer",
-      "description": "transfer foo from JSON to JSON",
+      "description": "transfer foo from MySQL to JSON",
       "origin": {
-        "smt": "json|./data/input/|foofile.json|*"
+        "smt": "mysql|host=dev.dictadata.net;database=storage_node|foo_schema|=Foo",
+        "pattern": {
+          "order": { "Foo": "asc" }
+        }
       },
       "terminal": {
         "smt": {
           "model": "json",
-          "locus": "./data/output/cortex/",
-          "schema": "use_jsonfile-foo_transfer.json",
+          "locus": "./test/data/output/cortex/",
+          "schema": "use_mysql-foo_transfer.json",
           "key": "*"
         }
       }

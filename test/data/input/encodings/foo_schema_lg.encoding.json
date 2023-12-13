@@ -3,7 +3,7 @@
   "type": "engram",
   "title": "foo_schema encoding large",
   "description": "Test input for foo_schema_lg encoding with large text field.",
-  "source": "file:./data/input/encodings/foo_schema_lg.encoding.json",
+  "source": "file:./test/data/input/encodings/foo_schema_lg.encoding.json",
   "notes": "This is where a user could add their notes about the data source.",
   "tags": [
     "foo"

@@ -177,7 +177,7 @@
   - update to @dictadata/storage-junctions 1.8.5
     - implement dot notation for filter transform
   - testing:
-    - refactoring of /var/data/country/state directory naming convention
+    - refactoring of /var/dictadata/country/state directory naming convention
 - version 1.8.4
   - update to @dictadata/storage-junctions 1.8.4
   - testing updates:
