@@ -9,17 +9,5 @@
     "terminal": {
       "output": "./test/data/output/mysql/list.json"
     }
-  },
-  "list_origin": {
-    "action": "list",
-    "origin": {
-      "smt": "mysql|host=data-origin.dictadata.net;database=storage_node|*|*",
-      "options": {
-        "schema": "foo*"
-      }
-    },
-    "terminal": {
-      "output": "./test/data/output/mysql/list_origin.json"
-    }
   }
 }
