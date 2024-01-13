@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 0.9.69
+  - updated: @dictadata/storage-junctions@0.9.96
+  - refactor: improved, consistent error handling
 - version 0.9.68
   - refactor: rename of storage-junction Campus and Cortex classes
   - updated: @dictadata/storage-junctions@0.9.95

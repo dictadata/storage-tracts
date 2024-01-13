@@ -1,6 +1,6 @@
 {
   "name": "@dictadata/storage-etl",
-  "version": "0.9.68",
+  "version": "0.9.69",
   "description": "Command line ETL utility to transfer and optionally transform data between local and/or distributed sources.",
   "author": "Drew O. Letcher",
   "license": "MIT",
@@ -38,14 +38,14 @@
     "node": ">=17.0.0"
   },
   "dependencies": {
-    "@dictadata/storage-junctions": "^0.9.95",
+    "@dictadata/storage-junctions": "^0.9.96",
     "colors": "^1.4.0",
     "dot-object": "^2.1.4",
     "winston": "^3.11.0",
     "winston-daily-rotate-file": "^4.7.1"
   },
   "devDependencies": {
-    "eslint": "^8.55.0",
+    "eslint": "^8.56.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1"
   }
