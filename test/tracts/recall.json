@@ -1,0 +1,20 @@
+{
+  "_config": {
+    "codex": {
+      "tracts": {
+        "smt": "elasticsearch|http://dev.dictadata.net:9200/|etl_tracts|*",
+        "options": {}
+      }
+    }
+  },
+  "tracts": {
+    "action": "tracts",
+    "recall": {
+      "pattern": {
+        "domain": "foo",
+        "name": "foo_transfer_two"
+      },
+      "output": "./test/data/output/tracts/recall-foo_transfer.tract.json"
+    }
+  }
+}

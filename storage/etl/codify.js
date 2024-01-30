@@ -3,7 +3,7 @@
  */
 "use strict";
 
-const Storage = require("@dictadata/storage-junctions");
+const { Storage } = require("@dictadata/storage-junctions");
 const { Field } = require('@dictadata/storage-junctions/types');
 const output = require('./output');
 const logger = require('./logger');

@@ -19,8 +19,8 @@ addAction("iterate", require('./storage/etl/iterate'));
 addAction("transfer", require('./storage/etl/transfer'));
 addAction("dull", require('./storage/etl/dull'));
 addAction("copy", require('./storage/etl/copy'));
-addAction("codex", require('./storage/etl/codex'));
-addAction("cortex", require('./storage/etl/cortex'));
+addAction("engrams", require('./storage/etl/engrams'));
+addAction("tracts", require('./storage/etl/tracts'));
 
 // set program argument defaults
 const appArgs = {
@@ -94,7 +94,7 @@ function parseArgs() {
       console.log("  Default configuration file is ./etl.config.json");
       console.log("");
       console.log("tracts");
-      console.log("  ETL tracts filename or Cortex urn that contains tracts to process.");
+      console.log("  ETL tracts filename or Tracts urn that contains tracts to process.");
       console.log("  Default tract file is ./etl.tracts.json");
       console.log("");
       console.log("tractName");
@@ -108,7 +108,7 @@ function parseArgs() {
       console.log("  codify - determine schema's encoding by examining some data.");
       console.log("  dull - remove data from a data store.");
       console.log("  codex - manage codex encoding definitions");
-      console.log("  cortex - manage tracts definitions");
+      console.log("  tracts - manage tracts definitions");
       console.log("  scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.");
       console.log("  iterate - retrieve data and perform child action(s) for each construct.");
       console.log("  all | * - run all tracts in sequence.");

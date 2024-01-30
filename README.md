@@ -26,7 +26,7 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
     Default configuration file is ./etl.config.json
 
   tracts
-    ETL tracts filename or Cortex urn that defines tracts to process.
+    ETL tracts filename or Tracts urn that defines tracts to process.
     Default tracts file is ./etl.tracts.json
 
   tractName
@@ -40,7 +40,7 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
     codify - determine schema encoding by examining some data.
     dull - remove data from a data store.
     codex - manage codex encoding definitions
-    cortex = manage ETL tract definitions
+    tracts = manage ETL tract definitions
     scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.
     iterate - retrieve data and perform child action(s) for each construct.
     all | * - run all tracts in sequence.
@@ -56,7 +56,9 @@ Default configuration settings can be specified in a _config tract in **etl.conf
 {
   "_config": {
     "codex": {
-      "smt": "elasticsearch|http://dev.dictadata.net:9200/|dicta_codex|*"
+      "engrams": {
+        "smt": "elasticsearch|http://dev.dictadata.net:9200/|etl_engrams|*"
+      }
     },
     "log": {
       "logPath": "./log",

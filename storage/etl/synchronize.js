@@ -5,7 +5,7 @@
  */
 "use strict";
 
-const Storage = require("@dictadata/storage-junctions");
+const { Storage } = require("@dictadata/storage-junctions");
 const { typeOf, logger } = require("@dictadata/storage-junctions/utils");
 
 const fs = require('fs/promises');

@@ -5,7 +5,7 @@
  */
 "use strict";
 
-const Storage = require("@dictadata/storage-junctions");
+const { Storage } = require("@dictadata/storage-junctions");
 const { SMT, StorageError } = require('@dictadata/storage-junctions/types');
 const logger = require('./logger');
 

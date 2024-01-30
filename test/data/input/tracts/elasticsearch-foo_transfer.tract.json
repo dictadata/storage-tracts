@@ -24,7 +24,7 @@
       "terminal": {
         "smt": {
           "model": "json",
-          "locus": "./test/data/output/cortex/",
+          "locus": "./test/data/output/tracts/",
           "schema": "use_elasticsearch-foo_transfer.json",
           "key": "*"
         }

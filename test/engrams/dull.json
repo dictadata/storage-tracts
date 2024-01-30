@@ -1,6 +1,6 @@
 {
-  "codex": {
-    "action": "codex",
+  "engrams": {
+    "action": "engrams",
     "dull": {
       "name": "foo_schema_two"
     }

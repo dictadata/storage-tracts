@@ -1,8 +1,8 @@
 {
-  "cortex": {
-    "action": "cortex",
+  "tracts": {
+    "action": "tracts",
     "_config": {
-      "smt": "elasticsearch|http://dev.dictadata.net:9200/|dicta_cortex|*",
+      "smt": "elasticsearch|http://dev.dictadata.net:9200/|etl_tracts|*",
       "options": {
         "description": "test"
       }

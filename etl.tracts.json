@@ -17,10 +17,12 @@
   },
   "_config": {
     "codex": {
-      "smt": "<model>|<locus>|dicta_codex|*"
-    },
-    "cortex": {
-      "smt": "<model>|<locus>|dicta_cortex|*"
+      "engrams": {
+        "smt": "<model>|<locus>|etl_engrams|*"
+      },
+      "tracts": {
+        "smt": "<model>|<locus>|etl_tracts|*"
+      }
     },
     "plugins": {
       "filesystems": {

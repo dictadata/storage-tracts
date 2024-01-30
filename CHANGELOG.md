@@ -4,17 +4,17 @@
   - updated: @dictadata/storage-junctions@0.9.96
   - refactor: improved, consistent error handling
 - version 0.9.68
-  - refactor: rename of storage-junction Campus and Cortex classes
+  - refactor: rename of storage-junction Campus and Tracts classes
   - updated: @dictadata/storage-junctions@0.9.95
 - version 0.9.67
-  - bug fix: coerce smt to strings in cortex entries
+  - bug fix: coerce smt to strings in tracts entries
   - updated: @dictadata/storage-junctions@0.9.94
 - version 0.9.66
-  - feature: Cortex storage
+  - feature: Tracts storage
   - testing updates
 - version 0.9.65
   - updated: @dictadata/storage-junctions@0.9.91
-  - bug fix: add logger to auth_stash module
+  - bug fix: add logger to auth_file module
 - version 0.9.64
   - updated: @dictadata/storage-junctions@0.9.90
   - bug fix: codex connection, issue overwriting options.tls.ca with file contents
@@ -65,9 +65,9 @@
   - update to @dictadata/storage-junctions 2.5.1
   - bug fix: use stream _destroy() instead of destroy() in reader/writer implementations
 - version 2.5.0
-  - stable build of codex, smt_urn, auth_stash
+  - stable build of codex, smt_urn, auth_file
 - version 2.4.4
-  - refactor: add auth property to auth_stash objects
+  - refactor: add auth property to auth_file objects
 - version 2.4.3
   - refactor: Codex key replace smt_id with smt_urn
 - version 2.4.2
@@ -148,7 +148,7 @@
   - update to @dictadata/storage-junctions 2.1.2
 - version 2.1.0
   - update to @dictadata/storage-junctions 2.1.0
-  - refactor storage and cortex classes, remove codex class
+  - refactor storage and tracts classes, remove codex class
 - version 2.0.9
   - bug fix: merge config objects instead of replacing properties
 - version 2.0.8

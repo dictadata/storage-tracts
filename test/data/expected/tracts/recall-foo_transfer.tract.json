@@ -1,15 +1,15 @@
 {
-  "foo:foo_transfer": {
+  "foo:foo_transfer_two": {
    "domain": "foo",
-   "name": "foo_transfer",
+   "name": "foo_transfer_two",
    "type": "tract",
-   "title": "JSON to JSON",
-   "description": "JSON to JSON transfer tract.",
+   "title": "foo transfer two",
+   "description": "just two fields: Foo Bar",
    "notes": "tract definitions: 1",
    "tags": [
-    "dictadata.net",
+    "dictadata",
     "foo",
-    "json"
+    "test"
    ],
    "tracts": [
     {
@@ -20,9 +20,10 @@
       "smt": "json|./test/data/input/|foofile.json|*"
      },
      "terminal": {
-      "smt": "json|./test/data/output/cortex/|transfer_foofile.json|*"
+      "smt": "json|./test/data/output/tracts/|transfer_foofile.json|*"
      }
     }
-   ]
+   ],
+   "source": "modified foo_transfer.tract.json"
   }
  }

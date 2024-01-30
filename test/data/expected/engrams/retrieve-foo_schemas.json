@@ -1,0 +1,72 @@
+{
+  "foo:foo_schema": {
+   "name": "foo_schema",
+   "domain": "foo",
+   "type": "engram",
+   "source": "foo_schema.encoding.json",
+   "tags": [
+    "dictadata",
+    "foo",
+    "test"
+   ],
+   "title": "foo schema",
+   "description": "the original foo file",
+   "smt": {
+    "model": "json",
+    "locus": "./test/data/input/",
+    "schema": "foofile.json",
+    "key": "*"
+   },
+   "fields": [
+    {
+     "name": "Foo",
+     "type": "keyword",
+     "size": 64,
+     "default": null,
+     "nullable": false,
+     "key": 1,
+     "label": "Foo"
+    },
+    {
+     "name": "Bar",
+     "type": "text",
+     "size": 256,
+     "default": null,
+     "nullable": true,
+     "label": "Bar"
+    },
+    {
+     "name": "Baz",
+     "type": "integer",
+     "size": 0,
+     "default": null,
+     "nullable": true,
+     "label": "Baz"
+    },
+    {
+     "name": "Fobe",
+     "type": "number",
+     "size": 0,
+     "default": null,
+     "nullable": true,
+     "label": "Fobe"
+    },
+    {
+     "name": "Dt Test",
+     "type": "date",
+     "size": 0,
+     "default": null,
+     "nullable": true,
+     "label": "Dt Test"
+    },
+    {
+     "name": "enabled",
+     "type": "boolean",
+     "size": 0,
+     "default": null,
+     "nullable": true,
+     "label": "enabled"
+    }
+   ]
+  }
+ }

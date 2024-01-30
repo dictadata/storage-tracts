@@ -6,7 +6,7 @@
  */
 "use strict";
 
-const Storage = require("@dictadata/storage-junctions");
+const { Storage, Codex } = require("@dictadata/storage-junctions");
 const { logger } = require("@dictadata/storage-junctions/utils");
 const output = require('./output');
 
@@ -21,7 +21,7 @@ module.exports = async (tract) => {
   let retCode = 0;
 
   if (typeof tract?.urn === "string") {
-    let results = await Storage.cortex.recall(tract.urn);
+    let results = await Codex.tracts.recall(tract.urn);
     tract = results.data[ tract.urn ].tracts[0];
   }
 

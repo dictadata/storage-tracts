@@ -1,21 +1,24 @@
 {
   "_config": {
     "codex": {
-      "smt": "elasticsearch|https://data-origin.dictadata.net:9200|dicta_codex|*",
-      "options": {
-        "refresh": true
+      "auth": {
+        "auth_file": "./etl.auth.json"
       },
-      "auth_stash": "./etl.auth.json",
-      "engrams_cache": {}
-    },
-    "cortex": {
-      "smt": "elasticsearch|https://data-origin.dictadata.net:9200|dicta_cortex|*",
-      "options": {
-        "refresh": true
+      "engrams": {
+        "smt": "elasticsearch|https://data-origin.dictadata.net:9200|etl_engrams|*",
+        "options": {
+          "refresh": true
+        },
+        "engrams_cache": {}
       },
-      "cortex_cache": {}
+      "tracts": {
+        "smt": "elasticsearch|https://data-origin.dictadata.net:9200|etl_tracts|*",
+        "options": {
+          "refresh": true
+        },
+        "tracts_cache": {}
+      }
     },
-    "variables": {
-    }
+    "variables": {}
   }
 }

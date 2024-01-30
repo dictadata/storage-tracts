@@ -3,7 +3,7 @@
  */
 "use strict";
 
-const Storage = require("@dictadata/storage-junctions");
+const { Storage, Codex } = require("@dictadata/storage-junctions");
 const { StorageError } = require("@dictadata/storage-junctions/types");
 const { typeOf, logger, hasOwnProperty } = require("@dictadata/storage-junctions/utils");
 
@@ -16,12 +16,14 @@ module.exports.version = Package.version;
 var configDefaults = {
   "_config": {
     "codex": {
-      "smt": "",
-      "options": {}
-    },
-    "cortex": {
-      "smt": "",
-      "options": {}
+      "engrams": {
+        "smt": "",
+        "options": {}
+      },
+      "tracts": {
+        "smt": "",
+        "options": {}
+      }
     },
     "log": {
       logPath: "./log",
@@ -61,10 +63,12 @@ module.exports.sampleTracts = async function (tractsfile) {
       },
       "_config": {
         "codex": {
-          "smt": "<model>|<locus>|dicta_codex|*"
-        },
-        "cortex": {
-          "smt": "<model>|<locus>|dicta_cortex|*"
+          "engrams": {
+            "smt": "<model>|<locus>|etl_engrams|*"
+          },
+          "tracts": {
+            "smt": "<model>|<locus>|etl_tracts|*"
+          }
         },
         "plugins": {
           "filesystems": {
@@ -142,9 +146,9 @@ module.exports.loadTracts = async (appArgs) => {
       //if (typeof tract === "function")
       //  continue;
 
-      if (name === "codex" || tract.action === "codex")
+      if (name === "engrams" || tract.action === "engrams")
         continue;
-      if (name === "cortex" || tract.action === "cortex" || tract.urn)
+      if (name === "tracts" || tract.action === "tracts" || tract.urn)
         continue;
 
       if (typeOf(tract.origin) !== "object")
@@ -167,24 +171,21 @@ async function init(_config) {
   //// config logger
   logger.configLogger(_config.log);
 
-  //// load auth_stash
-  if (_config.codex.auth_stash)
-    Storage.authStash.load(_config.codex.auth_stash);
+  //// load auth_file
+  if (_config.codex?.auth?.auth_file)
+    Codex.auth.load(_config.codex.auth.auth_file);
 
   //// codex datastore initialization
-  let codex;
-  if (_config.codex?.smt) {
-    logger.verbose("Codex SMT: " + JSON.stringify(_config.codex.smt, null, 2));
-    // activate codex junction
-    codex = new Storage.Codex(_config.codex.smt, _config.codex.options);
-    await codex.activate();
+  let engrams;
+  if (_config.codex?.engrams?.smt) {
+    logger.verbose("Codex SMT: " + JSON.stringify(_config.codex.engrams.smt, null, 2));
+    engrams = Codex.use("engram", _config.codex.engrams.smt, _config.codex.engrams.options);
   }
   else {
     logger.verbose("Codex SMT: memory|dictadata|codex|*");
-    codex = new Storage.Codex("memory|dictadata|codex|*");
+    engrams = Codex.use("engram", "memory|dictadata|codex|*");
   }
-  // make codex available "globally" and use for SMT urn lookups
-  Storage.codex = codex;
+  await engrams.activate();
 
   //// register plugins
   let plugins = _config.plugins || {};
@@ -203,24 +204,21 @@ async function init(_config) {
     for (let [ name, models ] of Object.entries(plugins[ "junctions" ])) {
       let junction = require(path.resolve(name));
       for (let model of models)
-        Storage.use(model, junction);
+        Storage.Junctions.use(model, junction);
     }
   }
 
-  //// cortex datastore initialization
-  let cortex;
-  if (_config.cortex?.smt) {
-    logger.verbose("Cortex SMT: " + JSON.stringify(_config.cortex.smt, null, 2));
-    // activate cortex junction
-    cortex = new Storage.Cortex(_config.cortex.smt, _config.cortex.options);
-    await cortex.activate();
+  //// tracts datastore initialization
+  let tracts;
+  if (_config.codex?.tracts?.smt) {
+    logger.verbose("Tracts SMT: " + JSON.stringify(_config.codex.tracts.smt, null, 2));
+    tracts = Codex.use("tract", _config.codex.tracts.smt, _config.codex.tracts.options);
   }
   else {
-    logger.verbose("Cortex SMT: memory|dictadata|cortex|*");
-    cortex = new Storage.Cortex("memory|dictadata|cortex|*");
+    logger.verbose("Tracts SMT: memory|dictadata|tracts|*");
+    tracts = Codex.use("tract", "memory|dictadata|tracts|*");
   }
-  // make cortex available "globally"
-  Storage.cortex = cortex;
+  await tracts.activate();
 }
 
 /**
