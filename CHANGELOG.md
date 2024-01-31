@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-etl
 
+- version 0.9.70
+  - updated: @dictadata/storage-junctions@0.9.97
+  - refactor: Codex actions for engrams and tracts
 - version 0.9.69
   - updated: @dictadata/storage-junctions@0.9.96
   - refactor: improved, consistent error handling
