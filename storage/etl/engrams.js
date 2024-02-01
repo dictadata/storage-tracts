@@ -106,7 +106,7 @@ async function store(entry) {
         throw new Error("invalid codex type");
     }
 
-    logger.info("codex store: " + engram.name + " " + results.message);
+    logger.info("codex store: " + entry.type + " " + entry.name + " " + results.message);
   }
   catch (err) {
     logger.error(err);
