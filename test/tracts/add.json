@@ -11,22 +11,22 @@
       {
         "domain": "foo",
         "name": "jsonfile-foo_transfer",
-        "tracts": "./test/data/input/tracts/jsonfile-foo_transfer.tract.json"
+        "tracts": "./test/data/input/tracts/jsonfile-foo_transfer.tracts.json"
       },
       {
         "domain": "foo",
         "name": "elasticsearch-foo_transfer",
-        "tracts": "./test/data/input/tracts/elasticsearch-foo_transfer.tract.json"
+        "tracts": "./test/data/input/tracts/elasticsearch-foo_transfer.tracts.json"
       },
       {
         "domain": "foo",
         "name": "mssql-foo_transfer",
-        "tracts": "./test/data/input/tracts/mssql-foo_transfer.tract.json"
+        "tracts": "./test/data/input/tracts/mssql-foo_transfer.tracts.json"
       },
       {
         "domain": "foo",
         "name": "mysql-foo_transfer",
-        "tracts": "./test/data/input/tracts/mysql-foo_transfer.tract.json"
+        "tracts": "./test/data/input/tracts/mysql-foo_transfer.tracts.json"
       }
     ]
   }

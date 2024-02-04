@@ -1,0 +1,83 @@
+{
+  "domain": "foo",
+  "name": "transfer.tracts.json",
+  "type": "tracts",
+  "tracts": [
+    {
+      "name": "csv-output",
+      "action": "transfer",
+      "origin": {
+        "smt": "csv|./test/data/input/|foofile.csv|*",
+        "options": {
+          "header": true
+        }
+      },
+      "terminal": {
+        "smt": {
+          "model": "csv",
+          "locus": "./test/data/output/fs/",
+          "schema": "fs_foofile.csv",
+          "key": "*"
+        },
+        "options": {
+          "header": true
+        },
+        "output": "./test/data/output/fs/fs_foofile.csv"
+      }
+    },
+    {
+      "name": "json-output",
+      "action": "transfer",
+      "origin": {
+        "smt": "json|./test/data/input/|foofile.json|*"
+      },
+      "terminal": {
+        "smt": {
+          "model": "json",
+          "locus": "./test/data/output/fs/",
+          "schema": "fs_foofile.json",
+          "key": "*"
+        },
+        "output": "./test/data/output/fs/fs_foofile.json"
+      }
+    },
+    {
+      "name": "csv-json",
+      "action": "transfer",
+      "origin": {
+        "smt": "csv|./test/data/input/|foofile.csv|*",
+        "options": {
+          "header": true
+        }
+      },
+      "terminal": {
+        "smt": {
+          "model": "json",
+          "locus": "./test/data/output/fs/",
+          "schema": "fs_foofile_csv.json",
+          "key": "*"
+        },
+        "output": "./test/data/output/fs/fs_foofile_csv.json"
+      }
+    },
+    {
+      "name": "json-csv",
+      "action": "transfer",
+      "origin": {
+        "smt": "json|./test/data/input/|foofile.json|*"
+      },
+      "terminal": {
+        "smt": {
+          "model": "csv",
+          "locus": "./test/data/output/fs/",
+          "schema": "fs_foofile_json.csv",
+          "key": "*"
+        },
+        "options": {
+          "header": true
+        },
+        "output": "./test/data/output/fs/fs_foofile_json.csv"
+      }
+    }
+  ]
+}

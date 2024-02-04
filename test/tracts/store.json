@@ -8,13 +8,13 @@
         "type": "tract",
         "title": "foo transfer",
         "description": "transfer foo data",
-        "source": "foo_transfer.tract.json",
+        "source": "foo_transfer.tracts.json",
         "tags": [
           "dictadata",
           "foo",
           "test"
         ],
-        "tracts": "./test/data/input/tracts/foo_transfer.tract.json"
+        "tracts": "./test/data/input/tracts/foo_transfer.tracts.json"
       },
       {
         "domain": "foo",
@@ -22,13 +22,13 @@
         "type": "tract",
         "title": "foo transfer two",
         "description": "just two fields: Foo Bar",
-        "source": "modified foo_transfer.tract.json",
+        "source": "modified foo_transfer.tracts.json",
         "tags": [
           "dictadata",
           "foo",
           "test"
         ],
-        "tracts": "./test/data/input/tracts/foo_transfer.tract.json"
+        "tracts": "./test/data/input/tracts/foo_transfer.tracts.json"
       }
     ]
   }

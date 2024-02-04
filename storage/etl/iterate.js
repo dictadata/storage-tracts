@@ -58,7 +58,7 @@ module.exports = async (tract) => {
 
         // perform action
         let actTract = JSON.parse(txtTract);
-        await performAction(key, actTract);
+        await performAction(actTract, key);
       }
     }
 

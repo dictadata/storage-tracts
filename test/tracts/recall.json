@@ -14,7 +14,7 @@
         "domain": "foo",
         "name": "foo_transfer_two"
       },
-      "output": "./test/data/output/tracts/recall-foo_transfer.tract.json"
+      "output": "./test/data/output/tracts/recall-foo_transfer.tracts.json"
     }
   }
 }

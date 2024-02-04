@@ -1,0 +1,19 @@
+{
+  "domain": "foo",
+  "name": "transfer.tracts.json",
+  "type": "tracts",
+  "tracts": [
+    {
+      "name": "list",
+      "origin": {
+        "smt": "json|./test/data/input/|foofile_*.json|*",
+        "options": {
+          "recursive": true
+        }
+      },
+      "terminal": {
+        "output": "./test/data/output/fs/list.json"
+      }
+    }
+  ]
+}

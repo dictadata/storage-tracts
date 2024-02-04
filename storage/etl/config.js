@@ -20,10 +20,10 @@ var configDefaults = {
         "smt": "",
         "options": {}
       },
-      "tracts": {
+      "tracts": [{
         "smt": "",
         "options": {}
-      }
+      }]
     },
     "log": {
       logPath: "./log",
@@ -45,22 +45,28 @@ module.exports.sampleTracts = async function (tractsfile) {
 
   try {
     let sampleTracts = {
-      "tract-name": {
-        "origin": {
-          "smt": "<smt|urn>",
-          "options": {}
-        },
-        "transform": {
-          "filter": {},
-          "select": {}
-        },
-        "terminal": {
-          "smt": "json|./|foofile.json|*",
-          "options": {
-            "encoding": "<schema_name.encoding.json>"
+      "doamin": "foo",
+      "name": "tracts name",
+      "type": "tracts",
+      "tracts": [
+        {
+          "name": "tract-name",
+          "origin": {
+            "smt": "<smt|urn>",
+            "options": {}
+          },
+          "transform": {
+            "filter": {},
+            "select": {}
+          },
+          "terminal": {
+            "smt": "json|./|foofile.json|*",
+            "options": {
+              "encoding": "<schema_name.encoding.json>"
+            }
           }
         }
-      },
+      ],
       "_config": {
         "codex": {
           "engrams": {
@@ -102,7 +108,7 @@ module.exports.sampleTracts = async function (tractsfile) {
  *
  */
 module.exports.loadTracts = async (appArgs) => {
-  let etl_tracts;
+  let tracts;
 
   try {
     // check for config file
@@ -118,44 +124,52 @@ module.exports.loadTracts = async (appArgs) => {
     }
 
     // if URN
-
-
+    // TBD could load config from a storage source
 
     // read the ETL tracts file
-    let tractsText = fs.readFileSync(appArgs.etlTracts, 'utf-8');
+    let tractsText = fs.readFileSync(appArgs.tractsFile, 'utf-8');
     // simple text replacement of "${variables}" in ETL tracts file
     let variables = configFile?._config?.variables || {};
     for (let [ name, value ] of Object.entries(variables)) {
       var regex = new RegExp("\\${" + name + "}", "g");
       tractsText = tractsText.replace(regex, value);
     }
-    etl_tracts = JSON.parse(tractsText);
+    tracts = JSON.parse(tractsText);
 
     // merge configs and initialize app
     let _config = Object.assign({}, configDefaults._config);
     if (configFile?._config)
       _merge(_config, configFile?._config);
-    if (etl_tracts._config) {
-      _merge(_config, etl_tracts._config);
-      delete etl_tracts._config;
+    if (tracts._config) {
+      _merge(_config, tracts._config);
+      delete tracts._config;
     }
     await init(_config);
 
+    if (hasOwnProperty(tracts, "tracts") && typeOf(tracts.tracts) === "array") {
+      tracts = tracts.tracts
+    }
+    else {
+      for (let [name, tract] of Object.entries(tracts))
+        tract.name = name
+      tracts = Object.values(tracts)
+    }
+
     // validate tract properties
-    for (let [ name, tract ] of Object.entries(etl_tracts)) {
+    for (let tract of tracts) {
       //if (typeof tract === "function")
       //  continue;
 
-      if (name === "engrams" || tract.action === "engrams")
+      if (tract.name === "engrams" || tract.action === "engrams")
         continue;
-      if (name === "tracts" || tract.action === "tracts" || tract.urn)
+      if (tract.name === "tracts" || tract.action === "tracts" || tract.urn)
         continue;
 
       if (typeOf(tract.origin) !== "object")
-        throw new StorageError(400, "invalid ETL tract origin: " + name);
+        throw new StorageError(400, "invalid ETL tract origin: " + tract.name);
 
       if (tract.action !== "scan" && tract.action !== "iterate" && typeOf(tract.terminal) !== "object")
-        throw new StorageError(400, "invalid ETL tract terminal: " + name);
+        throw new StorageError(400, "invalid ETL tract terminal: " + tract.name);
     }
 
   }
@@ -163,7 +177,7 @@ module.exports.loadTracts = async (appArgs) => {
     logger.error(err.message);
   }
 
-  return etl_tracts;
+  return tracts;
 };
 
 async function init(_config) {

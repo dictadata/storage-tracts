@@ -12,19 +12,18 @@ function addAction(name, fn) {
 }
 
 /**
- * If "action" is not defined in the tract then action defaults to the tractName.
+ * If "action" is not defined in the tract then action defaults to the tract.name.
  *
- * @param {*} tractName
  * @param {*} tract
  */
-async function performAction(tractName, tract) {
+async function performAction(tract) {
   if (typeof tract !== 'object')
-    throw new StorageError(422, "Invalid parameter: tract " + tractName);
+    throw new StorageError(422, "Invalid parameter: tract " + tract.name);
 
   // determine action name
-  let action = tract[ "action" ] || tractName.substr(0, tractName.indexOf('_')) || tractName;
+  let action = tract[ "action" ] || tract.name.substr(0, tract.name.indexOf('_')) || tract.name;
 
-  logger.info("ELT " + action + " " + tractName);
+  logger.info("ELT " + action + " " + tract.name);
 
   // check to read encodings from file
   try {

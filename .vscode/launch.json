@@ -167,7 +167,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/fs/list.json",
+        "${workspaceFolder}/test/fs/list.tracts.json",
         "list"
       ],
       "env": {
@@ -247,7 +247,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/fs/transfer.json",
+        "${workspaceFolder}/test/fs/transfer.tracts.json",
         "all"
       ],
       "env": {
@@ -372,7 +372,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/ftp/transfer.json",
+        "${workspaceFolder}/test/ftp/transfer.tracts.json",
         "all"
       ],
       "env": {
@@ -393,7 +393,7 @@
       "args": [
         "all",
         "-t",
-        "${workspaceFolder}/test/ftp/copy.json"
+        "${workspaceFolder}/test/ftp/copy.tracts.json"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -452,7 +452,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/http/scan.json",
+        "${workspaceFolder}/test/http/scan.tracts.json",
         "scan"
       ],
       "env": {
@@ -472,7 +472,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/http/transfer.json",
+        "${workspaceFolder}/test/http/transfer.tracts.json",
         "all"
       ],
       "env": {
@@ -552,7 +552,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/zip/transfer.json",
+        "${workspaceFolder}/test/zip/transfer.tracts.json",
         "all"
       ],
       "env": {
@@ -578,7 +578,7 @@
       "args": [
         "*",
         "-t",
-        "${workspaceFolder}/test/elasticsearch/list.json"
+        "${workspaceFolder}/test/elasticsearch/list.tracts.json"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -598,7 +598,7 @@
       "args": [
         "codify",
         "-t",
-        "${workspaceFolder}/test/elasticsearch/codify.json"
+        "${workspaceFolder}/test/elasticsearch/codify.tracts.json"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -617,7 +617,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/elasticsearch/transfer.json",
+        "${workspaceFolder}/test/elasticsearch/transfer.tracts.json",
         "all"
       ],
       "env": {
@@ -637,7 +637,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/elasticsearch/load.json",
+        "${workspaceFolder}/test/elasticsearch/load.tracts.json",
         "load"
       ],
       "env": {
@@ -657,7 +657,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/elasticsearch/transform.json",
+        "${workspaceFolder}/test/elasticsearch/transform.tracts.json",
         "all"
       ],
       "env": {
@@ -677,7 +677,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/elasticsearch/tiger2020.json",
+        "${workspaceFolder}/test/elasticsearch/tiger2020.tracts.json",
         "all"
       ],
       "env": {
@@ -737,7 +737,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/mssql/transfer.json",
+        "${workspaceFolder}/test/mssql/transfer.tracts.json",
         "all"
       ],
       "env": {
@@ -837,7 +837,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/mysql/transfer.json",
+        "${workspaceFolder}/test/mysql/transfer.tracts.json",
         "all"
       ],
       "env": {
@@ -937,7 +937,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/shapefile/transfer.json",
+        "${workspaceFolder}/test/shapefile/transfer.tracts.json",
         "bl_2021_ia_congress"
       ],
       "env": {
@@ -977,7 +977,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/rest/transfer.json",
+        "${workspaceFolder}/test/rest/transfer.tracts.json",
         "all"
       ],
       "env": {
@@ -1146,7 +1146,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/tracts/transfer.json",
+        "${workspaceFolder}/test/tracts/transfer.tracts.json",
         "*"
       ],
       "env": {

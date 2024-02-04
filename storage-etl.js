@@ -25,7 +25,7 @@ addAction("tracts", require('./storage/etl/tracts'));
 // set program argument defaults
 const appArgs = {
   configFile: './etl.config.json',
-  etlTracts: './etl.tracts.json',
+  tractsFile: './etl.tracts.json',
   tractName: ''  // tract name to process
 }
 
@@ -50,13 +50,13 @@ function parseArgs() {
           myArgs.configFile += ".config.json";
       }
     }
-    // etlTracts
+    // tractsFile
     else if (process.argv[ i ] === "-t") {
       if (i + 1 < process.argv.length) {
-        myArgs.etlTracts = process.argv[ i + 1 ];
+        myArgs.tractsFile = process.argv[ i + 1 ];
         ++i;
-        if (!path.extname(myArgs.etlTracts))
-          myArgs.etlTracts += ".tracts.json";
+        if (!path.extname(myArgs.tractsFile))
+          myArgs.tractsFile += ".tracts.json";
       }
     }
     else if (!myArgs.tractName) {
@@ -119,37 +119,38 @@ function parseArgs() {
     }
 
     // load tracts file
-    let etl_tracts = {};
+    let tracts = {};
     if (appArgs.tractName === 'config') {
-      await config.sampleTracts(appArgs.etlTracts);
+      await config.sampleTracts(appArgs.tractsFile);
       return 0;
     }
     else {
-      etl_tracts = await config.loadTracts(appArgs);
+      tracts = await config.loadTracts(appArgs);
     }
 
-    if (Object.keys(etl_tracts).length <= 0)
+    if (tracts.length <= 0)
       throw new StorageError(400, "no storage tracts defined");
 
     if (appArgs.tractName === "all" || appArgs.tractName === "*") {
-      for (const [ key, tract ] of Object.entries(etl_tracts)) {
-        if (key[ 0 ] === "_")
+      for (const tract of tracts) {
+        if (tract.name[ 0 ] === "_")
           continue;
-        retCode = await performAction(key, tract);
+        retCode = await performAction(tract);
         if (retCode)
           break;
       }
     }
     else if (appArgs.tractName === "parallel") {
       let tasks = [];
-      for (const [ key, tract ] of Object.entries(etl_tracts)) {
+      for (const [ key, tract ] of tracts) {
         if (key[ 0 ] === "_") continue;
-        tasks.push(performAction(key, tract));
+        tasks.push(performAction(tract, key));
       }
       Promise.allSettled(tasks);
     }
     else {
-      retCode = await performAction(appArgs.tractName, etl_tracts[ appArgs.tractName ]);
+      let tract = tracts.find((tract) => tract.name === appArgs.tractName)
+      retCode = await performAction(tract);
     }
 
   }

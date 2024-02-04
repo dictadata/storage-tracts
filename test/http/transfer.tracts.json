@@ -1,0 +1,20 @@
+{
+  "domain": "foo",
+  "name": "transfer.tracts.json",
+  "type": "tracts",
+  "tracts": [
+    {
+      "name": "http-local",
+      "action": "transfer",
+      "origin": {
+        "smt": "json|http://dev.dictadata.net/dictadata/test/data/input/|foofile.json|*",
+        "options": {}
+      },
+      "terminal": {
+        "smt": "json|./test/data/output/http/|foofile.json|*",
+        "options": {},
+        "output": "./test/data/output/http/foofile.json"
+      }
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 /**
- * storage/etl/codex
+ * storage/etl/engrams
  */
 "use strict";
 
@@ -13,14 +13,14 @@ const fs = require('fs');
 /**
  *
  */
-module.exports = async (etl_tract) => {
-  logger.verbose("codex ...");
+module.exports = async (tract) => {
+  logger.verbose("engrams ...");
   let retCode = 0;
   let fn;
 
   try {
-    for (let [ command, request ] of Object.entries(etl_tract)) {
-      if (command === "action") continue;
+    for (let [ command, request ] of Object.entries(tract)) {
+      if (command === "action" || command === "name") continue;
 
       // determine function to apply
       switch (command) {
