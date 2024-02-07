@@ -1,0 +1,27 @@
+{
+  "domain": "foo",
+  "name": "urn name",
+  "type": "tract",
+  "description": "results of source query are parameters for nested query",
+  "tracts": [
+    {
+      "name": "tract name",
+      "action": "action command",
+      "origin": {
+        "smt": "source smt"
+      },
+      "tracts": [
+        {
+          "origin": {
+            "smt": "source smt, parameterized",
+            "params": {}
+          },
+          "transform": [],
+          "terminal": {
+            "smt": "destination smt"
+          }
+        }
+      ]
+    }
+  ]
+}
