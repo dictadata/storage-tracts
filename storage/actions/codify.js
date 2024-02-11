@@ -6,7 +6,7 @@
 const { Storage } = require("@dictadata/storage-junctions");
 const { Field } = require('@dictadata/storage-junctions/types');
 const output = require('./output');
-const logger = require('./logger');
+const { logger } = require('./logger');
 
 const stream = require('stream').promises;
 

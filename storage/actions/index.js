@@ -2,12 +2,12 @@
  * storage/etl/actions.js
  */
 const { StorageError } = require("@dictadata/storage-junctions/types");
-const logger = require('./logger');
+const { logger } = require('./logger');
 const fs = require('fs/promises');
 
 var fnActions = {};
 
-function addAction(name, fn) {
+function use(name, fn) {
   fnActions[ name ] = fn;
 }
 
@@ -16,7 +16,7 @@ function addAction(name, fn) {
  *
  * @param {*} tract
  */
-async function performAction(tract) {
+async function perform(tract) {
   if (typeof tract !== 'object')
     throw new StorageError(422, "Invalid parameter: tract " + tract.name);
 
@@ -62,5 +62,5 @@ async function performAction(tract) {
 
 }
 
-module.exports.addAction = addAction;
-module.exports.performAction = performAction;
+module.exports.use = use;
+module.exports.perform = perform;

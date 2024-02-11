@@ -1,12 +1,12 @@
 /**
- * storage/etl/engrams
+ * storage/etl/tracts
  */
 "use strict";
 
 const { Codex } = require("@dictadata/storage-junctions");
-const { Engram } = require("@dictadata/storage-junctions/types");
+const { Tract } = require("@dictadata/storage-junctions/types");
 const output = require('./output');
-const logger = require('./logger');
+const { logger } = require('./logger');
 
 const fs = require('fs');
 
@@ -14,7 +14,7 @@ const fs = require('fs');
  *
  */
 module.exports = async (tract) => {
-  logger.verbose("engrams ...");
+  logger.verbose("tracts ...");
   let retCode = 0;
   let fn;
 
@@ -31,7 +31,7 @@ module.exports = async (tract) => {
         case "config":
         case '_config': fn = config; break;
         default:
-          logger.error("unknown codex command: " + command);
+          logger.error("unknown tracts command: " + command);
           return 1;
       }
 
@@ -62,10 +62,10 @@ async function config(request) {
   let retCode = 0;
 
   try {
-    // activate codex
-    let engrams = await Codex.use("engram", request.smt, request.options);
-    await engrams.activate();
-    logger.info("codex engrams config: " + JSON.stringify(request.smt));
+    // activate tracts
+    let tracts = Codex.use("tract", request.smt, request.options);
+    await tracts.activate();
+    logger.info("codex tracts config: " + JSON.stringify(request.smt));
   }
   catch (err) {
     logger.error(err);
@@ -77,36 +77,24 @@ async function config(request) {
 
 /**
  *
- * @param {Object} entry request section of ETL tract that is a Codex entry
+ * @param {Object} entry request section of ETL tract that is a Tracts entry
  */
 async function store(entry) {
   let retCode = 0;
 
+  // store tracts entry
   try {
-    if (typeof entry?.encoding === "string") {
-      // read encoding from file
-      let filename = entry.encoding;
-      let encoding = JSON.parse(fs.readFileSync(filename, "utf8"));
-      // merge encoding into entry
-      delete entry.encoding;
-      entry = Object.assign({}, encoding, entry);
+    if (typeof entry?.tracts === "string") {
+      // read tracts from file
+      let filename = entry.tracts;
+      let tracts = JSON.parse(fs.readFileSync(filename, "utf8"));
+      // merge tracts into entry
+      delete entry.tracts;
+      entry = Object.assign({}, tracts, entry);
     }
 
-    let results;
-    let engram;
-    switch (entry.type) {
-      case "engram":
-        engram = new Engram(entry);
-        results = await Codex.engrams.store(engram);
-        break;
-      case "alias":
-        results = await Codex.engrams.store(entry);
-        break;
-      default:
-        throw new Error("invalid codex type");
-    }
-
-    logger.info("codex store: " + entry.type + " " + entry.name + " " + results.message);
+    let results = await Codex.tracts.store(entry);
+    logger.info("tracts store: " + entry.name + " " + results.message);
   }
   catch (err) {
     logger.error(err);
@@ -125,9 +113,9 @@ async function dull(request) {
 
   try {
     let pattern = request.pattern || request;
-    let results = await Codex.engrams.dull(pattern);
+    let results = await Codex.tracts.dull(pattern);
 
-    logger.info("codex dull: " + (pattern.key || pattern.name) + " " + results.message);
+    logger.info("tracts dull: " + (pattern.key || pattern.name) + " " + results.message);
   }
   catch (err) {
     logger.error(err);
@@ -146,8 +134,8 @@ async function recall(request) {
 
   try {
     let pattern = request.pattern || request;
-    let results = await Codex.engrams.recall(pattern);
-    logger.verbose("codex recall: " + (pattern.key || pattern.name) + " " + results.message);
+    let results = await Codex.tracts.recall(pattern);
+    logger.verbose("tracts recall: " + (pattern.key || pattern.name) + " " + results.message);
 
     retCode = output(request.output, results.data);
   }
@@ -168,8 +156,8 @@ async function retrieve(request) {
 
   try {
     let pattern = request.pattern || request;
-    let results = await Codex.engrams.retrieve(pattern);
-    logger.verbose("codex retrieve: " + results.message);
+    let results = await Codex.tracts.retrieve(pattern);
+    logger.verbose("tracts retrieve: " + results.message);
 
     retCode = output(request.output, results.data);
   }

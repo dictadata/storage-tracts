@@ -1,4 +1,4 @@
-# CHANGELOG:  @dictadata/storage-etl
+# CHANGELOG:  @dictadata/storage-tracts
 
 - version 0.9.70
   - updated: @dictadata/storage-junctions@0.9.97
@@ -61,7 +61,7 @@
 - version 2.5.4
   - feature: add variables section to config file for simple text replacements in tracts file.
 - version 2.5.3
-  - feature: add CLI argument -c for config file, e.g. "-c dev" for "storage-etl.dev.json"
+  - feature: add CLI argument -c for config file, e.g. "-c dev" for "storage-tracts.dev.json"
 - version 2.5.2
   - feature: support _config section in Codex tract
 - version 2.5.1
@@ -170,7 +170,7 @@
   - update to @dictadata/storage-junctions 2.0.5
   - bug fixes
 - version 2.0.3
-  - read config tract from **./storage-etl.config.json**
+  - read config tract from **./storage-tracts.config.json**
   - update to @dictadata/storage-junctions 2.0.3
   - codex support
 - version 2.0.1
@@ -191,7 +191,7 @@
     - use data.dictadata.net (NGINX) for ftp and http testing
 - version 1.8.3
   - remove dependencies for s3-filesystem, oracledb-junction and xlsx-junction
-    - tests moved to project @dictadata/storage-etl-plugins
+    - tests moved to project @dictadata/storage-tracts-plugins
 - version 1.8.0
   - update to @dictadata/storage-junctions 1.8.0
   - implement ShapeFileJunction (.shp files) and ZipFileSystem (.zip files)

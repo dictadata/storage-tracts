@@ -1,38 +1,42 @@
 #!/usr/bin/env node
+/* eslint-disable node/shebang */
 /**
- * storage-etl
+ * storage/etl
  */
 "use strict";
 
 const { StorageError } = require("@dictadata/storage-junctions/types");
-const config = require('./storage/etl/config');
-const logger = require('./storage/etl/logger');
+const config = require('./config');
+const logger = require('./logger');
+const pipeline_logger = require('../pipeline/logger');
 const path = require('path');
-const colors = require('colors');
+require('colors');
 
-const { addAction, performAction } = require("./storage/etl/actions");
-addAction("list", require("./storage/etl/list"));
-addAction("create", require('./storage/etl/create'));
-addAction("codify", require('./storage/etl/codify'));
-addAction("scan", require('./storage/etl/scan'));
-addAction("iterate", require('./storage/etl/iterate'));
-addAction("transfer", require('./storage/etl/transfer'));
-addAction("dull", require('./storage/etl/dull'));
-addAction("copy", require('./storage/etl/copy'));
-addAction("engrams", require('./storage/etl/engrams'));
-addAction("tracts", require('./storage/etl/tracts'));
+pipeline_logger.logger = logger;
+
+const { use, perform } = require("../pipeline/actions");
+use("list", require("../pipeline/list"));
+use("create", require('../pipeline/create'));
+use("codify", require('../pipeline/codify'));
+use("scan", require('../pipeline/scan'));
+use("iterate", require('../pipeline/iterate'));
+use("transfer", require('../pipeline/transfer'));
+use("dull", require('../pipeline/dull'));
+use("copy", require('../pipeline/copy'));
+use("engrams", require('../pipeline/engrams'));
+use("tracts", require('../pipeline/tracts'));
 
 // set program argument defaults
 const appArgs = {
   configFile: './etl.config.json',
   tractsFile: './etl.tracts.json',
   tractName: ''  // tract name to process
-}
+};
 
 /**
  * parseArgs
  *   only tractName is required
- *   example process.argv  ["node.exe", "storage-etl.js", "-c", <configFile>, "-t", <tracts>, <tractName>]
+ *   example process.argv  ["node.exe", "storage/etl/index.js", "-c", <configFile>, "-t", <tracts>, <tractName>]
  */
 function parseArgs() {
   const myArgs = {};
@@ -79,8 +83,8 @@ function parseArgs() {
   let retCode = 0;
 
   try {
-    console.log("ETL (storage-etl) " + config.version);
-    console.log("Copyright 2022 dictadata.net | The MIT License")
+    console.log("Storage ETL " + config.version);
+    console.log("Copyright 2022 dictadata.net | The MIT License");
     parseArgs();
 
     if (!appArgs.tractName) {
@@ -135,7 +139,7 @@ function parseArgs() {
       for (const tract of tracts) {
         if (tract.name[ 0 ] === "_")
           continue;
-        retCode = await performAction(tract);
+        retCode = await perform(tract);
         if (retCode)
           break;
       }
@@ -144,13 +148,13 @@ function parseArgs() {
       let tasks = [];
       for (const [ key, tract ] of tracts) {
         if (key[ 0 ] === "_") continue;
-        tasks.push(performAction(tract, key));
+        tasks.push(perform(tract, key));
       }
       Promise.allSettled(tasks);
     }
     else {
-      let tract = tracts.find((tract) => tract.name === appArgs.tractName)
-      retCode = await performAction(tract);
+      let tract = tracts.find((tract) => tract.name === appArgs.tractName);
+      retCode = await perform(tract);
     }
 
   }

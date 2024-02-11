@@ -7,7 +7,7 @@
 
 const { Storage } = require("@dictadata/storage-junctions");
 const { SMT, StorageError } = require('@dictadata/storage-junctions/types');
-const logger = require('./logger');
+const { logger } = require('./logger');
 
 function prefix(locus) {
   let p = 'file';

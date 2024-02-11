@@ -5,7 +5,7 @@
 
 const { Storage } = require("@dictadata/storage-junctions");
 const output = require('./output');
-const logger = require('./logger');
+const { logger } = require('./logger');
 
 /**
  *

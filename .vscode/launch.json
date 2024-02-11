@@ -27,7 +27,7 @@
       "request": "launch",
       "name": "create config",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -52,7 +52,7 @@
       "request": "launch",
       "name": "engrams store",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -72,7 +72,7 @@
       "request": "launch",
       "name": "engrams recall",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -94,7 +94,7 @@
       "request": "launch",
       "name": "engrams dull",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -116,7 +116,7 @@
       "request": "launch",
       "name": "engrams retrieve",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -136,7 +136,7 @@
       "request": "launch",
       "name": "engrams add",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -161,7 +161,7 @@
       "request": "launch",
       "name": "fs list",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -181,7 +181,7 @@
       "request": "launch",
       "name": "fs codify",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -201,7 +201,7 @@
       "request": "launch",
       "name": "fs scan",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -221,7 +221,7 @@
       "request": "launch",
       "name": "fs iterate",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -241,7 +241,7 @@
       "request": "launch",
       "name": "fs transfer",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -261,7 +261,7 @@
       "request": "launch",
       "name": "fs transfer vars",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -283,7 +283,7 @@
       "request": "launch",
       "name": "fs transform",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -303,7 +303,7 @@
       "request": "launch",
       "name": "ftp list",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -323,7 +323,7 @@
       "request": "launch",
       "name": "ftp codify",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -343,7 +343,7 @@
       "request": "launch",
       "name": "ftp scan",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -366,7 +366,7 @@
       "request": "launch",
       "name": "ftp transfer",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -386,7 +386,7 @@
       "request": "launch",
       "name": "ftp copy",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -406,7 +406,7 @@
       "request": "launch",
       "name": "http list",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -426,7 +426,7 @@
       "request": "launch",
       "name": "http codify",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -446,7 +446,7 @@
       "request": "launch",
       "name": "http scan",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -466,7 +466,7 @@
       "request": "launch",
       "name": "http transfer",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -486,7 +486,7 @@
       "request": "launch",
       "name": "zip list",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -506,7 +506,7 @@
       "request": "launch",
       "name": "zip codify",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -526,7 +526,7 @@
       "request": "launch",
       "name": "zip scan",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -546,7 +546,7 @@
       "request": "launch",
       "name": "zip transfer",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -571,7 +571,7 @@
       "request": "launch",
       "name": "elasticsearch list",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -591,7 +591,7 @@
       "request": "launch",
       "name": "elasticsearch codify",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -611,7 +611,7 @@
       "request": "launch",
       "name": "elasticsearch transfer",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -631,7 +631,7 @@
       "request": "launch",
       "name": "elasticsearch load",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -651,7 +651,7 @@
       "request": "launch",
       "name": "elasticsearch transform",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -671,7 +671,7 @@
       "request": "launch",
       "name": "elasticsearch tiger2020",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -691,7 +691,7 @@
       "request": "launch",
       "name": "mssql list",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -711,7 +711,7 @@
       "request": "launch",
       "name": "mssql codify",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -731,7 +731,7 @@
       "request": "launch",
       "name": "mssql transfer",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -751,7 +751,7 @@
       "request": "launch",
       "name": "mssql load",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -771,7 +771,7 @@
       "request": "launch",
       "name": "mssql transform",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -791,7 +791,7 @@
       "request": "launch",
       "name": "mysql list",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -811,7 +811,7 @@
       "request": "launch",
       "name": "mysql codify",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -831,7 +831,7 @@
       "request": "launch",
       "name": "mysql transfer",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -851,7 +851,7 @@
       "request": "launch",
       "name": "mysql load",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -871,7 +871,7 @@
       "request": "launch",
       "name": "mysql transform",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -891,7 +891,7 @@
       "request": "launch",
       "name": "shapefile create",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -911,7 +911,7 @@
       "request": "launch",
       "name": "shapefile codify",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -931,7 +931,7 @@
       "request": "launch",
       "name": "shapefile transfer",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -951,7 +951,7 @@
       "request": "launch",
       "name": "rest codify",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -971,7 +971,7 @@
       "request": "launch",
       "name": "rest transfer",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -991,7 +991,7 @@
       "request": "launch",
       "name": "rest transfrom",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -1011,7 +1011,7 @@
       "request": "launch",
       "name": "rest conjoin",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -1036,7 +1036,7 @@
       "request": "launch",
       "name": "tracts store",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -1056,7 +1056,7 @@
       "request": "launch",
       "name": "tracts recall",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -1078,7 +1078,7 @@
       "request": "launch",
       "name": "tracts dull",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -1100,7 +1100,7 @@
       "request": "launch",
       "name": "tracts retrieve",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -1120,7 +1120,7 @@
       "request": "launch",
       "name": "tracts add",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],
@@ -1140,7 +1140,7 @@
       "request": "launch",
       "name": "tracts transfer",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage-etl.js",
+      "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
         "--preserve-symlinks"
       ],

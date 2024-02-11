@@ -5,8 +5,8 @@
 
 const { Storage } = require("@dictadata/storage-junctions");
 const output = require('./output');
-const logger = require('./logger');
-const { performAction } = require('./actions');
+const { logger } = require('./logger');
+const { perform } = require('./actions');
 
 /**
  * Retrieve data from origin smt
@@ -58,7 +58,7 @@ module.exports = async (tract) => {
 
         // perform action
         let actTract = JSON.parse(txtTract);
-        await performAction(actTract, key);
+        await perform(actTract, key);
       }
     }
 

@@ -4,7 +4,7 @@
 "use strict";
 
 const compare = require('@dictadata/storage-junctions/test/lib/_compare');
-const logger = require('./logger');
+const { logger } = require('./logger');
 const fs = require('fs');
 const path = require('path');
 const { unzipSync } = require('zlib');

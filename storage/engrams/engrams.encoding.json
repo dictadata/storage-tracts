@@ -1,0 +1,117 @@
+{
+  "name": "engrams_engrams",
+  "type": "engram",
+  "title": "Engrams engram entry definition",
+  "description": "dictadata Storage Engrams engram encoding definition",
+  "tags": [
+    "dictadata",
+    "engrams",
+    "engram"
+  ],
+  "smt": {
+    "model": "*",
+    "locus": "*",
+    "schema": "storage_engrams",
+    "key": "!domain+':'+name"
+  },
+  "fields": [
+    {
+      "name": "domain",
+      "type": "keyword",
+      "key": 1
+    },
+    {
+      "name": "name",
+      "type": "keyword",
+      "nullable": false,
+      "key": 2
+    },
+    {
+      "name": "type",
+      "type": "keyword"
+    },
+    {
+      "name": "source",
+      "type": "text"
+    },
+    {
+      "name": "roles",
+      "type": "list",
+      "_list": {
+        "name": "_list",
+        "type": "keyword"
+      }
+    },
+    {
+      "name": "tags",
+      "type": "list",
+      "_list": {
+        "name": "_list",
+        "type": "keyword"
+      }
+    },
+    {
+      "name": "title",
+      "type": "text"
+    },
+    {
+      "name": "description",
+      "type": "text"
+    },
+    {
+      "name": "notes",
+      "type": "text"
+    },
+    {
+      "name": "smt",
+      "type": "map",
+      "fields": {
+        "model": "keyword",
+        "locus": "text",
+        "schema": "keyword",
+        "key": "keyword"
+      }
+    },
+    {
+      "name": "fields",
+      "type": "list",
+      "_list": {
+        "name": "_list",
+        "type": "map",
+        "fields": [
+          {
+            "name": "name",
+            "type": "keyword",
+            "nullable": false
+          },
+          {
+            "name": "type",
+            "type": "keyword",
+            "default": "unknown",
+            "nullable": false
+          },
+          {
+            "name": "size",
+            "type": "integer",
+            "default": 0
+          },
+          {
+            "name": "nullable",
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "name": "default",
+            "type": "variable",
+            "default": null
+          },
+          {
+            "name": "key",
+            "type": "integer",
+            "default": 0
+          }
+        ]
+      }
+    }
+  ]
+}

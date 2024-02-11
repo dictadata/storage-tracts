@@ -4,6 +4,22 @@
   "type": "tracts",
   "tracts": [
     {
+      "name": "json-output",
+      "action": "transfer",
+      "origin": {
+        "smt": "json|./test/data/input/|foofile.json|*"
+      },
+      "terminal": {
+        "smt": {
+          "model": "json",
+          "locus": "./test/data/output/fs/",
+          "schema": "fs_foofile.json",
+          "key": "*"
+        },
+        "output": "./test/data/output/fs/fs_foofile.json"
+      }
+    },
+    {
       "name": "csv-output",
       "action": "transfer",
       "origin": {
@@ -23,22 +39,6 @@
           "header": true
         },
         "output": "./test/data/output/fs/fs_foofile.csv"
-      }
-    },
-    {
-      "name": "json-output",
-      "action": "transfer",
-      "origin": {
-        "smt": "json|./test/data/input/|foofile.json|*"
-      },
-      "terminal": {
-        "smt": {
-          "model": "json",
-          "locus": "./test/data/output/fs/",
-          "schema": "fs_foofile.json",
-          "key": "*"
-        },
-        "output": "./test/data/output/fs/fs_foofile.json"
       }
     },
     {

@@ -1,4 +1,4 @@
-# @dictadata/storage-etl 0.9.x
+# @dictadata/storage-tracts 0.9.x
 
 Command line ETL utilitiy to transfer, transform and codify data between local and distributed storage sources.
 
@@ -9,7 +9,7 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
 ## Installation
 
 ```bash
-    npm install -g @dictadata/storage-etl
+    npm install -g @dictadata/storage-tracts
 ```
 
 ## Command Line Usage
@@ -17,8 +17,6 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
 ```bash
   Command line:
     etl [-c configFile] [-t tracts] tractName
-  or:
-    storage-etl [-c configFile] [-t tracts] tractName
 
   configFile
     JSON configuration file that defines codex, plug-ins and logging.
@@ -88,7 +86,7 @@ Default configuration settings can be specified in a _config tract in **etl.conf
 ### Transfer and transform a .json file to "flat" .csv file
 
 ```bash
-    storage-etl transfer -c etl_flatten.json
+    etl transfer -c etl_flatten.json
 ```
 
 etl_flatten.json:
@@ -163,7 +161,7 @@ fooflat.csv
 ### NOSA Weather Service transfer
 
 ```bash
-storage-etl transfer -c etl_weather.json forecast
+etl transfer -c etl_weather.json forecast
 ```
 
 etl_weather.json:

@@ -1,1 +1,1 @@
-node storage-etl.js %1 %2
+node storage\etl\index.js %1 %2

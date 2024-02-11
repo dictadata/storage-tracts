@@ -1,0 +1,103 @@
+{
+  "name": "codex_tracts",
+  "type": "engram",
+  "title": "Codex tract entry definition",
+  "description": "dictadata Storage Codex tract encoding definition",
+  "tags": [
+    "dictadata",
+    "codex",
+    "tract"
+  ],
+  "smt": {
+    "model": "*",
+    "locus": "*",
+    "schema": "storage_tracts",
+    "key": "!domain+':'+name"
+  },
+  "fields": [
+    {
+      "name": "domain",
+      "type": "keyword",
+      "key": 1
+    },
+    {
+      "name": "name",
+      "type": "keyword",
+      "nullable": false,
+      "key": 1
+    },
+    {
+      "name": "type",
+      "type": "keyword"
+    },
+    {
+      "name": "source",
+      "type": "text"
+    },
+    {
+      "name": "roles",
+      "type": "list",
+      "_list": {
+        "name": "_list",
+        "type": "keyword"
+      }
+    },
+    {
+      "name": "tags",
+      "type": "list",
+      "_list": {
+        "name": "_list",
+        "type": "keyword"
+      }
+    },
+    {
+      "name": "title",
+      "type": "text"
+    },
+    {
+      "name": "description",
+      "type": "text"
+    },
+    {
+      "name": "notes",
+      "type": "text"
+    },
+    {
+      "name": "tracts",
+      "type": "list",
+      "_list": {
+        "name": "_list",
+        "type": "map",
+        "fields": [
+          {
+            "name": "name",
+            "type": "keyword"
+          },
+          {
+            "name": "action",
+            "type": "keyword"
+          },
+          {
+            "name": "description",
+            "type": "keyword"
+          },
+          {
+            "name": "origin",
+            "type": "map",
+            "fields": []
+          },
+          {
+            "name": "transform",
+            "type": "map",
+            "fields": []
+          },
+          {
+            "name": "terminal",
+            "type": "map",
+            "fields": []
+          }
+        ]
+      }
+    }
+  ]
+}

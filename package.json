@@ -1,24 +1,24 @@
 {
-  "name": "@dictadata/storage-etl",
+  "name": "@dictadata/storage-tracts",
   "version": "0.9.70",
   "description": "Command line ETL utility to transfer and optionally transform data between local and/or distributed sources.",
   "author": "Drew O. Letcher",
   "license": "MIT",
-  "main": "storage-etl.js",
+  "main": "index.js",
+  "type": "commonjs",
   "bin": {
-    "etl": "./storage-etl.js",
-    "storage-etl": "./storage-etl.js"
+    "etl": "./storage/etl/index.js"
   },
   "scripts": {
-    "start": "node storage-etl.js config",
-    "debug": "node --inspect --preserve-symlinks storage-etl.js -c \"test/mysql/transfer.json\" transfer bulkload",
+    "start": "node ./storage/etl/index.js config",
+    "debug": "node --inspect --preserve-symlinks ./storage/etl/index.js -c \"test/mysql/transfer.json\" transfer bulkload",
     "test": "./testrunner"
   },
-  "repository": "gitlab:dictadata/js/storage-etl",
+  "repository": "gitlab:dictadata/js/storage-tracts",
   "bugs": {
-    "url": "https://gitlab.com/dictadata/js/storage-etl/issues"
+    "url": "https://gitlab.com/dictadata/js/storage-tracts/issues"
   },
-  "homepage": "https://gitlab.com/dictadata/js/storage-etl#readme",
+  "homepage": "https://gitlab.com/dictadata/js/storage-tracts#readme",
   "keywords": [
     "dictadata.net",
     "storage",

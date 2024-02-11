@@ -1,7 +1,7 @@
 ## Storage ETL Command Line Interface
 
 ```bash
-storage-etl (etl) 2.5.x
+storage-tracts (etl) 2.5.x
 Transfer, transform and codify data between local and distributed storage sources.
 
 etl [-c configFile] [-t etlTracts] tractName
