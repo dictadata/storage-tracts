@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-tracts
 
+- version 0.9.71
+  - refactor: reorg storage-tracts project
+  - updated: @dictadata/storage-junctions@0.9.98
 - version 0.9.70
   - updated: @dictadata/storage-junctions@0.9.97
   - refactor: Engrams actions for engrams and tracts
