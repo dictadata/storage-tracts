@@ -3,10 +3,10 @@
  */
 "use strict";
 
-const { Codex } = require("@dictadata/storage-junctions");
-const { Engram } = require("@dictadata/storage-junctions/types");
+const Storage = require("../storage");
+const { Engram } = require("../types");
 const output = require('./output');
-const { logger } = require('./logger');
+const { logger } = require('../utils');
 
 const fs = require('fs');
 
@@ -28,10 +28,8 @@ module.exports = async (tract) => {
         case "dull": fn = dull; break;
         case "recall": fn = recall; break;
         case "retrieve": fn = retrieve; break;
-        case "config":
-        case '_config': fn = config; break;
         default:
-          logger.error("unknown codex command: " + command);
+          logger.error("unknown engrams command: " + command);
           return 1;
       }
 
@@ -56,28 +54,7 @@ module.exports = async (tract) => {
 
 /**
  *
- * @param {Object} request section of ETL tract with a pattern property
- */
-async function config(request) {
-  let retCode = 0;
-
-  try {
-    // activate codex
-    let engrams = await Codex.use("engram", request.smt, request.options);
-    await engrams.activate();
-    logger.info("codex engrams config: " + JSON.stringify(request.smt));
-  }
-  catch (err) {
-    logger.error(err);
-    retCode = 1;
-  }
-
-  return retCode;
-}
-
-/**
- *
- * @param {Object} entry request section of ETL tract that is a Codex entry
+ * @param {Object} entry request section of ETL tract that is a Engram entry
  */
 async function store(entry) {
   let retCode = 0;
@@ -96,17 +73,17 @@ async function store(entry) {
     let engram;
     switch (entry.type) {
       case "engram":
-        engram = new Engram(entry);
-        results = await Codex.engrams.store(engram);
+        engram = new Engram(entry).encoding;
+        results = await Storage.engrams.store(engram);
         break;
       case "alias":
-        results = await Codex.engrams.store(entry);
+        results = await Storage.engrams.store(entry);
         break;
       default:
-        throw new Error("invalid codex type");
+        throw new Error("invalid engrams type");
     }
 
-    logger.info("codex store: " + entry.type + " " + entry.name + " " + results.message);
+    logger.info("engrams store: " + entry.type + " " + entry.name + " " + results.message);
   }
   catch (err) {
     logger.error(err);
@@ -125,9 +102,9 @@ async function dull(request) {
 
   try {
     let pattern = request.pattern || request;
-    let results = await Codex.engrams.dull(pattern);
+    let results = await Storage.engrams.dull(pattern);
 
-    logger.info("codex dull: " + (pattern.key || pattern.name) + " " + results.message);
+    logger.info("engrams dull: " + (pattern.key || pattern.name) + " " + results.message);
   }
   catch (err) {
     logger.error(err);
@@ -146,8 +123,8 @@ async function recall(request) {
 
   try {
     let pattern = request.pattern || request;
-    let results = await Codex.engrams.recall(pattern);
-    logger.verbose("codex recall: " + (pattern.key || pattern.name) + " " + results.message);
+    let results = await Storage.engrams.recall(pattern);
+    logger.verbose("engrams recall: " + (pattern.key || pattern.name) + " " + results.message);
 
     retCode = output(request.output, results.data);
   }
@@ -168,8 +145,8 @@ async function retrieve(request) {
 
   try {
     let pattern = request.pattern || request;
-    let results = await Codex.engrams.retrieve(pattern);
-    logger.verbose("codex retrieve: " + results.message);
+    let results = await Storage.engrams.retrieve(pattern);
+    logger.verbose("engrams retrieve: " + results.message);
 
     retCode = output(request.output, results.data);
   }

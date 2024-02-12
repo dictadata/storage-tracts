@@ -3,10 +3,9 @@
  */
 "use strict";
 
-const { Storage, Codex } = require("@dictadata/storage-junctions");
+const Storage = require("../storage");
 const { StorageError } = require("@dictadata/storage-junctions/types");
-const { typeOf, logger, hasOwnProperty } = require("@dictadata/storage-junctions/utils");
-
+const { typeOf, logger, hasOwnProperty, objCopy } = require("@dictadata/storage-junctions/utils");
 const Package = require('../../package.json');
 const fs = require('fs');
 const path = require('path');
@@ -15,15 +14,13 @@ module.exports.version = Package.version;
 
 var configDefaults = {
   "_config": {
-    "codex": {
-      "engrams": {
-        "smt": "",
-        "options": {}
-      },
-      "tracts": [{
-        "smt": "",
-        "options": {}
-      }]
+    "engrams": {
+      "smt": "",
+      "options": {}
+    },
+    "tracts": {
+      "smt": "",
+      "options": {}
     },
     "log": {
       logPath: "./log",
@@ -34,7 +31,9 @@ var configDefaults = {
       "filesystems": [],
       "junctions": []
     },
-    "variables": {}
+    "variables": {
+      "name": "value"
+    }
   }
 };
 
@@ -45,7 +44,7 @@ module.exports.sampleTracts = async function (tractsfile) {
 
   try {
     let sampleTracts = {
-      "doamin": "foo",
+      "domain": "foo",
       "name": "tracts name",
       "type": "tracts",
       "tracts": [
@@ -68,13 +67,11 @@ module.exports.sampleTracts = async function (tractsfile) {
         }
       ],
       "_config": {
-        "codex": {
-          "engrams": {
-            "smt": "<model>|<locus>|etl_engrams|*"
-          },
-          "tracts": {
-            "smt": "<model>|<locus>|etl_tracts|*"
-          }
+        "engrams": {
+          "smt": "<model>|<locus>|etl_engrams|*"
+        },
+        "tracts": {
+          "smt": "<model>|<locus>|etl_tracts|*"
         },
         "plugins": {
           "filesystems": {
@@ -139,11 +136,12 @@ module.exports.loadTracts = async (appArgs) => {
     // merge configs and initialize app
     let _config = Object.assign({}, configDefaults._config);
     if (configFile?._config)
-      _merge(_config, configFile?._config);
+      objCopy(_config, configFile?._config);
     if (tracts._config) {
-      _merge(_config, tracts._config);
+      objCopy(_config, tracts._config);
       delete tracts._config;
     }
+
     await init(_config);
 
     if (hasOwnProperty(tracts, "tracts") && typeOf(tracts.tracts) === "array") {
@@ -180,26 +178,29 @@ module.exports.loadTracts = async (appArgs) => {
   return tracts;
 };
 
+/**
+ *
+ * @param {*} _config
+ */
 async function init(_config) {
 
   //// config logger
   logger.configLogger(_config.log);
 
   //// load auth_file
-  if (_config.codex?.auth?.auth_file)
-    Codex.auth.load(_config.codex.auth.auth_file);
+  if (_config.auth?.auth_file)
+    Storage.auth.load(_config.auth.auth_file);
 
-  //// codex datastore initialization
+  //// engrams datastore initialization
   let engrams;
-  if (_config.codex?.engrams?.smt) {
-    logger.verbose("Codex SMT: " + JSON.stringify(_config.codex.engrams.smt, null, 2));
-    engrams = Codex.use("engram", _config.codex.engrams.smt, _config.codex.engrams.options);
+  if (_config.engrams?.smt) {
+    logger.verbose("Engrams SMT: " + JSON.stringify(_config.engrams.smt, null, 2));
+    engrams = await Storage.engrams.activate( _config.engrams.smt, _config.engrams.options);
   }
   else {
-    logger.verbose("Codex SMT: memory|dictadata|codex|*");
-    engrams = Codex.use("engram", "memory|dictadata|codex|*");
+    logger.verbose("Engrams SMT: memory|dictadata|engrams|*");
+    engrams = await Storage.engrams.activate( "memory|dictadata|engrams|*");
   }
-  await engrams.activate();
 
   //// register plugins
   let plugins = _config.plugins || {};
@@ -224,47 +225,12 @@ async function init(_config) {
 
   //// tracts datastore initialization
   let tracts;
-  if (_config.codex?.tracts?.smt) {
-    logger.verbose("Tracts SMT: " + JSON.stringify(_config.codex.tracts.smt, null, 2));
-    tracts = Codex.use("tract", _config.codex.tracts.smt, _config.codex.tracts.options);
+  if (_config.tracts?.smt) {
+    logger.verbose("Tracts SMT: " + JSON.stringify(_config.tracts.smt, null, 2));
+    tracts = await Storage.tracts.activate( _config.tracts.smt, _config.tracts.options);
   }
   else {
     logger.verbose("Tracts SMT: memory|dictadata|tracts|*");
-    tracts = Codex.use("tract", "memory|dictadata|tracts|*");
+    tracts = await Storage.tracts.activate( "memory|dictadata|tracts|*");
   }
-  await tracts.activate();
 }
-
-/**
- * Copy src properties to dst object.
- * Deep copy of object properties and top level arrays.
- * Shallow copy of reference types like Date, sub-arrays, etc.
- * Does not copy functions.
- * Note, this is a recursive function.
- * @param {object} dst
- * @param {object} src
- */
-function _merge(dst, src) {
-  for (let [ key, value ] of Object.entries(src)) {
-    if (typeOf(value) === "object") {
-      if (typeOf(dst[ key ] !== "object"))
-        dst[ key ] = {};
-      _merge(dst[ key ], value);
-    }
-    else if (typeOf(value) === "array") {
-      if (typeOf(dst[ key ] !== "array"))
-        dst[ key ] = [];
-      for (let item of value)
-        if (typeOf(item) === "object")
-          dst[ key ].push(_merge({}, item));
-        else
-          dst[ key ].push(item);
-    }
-    else /* if (typeOf(value) !== "function") */ {
-      dst[ key ] = value;
-    }
-  }
-  return dst;
-}
-
-module.exports._merge = _merge;

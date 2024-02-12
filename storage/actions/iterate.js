@@ -3,10 +3,10 @@
  */
 "use strict";
 
-const { Storage } = require("@dictadata/storage-junctions");
+const Storage = require("../storage");
 const output = require('./output');
-const { logger } = require('./logger');
-const { perform } = require('./actions');
+const { logger } = require('../utils');
+const { perform } = require('./');
 
 /**
  * Retrieve data from origin smt

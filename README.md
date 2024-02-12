@@ -19,7 +19,7 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
     etl [-c configFile] [-t tracts] tractName
 
   configFile
-    JSON configuration file that defines codex, plug-ins and logging.
+    JSON configuration file that defines engrams, plug-ins and logging.
     Supports abbreviated name; "-c dev" for "./etl.config.dev.json"
     Default configuration file is ./etl.config.json
 
@@ -37,7 +37,7 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
     list - listing of schema names at origin, datastore or filesystem.
     codify - determine schema encoding by examining some data.
     dull - remove data from a data store.
-    codex - manage codex encoding definitions
+    engrams - manage engrams encoding definitions
     tracts = manage ETL tract definitions
     scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.
     iterate - retrieve data and perform child action(s) for each construct.
@@ -53,7 +53,7 @@ Default configuration settings can be specified in a _config tract in **etl.conf
 ```json
 {
   "_config": {
-    "codex": {
+    "engrams": {
       "engrams": {
         "smt": "elasticsearch|http://dev.dictadata.net:9200/|etl_engrams|*"
       }

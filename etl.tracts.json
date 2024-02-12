@@ -16,25 +16,23 @@
     }
   },
   "_config": {
-    "codex": {
-      "engrams": {
-        "smt": "<model>|<locus>|etl_engrams|*"
-      },
-      "tracts": {
-        "smt": "<model>|<locus>|etl_tracts|*"
-      }
+    "engrams": {
+      "smt": "<model>|<locus>|etl_engrams|*"
     },
-    "plugins": {
-      "filesystems": {
-        "<package_name>": [
-          "<prefix>"
-        ]
-      },
-      "junctions": {
-        "<package_name>": [
-          "<model>"
-        ]
-      }
+    "tracts": {
+      "smt": "<model>|<locus>|etl_tracts|*"
+    }
+  },
+  "plugins": {
+    "filesystems": {
+      "<package_name>": [
+        "<prefix>"
+      ]
+    },
+    "junctions": {
+      "<package_name>": [
+        "<model>"
+      ]
     },
     "log": {
       "logPath": "./log",

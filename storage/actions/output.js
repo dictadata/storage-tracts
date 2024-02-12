@@ -1,7 +1,7 @@
 /**
  * storage/etl/output.js
  */
-const { logger } = require('./logger');
+const { logger } = require('../utils');
 const fs = require('fs');
 const path = require('path');
 const _compare = require('@dictadata/storage-junctions/test/lib/_compare');

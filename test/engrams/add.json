@@ -1,12 +1,14 @@
 {
-  "engrams": {
-    "action": "engrams",
-    "_config": {
+  "_config": {
+    "engrams": {
       "smt": "elasticsearch|http://dev.dictadata.net:9200/|etl_engrams|*",
       "options": {
         "description": "test"
       }
-    },
+    }
+  },
+  "engrams": {
+    "action": "engrams",
     "store": [
       {
         "name": "jsonfile-foo_schema",

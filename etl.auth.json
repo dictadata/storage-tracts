@@ -1,34 +1,40 @@
-{
-  "http://dev.dictadata.net:9200": {
+[
+  {
+    "locus": "http://dev.dictadata.net:9200",
     "auth": {
       "apiKey": "abc123dorami"
     }
   },
-  "ftp://dev.dictadata.net": {
+  {
+    "locus": "ftp://dev.dictadata.net",
     "auth": {
       "username": "dicta",
       "password": "data"
     }
   },
-  "server=dev.dictadata.net;database=storage_node": {
+  {
+    "locus": "server=dev.dictadata.net;database=storage_node",
     "auth": {
       "username": "dicta",
       "password": "data"
     }
   },
-  "host=dev.dictadata.net;database=storage_node": {
+  {
+    "locus": "host=dev.dictadata.net;database=storage_node",
     "auth": {
       "username": "dicta",
       "password": "data"
     }
   },
-  "ftp://ftp2.census.gov": {
+  {
+    "locus": "ftp://ftp2.census.gov",
     "auth": {
       "username": "anonymous",
       "password": "anonymous"
     }
   },
-  "https://data-origin.dictadata.net:9200": {
+  {
+    "locus": "https://data-origin.dictadata.net:9200",
     "auth": {
       "apiKey": "MmdIVVlZY0JsdG9DN2ZieFNsTUQ6bEdGNlkzVHdRNm16bmlJQVNJd1J3Zw=="
     },
@@ -37,7 +43,8 @@
       "rejectUnauthorized": true
     }
   },
-  "host=data-origin.dictadata.net;database=storage_node": {
+  {
+    "locus": "host=data-origin.dictadata.net;database=storage_node",
     "auth": {
       "username": "dicta",
       "password": "data"
@@ -47,4 +54,4 @@
       "rejectUnauthorized": false
     }
   }
-}
+]

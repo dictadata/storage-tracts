@@ -1,12 +1,11 @@
 {
-  "name": "codex_tracts",
-  "type": "engram",
-  "title": "Codex tract entry definition",
-  "description": "dictadata Storage Codex tract encoding definition",
+  "name": "storage_tracts",
+  "type": "tract",
+  "title": "tract entry definition",
+  "description": "dictadata Storage Tracts encoding definition",
   "tags": [
     "dictadata",
-    "codex",
-    "tract"
+    "tracts"
   ],
   "smt": {
     "model": "*",
@@ -35,6 +34,14 @@
       "type": "text"
     },
     {
+      "name": "title",
+      "type": "text"
+    },
+    {
+      "name": "description",
+      "type": "text"
+    },
+    {
       "name": "roles",
       "type": "list",
       "_list": {
@@ -49,14 +56,6 @@
         "name": "_list",
         "type": "keyword"
       }
-    },
-    {
-      "name": "title",
-      "type": "text"
-    },
-    {
-      "name": "description",
-      "type": "text"
     },
     {
       "name": "notes",

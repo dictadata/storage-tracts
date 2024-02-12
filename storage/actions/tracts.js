@@ -3,10 +3,10 @@
  */
 "use strict";
 
-const { Codex } = require("@dictadata/storage-junctions");
-const { Tract } = require("@dictadata/storage-junctions/types");
+const Storage = require("../storage");
+const { Tract } = require("../types");
 const output = require('./output');
-const { logger } = require('./logger');
+const { logger } = require('../utils');
 
 const fs = require('fs');
 
@@ -28,8 +28,6 @@ module.exports = async (tract) => {
         case "dull": fn = dull; break;
         case "recall": fn = recall; break;
         case "retrieve": fn = retrieve; break;
-        case "config":
-        case '_config': fn = config; break;
         default:
           logger.error("unknown tracts command: " + command);
           return 1;
@@ -56,27 +54,6 @@ module.exports = async (tract) => {
 
 /**
  *
- * @param {Object} request section of ETL tract with a pattern property
- */
-async function config(request) {
-  let retCode = 0;
-
-  try {
-    // activate tracts
-    let tracts = Codex.use("tract", request.smt, request.options);
-    await tracts.activate();
-    logger.info("codex tracts config: " + JSON.stringify(request.smt));
-  }
-  catch (err) {
-    logger.error(err);
-    retCode = 1;
-  }
-
-  return retCode;
-}
-
-/**
- *
  * @param {Object} entry request section of ETL tract that is a Tracts entry
  */
 async function store(entry) {
@@ -93,7 +70,7 @@ async function store(entry) {
       entry = Object.assign({}, tracts, entry);
     }
 
-    let results = await Codex.tracts.store(entry);
+    let results = await Storage.tracts.store(entry);
     logger.info("tracts store: " + entry.name + " " + results.message);
   }
   catch (err) {
@@ -113,7 +90,7 @@ async function dull(request) {
 
   try {
     let pattern = request.pattern || request;
-    let results = await Codex.tracts.dull(pattern);
+    let results = await Storage.tracts.dull(pattern);
 
     logger.info("tracts dull: " + (pattern.key || pattern.name) + " " + results.message);
   }
@@ -134,7 +111,7 @@ async function recall(request) {
 
   try {
     let pattern = request.pattern || request;
-    let results = await Codex.tracts.recall(pattern);
+    let results = await Storage.tracts.recall(pattern);
     logger.verbose("tracts recall: " + (pattern.key || pattern.name) + " " + results.message);
 
     retCode = output(request.output, results.data);
@@ -156,7 +133,7 @@ async function retrieve(request) {
 
   try {
     let pattern = request.pattern || request;
-    let results = await Codex.tracts.retrieve(pattern);
+    let results = await Storage.tracts.retrieve(pattern);
     logger.verbose("tracts retrieve: " + results.message);
 
     retCode = output(request.output, results.data);

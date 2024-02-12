@@ -3,9 +3,9 @@
  */
 "use strict";
 
-const { Storage } = require("@dictadata/storage-junctions");
+const Storage = require("../storage");
 const output = require('./output');
-const { logger } = require('./logger');
+const { logger } = require('../utils');
 
 /**
  *

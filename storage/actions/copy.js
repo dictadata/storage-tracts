@@ -5,9 +5,9 @@
  */
 "use strict";
 
-const { Storage } = require("@dictadata/storage-junctions");
+const Storage = require("../storage");
 const { SMT, StorageError } = require('@dictadata/storage-junctions/types');
-const { logger } = require('./logger');
+const { logger } = require('../utils');
 
 function prefix(locus) {
   let p = 'file';

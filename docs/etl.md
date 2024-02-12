@@ -7,7 +7,7 @@ Transfer, transform and codify data between local and distributed storage source
 etl [-c configFile] [-t etlTracts] tractName
 
 configFile
-  JSON configuration file that defines codex, plug-ins and logging.
+  JSON configuration file that defines engrams, plug-ins and logging.
   Supports abbreviated name; "-c dev" for "./etl.config.dev.json"
   Default configuration file is ./etl.config.json
 

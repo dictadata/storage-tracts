@@ -29,7 +29,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -44,7 +44,7 @@
     },
     {
       "type": "node-terminal",
-      "name": "--- Codex engrams",
+      "name": "--- Engrams",
       "request": "launch"
     },
     {
@@ -54,7 +54,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -74,7 +74,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-c",
@@ -96,7 +96,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-c",
@@ -118,7 +118,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -138,7 +138,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -163,7 +163,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -183,7 +183,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -203,7 +203,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -223,7 +223,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -243,7 +243,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -263,7 +263,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-c",
@@ -285,7 +285,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -305,7 +305,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -325,7 +325,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "codify",
@@ -345,10 +345,10 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -368,7 +368,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -388,7 +388,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "all",
@@ -408,7 +408,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "list",
@@ -428,7 +428,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "codify",
@@ -448,7 +448,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -468,7 +468,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -488,7 +488,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "list",
@@ -508,7 +508,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "codify",
@@ -528,7 +528,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -548,7 +548,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -573,7 +573,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "*",
@@ -593,7 +593,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "codify",
@@ -613,7 +613,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -633,7 +633,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -653,7 +653,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -673,7 +673,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -693,7 +693,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "list",
@@ -713,7 +713,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "codify",
@@ -733,7 +733,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -753,7 +753,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -773,7 +773,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -793,7 +793,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "*",
@@ -813,7 +813,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "codify",
@@ -833,7 +833,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -853,7 +853,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -873,7 +873,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -893,7 +893,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -913,7 +913,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -933,7 +933,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -953,7 +953,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "codify",
@@ -973,7 +973,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -993,7 +993,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -1013,7 +1013,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -1028,7 +1028,7 @@
     },
     {
       "type": "node-terminal",
-      "name": "--- Codex tracts",
+      "name": "--- Tracts",
       "request": "launch"
     },
     {
@@ -1038,7 +1038,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -1058,7 +1058,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-c",
@@ -1080,7 +1080,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-c",
@@ -1102,7 +1102,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -1122,7 +1122,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -1142,7 +1142,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--trace-warnings"
       ],
       "args": [
         "-t",

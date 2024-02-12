@@ -10,8 +10,6 @@ const winston = require('winston');
 const { format, transports } = winston;
 const DailyRotateFile = require('winston-daily-rotate-file');
 
-module.exports = exports = logger;
-
 logger.level = process.env.LOG_LEVEL || 'info';
 
 var defaultOptions = {
@@ -39,3 +37,5 @@ logger.configLogger = function (options) {
   }));
 
 };
+
+module.exports = exports = logger;

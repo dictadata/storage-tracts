@@ -1,5 +1,5 @@
 /**
- * storage/etl/pipeline/logger
+ * storage/etl/actions/logger
  */
 "use strict";
 

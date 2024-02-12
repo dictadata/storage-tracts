@@ -1,19 +1,17 @@
 {
   "_config": {
-    "codex": {
-      "auth": {
-        "auth_file": "./etl.auth.json"
-      },
-      "engrams": {
-        "smt": "elasticsearch|http://dev.dictadata.net:9200/|etl_engrams|*",
-        "options": {},
-        "engrams_cache": {}
-      },
-      "tracts": {
-        "smt": "elasticsearch|http://dev.dictadata.net:9200/|etl_tracts|*",
-        "options": {},
-        "tracts_cache": {}
-      }
+    "auth": {
+      "auth_file": "./etl.auth.json"
+    },
+    "engrams": {
+      "smt": "elasticsearch|http://dev.dictadata.net:9200/|etl_engrams|*",
+      "options": {},
+      "engrams_cache": {}
+    },
+    "tracts": {
+      "smt": "elasticsearch|http://dev.dictadata.net:9200/|etl_tracts|*",
+      "options": {},
+      "tracts_cache": {}
     },
     "variables": {
       "schema": "foofile",

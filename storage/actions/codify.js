@@ -3,10 +3,10 @@
  */
 "use strict";
 
-const { Storage } = require("@dictadata/storage-junctions");
+const Storage = require("../storage");
 const { Field } = require('@dictadata/storage-junctions/types');
 const output = require('./output');
-const { logger } = require('./logger');
+const { logger } = require('../utils');
 
 const stream = require('stream').promises;
 

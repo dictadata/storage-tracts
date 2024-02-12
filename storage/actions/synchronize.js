@@ -5,10 +5,8 @@
  */
 "use strict";
 
-const { Storage } = require("@dictadata/storage-junctions");
-const { typeOf, logger } = require("@dictadata/storage-junctions/utils");
+const Storage = require("../storage");
 
-const fs = require('fs/promises');
 const stream = require('stream').promises;
 
 /**

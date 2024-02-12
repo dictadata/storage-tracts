@@ -1,9 +1,9 @@
 /**
- * storage/codex/tracts
+ * storage/tracts
  *
  * Tracts is a data directory and dictionary of tract definitions.
  *
- * valid codex types:
+ * valid tracts types:
  *   tract  - ETL tract definitions
  *   alias  -
  *
@@ -12,26 +12,21 @@
  */
 "use strict";
 
-const Junctions = require("../junctions");
-const auth = require("./auth");
-const { SMT, Tract, StorageResults, StorageError } = require("../types");
-const { hasOwnProperty, logger } = require("../utils");
+const Storage = require("../storage");
+const { SMT, Tract, StorageResults, StorageError } = require("@dictadata/storage-junctions/types");
+const { hasOwnProperty, logger } = require("@dictadata/storage-junctions/utils");
 const fs = require("node:fs");
 const homedir = process.env[ "HOMEPATH" ] || require('os').homedir();
 
 const tracts_encoding = require("./tracts.encoding.json");
 
-const codexTypes = [ "tract", "alias" ];
+const tractsTypes = [ "tract", "alias" ];
 
 module.exports = exports = class Tracts {
 
-  /**
-   * @param { SMT }    smt an SMT string or SMT object where tracts data will be located. This parameter can NOT be an SMT name!
-   * @param { Object } options that will be passed to the underlying junction.
-   */
-  constructor(smt, options) {
-    this.smt = new SMT(smt);
-    this.options = options || {};
+  constructor() {
+    this.smt;
+    this.options;
 
     this._tracts = new Map();
     this._active = false;
@@ -54,11 +49,15 @@ module.exports = exports = class Tracts {
   }
 
   /**
-   * Activate the Codex Tracts junction
+   * Activate the Tracts junction
    *
+   * @param { SMT }    smt an SMT string or SMT object where tracts data will be located. This parameter can NOT be an SMT name!
+   * @param { Object } options that will be passed to the underlying junction.
    * @returns true if underlying junction was activated successfully
    */
-  async activate() {
+  async activate(smt, options) {
+    this.smt = new SMT(smt);
+    this.options = options || {};
 
     try {
       let options = Object.assign({}, this.options);
@@ -72,8 +71,8 @@ module.exports = exports = class Tracts {
       }
 
       // check for auth options
-      if (!options.auth && auth.has(this.smt.locus)) {
-        let stash = auth.recall(this.smt.locus);
+      if (!options.auth && Storage.auth.has(this.smt.locus)) {
+        let stash = Storage.auth.recall(this.smt.locus);
         options = Object.assign(options, stash);
       }
 
@@ -92,15 +91,15 @@ module.exports = exports = class Tracts {
       }
 
       // create the junction
-      this._junction = await Junctions.activate(this.smt, options);
+      this._junction = await Storage.activate(this.smt, options);
 
       // attempt to create tracts schema
       let results = await this._junction.createSchema();
       if (results.status === 0) {
-        logger.info("storage/codex/tracts: created schema, " + this._junction.smt.schema);
+        logger.info("storage/tracts: created schema, " + this._junction.smt.schema);
       }
       else if (results.status === 409) {
-        logger.debug("storage/codex/tracts: schema exists");
+        logger.debug("storage/tracts: schema exists");
       }
       else {
         throw new StorageError(500, "unable to create tracts schema");
@@ -108,7 +107,7 @@ module.exports = exports = class Tracts {
       this._active = true;
     }
     catch (err) {
-      logger.error('storage/codex/tracts: activate failed, ', err.message || err);
+      logger.error('storage/tracts: activate junction failed, ', err.message || err);
     }
 
     return this._active;
@@ -134,8 +133,8 @@ module.exports = exports = class Tracts {
       storageResults.setResults(400, "Invalid tracts name" );
       return storageResults;
     }
-    if (!entry.type || !codexTypes.includes(entry.type)) {
-      storageResults.setResults(400, "Invalid codex type" );
+    if (!entry.type || !tractsTypes.includes(entry.type)) {
+      storageResults.setResults(400, "Invalid tracts type" );
       return storageResults;
     }
 
@@ -161,11 +160,11 @@ module.exports = exports = class Tracts {
     if (this._junction) {
       // save in source tracts
       storageResults = await this._junction.store(entry, { key: key });
-      logger.verbose("storage/codex/tracts: " + key + ", " + storageResults.status);
+      logger.verbose("storage/tracts: " + key + ", " + storageResults.status);
       return storageResults;
     }
 
-    storageResults.setResults(500, "Codex tracts junction not activated");
+    storageResults.setResults(500, "Tracts junction not activated");
     return storageResults;
   }
 
@@ -194,7 +193,7 @@ module.exports = exports = class Tracts {
       return storageResults;
     }
 
-    storageResults.setResults(500, "Codex tracts junction not activated");
+    storageResults.setResults(500, "Tracts junction not activated");
     return storageResults;
   }
 
@@ -217,7 +216,7 @@ module.exports = exports = class Tracts {
     else if (this._junction) {
       // go to the source tracts
       storageResults = await this._junction.recall({ key: key });
-      logger.verbose("storage/codex/tracts: recall, " + storageResults.status);
+      logger.verbose("storage/tracts: recall, " + storageResults.status);
     }
     else {
       storageResults.setResults(404, "Not Found");
@@ -264,10 +263,10 @@ module.exports = exports = class Tracts {
 
       // retrieve list from source tracts
       storageResults = await this._junction.retrieve(pattern);
-      logger.verbose("storage/codex/tracts: retrieve, " + storageResults.status);
+      logger.verbose("storage/tracts: retrieve, " + storageResults.status);
     }
     else {
-      storageResults.setResults(503, "Codex tracts Unavailable");
+      storageResults.setResults(503, "Tracts Unavailable");
     }
 
     return storageResults;

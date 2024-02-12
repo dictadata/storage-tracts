@@ -6,8 +6,8 @@
  */
 "use strict";
 
-const { Storage } = require("@dictadata/storage-junctions");
-const { logger } = require("@dictadata/storage-junctions/utils");
+const Storage = require("../storage");
+const { logger } = require('../utils');
 const output = require('./output');
 
 const fs = require('fs');

@@ -1,5 +1,5 @@
 /**
- * storage/storage-storage
+ * storage/storage-tracts
  *
  * Static classes implementations.
  *
@@ -10,9 +10,7 @@
  */
 "use strict";
 
-const Storage = require("@dictadata/storage-junctions");
-const Engrams = require("./engrams");
-
+const { Storage } = require("@dictadata/storage-junctions");
 const { SMT, StorageError } = require("@dictadata/storage-junctions/types");
 
 class StorageEtl extends Storage {
@@ -30,9 +28,9 @@ class StorageEtl extends Storage {
     if (!options) options = {};
 
     // lookup/verify SMT object
-    if (typeof smt === "string" && smt.indexOf('|') < 0 && Engrams.engrams) {
+    if (typeof smt === "string" && smt.indexOf('|') < 0 && StorageEtl.engrams?.isActive) {
       // lookup urn in Engrams
-      let results = await Engrams.engrams.recall({
+      let results = await StorageEtl.engrams.recall({
         match: {
           key: smt
         },
@@ -57,5 +55,8 @@ class StorageEtl extends Storage {
   }
 
 }
+
+StorageEtl.engrams = null;
+StorageEtl.tracts = null;
 
 module.exports = exports = StorageEtl;

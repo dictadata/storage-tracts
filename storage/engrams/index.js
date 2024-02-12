@@ -5,16 +5,17 @@
  *
  * valid engrams types:
  *   engram - SMT encoding definitions
+ *   alias  -
  *
  * An underlying StorageJunction such as ElasticsearchJunction can be used for persistent storage.
  * A simple cache is implemented with a Map.
  */
 "use strict";
 
-const Junctions = require("../junctions");
-const auth = require("./auth");
-const { SMT, Engram, StorageResults, StorageError } = require("../types");
-const { hasOwnProperty, logger } = require("../utils");
+const Storage = require("../storage");
+const { Engram } = require("../types");
+const { SMT, StorageResults, StorageError } = require("@dictadata/storage-junctions/types");
+const { hasOwnProperty, logger } = require("@dictadata/storage-junctions/utils");
 const fs = require("node:fs");
 const homedir = process.env[ "HOMEPATH" ] || require('os').homedir();
 
@@ -24,13 +25,9 @@ const engramsTypes = [ "engram", "alias" ];
 
 module.exports = exports = class Engrams {
 
-  /**
-   * @param { SMT }    smt an SMT string or SMT object where Engrams Engrams data will be located. This parameter can NOT be an SMT name!
-   * @param { Object } options that will be passed to the underlying junction.
-   */
-  constructor(smt, options) {
-    this.smt = new SMT(smt);
-    this.options = options || {};
+  constructor() {
+    this.smt;
+    this.options;
 
     this._engrams = new Map();
     this._active = false;
@@ -74,9 +71,13 @@ module.exports = exports = class Engrams {
   /**
    * Activate the Engrams Engrams junction
    *
+   * @param { SMT }    smt an SMT string or SMT object where Engrams Engrams data will be located. This parameter can NOT be an SMT name!
+   * @param { Object } options that will be passed to the underlying junction.
    * @returns true if underlying junction was activated successfully
    */
-  async activate() {
+    async activate(smt, options) {
+    this.smt = new SMT(smt);
+    this.options = options || {};
 
     try {
       let options = Object.assign({}, this.options);
@@ -90,8 +91,8 @@ module.exports = exports = class Engrams {
       }
 
       // check for auth options
-      if (!options.auth && auth.has(this.smt.locus)) {
-        let stash = auth.recall(this.smt.locus);
+      if (!options.auth && Storage.auth.has(this.smt.locus)) {
+        let stash = Storage.auth.recall(this.smt.locus);
         options = Object.assign(options, stash);
       }
 
@@ -110,15 +111,15 @@ module.exports = exports = class Engrams {
       }
 
       // create the junction
-      this._junction = await Junctions.activate(this.smt, options);
+      this._junction = await Storage.activate(this.smt, options);
 
       // attempt to create engrams schema
       let results = await this._junction.createSchema();
       if (results.status === 0) {
-        logger.info("storage/engrams/engrams: created schema, " + this._junction.smt.schema);
+        logger.info("storage/engrams: created schema, " + this._junction.smt.schema);
       }
       else if (results.status === 409) {
-        logger.debug("storage/engrams/engrams: schema exists");
+        logger.debug("storage/engrams: schema exists");
       }
       else {
         throw new StorageError(500, "unable to create engrams engrams schema");
@@ -126,7 +127,7 @@ module.exports = exports = class Engrams {
       this._active = true;
     }
     catch (err) {
-      logger.error('storage/engrams/engrams: activate junction failed, ', err.message || err);
+      logger.error('storage/engrams: activate junction failed, ', err.message || err);
     }
 
     return this._active;
@@ -157,7 +158,7 @@ module.exports = exports = class Engrams {
       return storageResults;
     }
 
-    let encoding = (entry instanceof Engram) ? entry.encoding : entry;
+    let encoding = entry instanceof Engram ? entry.encoding : entry;
     let key = this.urn(encoding);
 
     // save in cache
@@ -166,7 +167,7 @@ module.exports = exports = class Engrams {
     if (this._junction) {
       // save in engrams
       storageResults = await this._junction.store(encoding, { key: key });
-      logger.verbose("storage/engrams/engrams: " + key + ", " + storageResults.status);
+      logger.verbose("storage/engrams: " + key + ", " + storageResults.status);
       return storageResults;
     }
 
@@ -222,7 +223,7 @@ module.exports = exports = class Engrams {
     else if (this._junction) {
       // go to the engrams engrams
       storageResults = await this._junction.recall({ key: key });
-      logger.verbose("storage/engrams/engrams: recall, " + storageResults.status);
+      logger.verbose("storage/engrams: recall, " + storageResults.status);
     }
     else {
       storageResults.setResults(404, "Not Found");
@@ -269,7 +270,7 @@ module.exports = exports = class Engrams {
 
       // retrieve list from engrams engrams
       storageResults = await this._junction.retrieve(pattern);
-      logger.verbose("storage/engrams/engrams: retrieve, " + storageResults.status);
+      logger.verbose("storage/engrams: retrieve, " + storageResults.status);
     }
     else {
       storageResults.setResults(503, "Engrams Engrams Unavailable");

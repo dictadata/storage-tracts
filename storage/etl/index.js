@@ -5,26 +5,12 @@
  */
 "use strict";
 
+const { Actions } = require("../index");
 const { StorageError } = require("@dictadata/storage-junctions/types");
 const config = require('./config');
-const logger = require('./logger');
-const pipeline_logger = require('../pipeline/logger');
+const { logger } = require('../utils');
 const path = require('path');
 require('colors');
-
-pipeline_logger.logger = logger;
-
-const { use, perform } = require("../pipeline/actions");
-use("list", require("../pipeline/list"));
-use("create", require('../pipeline/create'));
-use("codify", require('../pipeline/codify'));
-use("scan", require('../pipeline/scan'));
-use("iterate", require('../pipeline/iterate'));
-use("transfer", require('../pipeline/transfer'));
-use("dull", require('../pipeline/dull'));
-use("copy", require('../pipeline/copy'));
-use("engrams", require('../pipeline/engrams'));
-use("tracts", require('../pipeline/tracts'));
 
 // set program argument defaults
 const appArgs = {
@@ -93,7 +79,7 @@ function parseArgs() {
       console.log("etl [-c configFile] [-t tracts] tractName");
       console.log("");
       console.log("configFile");
-      console.log("  JSON configuration file that defines codex, plug-ins and logging.");
+      console.log("  JSON configuration file that defines engrams, plug-ins and logging.");
       console.log("  Supports abbreviated name; '-c dev' for './etl.config.dev.json'");
       console.log("  Default configuration file is ./etl.config.json");
       console.log("");
@@ -111,7 +97,7 @@ function parseArgs() {
       console.log("  list - listing of schema names at origin (data store or file system).");
       console.log("  codify - determine schema's encoding by examining some data.");
       console.log("  dull - remove data from a data store.");
-      console.log("  codex - manage codex encoding definitions");
+      console.log("  engrams - manage engrams encoding definitions");
       console.log("  tracts - manage tracts definitions");
       console.log("  scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.");
       console.log("  iterate - retrieve data and perform child action(s) for each construct.");
@@ -122,8 +108,10 @@ function parseArgs() {
       return;
     }
 
+    // config.init(appArgs.configFile);
+
     // load tracts file
-    let tracts = {};
+    let tracts = [];
     if (appArgs.tractName === 'config') {
       await config.sampleTracts(appArgs.tractsFile);
       return 0;
@@ -139,22 +127,23 @@ function parseArgs() {
       for (const tract of tracts) {
         if (tract.name[ 0 ] === "_")
           continue;
-        retCode = await perform(tract);
+        retCode = await Actions.perform(tract);
         if (retCode)
           break;
       }
     }
     else if (appArgs.tractName === "parallel") {
       let tasks = [];
-      for (const [ key, tract ] of tracts) {
-        if (key[ 0 ] === "_") continue;
-        tasks.push(perform(tract, key));
+      for (const tract of tracts) {
+        if (tract.name[ 0 ] === "_")
+          continue;
+        tasks.push(Actions.perform(tract));
       }
       Promise.allSettled(tasks);
     }
     else {
       let tract = tracts.find((tract) => tract.name === appArgs.tractName);
-      retCode = await perform(tract);
+      retCode = await Actions.perform(tract);
     }
 
   }
