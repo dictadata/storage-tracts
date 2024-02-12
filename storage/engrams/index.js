@@ -158,7 +158,7 @@ module.exports = exports = class Engrams {
       return storageResults;
     }
 
-    let encoding = entry instanceof Engram ? entry.encoding : entry;
+    let encoding = entry.fieldsMap ? entry.encoding : entry;
     let key = this.urn(encoding);
 
     // save in cache
