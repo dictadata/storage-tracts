@@ -1,7 +1,7 @@
 {
   "name": "@dictadata/storage-tracts",
-  "version": "0.9.71",
-  "description": "Command line ETL utility to transfer and optionally transform data between local and/or distributed sources.",
+  "version": "0.9.72",
+  "description": "Node.js library and command line utility to transfer and transform data between data sources.",
   "author": "Drew O. Letcher",
   "license": "MIT",
   "main": "index.js",
@@ -38,7 +38,7 @@
     "node": ">=17.0.0"
   },
   "dependencies": {
-    "@dictadata/storage-junctions": "file:../storage-junctions",
+    "@dictadata/storage-junctions": "^0.9.99",
     "colors": "^1.4.0",
     "dot-object": "^2.1.4",
     "winston": "^3.11.0",
