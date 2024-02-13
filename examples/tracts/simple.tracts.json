@@ -10,7 +10,7 @@
       "origin": {
         "smt": "source smt"
       },
-      "transform": [],
+      "transforms": [],
       "terminal": {
         "smt": "destination smt"
       }

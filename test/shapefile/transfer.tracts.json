@@ -1,7 +1,7 @@
 {
   "domain": "foo",
   "name": "transfer.tracts.json",
-  "type": "tracts",
+  "type": "tract",
   "tracts": [
     {
       "name": "shp-json",
@@ -34,13 +34,14 @@
         "smt": "shp|zip:./test/data/input/shapes/points.zip|points|*",
         "options": {}
       },
-      "transform": {
-        "mutate": {
+      "transforms": [
+        {
+          "transform": "mutate",
           "default": {
             "id": "=geometry.type+properties.FID"
           }
         }
-      },
+      ],
       "terminal": {
         "smt": {
           "model": "elasticsearch",
@@ -57,13 +58,14 @@
         "smt": "shp|./test/data/input/shapes/|polygons|*",
         "options": {}
       },
-      "transform": {
-        "mutate": {
+      "transforms": [
+        {
+          "transform": "mutate",
           "default": {
             "id": "=geometry.type+properties.FID"
           }
         }
-      },
+      ],
       "terminal": {
         "smt": {
           "model": "elasticsearch",
@@ -147,13 +149,14 @@
           "encoding": "./test/data/input/encodings/bl_2021_ia_congress.encoding.json"
         }
       },
-      "transforms": {
-        "mutate": {
+      "transforms": [
+        {
+          "transform": "mutate",
           "override": {
             "properties.STATEFP": "19"
           }
         }
-      },
+      ],
       "terminal": {
         "smt": "elasticsearch|http://dev.dictadata.net:9200|bl_2021_us_congress|*",
         "options": {

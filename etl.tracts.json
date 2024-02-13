@@ -4,10 +4,14 @@
       "smt": "<smt|urn>",
       "options": {}
     },
-    "transform": {
-      "filter": {},
-      "select": {}
-    },
+    "transforms": [
+      {
+        "transform": "filter"
+      },
+      {
+        "transform": "select"
+      }
+    ],
     "terminal": {
       "smt": "json|./|foofile.json|*",
       "options": {

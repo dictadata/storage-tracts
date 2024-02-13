@@ -22,7 +22,7 @@ module.exports = async (tract) => {
 
   var origin = tract.origin || {};
   var terminal = tract.terminal || {};
-  var transforms = tract.transform || tract.transforms || {};
+  var transforms = tract.transforms || [];
   if (!origin.options) origin.options = {};
   if (!terminal.options) terminal.options = {};
 
@@ -55,7 +55,7 @@ module.exports = async (tract) => {
       let filename = terminal.options.encoding;
       terminal.options.encoding = JSON.parse(fs.readFileSync(filename, "utf8"));
     }
-    else if (!encoding || Object.keys(transforms).length > 0) {
+    else if (!encoding || transforms.length > 0) {
       // otherwise run some objects through any transforms to get terminal encoding
       logger.verbose(">>> codify pipeline");
       let pipes = [];
@@ -71,8 +71,8 @@ module.exports = async (tract) => {
       });
       pipes.push(reader);
 
-      for (let [ tfType, tfOptions ] of Object.entries(transforms))
-        pipes.push(await jo.createTransform(tfType, tfOptions));
+      for (let tfOptions of transforms)
+        pipes.push(await jo.createTransform(tfOptions.transform, tfOptions));
 
       let codify = await jo.createTransform('codify');
       pipes.push(codify);
@@ -103,8 +103,8 @@ module.exports = async (tract) => {
     });
 
     logger.verbose(">>> origin transforms");
-    for (let [ tfName, tfOptions ] of Object.entries(transforms)) {
-      let tfType = tfName.split("-")[ 0 ];
+    for (let tfOptions of transforms) {
+      let tfType = tfOptions.transform.split("-")[ 0 ];
       pipes.push(await jo.createTransform(tfType, tfOptions));
     }
 
@@ -153,9 +153,9 @@ module.exports = async (tract) => {
 
         let writer = null;
         logger.verbose(">>> transforms");
-        let transforms = branch.transform || branch.transforms || {};
-        for (let [ tfName, tfOptions ] of Object.entries(transforms)) {
-          let tfType = tfName.split("-")[ 0 ];
+        let transforms = branch.transforms || [];
+        for (let tfOptions of transforms) {
+          let tfType = tfOptions.transform.split("-")[ 0 ];
           let t = await jt.createTransform(tfType, tfOptions);
           writer = (writer) ? writer.pipe(t) : reader.pipe(t);
         }

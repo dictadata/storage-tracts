@@ -7,8 +7,9 @@
         "header": true
       }
     },
-    "transform": {
-      "filter": {
+    "transforms": [
+      {
+        "transform": "filter",
         "match": {
           "Bar": "row"
         },
@@ -16,7 +17,8 @@
           "Baz": 456
         }
       },
-      "mutate": {
+      {
+        "transform": "mutate",
         "default": {
           "fie": "where's fum?"
         },
@@ -34,7 +36,7 @@
           "state": "unknown"
         }
       }
-    },
+    ],
     "terminal": {
       "smt": {
         "model": "json",
@@ -53,8 +55,9 @@
     "origin": {
       "smt": "json|./test/data/input/|foofile.json|*"
     },
-    "transform": {
-      "filter": {
+    "transforms": [
+      {
+        "transform": "filter",
         "match": {
           "Bar": "row"
         },
@@ -62,7 +65,8 @@
           "Baz": 456
         }
       },
-      "mutate": {
+      {
+        "transform": "mutate",
         "default": {
           "fie": "where's fum?"
         },
@@ -80,7 +84,7 @@
           "state": "unknown"
         }
       }
-    },
+    ],
     "terminal": {
       "smt": {
         "model": "csv",
@@ -101,8 +105,9 @@
     "origin": {
       "smt": "json|./test/data/input/|file_list.json|*"
     },
-    "transforms": {
-      "mutate": {
+    "transforms": [
+      {
+        "transform": "mutate",
         "select": [
           "rpath",
           "name",
@@ -110,7 +115,7 @@
           "date"
         ]
       }
-    },
+    ],
     "terminal": {
       "smt": "json|./test/data/output/fs/|file_list_trim.json|*",
       "output": "./test/data/output/fs/file_list_trim.json"

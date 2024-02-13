@@ -30,7 +30,7 @@
           "splitOn": "TABLE_NAME"
         },
         "tract": {
-          "transform": {},
+          "transforms": [],
           "terminal": {
             "smt": "json|./|*.json|*",
             "options": {}

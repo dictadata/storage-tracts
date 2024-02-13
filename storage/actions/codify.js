@@ -22,7 +22,7 @@ module.exports = async (tract) => {
     let origin = tract.origin || {};
     if (!Object.prototype.hasOwnProperty.call(origin, "options"))
       origin.options = {};
-    let transforms = tract.transform || tract.transforms || {};
+    let transforms = tract.transforms || [];
 
     jo = await Storage.activate(origin.smt, origin.options);
 
@@ -46,8 +46,8 @@ module.exports = async (tract) => {
       });
       pipes.push(reader);
 
-      for (let [ tfType, tfOptions ] of Object.entries(transforms))
-        pipes.push(await jo.createTransform(tfType, tfOptions));
+      for (let tfOptions of transforms)
+        pipes.push(await jo.createTransform(tfOptions.transform, tfOptions));
 
       let ct = await jo.createTransform('codify');
       pipes.push(ct);

@@ -1,5 +1,6 @@
 {
   "name": "transfer.tracts.json",
+  "type": "tract",
   "tracts": [
     {
       "name": "json-index",

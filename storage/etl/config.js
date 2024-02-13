@@ -46,7 +46,7 @@ module.exports.sampleTracts = async function (tractsfile) {
     let sampleTracts = {
       "domain": "foo",
       "name": "tracts name",
-      "type": "tracts",
+      "type": "tract",
       "tracts": [
         {
           "name": "tract-name",
@@ -54,10 +54,14 @@ module.exports.sampleTracts = async function (tractsfile) {
             "smt": "<smt|urn>",
             "options": {}
           },
-          "transform": {
-            "filter": {},
-            "select": {}
-          },
+          "transforms": [
+            {
+              "transform": "filter"
+            },
+            {
+              "transform": "select"
+            }
+          ],
           "terminal": {
             "smt": "json|./|foofile.json|*",
             "options": {
@@ -148,7 +152,7 @@ module.exports.loadTracts = async (appArgs) => {
       tracts = tracts.tracts
     }
     else {
-      for (let [name, tract] of Object.entries(tracts))
+      for (let [ name, tract ] of Object.entries(tracts))
         tract.name = name
       tracts = Object.values(tracts)
     }
@@ -195,11 +199,11 @@ async function init(_config) {
   let engrams;
   if (_config.engrams?.smt) {
     logger.verbose("Engrams SMT: " + JSON.stringify(_config.engrams.smt, null, 2));
-    engrams = await Storage.engrams.activate( _config.engrams.smt, _config.engrams.options);
+    engrams = await Storage.engrams.activate(_config.engrams.smt, _config.engrams.options);
   }
   else {
     logger.verbose("Engrams SMT: memory|dictadata|engrams|*");
-    engrams = await Storage.engrams.activate( "memory|dictadata|engrams|*");
+    engrams = await Storage.engrams.activate("memory|dictadata|engrams|*");
   }
 
   //// register plugins
@@ -227,10 +231,10 @@ async function init(_config) {
   let tracts;
   if (_config.tracts?.smt) {
     logger.verbose("Tracts SMT: " + JSON.stringify(_config.tracts.smt, null, 2));
-    tracts = await Storage.tracts.activate( _config.tracts.smt, _config.tracts.options);
+    tracts = await Storage.tracts.activate(_config.tracts.smt, _config.tracts.options);
   }
   else {
     logger.verbose("Tracts SMT: memory|dictadata|tracts|*");
-    tracts = await Storage.tracts.activate( "memory|dictadata|tracts|*");
+    tracts = await Storage.tracts.activate("memory|dictadata|tracts|*");
   }
 }

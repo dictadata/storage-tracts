@@ -16,7 +16,7 @@
             "smt": "source smt, parameterized",
             "params": {}
           },
-          "transform": [],
+          "transforms": [],
           "terminal": {
             "smt": "destination smt"
           }

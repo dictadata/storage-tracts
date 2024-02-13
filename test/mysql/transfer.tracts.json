@@ -1,5 +1,10 @@
 {
-  "csv-table": {
+  "domain": "foo",
+  "name": "transfer.tracts.json",
+  "type": "tract",
+  "tracts": [
+    {
+    "name": "csv-table",
     "action": "transfer",
     "origin": {
       "smt": "csv|./test/data/input/|foofile.csv|*",
@@ -17,7 +22,8 @@
       }
     }
   },
-  "table-csv": {
+  {
+    "name": "table-csv",
     "action": "transfer",
     "origin": {
       "smt": "foo:mysql-foo_schema"
@@ -29,7 +35,8 @@
       }
     }
   },
-  "bulkload": {
+  {
+    "name": "bulkload",
     "action": "transfer",
     "origin": {
       "smt": "csv|./test/data/input/|timeseries.csv|*",
@@ -52,4 +59,5 @@
       }
     }
   }
+]
 }

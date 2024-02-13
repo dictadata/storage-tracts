@@ -21,7 +21,7 @@ async function perform(tract) {
     throw new StorageError(422, "Invalid parameter: tract " + tract.name);
 
   // determine action name
-  let action = tract[ "action" ] || tract.name.substr(0, tract.name.indexOf('_')) || tract.name;
+  let action = tract[ "action" ] || tract.name?.substr(0, tract.name?.indexOf('_')) || tract.name;
 
   logger.info("ELT " + action + " " + tract.name);
 

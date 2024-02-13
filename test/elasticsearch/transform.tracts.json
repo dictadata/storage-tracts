@@ -1,7 +1,7 @@
 {
   "domain": "foo",
   "name": "transfer.tracts.json",
-  "type": "tracts",
+  "type": "tract",
   "tracts": [
     {
       "name": "json-etl2",
@@ -12,8 +12,9 @@
           "encoding": "./test/data/input/encodings/foo_schema_01.encoding.json"
         }
       },
-      "transform": {
-        "filter": {
+      "transforms": [
+        {
+          "transform": "filter",
           "match": {
             "Bar": "row"
           },
@@ -23,7 +24,8 @@
             }
           }
         },
-        "mutate": {
+        {
+          "transform": "mutate",
           "default": {
             "fie": "where's fum?"
           },
@@ -39,7 +41,7 @@
             "fobe"
           ]
         }
-      },
+      ],
       "terminal": {
         "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_schema_etl2|=Foo",
         "options": {

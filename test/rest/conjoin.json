@@ -19,8 +19,9 @@
         ]
       }
     },
-    "transform": {
-      "conjoin": {
+    "transforms": [
+      {
+        "transform": "conjoin",
         "smt": "rest|https://api.weather.gov/gridpoints/${cwa}/${gridX},${gridY}/|forecast|=*",
         "options": {
           "http": {
@@ -32,7 +33,7 @@
           "extract": "periods"
         }
       }
-    },
+    ],
     "terminal": {
       "smt": "csv|./test/data/output/rest/|conjoin.csv|*",
       "options": {

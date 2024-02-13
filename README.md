@@ -98,8 +98,9 @@ etl_flatten.json:
     "origin": {
       "smt": "json|./test/data/input/|foofile.json|*"
     },
-    "transform": {
-      "select": {
+    "transforms": [
+      {
+        "transform": "select",
         "fields": {
           "Foo": "foo",
           "Bar": "bar",
@@ -107,7 +108,7 @@ etl_flatten.json:
           "State.Enabled": "enabled"
         }
       }
-    },
+    ],
     "terminal": {
       "smt": "csv|./test/data/output/|fooflat.csv|*",
       "options": {

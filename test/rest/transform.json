@@ -13,8 +13,9 @@
         "extract": "periods"
       }
     },
-    "transform": {
-      "mutate": {
+    "transforms": [
+      {
+        "transform": "mutate",
         "select": [
           "name",
           "temperature",
@@ -24,7 +25,7 @@
           "shortForecast"
         ]
       }
-    },
+    ],
     "terminal": {
       "smt": "json|./test/data/output/rest/|transform.json|*",
       "output": "./test/data/output/rest/transform.json",

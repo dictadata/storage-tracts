@@ -54,6 +54,43 @@ class StorageEtl extends Storage {
     return Storage.activate(_smt, options);
   }
 
+  /**
+   *
+   * @param {*} smt smt to resolve
+   * @param {*} options options may be updated
+   * @returns
+   */
+  static async resolve(smt, options) {
+    let _smt = {};
+    if (typeof options !== "object")
+      throw new StorageError(400, "invalid/missing argument: options");
+
+    // lookup/verify SMT object
+    if (typeof smt === "string" && smt.indexOf('|') < 0 && StorageEtl.engrams?.isActive) {
+      // lookup urn in Engrams
+      let results = await StorageEtl.engrams.recall({
+        match: {
+          key: smt
+        },
+        resolve: true
+      });
+      if (results.status !== 0)
+        throw new StorageError(results.status, results.message + ": " + smt);
+
+      let entry = results.data[ smt ];
+      _smt = entry.smt;
+      if (entry.options)
+        Object.assign(options, entry.options);
+      if (!options.encoding && entry.fields)
+        options.encoding = entry.fields;
+    }
+    else {
+      // SMT string or object
+      _smt = new SMT(smt);
+    }
+
+    return _smt;
+  }
 }
 
 StorageEtl.engrams = null;

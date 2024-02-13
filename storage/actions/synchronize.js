@@ -30,7 +30,7 @@ module.exports = async (tract) => {
       "gt": tract.state.value
     };
 
-    let transforms = tract.transform || tract.transforms || {};
+    let transforms = tract.transforms || [];
 
     logger.verbose(">>> Origin Tract");
     if (!tract.origin.options) tract.origin.options = {};
@@ -60,8 +60,8 @@ module.exports = async (tract) => {
       });
       pipes.push(reader);
 
-      for (let [ tfType, tfOptions ] of Object.entries(transforms))
-        pipes.push(await jo.createTransform(tfType, tfOptions));
+      for (let tfOptions of transforms)
+        pipes.push(await jo.createTransform(tfOptions.transform, tfOptions));
 
       let ct = await jo.createTransform('codify');
       pipes.push(ct);
@@ -77,8 +77,8 @@ module.exports = async (tract) => {
     });
 
     logger.verbose(">>> origin transforms");
-    for (let [ tfName, tfOptions ] of Object.entries(transforms)) {
-      let tfType = tfName.split("-")[ 0 ];
+    for (let tfOptions of transforms) {
+      let tfType = tfOptions.transform.split("-")[ 0 ];
       reader = reader.pipe(await jo.createTransform(tfType, tfOptions));
     }
 
@@ -125,9 +125,9 @@ module.exports = async (tract) => {
 
         let writer = null;
         logger.verbose(">>> transforms");
-        let transforms = branch.transform || branch.transforms || {};
-        for (let [ tfName, tfOptions ] of Object.entries(transforms)) {
-          let tfType = tfName.split("-")[ 0 ];
+        let transforms = branch.transforms || [];
+        for (let tfOptions of transforms) {
+          let tfType = tfOptions.transform.split("-")[ 0 ];
           let t = await jt.createTransform(tfType, tfOptions);
           writer = (writer) ? writer.pipe(t) : reader.pipe(t);
         }

@@ -86,9 +86,18 @@
             "fields": []
           },
           {
-            "name": "transform",
-            "type": "map",
-            "fields": []
+            "name": "transforms",
+            "type": "list",
+            "_list": {
+              "name": "_list",
+              "type": "map",
+              "fields": [
+                {
+                  "name": "transform",
+                  "type": "keyword"
+                }
+              ]
+            }
           },
           {
             "name": "terminal",
