@@ -101,10 +101,10 @@ async function dull(request) {
   let retCode = 0;
 
   try {
-    let pattern = request.pattern || request;
-    let results = await Storage.engrams.dull(pattern);
+    let urn = request.urn || request.name;
+    let results = await Storage.engrams.dull(urn);
 
-    logger.info("engrams dull: " + (pattern.key || pattern.name) + " " + results.message);
+    logger.info("engrams dull: " + urn + " " + results.message);
   }
   catch (err) {
     logger.error(err);
@@ -122,9 +122,9 @@ async function recall(request) {
   let retCode = 0;
 
   try {
-    let pattern = request.pattern || request;
-    let results = await Storage.engrams.recall(pattern);
-    logger.verbose("engrams recall: " + (pattern.key || pattern.name) + " " + results.message);
+    let urn = request.urn || request.name;
+    let results = await Storage.engrams.recall(urn, request.resolve);
+    logger.verbose("engrams recall: " + urn + " " + results.message);
 
     retCode = output(request.output, results.data);
   }

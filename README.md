@@ -66,10 +66,10 @@ Default configuration settings can be specified in a _config tract in **etl.conf
     "plugins": {
       "filesystems": [],
       "junctions": []
-    },
-    "variables": {
-      "name1": "value1"
     }
+  },
+  "params": {
+    "name1": "value1"
   }
 }
 ```
@@ -205,11 +205,11 @@ Config file:
 ```json
 {
   "_config": {
-    "variables": {
-      "schema": "foofile",
-      "input": "./test/data/input",
-      "output": "./test/data/output"
-    }
+  },
+  "params": {
+    "schema": "foofile",
+    "input": "./test/data/input",
+    "output": "./test/data/output"
   }
 }
 ```

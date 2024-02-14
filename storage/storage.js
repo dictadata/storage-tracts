@@ -30,12 +30,7 @@ class StorageEtl extends Storage {
     // lookup/verify SMT object
     if (typeof smt === "string" && smt.indexOf('|') < 0 && StorageEtl.engrams?.isActive) {
       // lookup urn in Engrams
-      let results = await StorageEtl.engrams.recall({
-        match: {
-          key: smt
-        },
-        resolve: true
-      });
+      let results = await StorageEtl.engrams.recall(smt, true);
       if (results.status !== 0)
         throw new StorageError(results.status, results.message + ": " + smt);
 
@@ -68,12 +63,7 @@ class StorageEtl extends Storage {
     // lookup/verify SMT object
     if (typeof smt === "string" && smt.indexOf('|') < 0 && StorageEtl.engrams?.isActive) {
       // lookup urn in Engrams
-      let results = await StorageEtl.engrams.recall({
-        match: {
-          key: smt
-        },
-        resolve: true
-      });
+      let results = await StorageEtl.engrams.recall(smt, true);
       if (results.status !== 0)
         throw new StorageError(results.status, results.message + ": " + smt);
 

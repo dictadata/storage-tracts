@@ -16,7 +16,7 @@
         "refresh": true
       },
       "tracts_cache": {}
-    },
-    "variables": {}
-  }
+    }
+  },
+  "params": {}
 }

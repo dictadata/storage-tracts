@@ -1,5 +1,5 @@
 {
-  "tracts": {
+  "retrieve_tracts": {
     "action": "tracts",
     "retrieve": {
       "pattern": {

@@ -2,7 +2,7 @@
   "engrams": {
     "action": "engrams",
     "dull": {
-      "name": "foo_schema_two"
+      "urn": "foo_schema_two"
     }
   }
 }

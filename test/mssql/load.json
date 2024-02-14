@@ -7,20 +7,23 @@
         "recursive": false
       }
     },
-    "schema": {
-      "action": "transfer",
-      "origin": {
-        "smt": "json|./test/data/input/|${name}|*",
-        "options": {
-          "encoding": "./test/data/input/encodings/foo_schema_01.encoding.json"
-        }
-      },
-      "terminal": {
-        "smt": "mssql|server=dev.dictadata.net;database=storage_node|foo_load|=Foo",
-        "options": {
-          "encoding": "./test/data/input/encodings/foo_schema_01.encoding.json"
+    "tracts": [
+      {
+        "name": "schema",
+        "action": "transfer",
+        "origin": {
+          "smt": "json|./test/data/input/|${name}|*",
+          "options": {
+            "encoding": "./test/data/input/encodings/foo_schema_01.encoding.json"
+          }
+        },
+        "terminal": {
+          "smt": "mssql|server=dev.dictadata.net;database=storage_node|foo_load|=Foo",
+          "options": {
+            "encoding": "./test/data/input/encodings/foo_schema_01.encoding.json"
+          }
         }
       }
-    }
+    ]
   }
 }

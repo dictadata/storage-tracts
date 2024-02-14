@@ -7,7 +7,7 @@
       }
     }
   },
-  "tracts": {
+  "add_tracts": {
     "action": "tracts",
     "store": [
       {

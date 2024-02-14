@@ -4,9 +4,8 @@
 "use strict";
 
 const Storage = require("../storage");
-const output = require('./output');
 const { logger } = require('../utils');
-const { perform } = require('./');
+const { performTract } = require('./');
 
 /**
  * Retrieve data from origin smt
@@ -19,17 +18,6 @@ module.exports = async (tract) => {
 
   var jo;
   try {
-    // validate sub-tract(s) for loop processing
-    // looking for tracts with names (key) that aren't reserved
-    let lpTracts = {};
-    for (const [ key, value ] of Object.entries(tract)) {
-      if (![ "action", "origin", "terminal", "transform", "description" ].includes(key) &&
-        key[ 0 ] !== "_" &&
-        value?.origin) {
-        lpTracts[ key ] = value;
-      }
-    }
-
     // get constructs from source
     if (!tract.origin.options)
       tract.origin.options = {};
@@ -45,20 +33,14 @@ module.exports = async (tract) => {
 
       // set string replacement values
       let replacements = {};
-      for (let [ name, value ] of Object.entries(entry))
-        replacements[ "${" + name + "}" ] = value;
+      for (let [ name, value ] of Object.entries(entry)) {
+        if (typeof value === "string" || typeof value === "number" || typeof value === "boolean")
+          replacements[ name ] = value;
+      }
 
-      // loop thru tracts to process replacements
-      for (const [ key, lpTract ] of Object.entries(lpTracts)) {
-        // string replacements
-        let txtTract = JSON.stringify(lpTract);
-        for (const [ find, replace ] of Object.entries(replacements)) {
-          txtTract = txtTract.replace(find, replace);
-        }
-
-        // perform action
-        let actTract = JSON.parse(txtTract);
-        await perform(actTract, key);
+      // loop thru subtracts
+      for (const subtract of tract.tracts) {
+        await performTract(subtract, replacements);
       }
     }
 

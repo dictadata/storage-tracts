@@ -23,26 +23,6 @@
       "outputCapture": "std"
     },
     {
-      "type": "node",
-      "request": "launch",
-      "name": "create config",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage/etl/index.js",
-      "runtimeArgs": [
-        "--trace-warnings"
-      ],
-      "args": [
-        "-t",
-        "./test/data/output/etl.tracts.json",
-        "config"
-      ],
-      "env": {
-        "NODE_ENV": "production",
-        "LOG_LEVEL": "verbose"
-      },
-      "outputCapture": "std"
-    },
-    {
       "type": "node-terminal",
       "name": "--- Engrams",
       "request": "launch"
@@ -1043,7 +1023,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/tracts/store.json",
-        "tracts"
+        "store_tracts"
       ],
       "env": {
         "NODE_ENV": "production",
@@ -1065,7 +1045,7 @@
         "etl.config.json",
         "-t",
         "${workspaceFolder}/test/tracts/recall.json",
-        "tracts"
+        "recall_tracts"
       ],
       "env": {
         "NODE_ENV": "production",
@@ -1087,7 +1067,7 @@
         "dev",
         "-t",
         "${workspaceFolder}/test/tracts/dull.json",
-        "tracts"
+        "dull_tracts"
       ],
       "env": {
         "NODE_ENV": "production",
@@ -1107,7 +1087,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/tracts/retrieve.json",
-        "tracts"
+        "retrieve_tracts"
       ],
       "env": {
         "NODE_ENV": "production",
@@ -1127,7 +1107,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/tracts/add.json",
-        "tracts"
+        "add_tracts"
       ],
       "env": {
         "NODE_ENV": "production",

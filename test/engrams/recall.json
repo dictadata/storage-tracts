@@ -8,9 +8,7 @@
   "engrams": {
     "action": "engrams",
     "recall": {
-      "pattern": {
-        "name": "foo_schema_two"
-      },
+      "urn": "foo_schema_two",
       "output": "./test/data/output/engrams/recall-foo_schema.encoding.json"
     }
   }

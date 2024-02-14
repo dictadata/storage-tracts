@@ -41,8 +41,11 @@ module.exports = exports = class Engrams {
   urn(match) {
     let key;
 
-    if (typeof match === "string")
+    if (typeof match === "string") {
       key = match;
+      if (key.indexOf(":") < 0)
+        key = ":" + key;
+    }
 
     else if (typeof match === "object") {
       if (hasOwnProperty(match, "key"))
@@ -141,7 +144,7 @@ module.exports = exports = class Engrams {
 
   /**
    *
-   * @param {*} entry Engram or encoding object with Engrams Entry properties
+   * @param {Object} entry Engram or encoding object with Engrams Entry properties
    * @returns
    */
   async store(entry) {
@@ -177,18 +180,16 @@ module.exports = exports = class Engrams {
 
   /**
    *
-   * @param {*} name SMT name
+   * @param {String|Object} urn engram URN
    * @returns
    */
-  async dull(pattern) {
+  async dull(urn) {
     let storageResults = new StorageResults("message");
+    urn = this.urn(urn);
 
-    let match = (typeof pattern === "object") ? (pattern.match || pattern) : pattern;
-    let key = this.urn(match);
-
-    if (this._engrams.has(key)) {
+    if (this._engrams.has(urn)) {
       // delete from cache
-      if (!this._engrams.delete(key)) {
+      if (!this._engrams.delete(urn)) {
         storageResults.setResults(500, "map delete error");
         return storageResults;
       }
@@ -196,7 +197,7 @@ module.exports = exports = class Engrams {
 
     if (this._junction) {
       // delete from engrams engrams
-      storageResults = await this._junction.dull({ key: key });
+      storageResults = await this._junction.dull({ key: urn });
       return storageResults;
     }
 
@@ -206,52 +207,45 @@ module.exports = exports = class Engrams {
 
   /**
    *
-   * @param {*} name SMT name
+   * @param {String|Object} urn engrams URN or query pattern
    * @returns
    */
-  async recall(pattern) {
+  async recall(urn, resolve=false) {
     let storageResults = new StorageResults("map");
+    urn = this.urn(urn);
 
-    let match = (typeof pattern === "object") ? (pattern.match || pattern) : pattern;
-    let key = this.urn(match);
-
-    if (this._engrams.has(key)) {
+    if (this._engrams.has(urn)) {
       // entry has been cached
-      let entry = this._engrams.get(key);
-      storageResults.add(entry, key);
+      let entry = this._engrams.get(urn);
+      storageResults.add(entry, urn);
     }
     else if (this._junction) {
       // go to the engrams engrams
-      storageResults = await this._junction.recall({ key: key });
+      storageResults = await this._junction.recall({ key: urn });
       logger.verbose("storage/engrams: recall, " + storageResults.status);
     }
     else {
       storageResults.setResults(404, "Not Found");
     }
 
-    if (storageResults.status === 0 && pattern.resolve) {
+    if (storageResults.status === 0 && resolve) {
       // check for alias smt
-      let encoding = storageResults.data[ key ];
+      let encoding = storageResults.data[ urn ];
       if (encoding.type === "alias") {
         // recall the entry for the source urn
-        let results = await this.recall({
-          match: {
-            key: encoding.source
-          },
-          resolve: false  // only recurse once
-        });
+        let results = await this.recall(encoding.source, resolve);
 
         // return source value, NOTE: not the alias value
         if (results.status === 0)
-          storageResults.data[ key ] = results.data[ encoding.source ];
+          storageResults.data[ urn ] = results.data[ encoding.source ];
       }
     }
 
-    if (storageResults.status === 0 && !pattern.resolve) {
+    if (storageResults.status === 0 && !resolve) {
       // cache entry definition
-      let encoding = storageResults.data[ key ];
-      if (key === this.urn(encoding)) // double check it wasn't an alias lookup
-        this._engrams.set(key, encoding);
+      let encoding = storageResults.data[ urn ];
+      if (urn === this.urn(encoding)) // double check it wasn't an alias lookup
+        this._engrams.set(urn, encoding);
     }
 
     return storageResults;
@@ -259,7 +253,7 @@ module.exports = exports = class Engrams {
 
   /**
    *
-   * @param {*} pattern pattern object that contains query logic
+   * @param {*} pattern query pattern
    * @returns
    */
   async retrieve(pattern) {

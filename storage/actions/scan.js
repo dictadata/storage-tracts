@@ -4,9 +4,8 @@
 "use strict";
 
 const Storage = require("../storage");
-const output = require('./output');
 const { logger } = require('../utils');
-const { perform } = require('./');
+const { performTract } = require('./');
 
 /**
  * List schemas at a locus
@@ -19,17 +18,6 @@ module.exports = async (tract) => {
 
   var jo;
   try {
-    // validate sub-tract(s) for loop processing
-    // looking for tracts with names (key) that aren't reserved
-    let lpTracts = {};
-    for (const [ key, value ] of Object.entries(tract)) {
-      if (![ "action", "origin", "terminal", "transform", "description" ].includes(key) &&
-        key[ 0 ] !== "_" &&
-        value?.origin) {
-        lpTracts[ key ] = value;
-      }
-    }
-
     // get list of schemas from source
     if (!tract.origin.options)
       tract.origin.options = {};
@@ -48,7 +36,6 @@ module.exports = async (tract) => {
         exclude.push(rx);
       }
     }
-
 
     // loop through list and process each schema
     for (let entry of list) {
@@ -69,22 +56,14 @@ module.exports = async (tract) => {
 
       // set string replacement values
       let replacements = {
-        "${rpath}": entry.rpath || entry.name,
-        "${name}": entry.name,
-        "${schema}": entry.name.substr(0, entry.name.lastIndexOf("."))
+        "rpath": entry.rpath || entry.name,
+        "name": entry.name,
+        "schema": entry.name.substr(0, entry.name.lastIndexOf("."))
       };
 
-      // loop thru tracts to process
-      for (const [ key, lpTract ] of Object.entries(lpTracts)) {
-        // string replacements
-        let txtTract = JSON.stringify(lpTract);
-        for (const [ find, replace ] of Object.entries(replacements)) {
-          txtTract = txtTract.replace(find, replace);
-        }
-
-        // perform action
-        let actTract = JSON.parse(txtTract);
-        await perform(actTract, key);
+      // loop thru sub-tracts
+      for (const subtract of tract.tracts) {
+        await performTract(subtract, replacements);
       }
     }
 

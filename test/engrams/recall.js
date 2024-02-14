@@ -36,23 +36,19 @@ async function test(domain, schema, resolve = false) {
   let retCode = 0;
 
   try {
-    logger.verbose('=== ' + schema);
+    let urn = domain + ':' + schema;
+    logger.verbose('=== ' + urn);
 
     // recall engram definition
-    let pattern = {
-      type: "engram",
-      domain: domain,
-      name: schema,
-      resolve
-    };
-    let results = await Engrams.engrams.recall(pattern);
+    let results = await Engrams.engrams.recall(urn, resolve);
     logger.verbose(JSON.stringify(results, null, "  "));
 
     if (results.status !== 0) {
       retCode = results.status;
     }
     else {
-      let urn = Object.keys(results.data)[ 0 ];
+      if (urn !== Object.keys(results.data)[ 0 ])
+        return 1;
       //let encoding = results.data[ urn ];
 
       let outputfile = "./test/data/output/engrams/" + (resolve ? "resolve_" : "recall_") + schema + ".encoding.json";

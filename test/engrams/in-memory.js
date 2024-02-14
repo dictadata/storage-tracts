@@ -51,7 +51,7 @@ async function test(schema) {
 
     // recall encoding
     let urn = entry.urn;
-    results = await Engrams.engrams.recall({ type: "engram", key: urn });
+    results = await Engrams.engrams.recall(urn);
     logger.verbose("recall: " + results.message);
 
     if (results.status === 0) {

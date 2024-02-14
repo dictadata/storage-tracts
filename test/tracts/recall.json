@@ -5,7 +5,7 @@
       "options": {}
     }
   },
-  "tracts": {
+  "recall_tracts": {
     "action": "tracts",
     "recall": {
       "pattern": {

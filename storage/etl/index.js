@@ -6,7 +6,6 @@
 "use strict";
 
 const { Actions } = require("../index");
-const { StorageError } = require("@dictadata/storage-junctions/types");
 const config = require('./config');
 const { logger } = require('../utils');
 const path = require('path');
@@ -14,9 +13,10 @@ require('colors');
 
 // set program argument defaults
 const appArgs = {
-  configFile: './etl.config.json',
-  tractsFile: './etl.tracts.json',
-  tractName: ''  // tract name to process
+  config: './etl.config.json',
+  tracts: './etl.tracts.json',
+  name: '',  // tract name to process
+  params: {}
 };
 
 /**
@@ -25,42 +25,44 @@ const appArgs = {
  *   example process.argv  ["node.exe", "storage/etl/index.js", "-c", <configFile>, "-t", <tracts>, <tractName>]
  */
 function parseArgs() {
-  const myArgs = {};
 
   let i = 2;
   while (i < process.argv.length) {
     // configFile
     if (process.argv[ i ] === "-c") {
       if (i + 1 < process.argv.length) {
-        myArgs.configFile = process.argv[ i + 1 ];
+        appArgs.config = process.argv[ i + 1 ];
         ++i;
-        if (!myArgs.configFile.includes("."))
-          myArgs.configFile = "etl.config." + myArgs.configFile + ".json";  // dev, prod, ...
-        if (!path.extname(myArgs.configFile))
-          myArgs.configFile += ".config.json";
+        if (!appArgs.config.includes("."))
+          appArgs.config = "etl.config." + appArgs.config + ".json";  // dev, prod, ...
+        if (!path.extname(appArgs.config))
+          appArgs.config += ".config.json";
       }
     }
     // tractsFile
     else if (process.argv[ i ] === "-t") {
       if (i + 1 < process.argv.length) {
-        myArgs.tractsFile = process.argv[ i + 1 ];
+        appArgs.tracts = process.argv[ i + 1 ];
         ++i;
-        if (!path.extname(myArgs.tractsFile))
-          myArgs.tractsFile += ".tracts.json";
+        if (!path.extname(appArgs.tracts))
+          appArgs.tracts += ".tracts.json";
       }
     }
-    else if (!myArgs.tractName) {
-      myArgs.tractName = process.argv[ i ];
+    else if (!appArgs.name) {
+      appArgs.name = process.argv[ i ];
     }
     else {
-      console.error( ("Extra argument! " + process.argv[ i ]).bgRed );
+      let v = process.argv[ i ];
+      let nv = v.split('=');
+      if (nv.length === 1)
+        appArgs.params[ nv[ 0 ] ] = true;
+      else
+        appArgs.params[ nv[ 0 ] ] = nv[ 1 ];
     }
     ++i;
   }
 
-  Object.assign(appArgs, myArgs);
 }
-
 
 /**
  * Program entry point.
@@ -68,84 +70,50 @@ function parseArgs() {
 (async () => {
   let retCode = 0;
 
+  parseArgs();
+
+  console.log("Storage ETL " + config.version);
+  console.log("Copyright 2022 dictadata.net | The MIT License");
+
+  if (!appArgs.name) {
+    console.log("Transfer, transform and codify data between local and distributed storage sources.");
+    console.log("");
+    console.log("etl [-c configFile] [-t tracts] tractName");
+    console.log("");
+    console.log("configFile");
+    console.log("  JSON configuration file that defines engrams, plug-ins and logging.");
+    console.log("  Supports abbreviated name; '-c dev' for './etl.config.dev.json'");
+    console.log("  Default configuration file is ./etl.config.json");
+    console.log("");
+    console.log("tracts");
+    console.log("  ETL tracts filename or Tracts urn that contains tracts to process.");
+    console.log("  Default tract file is ./etl.tracts.json");
+    console.log("");
+    console.log("tractName");
+    console.log("  The tract to follow in the ETL tracts file. Required. Use '*' to process all tracts.");
+    console.log("  Shortcut syntax, if 'action' is not defined in the tract then action defaults to the tractName.");
+    console.log("");
+    console.log("Actions:");
+    console.log("  transfer - transfer data between data stores with optional transforms.");
+    console.log("  copy - copy data files between remote file system and local file system.");
+    console.log("  list - listing of schema names at origin (data store or file system).");
+    console.log("  codify - determine schema's encoding by examining some data.");
+    console.log("  dull - remove data from a data store.");
+    console.log("  engrams - manage engrams encoding definitions");
+    console.log("  tracts - manage tracts definitions");
+    console.log("  scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.");
+    console.log("  iterate - retrieve data and perform child action(s) for each construct.");
+    console.log("  all | * - run all tracts in sequence.");
+    console.log("  parallel - run all tracts in parallel.");
+    console.log("");
+    return;
+  }
+
   try {
-    console.log("Storage ETL " + config.version);
-    console.log("Copyright 2022 dictadata.net | The MIT License");
-    parseArgs();
-
-    if (!appArgs.tractName) {
-      console.log("Transfer, transform and codify data between local and distributed storage sources.");
-      console.log("");
-      console.log("etl [-c configFile] [-t tracts] tractName");
-      console.log("");
-      console.log("configFile");
-      console.log("  JSON configuration file that defines engrams, plug-ins and logging.");
-      console.log("  Supports abbreviated name; '-c dev' for './etl.config.dev.json'");
-      console.log("  Default configuration file is ./etl.config.json");
-      console.log("");
-      console.log("tracts");
-      console.log("  ETL tracts filename or Tracts urn that contains tracts to process.");
-      console.log("  Default tract file is ./etl.tracts.json");
-      console.log("");
-      console.log("tractName");
-      console.log("  The tract to follow in the ETL tracts file. Required. Use '*' to process all tracts.");
-      console.log("  Shortcut syntax, if 'action' is not defined in the tract then action defaults to the tractName.");
-      console.log("");
-      console.log("Actions:");
-      console.log("  transfer - transfer data between data stores with optional transforms.");
-      console.log("  copy - copy data files between remote file system and local file system.");
-      console.log("  list - listing of schema names at origin (data store or file system).");
-      console.log("  codify - determine schema's encoding by examining some data.");
-      console.log("  dull - remove data from a data store.");
-      console.log("  engrams - manage engrams encoding definitions");
-      console.log("  tracts - manage tracts definitions");
-      console.log("  scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.");
-      console.log("  iterate - retrieve data and perform child action(s) for each construct.");
-      console.log("  all | * - run all tracts in sequence.");
-      console.log("  parallel - run all tracts in parallel.");
-      console.log("  config - create example etl.tracts.json file in the current directory.");
-      console.log("");
-      return;
-    }
-
-    // config.init(appArgs.configFile);
-
     // load tracts file
-    let tracts = [];
-    if (appArgs.tractName === 'config') {
-      await config.sampleTracts(appArgs.tractsFile);
-      return 0;
-    }
-    else {
-      tracts = await config.loadTracts(appArgs);
-    }
+    let tracts = await config.loadFiles(appArgs);
 
-    if (tracts.length <= 0)
-      throw new StorageError(400, "no storage tracts defined");
-
-    if (appArgs.tractName === "all" || appArgs.tractName === "*") {
-      for (const tract of tracts) {
-        if (tract.name[ 0 ] === "_")
-          continue;
-        retCode = await Actions.perform(tract);
-        if (retCode)
-          break;
-      }
-    }
-    else if (appArgs.tractName === "parallel") {
-      let tasks = [];
-      for (const tract of tracts) {
-        if (tract.name[ 0 ] === "_")
-          continue;
-        tasks.push(Actions.perform(tract));
-      }
-      Promise.allSettled(tasks);
-    }
-    else {
-      let tract = tracts.find((tract) => tract.name === appArgs.tractName);
-      retCode = await Actions.perform(tract);
-    }
-
+    retCode = await Actions.perform(tracts, appArgs.name, appArgs.params);
   }
   catch (err) {
     logger.error(err);

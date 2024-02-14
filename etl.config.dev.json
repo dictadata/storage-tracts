@@ -12,11 +12,11 @@
       "smt": "elasticsearch|http://dev.dictadata.net:9200/|etl_tracts|*",
       "options": {},
       "tracts_cache": {}
-    },
-    "variables": {
-      "schema": "foofile",
-      "input": "./test/data/input",
-      "output": "./test/data/output"
     }
+  },
+  "params": {
+    "schema": "foofile",
+    "input": "./test/data/input",
+    "output": "./test/data/output"
   }
 }

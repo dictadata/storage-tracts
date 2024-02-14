@@ -12,19 +12,22 @@
           "recursive": false
         }
       },
-      "schema": {
-        "action": "codify",
-        "origin": {
-          "smt": "json|http://dev.dictadata.net/dictadata/test/data/input/|${name}|*",
-          "options": {
-            "encoding": "./test/data/output/http/scan.encoding.json",
-            "max_read": 100
+      "tracts": [
+        {
+          "name": "schema",
+          "action": "codify",
+          "origin": {
+            "smt": "json|http://dev.dictadata.net/dictadata/test/data/input/|${name}|*",
+            "options": {
+              "encoding": "./test/data/output/http/scan.encoding.json",
+              "max_read": 100
+            }
+          },
+          "terminal": {
+            "output": "./test/data/output/http/scan.encoding.json"
           }
-        },
-        "terminal": {
-          "output": "./test/data/output/http/scan.encoding.json"
         }
-      }
+      ]
     }
   ]
 }

@@ -12,10 +12,6 @@
       "smt": "elasticsearch|http://dev.dictadata.net:9200/|etl_tracts|*",
       "options": {},
       "tracts_cache": {}
-    },
-    "variables": {
-      "schema": "foofile",
-      "locus": "server"
     }
   }
 }

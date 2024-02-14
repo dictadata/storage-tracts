@@ -5,17 +5,22 @@
       "smt": "csv|./test/data/input/|foo_numbers.txt|*",
       "options": {
         "header": false,
-        "encoding": { "filenum": "keyword" }
+        "encoding": {
+          "filenum": "keyword"
+        }
       }
     },
-    "each_file": {
-      "action": "copy",
-      "origin": {
-        "smt": "*|./test/data/input/|foofile_${filenum}.json|*"
-      },
-      "terminal": {
-        "smt": "*|./test/data/output/fs/iterate/|foofile_${filenum}.json|*"
+    "tracts": [
+      {
+        "name": "each_file",
+        "action": "copy",
+        "origin": {
+          "smt": "*|./test/data/input/|foofile_${filenum}.json|*"
+        },
+        "terminal": {
+          "smt": "*|./test/data/output/fs/iterate/|foofile_${filenum}.json|*"
+        }
       }
-    }
+    ]
   }
 }

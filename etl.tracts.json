@@ -1,48 +1,57 @@
 {
-  "tract-name": {
-    "origin": {
-      "smt": "<smt|urn>",
-      "options": {}
-    },
-    "transforms": [
-      {
-        "transform": "filter"
+  "domain": "foo",
+  "name": "etl.tracts",
+  "type": "tract",
+  "params": {
+    "name": "value"
+  },
+  "tracts": [
+    {
+      "name": "tract-name",
+      "action": "transfer",
+      "origin": {
+        "smt": "<smt|urn>",
+        "options": {}
       },
-      {
-        "transform": "select"
-      }
-    ],
-    "terminal": {
-      "smt": "json|./|foofile.json|*",
-      "options": {
-        "encoding": "<schema_name.encoding.json>"
+      "transforms": [
+        {
+          "transform": "filter"
+        },
+        {
+          "transform": "select"
+        }
+      ],
+      "terminal": {
+        "smt": "json|./|foofile.json|*",
+        "options": {
+          "encoding": "<schema_name.encoding.json>"
+        }
       }
     }
-  },
+  ],
   "_config": {
     "engrams": {
       "smt": "<model>|<locus>|etl_engrams|*"
     },
     "tracts": {
       "smt": "<model>|<locus>|etl_tracts|*"
+    },
+    "plugins": {
+      "filesystems": {
+        "<package_name>": [
+          "<prefix>"
+        ]
+      },
+      "junctions": {
+        "<package_name>": [
+          "<model>"
+        ]
+      },
+      "log": {
+        "logPath": "./log",
+        "logPrefix": "etl",
+        "logLevel": "info"
+      }
     }
-  },
-  "plugins": {
-    "filesystems": {
-      "<package_name>": [
-        "<prefix>"
-      ]
-    },
-    "junctions": {
-      "<package_name>": [
-        "<model>"
-      ]
-    },
-    "log": {
-      "logPath": "./log",
-      "logPrefix": "etl",
-      "logLevel": "info"
-    },
-    "variables": {}
   }
 }
