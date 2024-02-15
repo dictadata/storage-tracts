@@ -2,6 +2,7 @@
  * storage/etl/actions.js
  */
 const { StorageError } = require("@dictadata/storage-junctions/types");
+const { typeOf } = require("@dictadata/storage-junctions/utils");
 const { logger } = require('../utils');
 const fs = require('fs/promises');
 
@@ -9,6 +10,36 @@ var fnActions = {};
 
 function use(name, fn) {
   fnActions[ name ] = fn;
+}
+
+/**
+ * text replacement of "${variable}" in tracts
+ * @param {Object} src object that contains properties
+ * @param {Object} params the parameter values
+ * @returns
+ */
+function replace(src, params) {
+  if (typeOf(src) !== "object")
+    return;
+
+  for (let [ name, value ] of Object.entries(src)) {
+    let srcType = typeOf(value);
+
+    if (srcType === "object") {
+      replace(src[name], params);
+    }
+    else if (srcType === "string") {
+      if (value.indexOf("${") >= 0) {
+        for (let [ pname, pval ] of Object.entries(params)) {
+          var regex = new RegExp("\\${" + pname + "}", "g");
+          value = value.replace(regex, pval);
+        }
+        src[ name ] = value;
+      }
+    }
+  }
+
+  return src;
 }
 
 /**
@@ -22,13 +53,13 @@ async function perform(tract, params) {
   if (typeof tract !== 'object')
     throw new StorageError(422, "Invalid parameter: tract " + tract.name);
 
-  // simple text replacement of "${variable}" in tracts
-  let tractText = JSON.stringify(tract);
-  for (let [ name, value ] of Object.entries(params)) {
-    var regex = new RegExp("\\${" + name + "}", "g");
-    tractText = tractText.replace(regex, value);
+  try {
+    replace(tract, params);
   }
-  tract = JSON.parse(tractText);
+  catch (err) {
+    logger.warn(err);
+    retCode = 1;
+  }
 
   // determine action name
   let action = tract[ "action" ] || tract.name?.substr(0, tract.name?.indexOf('_')) || tract.name;
