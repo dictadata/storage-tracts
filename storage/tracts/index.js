@@ -238,7 +238,7 @@ module.exports = exports = class Tracts {
       let entry = storageResults.data[ urn ];
       if (entry.type === "alias") {
         // recall the entry for the source urn
-        let results = await this._junction.recall(entry.source, resolve);
+        let results = await this.recall(entry.source, resolve);
 
         // return source value, NOTE: not the alias value
         if (results.status === 0)
