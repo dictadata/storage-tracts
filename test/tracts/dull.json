@@ -2,8 +2,7 @@
   "dull_tracts": {
     "action": "tracts",
     "dull": {
-      "domain": "foo",
-      "name": "foo_transfer_two"
+      "urn": "foo:foo_transfer_two"
     }
   }
 }

@@ -5,7 +5,7 @@
 
 const Storage = require("../storage");
 const { logger } = require('../utils');
-const { performTract } = require('./');
+const { perform } = require('./');
 
 /**
  * List schemas at a locus
@@ -63,8 +63,13 @@ module.exports = async (tract) => {
 
       // loop thru sub-tracts
       for (const subtract of tract.tracts) {
-        await performTract(subtract, replacements);
+        retCode = await perform(subtract, replacements);
+        if (retCode)
+          break;
       }
+
+      if (retCode)
+        break;
     }
 
     /* could record some result logging

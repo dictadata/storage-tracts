@@ -39,7 +39,7 @@
     "name": "bulkload",
     "action": "transfer",
     "origin": {
-      "smt": "csv|./test/data/input/|timeseries.csv|*",
+      "smt": "csv|/var/dictadata/test/data/input/|timeseries.csv|*",
       "options": {
         "encoding": {
           "time": "date",

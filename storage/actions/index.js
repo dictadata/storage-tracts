@@ -1,7 +1,6 @@
 /**
  * storage/etl/actions.js
  */
-const { Tracts } = require("../tracts");
 const { StorageError } = require("@dictadata/storage-junctions/types");
 const { logger } = require('../utils');
 const fs = require('fs/promises');
@@ -13,57 +12,11 @@ function use(name, fn) {
 }
 
 /**
- *
- * @param {String|Object} tracts tracts URN or tracts container object
- * @param {Object} params name/value parameters
- */
-async function perform(tracts, name, params)
-{
-  let retCode = 0;
-
-  // if URN then recall from tracts
-  if (typeof tracts === "string") {
-    let results = await Tracts.tracts.recall(urn, true);
-    tracts = results.data[ urn ];
-  }
-
-  if (name === "all" || name === "*") {
-    for (const tract of tracts.tracts) {
-      if (tract.name[ 0 ] === "_")
-        continue;
-      retCode = await performTract(tract, params);
-      if (retCode)
-        break;
-    }
-  }
-  else if (name === "parallel") {
-    let tasks = [];
-    for (const tract of tracts.tracts) {
-      if (tract.name[ 0 ] === "_")
-        continue;
-      tasks.push(performTract(tract, params));
-    }
-    Promise.allSettled(tasks);
-  }
-  else {
-    let tract = tracts.tracts.find((tract) => tract.name === name);
-    if (tract)
-      retCode = await performTract(tract, params);
-    else {
-      retCode = 1
-      logger.error("tract name not found: " + name);
-    }
-  }
-
-  return retCode;
-}
-
-/**
  * If "action" is not defined in the tract then action defaults to the tract.name.
  *
  * @param {*} tract
  */
-async function performTract(tract, params) {
+async function perform(tract, params) {
   let retCode = 0;
 
   if (typeof tract !== 'object')
@@ -123,4 +76,3 @@ async function performTract(tract, params) {
 
 module.exports.use = use;
 module.exports.perform = perform;
-module.exports.performTract = performTract

@@ -39,12 +39,22 @@ module.exports = exports = class Tracts {
 
   urn(entry) {
     let urn;
+
     if (typeof entry === "string")
       urn = entry;
     else if (entry.key)
       urn = entry.key;
     else
-      urn = entry.domain + ":" + entry.name;
+      urn = (entry.domain ? entry.domain : "") + ":" + entry.name;
+
+    if (urn.indexOf(":") < 0)
+      urn = ":" + urn;
+
+    // remove any tract name
+    let i = urn.lastIndexOf("#");
+    if (i > 0)
+      urn = urn.substring(0, i);
+
     return urn;
   }
 
@@ -121,7 +131,7 @@ module.exports = exports = class Tracts {
 
   /**
    *
-   * @param {*} entry object with tracts' properties
+   * @param {Object} entry Tracts object
    * @returns
    */
   async store(entry) {
@@ -170,18 +180,18 @@ module.exports = exports = class Tracts {
 
   /**
    *
-   * @param {*} name SMT name or ETL tracts name
+   * @param {String|Object} urn tracts URN string or object
+   * @param {String} urn.domain
+   * @param {String} urn.name
    * @returns
    */
-  async dull(pattern) {
+  async dull(urn) {
     let storageResults = new StorageResults("message");
+    urn = this.urn(urn);
 
-    let match = (typeof pattern === "object") ? (pattern.match || pattern) : pattern;
-    let key = this.urn(match);
-
-    if (this._tracts.has(key)) {
+    if (this._tracts.has(urn)) {
       // delete from cache
-      if (!this._tracts.delete(key)) {
+      if (!this._tracts.delete(urn)) {
         storageResults.setResults(500, "map delete error");
         return storageResults;
       }
@@ -189,7 +199,7 @@ module.exports = exports = class Tracts {
 
     if (this._junction) {
       // delete from source tracts
-      storageResults = await this._junction.dull({ key: key });
+      storageResults = await this._junction.dull({ key: urn });
       return storageResults;
     }
 
@@ -199,52 +209,48 @@ module.exports = exports = class Tracts {
 
   /**
    *
-   * @param {*} pattern ETL tracts name
+   * @param {String|Object} urn tracts URN string or object
+   * @param {String} urn.domain
+   * @param {String} urn.name
+   * @param {Boolean} resolve resolve aliases
    * @returns
    */
-  async recall(pattern) {
+  async recall(urn, resolve = false) {
     let storageResults = new StorageResults("map");
+    urn = this.urn(urn);
 
-    let match = (typeof pattern === "object") ? (pattern.match || pattern) : pattern;
-    let key = this.urn(match);
-
-    if (this._tracts.has(key)) {
+    if (this._tracts.has(urn)) {
       // entry has been cached
-      let entry = this._tracts.get(key);
-      storageResults.add(entry, key);
+      let entry = this._tracts.get(urn);
+      storageResults.add(entry, urn);
     }
     else if (this._junction) {
       // go to the source tracts
-      storageResults = await this._junction.recall({ key: key });
+      storageResults = await this._junction.recall({ key: urn });
       logger.verbose("storage/tracts: recall, " + storageResults.status);
     }
     else {
       storageResults.setResults(404, "Not Found");
     }
 
-    if (storageResults.status === 0 && pattern.resolve) {
+    if (storageResults.status === 0 && resolve) {
       // check for alias smt
-      let entry = storageResults.data[ key ];
+      let entry = storageResults.data[ urn ];
       if (entry.type === "alias") {
         // recall the entry for the source urn
-        let results = await this._junction.recall({
-          match: {
-            key: entry.source
-          },
-          resolve: false  // only recurse once
-        });
+        let results = await this._junction.recall(entry.source, resolve);
 
         // return source value, NOTE: not the alias value
         if (results.status === 0)
-          storageResults.data[ key ] = results.data[ entry.source ];
+          storageResults.data[ urn ] = results.data[ entry.source ];
       }
     }
 
-    if (storageResults.status === 0 && !pattern.resolve) {
+    if (storageResults.status === 0 && !resolve) {
       // cache tracts definition
-      let entry = storageResults.data[ key ];
-      if (key === this.urn(entry)) // double check it wasn't an alias lookup
-        this._tracts.set(key, entry);
+      let entry = storageResults.data[ urn ];
+      if (urn === this.urn(entry)) // double check it wasn't an alias lookup
+        this._tracts.set(urn, entry);
     }
 
     return storageResults;
@@ -252,7 +258,7 @@ module.exports = exports = class Tracts {
 
   /**
    *
-   * @param {*} pattern pattern object that contains query logic
+   * @param {*} pattern query pattern for searching Tracts data source
    * @returns
    */
   async retrieve(pattern) {

@@ -54,7 +54,7 @@ module.exports = async (tract) => {
 
 /**
  *
- * @param {Object} entry request section of ETL tract that is a Tracts entry
+ * @param {Object} entry ETL tracts tract that is a Tracts entry
  */
 async function store(entry) {
   let retCode = 0;
@@ -83,16 +83,16 @@ async function store(entry) {
 
 /**
  *
- * @param {Object} request section of ETL tract with a pattern property
+ * @param {Object} request ETL tracts tract
+ * @param {String|Object} request.urn tracts URN string or object
  */
 async function dull(request) {
   let retCode = 0;
 
   try {
-    let pattern = request.pattern || request;
-    let results = await Storage.tracts.dull(pattern);
+    let results = await Storage.tracts.dull(request.urn);
 
-    logger.info("tracts dull: " + (pattern.key || pattern.name) + " " + results.message);
+    logger.info("tracts dull: " + request.urn + " " + results.message);
   }
   catch (err) {
     logger.error(err);
@@ -104,15 +104,16 @@ async function dull(request) {
 
 /**
  *
- * @param {Object} request section of ETL tract with a pattern property
+ * @param {Object} request ETL tracts tract
+ * @param {String|Object} request.urn tracts URN string or object
+ * @param {Boolean} request.resolve resolve aliases
  */
 async function recall(request) {
   let retCode = 0;
 
   try {
-    let pattern = request.pattern || request;
-    let results = await Storage.tracts.recall(pattern);
-    logger.verbose("tracts recall: " + (pattern.key || pattern.name) + " " + results.message);
+    let results = await Storage.tracts.recall(request.urn, request.resolve);
+    logger.verbose("tracts recall: " + request.urn + " " + results.message);
 
     retCode = output(request.output, results.data);
   }
@@ -126,7 +127,8 @@ async function recall(request) {
 
 /**
  *
- * @param {Object} request section of ETL tract with a pattern property
+ * @param {Object} request ETL tracts tract with query pattern
+ * @param {Object} request.pattern query pattern
  */
 async function retrieve(request) {
   let retCode = 0;

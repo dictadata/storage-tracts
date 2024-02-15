@@ -20,6 +20,7 @@ module.exports = async (tract) => {
   logger.info("=== transfer");
   let retCode = 0;
 
+  // resolve urn
   if (typeof tract?.urn === "string") {
     let results = await Storage.tracts.recall(tract.urn);
     tract = results.data[ tract.urn ].tracts[0];
@@ -108,9 +109,9 @@ module.exports = async (tract) => {
 
     // reader
     let reader = jo.createReader({ pattern: origin.pattern });
-    reader.on('error', (error) => {
-      logger.error("transfer reader: " + error.message);
-    });
+    // reader.on('error', (error) => {
+    //   logger.error("transfer reader: " + error.message);
+    // });
     pipes.push(reader);
 
     // transforms
@@ -121,9 +122,10 @@ module.exports = async (tract) => {
 
     // writer
     let writer = jt.createWriter();
-    writer.on('error', (error) => {
-      logger.error("transfer writer: " + error.message);
-    });
+    // writer.on('error', (error) => {
+    //   logger.error("transfer writer: " + error.message);
+    //   retCode = 1;
+    // });
     pipes.push(writer);
 
     // transfer data

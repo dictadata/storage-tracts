@@ -38,18 +38,19 @@ module.exports = exports = class Engrams {
     return this._active;
   }
 
-  urn(match) {
+  urn(entry) {
     let key;
 
-    if (typeof match === "string") {
-      key = match;
+    if (typeof entry === "string") {
+      key = entry;
       if (key.indexOf(":") < 0)
         key = ":" + key;
     }
 
-    else if (typeof match === "object") {
-      if (hasOwnProperty(match, "key"))
-        key = match.key;
+    else if (typeof entry === "object") {
+      if (hasOwnProperty(entry, "key")) {
+        key = entry.key;
+      }
       else {
         // get key using smt.key definition
         //   |.|.|.|=name1+'literal'+name2+...
@@ -61,8 +62,8 @@ module.exports = exports = class Engrams {
             key += kname.substr(1, kname.length - 2);  // strip quotes
           }
           else {
-            if (hasOwnProperty(match, kname) && match[ kname ])
-              key += match[ kname ];
+            if (hasOwnProperty(entry, kname) && entry[ kname ])
+              key += entry[ kname ];
           }
         }
       }
@@ -162,15 +163,15 @@ module.exports = exports = class Engrams {
     }
 
     let encoding = entry.fieldsMap ? entry.encoding : entry;
-    let key = this.urn(encoding);
+    let urn = this.urn(encoding);
 
     // save in cache
-    this._engrams.set(key, encoding);
+    this._engrams.set(urn, encoding);
 
     if (this._junction) {
       // save in engrams
-      storageResults = await this._junction.store(encoding, { key: key });
-      logger.verbose("storage/engrams: " + key + ", " + storageResults.status);
+      storageResults = await this._junction.store(encoding, { key: urn });
+      logger.verbose("storage/engrams: " + urn + ", " + storageResults.status);
       return storageResults;
     }
 
@@ -180,7 +181,9 @@ module.exports = exports = class Engrams {
 
   /**
    *
-   * @param {String|Object} urn engram URN
+   * @param {String|Object} urn tracts URN string or object
+   * @param {String} urn.domain
+   * @param {String} urn.name
    * @returns
    */
   async dull(urn) {
@@ -207,10 +210,13 @@ module.exports = exports = class Engrams {
 
   /**
    *
-   * @param {String|Object} urn engrams URN or query pattern
+   * @param {String|Object} urn tracts URN string or object
+   * @param {String} urn.domain
+   * @param {String} urn.name
+   * @param {Boolean} resolve resolve aliases
    * @returns
    */
-  async recall(urn, resolve=false) {
+  async recall(urn, resolve = false) {
     let storageResults = new StorageResults("map");
     urn = this.urn(urn);
 
@@ -253,7 +259,7 @@ module.exports = exports = class Engrams {
 
   /**
    *
-   * @param {*} pattern query pattern
+   * @param {*} pattern query pattern for searching Engrams data source
    * @returns
    */
   async retrieve(pattern) {

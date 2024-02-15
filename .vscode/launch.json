@@ -733,7 +733,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--trace-warnings"
+        "--preserve-symlinks"
       ],
       "args": [
         "-t",
@@ -1116,9 +1116,14 @@
       "outputCapture": "std"
     },
     {
+      "type": "node-terminal",
+      "name": "--- Transfers",
+      "request": "launch"
+    },
+    {
       "type": "node",
       "request": "launch",
-      "name": "tracts transfer",
+      "name": "URN transfers",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
@@ -1126,7 +1131,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/tracts/transfer.tracts.json",
+        "${workspaceFolder}/test/transfers/urn_transfers.tracts.json",
         "*"
       ],
       "env": {

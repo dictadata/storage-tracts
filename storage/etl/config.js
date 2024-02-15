@@ -80,8 +80,8 @@ module.exports.loadFiles = async (appArgs) => {
     // initialize app
     await configStorage(config);
 
-    if (typeOf(tracts) === "object" && typeOf(tracts?.tracts) !== "object") {
-      // reformat tract properties into an array, for backwards compatibility
+    if (typeOf(tracts) === "object" && typeOf(tracts?.tracts) !== "array") {
+      // reformat tract properties into an array; for backwards compatibility
       let tt = {
         "name": appArgs.name,
         "type": "tract",

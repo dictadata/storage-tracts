@@ -5,6 +5,7 @@
  */
 "use strict";
 
+const { Tracts } = require("../tracts");
 const { Actions } = require("../index");
 const config = require('./config');
 const { logger } = require('../utils');
@@ -113,7 +114,46 @@ function parseArgs() {
     // load tracts file
     let tracts = await config.loadFiles(appArgs);
 
-    retCode = await Actions.perform(tracts, appArgs.name, appArgs.params);
+    // if URN then recall from tracts
+    if (typeof tracts === "string") {
+      // check for tract name in urn; domain:name#tract
+      let u = tracts.split('#');
+      let urn = u[ 0 ];
+      if (u.length > 1 && !appArgs.name)
+        appArgs.name = u[ 1 ];
+
+      let results = await Tracts.tracts.recall(urn, true);
+      tracts = results.data[ urn ];
+    }
+
+    if (appArgs.name === "all" || appArgs.name === "*") {
+      for (const tract of tracts.tracts) {
+        if (tract.name[ 0 ] === "_")
+          continue;
+        retCode = await Actions.perform(tract, appArgs.params);
+        if (retCode)
+          break;
+      }
+    }
+    else if (appArgs.name === "parallel") {
+      let tasks = [];
+      for (const tract of tracts.tracts) {
+        if (tract.name[ 0 ] === "_")
+          continue;
+        tasks.push(Actions.perform(tract, appArgs.params));
+      }
+      Promise.allSettled(tasks);
+    }
+    else {
+      let tract = tracts.tracts.find((tract) => tract.name === appArgs.name);
+      if (tract)
+        retCode = await Actions.perform(tract, appArgs.params);
+      else {
+        retCode = 1;
+        logger.error("tract name not found: " + appArgs.name);
+      }
+    }
+
   }
   catch (err) {
     logger.error(err);

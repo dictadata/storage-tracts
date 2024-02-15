@@ -8,7 +8,7 @@
   "recall_tracts": {
     "action": "tracts",
     "recall": {
-      "pattern": {
+      "urn": {
         "domain": "foo",
         "name": "foo_transfer_two"
       },

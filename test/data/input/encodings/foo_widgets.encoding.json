@@ -2,7 +2,7 @@
   "smt": {
     "model": "*",
     "locus": "*",
-    "schema": "foo_schema_02",
+    "schema": "foo_widgets",
     "key": "=Baz+Foo"
   },
   "fields": [
@@ -76,7 +76,7 @@
     }
   ],
   "indices": {
-    "foo_index_02": {
+    "foo_widgets_index": {
       "unique": false,
       "fields": [
         {

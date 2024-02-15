@@ -54,7 +54,7 @@ module.exports = async (tract) => {
 
 /**
  *
- * @param {Object} entry request section of ETL tract that is a Engram entry
+ * @param {Object} entry ETL engrams tract that is a Engrams entry
  */
 async function store(entry) {
   let retCode = 0;
@@ -95,16 +95,16 @@ async function store(entry) {
 
 /**
  *
- * @param {Object} request section of ETL tract with a pattern property
+ * @param {Object} request ETL engrams tract
+ * @param {String|Object} request.urn engrams URN string or object
  */
 async function dull(request) {
   let retCode = 0;
 
   try {
-    let urn = request.urn || request.name;
-    let results = await Storage.engrams.dull(urn);
+    let results = await Storage.engrams.dull(request.urn);
 
-    logger.info("engrams dull: " + urn + " " + results.message);
+    logger.info("engrams dull: " + request.urn + " " + results.message);
   }
   catch (err) {
     logger.error(err);
@@ -116,15 +116,16 @@ async function dull(request) {
 
 /**
  *
- * @param {Object} request section of ETL tract with a pattern property
+ * @param {Object} request ETL engrams tract
+ * @param {String|Object} request.urn engrams URN string or object
+ * @param {Boolean} request.resolve resolve aliases
  */
 async function recall(request) {
   let retCode = 0;
 
   try {
-    let urn = request.urn || request.name;
-    let results = await Storage.engrams.recall(urn, request.resolve);
-    logger.verbose("engrams recall: " + urn + " " + results.message);
+    let results = await Storage.engrams.recall(request.urn, request.resolve);
+    logger.verbose("engrams recall: " + request.urn + " " + results.message);
 
     retCode = output(request.output, results.data);
   }
@@ -138,7 +139,8 @@ async function recall(request) {
 
 /**
  *
- * @param {Object} request section of ETL tract with a pattern property
+ * @param {Object} request ETL engrams tract with query pattern
+ * @param {Object} request.pattern query pattern
  */
 async function retrieve(request) {
   let retCode = 0;

@@ -5,7 +5,7 @@
 
 const Storage = require("../storage");
 const { logger } = require('../utils');
-const { performTract } = require('./');
+const { perform } = require('./');
 
 /**
  * Retrieve data from origin smt
@@ -40,7 +40,7 @@ module.exports = async (tract) => {
 
       // loop thru subtracts
       for (const subtract of tract.tracts) {
-        await performTract(subtract, replacements);
+        await perform(subtract, replacements);
       }
     }
 
