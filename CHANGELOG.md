@@ -1,5 +1,9 @@
 # CHANGELOG:  @dictadata/storage-tracts
 
+- version 0.9.74
+  - feature: parameterized tracts
+  - updated: @dictadata/storage-junctions@0.9.101
+  - refactor: StorageWriter autoClose option for dependent write streams
 - version 0.9.73
   - updated: @dictadata/storage-junctions@0.9.100
   - refactor: refactor tract.transforms to array
