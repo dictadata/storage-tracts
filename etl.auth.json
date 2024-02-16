@@ -32,26 +32,5 @@
       "username": "anonymous",
       "password": "anonymous"
     }
-  },
-  {
-    "locus": "https://data-origin.dictadata.net:9200",
-    "auth": {
-      "apiKey": "MmdIVVlZY0JsdG9DN2ZieFNsTUQ6bEdGNlkzVHdRNm16bmlJQVNJd1J3Zw=="
-    },
-    "tls": {
-      "ca": "~/.dictadata/ec2_elasticsearch-ca.pem",
-      "rejectUnauthorized": true
-    }
-  },
-  {
-    "locus": "host=data-origin.dictadata.net;database=storage_node",
-    "auth": {
-      "username": "dicta",
-      "password": "data"
-    },
-    "ssl": {
-      "ca": "~/.dictadata/ec2_mysql-ca.pem",
-      "rejectUnauthorized": false
-    }
   }
 ]

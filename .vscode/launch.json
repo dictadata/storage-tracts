@@ -7,6 +7,28 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "foo upload",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage/etl/index.js",
+      "runtimeArgs": [
+        "--trace-warnings"
+      ],
+      "args": [
+        "-c",
+        "${workspaceFolder}/etl.config.prod.json",
+        "-t",
+        "${workspaceFolder}/foo_transfer.tracts.json",
+        "loadfoo"
+      ],
+      "env": {
+        "NODE_ENV": "production",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "run debug",
       "runtimeExecutable": "npm",
       "runtimeArgs": [
