@@ -22,13 +22,15 @@ function replace(src, params) {
   if (typeOf(src) !== "object")
     return;
 
-  for (let [ name, value ] of Object.entries(src)) {
-    let srcType = typeOf(value);
+  let names = Object.keys(src);
+  for (let name of names) {
+    let value = src[ name ];
+    let srcType = typeOf(value, true);
 
-    if (srcType === "object") {
-      replace(src[name], params);
+    if (srcType === "Object" || srcType === "SMT") {
+      replace(value, params);
     }
-    else if (srcType === "string") {
+    else if (srcType === "String") {
       if (value.indexOf("${") >= 0) {
         for (let [ pname, pval ] of Object.entries(params)) {
           var regex = new RegExp("\\${" + pname + "}", "g");
@@ -40,6 +42,25 @@ function replace(src, params) {
   }
 
   return src;
+}
+
+/**
+ * text replacement of "${variable}" in tracts
+ * @param {Object} src object that contains properties
+ * @param {Object} params the parameter values
+ * @returns
+ */
+function replaceX(src, params) {
+  let to = typeOf(src.terminal.options.writer);
+
+  let text = JSON.stringify(src);
+
+  for (let [ name, value ] of Object.entries(params)) {
+    var regex = new RegExp("\\${" + name + "}", "g");
+    value = value.replace(regex, pval);
+  }
+
+  return JSON.parse(text);
 }
 
 /**

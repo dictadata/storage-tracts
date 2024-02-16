@@ -139,7 +139,7 @@ module.exports = async (tract) => {
     logger.info("=== completed");
   }
   catch (err) {
-    logger.error("transfer: " + err.message);
+    logger.error("transfer: " + err.message + " " + err.stack);
     retCode = 1;
   }
   finally {
