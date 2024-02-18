@@ -9,6 +9,7 @@ const { Tracts } = require("../tracts");
 const { Actions } = require("../index");
 const config = require('./config');
 const { logger } = require('../utils');
+const { objCopy } = require('@dictadata/storage-junctions/utils')
 const path = require('path');
 require('colors');
 
@@ -125,10 +126,14 @@ function parseArgs() {
       tract = results.data[ urn ];
     }
 
+    let base = tract.actions.find((action) => action.name === "_base");
+
     if (appArgs.name === "all" || appArgs.name === "*") {
-      for (const action of tract.actions) {
+      for (let action of tract.actions) {
         if (action.name[ 0 ] === "_")
           continue;
+        if (base)
+          action = objCopy({}, base, action);
         retCode = await Actions.perform(action, appArgs.params);
         if (retCode)
           break;
@@ -136,17 +141,22 @@ function parseArgs() {
     }
     else if (appArgs.name === "parallel") {
       let tasks = [];
-      for (const action of tract.actions) {
+      for (let action of tract.actions) {
         if (action.name[ 0 ] === "_")
           continue;
+        if (base)
+          action = objCopy({}, base, action);
         tasks.push(Actions.perform(action, appArgs.params));
       }
-      Promise.allSettled(tasks);
+      await Promise.allSettled(tasks);
     }
     else {
-      let action = tract.actions.find((tract) => tract.name === appArgs.name);
-      if (tract)
+      let action = tract.actions.find((action) => action.name === appArgs.name);
+      if (action) {
+        if (base)
+          action = objCopy({}, base, action);
         retCode = await Actions.perform(action, appArgs.params);
+      }
       else {
         retCode = 1;
         logger.error("tract name not found: " + appArgs.name);
