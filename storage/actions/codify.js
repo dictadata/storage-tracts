@@ -30,7 +30,7 @@ module.exports = async (action) => {
     // if not a filesystem based source and no transforms defined
     // then get source encoding
     if (jo.capabilities.encoding && !transforms.length) {
-      let results = await jo.getEncoding();
+      let results = await jo.getEngram();
       if (results.type === "encoding")
         encoding = results.data;
     }

@@ -43,7 +43,7 @@ module.exports = async (action) => {
     logger.debug(">>> get origin encoding");
     let encoding = origin.options.encoding;
     if (!encoding && jo.capabilities.encoding) {
-      let results = await jo.getEncoding();  // load encoding from origin for validation
+      let results = await jo.getEngram();  // load encoding from origin for validation
       if (results.type === "encoding")
         encoding = results.data;
     }

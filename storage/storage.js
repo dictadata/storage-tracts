@@ -38,8 +38,8 @@ class StorageEtl extends Storage {
       _smt = entry.smt;
       if (entry.options)
         options = Object.assign({}, entry.options, options);
-      if (!options.encoding && entry.fields)
-        options.encoding = entry.fields;
+      if (!options.encoding && entry.fields && entry.fields.length)
+        options.encoding = { fields: entry.fields };
     }
     else {
       // SMT string or object
@@ -71,8 +71,8 @@ class StorageEtl extends Storage {
       _smt = entry.smt;
       if (entry.options)
         Object.assign(options, entry.options);
-      if (!options.encoding && entry.fields)
-        options.encoding = entry.fields;
+      if (!options.encoding && entry.fields && entry.fields.length)
+        options.encoding = { fields: entry.fields };
     }
     else {
       // SMT string or object
