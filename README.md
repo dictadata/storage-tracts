@@ -16,20 +16,19 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
 
 ```bash
   Command line:
-    etl [-c configFile] [-t tracts] tractName
+    etl [-c configFile] [-t tract] action-name
 
   configFile
     JSON configuration file that defines engrams, plug-ins and logging.
     Supports abbreviated name; "-c dev" for "./etl.config.dev.json"
     Default configuration file is ./etl.config.json
 
-  tracts
-    ETL tracts filename or Tracts urn that defines tracts to process.
-    Default tracts file is ./etl.tracts.json
+  tract
+    ETL tract filename or Tracts urn that defines tract to process.
+    Default tract file is ./etl.tract.json
 
-  tractName
-    The tract to follow in the tracts file. Required.  Use '*' to process all tracts.
-    Shortcut syntax, if "action" is not defined in the tract then action defaults to the tractName, e.g. "transfer".
+  actionName
+    The action to perform in the tract file. Required.  Use '*' to process all actions.
 
   Actions:
     transfer - transfer data between data stores with optional transforms.
@@ -41,9 +40,8 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
     tracts = manage ETL tract definitions
     scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.
     iterate - retrieve data and perform child action(s) for each construct.
-    all | * - run all tracts in sequence.
-    parallel - run all tracts in parallel.
-    config - create example etl.tracts.json file in the current directory.
+    all | * - run all actions in sequence.
+    parallel - run all actions in parallel.
 ```
 
 ## Configuration File
@@ -55,7 +53,7 @@ Default configuration settings can be specified in a _config tract in **etl.conf
   "_config": {
     "engrams": {
       "engrams": {
-        "smt": "elasticsearch|http://dev.dictadata.net:9200/|etl_engrams|*"
+        "smt": "elasticsearch|http://localhost:9200/|etl_engrams|*"
       }
     },
     "log": {
@@ -74,9 +72,10 @@ Default configuration settings can be specified in a _config tract in **etl.conf
 }
 ```
 
-## Tracts File
+## Tract File
 
-- A tracts specifies the origin and terminal SMT addresses along with options, encoding, transforms and output information.
+- A tract file contains an array of actions.
+- An action specifies the origin and terminal SMT addresses along with options, encoding, transforms and output information.
 - Origin and terminal MUST both be supported and compatible key stores or record stores.
 - Scan functionality supports file storage such as local folders, FTP and AWS S3 buckets.
 - Transforms are optional. If specified then fields will be transformed between origin and terminal.
@@ -167,38 +166,38 @@ etl transfer -c etl_weather.json forecast
 
 etl_weather.json:
 
-Note, in the tract below the action is implied in the tract name "transfer_forecast".  This tract will be passed to the transfer action.
-
 ```json
 {
-  "transfer_forecast": {
-    "origin": {
-      "smt": "rest|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*",
-      "options": {
-        "http": {
-          "headers": {
-            "Accept": "application/ld+json",
-            "User-Agent": "@dictadata.net/storage-node contact:info@dictadata.net"
-          }
-        },
-        "extract": "periods"
-      }
-    },
-    "terminal": {
-      "smt": "csv|./test/data/output/|etl-3-weather.csv|*",
-      "options": {
-        "header": true
+  "actions": [
+    {
+      "name": "forecast",
+      "action": "transfer",
+      "origin": {
+        "smt": "rest|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*",
+        "options": {
+          "http": {
+            "headers": {
+              "Accept": "application/ld+json",
+              "User-Agent": "@dictadata.net/storage-node contact:info@dictadata.net"
+            }
+          },
+          "extract": "periods"
+        }
+      },
+      "terminal": {
+        "smt": "csv|./test/data/output/|etl-3-weather.csv|*",
+        "options": {
+          "header": true
+        }
       }
     }
-  }
+  ]
 }
 ```
 
 ### Variable Replacements
 
-The variables must be defined in a config file. The _config.variables section of a tracts file will be ignored.
-
-In the tracts file use the "${name}" syntax for variable names.
+In an action use the "${name}" syntax for variable names.
 
 Config file:
 

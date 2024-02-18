@@ -10,7 +10,7 @@
         }
       }
     },
-    "tracts": [
+    "actions": [
       {
         "name": "each_file",
         "action": "copy",

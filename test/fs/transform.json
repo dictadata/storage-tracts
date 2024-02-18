@@ -45,7 +45,7 @@
         "key": "*"
       },
       "options": {
-        "encoding": "./test/data/input/encodings/foo_schema_t.encoding.json"
+        "encoding": "./test/data/input/engrams/foo_schema_t.engram.json"
       },
       "output": "./test/data/output/fs/transform.json"
     }
@@ -94,7 +94,7 @@
       },
       "options": {
         "header": true,
-        "encoding": "./test/data/input/encodings/foo_schema_t.encoding.json"
+        "encoding": "./test/data/input/engrams/foo_schema_t.engram.json"
       },
       "output": "./test/data/output/fs/transform.csv"
     }

@@ -1,0 +1,19 @@
+{
+  "domain": "foo",
+  "name": "urn name",
+  "type": "tract",
+  "description": "one origin, one destination, optional transforms",
+  "actions": [
+    {
+      "name": "tract name",
+      "action": "action command",
+      "origin": {
+        "smt": "source smt"
+      },
+      "transforms": [],
+      "terminal": {
+        "smt": "destination smt"
+      }
+    }
+  ]
+}

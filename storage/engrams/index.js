@@ -19,7 +19,7 @@ const { hasOwnProperty, logger } = require("@dictadata/storage-junctions/utils")
 const fs = require("node:fs");
 const homedir = process.env[ "HOMEPATH" ] || require('os').homedir();
 
-const engrams_encoding = require("./engrams.encoding.json");
+const engrams_encoding = require("./engrams.engram.json");
 
 const engramsTypes = [ "engram", "alias" ];
 

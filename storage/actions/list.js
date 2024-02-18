@@ -10,19 +10,19 @@ const output = require('./output');
 /**
  *
  */
-module.exports = async (tract) => {
+module.exports = async (action) => {
   logger.verbose("list ...");
   let retCode = 0;
 
   try {
-    let origin = tract.origin || {};
+    let origin = action.origin || {};
     var j1 = await Storage.activate(origin.smt, origin.options);
 
     let { data: list } = await j1.list();
 
     logger.verbose(JSON.stringify(list, null, " "));
-    if (tract.terminal.output) {
-      retCode = output(tract.terminal.output, list, 1);
+    if (action.terminal.output) {
+      retCode = output(action.terminal.output, list, 1);
     }
     else {
       console.log(JSON.stringify(list, null, " "));

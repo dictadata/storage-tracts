@@ -1,0 +1,57 @@
+{
+  "domain": "foo",
+  "name": "etl_tract",
+  "type": "tract",
+  "params": {
+    "name": "value"
+  },
+  "actions": [
+    {
+      "name": "action name",
+      "action": "action command",
+      "origin": {
+        "smt": "<smt|urn>",
+        "options": {}
+      },
+      "transforms": [
+        {
+          "transform": "filter"
+        },
+        {
+          "transform": "select"
+        }
+      ],
+      "terminal": {
+        "smt": "json|./|foofile.json|*",
+        "options": {
+          "encoding": "<schema_name.engram.json>"
+        }
+      }
+    }
+  ],
+  "_config": {
+    "engrams": {
+      "smt": "<model>|<locus>|etl_engrams|*"
+    },
+    "tracts": {
+      "smt": "<model>|<locus>|etl_tracts|*"
+    },
+    "plugins": {
+      "filesystems": {
+        "<package_name>": [
+          "<prefix>"
+        ]
+      },
+      "junctions": {
+        "<package_name>": [
+          "<model>"
+        ]
+      },
+      "log": {
+        "logPath": "./log",
+        "logPrefix": "etl",
+        "logLevel": "info"
+      }
+    }
+  }
+}

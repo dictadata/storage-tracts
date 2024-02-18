@@ -13,16 +13,16 @@ const stream = require('stream').promises;
 /**
  *
  */
-module.exports = async (tract) => {
+module.exports = async (action) => {
   logger.verbose("codify ...");
   let retCode = 0;
 
   var jo;
   try {
-    let origin = tract.origin || {};
+    let origin = action.origin || {};
     if (!Object.prototype.hasOwnProperty.call(origin, "options"))
       origin.options = {};
-    let transforms = tract.transforms || [];
+    let transforms = action.transforms || [];
 
     jo = await Storage.activate(origin.smt, origin.options);
 
@@ -75,8 +75,8 @@ module.exports = async (tract) => {
 
     //logger.verbose(JSON.stringify(encoding, null, " "));
     logger.debug(JSON.stringify(encoding.fields, null, " "));
-    if (tract.terminal.output) {
-      retCode = output(tract.terminal.output, encoding, 1);
+    if (action.terminal.output) {
+      retCode = output(action.terminal.output, encoding, 1);
     }
     else {
       console.log(JSON.stringify(encoding, null, " "));

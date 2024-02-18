@@ -4,7 +4,7 @@
     "origin": {
       "smt": "json|./test/data/input/|foofile_01.json|*",
       "options": {
-        "encoding": "./test/data/input/encodings/foo_schema_01.encoding.json"
+        "encoding": "./test/data/input/engrams/foo_schema_01.engram.json"
       }
     },
     "transforms": [
@@ -40,7 +40,7 @@
     "terminal": {
       "smt": "mysql|host=dev.dictadata.net;database=storage_node|foo_schema_etl2|*",
       "options": {
-        "encoding": "./test/data/input/encodings/foo_schema_t.encoding.json"
+        "encoding": "./test/data/input/engrams/foo_schema_t.engram.json"
       }
     }
   }

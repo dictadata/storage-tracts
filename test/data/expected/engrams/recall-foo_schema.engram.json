@@ -1,0 +1,40 @@
+{
+  ":foo_schema_two": {
+    "name": "foo_schema_two",
+    "type": "engram",
+    "title": "foo schema two",
+    "description": "just two fields: Foo Bar",
+    "source": "modified foo_schema.engram.json",
+    "tags": [
+      "dictadata",
+      "foo",
+      "test"
+    ],
+    "smt": {
+      "model": "json",
+      "locus": "./test/data/input/",
+      "schema": "foofile.json",
+      "key": "*"
+    },
+    "fields": [
+      {
+        "name": "Foo",
+        "type": "keyword",
+        "size": 64,
+        "default": null,
+        "nullable": false,
+        "key": 1,
+        "label": "Foo"
+      },
+      {
+        "name": "Bar",
+        "type": "text",
+        "size": 256,
+        "default": null,
+        "nullable": true,
+        "key": 2,
+        "label": "Bar"
+      }
+    ]
+  }
+}

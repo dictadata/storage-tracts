@@ -7,19 +7,19 @@
         "recursive": false
       }
     },
-    "tracts": [
+    "actions": [
       {
         "name": "schema",
         "action": "codify",
         "origin": {
           "smt": "json|ftp://dev.dictadata.net/dictadata/test/data/input/|${name}|*",
           "options": {
-            "encoding": "./test/data/output/ftp/scan.encoding.json",
+            "encoding": "./test/data/output/ftp/scan.engram.json",
             "max_read": 100
           }
         },
         "terminal": {
-          "output": "./test/data/output/ftp/scan.encoding.json"
+          "output": "./test/data/output/ftp/scan.engram.json"
         }
       }
     ]

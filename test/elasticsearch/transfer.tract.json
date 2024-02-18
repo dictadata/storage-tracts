@@ -1,0 +1,82 @@
+{
+  "name": "transfer.tract.json",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "json-index",
+      "action": "transfer",
+      "origin": {
+        "smt": "json|./test/data/input/|foofile.json|*",
+        "options": {
+          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+        }
+      },
+      "terminal": {
+        "smt": {
+          "model": "elasticsearch",
+          "locus": "http://dev.dictadata.net:9200",
+          "schema": "foo_schema_etl",
+          "key": "*"
+        }
+      }
+    },
+    {
+      "name": "index-json",
+      "action": "transfer",
+      "origin": {
+        "smt": "foo:elasticsearch-foo_schema",
+        "pattern": {
+          "order": {
+            "Foo": "asc"
+          }
+        }
+      },
+      "terminal": {
+        "smt": "json|./test/data/output/elasticsearch/|transfer_foofile.json|*",
+        "output": "./test/data/output/elasticsearch/transfer_foofile.json"
+      }
+    },
+    {
+      "name": "fulltext",
+      "action": "transfer",
+      "origin": {
+        "smt": "foo:elasticsearch-foo_schema",
+        "pattern": {
+          "match": {
+            "Bar": {
+              "search": "row boat"
+            }
+          }
+        }
+      },
+      "terminal": {
+        "smt": "json|./test/data/output/elasticsearch/|transfer_fulltext.json|*",
+        "output": "./test/data/output/elasticsearch/transfer_fulltext.json",
+        "compareValues": 1
+      }
+    },
+    {
+      "name": "multifield",
+      "action": "transfer",
+      "origin": {
+        "smt": "foo:elasticsearch-foo_schema",
+        "pattern": {
+          "match": {
+            "_": {
+              "search": "first row boat",
+              "fields": [
+                "Foo",
+                "Bar"
+              ]
+            }
+          }
+        }
+      },
+      "terminal": {
+        "smt": "json|./test/data/output/elasticsearch/|transfer_multifield.json|*",
+        "output": "./test/data/output/elasticsearch/transfer_multifield.json",
+        "compareValues": 1
+      }
+    }
+  ]
+}

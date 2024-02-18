@@ -1,0 +1,35 @@
+{
+  "domain": "foo",
+  "name": "transfer.tract.json",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "load",
+      "action": "scan",
+      "origin": {
+        "smt": "json|./test/data/input/|foofile*.json|*",
+        "options": {
+          "recursive": false
+        }
+      },
+      "actions": [
+        {
+          "name": "schema",
+          "action": "transfer",
+          "origin": {
+            "smt": "json|./test/data/input/|${name}|*",
+            "options": {
+              "encoding": "./test/data/input/engrams/foo_schema_01.engram.json"
+            }
+          },
+          "terminal": {
+            "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_load|!Foo",
+            "options": {
+              "encoding": "./test/data/input/engrams/foo_schema_01.engram.json"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

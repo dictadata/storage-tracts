@@ -1,0 +1,23 @@
+{
+  "domain": "foo",
+  "name": "transfer.tract.json",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "transfer",
+      "action": "transfer",
+      "origin": {
+        "smt": "shp|zip:/var/dictadata/US/census.gov/geo/tiger/TIGER2020/STATE/tl_2020_us_state.zip|tl_2020_us_state|*",
+        "options": {
+          "encoding": "./test/data/input/engrams/tl_YYYY_us_state.engram.json"
+        }
+      },
+      "terminal": {
+        "smt": "census.gov:tl_2020_us_state",
+        "options": {
+          "encoding": "./test/data/input/engrams/tl_YYYY_us_state.engram.json"
+        }
+      }
+    }
+  ]
+}

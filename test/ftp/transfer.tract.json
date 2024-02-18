@@ -1,0 +1,35 @@
+{
+  "domain": "foo",
+  "name": "transfer.tract.json",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "local-ftp",
+      "action": "transfer",
+      "origin": {
+        "smt": "json|./test/data/input/|foofile.json|*"
+      },
+      "terminal": {
+        "smt": {
+          "model": "json",
+          "locus": "ftp://dev.dictadata.net/dictadata/test/data/output/",
+          "schema": "ftp_foofile.json",
+          "key": "*"
+        }
+      }
+    },
+    {
+      "name": "ftp-local",
+      "action": "transfer",
+      "origin": {
+        "smt": "json|ftp://dev.dictadata.net/dictadata/test/data/input/|foofile.json|*",
+        "options": {}
+      },
+      "terminal": {
+        "smt": "json|./test/data/output/ftp/|foofile.json|*",
+        "options": {},
+        "output": "./test/data/output/ftp/foofile.json"
+      }
+    }
+  ]
+}

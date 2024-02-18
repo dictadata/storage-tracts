@@ -3,7 +3,7 @@
    "name": "foo_schema",
    "domain": "foo",
    "type": "engram",
-   "source": "foo_schema.encoding.json",
+   "source": "foo_schema.engram.json",
    "tags": [
     "dictadata",
     "foo",

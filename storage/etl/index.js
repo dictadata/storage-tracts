@@ -15,15 +15,15 @@ require('colors');
 // set program argument defaults
 const appArgs = {
   config: './etl.config.json',
-  tracts: './etl.tracts.json',
+  tract: './etl.tract.json',
   name: '',  // tract name to process
   params: {}
 };
 
 /**
  * parseArgs
- *   only tractName is required
- *   example process.argv  ["node.exe", "storage/etl/index.js", "-c", <configFile>, "-t", <tracts>, <tractName>]
+ *   only actionName is required
+ *   example process.argv  ["node.exe", "storage/etl/index.js", "-c", <configFile>, "-t", <tract>, <actionName>]
  */
 function parseArgs() {
 
@@ -40,13 +40,13 @@ function parseArgs() {
           appArgs.config += ".config.json";
       }
     }
-    // tractsFile
+    // tractFile
     else if (process.argv[ i ] === "-t") {
       if (i + 1 < process.argv.length) {
-        appArgs.tracts = process.argv[ i + 1 ];
+        appArgs.tract = process.argv[ i + 1 ];
         ++i;
-        if (!path.extname(appArgs.tracts))
-          appArgs.tracts += ".tracts.json";
+        if (!path.extname(appArgs.tract))
+          appArgs.tract += ".tract.json";
       }
     }
     else if (!appArgs.name) {
@@ -79,20 +79,19 @@ function parseArgs() {
   if (!appArgs.name) {
     console.log("Transfer, transform and codify data between local and distributed storage sources.");
     console.log("");
-    console.log("etl [-c configFile] [-t tracts] tractName");
+    console.log("etl [-c configFile] [-t tract] actionName");
     console.log("");
     console.log("configFile");
     console.log("  JSON configuration file that defines engrams, plug-ins and logging.");
     console.log("  Supports abbreviated name; '-c dev' for './etl.config.dev.json'");
     console.log("  Default configuration file is ./etl.config.json");
     console.log("");
-    console.log("tracts");
-    console.log("  ETL tracts filename or Tracts urn that contains tracts to process.");
-    console.log("  Default tract file is ./etl.tracts.json");
+    console.log("tract");
+    console.log("  ETL tract filename or Tracts urn that contains tract to process.");
+    console.log("  Default tract file is ./etl.tract.json");
     console.log("");
-    console.log("tractName");
-    console.log("  The tract to follow in the ETL tracts file. Required. Use '*' to process all tracts.");
-    console.log("  Shortcut syntax, if 'action' is not defined in the tract then action defaults to the tractName.");
+    console.log("actionName");
+    console.log("  The action to perform in the ETL tract file. Required. Use '*' to process all actions.");
     console.log("");
     console.log("Actions:");
     console.log("  transfer - transfer data between data stores with optional transforms.");
@@ -104,50 +103,50 @@ function parseArgs() {
     console.log("  tracts - manage tracts definitions");
     console.log("  scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.");
     console.log("  iterate - retrieve data and perform child action(s) for each construct.");
-    console.log("  all | * - run all tracts in sequence.");
-    console.log("  parallel - run all tracts in parallel.");
+    console.log("  all | * - run all actions in sequence.");
+    console.log("  parallel - run all actions in parallel.");
     console.log("");
     return;
   }
 
   try {
-    // load tracts file
-    let tracts = await config.loadFiles(appArgs);
+    // load tract file
+    let tract = await config.loadFiles(appArgs);
 
-    // if URN then recall from tracts
-    if (typeof tracts === "string") {
-      // check for tract name in urn; domain:name#tract
-      let u = tracts.split('#');
+    // if URN then recall from Tracts storage
+    if (typeof tract === "string") {
+      // check for action name in urn; domain:tract#action
+      let u = tract.split('#');
       let urn = u[ 0 ];
       if (u.length > 1 && !appArgs.name)
         appArgs.name = u[ 1 ];
 
-      let results = await Tracts.tracts.recall(urn, true);
-      tracts = results.data[ urn ];
+      let results = await Tracts.recall(urn, true);
+      tract = results.data[ urn ];
     }
 
     if (appArgs.name === "all" || appArgs.name === "*") {
-      for (const tract of tracts.tracts) {
-        if (tract.name[ 0 ] === "_")
+      for (const action of tract.actions) {
+        if (action.name[ 0 ] === "_")
           continue;
-        retCode = await Actions.perform(tract, appArgs.params);
+        retCode = await Actions.perform(action, appArgs.params);
         if (retCode)
           break;
       }
     }
     else if (appArgs.name === "parallel") {
       let tasks = [];
-      for (const tract of tracts.tracts) {
-        if (tract.name[ 0 ] === "_")
+      for (const action of tract.actions) {
+        if (action.name[ 0 ] === "_")
           continue;
-        tasks.push(Actions.perform(tract, appArgs.params));
+        tasks.push(Actions.perform(action, appArgs.params));
       }
       Promise.allSettled(tasks);
     }
     else {
-      let tract = tracts.tracts.find((tract) => tract.name === appArgs.name);
+      let action = tract.actions.find((tract) => tract.name === appArgs.name);
       if (tract)
-        retCode = await Actions.perform(tract, appArgs.params);
+        retCode = await Actions.perform(action, appArgs.params);
       else {
         retCode = 1;
         logger.error("tract name not found: " + appArgs.name);

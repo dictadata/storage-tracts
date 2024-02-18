@@ -1,0 +1,53 @@
+{
+  "domain": "foo",
+  "name": "transfer.tract.json",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "json-etl2",
+      "action": "transfer",
+      "origin": {
+        "smt": "json|./test/data/input/|foofile_01.json|*",
+        "options": {
+          "encoding": "./test/data/input/engrams/foo_schema_01.engram.json"
+        }
+      },
+      "transforms": [
+        {
+          "transform": "filter",
+          "match": {
+            "Bar": "row"
+          },
+          "drop": {
+            "Baz": {
+              "eq": 456
+            }
+          }
+        },
+        {
+          "transform": "mutate",
+          "default": {
+            "fie": "where's fum?"
+          },
+          "map": {
+            "Foo": "foo",
+            "Bar": "bar",
+            "Baz": "baz",
+            "Fobe": "fobe",
+            "Dt Test": "dt_test",
+            "subObj1.state": "state"
+          },
+          "remove": [
+            "fobe"
+          ]
+        }
+      ],
+      "terminal": {
+        "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_schema_etl2|=Foo",
+        "options": {
+          "encoding": "./test/data/input/engrams/foo_schema_t.engram.json"
+        }
+      }
+    }
+  ]
+}

@@ -7,28 +7,6 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "foo upload",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage/etl/index.js",
-      "runtimeArgs": [
-        "--trace-warnings"
-      ],
-      "args": [
-        "-c",
-        "${workspaceFolder}/etl.config.prod.json",
-        "-t",
-        "${workspaceFolder}/foo_transfer.tracts.json",
-        "loadfoo"
-      ],
-      "env": {
-        "NODE_ENV": "production",
-        "LOG_LEVEL": "verbose"
-      },
-      "outputCapture": "std"
-    },
-    {
-      "type": "node",
-      "request": "launch",
       "name": "run debug",
       "runtimeExecutable": "npm",
       "runtimeArgs": [
@@ -169,7 +147,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/fs/list.tracts.json",
+        "${workspaceFolder}/test/fs/list.tract.json",
         "list"
       ],
       "env": {
@@ -249,7 +227,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/fs/transfer.tracts.json",
+        "${workspaceFolder}/test/fs/transfer.tract.json",
         "all"
       ],
       "env": {
@@ -374,7 +352,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/ftp/transfer.tracts.json",
+        "${workspaceFolder}/test/ftp/transfer.tract.json",
         "all"
       ],
       "env": {
@@ -395,7 +373,7 @@
       "args": [
         "all",
         "-t",
-        "${workspaceFolder}/test/ftp/copy.tracts.json"
+        "${workspaceFolder}/test/ftp/copy.tract.json"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -454,7 +432,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/http/scan.tracts.json",
+        "${workspaceFolder}/test/http/scan.tract.json",
         "scan"
       ],
       "env": {
@@ -474,7 +452,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/http/transfer.tracts.json",
+        "${workspaceFolder}/test/http/transfer.tract.json",
         "all"
       ],
       "env": {
@@ -554,7 +532,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/zip/transfer.tracts.json",
+        "${workspaceFolder}/test/zip/transfer.tract.json",
         "all"
       ],
       "env": {
@@ -580,7 +558,7 @@
       "args": [
         "*",
         "-t",
-        "${workspaceFolder}/test/elasticsearch/list.tracts.json"
+        "${workspaceFolder}/test/elasticsearch/list.tract.json"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -600,7 +578,7 @@
       "args": [
         "codify",
         "-t",
-        "${workspaceFolder}/test/elasticsearch/codify.tracts.json"
+        "${workspaceFolder}/test/elasticsearch/codify.tract.json"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -619,7 +597,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/elasticsearch/transfer.tracts.json",
+        "${workspaceFolder}/test/elasticsearch/transfer.tract.json",
         "all"
       ],
       "env": {
@@ -639,7 +617,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/elasticsearch/load.tracts.json",
+        "${workspaceFolder}/test/elasticsearch/load.tract.json",
         "load"
       ],
       "env": {
@@ -659,7 +637,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/elasticsearch/transform.tracts.json",
+        "${workspaceFolder}/test/elasticsearch/transform.tract.json",
         "all"
       ],
       "env": {
@@ -679,7 +657,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/elasticsearch/tiger2020.tracts.json",
+        "${workspaceFolder}/test/elasticsearch/tiger2020.tract.json",
         "all"
       ],
       "env": {
@@ -739,7 +717,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/mssql/transfer.tracts.json",
+        "${workspaceFolder}/test/mssql/transfer.tract.json",
         "all"
       ],
       "env": {
@@ -839,7 +817,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/mysql/transfer.tracts.json",
+        "${workspaceFolder}/test/mysql/transfer.tract.json",
         "all"
       ],
       "env": {
@@ -939,7 +917,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/shapefile/transfer.tracts.json",
+        "${workspaceFolder}/test/shapefile/transfer.tract.json",
         "bl_2021_ia_congress"
       ],
       "env": {
@@ -979,7 +957,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/rest/transfer.tracts.json",
+        "${workspaceFolder}/test/rest/transfer.tract.json",
         "all"
       ],
       "env": {
@@ -1153,7 +1131,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/transfers/urn_transfers.tracts.json",
+        "${workspaceFolder}/test/transfers/urn_transfers.tract.json",
         "*"
       ],
       "env": {

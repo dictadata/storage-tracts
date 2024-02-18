@@ -11,7 +11,7 @@
       "urn": {
         "name": "foo_schema_two"
       },
-      "output": "./test/data/output/engrams/recall-foo_schema.encoding.json"
+      "output": "./test/data/output/engrams/recall-foo_schema.engram.json"
     }
   }
 }

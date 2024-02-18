@@ -6,7 +6,7 @@
   - refactor: StorageWriter autoClose option for dependent write streams
 - version 0.9.73
   - updated: @dictadata/storage-junctions@0.9.100
-  - refactor: refactor tract.transforms to array
+  - refactor: refactor action.transforms to array
 - version 0.9.72
   - republish
 - version 0.9.71
@@ -75,7 +75,7 @@
 - version 2.5.3
   - feature: add CLI argument -c for config file, e.g. "-c dev" for "storage-tracts.dev.json"
 - version 2.5.2
-  - feature: support _config section in Engrams tract
+  - feature: support _config section in Engrams action
 - version 2.5.1
   - update to @dictadata/storage-junctions 2.5.1
   - bug fix: use stream _destroy() instead of destroy() in reader/writer implementations
@@ -131,13 +131,13 @@
 - version 2.2.5
   - bug fix: issues with scan functionality
 - version 2.2.4
-  - refactor: action and tract processing
+  - refactor: tracts and actions processing
   - enhancement: make scan more generic, able to process any sub-action
 - version 2.2.3
-  - refactor: merging of encoding into tract's engrams entry
+  - refactor: merging of encoding into engrams action
 - version 2.2.2
   - update to @dictadata/storage-junctions 2.2.2
-  - override engram's engrams properties from tract
+  - override engram's engrams properties from action
   - title added to predefined engrams properties
 - version 2.2.1
   - update to @dictadata/storage-junctions 2.2.1
@@ -182,12 +182,12 @@
   - update to @dictadata/storage-junctions 2.0.5
   - bug fixes
 - version 2.0.3
-  - read config tract from **./storage-tracts.config.json**
+  - read config action from **./storage-tracts.config.json**
   - update to @dictadata/storage-junctions 2.0.3
   - engrams support
 - version 2.0.1
   - update to @dictadata/storage-junctions 2.0.1
-  - Engram/encodings updated for Engrams compatability
+  - Engram/encodings updated for Engrams compatibility
 - version 1.8.6
   - update to @dictadata/storage-junctions 1.8.6
     - add support for Elasticsearch geo_shape queries
@@ -199,7 +199,7 @@
 - version 1.8.4
   - update to @dictadata/storage-junctions 1.8.4
   - testing updates:
-    - standardize file name convention for encoding as abc123.encoding.json
+    - standardize file name convention for encoding as abc123.engram.json
     - use data.dictadata.net (NGINX) for ftp and http testing
 - version 1.8.3
   - remove dependencies for s3-filesystem, oracledb-junction and xlsx-junction
@@ -269,7 +269,7 @@
 - version 1.2.2
   - update dependency to @dictadata/storage-junctions 1.2.6
 - version 1.2.1
-  - rename etl_config.json to etl.tracts.json
+  - rename etl_config.json to etl.tract.json
   - storage-junction updates for:
     - stream/promises
     - csv options.header
@@ -281,10 +281,10 @@
   - fix for mysql boolean as tinyint(1)
   - update to @dictadata/storage-junctions 1.1.7
 - version 1.1.6
-  - refactor etl.tracts.json to have transforms property to contain named transforms
+  - refactor etl.tract.json to have transforms property to contain named transforms
   - update to @idctadata/storage-junctions 1.1.6
 - version 1.1.5
-  - add "config" action to generate sample "./etl.tracts.json" file
+  - add "config" action to generate sample "./etl.tract.json" file
 - version 1.1.4
   - require xlsx as local package
 - version 1.1.3

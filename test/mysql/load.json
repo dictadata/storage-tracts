@@ -7,20 +7,20 @@
         "recursive": false
       }
     },
-    "tracts": [
+    "actions": [
       {
         "name": "schema",
         "action": "transfer",
         "origin": {
           "smt": "json|./test/data/input/|${name}|*",
           "options": {
-            "encoding": "./test/data/input/encodings/foo_schema_01.encoding.json"
+            "encoding": "./test/data/input/engrams/foo_schema_01.engram.json"
           }
         },
         "terminal": {
           "smt": "mysql|host=dev.dictadata.net;database=storage_node|foo_load|=Foo",
           "options": {
-            "encoding": "./test/data/input/encodings/foo_schema_01.encoding.json"
+            "encoding": "./test/data/input/engrams/foo_schema_01.engram.json"
           }
         }
       }

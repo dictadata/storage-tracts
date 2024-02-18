@@ -4,7 +4,7 @@
     "origin": {
       "smt": "json|./|db_schema.json|*",
       "options": {
-        "encoding": "./db_schema.encoding.json"
+        "encoding": "./db_schema.engram.json"
       }
     },
     "tranforms": {

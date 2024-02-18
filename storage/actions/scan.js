@@ -11,24 +11,24 @@ const { perform } = require('./');
  * List schemas at a locus
  * and perform action(s) on each schema.
  */
-module.exports = async (tract) => {
+module.exports = async (action) => {
   logger.info("=== scan");
-  logger.verbose(tract.origin.smt);
+  logger.verbose(action.origin.smt);
   let retCode = 0;
 
   var jo;
   try {
     // get list of schemas from source
-    if (!tract.origin.options)
-      tract.origin.options = {};
-    jo = await Storage.activate(tract.origin.smt, tract.origin.options);
+    if (!action.origin.options)
+      action.origin.options = {};
+    jo = await Storage.activate(action.origin.smt, action.origin.options);
     let { data: list } = await jo.list();
     jo.relax();
 
     // exlusions
     let exclude = [];
-    if (tract.origin.options.exclude) {
-      for (let filespec of tract.origin.options.exclude) {
+    if (action.origin.options.exclude) {
+      for (let filespec of action.origin.options.exclude) {
         let rx = '^' + filespec + '$';
         rx = rx.replace('.', '\\.');
         rx = rx.replace('*', '.*');
@@ -62,8 +62,8 @@ module.exports = async (tract) => {
       };
 
       // loop thru sub-tracts
-      for (const subtract of tract.tracts) {
-        retCode = await perform(subtract, replacements);
+      for (const subaction of action.actions) {
+        retCode = await perform(subaction, replacements);
         if (retCode)
           break;
       }
@@ -73,9 +73,9 @@ module.exports = async (tract) => {
     }
 
     /* could record some result logging
-    if (tract.terminal?.output) {
+    if (action.terminal?.output) {
       logger.debug(JSON.stringify(<results>, null, " "));
-      retCode = output(tract.terminal.output, <results>);
+      retCode = output(action.terminal.output, <results>);
     }
     */
 

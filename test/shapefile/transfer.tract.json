@@ -1,0 +1,168 @@
+{
+  "domain": "foo",
+  "name": "transfer.tract.json",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "shp-json",
+      "action": "transfer",
+      "origin": {
+        "smt": "shp|./test/data/input/shapes/|polygons|*",
+        "options": {}
+      },
+      "terminal": {
+        "smt": "json|./test/data/output/shapefile/|polygons.json|*",
+        "output": "./test/data/output/shapefile/polygons.json"
+      }
+    },
+    {
+      "name": "zip-json",
+      "action": "transfer",
+      "origin": {
+        "smt": "shp|zip:./test/data/input/shapes/points.zip|points|*",
+        "options": {}
+      },
+      "terminal": {
+        "smt": "json|./test/data/output/shapefile/|points.json|*",
+        "output": "./test/data/output/shapefile/points.json"
+      }
+    },
+    {
+      "name": "points-elastic",
+      "action": "transfer",
+      "origin": {
+        "smt": "shp|zip:./test/data/input/shapes/points.zip|points|*",
+        "options": {}
+      },
+      "transforms": [
+        {
+          "transform": "mutate",
+          "default": {
+            "id": "=geometry.type+properties.FID"
+          }
+        }
+      ],
+      "terminal": {
+        "smt": {
+          "model": "elasticsearch",
+          "locus": "http://dev.dictadata.net:9200",
+          "schema": "shapes",
+          "key": "!id"
+        }
+      }
+    },
+    {
+      "name": "polygons-elastic",
+      "action": "transfer",
+      "origin": {
+        "smt": "shp|./test/data/input/shapes/|polygons|*",
+        "options": {}
+      },
+      "transforms": [
+        {
+          "transform": "mutate",
+          "default": {
+            "id": "=geometry.type+properties.FID"
+          }
+        }
+      ],
+      "terminal": {
+        "smt": {
+          "model": "elasticsearch",
+          "locus": "http://dev.dictadata.net:9200",
+          "schema": "shapes",
+          "key": "!id"
+        }
+      }
+    },
+    {
+      "name": "elastic-json",
+      "action": "transfer",
+      "origin": {
+        "smt": {
+          "model": "elasticsearch",
+          "locus": "http://dev.dictadata.net:9200",
+          "schema": "shapes",
+          "key": "!id"
+        },
+        "pattern": {
+          "order": {
+            "id": "desc"
+          }
+        }
+      },
+      "terminal": {
+        "smt": "json|./test/data/output/shapefile/|shapes.json|*",
+        "output": "./test/data/output/shapefile/shapes.json"
+      }
+    },
+    {
+      "name": "download",
+      "action": "copy",
+      "origin": {
+        "smt": "*|ftp://dev.dictadata.net/dictadata/US/census.gov/geo/tiger/TIGER2020/STATE/|*.zip|*",
+        "options": {}
+      },
+      "terminal": {
+        "smt": "*|file:c:/var/dictadata/US/census.gov/|*|*",
+        "options": {
+          "use_rpath": true
+        }
+      }
+    },
+    {
+      "name": "tl_2020_us_state",
+      "action": "transfer",
+      "origin": {
+        "smt": "shp|zip:/var/dictadata/US/census.gov/geo/tiger/TIGER2020/STATE/tl_2020_us_state.zip|tl_2020_us_state|*"
+      },
+      "terminal": {
+        "smt": "json|./test/data/output/shapefile/|tl_2020_us_state.json|*"
+      }
+    },
+    {
+      "name": "el_json",
+      "action": "transfer",
+      "origin": {
+        "smt": "elasticsearch|http://dev.dictadata.net:9200|tl_2020_us_state|*",
+        "pattern": {
+          "match": {
+            "geometry": {
+              "contains": [
+                -73.985428,
+                40.748817
+              ]
+            }
+          }
+        }
+      },
+      "terminal": {
+        "smt": "json|./test/data/output/shapefile/|tl_2020_us_state_NY.json|*"
+      }
+    },
+    {
+      "name": "bl_2021_ia_congress",
+      "action": "transfer",
+      "origin": {
+        "smt": "shp|zip:/var/dictadata/US/IA/legis.iowa.gov/Plan2/SHP/IA_ProposedPlan2_Oct2021.zip|Plan2_Congress|*",
+        "options": {
+          "encoding": "./test/data/input/engrams/bl_2021_ia_congress.engram.json"
+        }
+      },
+      "transforms": [
+        {
+          "transform": "mutate",
+          "override": {
+            "properties.STATEFP": "19"
+          }
+        }
+      ],
+      "terminal": {
+        "smt": "elasticsearch|http://dev.dictadata.net:9200|bl_2021_us_congress|*",
+        "options": {
+          "encoding": "./test/data/input/engrams/bl_2021_ia_congress.engram.json"
+        }
+      }
+    }
+  ]
+}

@@ -1,32 +1,33 @@
 ## Storage ETL Command Line Interface
 
 ```bash
-storage-tracts (etl) 2.5.x
-Transfer, transform and codify data between local and distributed storage sources.
+storage-tracts (etl) 0.9.x
 
-etl [-c configFile] [-t etlTracts] tractName
+  Command line:
+    etl [-c configFile] [-t tract] action-name
 
-configFile
-  JSON configuration file that defines engrams, plug-ins and logging.
-  Supports abbreviated name; "-c dev" for "./etl.config.dev.json"
-  Default configuration file is ./etl.config.json
+  configFile
+    JSON configuration file that defines engrams, plug-ins and logging.
+    Supports abbreviated name; "-c dev" for "./etl.config.dev.json"
+    Default configuration file is ./etl.config.json
 
-etlTracts
-  JSON file that defines ETL tracts.
-  Default configuration file is ./etl.tracts.json
+  tract
+    ETL tract filename or Tracts urn that defines tract to process.
+    Default tract file is ./etl.tract.json
 
-tractName
-  The tract to follow in the configuration file. Required. Use "*" for process all tracts.
-  Shortcut syntax, if "action" is not defined in the tract then action defaults to the tractName, e.g. "transfer".
+  actionName
+    The action to perform in the tract file. Required.  Use '*' to process all actions.
 
-Actions:
-  config - create example etl.tracts.json file in the current directory.
-  list - listing of schema names in a data store.
-  codify - determine schema encoding by codifying a single schema.
-  scan - list data store and determine schema encoding by codifying multiple schemas.
-  transfer - transfer data between data stores with optional transforms.
-  dull - remove data from a data store.
-  copy - copy data files between remote file system and local file system.
-  all - run all tracts in sequence.
-  parallel - run all tracts in parallel.
+  Actions:
+    transfer - transfer data between data stores with optional transforms.
+    copy - copy data files between remote file system and local file system.
+    list - listing of schema names at origin, datastore or filesystem.
+    codify - determine schema encoding by examining some data.
+    dull - remove data from a data store.
+    engrams - manage engrams encoding definitions
+    tracts = manage ETL tract definitions
+    scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.
+    iterate - retrieve data and perform child action(s) for each construct.
+    all | * - run all actions in sequence.
+    parallel - run all actions in parallel.
 ```

@@ -1,29 +1,29 @@
 {
-  "foo:foo_transfer": {
-   "domain": "foo",
-   "name": "foo_transfer",
-   "type": "tract",
-   "title": "foo transfer",
-   "description": "transfer foo data",
-   "notes": "tract definitions: 1",
-   "tags": [
-    "dictadata",
-    "foo",
-    "test"
-   ],
-   "tracts": [
-    {
-     "name": "json-json",
-     "action": "transfer",
-     "description": "transfer foo from json to json",
-     "origin": {
-      "smt": "json|./test/data/input/|foofile.json|*"
-     },
-     "terminal": {
-      "smt": "json|./test/data/output/tracts/|transfer_foofile.json|*"
-     }
+ "foo:foo_transfer": {
+  "domain": "foo",
+  "name": "foo_transfer",
+  "type": "tract",
+  "title": "foo transfer",
+  "description": "transfer foo data",
+  "notes": "tract definitions: 1",
+  "tags": [
+   "dictadata",
+   "foo",
+   "test"
+  ],
+  "actions": [
+   {
+    "name": "json-json",
+    "action": "transfer",
+    "description": "transfer foo from json to json",
+    "origin": {
+     "smt": "json|./test/data/input/|foofile.json|*"
+    },
+    "terminal": {
+     "smt": "json|./test/data/output/tracts/|transfer_foofile.json|*"
     }
-   ],
-   "source": "foo_transfer.tracts.json"
-  }
+   }
+  ],
+  "source": "foo_transfer.tract.json"
  }
+}

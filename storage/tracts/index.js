@@ -4,7 +4,7 @@
  * Tracts is a data directory and dictionary of tract definitions.
  *
  * valid tracts types:
- *   tract  - ETL tract definitions
+ *   tract  - ETL tract definition
  *   alias  -
  *
  * An underlying StorageJunction such as ElasticsearchJunction can be used for persistent storage.
@@ -18,7 +18,7 @@ const { hasOwnProperty, logger } = require("@dictadata/storage-junctions/utils")
 const fs = require("node:fs");
 const homedir = process.env[ "HOMEPATH" ] || require('os').homedir();
 
-const tracts_encoding = require("./tracts.encoding.json");
+const tracts_encoding = require("./tracts.engram.json");
 
 const tractsTypes = [ "tract", "alias" ];
 
@@ -50,7 +50,7 @@ module.exports = exports = class Tracts {
     if (urn.indexOf(":") < 0)
       urn = ":" + urn;
 
-    // remove any tract name
+    // remove any action name
     let i = urn.lastIndexOf("#");
     if (i > 0)
       urn = urn.substring(0, i);
@@ -152,14 +152,14 @@ module.exports = exports = class Tracts {
 
     // make sure smt are strings
     if (entry.type === "tract") {
-      for (let tract of entry?.tracts) {
-        if (typeof tract.origin?.smt === "object") {
-          let smt = new SMT(tract.origin.smt);
-          tract.origin.smt = smt.toString();
+      for (let action of entry?.actions) {
+        if (typeof action.origin?.smt === "object") {
+          let smt = new SMT(action.origin.smt);
+          action.origin.smt = smt.toString();
         }
-        if (typeof tract.terminal?.smt === "object") {
-          let smt = new SMT(tract.terminal.smt);
-          tract.terminal.smt = smt.toString();
+        if (typeof action.terminal?.smt === "object") {
+          let smt = new SMT(action.terminal.smt);
+          action.terminal.smt = smt.toString();
         }
       }
     }

@@ -16,13 +16,13 @@ const stream = require('stream').promises;
 /**
  * transfer action
  */
-module.exports = async (tract) => {
+module.exports = async (action) => {
   logger.info("=== transfer");
   let retCode = 0;
 
-  var origin = tract.origin || {};
-  var terminal = tract.terminal || {};
-  var transforms = tract.transforms || [];
+  var origin = action.origin || {};
+  var terminal = action.terminal || {};
+  var transforms = action.transforms || [];
   if (!origin.options) origin.options = {};
   if (!terminal.options) terminal.options = {};
 
@@ -88,7 +88,7 @@ module.exports = async (tract) => {
       throw new Error("invalid terminal encoding");
 
     //logger.debug(">>> encoding results");
-    //logger.debug(JSON.stringify(terminal.options.encoding.fields, null, " "));
+    //logger.debug(JSON.stringify(terminal.options.engram.fields, null, " "));
 
     /// transfer data
     let reader = null;  // source
@@ -113,10 +113,10 @@ module.exports = async (tract) => {
       terminal.options.encoding = encoding;
     }
 
-    if (!Array.isArray(tract.terminal)) {
+    if (!Array.isArray(action.terminal)) {
       // a single terminal object
       logger.verbose(">>> Terminal Tract");
-      let terminal = tract.terminal;
+      let terminal = action.terminal;
 
       logger.verbose(">>> create terminal junction " + JSON.stringify(terminal.smt, null, 2));
       let jt = await Storage.activate(terminal.smt, terminal.options);
@@ -141,7 +141,7 @@ module.exports = async (tract) => {
     else {
       // sub-terminal tracts
       logger.verbose(">>> Terminal Tee");
-      for (let branch of tract.terminal) {
+      for (let branch of action.terminal) {
         logger.verbose(">>> create terminal junction " + JSON.stringify(branch.terminal.smt, null, 2));
         let jt = await Storage.activate(branch.terminal.smt, branch.terminal.options);
         jtl.push(jt);

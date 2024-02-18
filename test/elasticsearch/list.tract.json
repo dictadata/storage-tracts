@@ -1,0 +1,19 @@
+{
+  "domain": "foo",
+  "name": "transfer.tract.json",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "list",
+      "origin": {
+        "smt": "elasticsearch|http://dev.dictadata.net:9200|*|*",
+        "options": {
+          "schema": "foo*"
+        }
+      },
+      "terminal": {
+        "output": "./test/data/output/elasticsearch/list.json"
+      }
+    }
+  ]
+}

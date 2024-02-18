@@ -36,70 +36,64 @@ var configDefaults = {
  *
  */
 module.exports.loadFiles = async (appArgs) => {
-  let tracts = {};
+  let tract = {};
+
+  let config = Object.assign({}, configDefaults);
+  let errorMessage;
 
   try {
-    let config = Object.assign({}, configDefaults);
-    let errorMessage;
-
-    try {
-      // config file
-      let configText = await fs.readFileSync(appArgs.config, { encoding: 'utf8' });
-      let configObj = JSON.parse(configText);
-      if (configObj?._config) {
-        objCopy(config, configObj._config);
-        delete configObj._config;
-      }
-      if (configObj?.params) {
-        objCopy(appArgs.params, configObj.params);
-        delete configObj.params;
-      }
-      objCopy(tracts, configObj);
+    // config file
+    let configText = await fs.readFileSync(appArgs.config, { encoding: 'utf8' });
+    let configObj = JSON.parse(configText);
+    if (configObj?._config) {
+      objCopy(config, configObj._config);
+      delete configObj._config;
     }
-    catch (err) {
-      errorMessage = err.message;
+    if (configObj?.params) {
+      objCopy(appArgs.params, configObj.params);
+      delete configObj.params;
     }
-
-    if (appArgs.tracts.endsWith(".json")) {
-      // tracts file
-      let tractsText = await fs.readFileSync(appArgs.tracts, { encoding: 'utf8' });
-      let tractsObj = JSON.parse(tractsText);
-      if (tractsObj?._config) {
-        objCopy(config, tractsObj._config);
-        delete tractsObj._config;
-      }
-      if (tractsObj?.params) {
-        objCopy(appArgs.params, tractsObj.params);
-        delete tractsObj.params;
-      }
-      objCopy(tracts, tractsObj);
-    }
-    else
-      tracts = appArgs.tracts;
-
-    // initialize app
-    await configStorage(config);
-
-    if (typeOf(tracts) === "object" && typeOf(tracts?.tracts) !== "array") {
-      // reformat tract properties into an array; for backwards compatibility
-      let tt = {
-        "name": appArgs.name,
-        "type": "tract",
-        "tracts": []
-      };
-      for (let [ name, tract ] of Object.entries(tracts)) {
-        tract.name = name
-        tt.tracts.push(tract);
-      }
-      tracts = tt;
-    }
-
+    objCopy(tract, configObj);
   }
   catch (err) {
-    logger.error(err.message);
+    errorMessage = err.message;
   }
 
-  return tracts;
+  if (appArgs.tract.endsWith(".json")) {
+    // tract file
+    let tractText = await fs.readFileSync(appArgs.tract, { encoding: 'utf8' });
+    let tractObj = JSON.parse(tractText);
+    if (tractObj?._config) {
+      objCopy(config, tractObj._config);
+      delete tractObj._config;
+    }
+    if (tractObj?.params) {
+      objCopy(appArgs.params, tractObj.params);
+      delete tractObj.params;
+    }
+    objCopy(tract, tractObj);
+  }
+  else
+    tract = appArgs.tract;
+
+  // initialize app
+  await configStorage(config);
+
+  if (typeOf(tract) === "object" && typeOf(tract?.actions) !== "array") {
+    // reformat tract properties into an array; for backwards compatibility
+    let tt = {
+      "name": appArgs.name,
+      "type": "tract",
+      "actions": []
+    };
+    for (let [ name, action ] of Object.entries(tract)) {
+      action.name = name
+      tt.actions.push(action);
+    }
+    tract = tt;
+  }
+
+  return tract;
 };
 
 /**

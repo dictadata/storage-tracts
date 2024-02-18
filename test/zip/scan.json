@@ -7,19 +7,19 @@
         "recursive": true
       }
     },
-    "tracts": [
+    "actions": [
       {
         "name": "schema",
         "action": "codify",
         "origin": {
           "smt": "json|zip:./test/data/input/foofile.zip|${name}|*",
           "options": {
-            "encoding": "./test/data/output/zip/scan.encoding.json",
+            "encoding": "./test/data/output/zip/scan.engram.json",
             "max_read": 100
           }
         },
         "terminal": {
-          "output": "./test/data/output/zip/scan.encoding.json"
+          "output": "./test/data/output/zip/scan.engram.json"
         }
       }
     ]

@@ -10,7 +10,7 @@ If the data schema has a field(s) that is sequential then that field can be used
 
 ## Engrams Synchronization Tracts
 
-Data synchronization tracts can be stored in the Engrams.  Synchronization tracts can maintain state for the transfer.  The maximum field value transfered can be stored as part of the tract.
+Data synchronization tracts can be stored in the Engrams storage.  Synchronization tracts can maintain state for the transfer.  The maximum field value transfered can be stored as part of the tract.
 
 ## Synchronizaton Tract
 

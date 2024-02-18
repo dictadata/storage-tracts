@@ -11,17 +11,17 @@ const { perform } = require('./');
  * Retrieve data from origin smt
  * and perform action(s) on each construct.
  */
-module.exports = async (tract) => {
+module.exports = async (action) => {
   logger.info("=== iterate");
-  logger.verbose(tract.origin.smt);
+  logger.verbose(action.origin.smt);
   let retCode = 0;
 
   var jo;
   try {
     // get constructs from source
-    if (!tract.origin.options)
-      tract.origin.options = {};
-    jo = await Storage.activate(tract.origin.smt, tract.origin.options);
+    if (!action.origin.options)
+      action.origin.options = {};
+    jo = await Storage.activate(action.origin.smt, action.origin.options);
     let { data: list } = await jo.retrieve();
     jo.relax();
 
@@ -38,16 +38,16 @@ module.exports = async (tract) => {
           replacements[ name ] = value;
       }
 
-      // loop thru subtracts
-      for (const subtract of tract.tracts) {
-        await perform(subtract, replacements);
+      // loop thru subactions
+      for (const subaction of action.actions) {
+        await perform(subaction, replacements);
       }
     }
 
     /* could record some result logging
-    if (tract.terminal?.output) {
+    if (action.terminal?.output) {
       logger.debug(JSON.stringify(<results>, null, " "));
-      retCode = output(tract.terminal.output, <results>);
+      retCode = output(action.terminal.output, <results>);
     }
     */
 

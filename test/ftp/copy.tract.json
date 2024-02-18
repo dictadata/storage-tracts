@@ -1,0 +1,28 @@
+{
+  "domain": "foo",
+  "name": "transfer.tract.json",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "upload",
+      "action": "copy",
+      "origin": {
+        "smt": "*|./test/data/input/|*.json|*"
+      },
+      "terminal": {
+        "smt": "*|ftp://dev.dictadata.net/dictadata/test/data/output/uploads/|*|*"
+      }
+    },
+    {
+      "name": "download",
+      "action": "copy",
+      "origin": {
+        "smt": "*|ftp://dev.dictadata.net/dictadata/US/census.gov/geo/tiger/TIGER2020/STATE/|*.zip|*",
+        "options": {}
+      },
+      "terminal": {
+        "smt": "*|./test/data/output/ftp/downloads/|*|*"
+      }
+    }
+  ]
+}

@@ -17,28 +17,28 @@ function prefix(locus) {
   return p;
 }
 
-module.exports = exports = async function (tract) {
+module.exports = exports = async function (action) {
   let retCode = 0;
 
   try {
     // verify that one of the destinations is local file system.
-    let src_smt = new SMT(tract.origin.smt);
-    let dst_smt = new SMT(tract.terminal.smt);
+    let src_smt = new SMT(action.origin.smt);
+    let dst_smt = new SMT(action.terminal.smt);
 
     let src_prefix = prefix(src_smt.locus);
     let dst_prefix = prefix(dst_smt.locus);
 
     if (src_prefix === 'file' && dst_prefix === 'file') {
       if (src_smt.schema !== '*')
-        await download(tract);
+        await download(action);
       else
-        await upload(tract);
+        await upload(action);
     }
     else if (src_prefix === 'file') {
-      await upload(tract);
+      await upload(action);
     }
     else if (dst_prefix === 'file') {
-      await download(tract);
+      await download(action);
     }
     else {
       throw new StorageError(400, "source and/or destination locus must be local file system");
@@ -53,19 +53,19 @@ module.exports = exports = async function (tract) {
   return retCode;
 };
 
-async function download(tract) {
+async function download(action) {
   let retCode = 0;
 
   var junction;
   try {
     logger.info("=== download");
 
-    logger.verbose("smt:" + JSON.stringify(tract.origin.smt, null, 2));
-    if (tract.origin.options)
-      logger.verbose("options:" + JSON.stringify(tract.origin.options));
+    logger.verbose("smt:" + JSON.stringify(action.origin.smt, null, 2));
+    if (action.origin.options)
+      logger.verbose("options:" + JSON.stringify(action.origin.options));
 
     logger.verbose(">>> activate junction");
-    junction = await Storage.activate(tract.origin.smt, tract.origin.options);
+    junction = await Storage.activate(action.origin.smt, action.origin.options);
 
     logger.verbose(">>> get list of desired files");
     let list;
@@ -84,7 +84,7 @@ async function download(tract) {
       logger.info(entry.name);
       logger.verbose(JSON.stringify(entry, null, 2));
 
-      let options = Object.assign({ smt: tract.terminal.smt, entry: entry }, tract.terminal.options);
+      let options = Object.assign({ smt: action.terminal.smt, entry: entry }, action.terminal.options);
       let ok = await stfs.getFile(options);
       if (!ok) {
         logger.error("download failed: " + entry.href);
@@ -105,7 +105,7 @@ async function download(tract) {
   return retCode;
 }
 
-async function upload(tract) {
+async function upload(action) {
   var retCode = 0;
 
   var local;
@@ -114,17 +114,17 @@ async function upload(tract) {
     logger.info("=== upload");
 
     logger.verbose(">>> create generic junction for local files");
-    logger.verbose("smt:" + JSON.stringify(tract.origin.smt, null, 2));
-    local = await Storage.activate(tract.origin.smt, tract.origin.options);
+    logger.verbose("smt:" + JSON.stringify(action.origin.smt, null, 2));
+    local = await Storage.activate(action.origin.smt, action.origin.options);
 
     logger.verbose(">>> get list of local files");
     let { data: list } = await local.list();
 
-    logger.verbose(">>> create terminal junction " + tract.terminal.smt);
-    logger.verbose("smt:" + JSON.stringify(tract.terminal.smt, null, 2));
-    if (tract.terminal.options)
-      logger.verbose("options:" + JSON.stringify(tract.terminal.options));
-    junction = await Storage.activate(tract.terminal.smt, tract.terminal.options);
+    logger.verbose(">>> create terminal junction " + action.terminal.smt);
+    logger.verbose("smt:" + JSON.stringify(action.terminal.smt, null, 2));
+    if (action.terminal.options)
+      logger.verbose("options:" + JSON.stringify(action.terminal.options));
+    junction = await Storage.activate(action.terminal.smt, action.terminal.options);
 
     logger.verbose(">>> upload files");
     // download is a filesystem level method
@@ -134,7 +134,7 @@ async function upload(tract) {
       logger.info(entry.name);
       logger.debug(JSON.stringify(entry, null, 2));
 
-      let options = Object.assign({ smt: tract.origin.smt, entry: entry }, tract.origin.options);
+      let options = Object.assign({ smt: action.origin.smt, entry: entry }, action.origin.options);
       let ok = await stfs.putFile(options);
       if (!ok) {
         logger.error("!!! upload failed: " + entry.href);

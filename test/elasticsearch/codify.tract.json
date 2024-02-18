@@ -1,0 +1,19 @@
+{
+  "domain": "foo",
+  "name": "transfer.tract.json",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "codify",
+      "origin": {
+        "smt": "foo:elasticsearch-foo_schema",
+        "options": {
+          "max_read": 100
+        }
+      },
+      "terminal": {
+        "output": "./test/data/output/elasticsearch/codify_foo_schema.json"
+      }
+    }
+  ]
+}

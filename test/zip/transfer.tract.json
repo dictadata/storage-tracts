@@ -1,0 +1,20 @@
+{
+  "domain": "foo",
+  "name": "transfer.tract.json",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "zip-local",
+      "action": "transfer",
+      "origin": {
+        "smt": "json|zip:./test/data/input/foofile.zip|foofile.json|*",
+        "options": {}
+      },
+      "terminal": {
+        "smt": "json|./test/data/output/zip/|foofile.json|*",
+        "options": {},
+        "output": "./test/data/output/zip/foofile.json"
+      }
+    }
+  ]
+}

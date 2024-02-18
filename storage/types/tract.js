@@ -13,7 +13,7 @@ module.exports = exports = class Tract extends Entry {
   constructor(options) {
     super(options);
     this.type = "tract";
-    this.tracts = options.tract || [];
+    this.actions = options.actions || [];
   }
 
 };

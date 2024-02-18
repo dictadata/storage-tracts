@@ -16,19 +16,19 @@ const stream = require('stream').promises;
 /**
  * transfer action
  */
-module.exports = async (tract) => {
+module.exports = async (action) => {
   logger.info("=== transfer");
   let retCode = 0;
 
   // resolve urn
-  if (typeof tract?.urn === "string") {
-    let results = await Storage.tracts.recall(tract.urn);
-    tract = results.data[ tract.urn ].tracts[0];
+  if (typeof action?.urn === "string") {
+    let results = await Storage.tracts.recall(action.urn);
+    action = results.data[ action.urn ].actions[0];
   }
 
-  var origin = tract.origin || {};
-  var terminal = tract.terminal || {};
-  var transforms = tract.transforms || [];
+  var origin = action.origin || {};
+  var terminal = action.terminal || {};
+  var transforms = action.transforms || [];
   if (!origin.options) origin.options = {};
   if (!terminal.options) terminal.options = {};
 
@@ -88,7 +88,7 @@ module.exports = async (tract) => {
       throw new Error("invalid terminal encoding");
 
     //logger.debug(">>> encoding results");
-    //logger.debug(JSON.stringify(terminal.options.encoding.fields, null, " "));
+    //logger.debug(JSON.stringify(terminal.options.engram.fields, null, " "));
 
     /// create terminal junction
     logger.verbose(">>> create terminal junction " + JSON.stringify(terminal.smt));

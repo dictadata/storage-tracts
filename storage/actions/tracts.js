@@ -13,13 +13,13 @@ const fs = require('fs');
 /**
  *
  */
-module.exports = async (tract) => {
+module.exports = async (action) => {
   logger.verbose("tracts ...");
   let retCode = 0;
   let fn;
 
   try {
-    for (let [ command, request ] of Object.entries(tract)) {
+    for (let [ command, request ] of Object.entries(action)) {
       if (command === "action" || command === "name") continue;
 
       // determine function to apply
@@ -54,24 +54,26 @@ module.exports = async (tract) => {
 
 /**
  *
- * @param {Object} entry ETL tracts tract that is a Tracts entry
+ * @param {Object} entry ETL tracts action that is a Tracts entry
  */
 async function store(entry) {
   let retCode = 0;
 
   // store tracts entry
   try {
-    if (typeof entry?.tracts === "string") {
+    if (typeof entry?.actions === "string") {
       // read tracts from file
-      let filename = entry.tracts;
+      let filename = entry.actions;
       let tracts = JSON.parse(fs.readFileSync(filename, "utf8"));
       // merge tracts into entry
-      delete entry.tracts;
+      delete entry.actions;
       entry = Object.assign({}, tracts, entry);
     }
 
     let results = await Storage.tracts.store(entry);
     logger.info("tracts store: " + entry.name + " " + results.message);
+    if (results.status !== 0)
+      retCode = 1;
   }
   catch (err) {
     logger.error(err);
@@ -83,7 +85,7 @@ async function store(entry) {
 
 /**
  *
- * @param {Object} request ETL tracts tract
+ * @param {Object} request ETL tracts action
  * @param {String|Object} request.urn tracts URN string or object
  */
 async function dull(request) {
@@ -104,7 +106,7 @@ async function dull(request) {
 
 /**
  *
- * @param {Object} request ETL tracts tract
+ * @param {Object} request ETL tracts action
  * @param {String|Object} request.urn tracts URN string or object
  * @param {Boolean} request.resolve resolve aliases
  */
@@ -127,7 +129,7 @@ async function recall(request) {
 
 /**
  *
- * @param {Object} request ETL tracts tract with query pattern
+ * @param {Object} request ETL tracts action with query pattern
  * @param {Object} request.pattern query pattern
  */
 async function retrieve(request) {

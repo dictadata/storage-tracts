@@ -13,13 +13,13 @@ const fs = require('fs');
 /**
  *
  */
-module.exports = async (tract) => {
+module.exports = async (action) => {
   logger.verbose("engrams ...");
   let retCode = 0;
   let fn;
 
   try {
-    for (let [ command, request ] of Object.entries(tract)) {
+    for (let [ command, request ] of Object.entries(action)) {
       if (command === "action" || command === "name") continue;
 
       // determine function to apply
@@ -54,7 +54,7 @@ module.exports = async (tract) => {
 
 /**
  *
- * @param {Object} entry ETL engrams tract that is a Engrams entry
+ * @param {Object} entry ETL engrams action that is a Engrams entry
  */
 async function store(entry) {
   let retCode = 0;
@@ -84,6 +84,8 @@ async function store(entry) {
     }
 
     logger.info("engrams store: " + entry.type + " " + entry.name + " " + results.message);
+    if (results.status !== 0)
+      retCode = 1;
   }
   catch (err) {
     logger.error(err);
@@ -95,7 +97,7 @@ async function store(entry) {
 
 /**
  *
- * @param {Object} request ETL engrams tract
+ * @param {Object} request ETL engrams action
  * @param {String|Object} request.urn engrams URN string or object
  */
 async function dull(request) {
@@ -116,7 +118,7 @@ async function dull(request) {
 
 /**
  *
- * @param {Object} request ETL engrams tract
+ * @param {Object} request ETL engrams action
  * @param {String|Object} request.urn engrams URN string or object
  * @param {Boolean} request.resolve resolve aliases
  */
@@ -139,7 +141,7 @@ async function recall(request) {
 
 /**
  *
- * @param {Object} request ETL engrams tract with query pattern
+ * @param {Object} request ETL engrams action with query pattern
  * @param {Object} request.pattern query pattern
  */
 async function retrieve(request) {

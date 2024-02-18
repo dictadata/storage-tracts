@@ -38,7 +38,7 @@
       "smt": "csv|./test/data/output/rest/|conjoin.csv|*",
       "options": {
         "header": true,
-        "encoding": "./test/data/input/encodings/weather_forecast.encoding.json"
+        "encoding": "./test/data/input/engrams/weather_forecast.engram.json"
       }
     }
   }

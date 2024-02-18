@@ -12,7 +12,7 @@ const stream = require('stream').promises;
 /**
  *
  */
-module.exports = async (tract) => {
+module.exports = async (action) => {
   logger.verbose("synchronize ...");
   let retCode = 0;
 
@@ -23,21 +23,21 @@ module.exports = async (tract) => {
     let writers = [];
 
     let pattern = Object.assign({ match: {} },
-      tract.origin.pattern);
+      action.origin.pattern);
 
-    // what is tract.state ???
-    pattern.match[ tract.state.field ] = {
-      "gt": tract.state.value
+    // what is action.state ???
+    pattern.match[ action.state.field ] = {
+      "gt": action.state.value
     };
 
-    let transforms = tract.transforms || [];
+    let transforms = action.transforms || [];
 
     logger.verbose(">>> Origin Tract");
-    if (!tract.origin.options) tract.origin.options = {};
-    if (!tract.terminal.options) tract.terminal.options = {};
+    if (!action.origin.options) action.origin.options = {};
+    if (!action.terminal.options) action.terminal.options = {};
 
-    logger.verbose(">>> create origin junction " + tract.origin.smt);
-    jo = await Storage.activate(tract.origin.smt, tract.origin.options);
+    logger.verbose(">>> create origin junction " + action.origin.smt);
+    jo = await Storage.activate(action.origin.smt, action.origin.options);
 
     logger.verbose(">>> getEncoding");
     let encoding = {};
@@ -53,7 +53,7 @@ module.exports = async (tract) => {
       // then run some data through the codifier
       let pipes = [];
 
-      let options = Object.assign({ max_read: tract.origin.options.max_read || 100 }, pattern);
+      let options = Object.assign({ max_read: action.origin.options.max_read || 100 }, pattern);
       let reader = jo.createReader(options);
       reader.on('error', (error) => {
         logger.error("synchronize reader: " + error.message);
@@ -82,15 +82,15 @@ module.exports = async (tract) => {
       reader = reader.pipe(await jo.createTransform(tfType, tfOptions));
     }
 
-    if (!tract.terminal.options.encoding) {
+    if (!action.terminal.options.encoding) {
       // use origin encoding
-      tract.terminal.options.encoding = encoding;
+      action.terminal.options.encoding = encoding;
     }
 
-    if (!Array.isArray(tract.terminal)) {
+    if (!Array.isArray(action.terminal)) {
       // a single terminal object
       logger.verbose(">>> Terminal Tract");
-      let terminal = tract.terminal;
+      let terminal = action.terminal;
 
       logger.verbose(">>> create terminal junction " + terminal.smt);
       let jt = await Storage.activate(terminal.smt, terminal.options);
@@ -113,7 +113,7 @@ module.exports = async (tract) => {
     else {
       // sub-terminal tracts
       logger.verbose(">>> Terminal Tee");
-      for (let branch of tract.terminal) {
+      for (let branch of action.terminal) {
         logger.verbose(">>> create branch junction " + branch.terminal.smt);
         let jt = await Storage.activate(branch.terminal.smt, branch.terminal.options);
         jtl.push(jt);
