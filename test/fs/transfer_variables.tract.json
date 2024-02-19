@@ -1,0 +1,23 @@
+{
+  "domain": "",
+  "name": "transfer_variables.tract",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "transfer",
+      "action": "transfer",
+      "origin": {
+        "smt": "json|${input}|${schema}.json|*"
+      },
+      "terminal": {
+        "smt": {
+          "model": "json",
+          "locus": "${output}/fs/",
+          "schema": "var_${schema}.json",
+          "key": "*"
+        },
+        "output": "${output}/fs/var_${schema}.json"
+      }
+    }
+  ]
+}

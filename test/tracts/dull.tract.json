@@ -1,0 +1,14 @@
+{
+  "domain": "",
+  "name": "dull.tract",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "dull_tracts",
+      "action": "tracts",
+      "dull": {
+        "urn": "foo:foo_transfer_two"
+      }
+    }
+  ]
+}

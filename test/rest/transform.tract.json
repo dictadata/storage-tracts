@@ -1,0 +1,41 @@
+{
+  "domain": "",
+  "name": "transform.tract",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "forecast",
+      "action": "transfer",
+      "origin": {
+        "smt": "rest|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*",
+        "options": {
+          "http": {
+            "headers": {
+              "Accept": "application/ld+json",
+              "User-Agent": "@dictadata.net/storage-node (info@dictadata.net)"
+            }
+          },
+          "extract": "periods"
+        }
+      },
+      "transforms": [
+        {
+          "transform": "mutate",
+          "select": [
+            "name",
+            "temperature",
+            "temperatureUnit",
+            "windSpeed",
+            "windDirection",
+            "shortForecast"
+          ]
+        }
+      ],
+      "terminal": {
+        "smt": "json|./test/data/output/rest/|transform.json|*",
+        "output": "./test/data/output/rest/transform.json",
+        "compareValues": 1
+      }
+    }
+  ]
+}

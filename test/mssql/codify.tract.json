@@ -1,0 +1,19 @@
+{
+  "domain": "",
+  "name": "codify.tract",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "codify",
+      "origin": {
+        "smt": "foo:mssql-foo_schema",
+        "options": {
+          "max_read": 100
+        }
+      },
+      "terminal": {
+        "output": "./test/data/output/mssql/codify.json"
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "domain": "",
+  "name": "retrieve.tract",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "engrams",
+      "action": "engrams",
+      "retrieve": {
+        "pattern": {
+          "match": {
+            "name": {
+              "wc": "foo_schema*"
+            }
+          }
+        },
+        "output": "./test/data/output/engrams/retrieve-foo_schemas.json"
+      }
+    }
+  ]
+}

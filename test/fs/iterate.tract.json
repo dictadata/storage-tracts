@@ -1,0 +1,32 @@
+{
+  "domain": "",
+  "name": "iterate.tract",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "iterate",
+      "action": "iterate",
+      "origin": {
+        "smt": "csv|./test/data/input/|foo_numbers.txt|*",
+        "options": {
+          "header": false,
+          "encoding": {
+            "filenum": "keyword"
+          }
+        }
+      },
+      "actions": [
+        {
+          "name": "each_file",
+          "action": "copy",
+          "origin": {
+            "smt": "*|./test/data/input/|foofile_${filenum}.json|*"
+          },
+          "terminal": {
+            "smt": "*|./test/data/output/fs/iterate/|foofile_${filenum}.json|*"
+          }
+        }
+      ]
+    }
+  ]
+}

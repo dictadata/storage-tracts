@@ -1,0 +1,26 @@
+{
+  "domain": "",
+  "name": "recall.tract",
+  "type": "tract",
+  "_config": {
+    "engrams": {
+      "smt": "elasticsearch|http://dev.dictadata.net:9200/|etl_tracts|*",
+      "options": {
+        "description": "test"
+      }
+    }
+  },
+  "actions": [
+    {
+      "name": "recall_tracts",
+      "action": "tracts",
+      "recall": {
+        "urn": {
+          "domain": "foo",
+          "name": "foo_transfer_two"
+        },
+        "output": "./test/data/output/tracts/recall-foo_transfer.tract.json"
+      }
+    }
+  ]
+}

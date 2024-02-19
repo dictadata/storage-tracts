@@ -1,0 +1,33 @@
+{
+  "domain": "",
+  "name": "list.tract",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "list_local",
+      "action": "list",
+      "origin": {
+        "smt": "json|ftp://dev.dictadata.net/dictadata/test/data/|foofile_*.json|*",
+        "options": {
+          "recursive": true
+        }
+      },
+      "terminal": {
+        "output": "./test/data/output/ftp/list.json"
+      }
+    },
+    {
+      "name": "list_tiger",
+      "action": "list",
+      "origin": {
+        "smt": "json|ftp://ftp2.census.gov/geo/tiger/TIGER2020/|*.pdf|*",
+        "options": {
+          "recursive": false
+        }
+      },
+      "terminal": {
+        "output": "./test/data/output/ftp/list_tiger.json"
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "domain": "",
+  "name": "list.tract",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "list",
+      "origin": {
+        "smt": "json|zip:./test/data/input/foofile.zip|foo*.json|*",
+        "options": {
+          "recursive": true
+        }
+      },
+      "terminal": {
+        "output": "./test/data/output/zip/list.json"
+      }
+    }
+  ]
+}

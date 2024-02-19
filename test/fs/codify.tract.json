@@ -1,0 +1,61 @@
+{
+  "domain": "",
+  "name": "codify.tract",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "codify",
+      "action": "codify",
+      "origin": {
+        "smt": "json|./test/data/input/|foofile.json|*",
+        "options": {
+          "max_read": 100
+        }
+      },
+      "terminal": {
+        "output": "./test/data/output/fs/codify.json"
+      }
+    },
+    {
+      "name": "codify_01",
+      "action": "codify",
+      "origin": {
+        "smt": "json|./test/data/input/|foofile_01.json|*",
+        "options": {
+          "max_read": 100
+        }
+      },
+      "terminal": {
+        "output": "./test/data/output/fs/codify_01.json"
+      }
+    },
+    {
+      "name": "types_only",
+      "action": "codify",
+      "origin": {
+        "smt": "json|./test/data/input/|foofile.json|*",
+        "options": {
+          "max_read": 100,
+          "encoding_format": "types_only"
+        }
+      },
+      "terminal": {
+        "output": "./test/data/output/fs/codify_types.json"
+      }
+    },
+    {
+      "name": "all_fields",
+      "action": "codify",
+      "origin": {
+        "smt": "json|./test/data/input/|foofile.json|*",
+        "options": {
+          "max_read": 100,
+          "encoding_format": "all"
+        }
+      },
+      "terminal": {
+        "output": "./test/data/output/fs/codify_all.json"
+      }
+    }
+  ]
+}

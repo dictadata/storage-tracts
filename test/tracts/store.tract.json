@@ -1,0 +1,41 @@
+{
+  "domain": "",
+  "name": "store.tract",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "store_tracts",
+      "action": "tracts",
+      "store": [
+        {
+          "domain": "foo",
+          "name": "foo_transfer",
+          "type": "tract",
+          "title": "foo transfer",
+          "description": "transfer foo data",
+          "source": "foo_transfer.tract.json",
+          "tags": [
+            "dictadata",
+            "foo",
+            "test"
+          ],
+          "actions": "./test/data/input/tracts/foo_transfer.tract.json"
+        },
+        {
+          "domain": "foo",
+          "name": "foo_transfer_two",
+          "type": "tract",
+          "title": "foo transfer two",
+          "description": "just two fields: Foo Bar",
+          "source": "modified foo_transfer.tract.json",
+          "tags": [
+            "dictadata",
+            "foo",
+            "test"
+          ],
+          "actions": "./test/data/input/tracts/foo_transfer.tract.json"
+        }
+      ]
+    }
+  ]
+}

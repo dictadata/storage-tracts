@@ -1,0 +1,19 @@
+{
+  "domain": "",
+  "name": "list.tract",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "list",
+      "origin": {
+        "smt": "json|http://dev.dictadata.net/dictadata/test/data/|foofile_*.json|*",
+        "options": {
+          "recursive": true
+        }
+      },
+      "terminal": {
+        "output": "./test/data/output/http/list.json"
+      }
+    }
+  ]
+}

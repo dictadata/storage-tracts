@@ -1,0 +1,26 @@
+{
+  "domain": "",
+  "name": "codify.tract",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "codify",
+      "origin": {
+        "smt": "rest|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*",
+        "options": {
+          "http": {
+            "headers": {
+              "Accept": "application/ld+json",
+              "User-Agent": "@dictadata.net/storage-tracts contact:info@dictadata.net"
+            }
+          },
+          "max_read": 100,
+          "extract": "periods"
+        }
+      },
+      "terminal": {
+        "output": "./test/data/output/rest/codify.json"
+      }
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "domain": "",
+  "name": "conjoin.tract",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "transfer_forecast",
+      "action": "transfer",
+      "origin": {
+        "smt": "rest|https://api.weather.gov/points/39.7456,-97.0892||=*",
+        "options": {
+          "http": {
+            "headers": {
+              "Accept": "application/ld+json",
+              "User-Agent": "@dictadata.net/storage-node contact:info@dictadata.net"
+            }
+          }
+        },
+        "pattern": {
+          "fields": [
+            "cwa",
+            "gridX",
+            "gridY"
+          ]
+        }
+      },
+      "transforms": [
+        {
+          "transform": "conjoin",
+          "smt": "rest|https://api.weather.gov/gridpoints/${cwa}/${gridX},${gridY}/|forecast|=*",
+          "options": {
+            "http": {
+              "headers": {
+                "Accept": "application/ld+json",
+                "User-Agent": "@dictadata.net/storage-node contact:info@dictadata.net"
+              }
+            },
+            "extract": "periods"
+          }
+        }
+      ],
+      "terminal": {
+        "smt": "csv|./test/data/output/rest/|conjoin.csv|*",
+        "options": {
+          "header": true,
+          "encoding": "./test/data/input/engrams/weather_forecast.engram.json"
+        }
+      }
+    }
+  ]
+}

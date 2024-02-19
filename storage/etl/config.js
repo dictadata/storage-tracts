@@ -79,20 +79,6 @@ module.exports.loadFiles = async (appArgs) => {
   // initialize app
   await configStorage(config);
 
-  if (typeOf(tract) === "object" && typeOf(tract?.actions) !== "array") {
-    // reformat tract properties into an array; for backwards compatibility
-    let tt = {
-      "name": appArgs.name,
-      "type": "tract",
-      "actions": []
-    };
-    for (let [ name, action ] of Object.entries(tract)) {
-      action.name = name
-      tt.actions.push(action);
-    }
-    tract = tt;
-  }
-
   return tract;
 };
 

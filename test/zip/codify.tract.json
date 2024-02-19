@@ -1,0 +1,19 @@
+{
+  "domain": "",
+  "name": "codify.tract",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "codify",
+      "origin": {
+        "smt": "json|zip:./test/data/input/foofile.zip|foofile.json|*",
+        "options": {
+          "max_read": 100
+        }
+      },
+      "terminal": {
+        "output": "./test/data/output/zip/codify.json"
+      }
+    }
+  ]
+}
