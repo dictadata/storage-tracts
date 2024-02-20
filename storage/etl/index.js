@@ -123,7 +123,7 @@ function parseArgs() {
         appArgs.name = u[ 1 ];
 
       let results = await Tracts.recall(urn, true);
-      tract = results.data[ urn ];
+      tract = results.data[ 0 ];
     }
 
     let base = tract.actions.find((action) => action.name === "_base");

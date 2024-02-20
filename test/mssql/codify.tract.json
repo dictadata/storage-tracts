@@ -12,7 +12,7 @@
         }
       },
       "terminal": {
-        "output": "./test/data/output/mssql/codify.json"
+        "output": "./test/data/output/mssql/codify.engram.json"
       }
     }
   ]

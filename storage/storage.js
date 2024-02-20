@@ -34,7 +34,7 @@ class StorageEtl extends Storage {
       if (results.status !== 0)
         throw new StorageError(results.status, results.message + ": " + smt);
 
-      let entry = results.data[ smt ];
+      let entry = results.data[ 0 ];
       _smt = entry.smt;
       if (entry.options)
         options = Object.assign({}, entry.options, options);
@@ -67,7 +67,7 @@ class StorageEtl extends Storage {
       if (results.status !== 0)
         throw new StorageError(results.status, results.message + ": " + smt);
 
-      let entry = results.data[ smt ];
+      let entry = results.data[ 0 ];
       _smt = entry.smt;
       if (entry.options)
         Object.assign(options, entry.options);

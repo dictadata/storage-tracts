@@ -3,7 +3,7 @@
   "name": "recall.tract",
   "type": "tract",
   "_config": {
-    "engrams": {
+    "tracts": {
       "smt": "elasticsearch|http://dev.dictadata.net:9200/|etl_tracts|*",
       "options": {
         "description": "test"

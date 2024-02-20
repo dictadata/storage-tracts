@@ -73,9 +73,9 @@ module.exports = exports = class Engrams {
   }
 
   /**
-   * Activate the Engrams Engrams junction
+   * Activate the Engrams junction
    *
-   * @param { SMT }    smt an SMT string or SMT object where Engrams Engrams data will be located. This parameter can NOT be an SMT name!
+   * @param { SMT }    smt an SMT string or SMT object where Engrams data will be located. This parameter can NOT be an SMT name!
    * @param { Object } options that will be passed to the underlying junction.
    * @returns true if underlying junction was activated successfully
    */
@@ -126,7 +126,7 @@ module.exports = exports = class Engrams {
         logger.debug("storage/engrams: schema exists");
       }
       else {
-        throw new StorageError(500, "unable to create engrams engrams schema");
+        throw new StorageError(500, "unable to create engrams schema");
       }
       this._active = true;
     }
@@ -168,14 +168,14 @@ module.exports = exports = class Engrams {
     // save in cache
     this._engrams.set(urn, encoding);
 
-    if (this._junction) {
-      // save in engrams
-      storageResults = await this._junction.store(encoding, { key: urn });
-      logger.verbose("storage/engrams: " + urn + ", " + storageResults.status);
+    if (!this._junction) {
+      storageResults.setResults(500, "Engrams junction not activated");
       return storageResults;
     }
 
-    storageResults.setResults(500, "Engrams Engrams junction not activated");
+    // save in engrams
+    storageResults = await this._junction.store(encoding, { key: urn });
+    logger.verbose("storage/engrams: " + urn + ", " + storageResults.status);
     return storageResults;
   }
 
@@ -198,13 +198,13 @@ module.exports = exports = class Engrams {
       }
     }
 
-    if (this._junction) {
-      // delete from engrams engrams
-      storageResults = await this._junction.dull({ key: urn });
+    if (!this._junction) {
+      storageResults.setResults(500, "Engrams junction not activated");
       return storageResults;
     }
 
-    storageResults.setResults(500, "Engrams Engrams junction not activated");
+    // delete from Engrams source
+    storageResults = await this._junction.dull({ key: urn });
     return storageResults;
   }
 
@@ -217,43 +217,37 @@ module.exports = exports = class Engrams {
    * @returns
    */
   async recall(urn, resolve = false) {
-    let storageResults = new StorageResults("map");
+    let storageResults = new StorageResults("array");
     urn = this.urn(urn);
 
     if (this._engrams.has(urn)) {
       // entry has been cached
       let entry = this._engrams.get(urn);
-      storageResults.add(entry, urn);
-    }
-    else if (this._junction) {
-      // go to the engrams engrams
-      storageResults = await this._junction.recall({ key: urn });
-      logger.verbose("storage/engrams: recall, " + storageResults.status);
-    }
-    else {
-      storageResults.setResults(404, "Not Found");
+      storageResults.add(entry);
+      return storageResults;
     }
 
-    if (storageResults.status === 0 && resolve) {
-      // check for alias smt
-      let encoding = storageResults.data[ urn ];
-      if (encoding.type === "alias") {
-        // recall the entry for the source urn
-        let results = await this.recall(encoding.source, resolve);
-
-        // return source value, NOTE: not the alias value
-        if (results.status === 0)
-          storageResults.data[ urn ] = results.data[ encoding.source ];
-      }
+    if (!this._junction) {
+      storageResults.setResults(500, "Engrams junction not activated");
+      return storageResults;
     }
 
-    if (storageResults.status === 0 && !resolve) {
-      // cache entry definition
-      let encoding = storageResults.data[ urn ];
-      if (urn === this.urn(encoding)) // double check it wasn't an alias lookup
-        this._engrams.set(urn, encoding);
+    let results = await this._junction.recall({ key: urn });
+    logger.verbose("storage/engrams: recall, " + results.status);
+    if (results.status !== 0) {
+      return results;
     }
 
+    let engram = results.data[ urn ];
+    if (resolve && engram.type === "alias") {
+      // recall the entry for the source urn
+      return await this.recall(engram.source, false);
+    }
+
+    // cache entry definition
+    this._engrams.set(urn, engram);
+
+    storageResults.add(engram);
     return storageResults;
   }
 
@@ -263,18 +257,21 @@ module.exports = exports = class Engrams {
    * @returns
    */
   async retrieve(pattern) {
-    let storageResults = new StorageResults("message");
+    let storageResults = new StorageResults("array");
 
-    if (this._junction) {
-      // current design does not cache entries from retrieved list
+    if (!this._junction) {
+      storageResults.setResults(500, "Engrams junction not activated");
+      return storageResults;
+    }
 
-      // retrieve list from engrams engrams
-      storageResults = await this._junction.retrieve(pattern);
-      logger.verbose("storage/engrams: retrieve, " + storageResults.status);
-    }
-    else {
-      storageResults.setResults(503, "Engrams Engrams Unavailable");
-    }
+    // retrieve list from engrams
+    let results = await this._junction.retrieve(pattern);
+    logger.verbose("storage/engrams: retrieve, " + results.status);
+
+    // current design does not cache entries from retrieved list
+
+    for (let [ urn, entry ] of Object.entries(results.data))
+      storageResults.add(entry);
 
     return storageResults;
   }

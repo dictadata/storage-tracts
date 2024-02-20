@@ -148,10 +148,10 @@ module.exports = exports = class Tracts {
       return storageResults;
     }
 
-    let key = this.urn(entry);
+    let urn = this.urn(entry);
 
-    // make sure smt are strings
     if (entry.type === "tract") {
+      // make sure smt are strings
       for (let action of entry?.actions) {
         if (typeof action.origin?.smt === "object") {
           let smt = new SMT(action.origin.smt);
@@ -165,16 +165,16 @@ module.exports = exports = class Tracts {
     }
 
     // save in cache
-    this._tracts.set(key, entry);
+    this._tracts.set(urn, entry);
 
-    if (this._junction) {
-      // save in source tracts
-      storageResults = await this._junction.store(entry, { key: key });
-      logger.verbose("storage/tracts: " + key + ", " + storageResults.status);
+    if (!this._junction) {
+      storageResults.setResults(500, "Tracts junction not activated");
       return storageResults;
     }
 
-    storageResults.setResults(500, "Tracts junction not activated");
+    // save in source tracts
+    storageResults = await this._junction.store(entry, { key: urn });
+    logger.verbose("storage/tracts: " + urn + ", " + storageResults.status);
     return storageResults;
   }
 
@@ -197,13 +197,13 @@ module.exports = exports = class Tracts {
       }
     }
 
-    if (this._junction) {
-      // delete from source tracts
-      storageResults = await this._junction.dull({ key: urn });
+    if (!this._junction) {
+      storageResults.setResults(500, "Tracts junction not activated");
       return storageResults;
     }
 
-    storageResults.setResults(500, "Tracts junction not activated");
+    // delete from Tracts source
+    storageResults = await this._junction.dull({ key: urn });
     return storageResults;
   }
 
@@ -216,43 +216,38 @@ module.exports = exports = class Tracts {
    * @returns
    */
   async recall(urn, resolve = false) {
-    let storageResults = new StorageResults("map");
+    let storageResults = new StorageResults("array");
     urn = this.urn(urn);
 
     if (this._tracts.has(urn)) {
       // entry has been cached
       let entry = this._tracts.get(urn);
       storageResults.add(entry, urn);
-    }
-    else if (this._junction) {
-      // go to the source tracts
-      storageResults = await this._junction.recall({ key: urn });
-      logger.verbose("storage/tracts: recall, " + storageResults.status);
-    }
-    else {
-      storageResults.setResults(404, "Not Found");
+      return storageResults;
     }
 
-    if (storageResults.status === 0 && resolve) {
-      // check for alias smt
-      let entry = storageResults.data[ urn ];
-      if (entry.type === "alias") {
-        // recall the entry for the source urn
-        let results = await this.recall(entry.source, resolve);
-
-        // return source value, NOTE: not the alias value
-        if (results.status === 0)
-          storageResults.data[ urn ] = results.data[ entry.source ];
-      }
+    if (!this._junction) {
+      storageResults.setResults(500, "Tracts junction not activated");
+      return storageResults;
     }
 
-    if (storageResults.status === 0 && !resolve) {
-      // cache tracts definition
-      let entry = storageResults.data[ urn ];
-      if (urn === this.urn(entry)) // double check it wasn't an alias lookup
-        this._tracts.set(urn, entry);
+    // go to the source tracts
+    let results = await this._junction.recall({ key: urn });
+    logger.verbose("storage/tracts: recall, " + results.status);
+    if (results.status !== 0) {
+      return results;
     }
 
+    let tract = results.data[ urn ];
+    if (resolve && tract.type === "alias") {
+      // recall the entry for the source urn
+      return await this.recall(tract.source, false);
+    }
+
+    // cache entry definition
+    this._tracts.set(urn, tract);
+
+    storageResults.add(tract);
     return storageResults;
   }
 
@@ -262,18 +257,21 @@ module.exports = exports = class Tracts {
    * @returns
    */
   async retrieve(pattern) {
-    let storageResults = new StorageResults("message");
+    let storageResults = new StorageResults("array");
 
-    if (this._junction) {
-      // current design does not cache entries from retrieved list
+    if (!this._junction) {
+      storageResults.setResults(500, "Tracts junction not activated");
+      return storageResults;
+    }
 
-      // retrieve list from source tracts
-      storageResults = await this._junction.retrieve(pattern);
-      logger.verbose("storage/tracts: retrieve, " + storageResults.status);
-    }
-    else {
-      storageResults.setResults(503, "Tracts Unavailable");
-    }
+    // retrieve list from source tracts
+    let results = await this._junction.retrieve(pattern);
+    logger.verbose("storage/tracts: retrieve, " + results.status);
+
+    // current design does not cache entries from retrieved list
+
+    for (let [ urn, entry ] of Object.entries(results.data))
+      storageResults.add(entry);
 
     return storageResults;
   }

@@ -13,7 +13,7 @@
         }
       },
       "terminal": {
-        "output": "./test/data/output/fs/codify.json"
+        "output": "./test/data/output/fs/codify.engram.json"
       }
     },
     {
@@ -26,7 +26,7 @@
         }
       },
       "terminal": {
-        "output": "./test/data/output/fs/codify_01.json"
+        "output": "./test/data/output/fs/codify_01.engram.json"
       }
     },
     {
@@ -40,7 +40,7 @@
         }
       },
       "terminal": {
-        "output": "./test/data/output/fs/codify_types.json"
+        "output": "./test/data/output/fs/codify_types.engram.json"
       }
     },
     {
@@ -54,7 +54,7 @@
         }
       },
       "terminal": {
-        "output": "./test/data/output/fs/codify_all.json"
+        "output": "./test/data/output/fs/codify_all.engram.json"
       }
     }
   ]

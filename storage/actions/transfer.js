@@ -23,7 +23,7 @@ module.exports = async (action) => {
   // resolve urn
   if (typeof action?.urn === "string") {
     let results = await Storage.tracts.recall(action.urn);
-    action = results.data[ action.urn ].actions[0];
+    action = results.data[ 0 ].actions[0];
   }
 
   var origin = action.origin || {};

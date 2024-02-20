@@ -37,9 +37,7 @@ var configDefaults = {
  */
 module.exports.loadFiles = async (appArgs) => {
   let tract = {};
-
   let config = Object.assign({}, configDefaults);
-  let errorMessage;
 
   try {
     // config file
@@ -56,7 +54,7 @@ module.exports.loadFiles = async (appArgs) => {
     objCopy(tract, configObj);
   }
   catch (err) {
-    errorMessage = err.message;
+    console.warn(err.message);
   }
 
   if (appArgs.tract.endsWith(".json")) {

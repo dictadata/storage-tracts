@@ -1,34 +1,29 @@
-{
-  "domain": "",
-  "name": "recall-foo_transfer.tract",
-  "type": "tract",
-  "actions": [
+[
+  {
+   "domain": "foo",
+   "name": "foo_transfer_two",
+   "type": "tract",
+   "title": "foo transfer two",
+   "description": "just two fields: Foo Bar",
+   "notes": "tract definitions: 1",
+   "tags": [
+    "dictadata",
+    "foo",
+    "test"
+   ],
+   "actions": [
     {
-      "name": "foo_transfer_two",
-      "domain": "foo",
-      "type": "tract",
-      "title": "foo transfer two",
-      "description": "just two fields: Foo Bar",
-      "notes": "tract definitions: 1",
-      "tags": [
-        "dictadata",
-        "foo",
-        "test"
-      ],
-      "actions": [
-        {
-          "name": "json-json",
-          "action": "transfer",
-          "description": "transfer foo from json to json",
-          "origin": {
-            "smt": "json|./test/data/input/|foofile.json|*"
-          },
-          "terminal": {
-            "smt": "json|./test/data/output/tracts/|transfer_foofile.json|*"
-          }
-        }
-      ],
-      "source": "modified foo_transfer.tract.json"
+     "name": "json-json",
+     "action": "transfer",
+     "description": "transfer foo from json to json",
+     "origin": {
+      "smt": "json|./test/data/input/|foofile.json|*"
+     },
+     "terminal": {
+      "smt": "json|./test/data/output/tracts/|transfer_foofile.json|*"
+     }
     }
-  ]
-}
+   ],
+   "source": "modified foo_transfer.tract.json"
+  }
+ ]

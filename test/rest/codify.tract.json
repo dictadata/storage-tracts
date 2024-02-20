@@ -19,7 +19,7 @@
         }
       },
       "terminal": {
-        "output": "./test/data/output/rest/codify.json"
+        "output": "./test/data/output/rest/codify.engram.json"
       }
     }
   ]
