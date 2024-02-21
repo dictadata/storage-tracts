@@ -61,13 +61,13 @@ async function store(entry) {
 
   // store tracts entry
   try {
-    if (typeof entry?.actions === "string") {
+    if (typeof entry?.tract === "string") {
       // read tracts from file
-      let filename = entry.actions;
-      let tracts = JSON.parse(fs.readFileSync(filename, "utf8"));
+      let filename = entry.tract;
+      let tract = JSON.parse(fs.readFileSync(filename, "utf8"));
       // merge tracts into entry
-      delete entry.actions;
-      entry = Object.assign({}, tracts, entry);
+      delete entry.tract;
+      entry = Object.assign({}, tract, entry);
     }
 
     let results = await Storage.tracts.store(entry);
