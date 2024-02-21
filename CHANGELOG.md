@@ -1,5 +1,12 @@
 # CHANGELOG:  @dictadata/storage-tracts
 
+- version 0.9.75
+  - refactor: variable replacement in iterate sub-actions
+  - refactor: Engrams, Tracts now return arrays
+  - feature: implement transfer _base action
+  - refactor: engrams and tracts, tract, actions
+  - bug fix: return copies of cached engrams and tracts
+  - updated: @dictadata/storage-junctions@0.9.102
 - version 0.9.74
   - feature: parameterized tracts
   - updated: @dictadata/storage-junctions@0.9.101

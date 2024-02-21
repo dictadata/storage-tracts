@@ -1,6 +1,6 @@
 {
   "name": "@dictadata/storage-tracts",
-  "version": "0.9.74",
+  "version": "0.9.75",
   "description": "Node.js library and command line utility to transfer and transform data between data sources.",
   "author": "Drew O. Letcher",
   "license": "MIT",
@@ -38,7 +38,7 @@
     "node": ">=17.0.0"
   },
   "dependencies": {
-    "@dictadata/storage-junctions": "^0.9.101",
+    "@dictadata/storage-junctions": "^0.9.102",
     "colors": "^1.4.0",
     "dot-object": "^2.1.4",
     "winston": "^3.11.0",
