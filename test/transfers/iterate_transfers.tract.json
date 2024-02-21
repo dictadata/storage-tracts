@@ -1,0 +1,42 @@
+{
+  "domain": "foo",
+  "name": "iterate.tract",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "bar_iterate",
+      "action": "iterate",
+      "origin": {
+        "smt": "$:engrams",
+        "pattern": {
+          "match": {
+            "tags": "bar"
+          },
+          "fields": [ "smt", "fields" ]
+        }
+      },
+      "terminal": {
+        "smt": "json|./test/data/output/transfers/|iterate_transfer.json|*",
+        "options": {
+          "results_separator": ","
+        },
+        "output": "./test/data/output/transfers/iterate_transfer.json"
+      },
+      "actions": [
+        {
+          "name": "each_entry",
+          "action": "transfer",
+          "origin": {
+            "smt": "=${smt}",
+            "options": {
+              "encoding": { "fields": "=${fields}"}
+            }
+          },
+          "terminal": {
+            "smt": "$:smt"
+          }
+        }
+      ]
+    }
+  ]
+}

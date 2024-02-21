@@ -5,7 +5,9 @@
 
 const Storage = require("../storage");
 const { logger } = require('../utils');
+const { typeOf } = require('@dictadata/storage-junctions/utils');
 const { perform } = require('./');
+const output = require('./output');
 
 /**
  * Retrieve data from origin smt
@@ -17,39 +19,66 @@ module.exports = async (action) => {
   let retCode = 0;
 
   var jo;
+  var jt;
+  var writer;
+  var results_separator;
   try {
-    // get constructs from source
     if (!action.origin.options)
       action.origin.options = {};
     jo = await Storage.activate(action.origin.smt, action.origin.options);
-    let { data: list } = await jo.retrieve();
+
+    if (action.terminal) {
+      if (!action.terminal.options)
+        action.terminal.options = {};
+      jt = await Storage.activate(action.terminal.smt, action.terminal.options);
+      writer = jt.createWriter();
+      results_separator = action.terminal.options.results_separator;
+    }
+
+    // get constructs from source
+    let { data: list } = await jo.retrieve(action.origin.pattern);
     jo.relax();
 
+    if (typeOf(list) === "object")
+      list = Object.values(list);
+
     // loop through list and process each schema
+    let separator;
     for (let entry of list) {
 
-      // check exclusion list
-      // TBD
-
-      // set string replacement values
-      let replacements = {};
-      for (let [ name, value ] of Object.entries(entry)) {
-        if (typeof value === "string" || typeof value === "number" || typeof value === "boolean")
-          replacements[ name ] = value;
-      }
-
-      // loop thru subactions
+      // loop thru sub actions
       for (const subaction of action.actions) {
-        await perform(subaction, replacements);
+
+        if (subaction.terminal?.smt === "$:smt" && action.terminal) {
+          subaction.terminal.smt = Object.assign({}, jt.smt,
+            {
+              locus: "stream:*"
+            });
+          subaction.terminal.options = Object.assign({}, subaction.terminal.options,
+            {
+              writer: writer.ws,
+              autoClose: false
+            });
+        }
+
+        if (separator && writer)
+          writer.ws.write(separator);
+
+        await perform(subaction, entry);
+
+        separator = results_separator;
       }
     }
 
-    /* could record some result logging
-    if (action.terminal?.output) {
-      logger.debug(JSON.stringify(<results>, null, " "));
-      retCode = output(action.terminal.output, <results>);
+    if (writer) {
+      await new Promise((resolve) => {
+        writer.end(resolve);
+      });
     }
-    */
+
+    if (action.terminal?.output) {
+      retCode = output(action.terminal.output, null, 1);
+    }
 
     logger.info("=== completed");
   }
@@ -59,6 +88,7 @@ module.exports = async (action) => {
   }
   finally {
     if (jo) await jo.relax();
+    if (jt) await jt.relax();
   }
 
   return retCode;
