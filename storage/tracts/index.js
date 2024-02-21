@@ -14,7 +14,7 @@
 
 const Storage = require("../storage");
 const { SMT, Tract, StorageResults, StorageError } = require("@dictadata/storage-junctions/types");
-const { hasOwnProperty, logger } = require("@dictadata/storage-junctions/utils");
+const { logger, objCopy } = require("@dictadata/storage-junctions/utils");
 const fs = require("node:fs");
 const homedir = process.env[ "HOMEPATH" ] || require('os').homedir();
 
@@ -165,7 +165,7 @@ module.exports = exports = class Tracts {
     }
 
     // save in cache
-    this._tracts.set(urn, entry);
+    this._tracts.set(urn, objCopy({}, entry));
 
     if (!this._junction) {
       storageResults.setResults(500, "Tracts junction not activated");
@@ -218,34 +218,35 @@ module.exports = exports = class Tracts {
   async recall(urn, resolve = false) {
     let storageResults = new StorageResults("array");
     urn = this.urn(urn);
+    let tract;
 
     if (this._tracts.has(urn)) {
       // entry has been cached
-      let entry = this._tracts.get(urn);
-      storageResults.add(entry, urn);
-      return storageResults;
+      tract = this._tracts.get(urn);
+      tract = objCopy({}, tract);
+    }
+    else {
+      if (!this._junction) {
+        storageResults.setResults(500, "Tracts junction not activated");
+        return storageResults;
+      }
+
+      // go to the source tracts
+      let results = await this._junction.recall({ key: urn });
+      logger.verbose("storage/tracts: recall, " + results.status);
+      if (results.status !== 0) {
+        return results;
+      }
+
+      tract = results.data[ urn ];
+      // cache entry definition
+      this._tracts.set(urn, objCopy({}, tract));
     }
 
-    if (!this._junction) {
-      storageResults.setResults(500, "Tracts junction not activated");
-      return storageResults;
-    }
-
-    // go to the source tracts
-    let results = await this._junction.recall({ key: urn });
-    logger.verbose("storage/tracts: recall, " + results.status);
-    if (results.status !== 0) {
-      return results;
-    }
-
-    let tract = results.data[ urn ];
     if (resolve && tract.type === "alias") {
       // recall the entry for the source urn
       return await this.recall(tract.source, false);
     }
-
-    // cache entry definition
-    this._tracts.set(urn, tract);
 
     storageResults.add(tract);
     return storageResults;
@@ -267,6 +268,9 @@ module.exports = exports = class Tracts {
     // retrieve list from source tracts
     let results = await this._junction.retrieve(pattern);
     logger.verbose("storage/tracts: retrieve, " + results.status);
+    if (results.status !== 0) {
+      return results;
+    }
 
     // current design does not cache entries from retrieved list
 

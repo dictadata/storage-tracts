@@ -15,7 +15,7 @@
 const Storage = require("../storage");
 const { Engram } = require("../types");
 const { SMT, StorageResults, StorageError } = require("@dictadata/storage-junctions/types");
-const { hasOwnProperty, logger } = require("@dictadata/storage-junctions/utils");
+const { logger, hasOwnProperty, objCopy } = require("@dictadata/storage-junctions/utils");
 const fs = require("node:fs");
 const homedir = process.env[ "HOMEPATH" ] || require('os').homedir();
 
@@ -166,7 +166,7 @@ module.exports = exports = class Engrams {
     let urn = this.urn(encoding);
 
     // save in cache
-    this._engrams.set(urn, encoding);
+    this._engrams.set(urn, objCopy({}, encoding));
 
     if (!this._junction) {
       storageResults.setResults(500, "Engrams junction not activated");
@@ -219,33 +219,33 @@ module.exports = exports = class Engrams {
   async recall(urn, resolve = false) {
     let storageResults = new StorageResults("array");
     urn = this.urn(urn);
+    let engram;
 
     if (this._engrams.has(urn)) {
       // entry has been cached
-      let entry = this._engrams.get(urn);
-      storageResults.add(entry);
-      return storageResults;
+      engram = objCopy({}, this._engrams.get(urn));
+    }
+    else {
+      if (!this._junction) {
+        storageResults.setResults(500, "Engrams junction not activated");
+        return storageResults;
+      }
+
+      let results = await this._junction.recall({ key: urn });
+      logger.verbose("storage/engrams: recall, " + results.status);
+      if (results.status !== 0) {
+        return results;
+      }
+
+      engram = results.data[ urn ];
+      // cache entry definition
+      this._engrams.set(urn, objCopy(engram));
     }
 
-    if (!this._junction) {
-      storageResults.setResults(500, "Engrams junction not activated");
-      return storageResults;
-    }
-
-    let results = await this._junction.recall({ key: urn });
-    logger.verbose("storage/engrams: recall, " + results.status);
-    if (results.status !== 0) {
-      return results;
-    }
-
-    let engram = results.data[ urn ];
     if (resolve && engram.type === "alias") {
       // recall the entry for the source urn
       return await this.recall(engram.source, false);
     }
-
-    // cache entry definition
-    this._engrams.set(urn, engram);
 
     storageResults.add(engram);
     return storageResults;
@@ -267,6 +267,9 @@ module.exports = exports = class Engrams {
     // retrieve list from engrams
     let results = await this._junction.retrieve(pattern);
     logger.verbose("storage/engrams: retrieve, " + results.status);
+    if (results.status !== 0) {
+      return results;
+    }
 
     // current design does not cache entries from retrieved list
 
