@@ -30,8 +30,23 @@ function replace(src, params) {
     if (srcType === "Object" || srcType === "SMT") {
       replace(value, params);
     }
+    else if (srcType === "Array" && name === "actions") {
+      for (let action of value)
+        replace(action, params);
+    }
     else if (srcType === "String") {
-      if (value.indexOf("${") >= 0) {
+      if (value.indexOf("=${") === 0) {
+        // replace the entire value, e.g. number, boolean or object
+        for (let [ pname, pval ] of Object.entries(params)) {
+          if (value.indexOf("=${" + pname + "}") === 0) {
+            value = pval;
+            break;
+          }
+        }
+        src[ name ] = value;
+      }
+      else if (value.indexOf("${") >= 0) {
+        // replace values inside a string
         for (let [ pname, pval ] of Object.entries(params)) {
           var regex = new RegExp("\\${" + pname + "}", "g");
           value = value.replace(regex, pval);
@@ -39,6 +54,7 @@ function replace(src, params) {
         src[ name ] = value;
       }
     }
+
   }
 
   return src;
