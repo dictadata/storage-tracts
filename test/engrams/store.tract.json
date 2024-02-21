@@ -8,10 +8,10 @@
       "action": "engrams",
       "store": [
         {
+          "engram": "./test/data/input/engrams/foo_schema.engram.json",
           "name": "foo_schema",
           "type": "engram",
           "smt": "json|./test/data/input/|foofile.json|*",
-          "encoding": "./test/data/input/engrams/foo_schema.engram.json",
           "title": "foo schema",
           "description": "the original foo file",
           "source": "foo_schema.engram.json",
@@ -22,10 +22,10 @@
           ]
         },
         {
+          "engram": "./test/data/input/engrams/foo_schema_two.engram.json",
           "name": "foo_schema_two",
           "type": "engram",
           "smt": "json|./test/data/input/|foofile.json|*",
-          "encoding": "./test/data/input/engrams/foo_schema_two.engram.json",
           "title": "foo schema two",
           "description": "just two fields: Foo Bar",
           "source": "modified foo_schema.engram.json",

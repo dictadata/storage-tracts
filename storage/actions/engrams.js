@@ -60,13 +60,13 @@ async function store(entry) {
   let retCode = 0;
 
   try {
-    if (typeof entry?.encoding === "string") {
-      // read encoding from file
-      let filename = entry.encoding;
-      let encoding = JSON.parse(fs.readFileSync(filename, "utf8"));
-      // merge encoding into entry
-      delete entry.encoding;
-      entry = Object.assign({}, encoding, entry);
+    if (typeof entry?.engram === "string") {
+      // read engram from file
+      let filename = entry.engram;
+      let engram = JSON.parse(fs.readFileSync(filename, "utf8"));
+      // merge engram into entry
+      delete entry.engram;
+      entry = Object.assign({}, engram, entry);
     }
 
     let results;
