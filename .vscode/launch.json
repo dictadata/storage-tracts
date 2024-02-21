@@ -42,7 +42,7 @@
         "engrams"
       ],
       "env": {
-        "NODE_ENV": "production",
+        "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
       },
       "outputCapture": "std"
@@ -64,7 +64,7 @@
         "engrams"
       ],
       "env": {
-        "NODE_ENV": "production",
+        "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
       },
       "outputCapture": "std"
@@ -86,7 +86,7 @@
         "engrams"
       ],
       "env": {
-        "NODE_ENV": "production",
+        "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
       },
       "outputCapture": "std"
@@ -106,7 +106,7 @@
         "engrams"
       ],
       "env": {
-        "NODE_ENV": "production",
+        "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
       },
       "outputCapture": "std"
@@ -126,7 +126,7 @@
         "engrams"
       ],
       "env": {
-        "NODE_ENV": "production",
+        "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
       },
       "outputCapture": "std"
@@ -151,7 +151,7 @@
         "list"
       ],
       "env": {
-        "NODE_ENV": "production",
+        "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
       },
       "outputCapture": "std"
@@ -1026,7 +1026,7 @@
         "store_tracts"
       ],
       "env": {
-        "NODE_ENV": "production",
+        "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
       },
       "outputCapture": "std"
@@ -1048,7 +1048,7 @@
         "recall_tracts"
       ],
       "env": {
-        "NODE_ENV": "production",
+        "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
       },
       "outputCapture": "std"
@@ -1070,7 +1070,7 @@
         "dull_tracts"
       ],
       "env": {
-        "NODE_ENV": "production",
+        "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
       },
       "outputCapture": "std"
@@ -1090,7 +1090,7 @@
         "retrieve_tracts"
       ],
       "env": {
-        "NODE_ENV": "production",
+        "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
       },
       "outputCapture": "std"
@@ -1110,7 +1110,7 @@
         "add_tracts"
       ],
       "env": {
-        "NODE_ENV": "production",
+        "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
       },
       "outputCapture": "std"
@@ -1135,7 +1135,27 @@
         "*"
       ],
       "env": {
-        "NODE_ENV": "production",
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "iterate transfers",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage/etl/index.js",
+      "runtimeArgs": [
+        "--trace-warnings"
+      ],
+      "args": [
+        "-t",
+        "${workspaceFolder}/test/transfers/iterate_transfers.tract.json",
+        "*"
+      ],
+      "env": {
+        "NODE_ENV": "development",
         "LOG_LEVEL": "verbose"
       },
       "outputCapture": "std"
