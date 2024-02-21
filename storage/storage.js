@@ -29,17 +29,27 @@ class StorageEtl extends Storage {
 
     // lookup/verify SMT object
     if (typeof smt === "string" && smt.indexOf('|') < 0 && StorageEtl.engrams?.isActive) {
-      // lookup urn in Engrams
-      let results = await StorageEtl.engrams.recall(smt, true);
-      if (results.status !== 0)
-        throw new StorageError(results.status, results.message + ": " + smt);
+      if (smt === "$:engrams") {
+        _smt = StorageEtl.engrams.smt;
+        options = StorageEtl.engrams.options;
+      }
+      else if (smt === "$:tracts" && StorageEtl.tracts?.isActive) {
+        _smt = StorageEtl.tracts.smt;
+        options = StorageEtl.tracts.options;
+      }
+      else {
+        // lookup urn in Engrams
+        let results = await StorageEtl.engrams.recall(smt, true);
+        if (results.status !== 0)
+          throw new StorageError(results.status, results.message + ": " + smt);
 
-      let entry = results.data[ 0 ];
-      _smt = entry.smt;
-      if (entry.options)
-        options = Object.assign({}, entry.options, options);
-      if (!options.encoding && entry.fields && entry.fields.length)
-        options.encoding = { fields: entry.fields };
+        let entry = results.data[ 0 ];
+        _smt = entry.smt;
+        if (entry.options)
+          options = Object.assign({}, entry.options, options);
+        if (!options.encoding && entry.fields && entry.fields.length)
+          options.encoding = { fields: entry.fields };
+      }
     }
     else {
       // SMT string or object
@@ -62,17 +72,25 @@ class StorageEtl extends Storage {
 
     // lookup/verify SMT object
     if (typeof smt === "string" && smt.indexOf('|') < 0 && StorageEtl.engrams?.isActive) {
-      // lookup urn in Engrams
-      let results = await StorageEtl.engrams.recall(smt, true);
-      if (results.status !== 0)
-        throw new StorageError(results.status, results.message + ": " + smt);
+      if (smt === "$:engrams") {
+        _smt = StorageEtl.engrams.smt;
+      }
+      else if (smt === "$:tracts" && StorageEtl.tracts?.isActive) {
+        _smt = StorageEtl.tracts.smt;
+      }
+      else {
+        // lookup urn in Engrams
+        let results = await StorageEtl.engrams.recall(smt, true);
+        if (results.status !== 0)
+          throw new StorageError(results.status, results.message + ": " + smt);
 
-      let entry = results.data[ 0 ];
-      _smt = entry.smt;
-      if (entry.options)
-        Object.assign(options, entry.options);
-      if (!options.encoding && entry.fields && entry.fields.length)
-        options.encoding = { fields: entry.fields };
+        let entry = results.data[ 0 ];
+        _smt = entry.smt;
+        if (entry.options)
+          Object.assign(options, entry.options);
+        if (!options.encoding && entry.fields && entry.fields.length)
+          options.encoding = { fields: entry.fields };
+      }
     }
     else {
       // SMT string or object
