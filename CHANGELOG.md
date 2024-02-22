@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-tracts
 
+- version 0.9.76
+  - refactor: actions replace params
 - version 0.9.75
   - refactor: variable replacement in iterate sub-actions
   - refactor: Engrams, Tracts now return arrays
