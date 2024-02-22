@@ -733,7 +733,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks"
+        "--preserve-symlinks", "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -1147,7 +1147,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--trace-warnings"
+        "--preserve-symlinks", "--trace-warnings"
       ],
       "args": [
         "-t",

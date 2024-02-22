@@ -42,8 +42,10 @@
         "smt": "csv|/var/dictadata/test/data/input/|timeseries.csv|*",
         "options": {
           "encoding": {
-            "time": "date",
-            "temp": "number"
+            "fields": {
+              "time": "date",
+              "temp": "number"
+            }
           }
         }
       },

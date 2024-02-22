@@ -11,7 +11,9 @@
         "options": {
           "header": false,
           "encoding": {
-            "filenum": "keyword"
+            "fields": {
+              "filenum": "keyword"
+            }
           }
         }
       },
