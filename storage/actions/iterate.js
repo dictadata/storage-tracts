@@ -4,6 +4,7 @@
 "use strict";
 
 const Storage = require("../storage");
+const { SMT } = require("@dictadata/storage-junctions/types")
 const { logger } = require('../utils');
 const { typeOf } = require('@dictadata/storage-junctions/utils');
 const { perform } = require('./');
@@ -49,16 +50,32 @@ module.exports = async (action) => {
       // loop thru sub actions
       for (const subaction of action.actions) {
 
-        if (subaction.terminal?.smt === "$:smt" && action.terminal) {
-          subaction.terminal.smt = Object.assign({}, jt.smt,
-            {
-              locus: "stream:*"
-            });
-          subaction.terminal.options = Object.assign({}, subaction.terminal.options,
-            {
-              writer: writer.ws,
-              autoClose: false
-            });
+        if (subaction.terminal?.smt === "$:smt" && jt) {
+          if (jt.capabilities.filesystem) {
+            subaction.terminal.smt = Object.assign({}, jt.smt,
+              {
+                locus: "stream:*"
+              });
+            subaction.terminal.options = Object.assign({}, subaction.terminal.options,
+              {
+                writer: writer.ws,
+                autoClose: false
+              });
+
+            if (!results_separator && jt.smt.model === "json")
+              results_separator = ",";
+          }
+          else {
+            subaction.terminal.smt = Object.assign({}, jt.smt,
+              {
+                model: "$"
+              });
+            subaction.terminal.options = Object.assign({}, subaction.terminal.options,
+              {
+                junction: jt,
+                autoClose: false
+              });
+          }
         }
 
         if (separator && writer)

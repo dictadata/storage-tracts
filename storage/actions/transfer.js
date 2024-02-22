@@ -7,6 +7,7 @@
 "use strict";
 
 const Storage = require("../storage");
+const { hasOwnProperty } = require("@dictadata/storage-junctions/utils")
 const { logger } = require('../utils');
 const output = require('./output');
 
@@ -32,6 +33,8 @@ module.exports = async (action) => {
   if (!origin.options) origin.options = {};
   if (!terminal.options) terminal.options = {};
 
+  let autoClose = hasOwnProperty(terminal.options, "autoClose") ? terminal.options.autoClose : true;
+
   var jo, jt;  // junctions origin, terminal
   try {
     // note, at this point file encodings have been read by actions.js
@@ -45,7 +48,7 @@ module.exports = async (action) => {
     let encoding = origin.options.encoding;
     if (!encoding && jo.capabilities.encoding) {
       let results = await jo.getEngram();  // load encoding from origin for validation
-      if (results.type === "encoding")
+      if (results.type === "engram")
         encoding = results.data;
     }
 
@@ -88,7 +91,7 @@ module.exports = async (action) => {
       throw new Error("invalid terminal encoding");
 
     //logger.debug(">>> encoding results");
-    //logger.debug(JSON.stringify(terminal.options.engram.fields, null, " "));
+    //logger.debug(JSON.stringify(terminal.options.encoding.fields, null, " "));
 
     /// create terminal junction
     logger.verbose(">>> create terminal junction " + JSON.stringify(terminal.smt));
@@ -145,7 +148,7 @@ module.exports = async (action) => {
   finally {
     if (jo)
       await jo.relax();
-    if (jt)
+    if (jt && autoClose)
       await jt.relax();
   }
 

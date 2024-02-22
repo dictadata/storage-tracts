@@ -4,6 +4,45 @@
   "type": "tract",
   "actions": [
     {
+      "name": "foo_iterate_es",
+      "action": "iterate",
+      "origin": {
+        "smt": "$:engrams",
+        "pattern": {
+          "match": {
+            "tags": "bar"
+          },
+          "fields": [ "smt", "fields" ]
+        }
+      },
+      "terminal": {
+        "smt": "elasticsearch|http://dev.dictadata.net:9200|iterate_transfer|=Foo",
+        "options": {
+          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+        }
+      },
+      "actions": [
+        {
+          "name": "each_entry",
+          "action": "transfer",
+          "origin": {
+            "smt": "=${smt}",
+            "options": {
+              "encoding": { "fields": "=${fields}"}
+            },
+            "pattern": {
+              "match": {
+                "Foo": "second"
+              }
+            }
+          },
+          "terminal": {
+            "smt": "$:smt"
+          }
+        }
+      ]
+    },
+    {
       "name": "bar_iterate",
       "action": "iterate",
       "origin": {
@@ -17,9 +56,6 @@
       },
       "terminal": {
         "smt": "json|./test/data/output/transfers/|iterate_transfer.json|*",
-        "options": {
-          "results_separator": ","
-        },
         "output": "./test/data/output/transfers/iterate_transfer.json"
       },
       "actions": [
