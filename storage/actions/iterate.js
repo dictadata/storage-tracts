@@ -6,7 +6,7 @@
 const Storage = require("../storage");
 const { SMT } = require("@dictadata/storage-junctions/types")
 const { logger } = require('../utils');
-const { typeOf } = require('@dictadata/storage-junctions/utils');
+const { typeOf, objCopy } = require('@dictadata/storage-junctions/utils');
 const { perform } = require('./');
 const output = require('./output');
 
@@ -48,7 +48,8 @@ module.exports = async (action) => {
     for (let entry of list) {
 
       // loop thru sub actions
-      for (const subaction of action.actions) {
+      for (const sub of action.actions) {
+        let subaction = objCopy({}, sub);
 
         if (subaction.terminal?.smt === "$:smt" && jt) {
           if (jt.capabilities.filesystem) {
