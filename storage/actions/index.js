@@ -19,64 +19,36 @@ function use(name, fn) {
  * @returns
  */
 function replace(src, params) {
-  if (typeOf(src) !== "object")
-    return;
+  let srcType = typeOf(src, true);
 
-  let names = Object.keys(src);
-  for (let name of names) {
-    let value = src[ name ];
-    let srcType = typeOf(value, true);
-
-    if (srcType === "Object" || srcType === "SMT") {
-      replace(value, params);
-    }
-    else if (srcType === "Array" && name === "actions") {
-      for (let action of value)
-        replace(action, params);
-    }
-    else if (srcType === "String") {
-      if (value.indexOf("=${") === 0) {
-        // replace the entire value, e.g. number, boolean or object
-        for (let [ pname, pval ] of Object.entries(params)) {
-          if (value.indexOf("=${" + pname + "}") === 0) {
-            value = pval;
-            break;
-          }
+  if (srcType === "Object" || srcType === "SMT") {
+    for (let [name, value] of Object.entries(src))
+      src[ name ] = replace(value, params);
+  }
+  else if (srcType === "Array") {
+    for (let i = 0; i < src.length; i++)
+      src[i] = replace(src[i], params);
+  }
+  else if (srcType === "String") {
+    if (src.indexOf("=${") === 0) {
+      // replace the entire value, e.g. number, boolean or object
+      for (let [ pname, pval ] of Object.entries(params)) {
+        if (src.indexOf("=${" + pname + "}") === 0) {
+          src = pval;
+          break;
         }
-        src[ name ] = value;
-      }
-      else if (value.indexOf("${") >= 0) {
-        // replace values inside a string
-        for (let [ pname, pval ] of Object.entries(params)) {
-          var regex = new RegExp("\\${" + pname + "}", "g");
-          value = value.replace(regex, pval);
-        }
-        src[ name ] = value;
       }
     }
-
+    else if (src.indexOf("${") >= 0) {
+      // replace values inside a string
+      for (let [ pname, pval ] of Object.entries(params)) {
+        var regex = new RegExp("\\${" + pname + "}", "g");
+        src = src.replace(regex, pval);
+      }
+    }
   }
 
   return src;
-}
-
-/**
- * text replacement of "${variable}" in tracts
- * @param {Object} src object that contains properties
- * @param {Object} params the parameter values
- * @returns
- */
-function replaceX(src, params) {
-  let to = typeOf(src.terminal.options.writer);
-
-  let text = JSON.stringify(src);
-
-  for (let [ name, value ] of Object.entries(params)) {
-    var regex = new RegExp("\\${" + name + "}", "g");
-    value = value.replace(regex, pval);
-  }
-
-  return JSON.parse(text);
 }
 
 /**
@@ -91,7 +63,7 @@ async function perform(action, params) {
     throw new StorageError(422, "Invalid parameter: action " + action.name);
 
   try {
-    replace(action, params);
+    action = replace(action, params);
   }
   catch (err) {
     logger.warn(err);
