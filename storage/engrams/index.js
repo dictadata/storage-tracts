@@ -29,6 +29,7 @@ module.exports = exports = class Engrams {
     this.smt;
     this.options;
 
+    this.cache_enabled = false;
     this._engrams = new Map();
     this._active = false;
     this._junction = null;
@@ -166,7 +167,8 @@ module.exports = exports = class Engrams {
     let urn = this.urn(encoding);
 
     // save in cache
-    this._engrams.set(urn, objCopy({}, encoding));
+    if (this.cache_enabled)
+      this._engrams.set(urn, objCopy({}, encoding));
 
     if (!this._junction) {
       storageResults.setResults(500, "Engrams junction not activated");
@@ -190,7 +192,7 @@ module.exports = exports = class Engrams {
     let storageResults = new StorageResults("message");
     urn = this.urn(urn);
 
-    if (this._engrams.has(urn)) {
+    if (this.cache_enabled && this._engrams.has(urn)) {
       // delete from cache
       if (!this._engrams.delete(urn)) {
         storageResults.setResults(500, "map delete error");
@@ -221,7 +223,7 @@ module.exports = exports = class Engrams {
     urn = this.urn(urn);
     let engram;
 
-    if (this._engrams.has(urn)) {
+    if (this.cache_enabled && this._engrams.has(urn)) {
       // entry has been cached
       engram = objCopy({}, this._engrams.get(urn));
     }
@@ -239,7 +241,8 @@ module.exports = exports = class Engrams {
 
       engram = results.data[ urn ];
       // cache entry definition
-      this._engrams.set(urn, objCopy(engram));
+      if (this.cache_enabled)
+        this._engrams.set(urn, objCopy(engram));
     }
 
     if (resolve && engram.type === "alias") {

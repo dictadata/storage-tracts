@@ -28,6 +28,7 @@ module.exports = exports = class Tracts {
     this.smt;
     this.options;
 
+    this.cache_enabled = false;
     this._tracts = new Map();
     this._active = false;
     this._junction = null;
@@ -165,7 +166,8 @@ module.exports = exports = class Tracts {
     }
 
     // save in cache
-    this._tracts.set(urn, objCopy({}, entry));
+    if (this.cache_enabled)
+      this._tracts.set(urn, objCopy({}, entry));
 
     if (!this._junction) {
       storageResults.setResults(500, "Tracts junction not activated");
@@ -189,7 +191,7 @@ module.exports = exports = class Tracts {
     let storageResults = new StorageResults("message");
     urn = this.urn(urn);
 
-    if (this._tracts.has(urn)) {
+    if (this.cache_enabled && this._tracts.has(urn)) {
       // delete from cache
       if (!this._tracts.delete(urn)) {
         storageResults.setResults(500, "map delete error");
@@ -220,7 +222,7 @@ module.exports = exports = class Tracts {
     urn = this.urn(urn);
     let tract;
 
-    if (this._tracts.has(urn)) {
+    if (this.cache_enabled && this._tracts.has(urn)) {
       // entry has been cached
       tract = this._tracts.get(urn);
       tract = objCopy({}, tract);
@@ -240,7 +242,8 @@ module.exports = exports = class Tracts {
 
       tract = results.data[ urn ];
       // cache entry definition
-      this._tracts.set(urn, objCopy({}, tract));
+      if (this.cache_enabled)
+        this._tracts.set(urn, objCopy({}, tract));
     }
 
     if (resolve && tract.type === "alias") {
