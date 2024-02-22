@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-tracts
 
+- version 0.9.78
+  - bug fix: iterate action, make a copy of subaction before perform()
 - version 0.9.77
   - feature: implement smt $ model with options.junction
   - updated: @dictadata/storage-junctions@0.9.103
