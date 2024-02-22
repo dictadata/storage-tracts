@@ -44,7 +44,7 @@ module.exports = async (action) => {
     let encoding = origin.options.encoding;
     if (!encoding && jo.capabilities.encoding) {
       let results = await jo.getEngram();  // load encoding from origin for validation
-      if (results.type === "encoding")
+      if (results.type === "engram")
         encoding = results.data;
     }
 
@@ -88,7 +88,7 @@ module.exports = async (action) => {
       throw new Error("invalid terminal encoding");
 
     //logger.debug(">>> encoding results");
-    //logger.debug(JSON.stringify(terminal.options.engram.fields, null, " "));
+    //logger.debug(JSON.stringify(terminal.options.encoding.fields, null, " "));
 
     /// transfer data
     let reader = null;  // source

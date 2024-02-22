@@ -45,7 +45,7 @@ module.exports = async (action) => {
     // then get source encoding
     if (jo.capabilities.encoding && !transforms.length) {
       let results = await jo.getEngram();
-      if (results.type === "encoding")
+      if (results.type === "engram")
         encoding = results.data;
     }
     else {
