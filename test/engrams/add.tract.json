@@ -16,30 +16,30 @@
       "action": "engrams",
       "store": [
         {
-          "engram": "./test/data/input/engrams/foo_schema.engram.json",
+          "encoding": "./test/data/input/engrams/foo_schema.engram.json",
           "name": "jsonfile-foo_schema",
           "smt": "json|./test/data/input/|foofile.json|*"
         },
         {
-          "engram": "./test/data/input/engrams/foo_schema.engram.json",
+          "encoding": "./test/data/input/engrams/foo_schema.engram.json",
           "name": "elasticsearch-foo_schema",
           "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_schema|!Foo",
           "tags": [ "bar" ]
         },
         {
-          "engram": "./test/data/input/engrams/foo_schema.engram.json",
+          "encoding": "./test/data/input/engrams/foo_schema.engram.json",
           "name": "mssql-foo_schema",
           "smt": "mssql|server=dev.dictadata.net;database=storage_node|foo_schema|=Foo",
           "tags": [ "bar" ]
         },
         {
-          "engram": "./test/data/input/engrams/foo_schema.engram.json",
+          "encoding": "./test/data/input/engrams/foo_schema.engram.json",
           "name": "mysql-foo_schema",
           "smt": "mysql|host=dev.dictadata.net;database=storage_node|foo_schema|=Foo",
           "tags": [ "bar" ]
         },
         {
-          "engram": "./test/data/input/engrams/tl_YYYY_us_state.engram.json",
+          "encoding": "./test/data/input/engrams/tl_YYYY_us_state.engram.json",
           "name": "tl_2020_us_state",
           "smt": "elasticsearch|http://dev.dictadata.net:9200/|tl_2020_us_state|*"
         }

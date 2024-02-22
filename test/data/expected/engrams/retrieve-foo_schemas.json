@@ -1,5 +1,24 @@
 [
   {
+   "name": "foo_schema",
+   "type": "engram",
+   "source": "foo_schema.engram.json",
+   "title": "foo schema",
+   "description": "the original foo file",
+   "tags": [
+    "dictadata",
+    "foo",
+    "test"
+   ],
+   "smt": {
+    "model": "json",
+    "locus": "./test/data/input/",
+    "schema": "foofile.json",
+    "key": "*"
+   },
+   "fields": []
+  },
+  {
    "domain": "foo",
    "name": "foo_schema",
    "type": "engram",
