@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-tracts
 
+- version 0.9.77
+  - feature: implement smt $ model with options.junction
+  - updated: @dictadata/storage-junctions@0.9.103
 - version 0.9.76
   - refactor: actions replace params
 - version 0.9.75
