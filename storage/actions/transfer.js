@@ -38,6 +38,9 @@ module.exports = async (action) => {
   var jo, jt;  // junctions origin, terminal
   try {
     // note, at this point file encodings have been read by actions.js
+    // resolve the origin and terminal
+    origin.smt = await Storage.resolve(origin.smt, origin.options);
+    terminal.smt = await Storage.resolve(terminal.smt, terminal.options);
 
     // create origin junction
     logger.verbose(">>> create origin junction " + JSON.stringify(origin.smt, null, 2));
@@ -73,8 +76,9 @@ module.exports = async (action) => {
       });
       pipes.push(reader);
 
-      for (let tfOptions of transforms)
-        pipes.push(await jo.createTransform(tfOptions.transform, tfOptions));
+      for (let transform of transforms) {
+        pipes.push(await jo.createTransform(transform.transform, transform));
+      }
 
       let codify = await jo.createTransform('codify');
       pipes.push(codify);
@@ -105,7 +109,6 @@ module.exports = async (action) => {
         logger.info("could not create storage schema: " + results.message);
     }
 
-
     /// setup pipeline
     logger.verbose(">>> transfer pipeline");
     let pipes = [];
@@ -118,9 +121,8 @@ module.exports = async (action) => {
     pipes.push(reader);
 
     // transforms
-    for (let tfOptions of transforms) {
-      let tfType = tfOptions.transform.split("-")[ 0 ];
-      pipes.push(await jo.createTransform(tfType, tfOptions));
+    for (let transform of transforms) {
+      pipes.push(await jo.createTransform(transform.transform, transform));
     }
 
     // writer
