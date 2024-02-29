@@ -33,7 +33,7 @@ const path = require('path');
   }
 
   for (let [ name, action ] of Object.entries(tract)) {
-    if (name === '_config')
+    if (name === 'config')
       newTract[ name ] = action;
     else
       newTract.actions.push(Object.assign({ name: name }, action));

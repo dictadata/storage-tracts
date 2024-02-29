@@ -1,0 +1,79 @@
+{
+  "domain": "sos.iowa.gov",
+  "name": "voter_registration_totals_county",
+  "type": "engram",
+  "description": "State of Iowa Voter Registration Totals by County",
+  "source": "https://sos.iowa.gov/elections/voterreg/regstat.html",
+  "tags": [
+    "IA",
+    "Iowa",
+    "voter registration",
+    "county"
+  ],
+  "smt": {
+    "model": "*",
+    "locus": "*",
+    "schema": "voter_registration_totals_county",
+    "key": "=County"
+  },
+  "fields": [
+    {
+      "name": "County",
+      "type": "keyword",
+      "size": 13,
+      "key": 1
+    },
+    {
+      "name": "Democratic Active",
+      "type": "integer"
+    },
+    {
+      "name": "Republican Active",
+      "type": "integer"
+    },
+    {
+     "name": "Libertarian Active",
+     "type": "integer"
+    },
+    {
+      "name": "No Party Active",
+      "type": "integer"
+    },
+    {
+      "name": "Other Active",
+      "type": "integer"
+    },
+    {
+      "name": "Total Active",
+      "type": "integer"
+    },
+    {
+      "name": "Democratic Inactive",
+      "type": "integer"
+    },
+    {
+      "name": "Republican Inactive",
+      "type": "integer"
+    },
+    {
+     "name": "Libertarian Inactive",
+     "type": "integer"
+    },
+    {
+      "name": "No Party Inactive",
+      "type": "integer"
+    },
+    {
+      "name": "Other Inactive",
+      "type": "integer"
+    },
+    {
+      "name": "Total Inactive",
+      "type": "integer"
+    },
+    {
+      "name": "Grand Total",
+      "type": "integer"
+    }
+  ]
+}

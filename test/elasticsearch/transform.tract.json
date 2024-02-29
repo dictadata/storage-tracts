@@ -30,12 +30,12 @@
             "fie": "where's fum?"
           },
           "map": {
-            "Foo": "foo",
-            "Bar": "bar",
-            "Baz": "baz",
-            "Fobe": "fobe",
-            "Dt Test": "dt_test",
-            "subObj1.state": "state"
+            "foo": "=Foo",
+            "bar": "=Bar",
+            "baz": "=Baz",
+            "fobe": "=Fobe",
+            "dt_test": "=Dt Test",
+            "state": "=subObj1.state"
           },
           "remove": [
             "fobe"

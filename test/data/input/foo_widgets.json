@@ -97,7 +97,7 @@
   {
     "Foo": "sixth",
     "Bar": null,
-    "Baz": 6,
+    "Baz": null,
     "Fobe": null,
     "Dt Test": null,
     "enabled": null

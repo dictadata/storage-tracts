@@ -2,7 +2,7 @@
   "domain": "",
   "name": "recall.tract",
   "type": "tract",
-  "_config": {
+  "config": {
     "engrams": {
       "smt": "elasticsearch|http://dev.dictadata.net:9200/|etl_engrams|*",
       "options": {

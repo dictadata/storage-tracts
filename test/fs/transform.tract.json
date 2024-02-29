@@ -28,11 +28,11 @@
             "fie": "where's fum?"
           },
           "map": {
-            "Foo": "foo",
-            "Bar": "bar",
-            "Baz": "baz",
-            "Fobe": "fobe",
-            "Dt Test": "dt_test"
+            "foo": "=Foo",
+            "bar": "=Bar",
+            "baz": "=Baz",
+            "fobe": "=Fobe",
+            "dt_test": "=Dt Test"
           },
           "remove": [
             "fobe"
@@ -77,11 +77,11 @@
             "fie": "where's fum?"
           },
           "map": {
-            "Foo": "foo",
-            "Bar": "bar",
-            "Baz": "baz",
-            "Fobe": "fobe",
-            "Dt Test": "dt_test"
+            "foo": "=Foo",
+            "bar": "=Bar",
+            "baz": "=Baz",
+            "fobe": "=Fobe",
+            "dt_test": "=Dt Test"
           },
           "remove": [
             "fobe"

@@ -1,9 +1,18 @@
 {
+  "domain": "foo",
+  "name": "foo_widgets",
+  "type": "engram",
+  "title": "foo_widgets encoding",
+  "description": "test input for foo_widgets encoding",
+  "source": "file:./test/data/input/engrams/foo_widgets.engram.json",
+  "tags": [
+    "foo"
+  ],
   "smt": {
-    "model": "*",
+    "model": "json",
     "locus": "*",
     "schema": "foo_widgets",
-    "key": "=Baz+Foo"
+    "key": "=Foo"
   },
   "fields": [
     {
@@ -12,7 +21,7 @@
       "size": 64,
       "default": null,
       "nullable": false,
-      "key": 2
+      "key": 1
     },
     {
       "name": "Bar",
@@ -25,8 +34,7 @@
       "name": "Baz",
       "type": "integer",
       "default": null,
-      "nullable": true,
-      "key": 1
+      "nullable": true
     },
     {
       "name": "Fobe",

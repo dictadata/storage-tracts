@@ -1,0 +1,38 @@
+{
+  "domain": "",
+  "name": "adjoin transfer",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "adjoin",
+      "action": "transfer",
+      "description": "transfer with adjoin",
+      "origin": {
+        "smt": "foo:jsonfile-foo_schema"
+      },
+      "transforms": [
+        {
+          "transform": "adjoin",
+          "lookup_table": {
+            "smt": "foo:json_widgets"
+          },
+          "lookup": {
+            "Baz": "=Baz",
+            "Foo": "=Foo"
+          },
+          "inject": [
+            "tags",
+            "widgets"
+          ]
+        }
+      ],
+      "terminal": {
+        "smt": "json|./test/data/output/transfers/|adjoin.json|*",
+        "options": {
+          "encoding": "./test/data/input/engrams/foo_widgets.engram.json"
+        },
+        "output": "./test/data/output/transfers/adjoin.json"
+      }
+    }
+  ]
+}
