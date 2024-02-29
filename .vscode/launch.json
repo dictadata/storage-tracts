@@ -327,9 +327,6 @@
       "runtimeArgs": [
         "--trace-warnings"
       ],
-      "runtimeArgs": [
-        "--trace-warnings"
-      ],
       "args": [
         "-t",
         "${workspaceFolder}/test/ftp/scan.tract.json",
@@ -733,7 +730,7 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks", "--trace-warnings"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
@@ -1147,12 +1144,54 @@
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
-        "--preserve-symlinks", "--trace-warnings"
+        "--trace-warnings"
       ],
       "args": [
         "-t",
         "${workspaceFolder}/test/transfers/iterate_transfers.tract.json",
         "*"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "transfer w/ adjoin",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage/etl/index.js",
+      "runtimeArgs": [
+        "--trace-warnings"
+      ],
+      "args": [
+        "-t",
+        "${workspaceFolder}/test/transfers/adjoin_transfer.tract.json",
+        "*"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "voter_registration",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage/etl/index.js",
+      "runtimeArgs": [
+        "--trace-warnings", "--preserve-symlinks"
+      ],
+      "args": [
+        "-c",
+        "${workspaceFolder}/etl.config.dev.json",
+        "-t",
+        "${workspaceFolder}/test/transfers/voter_registration.tract.json",
+        "house"
       ],
       "env": {
         "NODE_ENV": "development",
