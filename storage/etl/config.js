@@ -5,10 +5,10 @@
 
 const Storage = require("../storage");
 const { StorageError } = require("@dictadata/storage-junctions/types");
-const { typeOf, logger, hasOwnProperty, objCopy } = require("@dictadata/storage-junctions/utils");
+const { logger, hasOwnProperty, objCopy, findModules } = require("@dictadata/storage-junctions/utils");
 const Package = require('../../package.json');
-const fs = require('fs');
-const path = require('path');
+const { readFile } = require('node:fs/promises');
+const { join } = require('node:path');
 
 module.exports.version = Package.version;
 
@@ -41,17 +41,25 @@ module.exports.loadFiles = async (appArgs) => {
 
   try {
     // config file
-    let configText = await fs.readFileSync(appArgs.config, { encoding: 'utf8' });
+    let configText = await readFile(appArgs.config, { encoding: 'utf8' });
     let configObj = JSON.parse(configText);
-    if (configObj?._config) {
-      objCopy(config, configObj._config);
-      delete configObj._config;
+
+    let nested = configObj.config?.config;
+    if (nested) {
+      // read nested config file, lowest priority
+      let nestedText = await readFile(nested, { encoding: 'utf8' });
+      let nestedObj = JSON.parse(nestedText);
+
+      if (nestedObj?.config)
+        objCopy(config, nestedObj.config);
+      if (nestedObj?.params)
+        objCopy(appArgs.params, nestedObj.params);
     }
-    if (configObj?.params) {
+
+    if (configObj?.config)
+      objCopy(config, configObj.config);
+    if (configObj?.params)
       objCopy(appArgs.params, configObj.params);
-      delete configObj.params;
-    }
-    objCopy(tract, configObj);
   }
   catch (err) {
     console.warn(err.message);
@@ -59,20 +67,19 @@ module.exports.loadFiles = async (appArgs) => {
 
   if (appArgs.tract.endsWith(".json")) {
     // tract file
-    let tractText = await fs.readFileSync(appArgs.tract, { encoding: 'utf8' });
+    let tractText = await readFile(appArgs.tract, { encoding: 'utf8' });
     let tractObj = JSON.parse(tractText);
-    if (tractObj?._config) {
-      objCopy(config, tractObj._config);
-      delete tractObj._config;
-    }
-    if (tractObj?.params) {
+
+    // highest priority config
+    if (tractObj?.config)
+      objCopy(config, tractObj.config);
+    if (tractObj?.params)
       objCopy(appArgs.params, tractObj.params);
-      delete tractObj.params;
-    }
+
     objCopy(tract, tractObj);
   }
   else
-    tract = appArgs.tract;
+    tract = appArgs.tract;  // should be a Tracts URN
 
   // initialize app
   await configStorage(config);
@@ -106,11 +113,12 @@ async function configStorage(config) {
 
   //// register plugins
   let plugins = config.plugins || {};
+  let nmp = await findModules();
 
   // filesystem plugins
   if (hasOwnProperty(plugins, "filesystems")) {
     for (let [ name, prefixes ] of Object.entries(plugins[ "filesystems" ])) {
-      let stfs = require(path.resolve(name));
+      let stfs = require(join(nmp, name));
       for (let prefix of prefixes)
         Storage.FileSystems.use(prefix, stfs);
     }
@@ -119,7 +127,7 @@ async function configStorage(config) {
   // junction plugins
   if (hasOwnProperty(plugins, "junctions")) {
     for (let [ name, models ] of Object.entries(plugins[ "junctions" ])) {
-      let junction = require(path.resolve(name));
+      let junction = require(join(nmp, name));
       for (let model of models)
         Storage.Junctions.use(model, junction);
     }

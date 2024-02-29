@@ -29,7 +29,7 @@
       }
     }
   ],
-  "_config": {
+  "config": {
     "engrams": {
       "smt": "<model>|<locus>|etl_engrams|*"
     },

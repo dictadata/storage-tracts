@@ -1,5 +1,5 @@
 {
-  "_config": {
+  "config": {
     "auth": {
       "auth_file": "./etl.auth.json"
     },
