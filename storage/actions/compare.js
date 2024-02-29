@@ -8,7 +8,7 @@ const { logger } = require('../utils');
 const fs = require('fs');
 const path = require('path');
 const { unzipSync } = require('zlib');
-const dot = require('dot-object');
+const dot = require('@dictadata/storage-junctions/utils');
 
 /**
  *
