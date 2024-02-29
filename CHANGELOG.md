@@ -1,5 +1,9 @@
 # CHANGELOG:  @dictadata/storage-tracts
 
+- version 0.9.79
+  - feature: nested config files
+  - buf fix: search up folders for node_modules folder, needed for plugins
+  - bug fix: resolve junctions before creating transfer pipeline
 - version 0.9.78
   - bug fix: iterate action, make a copy of subaction before perform()
 - version 0.9.77
@@ -89,7 +93,7 @@
 - version 2.5.3
   - feature: add CLI argument -c for config file, e.g. "-c dev" for "storage-tracts.dev.json"
 - version 2.5.2
-  - feature: support _config section in Engrams action
+  - feature: support config section in Engrams action
 - version 2.5.1
   - update to @dictadata/storage-junctions 2.5.1
   - bug fix: use stream _destroy() instead of destroy() in reader/writer implementations
@@ -283,7 +287,7 @@
 - version 1.2.2
   - update dependency to @dictadata/storage-junctions 1.2.6
 - version 1.2.1
-  - rename etl_config.json to etl.tract.json
+  - rename etlconfig.json to etl.tract.json
   - storage-junction updates for:
     - stream/promises
     - csv options.header

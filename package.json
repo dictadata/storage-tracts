@@ -1,52 +1,53 @@
 {
   "name": "@dictadata/storage-tracts",
-  "version": "0.9.78",
+  "version": "0.9.79",
   "description": "Node.js library and command line utility to transfer and transform data between data sources.",
   "author": "Drew O. Letcher",
   "license": "MIT",
-  "main": "index.js",
-  "type": "commonjs",
-  "bin": {
-    "etl": "./storage/etl/index.js"
-  },
-  "scripts": {
-    "start": "node ./storage/etl/index.js config",
-    "debug": "node --inspect --preserve-symlinks ./storage/etl/index.js -c \"test/mysql/transfer.json\" transfer bulkload",
-    "test": "./testrunner"
-  },
-  "repository": "gitlab:dictadata/js/storage-tracts",
-  "bugs": {
-    "url": "https://gitlab.com/dictadata/js/storage-tracts/issues"
-  },
-  "homepage": "https://gitlab.com/dictadata/js/storage-tracts#readme",
   "keywords": [
-    "dictadata.net",
+    "dictadata",
     "storage",
     "junctions",
     "ETL",
-    "json",
-    "csv",
-    "elasticsearch",
-    "mssql",
-    "mysql",
-    "rest",
-    "data access",
     "data management",
     "database migration"
   ],
+  "type": "commonjs",
   "engines": {
-    "node": ">=17.0.0"
+    "node": ">=18.0.0"
   },
-  "dependencies": {
-    "@dictadata/storage-junctions": "^0.9.103",
-    "colors": "^1.4.0",
-    "dot-object": "^2.1.4",
-    "winston": "^3.11.0",
-    "winston-daily-rotate-file": "^4.7.1"
+  "main": "index.js",
+  "bin": {
+    "etl": "storage/etl/index.js"
+  },
+  "scripts": {
+    "start": "node ./storage/etl/index.js",
+    "test": "./testrunner.bat"
+  },
+  "directories": {
+    "doc": "docs",
+    "lib": "storage",
+    "test": "test",
+    "example": "examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dictadata/storage-tracts.git"
+  },
+  "homepage": "https://github.com/dictadata/storage-tracts#readme",
+  "bugs": {
+    "url": "https://github.com/dictadata/storage-tracts/issues"
   },
   "devDependencies": {
-    "eslint": "^8.56.0",
+    "eslint": "^8.57.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1"
+  },
+  "dependencies": {
+    "@dictadata/pdf-junction": "^0.9.7",
+    "@dictadata/storage-junctions": "^0.9.106",
+    "colors": "^1.4.0",
+    "winston": "^3.11.0",
+    "winston-daily-rotate-file": "^5.0.0"
   }
 }

@@ -46,11 +46,11 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
 
 ## Configuration File
 
-Default configuration settings can be specified in a _config tract in **etl.config.json**.  The file will be read from the current working directory.  Example configuration tract:
+Default configuration settings can be specified in a config tract in **etl.config.json**.  The file will be read from the current working directory.  Example configuration tract:
 
 ```json
 {
-  "_config": {
+  "config": {
     "engrams": {
       "engrams": {
         "smt": "elasticsearch|http://localhost:9200/|etl_engrams|*"
@@ -203,7 +203,7 @@ Config file:
 
 ```json
 {
-  "_config": {
+  "config": {
   },
   "params": {
     "schema": "foofile",
