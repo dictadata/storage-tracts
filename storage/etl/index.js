@@ -78,7 +78,6 @@ function parseArgs() {
 
   console.log("Storage ETL " + config.version);
   console.log("Copyright 2022 dictadata.net | The MIT License");
-  console.log(junctionsPkg.name + "@" + junctionsPkg.version);
 
   if (!appArgs.name) {
     console.log("Transfer, transform and codify data between local and distributed storage sources.");
@@ -110,6 +109,7 @@ function parseArgs() {
     console.log("  all | * - run all actions in sequence.");
     console.log("  parallel - run all actions in parallel.");
     console.log("");
+    console.log("  " + junctionsPkg.name + "@" + junctionsPkg.version);
     return;
   }
 
