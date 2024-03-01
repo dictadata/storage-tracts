@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-tracts
 
+- version 0.9.80
+  - refactor: plugins should be installed globally, npm -g i <pkg>
+  - refactor: rename etl.dev.config.json
 - version 0.9.79
   - feature: nested config files
   - buf fix: search up folders for node_modules folder, needed for plugins
