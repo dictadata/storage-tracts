@@ -1176,28 +1176,6 @@
         "LOG_LEVEL": "verbose"
       },
       "outputCapture": "std"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "voter_registration",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/storage/etl/index.js",
-      "runtimeArgs": [
-        "--trace-warnings", "--preserve-symlinks"
-      ],
-      "args": [
-        "-c",
-        "${workspaceFolder}/etl.config.dev.json",
-        "-t",
-        "${workspaceFolder}/test/transfers/voter_registration.tract.json",
-        "house"
-      ],
-      "env": {
-        "NODE_ENV": "development",
-        "LOG_LEVEL": "verbose"
-      },
-      "outputCapture": "std"
     }
   ]
 }
