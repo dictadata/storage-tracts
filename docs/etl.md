@@ -8,7 +8,7 @@ storage-tracts (etl) 0.9.x
 
   configFile
     JSON configuration file that defines engrams, plug-ins and logging.
-    Supports abbreviated name; "-c dev" for "./etl.config.dev.json"
+    Supports abbreviated name; "-c dev" for "./etl.dev.config.json"
     Default configuration file is ./etl.config.json
 
   tract

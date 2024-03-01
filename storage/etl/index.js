@@ -13,6 +13,8 @@ const { objCopy } = require('@dictadata/storage-junctions/utils')
 const path = require('path');
 require('colors');
 
+const junctionsPkg = require('@dictadata/storage-junctions/package.json');
+
 // set program argument defaults
 const appArgs = {
   config: './etl.config.json',
@@ -36,7 +38,7 @@ function parseArgs() {
         appArgs.config = process.argv[ i + 1 ];
         ++i;
         if (!appArgs.config.includes("."))
-          appArgs.config = "etl.config." + appArgs.config + ".json";  // dev, prod, ...
+          appArgs.config = "etl." + appArgs.config + ".config.json";  // dev, prod, ...
         if (!path.extname(appArgs.config))
           appArgs.config += ".config.json";
       }
@@ -76,6 +78,7 @@ function parseArgs() {
 
   console.log("Storage ETL " + config.version);
   console.log("Copyright 2022 dictadata.net | The MIT License");
+  console.log(junctionsPkg.name + "@" + junctionsPkg.version);
 
   if (!appArgs.name) {
     console.log("Transfer, transform and codify data between local and distributed storage sources.");
@@ -84,7 +87,7 @@ function parseArgs() {
     console.log("");
     console.log("configFile");
     console.log("  JSON configuration file that defines engrams, plug-ins and logging.");
-    console.log("  Supports abbreviated name; '-c dev' for './etl.config.dev.json'");
+    console.log("  Supports abbreviated name; '-c dev' for './etl.dev.config.json'");
     console.log("  Default configuration file is ./etl.config.json");
     console.log("");
     console.log("tract");
