@@ -113,12 +113,12 @@ async function configStorage(config) {
 
   //// register plugins
   let plugins = config.plugins || {};
-  let nmp = await findModules();
+  //let nmp = await findModules();
 
   // filesystem plugins
   if (hasOwnProperty(plugins, "filesystems")) {
     for (let [ name, prefixes ] of Object.entries(plugins[ "filesystems" ])) {
-      let stfs = require(join(nmp, name));
+      let stfs = require(name);  //join(nmp, name));
       for (let prefix of prefixes)
         Storage.FileSystems.use(prefix, stfs);
     }
@@ -127,7 +127,7 @@ async function configStorage(config) {
   // junction plugins
   if (hasOwnProperty(plugins, "junctions")) {
     for (let [ name, models ] of Object.entries(plugins[ "junctions" ])) {
-      let junction = require(join(nmp, name));
+      let junction = require(name);  //join(nmp, name));
       for (let model of models)
         Storage.Junctions.use(model, junction);
     }
