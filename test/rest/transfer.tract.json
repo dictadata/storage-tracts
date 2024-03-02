@@ -1,10 +1,10 @@
 {
-  "domain": "foo",
-  "name": "transfer.tract.json",
+  "realm": "",
+  "name": "transfer.tract",
   "type": "tract",
   "actions": [
     {
-      "name": "rest-json",
+      "name": "transfer_forecast",
       "action": "transfer",
       "origin": {
         "smt": "rest|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*",
@@ -16,11 +16,15 @@
             }
           },
           "retries": 1,
-          "extract": "periods"
+          "extract": "periods",
+          "encoding": "./test/data/input/engrams/weather_forecast.engram.json"
         }
       },
       "terminal": {
         "smt": "json|./test/data/output/rest/|transfer.json|*",
+        "options": {
+          "encoding": "./test/data/input/engrams/weather_forecast.engram.json"
+        },
         "output": "./test/data/output/rest/transfer.json",
         "compareValues": 1
       }

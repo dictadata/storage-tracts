@@ -1,10 +1,11 @@
 {
-  "domain": "",
+  "realm": "",
   "name": "codify.tract",
   "type": "tract",
   "actions": [
     {
-      "name": "codify",
+      "name": "codify_forecast",
+      "action": "codify",
       "origin": {
         "smt": "rest|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*",
         "options": {

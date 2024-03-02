@@ -1,10 +1,10 @@
 {
-  "domain": "",
+  "realm": "",
   "name": "transform.tract",
   "type": "tract",
   "actions": [
     {
-      "name": "forecast",
+      "name": "transform_forecast",
       "action": "transfer",
       "origin": {
         "smt": "rest|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*",
@@ -16,7 +16,8 @@
             }
           },
           "retries": 1,
-          "extract": "periods"
+          "extract": "periods",
+          "encoding": "./test/data/input/engrams/weather_forecast.engram.json"
         }
       },
       "transforms": [

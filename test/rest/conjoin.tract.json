@@ -1,5 +1,5 @@
 {
-  "domain": "",
+  "realm": "",
   "name": "conjoin.tract",
   "type": "tract",
   "actions": [
@@ -15,7 +15,8 @@
               "User-Agent": "@dictadata.net/storage-node contact:info@dictadata.net"
             }
           },
-          "retries": 1
+          "retries": 1,
+          "encoding": "./test/data/input/engrams/weather_points.engram.json"
         },
         "pattern": {
           "fields": [
@@ -37,7 +38,8 @@
               }
             },
             "retries": 1,
-            "extract": "periods"
+            "extract": "periods",
+            "encoding": "./test/data/input/engrams/weather_forecast.engram.json"
           }
         }
       ],
