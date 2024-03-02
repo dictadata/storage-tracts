@@ -7,7 +7,6 @@
  * Registers standard implementations of several:
  *   StorageJunctions, FileSystems, Transforms
  */
-"use strict";
 
 var Storage = require("./storage");
 exports.Storage = Storage;

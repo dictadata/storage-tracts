@@ -36,6 +36,8 @@ module.exports = exports = class Entry {
     if (options.tags) this.tags = options.tags;
 
     if (options.notes) this.notes = options.notes;
+
+    if (options.urn) this.urn = options.urn;
   }
 
   get urn() {
@@ -45,4 +47,13 @@ module.exports = exports = class Entry {
       return ":" + this.name;
   }
 
+  set urn(value) {
+    if (value.indexOf(":") < 0) {
+      this.domain = "";
+      this.name = value;
+    }
+    else {
+      [ this.domain, this.name ] = value.split(':');
+    }
+  }
 };

@@ -9,6 +9,9 @@
 const { Engram } = require('@dictadata/storage-junctions/types');
 const Entry = require('./entry');
 
+// Set the prototype chain of Engram to Entry, i.e.
+//  class Engram extends Entry {}
+
 Object.setPrototypeOf(Engram, Entry);
 Object.setPrototypeOf(Engram.prototype, Entry.prototype);
 

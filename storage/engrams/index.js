@@ -40,37 +40,37 @@ module.exports = exports = class Engrams {
   }
 
   urn(entry) {
-    let key;
+    let _urn;
 
     if (typeof entry === "string") {
-      key = entry;
-      if (key.indexOf(":") < 0)
-        key = ":" + key;
+      _urn = entry;
     }
-
     else if (typeof entry === "object") {
-      if (hasOwnProperty(entry, "key")) {
-        key = entry.key;
+      if (hasOwnProperty(entry, "urn")) {
+        _urn = entry.urn;
       }
       else {
         // get key using smt.key definition
-        //   |.|.|.|=name1+'literal'+name2+...
-        //   |.|.|.|!name1+'literal'+name2+...
-        key = '';
+        //   |*|*|*|=name1+'literal'+name2+...
+        //   |*|*|*|!name1+'literal'+name2+...
+        _urn = '';
         let keys = this.smt.key.substring(1).split('+');
-        for (let kname of keys) {
-          if (kname && kname[ 0 ] === "'") {
-            key += kname.substr(1, kname.length - 2);  // strip quotes
+        for (let name of keys) {
+          if (name && name[ 0 ] === "'") {
+            _urn += name.substr(1, name.length - 2);  // strip quotes
           }
           else {
-            if (hasOwnProperty(entry, kname) && entry[ kname ])
-              key += entry[ kname ];
+            if (hasOwnProperty(entry, name) && entry[ name ])
+              _urn += entry[ name ];
           }
         }
       }
     }
 
-    return key;
+    if (_urn.indexOf(":") < 0)
+      _urn = ":" + _urn;
+
+    return _urn;
   }
 
   /**
@@ -80,7 +80,7 @@ module.exports = exports = class Engrams {
    * @param { Object } options that will be passed to the underlying junction.
    * @returns true if underlying junction was activated successfully
    */
-    async activate(smt, options) {
+  async activate(smt, options) {
     this.smt = new SMT(smt);
     this.options = options || {};
 
@@ -121,10 +121,10 @@ module.exports = exports = class Engrams {
       // attempt to create engrams schema
       let results = await this._junction.createSchema();
       if (results.status === 0) {
-        logger.info("storage/engrams: created schema, " + this._junction.smt.schema);
+        logger.info("storage/engrams: activate created schema, " + this._junction.smt.schema);
       }
       else if (results.status === 409) {
-        logger.debug("storage/engrams: schema exists");
+        logger.debug("storage/engrams: activate schema exists");
       }
       else {
         throw new StorageError(500, "unable to create engrams schema");
@@ -155,11 +155,11 @@ module.exports = exports = class Engrams {
     // parameter checks
     // note: domain is optional
     if (!entry.name || entry.name === "*") {
-      storageResults.setResults(400, "Invalid encoding name" );
+      storageResults.setResults(400, "Invalid encoding name");
       return storageResults;
     }
     if (!entry.type || !engramsTypes.includes(entry.type)) {
-      storageResults.setResults(400, "Invalid engrams type" );
+      storageResults.setResults(400, "Invalid engrams type");
       return storageResults;
     }
 
@@ -177,7 +177,7 @@ module.exports = exports = class Engrams {
 
     // save in engrams
     storageResults = await this._junction.store(encoding, { key: urn });
-    logger.verbose("storage/engrams: " + urn + ", " + storageResults.status);
+    logger.verbose("storage/engrams: store, " + urn + ", " + storageResults.status);
     return storageResults;
   }
 
