@@ -8,7 +8,7 @@
       "action": "engrams",
       "store": [
         {
-          "encoding": "./test/data/input/engrams/foo_schema.engram.json",
+          "engram": "./test/data/input/engrams/foo_schema.engram.json",
           "name": "foo_schema",
           "type": "engram",
           "smt": "json|./test/data/input/|foofile.json|*",
@@ -22,7 +22,7 @@
           ]
         },
         {
-          "encoding": "./test/data/input/engrams/foo_schema_two.engram.json",
+          "engram": "./test/data/input/engrams/foo_schema_two.engram.json",
           "name": "foo_schema_two",
           "type": "engram",
           "smt": "json|./test/data/input/|foofile.json|*",
