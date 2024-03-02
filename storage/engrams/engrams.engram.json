@@ -73,6 +73,11 @@
       }
     },
     {
+      "name": "options",
+      "type": "map",
+      "fields": {}
+    },
+    {
       "name": "fields",
       "type": "list",
       "_list": {
