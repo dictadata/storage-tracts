@@ -1,5 +1,9 @@
 # CHANGELOG:  @dictadata/storage-tracts
 
+- version 0.9.81
+  - refactor: rename domain to realm
+  - feature: add REST HTTP retries for status >= 500
+  - refactor: config use entry.engram to load engram file
 - version 0.9.80
   - refactor: plugins should be installed globally, npm -g i <pkg>
   - refactor: rename etl.dev.config.json
@@ -117,7 +121,7 @@
 - version 2.3.6
   - update: CLI parameter _tractName_ allow value of '*', along with 'all', to run all tracts in file.
 - version 2.3.5
-  - refactor: add domain and roles to engrams entry
+  - refactor: add realm and roles to engrams entry
   - update to @dictadata/storage-junctions 2.3.4
 - version 2.3.4
   - implement: full-text search pattern in elasticsearch-junction

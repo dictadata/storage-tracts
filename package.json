@@ -1,6 +1,6 @@
 {
   "name": "@dictadata/storage-tracts",
-  "version": "0.9.80",
+  "version": "0.9.81",
   "description": "Node.js library and command line utility to transfer and transform data between data sources.",
   "author": "Drew O. Letcher",
   "license": "MIT",
@@ -21,8 +21,10 @@
     "etl": "storage/etl/index.js"
   },
   "scripts": {
-    "start": "node ./storage/etl/index.js",
-    "test": "./testrunner.bat"
+    "start": "node storage/etl/index.js",
+    "lint": "eslint storage/**/*.js",
+    "lint-fix": "eslint --fix storage/**/*.js",
+    "test": "testrunner.bat"
   },
   "directories": {
     "doc": "docs",
@@ -44,9 +46,7 @@
     "eslint-plugin-promise": "^6.1.1"
   },
   "dependencies": {
-    "@dictadata/pdf-junction": "^0.9.8",
-    "@dictadata/storage-junctions": "^0.9.106",
-    "@dictadata/xlsx-junction": "^0.9.10",
+    "@dictadata/storage-junctions": "^0.9.108",
     "colors": "^1.4.0",
     "winston": "^3.11.0",
     "winston-daily-rotate-file": "^5.0.0"
