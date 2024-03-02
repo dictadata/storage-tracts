@@ -14,7 +14,8 @@
               "Accept": "application/ld+json",
               "User-Agent": "@dictadata.net/storage-node contact:info@dictadata.net"
             }
-          }
+          },
+          "retries": 1
         },
         "pattern": {
           "fields": [
@@ -35,6 +36,7 @@
                 "User-Agent": "@dictadata.net/storage-node contact:info@dictadata.net"
               }
             },
+            "retries": 1,
             "extract": "periods"
           }
         }

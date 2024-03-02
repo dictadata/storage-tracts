@@ -15,6 +15,7 @@
               "User-Agent": "@dictadata.net/storage-node (info@dictadata.net)"
             }
           },
+          "retries": 1,
           "extract": "periods"
         }
       },
