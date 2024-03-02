@@ -1,12 +1,12 @@
 {
-  "domain": "foo",
+  "realm": "foo",
   "name": "transfer.tract.json",
   "type": "tract",
   "actions": [
     {
       "name": "codify",
       "origin": {
-        "smt": "foo:elasticsearch-foo_schema",
+        "smt": "foo:es_foo_schema",
         "options": {
           "max_read": 100
         }

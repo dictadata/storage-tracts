@@ -1,5 +1,5 @@
 {
-  "domain": "foo",
+  "realm": "foo",
   "name": "transfer.tract.json",
   "actions": [
     {

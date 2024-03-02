@@ -23,7 +23,7 @@ module.exports = exports = class Entry {
    * @param {Object} options an object containing common entry properties.
    */
   constructor(options) {
-    if (options.domain) this.domain = options.domain;
+    if (options.realm) this.realm = options.realm;
     if (options.name) this.name = options.name;
 
     if (options.type) this.type = options.type;
@@ -41,19 +41,19 @@ module.exports = exports = class Entry {
   }
 
   get urn() {
-    if (this.domain)
-      return this.domain + ":" + this.name;
+    if (this.realm)
+      return this.realm + ":" + this.name;
     else
       return ":" + this.name;
   }
 
   set urn(value) {
     if (value.indexOf(":") < 0) {
-      this.domain = "";
+      this.realm = "";
       this.name = value;
     }
     else {
-      [ this.domain, this.name ] = value.split(':');
+      [ this.realm, this.name ] = value.split(':');
     }
   }
 };

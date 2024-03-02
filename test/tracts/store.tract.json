@@ -1,5 +1,5 @@
 {
-  "domain": "",
+  "realm": "",
   "name": "store.tract",
   "type": "tract",
   "actions": [
@@ -9,7 +9,7 @@
       "store": [
         {
           "tract": "./test/data/input/tracts/foo_transfer.tract.json",
-          "domain": "foo",
+          "realm": "foo",
           "name": "foo_transfer",
           "type": "tract",
           "title": "foo transfer",
@@ -23,7 +23,7 @@
         },
         {
           "tract": "./test/data/input/tracts/foo_transfer.tract.json",
-          "domain": "foo",
+          "realm": "foo",
           "name": "foo_transfer_two",
           "type": "tract",
           "title": "foo transfer two",

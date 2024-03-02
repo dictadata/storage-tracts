@@ -1,5 +1,5 @@
 {
-  "domain": "",
+  "realm": "",
   "name": "add.tract",
   "type": "tract",
   "config": {
@@ -17,7 +17,7 @@
       "store": [
         {
           "engram": "./test/data/input/engrams/foo_schema.engram.json",
-          "name": "jsonfile-foo_schema",
+          "name": "jsonfile_foo_schema",
           "smt": "json|./test/data/input/|foofile.json|*"
         },
         {
@@ -27,19 +27,19 @@
         },
         {
           "engram": "./test/data/input/engrams/foo_schema.engram.json",
-          "name": "elasticsearch-foo_schema",
+          "name": "es_foo_schema",
           "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_schema|!Foo",
           "tags": [ "bar" ]
         },
         {
           "engram": "./test/data/input/engrams/foo_schema.engram.json",
-          "name": "mssql-foo_schema",
+          "name": "mssql_foo_schema",
           "smt": "mssql|server=dev.dictadata.net;database=storage_node|foo_schema|=Foo",
           "tags": [ "bar" ]
         },
         {
           "engram": "./test/data/input/engrams/foo_schema.engram.json",
-          "name": "mysql-foo_schema",
+          "name": "mysql_foo_schema",
           "smt": "mysql|host=dev.dictadata.net;database=storage_node|foo_schema|=Foo",
           "tags": [ "bar" ]
         },

@@ -1,5 +1,5 @@
 {
-  "domain": "foo",
+  "realm": "foo",
   "name": "etl_tract",
   "type": "tract",
   "params": {

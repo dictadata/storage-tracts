@@ -1,5 +1,5 @@
 {
-  "domain": "",
+  "realm": "",
   "name": "recall.tract",
   "type": "tract",
   "config": {
@@ -16,7 +16,7 @@
       "action": "tracts",
       "recall": {
         "urn": {
-          "domain": "foo",
+          "realm": "foo",
           "name": "foo_transfer_two"
         },
         "output": "./test/data/output/tracts/recall-foo_transfer.tract.json"

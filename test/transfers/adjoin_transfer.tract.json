@@ -1,5 +1,5 @@
 {
-  "domain": "",
+  "realm": "",
   "name": "adjoin transfer",
   "type": "tract",
   "actions": [
@@ -8,14 +8,12 @@
       "action": "transfer",
       "description": "transfer with adjoin",
       "origin": {
-        "smt": "foo:jsonfile-foo_schema"
+        "smt": "foo:jsonfile_foo_schema"
       },
       "transforms": [
         {
           "transform": "adjoin",
-          "lookup_table": {
-            "smt": "foo:json_widgets"
-          },
+          "smt": "foo:json_widgets",
           "lookup": {
             "Baz": "=Baz",
             "Foo": "=Foo"

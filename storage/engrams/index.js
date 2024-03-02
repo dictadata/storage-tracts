@@ -153,7 +153,7 @@ module.exports = exports = class Engrams {
     let storageResults = new StorageResults("message");
 
     // parameter checks
-    // note: domain is optional
+    // note: realm is optional
     if (!entry.name || entry.name === "*") {
       storageResults.setResults(400, "Invalid encoding name");
       return storageResults;
@@ -184,7 +184,7 @@ module.exports = exports = class Engrams {
   /**
    *
    * @param {String|Object} urn tracts URN string or object
-   * @param {String} urn.domain
+   * @param {String} urn.realm
    * @param {String} urn.name
    * @returns
    */
@@ -213,7 +213,7 @@ module.exports = exports = class Engrams {
   /**
    *
    * @param {String|Object} urn tracts URN string or object
-   * @param {String} urn.domain
+   * @param {String} urn.realm
    * @param {String} urn.name
    * @param {Boolean} resolve resolve aliases
    * @returns

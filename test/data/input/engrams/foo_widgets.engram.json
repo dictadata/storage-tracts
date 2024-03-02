@@ -1,5 +1,5 @@
 {
-  "domain": "foo",
+  "realm": "foo",
   "name": "foo_widgets",
   "type": "engram",
   "title": "foo_widgets encoding",

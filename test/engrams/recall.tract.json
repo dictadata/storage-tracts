@@ -1,5 +1,5 @@
 {
-  "domain": "",
+  "realm": "",
   "name": "recall.tract",
   "type": "tract",
   "config": {
@@ -15,9 +15,7 @@
       "name": "engrams",
       "action": "engrams",
       "recall": {
-        "urn": {
-          "name": "foo_schema_two"
-        },
+        "urn": "foo_schema_two",
         "output": "./test/data/output/engrams/recall-foo_schema.engram.json"
       }
     }

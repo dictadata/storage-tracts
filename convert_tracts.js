@@ -26,7 +26,7 @@ const path = require('path');
   let p = path.parse(tractFile);
 
   let newTract = {
-    "domain": "",
+    "realm": "",
     "name": p.name,
     "type": "tract",
     "actions": []

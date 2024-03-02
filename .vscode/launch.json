@@ -40,7 +40,7 @@
       ],
       "args": [
         "-c",
-        "none",
+        "dev",
         "-t",
         "${workspaceFolder}/test/engrams/recall.tract.json",
         "engrams"
@@ -150,7 +150,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/fs/codify.tract.json",
-        "all"
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -210,7 +210,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/fs/transfer.tract.json",
-        "all"
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -252,7 +252,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/fs/transform.tract.json",
-        "all"
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -332,7 +332,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/ftp/transfer.tract.json",
-        "all"
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -350,7 +350,7 @@
         "--trace-warnings"
       ],
       "args": [
-        "all",
+        "*",
         "-t",
         "${workspaceFolder}/test/ftp/copy.tract.json"
       ],
@@ -432,7 +432,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/http/transfer.tract.json",
-        "all"
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -512,7 +512,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/zip/transfer.tract.json",
-        "all"
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -577,7 +577,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/elasticsearch/transfer.tract.json",
-        "all"
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -617,7 +617,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/elasticsearch/transform.tract.json",
-        "all"
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -637,7 +637,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/elasticsearch/tiger2020.tract.json",
-        "all"
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -697,7 +697,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/mssql/transfer.tract.json",
-        "all"
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -737,7 +737,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/mssql/transform.tract.json",
-        "all"
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -797,7 +797,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/mysql/transfer.tract.json",
-        "all"
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -837,7 +837,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/mysql/transform.tract.json",
-        "all"
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -915,9 +915,9 @@
         "--trace-warnings"
       ],
       "args": [
-        "codify",
         "-t",
-        "${workspaceFolder}/test/rest/codify.tract.json"
+        "${workspaceFolder}/test/rest/codify.tract.json",
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -937,7 +937,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/rest/transfer.tract.json",
-        "all"
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -957,7 +957,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/rest/transform.tract.json",
-        "all"
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -977,7 +977,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/rest/conjoin.tract.json",
-        "all"
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -1021,7 +1021,7 @@
       ],
       "args": [
         "-c",
-        "none",
+        "dev",
         "-t",
         "${workspaceFolder}/test/tracts/recall.tract.json",
         "recall_tracts"

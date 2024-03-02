@@ -1,5 +1,5 @@
 {
-  "domain": "census.gov",
+  "realm": "census.gov",
   "name": "tl_YYYY_us_state",
   "type": "engram",
   "description": "State and Equivalent Entity National Shapefile Record Layout (Current)",

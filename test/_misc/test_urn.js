@@ -1,5 +1,5 @@
 
-let urn = "domain:name#name";
+let urn = "realm:name#name";
 console.log(urn.length);
 
 let i = urn.lastIndexOf("#");
@@ -11,26 +11,26 @@ console.log(urn2);
 let u = urn.split("#");
 console.log(u);
 
-let x = "domain:name".split("#");
+let x = "realm:name".split("#");
 console.log(x);
 
 let entry1 = {
-  "domain": "domain",
+  "realm": "realm",
   "name": "name"
 };
-let us1 = (entry1.domain ? entry1.domain : "") + ":" + entry1.name;
+let us1 = (entry1.realm ? entry1.realm : "") + ":" + entry1.name;
 console.log(us1);
 
 let entry2 = {
   "name": "name"
 };
-let us2 = (entry2.domain ? entry2.domain : "") + ":" + entry2.name;
+let us2 = (entry2.realm ? entry2.realm : "") + ":" + entry2.name;
 console.log(us2);
 
 let d;
 let entry3 = {
-  domain: d,
+  realm: d,
   "name": "name"
 };
-let us3 = (entry3.domain ? entry2.domain : "") + ":" + entry2.name;
+let us3 = (entry3.realm ? entry2.realm : "") + ":" + entry2.name;
 console.log(us3);

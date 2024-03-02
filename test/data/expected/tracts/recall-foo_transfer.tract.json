@@ -1,6 +1,6 @@
 [
   {
-   "domain": "foo",
+   "realm": "foo",
    "name": "foo_transfer_two",
    "type": "tract",
    "title": "foo transfer two",

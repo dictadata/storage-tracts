@@ -11,11 +11,11 @@
     "model": "*",
     "locus": "*",
     "schema": "storage_tracts",
-    "key": "!domain+':'+name"
+    "key": "!realm+':'+name"
   },
   "fields": [
     {
-      "name": "domain",
+      "name": "realm",
       "type": "keyword",
       "key": 1
     },

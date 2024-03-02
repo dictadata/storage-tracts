@@ -1,6 +1,6 @@
 # SMT urn Engram Key Field
 
-An SMT urn is comprised of the domain and name fields for a engram entry. The format of an SMT urn value is `domain:name`.
+An SMT urn is comprised of the realm and name fields for a engram entry. The format of an SMT urn value is `realm:name`.
 
 This is analogous to the URN syntax `urn:<namespace>:<name>` without the 'urn:' prefix and follows the same character syntax rules. See [RFC2141 URN Syntax](https://datatracker.ietf.org/doc/html/rfc2141)
 
@@ -15,7 +15,7 @@ This is analogous to the URN syntax `urn:<namespace>:<name>` without the 'urn:' 
 
 ## Allowed Characters
 
-  `Domain`, namespace identifier, can contain ONLY letters, numbers, '-', '.' and '+' characters.
+  `realm`, namespace identifier, can contain ONLY letters, numbers, '-', '.' and '+' characters.
 
   `Name`, namespace specific identifier, can contain any printable character except the reserved characters noted below.
 

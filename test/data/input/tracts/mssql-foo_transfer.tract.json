@@ -1,5 +1,5 @@
 {
-  "domain": "foo",
+  "realm": "foo",
   "name": "mssql-foo_transfer",
   "type": "tract",
   "title": "JSON to JSON",

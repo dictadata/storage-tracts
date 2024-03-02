@@ -38,7 +38,7 @@ class Engram extends Object {
 
 class Entry {
   constructor(value) {
-    this.domain = "foo";
+    this.realm = "foo";
   }
 }
 

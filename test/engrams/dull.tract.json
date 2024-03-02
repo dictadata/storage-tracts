@@ -1,5 +1,5 @@
 {
-  "domain": "",
+  "realm": "",
   "name": "dull.tract",
   "type": "tract",
   "actions": [
@@ -7,7 +7,7 @@
       "name": "engrams",
       "action": "engrams",
       "dull": {
-        "urn": "foo_schema_two"
+        "urn": ":foo_schema_two"
       }
     }
   ]

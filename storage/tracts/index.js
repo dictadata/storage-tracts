@@ -46,7 +46,7 @@ module.exports = exports = class Tracts {
     else if (entry.key)
       urn = entry.key;
     else
-      urn = (entry.domain ? entry.domain : "") + ":" + entry.name;
+      urn = (entry.realm ? entry.realm : "") + ":" + entry.name;
 
     if (urn.indexOf(":") < 0)
       urn = ":" + urn;
@@ -76,7 +76,7 @@ module.exports = exports = class Tracts {
         options.encoding = tracts_encoding;
 
       if (this.smt.key === "*") {
-        // use default smt.key which is !domain+name
+        // use default smt.key which is !realm+name
         let s = new SMT(tracts_encoding.smt);
         this.smt.key = s.key;
       }
@@ -139,7 +139,7 @@ module.exports = exports = class Tracts {
     let storageResults = new StorageResults("message");
 
     // parameter checks
-    // note: domain is optional
+    // note: realm is optional
     if (!entry.name || entry.name === "*") {
       storageResults.setResults(400, "Invalid tracts name" );
       return storageResults;
@@ -183,7 +183,7 @@ module.exports = exports = class Tracts {
   /**
    *
    * @param {String|Object} urn tracts URN string or object
-   * @param {String} urn.domain
+   * @param {String} urn.realm
    * @param {String} urn.name
    * @returns
    */
@@ -212,7 +212,7 @@ module.exports = exports = class Tracts {
   /**
    *
    * @param {String|Object} urn tracts URN string or object
-   * @param {String} urn.domain
+   * @param {String} urn.realm
    * @param {String} urn.name
    * @param {Boolean} resolve resolve aliases
    * @returns

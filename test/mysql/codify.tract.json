@@ -1,12 +1,12 @@
 {
-  "domain": "",
+  "realm": "",
   "name": "codify.tract",
   "type": "tract",
   "actions": [
     {
       "name": "codify",
       "origin": {
-        "smt": "foo:mysql-foo_schema",
+        "smt": "foo:mysql_foo_schema",
         "options": {
           "max_read": 100
         }

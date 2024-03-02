@@ -119,13 +119,8 @@ function parseArgs() {
 
     // if URN then recall from Tracts storage
     if (typeof tract === "string") {
-      // check for action name in urn; domain:tract#action
-      let u = tract.split('#');
-      let urn = u[ 0 ];
-      if (u.length > 1 && !appArgs.name)
-        appArgs.name = u[ 1 ];
-
-      let results = await Tracts.recall(urn, true);
+      // tract is a urn; realm:tract
+      let results = await Tracts.recall(tract, true);
       tract = results.data[ 0 ];
     }
 

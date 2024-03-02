@@ -1,5 +1,5 @@
 {
-  "domain": "",
+  "realm": "",
   "name": "add.tract",
   "type": "tract",
   "config": {
@@ -17,22 +17,22 @@
       "store": [
         {
           "tract": "./test/data/input/tracts/jsonfile-foo_transfer.tract.json",
-          "domain": "foo",
+          "realm": "foo",
           "name": "jsonfile-foo_transfer"
         },
         {
           "tract": "./test/data/input/tracts/elasticsearch-foo_transfer.tract.json",
-          "domain": "foo",
+          "realm": "foo",
           "name": "elasticsearch-foo_transfer"
         },
         {
           "tract": "./test/data/input/tracts/mssql-foo_transfer.tract.json",
-          "domain": "foo",
+          "realm": "foo",
           "name": "mssql-foo_transfer"
         },
         {
           "tract": "./test/data/input/tracts/mysql-foo_transfer.tract.json",
-          "domain": "foo",
+          "realm": "foo",
           "name": "mysql-foo_transfer"
         }
       ]

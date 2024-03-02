@@ -1,5 +1,5 @@
 {
-  "domain": "foo",
+  "realm": "foo",
   "name": "urn name",
   "type": "tract",
   "description": "results of source query are parameters for nested query",

@@ -1,7 +1,7 @@
 {
   "name": "bl_2020_ia_congress",
   "type": "engram",
-  "domain": "legis.iowa.gov",
+  "realm": "legis.iowa.gov",
   "source": "https://gis.legis.iowa.gov/Plan2/SHP/IA_ProposedPlan2_Oct2021.zip",
   "title": "2021 US Congressional Districts",
   "description": "Second redistricting plan enacted 11/04/2021, and effective beginning with the elections in 2021 for the 118th U.S. Congress and the 90th Iowa General Assembly.",

@@ -1,5 +1,5 @@
 {
-  "domain": "foo",
+  "realm": "foo",
   "name": "transfer.tract.json",
   "type": "tract",
   "actions": [
@@ -26,7 +26,7 @@
       "name": "table-csv",
       "action": "transfer",
       "origin": {
-        "smt": "foo:mssql-foo_schema"
+        "smt": "foo:mssql_foo_schema"
       },
       "terminal": {
         "smt": "csv|./test/data/output/mssql/|foofile.csv|*",
