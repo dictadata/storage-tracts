@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-tracts
 
+- version 0.9.82
+  - feature: add Engrams and Tracts footnote field
 - version 0.9.81
   - refactor: rename domain to realm
   - feature: add REST HTTP retries for status >= 500
