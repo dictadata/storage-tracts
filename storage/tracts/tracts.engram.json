@@ -1,10 +1,10 @@
 {
   "name": "storage_tracts",
   "type": "tract",
-  "title": "tract entry definition",
-  "description": "dictadata Storage Tracts encoding definition",
+  "description": "dictadata Storage Tracts entry definition",
   "tags": [
     "dictadata",
+    "storage",
     "tracts"
   ],
   "smt": {
@@ -34,14 +34,6 @@
       "type": "text"
     },
     {
-      "name": "title",
-      "type": "text"
-    },
-    {
-      "name": "description",
-      "type": "text"
-    },
-    {
       "name": "roles",
       "type": "list",
       "_list": {
@@ -56,6 +48,14 @@
         "name": "_list",
         "type": "keyword"
       }
+    },
+    {
+      "name": "description",
+      "type": "text"
+    },
+    {
+      "name": "footnote",
+      "type": "text"
     },
     {
       "name": "notes",

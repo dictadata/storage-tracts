@@ -3,7 +3,6 @@
    "realm": "foo",
    "name": "foo_transfer_two",
    "type": "tract",
-   "title": "foo transfer two",
    "description": "just two fields: Foo Bar",
    "notes": "tract definitions: 1",
    "tags": [

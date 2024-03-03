@@ -1,12 +1,11 @@
 {
   "name": "engrams_engrams",
   "type": "engram",
-  "title": "Engrams engram entry definition",
-  "description": "dictadata Storage Engrams engram encoding definition",
+  "description": "dictadata Storage Engrams entry definition",
   "tags": [
     "dictadata",
-    "engrams",
-    "engram"
+    "storage",
+    "engrams"
   ],
   "smt": {
     "model": "*",
@@ -35,14 +34,6 @@
       "type": "text"
     },
     {
-      "name": "title",
-      "type": "text"
-    },
-    {
-      "name": "description",
-      "type": "text"
-    },
-    {
       "name": "roles",
       "type": "list",
       "_list": {
@@ -57,6 +48,14 @@
         "name": "_list",
         "type": "keyword"
       }
+    },
+    {
+      "name": "description",
+      "type": "text"
+    },
+    {
+      "name": "footnote",
+      "type": "text"
     },
     {
       "name": "notes",

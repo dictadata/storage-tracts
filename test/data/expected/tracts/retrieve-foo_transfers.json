@@ -3,7 +3,6 @@
    "realm": "foo",
    "name": "foo_transfer",
    "type": "tract",
-   "title": "foo transfer",
    "description": "transfer foo data",
    "notes": "tract definitions: 1",
    "tags": [

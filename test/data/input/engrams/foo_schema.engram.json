@@ -2,7 +2,6 @@
   "realm": "foo",
   "name": "foo_schema",
   "type": "engram",
-  "title": "foo_schema encoding",
   "description": "test input for foo_schema encoding",
   "source": "file:./test/data/input/engrams/foo_schema.engram.json",
   "tags": [

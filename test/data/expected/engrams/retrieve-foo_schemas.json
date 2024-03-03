@@ -4,7 +4,6 @@
    "name": "foo_schema",
    "type": "engram",
    "source": "foo_schema.engram.json",
-   "title": "foo schema",
    "description": "the original foo file",
    "tags": [
     "dictadata",

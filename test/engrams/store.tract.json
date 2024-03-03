@@ -12,7 +12,6 @@
           "name": "foo_schema",
           "type": "engram",
           "smt": "json|./test/data/input/|foofile.json|*",
-          "title": "foo schema",
           "description": "the original foo file",
           "source": "foo_schema.engram.json",
           "tags": [
@@ -26,7 +25,6 @@
           "name": "foo_schema_two",
           "type": "engram",
           "smt": "json|./test/data/input/|foofile.json|*",
-          "title": "foo schema two",
           "description": "just two fields: Foo Bar",
           "source": "modified foo_schema.engram.json",
           "tags": [

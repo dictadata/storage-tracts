@@ -2,7 +2,6 @@
   "realm": "foo",
   "name": "foo_widgets",
   "type": "engram",
-  "title": "foo_widgets encoding",
   "description": "test input for foo_widgets encoding",
   "source": "file:./test/data/input/engrams/foo_widgets.engram.json",
   "tags": [

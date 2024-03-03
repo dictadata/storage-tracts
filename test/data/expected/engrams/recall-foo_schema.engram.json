@@ -3,7 +3,6 @@
    "name": "foo_schema_two",
    "type": "engram",
    "source": "modified foo_schema.engram.json",
-   "title": "foo schema two",
    "description": "just two fields: Foo Bar",
    "tags": [
     "dictadata",

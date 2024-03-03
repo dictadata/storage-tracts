@@ -2,7 +2,6 @@
   "realm": "foo",
   "name": "foo_transfer",
   "type": "tract",
-  "title": "JSON to JSON",
   "description": "JSON to JSON transfer tract.",
   "notes": "tract definitions: 1",
   "tags": [
