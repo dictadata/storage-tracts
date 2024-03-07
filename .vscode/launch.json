@@ -628,7 +628,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "elasticsearch tiger2020",
+      "name": "elasticsearch tiger2023",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
@@ -636,7 +636,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/elasticsearch/tiger2020.tract.json",
+        "${workspaceFolder}/test/elasticsearch/tiger2023.tract.json",
         "*"
       ],
       "env": {
@@ -1111,6 +1111,26 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/transfers/urn_transfers.tract.json",
+        "*"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "template transfer",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage/etl/index.js",
+      "runtimeArgs": [
+        "--trace-warnings"
+      ],
+      "args": [
+        "-t",
+        "${workspaceFolder}/test/transfers/template_transfer.tract.json",
         "*"
       ],
       "env": {

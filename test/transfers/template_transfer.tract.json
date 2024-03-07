@@ -1,0 +1,25 @@
+{
+  "name": "template_transfer",
+  "type": "tract",
+  "description": "transfer foo to a json template",
+  "actions": [
+    {
+      "name": "transfer",
+      "action": "transfer",
+      "origin": {
+        "smt": "json|./test/data/input/|foofile.json|*"
+      },
+      "terminal": {
+        "smt": "template|./test/data/output/transfers/|template_transfer.json|*",
+        "options": {
+          "template": "./test/data/input/template_1.json",
+          "params": {
+            "name": "template_transfer"
+          },
+          "storeTo": "data"
+        },
+        "output": "./test/data/output/transfers/template_transfer.json"
+      }
+    }
+  ]
+}
