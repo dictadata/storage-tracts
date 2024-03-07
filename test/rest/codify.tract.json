@@ -17,7 +17,7 @@
           },
           "retries": 1,
           "max_read": 100,
-          "extract": "periods"
+          "pick": "periods"
         }
       },
       "terminal": {

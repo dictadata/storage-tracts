@@ -181,7 +181,7 @@ etl_weather.json:
               "User-Agent": "@dictadata.net/storage-node contact:info@dictadata.net"
             }
           },
-          "extract": "periods"
+          "pick": "periods"
         }
       },
       "terminal": {

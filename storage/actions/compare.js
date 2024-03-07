@@ -18,7 +18,7 @@ module.exports = async (action) => {
   let retCode = 0;
 
   try {
-    if (action.extract) {
+    if (action.pick) {
       // compare json objects
 
       // read files
@@ -26,13 +26,13 @@ module.exports = async (action) => {
       if (path.extname(action.expected) === '.gz')
         expected = unzipSync(expected);
       expected = JSON.parse(expected);
-      expected = dot.get(action.extract, expected);
+      expected = dot.get(action.pick, expected);
 
       let output = fs.readFileSync(action.output, { encoding: 'utf8' });
       if (path.extname(action.output) === '.gz')
         output = unzipSync(output);
       output = JSON.parse(output);
-      output = dot.get(action.extract, output);
+      output = dot.get(action.pick, output);
 
       // choose parser
       return compare.JSON(expected, output, action.compareValues);

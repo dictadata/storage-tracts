@@ -12,7 +12,10 @@
           "match": {
             "tags": "bar"
           },
-          "fields": [ "smt", "fields" ]
+          "fields": [
+            "smt",
+            "fields"
+          ]
         }
       },
       "terminal": {
@@ -28,7 +31,9 @@
           "origin": {
             "smt": "=${smt}",
             "options": {
-              "encoding": { "fields": "=${fields}"}
+              "encoding": {
+                "fields": "=${fields}"
+              }
             },
             "pattern": {
               "match": {
@@ -51,7 +56,10 @@
           "match": {
             "tags": "bar"
           },
-          "fields": [ "smt", "fields" ]
+          "fields": [
+            "smt",
+            "fields"
+          ]
         }
       },
       "terminal": {
@@ -65,7 +73,9 @@
           "origin": {
             "smt": "=${smt}",
             "options": {
-              "encoding": { "fields": "=${fields}"}
+              "encoding": {
+                "fields": "=${fields}"
+              }
             }
           },
           "terminal": {

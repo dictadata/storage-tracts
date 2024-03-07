@@ -38,7 +38,7 @@
               }
             },
             "retries": 1,
-            "extract": "periods",
+            "pick": "periods",
             "encoding": "./test/data/input/engrams/weather_forecast.engram.json"
           }
         }

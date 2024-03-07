@@ -14,15 +14,6 @@
       "label": "Fie"
     },
     {
-      "name": "dt_test",
-      "type": "date",
-      "size": 0,
-      "default": null,
-      "nullable": true,
-      "isKey": false,
-      "label": "Dt Test"
-    },
-    {
       "name": "foo",
       "type": "keyword",
       "size": 64,
@@ -48,6 +39,15 @@
       "nullable": true,
       "isKey": false,
       "label": "Baz"
+    },
+    {
+      "name": "dt_test",
+      "type": "date",
+      "size": 0,
+      "default": null,
+      "nullable": true,
+      "isKey": false,
+      "label": "Dt Test"
     },
     {
       "name": "state",

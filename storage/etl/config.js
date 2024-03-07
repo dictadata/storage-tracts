@@ -5,7 +5,8 @@
 
 const Storage = require("../storage");
 const { StorageError } = require("@dictadata/storage-junctions/types");
-const { logger, hasOwnProperty, objCopy, findModules } = require("@dictadata/storage-junctions/utils");
+const { objCopy } = require("@dictadata/storage-junctions/utils");
+const { logger } = require('../utils');
 const Package = require('../../package.json');
 const { readFile } = require('node:fs/promises');
 const { join } = require('node:path');
@@ -116,7 +117,7 @@ async function configStorage(config) {
   //let nmp = await findModules();
 
   // filesystem plugins
-  if (hasOwnProperty(plugins, "filesystems")) {
+  if (Object.hasOwn(plugins, "filesystems")) {
     for (let [ name, prefixes ] of Object.entries(plugins[ "filesystems" ])) {
       let stfs = require(name);  //join(nmp, name));
       for (let prefix of prefixes)
@@ -125,7 +126,7 @@ async function configStorage(config) {
   }
 
   // junction plugins
-  if (hasOwnProperty(plugins, "junctions")) {
+  if (Object.hasOwn(plugins, "junctions")) {
     for (let [ name, models ] of Object.entries(plugins[ "junctions" ])) {
       let junction = require(name);  //join(nmp, name));
       for (let model of models)

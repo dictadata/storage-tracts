@@ -100,7 +100,7 @@
       "name": "download",
       "action": "copy",
       "origin": {
-        "smt": "*|ftp://dev.dictadata.net/dictadata/US/census.gov/geo/tiger/TIGER2020/STATE/|*.zip|*",
+        "smt": "*|ftp://dev.dictadata.net/dictadata/US/census.gov/geo/tiger/TIGER2023/STATE/|*.zip|*",
         "options": {}
       },
       "terminal": {
@@ -111,20 +111,20 @@
       }
     },
     {
-      "name": "tl_2020_us_state",
+      "name": "tl_2023_us_state",
       "action": "transfer",
       "origin": {
-        "smt": "shp|zip:/var/dictadata/US/census.gov/geo/tiger/TIGER2020/STATE/tl_2020_us_state.zip|tl_2020_us_state|*"
+        "smt": "shp|zip:/var/dictadata/US/census.gov/geo/tiger/TIGER2023/STATE/tl_2023_us_state.zip|tl_2023_us_state|*"
       },
       "terminal": {
-        "smt": "json|./test/data/output/shapefile/|tl_2020_us_state.json|*"
+        "smt": "json|./test/data/output/shapefile/|tl_2023_us_state.json|*"
       }
     },
     {
       "name": "el_json",
       "action": "transfer",
       "origin": {
-        "smt": "elasticsearch|http://dev.dictadata.net:9200|tl_2020_us_state|*",
+        "smt": "elasticsearch|http://dev.dictadata.net:9200|tl_2023_us_state|*",
         "pattern": {
           "match": {
             "geometry": {
@@ -137,7 +137,7 @@
         }
       },
       "terminal": {
-        "smt": "json|./test/data/output/shapefile/|tl_2020_us_state_NY.json|*"
+        "smt": "json|./test/data/output/shapefile/|tl_2023_us_state_NY.json|*"
       }
     },
     {

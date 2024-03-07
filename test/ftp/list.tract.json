@@ -20,7 +20,7 @@
       "name": "list_tiger",
       "action": "list",
       "origin": {
-        "smt": "json|ftp://ftp2.census.gov/geo/tiger/TIGER2020/|*.pdf|*",
+        "smt": "json|ftp://ftp2.census.gov/geo/tiger/TIGER2023/|*.pdf|*",
         "options": {
           "recursive": false
         }

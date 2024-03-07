@@ -14,12 +14,22 @@
       },
       "actions": [
         {
+          "name": "files",
+          "action": "transfer",
+          "origin": {
+            "smt": "json|./test/data/input/|${name}|*"
+          },
+          "terminal": {
+            "smt": "json|./test/data/output/fs/scan/|${name}|*"
+          }
+        },
+        {
           "name": "schema",
           "action": "codify",
+          "encoding": "./test/data/output/fs/scan.engram.json",
           "origin": {
             "smt": "json|./test/data/input/|${name}|*",
             "options": {
-              "encoding": "./test/data/output/fs/scan.engram.json",
               "max_read": 100
             }
           },

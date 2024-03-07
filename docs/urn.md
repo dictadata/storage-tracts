@@ -8,7 +8,7 @@ This is analogous to the URN syntax `urn:<namespace>:<name>` without the 'urn:' 
 
 ```code
    :foo_schema
-   census.gov:tl_2020_us_state
+   census.gov:tl_2023_us_state
    usgs.gov:us_national_fed_codes
    sos.iowa.gov:bl_2010_us_ia_county_precincts
 ```

@@ -15,7 +15,8 @@
 const Storage = require("../storage");
 const { Engram } = require("../types");
 const { SMT, StorageResults, StorageError } = require("@dictadata/storage-junctions/types");
-const { logger, hasOwnProperty, objCopy } = require("@dictadata/storage-junctions/utils");
+const { objCopy } = require("@dictadata/storage-junctions/utils");
+const { logger } = require('../utils');
 const fs = require("node:fs");
 const homedir = process.env[ "HOMEPATH" ] || require('os').homedir();
 
@@ -46,7 +47,7 @@ module.exports = exports = class Engrams {
       _urn = entry;
     }
     else if (typeof entry === "object") {
-      if (hasOwnProperty(entry, "urn")) {
+      if (Object.hasOwn(entry, "urn")) {
         _urn = entry.urn;
       }
       else {
@@ -60,7 +61,7 @@ module.exports = exports = class Engrams {
             _urn += name.substr(1, name.length - 2);  // strip quotes
           }
           else {
-            if (hasOwnProperty(entry, name) && entry[ name ])
+            if (Object.hasOwn(entry, name) && entry[ name ])
               _urn += entry[ name ];
           }
         }

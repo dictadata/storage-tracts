@@ -60,10 +60,10 @@ module.exports = async (action) => {
       });
       pipes.push(reader);
 
-      for (let tfOptions of transforms)
-        pipes.push(await jo.createTransform(tfOptions.transform, tfOptions));
+      for (let transform of transforms)
+        pipes.push(await jo.createTransform(transform.transform, transform));
 
-      let ct = await jo.createTransform('codify');
+      let ct = await jo.createTransform("codify", action);
       pipes.push(ct);
 
       await stream.pipeline(pipes);
@@ -77,9 +77,9 @@ module.exports = async (action) => {
     });
 
     logger.verbose(">>> origin transforms");
-    for (let tfOptions of transforms) {
-      let tfType = tfOptions.transform.split("-")[ 0 ];
-      reader = reader.pipe(await jo.createTransform(tfType, tfOptions));
+    for (let transform of transforms) {
+      let tfType = transform.transform;
+      reader = reader.pipe(await jo.createTransform(tfType, transform));
     }
 
     if (!action.terminal.options.encoding) {
@@ -126,9 +126,9 @@ module.exports = async (action) => {
         let writer = null;
         logger.verbose(">>> transforms");
         let transforms = branch.transforms || [];
-        for (let tfOptions of transforms) {
-          let tfType = tfOptions.transform.split("-")[ 0 ];
-          let t = await jt.createTransform(tfType, tfOptions);
+        for (let transform of transforms) {
+          let tfType = transform.transform;
+          let t = await jt.createTransform(tfType, transform);
           writer = (writer) ? writer.pipe(t) : reader.pipe(t);
         }
 
