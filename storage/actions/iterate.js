@@ -67,10 +67,7 @@ module.exports = async (action) => {
               results_separator = ",";
           }
           else {
-            subaction.terminal.smt = Object.assign({}, jt.smt,
-              {
-                model: "$"
-              });
+            subaction.terminal.smt = Object.assign({}, jt.smt);
             subaction.terminal.options = Object.assign({}, subaction.terminal.options,
               {
                 junction: jt,

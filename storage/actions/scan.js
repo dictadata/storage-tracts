@@ -4,6 +4,7 @@
 "use strict";
 
 const Storage = require("../storage");
+const { objCopy } = require('@dictadata/storage-junctions/utils');
 const { logger } = require('../utils');
 const { perform } = require('./');
 
@@ -30,8 +31,9 @@ module.exports = async (action) => {
     if (action.origin.options.exclude) {
       for (let filespec of action.origin.options.exclude) {
         let rx = '^' + filespec + '$';
-        rx = rx.replace('.', '\\.');
-        rx = rx.replace('*', '.*');
+        rx = rx.replace(/\./g, '\\.');
+        rx = rx.replace(/\?/g, '.');
+        rx = rx.replace(/\*/g, '.*');
         rx = new RegExp(rx);
         exclude.push(rx);
       }
@@ -62,7 +64,9 @@ module.exports = async (action) => {
       };
 
       // loop thru sub-tracts
-      for (const subaction of action.actions) {
+      for (const sub of action.actions) {
+        let subaction = objCopy({}, sub);
+
         retCode = await perform(subaction, replacements);
         if (retCode)
           break;
