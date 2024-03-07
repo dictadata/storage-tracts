@@ -1,5 +1,10 @@
 # CHANGELOG:  @dictadata/storage-tracts
 
+- version 0.9.83
+  - featrue: template-junction tests
+  - bug fix: fix codify encodings
+  - bug fix: fix object overwrite of subactions in iterate and scan
+  - updated: @dictadata/storage-junctions@0.9.109
 - version 0.9.82
   - feature: add Engrams and Tracts footnote field
 - version 0.9.81
