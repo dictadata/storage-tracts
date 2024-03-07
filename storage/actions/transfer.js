@@ -7,7 +7,6 @@
 "use strict";
 
 const Storage = require("../storage");
-const { hasOwnProperty } = require("@dictadata/storage-junctions/utils")
 const { logger } = require('../utils');
 const output = require('./output');
 
@@ -24,7 +23,7 @@ module.exports = async (action) => {
   // resolve urn
   if (typeof action?.urn === "string") {
     let results = await Storage.tracts.recall(action.urn);
-    action = results.data[ 0 ].actions[0];
+    action = results.data[ 0 ].actions[ 0 ];
   }
 
   var origin = action.origin || {};
@@ -33,7 +32,7 @@ module.exports = async (action) => {
   if (!origin.options) origin.options = {};
   if (!terminal.options) terminal.options = {};
 
-  let autoClose = hasOwnProperty(terminal.options, "autoClose") ? terminal.options.autoClose : true;
+  let autoClose = Object.hasOwn(terminal.options, "autoClose") ? terminal.options.autoClose : true;
 
   var jo, jt;  // junctions origin, terminal
   try {
@@ -57,10 +56,12 @@ module.exports = async (action) => {
 
     /// determine terminal encoding
     logger.verbose(">>> determine terminal encoding");
-    if (terminal.options.encoding) {
-      // do nothing
-    }
-    else if (!encoding || transforms.length > 0) {
+    if (!terminal.options?.encoding) {
+        // use origin encoding
+        terminal.options.encoding = encoding;
+      }
+
+    if (!terminal.options?.encoding || transforms.length > 0) {
       // run some objects through transforms to create terminal encoding
       logger.verbose(">>> codify pipeline");
       let pipes = [];
@@ -71,25 +72,22 @@ module.exports = async (action) => {
       });
 
       let reader = jo.createReader(options);
-      reader.on('error', (error) => {
-        logger.error("transfer reader: " + error.message);
-      });
+      //reader.on('error', (error) => {
+      //  logger.error("transfer reader: " + error.message);
+      //});
       pipes.push(reader);
 
       for (let transform of transforms) {
         pipes.push(await jo.createTransform(transform.transform, transform));
       }
 
-      let codify = await jo.createTransform('codify');
+      let codify = await jo.createTransform("codify", action);
       pipes.push(codify);
 
       await stream.pipeline(pipes);
       terminal.options.encoding = codify.encoding;
     }
-    else {
-      // use origin encoding
-      terminal.options.encoding = encoding;
-    }
+
 
     if (typeof terminal.options.encoding !== "object")
       throw new Error("invalid terminal encoding");
@@ -115,9 +113,9 @@ module.exports = async (action) => {
 
     // reader
     let reader = jo.createReader({ pattern: origin.pattern });
-    // reader.on('error', (error) => {
-    //   logger.error("transfer reader: " + error.message);
-    // });
+    //reader.on('error', (error) => {
+    //  logger.error("transfer reader: " + error.message);
+    //});
     pipes.push(reader);
 
     // transforms
@@ -127,10 +125,9 @@ module.exports = async (action) => {
 
     // writer
     let writer = jt.createWriter();
-    // writer.on('error', (error) => {
-    //   logger.error("transfer writer: " + error.message);
-    //   retCode = 1;
-    // });
+    //writer.on('error', (error) => {
+    // logger.error("transfer writer: " + error.message);
+    //});
     pipes.push(writer);
 
     // transfer data
