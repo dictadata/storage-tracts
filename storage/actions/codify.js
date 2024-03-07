@@ -5,9 +5,9 @@
 
 const Storage = require("../storage");
 const { Field } = require('@dictadata/storage-junctions/types');
-const output = require('./output');
 const { logger } = require('../utils');
-
+const output = require('./output');
+const fs = require('fs');
 const stream = require('stream').promises;
 
 /**
@@ -20,7 +20,7 @@ module.exports = async (action) => {
   var jo;
   try {
     let origin = action.origin || {};
-    if (!Object.prototype.hasOwnProperty.call(origin, "options"))
+    if (!Object.hasOwn(origin, "options"))
       origin.options = {};
     let transforms = action.transforms || [];
 
@@ -39,6 +39,11 @@ module.exports = async (action) => {
       // then run some data through the codifier
       let pipes = [];
 
+      if (typeof action.encoding === "string") {
+        let filename = action.encoding;
+        action.encoding = JSON.parse(fs.readFileSync(filename, "utf8"));
+      }
+
       let options = { max_read: origin.options.max_read || 100, pattern: origin.pattern };
       let reader = jo.createReader(options);
       reader.on('error', (error) => {
@@ -46,10 +51,10 @@ module.exports = async (action) => {
       });
       pipes.push(reader);
 
-      for (let tfOptions of transforms)
-        pipes.push(await jo.createTransform(tfOptions.transform, tfOptions));
+      for (let transform of transforms)
+        pipes.push(await jo.createTransform(transform.transform, transform));
 
-      let ct = await jo.createTransform('codify');
+      let ct = await jo.createTransform("codify", action);
       pipes.push(ct);
 
       await stream.pipeline(pipes);
@@ -67,7 +72,7 @@ module.exports = async (action) => {
       let _default = new Field("_default_");
       for (let [ fname, field ] of Object.entries(encoding.fields)) {
         for (let [ pname, value ] of Object.entries(field)) {
-          if (Object.prototype.hasOwnProperty.call(_default, pname) && value === _default[ pname ])
+          if (Object.hasOwn(_default, pname) && value === _default[ pname ])
             delete field[ pname ];
         }
       }
