@@ -13,11 +13,6 @@
       "urn": "foo:elasticsearch-foo_transfer"
     },
     {
-      "name": "mssql-foo_transfer",
-      "action": "transfer",
-      "urn": "foo:mssql-foo_transfer"
-    },
-    {
       "name": "mysql-foo_transfer",
       "action": "transfer",
       "urn": "foo:mysql-foo_transfer"

@@ -18,7 +18,8 @@
   },
   "main": "index.js",
   "bin": {
-    "etl": "storage/etl/index.js"
+    "etl": "storage/etl/index.js",
+    "storage-etl": "storage/etl/index.js"
   },
   "scripts": {
     "start": "node storage/etl/index.js",

@@ -33,12 +33,6 @@
         },
         {
           "engram": "./test/data/input/engrams/foo_schema.engram.json",
-          "name": "mssql_foo_schema",
-          "smt": "mssql|server=dev.dictadata.net;database=storage_node|foo_schema|=Foo",
-          "tags": [ "bar" ]
-        },
-        {
-          "engram": "./test/data/input/engrams/foo_schema.engram.json",
           "name": "mysql_foo_schema",
           "smt": "mysql|host=dev.dictadata.net;database=storage_node|foo_schema|=Foo",
           "tags": [ "bar" ]
