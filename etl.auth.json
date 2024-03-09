@@ -13,13 +13,6 @@
     }
   },
   {
-    "locus": "server=dev.dictadata.net;database=storage_node",
-    "auth": {
-      "username": "dicta",
-      "password": "data"
-    }
-  },
-  {
     "locus": "host=dev.dictadata.net;database=storage_node",
     "auth": {
       "username": "dicta",
