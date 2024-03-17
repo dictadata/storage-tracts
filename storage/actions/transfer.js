@@ -135,7 +135,7 @@ module.exports = async (action) => {
     await stream.pipeline(pipes);
 
     // if testing, validate results
-    if (terminal.output) {
+    if (terminal?.output) {
       retCode = output(terminal.output, null, terminal.compareValues || 2);
     }
     logger.info("=== completed");

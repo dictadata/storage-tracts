@@ -178,7 +178,7 @@ module.exports = async (action) => {
     for (let writer of writers)
       await stream.finished(writer);
 
-    if (terminal.output) {
+    if (terminal?.output) {
       retCode = output(terminal.output, null, terminal.compareValues || 2);
     }
     logger.info("=== completed");

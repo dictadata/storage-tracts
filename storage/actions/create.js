@@ -20,7 +20,7 @@ module.exports = async (action) => {
 
     let results = await j1.createSchema();
 
-    if (action.terminal.output) {
+    if (action.terminal?.output) {
       retCode = output(action.terminal.output, results);
     }
     else {

@@ -80,7 +80,7 @@ module.exports = async (action) => {
 
     //logger.verbose(JSON.stringify(encoding, null, " "));
     logger.debug(JSON.stringify(encoding.fields, null, " "));
-    if (action.terminal.output) {
+    if (action.terminal?.output) {
       retCode = output(action.terminal.output, encoding, 1);
     }
     else {

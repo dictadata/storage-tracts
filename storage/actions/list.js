@@ -21,7 +21,7 @@ module.exports = async (action) => {
     let { data: list } = await j1.list();
 
     logger.verbose(JSON.stringify(list, null, " "));
-    if (action.terminal.output) {
+    if (action.terminal?.output) {
       retCode = output(action.terminal.output, list, 1);
     }
     else {

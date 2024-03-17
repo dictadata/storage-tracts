@@ -24,7 +24,7 @@ module.exports = async (action) => {
     else
       results = await j1.dull(origin.pattern);
 
-    if (action.terminal.output) {
+    if (action.terminal?.output) {
       retCode = output(action.terminal.output, results);
     }
     else {
