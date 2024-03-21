@@ -1,11 +1,11 @@
 {
   "realm": "foo",
-  "name": "iterate.tract",
+  "name": "foreach.tract",
   "type": "tract",
   "actions": [
     {
-      "name": "foo_iterate_es",
-      "action": "iterate",
+      "name": "foo_foreach_es",
+      "action": "foreach",
       "origin": {
         "smt": "$:engrams",
         "pattern": {
@@ -19,7 +19,7 @@
         }
       },
       "terminal": {
-        "smt": "elasticsearch|http://dev.dictadata.net:9200|iterate_transfer|=Foo",
+        "smt": "elasticsearch|http://dev.dictadata.net:9200|foreach_transfer|=Foo",
         "options": {
           "encoding": "./test/data/input/engrams/foo_schema.engram.json"
         }
@@ -48,8 +48,8 @@
       ]
     },
     {
-      "name": "bar_iterate",
-      "action": "iterate",
+      "name": "bar_foreach",
+      "action": "foreach",
       "origin": {
         "smt": "$:engrams",
         "pattern": {
@@ -63,8 +63,8 @@
         }
       },
       "terminal": {
-        "smt": "json|./test/data/output/transfers/|iterate_transfer.json|*",
-        "output": "./test/data/output/transfers/iterate_transfer.json"
+        "smt": "json|./test/data/output/transfers/|foreach_transfer.json|*",
+        "output": "./test/data/output/transfers/foreach_transfer.json"
       },
       "actions": [
         {

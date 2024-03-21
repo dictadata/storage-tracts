@@ -10,7 +10,7 @@ const { Actions } = require("../index");
 const config = require('./config');
 const { logger } = require('../utils');
 const { objCopy } = require('@dictadata/storage-junctions/utils')
-const path = require('path');
+const path = require('node:path');
 require('colors');
 
 const junctionsPkg = require('@dictadata/storage-junctions/package.json');
@@ -105,7 +105,7 @@ function parseArgs() {
     console.log("  engrams - manage engrams encoding definitions");
     console.log("  tracts - manage tracts definitions");
     console.log("  scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.");
-    console.log("  iterate - retrieve data and perform child action(s) for each construct.");
+    console.log("  foreach - retrieve data and perform child action(s) for each construct.");
     console.log("  all | * - run all actions in sequence.");
     console.log("  parallel - run all actions in parallel.");
     console.log("");

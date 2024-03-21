@@ -181,7 +181,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "fs iterate",
+      "name": "fs foreach",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
@@ -189,8 +189,8 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/fs/iterate.tract.json",
-        "iterate"
+        "${workspaceFolder}/test/fs/foreach.tract.json",
+        "foreach"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -290,9 +290,9 @@
         "--trace-warnings"
       ],
       "args": [
-        "codify",
         "-t",
-        "${workspaceFolder}/test/ftp/codify.tract.json"
+        "${workspaceFolder}/test/ftp/codify.tract.json",
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -350,9 +350,9 @@
         "--trace-warnings"
       ],
       "args": [
-        "*",
         "-t",
-        "${workspaceFolder}/test/ftp/copy.tract.json"
+        "${workspaceFolder}/test/ftp/copy.tract.json",
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -370,9 +370,9 @@
         "--trace-warnings"
       ],
       "args": [
-        "list",
         "-t",
-        "${workspaceFolder}/test/http/list.tract.json"
+        "${workspaceFolder}/test/http/list.tract.json",
+        "list"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -390,9 +390,9 @@
         "--trace-warnings"
       ],
       "args": [
-        "codify",
         "-t",
-        "${workspaceFolder}/test/http/codify.tract.json"
+        "${workspaceFolder}/test/http/codify.tract.json",
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -450,9 +450,9 @@
         "--trace-warnings"
       ],
       "args": [
-        "list",
         "-t",
-        "${workspaceFolder}/test/zip/list.tract.json"
+        "${workspaceFolder}/test/zip/list.tract.json",
+        "list"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -470,9 +470,9 @@
         "--trace-warnings"
       ],
       "args": [
-        "codify",
         "-t",
-        "${workspaceFolder}/test/zip/codify.tract.json"
+        "${workspaceFolder}/test/zip/codify.tract.json",
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -535,9 +535,9 @@
         "--trace-warnings"
       ],
       "args": [
-        "*",
         "-t",
-        "${workspaceFolder}/test/elasticsearch/list.tract.json"
+        "${workspaceFolder}/test/elasticsearch/list.tract.json",
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -555,9 +555,9 @@
         "--trace-warnings"
       ],
       "args": [
-        "codify",
         "-t",
-        "${workspaceFolder}/test/elasticsearch/codify.tract.json"
+        "${workspaceFolder}/test/elasticsearch/codify.tract.json",
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -655,9 +655,9 @@
         "--trace-warnings"
       ],
       "args": [
-        "*",
         "-t",
-        "${workspaceFolder}/test/mysql/list.tract.json"
+        "${workspaceFolder}/test/mysql/list.tract.json",
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -675,9 +675,9 @@
         "--trace-warnings"
       ],
       "args": [
-        "codify",
         "-t",
-        "${workspaceFolder}/test/mysql/codify.tract.json"
+        "${workspaceFolder}/test/mysql/codify.tract.json",
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -777,7 +777,7 @@
       "args": [
         "-t",
         "${workspaceFolder}/test/shapefile/codify.tract.json",
-        "codify"
+        "*"
       ],
       "env": {
         "NODE_ENV": "development",
@@ -996,6 +996,71 @@
     },
     {
       "type": "node-terminal",
+      "name": "--- Tee",
+      "request": "launch"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "fs tee",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage/etl/index.js",
+      "runtimeArgs": [
+        "--trace-warnings"
+      ],
+      "args": [
+        "-t",
+        "${workspaceFolder}/test/tee/fs_tee.tract.json",
+        "*"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "elasticsearch tee",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage/etl/index.js",
+      "runtimeArgs": [
+        "--trace-warnings"
+      ],
+      "args": [
+        "-t",
+        "${workspaceFolder}/test/tee/es_tee.tract.json",
+        "*"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "mysql tee",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/storage/etl/index.js",
+      "runtimeArgs": [
+        "--trace-warnings"
+      ],
+      "args": [
+        "-t",
+        "${workspaceFolder}/test/tee/mysql_tee.tract.json",
+        "*"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "verbose"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "type": "node-terminal",
       "name": "--- Transfers",
       "request": "launch"
     },
@@ -1042,7 +1107,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "iterate transfers",
+      "name": "foreach transfers",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
@@ -1050,7 +1115,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/transfers/iterate_transfers.tract.json",
+        "${workspaceFolder}/test/transfers/foreach_transfers.tract.json",
         "*"
       ],
       "env": {

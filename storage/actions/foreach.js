@@ -1,5 +1,5 @@
 /**
- * storage/etl/iterate
+ * storage/etl/foreach
  */
 "use strict";
 
@@ -7,7 +7,7 @@ const Storage = require("../storage");
 const { SMT } = require("@dictadata/storage-junctions/types")
 const { logger } = require('../utils');
 const { typeOf, objCopy } = require('@dictadata/storage-junctions/utils');
-const { perform } = require('./');
+const { perform } = require('.');
 const output = require('./output');
 
 /**
@@ -15,7 +15,7 @@ const output = require('./output');
  * and perform action(s) on each construct.
  */
 module.exports = async (action) => {
-  logger.info("=== iterate");
+  logger.info("=== foreach");
   logger.verbose(action.origin.smt);
   let retCode = 0;
 
@@ -98,7 +98,7 @@ module.exports = async (action) => {
     logger.info("=== completed");
   }
   catch (err) {
-    logger.error("iterate: " + err.message);
+    logger.error("foreach: " + err.message);
     retCode = 1;
   }
   finally {

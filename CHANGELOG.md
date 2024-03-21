@@ -3,7 +3,7 @@
 - version 0.9.83
   - featrue: template-junction tests
   - bug fix: fix codify encodings
-  - bug fix: fix object overwrite of subactions in iterate and scan
+  - bug fix: fix object overwrite of subactions in foreach and scan
   - updated: @dictadata/storage-junctions@0.9.109
 - version 0.9.82
   - feature: add Engrams and Tracts footnote field
@@ -19,14 +19,14 @@
   - buf fix: search up folders for node_modules folder, needed for plugins
   - bug fix: resolve junctions before creating transfer pipeline
 - version 0.9.78
-  - bug fix: iterate action, make a copy of subaction before perform()
+  - bug fix: foreach action, make a copy of subaction before perform()
 - version 0.9.77
   - feature: implement smt $ model with options.junction
   - updated: @dictadata/storage-junctions@0.9.103
 - version 0.9.76
   - refactor: actions replace params
 - version 0.9.75
-  - refactor: variable replacement in iterate sub-actions
+  - refactor: variable replacement in foreach sub-actions
   - refactor: Engrams, Tracts now return arrays
   - feature: implement transfer _base action
   - refactor: engrams and tracts, tract, actions
@@ -80,7 +80,7 @@
   - bug fix: set parser option when reading jsonl and jsons streams
 - version 0.9.60
   - updated: @dictadata/storage-junctions@0.9.85
-  - feature: `iterate` action retrieves data and performs child action(s) for each construct.
+  - feature: `foreach` action retrieves data and performs child action(s) for each construct.
 - version 0.9.59
   - updated: @dictadata/storage-junctions@0.9.84
   - feature: parse delimited numbers from text sources

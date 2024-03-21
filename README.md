@@ -39,7 +39,7 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
     engrams - manage engrams encoding definitions
     tracts = manage ETL tract definitions
     scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.
-    iterate - retrieve data and perform child action(s) for each construct.
+    foreach - retrieve data and perform child action(s) for each construct.
     all | * - run all actions in sequence.
     parallel - run all actions in parallel.
 ```
