@@ -7,7 +7,7 @@
 
 const Storage = require("../storage");
 
-const stream = require('stream').promises;
+const stream = require('node:stream').promises;
 
 /**
  *

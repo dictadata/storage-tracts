@@ -8,7 +8,7 @@ const { Engram } = require("../types");
 const output = require('./output');
 const { logger } = require('../utils');
 
-const fs = require('fs');
+const fs = require('node:fs');
 
 /**
  *
