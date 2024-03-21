@@ -4,7 +4,7 @@
   "type": "tract",
   "actions": [
     {
-      "name": "codify_forecast",
+      "name": "codify_rest",
       "action": "codify",
       "origin": {
         "smt": "rest|https://api.weather.gov/gridpoints/DVN/34,71/|forecast|=*",
@@ -21,7 +21,7 @@
         }
       },
       "terminal": {
-        "output": "./test/data/output/rest/codify.engram.json"
+        "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_codify|"
       }
     }
   ]

@@ -1,17 +1,19 @@
 /**
  * storage/etl/transfer
  *
- * stream data from datastore to datastore
+ * stream data from origin to terminal
  *
  */
 "use strict";
 
 const Storage = require("../storage");
 const { logger } = require('../utils');
+const { objCopy } = require('@dictadata/storage-junctions/utils');
+const codify = require('./codify');
 const output = require('./output');
 
-const fs = require('fs');
-const stream = require('stream').promises;
+const fs = require('node:fs');
+const stream = require('node:stream').promises;
 
 /**
  * transfer action
@@ -36,7 +38,8 @@ module.exports = async (action) => {
 
   var jo, jt;  // junctions origin, terminal
   try {
-    // note, at this point file encodings have been read by actions.js
+    // note, options.encoding files have been read by actions.js
+
     // resolve the origin and terminal
     origin.smt = await Storage.resolve(origin.smt, origin.options);
     terminal.smt = await Storage.resolve(terminal.smt, terminal.options);
@@ -44,68 +47,28 @@ module.exports = async (action) => {
     // create origin junction
     logger.verbose(">>> create origin junction " + JSON.stringify(origin.smt, null, 2));
     jo = await Storage.activate(origin.smt, origin.options);
+    // note, if jo.capabilities.encoding is true origin.options.encoding will be set by the junction
 
-    /// get origin encoding
-    logger.debug(">>> get origin encoding");
-    let encoding = origin.options.encoding;
-    if (!encoding && jo.capabilities.encoding) {
-      let results = await jo.getEngram();  // load encoding from origin for validation
-      if (results.type === "engram")
-        encoding = results.data;
-    }
-
-    /// determine terminal encoding
-    logger.verbose(">>> determine terminal encoding");
     if (!terminal.options?.encoding) {
-        // use origin encoding
-        terminal.options.encoding = encoding;
-      }
+      terminal.options.encoding = origin.options.encoding;
+    }
 
     if (!terminal.options?.encoding || transforms.length > 0) {
       // run some objects through transforms to create terminal encoding
-      logger.verbose(">>> codify pipeline");
-      let pipes = [];
+      let codifyAction = objCopy({}, action);
+      codifyAction.action = "codify";
+      codifyAction.terminal = {};
 
-      let options = Object.assign({
-        max_read: origin.options?.max_read || 100,
-        pattern: origin.pattern
-      });
-
-      let reader = jo.createReader(options);
-      //reader.on('error', (error) => {
-      //  logger.error("transfer reader: " + error.message);
-      //});
-      pipes.push(reader);
-
-      for (let transform of transforms) {
-        pipes.push(await jo.createTransform(transform.transform, transform));
-      }
-
-      let codify = await jo.createTransform("codify", action);
-      pipes.push(codify);
-
-      await stream.pipeline(pipes);
-      terminal.options.encoding = codify.encoding;
+      let codifyEncoding = {};
+      await codify(codifyAction, codifyEncoding);
+      terminal.options.encoding = codifyEncoding;
     }
-
 
     if (typeof terminal.options.encoding !== "object")
       throw new Error("invalid terminal encoding");
 
     //logger.debug(">>> encoding results");
     //logger.debug(JSON.stringify(terminal.options.encoding.fields, null, " "));
-
-    /// create terminal junction
-    logger.verbose(">>> create terminal junction " + JSON.stringify(terminal.smt));
-    jt = await Storage.activate(terminal.smt, terminal.options);
-
-    logger.debug("create terminal schema");
-    if (jt.capabilities.encoding && !terminal.options.append) {
-      logger.verbose(">>> createSchema");
-      let results = await jt.createSchema();
-      if (results.status !== 0)
-        logger.info("could not create storage schema: " + results.message);
-    }
 
     /// setup pipeline
     logger.verbose(">>> transfer pipeline");
@@ -123,6 +86,18 @@ module.exports = async (action) => {
       pipes.push(await jo.createTransform(transform.transform, transform));
     }
 
+    /// create terminal junction
+    logger.verbose(">>> create terminal junction " + JSON.stringify(terminal.smt));
+    jt = await Storage.activate(terminal.smt, terminal.options);
+
+    logger.debug("create terminal schema");
+    if (jt.capabilities.encoding && !terminal.options.append) {
+      logger.verbose(">>> createSchema");
+      let results = await jt.createSchema();
+      if (results.status !== 0)
+        logger.info("could not create storage schema: " + results.message);
+    }
+
     // writer
     let writer = jt.createWriter();
     //writer.on('error', (error) => {
@@ -133,6 +108,15 @@ module.exports = async (action) => {
     // transfer data
     logger.verbose(">>> start transfer");
     await stream.pipeline(pipes);
+
+
+    // if not found
+    if (action.origin.cacheable) {
+      // request from jo.engram.source
+
+      // tee results to origin.smt and terminal.smt
+    }
+
 
     // if testing, validate results
     if (terminal?.output) {

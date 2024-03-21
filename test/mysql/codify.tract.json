@@ -14,6 +14,19 @@
       "terminal": {
         "output": "./test/data/output/mysql/codify.engram.json"
       }
+    },
+    {
+      "name": "codify_mysql",
+      "action": "codify",
+      "origin": {
+        "smt": "foo:mysql_foo_schema",
+        "options": {
+          "max_read": 100
+        }
+      },
+      "terminal": {
+        "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_codify|"
+      }
     }
   ]
 }

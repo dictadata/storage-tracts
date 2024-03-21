@@ -1,11 +1,11 @@
 {
   "realm": "",
-  "name": "iterate.tract",
+  "name": "foreach.tract",
   "type": "tract",
   "actions": [
     {
-      "name": "iterate",
-      "action": "iterate",
+      "name": "foreach",
+      "action": "foreach",
       "origin": {
         "smt": "csv|./test/data/input/|foo_numbers.txt|*",
         "options": {
@@ -25,7 +25,7 @@
             "smt": "*|./test/data/input/|foofile_${filenum}.json|*"
           },
           "terminal": {
-            "smt": "*|./test/data/output/fs/iterate/|foofile_${filenum}.json|*"
+            "smt": "*|./test/data/output/fs/foreach/|foofile_${filenum}.json|*"
           }
         }
       ]
