@@ -1,0 +1,24 @@
+{
+  "realm": "foo",
+  "name": "tee.tract.json",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "json-tee",
+      "action": "tee",
+      "origin": {
+        "smt": "json|./test/data/input/|foofile.json|*"
+      },
+      "terminals": [
+        {
+          "smt": "json|./test/data/output/tee/|fs_foofile.json|*",
+          "output": "./test/data/output/tee/fs_foofile.json"
+        },
+        {
+          "smt": "csv|./test/data/output/tee/|fs_foofile.csv|*",
+          "output": "./test/data/output/tee/fs_foofile.csv"
+        }
+      ]
+    }
+  ]
+}

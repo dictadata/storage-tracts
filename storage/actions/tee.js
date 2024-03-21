@@ -1,197 +1,157 @@
 /**
  * storage/etl/tee
  *
- * stream data from datastore to datastore
+ * stream data from origin to multiple terminals
  *
  */
 "use strict";
 
 const Storage = require("../storage");
 const { logger } = require('../utils');
+const { objCopy } = require('@dictadata/storage-junctions/utils');
+const codify = require('./codify');
 const output = require('./output');
 
-const fs = require('fs');
-const stream = require('stream').promises;
+const fs = require('node:fs');
+const stream = require('node:stream/promises');
 
 /**
- * transfer action
+ * transfer w/ tee action
  */
 module.exports = async (action) => {
-  logger.info("=== transfer");
+  logger.info("=== tee transfer");
   let retCode = 0;
 
+  // resolve urn
+  if (typeof action?.urn === "string") {
+    let results = await Storage.tracts.recall(action.urn);
+    action = results.data[ 0 ].actions[ 0 ];
+  }
+
   var origin = action.origin || {};
-  var terminal = action.terminal || {};
+  var terminals = action.terminals || [];
   var transforms = action.transforms || [];
   if (!origin.options) origin.options = {};
-  if (!terminal.options) terminal.options = {};
+  for (let terminal of terminals) {
+    if (!terminal.options) terminal.options = {};
+  }
 
   var jo;        // junction origin
   var jtl = [];  // junction terminal list
   try {
-    // check if origin encoding is in a file
-    if (typeof origin.options?.encoding === "string") {
-      let filename = origin.options.encoding;
-      origin.options.encoding = JSON.parse(fs.readFileSync(filename, "utf8"));
+    // note, origin.options.encoding files have been read by actions.js
+
+    // resolve the origin and terminals
+    origin.smt = await Storage.resolve(origin.smt, origin.options);
+    for (let terminal of terminals) {
+      if (typeof terminal.options.encoding === "string") {
+        let filename = terminal.options.encoding;
+        terminal.options.encoding = JSON.parse(await fs.readFile(filename, "utf8"));
+      }
+      terminal.smt = await Storage.resolve(terminal.smt, terminal.options);
     }
 
     // create origin junction
     logger.verbose(">>> create origin junction " + JSON.stringify(origin.smt, null, 2));
     jo = await Storage.activate(origin.smt, origin.options);
+    // note, if jo.capabilities.encoding is true origin.options.encoding will be set by the junction
 
-    /// get origin encoding
-    logger.debug(">>> get origin encoding");
-    let encoding = origin.options.encoding;
-    if (!encoding && jo.capabilities.encoding) {
-      let results = await jo.getEngram();  // load encoding from origin for validation
-      if (results.type === "engram")
-        encoding = results.data;
+    let codifyEncoding = {};
+    for (let terminal of terminals) {
+      if (!terminal.options?.encoding) {
+        terminal.options.encoding = origin.options.encoding;
+      }
+
+      if (!terminal.options?.encoding || transforms.length > 0) {
+        if (!codifyEncoding.name) {
+          // run some objects through transforms to create terminal encoding
+          let codifyAction = objCopy({}, action);
+          codifyAction.action = "codify";
+          codifyAction.terminal = {};
+
+          await codify(codifyAction, codifyEncoding);
+        }
+        terminal.options.encoding = codifyEncoding;
+      }
+
+      if (typeof terminal.options.encoding !== "object")
+        throw new Error("invalid terminal encoding");
     }
-
-    /// determine terminal encoding
-    logger.verbose(">>> determine terminal encoding");
-    if (typeof terminal.options?.encoding === "string") {
-      // read encoding from file
-      let filename = terminal.options.encoding;
-      terminal.options.encoding = JSON.parse(fs.readFileSync(filename, "utf8"));
-    }
-    else if (!encoding || transforms.length > 0) {
-      // otherwise run some objects through any transforms to get terminal encoding
-      logger.verbose(">>> codify pipeline");
-      let pipes = [];
-
-      let options = Object.assign({
-        max_read: (origin.options && origin.options.max_read) || 100,
-        pattern: origin.pattern
-      });
-
-      let reader = jo.createReader(options);
-      reader.on('error', (error) => {
-        logger.error("transfer reader: " + error.message);
-      });
-      pipes.push(reader);
-
-      for (let transform of transforms)
-        pipes.push(await jo.createTransform(transform.transform, transform));
-
-      let codify = await jo.createTransform("codify", action);
-      pipes.push(codify);
-
-      await stream.pipeline(pipes);
-      terminal.options.encoding = codify.encoding;
-    }
-    else
-      // use origin encoding
-      terminal.options.encoding = encoding;
-
-    if (typeof terminal.options.encoding !== "object")
-      throw new Error("invalid terminal encoding");
 
     //logger.debug(">>> encoding results");
     //logger.debug(JSON.stringify(terminal.options.encoding.fields, null, " "));
 
-    /// transfer data
-    let reader = null;  // source
-    let writers = [];   // one or more destinations
-    let pipes = [];     // source plus zero or more transforms
+    /// setup pipeline
+    logger.verbose(">>> transfer pipeline");
+    let pipes = [];
+    let writers = [];
 
-    logger.verbose(">>> createReader");
-    reader = jo.createReader(origin.pattern);
+    // reader
+    let reader = jo.createReader(origin.pattern);
+    //reader.on('error', (error) => {
+    //  logger.error("tee reader: " + error.message);
+    //});
     pipes.push(reader);
-    reader.on('error', (error) => {
-      logger.error("transfer reader: " + error.message);
-    });
 
-    logger.verbose(">>> origin transforms");
+    // transforms
     for (let transform of transforms) {
       let tfType = transform.transform;
       pipes.push(await jo.createTransform(tfType, transform));
     }
 
-    if (!terminal.options.encoding) {
-      // use origin encoding
-      terminal.options.encoding = encoding;
-    }
+    /// create terminal junctions
+    for (let terminal of terminals) {
 
-    if (!Array.isArray(action.terminal)) {
-      // a single terminal object
-      logger.verbose(">>> Terminal Tract");
-      let terminal = action.terminal;
-
-      logger.verbose(">>> create terminal junction " + JSON.stringify(terminal.smt, null, 2));
+      logger.verbose(">>> create terminal junction " + JSON.stringify(terminal.smt));
       let jt = await Storage.activate(terminal.smt, terminal.options);
       jtl.push(jt);
 
-      if (!terminal.options.append && jt.capabilities.encoding) {
+      logger.debug("create terminal schema");
+      if (jt.capabilities.encoding && !terminal.options.append) {
         logger.verbose(">>> createSchema");
         let results = await jt.createSchema();
-        logger.verbose(results.message);
+        if (results.status !== 0)
+          logger.info("could not create storage schema: " + results.message);
       }
 
-      logger.verbose(">>> createWriter");
+      // writer
       let writer = jt.createWriter();
-      writer.on('error', (error) => {
-        logger.error("transfer writer: " + error.message);
-      });
-
-      pipes.push(writer);
+      //writer.on('error', (error) => {
+      // logger.error("tee writer: " + error.message);
+      //});
       writers.push(writer);
-      await stream.pipeline(pipes);
-    }
-    else {
-      // sub-terminal tracts
-      logger.verbose(">>> Terminal Tee");
-      for (let branch of action.terminal) {
-        logger.verbose(">>> create terminal junction " + JSON.stringify(branch.terminal.smt, null, 2));
-        let jt = await Storage.activate(branch.terminal.smt, branch.terminal.options);
-        jtl.push(jt);
-
-        if (!terminal.options.append && jt.capabilities.encoding) {
-          logger.verbose(">>> createSchema");
-          encoding = await jt.createSchema();
-        }
-
-        let writer = null;
-        logger.verbose(">>> transforms");
-        let transforms = branch.transforms || [];
-        for (let transform of transforms) {
-          let tfType = transform.transform;
-          let t = await jt.createTransform(tfType, transform);
-          writer = (writer) ? writer.pipe(t) : reader.pipe(t);
-        }
-
-        logger.verbose(">>> createWriter");
-        // add terminal
-        let w = jt.createWriter();
-        w.on('error', (error) => {
-          logger.error("transfer writer: " + error.message);
-        });
-
-        writer = (writer) ? writer.pipe(w) : reader.pipe(w);
-
-        writers.push(writer);
-      }
     }
 
-    logger.verbose(">>> wait on transfer");
+    // transfer data
+    logger.verbose(">>> start transfer");
+    let pipe = reader;
+    for (let transform of transforms)
+      pipe = pipe.pipe(transform);
+    for (let writer of writers)
+      pipe.pipe(writer);
+
     await stream.finished(reader);
     for (let writer of writers)
       await stream.finished(writer);
 
-    if (terminal?.output) {
-      retCode = output(terminal.output, null, terminal.compareValues || 2);
+    for (let terminal of terminals) {
+      if (terminal?.output) {
+        retCode = output(terminal.output, null, terminal.compareValues || 2);
+      }
     }
     logger.info("=== completed");
   }
   catch (err) {
-    logger.error("transfer: " + err.message);
+    logger.error("tee: " + err.message);
     retCode = 1;
   }
   finally {
     if (jo)
       await jo.relax();
-    for (let j of jtl)
-      await j.relax();
+    for (let jt of jtl) {
+      if (jt)
+        await jt.relax();
+    }
   }
 
   return retCode;

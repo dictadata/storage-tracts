@@ -1,0 +1,26 @@
+{
+  "realm": "foo",
+  "name": "tee.tract.json",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "mysql-tee",
+      "action": "tee",
+      "origin": {
+        "smt": "json|./test/data/input/|foofile.json|*",
+        "options": {
+          "encoding": "./test/data/input/schema/foo_schema.engram.json"
+        }
+      },
+      "terminals": [
+        {
+          "smt": "json|./test/data/output/tee/|mysql_foofile.json|*",
+          "output": "./test/data/output/tee/mysql_foofile.json"
+        },
+        {
+          "smt": "mysql|host=dev.dictadata.net;database=storage_node|foo_tee|*"
+        }
+      ]
+    }
+  ]
+}
