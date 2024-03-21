@@ -106,6 +106,8 @@ function parseArgs() {
     console.log("  tracts - manage tracts definitions");
     console.log("  scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.");
     console.log("  foreach - retrieve data and perform child action(s) for each construct.");
+    console.log("  cacheable - retrieve data with fallback to source origin.");
+    console.log("  tee - transfer data between origin and multiple destinations.");
     console.log("  all | * - run all actions in sequence.");
     console.log("  parallel - run all actions in parallel.");
     console.log("");
