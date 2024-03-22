@@ -1,0 +1,95 @@
+{
+  "name": "retrieve.tract.json",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "create",
+      "action": "create",
+      "origin": {
+        "smt": "foo:es_foo_empty"
+      },
+      "terminal": {
+        "output": "./test/data/output/elasticsearch/retrieve_create.json",
+        "compareValues": 0
+      }
+    },
+    {
+      "name": "dull",
+      "action": "dull",
+      "origin": {
+        "smt": "foo:es_foo_empty",
+        "options": {
+          "refresh": true
+        },
+        "pattern": {
+          "match": {
+            "Bar": {
+              "search": "row boat"
+            }
+          }
+        }
+      },
+      "terminal": {
+        "output": "./test/data/output/elasticsearch/retrieve_dull.json",
+        "compareValues": 0
+      }
+    },
+    {
+      "name": "foo_data",
+      "action": "retrieve",
+      "origin": {
+        "cacheable": false,
+        "smt": "foo:es_foo_empty",
+        "pattern": {
+          "match": {
+            "Bar": {
+              "search": "row boat"
+            }
+          }
+        }
+      },
+      "terminal": {
+        "smt": "json|./test/data/output/elasticsearch/|retrieve1_json.json|*",
+        "output": "./test/data/output/elasticsearch/retrieve1_json.json"
+      }
+    },
+    {
+      "name": "foo_data",
+      "action": "retrieve",
+      "origin": {
+        "cacheable": true,
+        "smt": "foo:es_foo_empty",
+        "pattern": {
+          "match": {
+            "Bar": {
+              "search": "row boat"
+            }
+          }
+        }
+      },
+      "terminal": {
+        "smt": "json|./test/data/output/elasticsearch/|retrieve2_json.json|*",
+        "output": "./test/data/output/elasticsearch/retrieve2_json.json"
+      }
+    },
+    {
+      "name": "foo_data",
+      "action": "retrieve",
+      "origin": {
+        "cacheable": false,
+        "smt": "foo:es_foo_empty",
+        "pattern": {
+          "match": {
+            "Bar": {
+              "search": "row boat"
+            }
+          }
+        }
+      },
+      "terminal": {
+        "smt": "json|./test/data/output/elasticsearch/|retrieve3_json.json|*",
+        "output": "./test/data/output/elasticsearch/retrieve3_json.json"
+      }
+    }
+  ]
+}

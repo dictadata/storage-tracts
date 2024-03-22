@@ -29,7 +29,19 @@
           "engram": "./test/data/input/engrams/foo_schema.engram.json",
           "name": "es_foo_schema",
           "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_schema|!Foo",
+          "options": {
+            "refresh": true
+          },
           "tags": [ "bar" ]
+        },
+        {
+          "engram": "./test/data/input/engrams/foo_schema.engram.json",
+          "name": "es_foo_empty",
+          "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_empty|!Foo",
+          "options": {
+            "refresh": true
+          },
+          "source": "foo:es_foo_schema"
         },
         {
           "engram": "./test/data/input/engrams/foo_schema.engram.json",

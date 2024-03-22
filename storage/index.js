@@ -27,7 +27,7 @@ exports.Actions.use("scan", require('./actions/scan'));
 exports.Actions.use("foreach", require('./actions/foreach'));
 exports.Actions.use("transfer", require('./actions/transfer'));
 exports.Actions.use("tee", require('./actions/tee'));
-exports.Actions.use("cacheable", require('./actions/cacheable'));
+exports.Actions.use("retrieve", require('./actions/retrieve'));
 exports.Actions.use("dull", require('./actions/dull'));
 exports.Actions.use("copy", require('./actions/copy'));
 exports.Actions.use("engrams", require('./actions/engrams'));
