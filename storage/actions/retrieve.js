@@ -71,6 +71,7 @@ module.exports = async (action) => {
     //logger.debug(">>> encoding results");
     //logger.debug(JSON.stringify(terminal.options.encoding.fields, null, " "));
 
+    logger.verbose(">>> retrieve data" );
     let results = await jo.retrieve(origin.pattern);
     let data = typeOf(results.data) === "object" ? Object.values(results.data) : (results.data || []);
 
