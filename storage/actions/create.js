@@ -21,7 +21,7 @@ module.exports = async (action) => {
     let results = await j1.createSchema();
 
     if (action.terminal?.output) {
-      retCode = output(action.terminal.output, results);
+      retCode = output(action.terminal.output, results, action.terminal.compareValues);
     }
     else {
       console.log(JSON.stringify(results, null, " "));

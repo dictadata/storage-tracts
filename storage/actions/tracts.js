@@ -117,7 +117,7 @@ async function recall(request) {
     let results = await Storage.tracts.recall(request.urn, request.resolve);
     logger.verbose("tracts recall: " + request.urn + " " + results.message);
 
-    retCode = output(request.output, results.data);
+    retCode = output(request.output, results.data, request.compareValues);
   }
   catch (err) {
     logger.error(err);
@@ -140,7 +140,7 @@ async function retrieve(request) {
     let results = await Storage.tracts.retrieve(pattern);
     logger.verbose("tracts retrieve: " + results.message);
 
-    retCode = output(request.output, results.data);
+    retCode = output(request.output, results.data, request.compareValues);
   }
   catch (err) {
     logger.error(err);

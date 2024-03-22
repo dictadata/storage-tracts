@@ -22,7 +22,7 @@ module.exports = async (action) => {
 
     logger.verbose(JSON.stringify(list, null, " "));
     if (action.terminal?.output) {
-      retCode = output(action.terminal.output, list, 1);
+      retCode = output(action.terminal.output, list, action.terminal.compareValues || 1);
     }
     else {
       console.log(JSON.stringify(list, null, " "));

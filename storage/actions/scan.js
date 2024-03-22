@@ -28,7 +28,7 @@ module.exports = async (action) => {
 
     // exlusions
     let exclude = [];
-    if (action.origin.options.exclude) {
+    if (action.origin.options?.exclude) {
       for (let filespec of action.origin.options.exclude) {
         let rx = '^' + filespec + '$';
         rx = rx.replace(/\./g, '\\.');
@@ -79,7 +79,7 @@ module.exports = async (action) => {
     /* could record some result logging
     if (action.terminal?.output) {
       logger.debug(JSON.stringify(<results>, null, " "));
-      retCode = output(action.terminal.output, <results>);
+      retCode = output(action.terminal.output, <results>, action.terminal.compareValues);
     }
     */
 

@@ -129,7 +129,7 @@ async function recall(request) {
     let results = await Storage.engrams.recall(request.urn, request.resolve);
     logger.verbose("engrams recall: " + request.urn + " " + results.message);
 
-    retCode = output(request.output, results.data);
+    retCode = output(request.output, results.data, request.compareValues);
   }
   catch (err) {
     logger.error(err);
@@ -152,7 +152,7 @@ async function retrieve(request) {
     let results = await Storage.engrams.retrieve(pattern);
     logger.verbose("engrams retrieve: " + results.message);
 
-    retCode = output(request.output, results.data);
+    retCode = output(request.output, results.data, request.compareValues);
   }
   catch (err) {
     logger.error(err);

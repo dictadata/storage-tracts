@@ -19,13 +19,13 @@ module.exports = async (action) => {
     var j1 = await Storage.activate(origin.smt, origin.options);
 
     let results;
-    if (origin.options.schema)
+    if (origin.options?.schema)
       results = await j1.dullSchema();
     else
       results = await j1.dull(origin.pattern);
 
     if (action.terminal?.output) {
-      retCode = output(action.terminal.output, results);
+      retCode = output(action.terminal.output, results, action.terminal.compareValues);
     }
     else {
       console.log(JSON.stringify(results, null, " "));

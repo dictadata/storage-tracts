@@ -92,7 +92,7 @@ module.exports = async (action) => {
     }
 
     if (action.terminal?.output) {
-      retCode = output(action.terminal.output, null, 1);
+      retCode = output(action.terminal.output, null, action.terminal.compareValues || 1);
     }
 
     logger.info("=== completed");

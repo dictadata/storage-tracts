@@ -95,13 +95,13 @@ module.exports = async (action, resultEncoding) => {
     ///// output the results
 
     // modify the results, not common
-    if (origin.options.encoding_format === "types_only") {
+    if (origin.options?.encoding_format === "types_only") {
       // replace field property with just storage type
       for (let [ name, field ] of Object.entries(encoding.fields)) {
         encoding.fields[ name ] = field.type;
       }
     }
-    else if (origin.options.encoding_format !== "all") {
+    else if (origin.options?.encoding_format !== "all") {
       // replace field property with object containing non-default properties
       let _default = new Field("_default_");
       for (let [ fname, field ] of Object.entries(encoding.fields)) {
@@ -116,7 +116,7 @@ module.exports = async (action, resultEncoding) => {
     logger.debug(JSON.stringify(encoding.fields, null, " "));
 
     if (terminal.output) {
-      retCode = output(terminal.output, encoding, 1);
+      retCode = output(terminal.output, encoding, terminal.compareValues || 1);
     }
     //else if (!terminal?.smt) {
     //  console.log(JSON.stringify(encoding, null, " "));

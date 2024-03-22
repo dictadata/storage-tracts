@@ -12,8 +12,7 @@ const { objCopy } = require('@dictadata/storage-junctions/utils');
 const codify = require('./codify');
 const output = require('./output');
 
-const fs = require('node:fs');
-const stream = require('node:stream').promises;
+const { pipeline } = require('node:stream/promises');
 
 /**
  * transfer action
@@ -107,16 +106,7 @@ module.exports = async (action) => {
 
     // transfer data
     logger.verbose(">>> start transfer");
-    await stream.pipeline(pipes);
-
-
-    // if not found
-    if (action.origin.cacheable) {
-      // request from jo.engram.source
-
-      // tee results to origin.smt and terminal.smt
-    }
-
+    await pipeline(pipes);
 
     // if testing, validate results
     if (terminal?.output) {
