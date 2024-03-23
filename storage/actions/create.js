@@ -22,9 +22,9 @@ module.exports = async (action) => {
     if (action.terminal?.output) {
       retCode = output(action.terminal.output, results, action.terminal.compareValues);
     }
-    else {
-      console.log(JSON.stringify(results, null, " "));
-    }
+    //else {
+    //  console.log(JSON.stringify(results, null, " "));
+    //}
 
   }
   catch (err) {
