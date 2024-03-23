@@ -4,8 +4,7 @@
 "use strict";
 
 const Storage = require("../storage");
-const { logger } = require('../utils');
-const output = require('./output');
+const { logger, output } = require('../utils');
 
 /**
  *

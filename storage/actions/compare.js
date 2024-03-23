@@ -4,11 +4,12 @@
 "use strict";
 
 const compare = require('@dictadata/storage-junctions/test/lib/_compare');
+const dot = require('@dictadata/storage-junctions/utils');
 const { logger } = require('../utils');
+
 const fs = require('node:fs');
 const path = require('node:path');
-const { unzipSync } = require('zlib');
-const dot = require('@dictadata/storage-junctions/utils');
+const { unzipSync } = require('node:zlib');
 
 /**
  *

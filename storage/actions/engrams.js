@@ -5,8 +5,7 @@
 
 const Storage = require("../storage");
 const { Engram } = require("../types");
-const output = require('./output');
-const { logger } = require('../utils');
+const { logger, output } = require('../utils');
 
 const fs = require('node:fs');
 

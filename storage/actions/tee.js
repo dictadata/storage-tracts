@@ -7,13 +7,12 @@
 "use strict";
 
 const Storage = require("../storage");
-const { logger } = require('../utils');
 const { objCopy } = require('@dictadata/storage-junctions/utils');
+const { logger, output } = require('../utils');
 const codify = require('./codify');
-const output = require('./output');
 
 const fs = require('node:fs');
-const stream = require('node:stream/promises');
+const { finished } = require('node:stream/promises');
 
 /**
  * transfer w/ tee action
@@ -130,9 +129,9 @@ module.exports = async (action) => {
     for (let writer of writers)
       pipe.pipe(writer);
 
-    await stream.finished(reader);
+    await finished(reader);
     for (let writer of writers)
-      await stream.finished(writer);
+      await finished(writer);
 
     for (let terminal of terminals) {
       if (terminal?.output) {

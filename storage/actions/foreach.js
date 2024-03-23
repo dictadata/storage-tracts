@@ -4,11 +4,9 @@
 "use strict";
 
 const Storage = require("../storage");
-const { SMT } = require("@dictadata/storage-junctions/types")
-const { logger } = require('../utils');
 const { typeOf, objCopy } = require('@dictadata/storage-junctions/utils');
+const { logger, output } = require('../utils');
 const { perform } = require('.');
-const output = require('./output');
 
 /**
  * Retrieve data from origin smt

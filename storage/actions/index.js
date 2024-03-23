@@ -2,7 +2,7 @@
  * storage/etl/actions.js
  */
 const { StorageError } = require("@dictadata/storage-junctions/types");
-const { typeOf, objCopy, replace } = require("@dictadata/storage-junctions/utils");
+const { replace } = require("@dictadata/storage-junctions/utils");
 const { logger } = require('../utils');
 const fs = require('node:fs/promises');
 

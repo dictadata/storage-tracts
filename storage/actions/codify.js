@@ -6,10 +6,10 @@
 const Storage = require("../storage");
 const { Field } = require('@dictadata/storage-junctions/types');
 const { objCopy, typeOf } = require('@dictadata/storage-junctions/utils');
-const { logger } = require('../utils');
-const output = require('./output');
+const { logger, output } = require('../utils');
+
 const fs = require('node:fs');
-const stream = require('node:stream').promises;
+const { pipeline } = require('node:stream/promises');
 
 const engrams_encoding = require("../engrams/engrams.engram.json");
 
@@ -89,7 +89,7 @@ module.exports = async (action, resultEncoding) => {
       pipes.push(writer);
     }
 
-    await stream.pipeline(pipes);
+    await pipeline(pipes);
     let encoding = ct.encoding;
 
     ///// output the results

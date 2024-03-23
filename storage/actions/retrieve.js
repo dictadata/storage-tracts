@@ -7,11 +7,10 @@
 "use strict";
 
 const Storage = require("../storage");
-const { logger } = require('../utils');
-const { objCopy, typeOf } = require('@dictadata/storage-junctions/utils');
 const { StorageError } = require('@dictadata/storage-junctions/types');
+const { objCopy, typeOf } = require('@dictadata/storage-junctions/utils');
+const { logger, output } = require('../utils');
 const codify = require('./codify');
-const output = require('./output');
 
 const { Readable } = require('node:stream');
 const { pipeline } = require('node:stream/promises');

@@ -7,10 +7,9 @@
 "use strict";
 
 const Storage = require("../storage");
-const { logger } = require('../utils');
 const { objCopy } = require('@dictadata/storage-junctions/utils');
+const { logger, output } = require('../utils');
 const codify = require('./codify');
-const output = require('./output');
 
 const { pipeline } = require('node:stream/promises');
 

@@ -7,7 +7,7 @@
 
 const Storage = require("../storage");
 
-const stream = require('node:stream').promises;
+const { pipeline, finished } = require('node:stream/promises');
 
 /**
  *
@@ -66,7 +66,7 @@ module.exports = async (action) => {
       let ct = await jo.createTransform("codify", action);
       pipes.push(ct);
 
-      await stream.pipeline(pipes);
+      await pipeline(pipes);
       encoding = ct.encoding;
     }
 
@@ -145,9 +145,9 @@ module.exports = async (action) => {
     }
 
     logger.verbose(">>> wait on transfer");
-    await stream.finished(reader);
+    await finished(reader);
     for (let writer of writers)
-      await stream.finished(writer);
+      await finished(writer);
 
     logger.verbose(">>> completed");
   }
