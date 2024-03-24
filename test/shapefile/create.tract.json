@@ -2,7 +2,7 @@
   "realm": "",
   "name": "create.tract",
   "type": "tract",
-  "actions": [
+  "fibers": [
     {
       "name": "create",
       "action": "create",

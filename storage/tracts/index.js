@@ -50,12 +50,12 @@ module.exports = exports = class Tracts {
 
     if (urn.indexOf(":") < 0)
       urn = ":" + urn;
-
-    // remove any action name
+/*
+    // remove any fiber name
     let i = urn.lastIndexOf("#");
     if (i > 0)
       urn = urn.substring(0, i);
-
+*/
     return urn;
   }
 
@@ -153,14 +153,14 @@ module.exports = exports = class Tracts {
 
     if (entry.type === "tract") {
       // make sure smt are strings
-      for (let action of entry?.actions) {
-        if (typeof action.origin?.smt === "object") {
-          let smt = new SMT(action.origin.smt);
-          action.origin.smt = smt.toString();
+      for (let fiber of entry?.fibers) {
+        if (typeof fiber.origin?.smt === "object") {
+          let smt = new SMT(fiber.origin.smt);
+          fiber.origin.smt = smt.toString();
         }
-        if (typeof action.terminal?.smt === "object") {
-          let smt = new SMT(action.terminal.smt);
-          action.terminal.smt = smt.toString();
+        if (typeof fiber.terminal?.smt === "object") {
+          let smt = new SMT(fiber.terminal.smt);
+          fiber.terminal.smt = smt.toString();
         }
       }
     }

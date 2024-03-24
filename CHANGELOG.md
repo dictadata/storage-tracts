@@ -19,17 +19,17 @@
   - buf fix: search up folders for node_modules folder, needed for plugins
   - bug fix: resolve junctions before creating transfer pipeline
 - version 0.9.78
-  - bug fix: foreach action, make a copy of subaction before perform()
+  - bug fix: foreach action, make a copy of sub-fiber before perform()
 - version 0.9.77
   - feature: implement smt $ model with options.junction
   - updated: @dictadata/storage-junctions@0.9.103
 - version 0.9.76
   - refactor: actions replace params
 - version 0.9.75
-  - refactor: variable replacement in foreach sub-actions
+  - refactor: variable replacement in foreach sub-fibers
   - refactor: Engrams, Tracts now return arrays
-  - feature: implement transfer _base action
-  - refactor: engrams and tracts, tract, actions
+  - feature: implement transfer _base fiber
+  - refactor: engrams and tracts, tract, fibers
   - bug fix: return copies of cached engrams and tracts
   - updated: @dictadata/storage-junctions@0.9.102
 - version 0.9.74
@@ -38,7 +38,7 @@
   - refactor: StorageWriter autoClose option for dependent write streams
 - version 0.9.73
   - updated: @dictadata/storage-junctions@0.9.100
-  - refactor: refactor action.transforms to array
+  - refactor: refactor fiber.transforms to array
 - version 0.9.72
   - republish
 - version 0.9.71
@@ -80,7 +80,7 @@
   - bug fix: set parser option when reading jsonl and jsons streams
 - version 0.9.60
   - updated: @dictadata/storage-junctions@0.9.85
-  - feature: `foreach` action retrieves data and performs child action(s) for each construct.
+  - feature: `foreach` action retrieves data and performs child fiber(s) for each construct.
 - version 0.9.59
   - updated: @dictadata/storage-junctions@0.9.84
   - feature: parse delimited numbers from text sources
@@ -241,7 +241,7 @@
   - implement ShapeFileJunction (.shp files) and ZipFileSystem (.zip files)
   - refactor upload/download actions to copy action
   - local file folders now configured as SMT entries
-  - refactor terminology CLI command is now CLI action
+  - refactor terminology, CLI command arg is now fiber
   - implement actions "all" (sequential) and "parallel"
   - additional testing updates
 - version 1.7.3

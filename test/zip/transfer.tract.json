@@ -2,7 +2,7 @@
   "realm": "foo",
   "name": "transfer.tract.json",
   "type": "tract",
-  "actions": [
+  "fibers": [
     {
       "name": "zip-local",
       "action": "transfer",

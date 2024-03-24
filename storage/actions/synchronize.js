@@ -12,7 +12,7 @@ const { pipeline, finished } = require('node:stream/promises');
 /**
  *
  */
-module.exports = async (action) => {
+module.exports = async (fiber) => {
   logger.verbose("synchronize ...");
   let retCode = 0;
 
@@ -23,21 +23,21 @@ module.exports = async (action) => {
     let writers = [];
 
     let pattern = Object.assign({ match: {} },
-      action.origin.pattern);
+      fiber.origin.pattern);
 
-    // what is action.state ???
-    pattern.match[ action.state.field ] = {
-      "gt": action.state.value
+    // what is fiber.state ???
+    pattern.match[ fiber.state.field ] = {
+      "gt": fiber.state.value
     };
 
-    let transforms = action.transforms || [];
+    let transforms = fiber.transforms || [];
 
     logger.verbose(">>> Origin Tract");
-    if (!action.origin.options) action.origin.options = {};
-    if (!action.terminal.options) action.terminal.options = {};
+    if (!fiber.origin.options) fiber.origin.options = {};
+    if (!fiber.terminal.options) fiber.terminal.options = {};
 
-    logger.verbose(">>> create origin junction " + action.origin.smt);
-    jo = await Storage.activate(action.origin.smt, action.origin.options);
+    logger.verbose(">>> create origin junction " + fiber.origin.smt);
+    jo = await Storage.activate(fiber.origin.smt, fiber.origin.options);
 
     logger.verbose(">>> getEngram");
     let encoding = {};
@@ -53,7 +53,7 @@ module.exports = async (action) => {
       // then run some data through the codifier
       let pipes = [];
 
-      let options = { max_read: action.origin.options.max_read || 100, pattern };
+      let options = { max_read: fiber.origin.options.max_read || 100, pattern };
       let reader = jo.createReader(options);
       reader.on('error', (error) => {
         logger.error("synchronize reader: " + error.message);
@@ -63,7 +63,7 @@ module.exports = async (action) => {
       for (let transform of transforms)
         pipes.push(await jo.createTransform(transform.transform, transform));
 
-      let ct = await jo.createTransform("codify", action);
+      let ct = await jo.createTransform("codify", fiber);
       pipes.push(ct);
 
       await pipeline(pipes);
@@ -82,15 +82,15 @@ module.exports = async (action) => {
       reader = reader.pipe(await jo.createTransform(tfType, transform));
     }
 
-    if (!action.terminal.options.encoding) {
+    if (!fiber.terminal.options.encoding) {
       // use origin encoding
-      action.terminal.options.encoding = encoding;
+      fiber.terminal.options.encoding = encoding;
     }
 
-    if (!Array.isArray(action.terminal)) {
+    if (!Array.isArray(fiber.terminal)) {
       // a single terminal object
       logger.verbose(">>> Terminal Tract");
-      let terminal = action.terminal;
+      let terminal = fiber.terminal;
 
       logger.verbose(">>> create terminal junction " + terminal.smt);
       let jt = await Storage.activate(terminal.smt, terminal.options);
@@ -113,12 +113,12 @@ module.exports = async (action) => {
     else {
       // sub-terminal tracts
       logger.verbose(">>> Terminal Tee");
-      for (let branch of action.terminal) {
+      for (let branch of fiber.terminal) {
         logger.verbose(">>> create branch junction " + branch.terminal.smt);
         let jt = await Storage.activate(branch.terminal.smt, branch.terminal.options);
         jtl.push(jt);
 
-        if (!terminal.options.append && jt.capabilities.encoding) {
+        if (!branch.terminal.options.append && jt.capabilities.encoding) {
           logger.verbose(">>> createSchema");
           encoding = await jt.createSchema();
         }

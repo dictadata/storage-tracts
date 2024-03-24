@@ -16,19 +16,19 @@ const { pipeline } = require('node:stream/promises');
 /**
  * transfer action
  */
-module.exports = async (action) => {
+module.exports = async (fiber) => {
   logger.info("=== transfer");
   let retCode = 0;
 
   // resolve urn
-  if (typeof action?.urn === "string") {
-    let results = await Storage.tracts.recall(action.urn);
-    action = results.data[ 0 ].actions[ 0 ];
+  if (typeof fiber?.urn === "string") {
+    let results = await Storage.tracts.recall(fiber.urn);
+    fiber = results.data[ 0 ].fibers[ 0 ];
   }
 
-  var origin = action.origin || {};
-  var terminal = action.terminal || {};
-  var transforms = action.transforms || [];
+  var origin = fiber.origin || {};
+  var terminal = fiber.terminal || {};
+  var transforms = fiber.transforms || [];
   if (!origin.options) origin.options = {};
   if (!terminal.options) terminal.options = {};
 
@@ -53,8 +53,8 @@ module.exports = async (action) => {
 
     if (!terminal.options?.encoding || transforms.length > 0) {
       // run some objects through transforms to create terminal encoding
-      let codifyAction = objCopy({}, action);
-      codifyAction.action = "codify";
+      let codifyAction = objCopy({}, fiber);
+      codifyAction.fiber = "codify";
       codifyAction.terminal = {};
 
       let codifyEncoding = {};

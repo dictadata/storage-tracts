@@ -17,19 +17,19 @@ const { finished } = require('node:stream/promises');
 /**
  * transfer w/ tee action
  */
-module.exports = async (action) => {
+module.exports = async (fiber) => {
   logger.info("=== tee transfer");
   let retCode = 0;
 
   // resolve urn
-  if (typeof action?.urn === "string") {
-    let results = await Storage.tracts.recall(action.urn);
-    action = results.data[ 0 ].actions[ 0 ];
+  if (typeof fiber?.urn === "string") {
+    let results = await Storage.tracts.recall(fiber.urn);
+    fiber = results.data[ 0 ].fibers[ 0 ];
   }
 
-  var origin = action.origin || {};
-  var terminals = action.terminals || [];
-  var transforms = action.transforms || [];
+  var origin = fiber.origin || {};
+  var terminals = fiber.terminals || [];
+  var transforms = fiber.transforms || [];
   if (!origin.options) origin.options = {};
   for (let terminal of terminals) {
     if (!terminal.options) terminal.options = {};
@@ -64,11 +64,11 @@ module.exports = async (action) => {
       if (!terminal.options?.encoding || transforms.length > 0) {
         if (!codifyEncoding.name) {
           // run some objects through transforms to create terminal encoding
-          let codifyAction = objCopy({}, action);
-          codifyAction.action = "codify";
-          codifyAction.terminal = {};
+          let codifyFiber = objCopy({}, fiber);
+          codifyFiber.action = "codify";
+          codifyFiber.terminal = {};
 
-          await codify(codifyAction, codifyEncoding);
+          await codify(codifyFiber, codifyEncoding);
         }
         terminal.options.encoding = codifyEncoding;
       }

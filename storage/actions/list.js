@@ -9,19 +9,19 @@ const { logger, output } = require('../utils');
 /**
  *
  */
-module.exports = async (action) => {
+module.exports = async (fiber) => {
   logger.verbose("list ...");
   let retCode = 0;
 
   try {
-    let origin = action.origin || {};
+    let origin = fiber.origin || {};
     var j1 = await Storage.activate(origin.smt, origin.options);
 
     let { data: list } = await j1.list();
 
     logger.verbose(JSON.stringify(list, null, " "));
-    if (action.terminal?.output) {
-      retCode = output(action.terminal.output, list, action.terminal.compareValues || 1);
+    if (fiber.terminal?.output) {
+      retCode = output(fiber.terminal.output, list, fiber.terminal.compareValues || 1);
     }
     //else {
     //  console.log(JSON.stringify(list, null, " "));

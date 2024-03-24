@@ -9,18 +9,18 @@ const { logger, output } = require('../utils');
 /**
  *
  */
-module.exports = async (action) => {
+module.exports = async (fiber) => {
   logger.verbose("create ...");
   let retCode = 0;
 
   try {
-    let origin = action.origin || {};
+    let origin = fiber.origin || {};
     var j1 = await Storage.activate(origin.smt, origin.options);
 
     let results = await j1.createSchema();
 
-    if (action.terminal?.output) {
-      retCode = output(action.terminal.output, results, action.terminal.compareValues);
+    if (fiber.terminal?.output) {
+      retCode = output(fiber.terminal.output, results, fiber.terminal.compareValues);
     }
     //else {
     //  console.log(JSON.stringify(results, null, " "));

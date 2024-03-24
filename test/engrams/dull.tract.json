@@ -2,7 +2,7 @@
   "realm": "",
   "name": "dull.tract",
   "type": "tract",
-  "actions": [
+  "fibers": [
     {
       "name": "engrams",
       "action": "engrams",

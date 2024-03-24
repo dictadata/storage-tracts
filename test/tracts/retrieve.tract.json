@@ -2,7 +2,7 @@
   "realm": "",
   "name": "retrieve.tract",
   "type": "tract",
-  "actions": [
+  "fibers": [
     {
       "name": "retrieve_tracts",
       "action": "tracts",

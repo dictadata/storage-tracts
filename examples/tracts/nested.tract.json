@@ -3,14 +3,14 @@
   "name": "urn name",
   "type": "tract",
   "description": "results of source query are parameters for nested query",
-  "actions": [
+  "fibers": [
     {
       "name": "tract name",
-      "action": "action command",
+      "action": "action name",
       "origin": {
         "smt": "source smt"
       },
-      "actions": [
+      "fibers": [
         {
           "origin": {
             "smt": "source smt, parameterized",

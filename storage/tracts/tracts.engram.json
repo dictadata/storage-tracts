@@ -62,7 +62,7 @@
       "type": "text"
     },
     {
-      "name": "actions",
+      "name": "fibers",
       "type": "list",
       "_list": {
         "name": "_list",

@@ -16,7 +16,7 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
 
 ```bash
   Command line:
-    etl [-c configFile] [-t tract] action-name
+    etl [-c configFile] [-t tract] fiber-name
 
   configFile
     JSON configuration file that defines engrams, plug-ins and logging.
@@ -27,8 +27,8 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
     ETL tract filename or Tracts urn that defines tract to process.
     Default tract file is ./etl.tract.json
 
-  actionName
-    The action to perform in the tract file. Required.  Use '*' to process all actions.
+  fiber-name
+    The action to perform in the tract file. Required.  Use '*' to process all fibers.
 
   Actions:
     transfer - transfer data between data stores with optional transforms.
@@ -38,7 +38,7 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
     dull - remove data from a data store.
     engrams - manage engrams encoding definitions
     tracts = manage ETL tract definitions
-    scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.
+    scan - list schemas, e.g. files, at origin and perform sub-fibers for each schema.
     foreach - retrieve data and perform child action(s) for each construct.
     all | * - run all actions in sequence.
     parallel - run all actions in parallel.
@@ -74,7 +74,7 @@ Default configuration settings can be specified in a config tract in **etl.confi
 
 ## Tract File
 
-- A tract file contains an array of actions.
+- A tract file contains an array of fibers.
 - An action specifies the origin and terminal SMT addresses along with options, encoding, transforms and output information.
 - Origin and terminal MUST both be supported and compatible key stores or record stores.
 - Scan functionality supports file storage such as local folders, FTP and AWS S3 buckets.
@@ -168,7 +168,7 @@ etl_weather.json:
 
 ```json
 {
-  "actions": [
+  "fibers": [
     {
       "name": "forecast",
       "action": "transfer",

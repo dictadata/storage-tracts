@@ -4,7 +4,7 @@
 storage-tracts (etl) 0.9.x
 
   Command line:
-    etl [-c configFile] [-t tract] action-name
+    etl [-c configFile] [-t tract] fiber-name
 
   configFile
     JSON configuration file that defines engrams, plug-ins and logging.
@@ -15,8 +15,8 @@ storage-tracts (etl) 0.9.x
     ETL tract filename or Tracts urn that defines tract to process.
     Default tract file is ./etl.tract.json
 
-  actionName
-    The action to perform in the tract file. Required.  Use '*' to process all actions.
+  fiber-name
+    The action to perform in the tract file. Required.  Use '*' to process all fibers.
 
   Actions:
     transfer - transfer data between data stores with optional transforms.
@@ -26,8 +26,8 @@ storage-tracts (etl) 0.9.x
     dull - remove data from a data store.
     engrams - manage engrams encoding definitions
     tracts = manage ETL tract definitions
-    scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.
-    foreach - retrieve data and perform child action(s) for each construct.
+    scan - list schemas, e.g. files, at origin and perform sub-fibers for each schema.
+    foreach - retrieve data and perform child fiber(s) for each construct.
     all | * - run all actions in sequence.
     parallel - run all actions in parallel.
 ```

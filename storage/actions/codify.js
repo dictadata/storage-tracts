@@ -16,13 +16,13 @@ const engrams_encoding = require("../engrams/engrams.engram.json");
 /**
  *
  */
-module.exports = async (action, resultEncoding) => {
+module.exports = async (fiber, resultEncoding) => {
   logger.verbose("codify ...");
   let retCode = 0;
 
-  var origin = action.origin || {};
-  var terminal = action.terminal || {};
-  var transforms = action.transforms || [];
+  var origin = fiber.origin || {};
+  var terminal = fiber.terminal || {};
+  var transforms = fiber.transforms || [];
   if (!origin.options) origin.options = {};
   if (!terminal.options) terminal.options = {};
 
@@ -34,14 +34,14 @@ module.exports = async (action, resultEncoding) => {
     // note, if jo.capabilities.encoding is true origin.options.encoding will be set by the junction
 
     ///// prime the encoding
-    if (Object.hasOwn(action, "encoding")) {
-      if (typeof action.encoding === "string") {
-        let filename = action.encoding;
-        action.encoding = JSON.parse(fs.readFileSync(filename, "utf8"));
+    if (Object.hasOwn(fiber, "encoding")) {
+      if (typeof fiber.encoding === "string") {
+        let filename = fiber.encoding;
+        fiber.encoding = JSON.parse(fs.readFileSync(filename, "utf8"));
       }
     }
     else if (Object.hasOwn(origin.options, "encoding") && !transforms.length) {
-      action.encoding = origin.options.encoding;
+      fiber.encoding = origin.options.encoding;
     }
 
     ///// run data through transforms (optional) and codify transform
@@ -62,7 +62,7 @@ module.exports = async (action, resultEncoding) => {
     for (let transform of transforms)
       pipes.push(await jo.createTransform(transform.transform, transform));
 
-    let ct = await jo.createTransform("codify", action);
+    let ct = await jo.createTransform("codify", fiber);
     pipes.push(ct);
 
     if (terminal.smt) {

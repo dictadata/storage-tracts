@@ -18,7 +18,7 @@ const path = require('node:path');
   let tractText = fs.readFileSync(tractFile, 'utf-8');
   let tract = JSON.parse(tractText);
 
-  if (tract.actions) {
+  if (tract.fibers) {
     console.log("already reformatted")
     return retCode;
   }
@@ -29,14 +29,14 @@ const path = require('node:path');
     "realm": "",
     "name": p.name,
     "type": "tract",
-    "actions": []
+    "fibers": []
   }
 
-  for (let [ name, action ] of Object.entries(tract)) {
+  for (let [ name, fiber ] of Object.entries(tract)) {
     if (name === 'config')
-      newTract[ name ] = action;
+      newTract[ name ] = fiber;
     else
-      newTract.actions.push(Object.assign({ name: name }, action));
+      newTract.fibers.push(Object.assign({ name: name }, fiber));
   }
 
   /*

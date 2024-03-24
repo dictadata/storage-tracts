@@ -3,10 +3,10 @@
   "name": "urn name",
   "type": "tract",
   "description": "one source, multiple destinations",
-  "actions": [
+  "fibers": [
     {
       "name": "tract name",
-      "action": "action command",
+      "action": "action name",
       "origin": {
         "smt": "source smt"
       },

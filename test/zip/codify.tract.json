@@ -2,7 +2,7 @@
   "realm": "",
   "name": "codify.tract",
   "type": "tract",
-  "actions": [
+  "fibers": [
     {
       "name": "codify",
       "origin": {

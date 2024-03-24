@@ -10,7 +10,7 @@
     "foo",
     "test"
    ],
-   "actions": [
+   "fibers": [
     {
      "name": "json-json",
      "action": "transfer",

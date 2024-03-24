@@ -1,7 +1,7 @@
 {
   "name": "transfer.tract.json",
   "type": "tract",
-  "actions": [
+  "fibers": [
     {
       "name": "json-index",
       "action": "transfer",

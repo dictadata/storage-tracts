@@ -2,7 +2,7 @@
   "realm": "foo",
   "name": "tee.tract.json",
   "type": "tract",
-  "actions": [
+  "fibers": [
     {
       "name": "mysql-tee",
       "action": "tee",

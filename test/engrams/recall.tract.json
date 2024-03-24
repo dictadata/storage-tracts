@@ -10,7 +10,7 @@
       }
     }
   },
-  "actions": [
+  "fibers": [
     {
       "name": "engrams",
       "action": "engrams",

@@ -1,7 +1,7 @@
 {
   "realm": "foo",
   "name": "transfer.tract.json",
-  "actions": [
+  "fibers": [
     {
       "name": "jsonfile-foo_transfer",
       "action": "transfer",

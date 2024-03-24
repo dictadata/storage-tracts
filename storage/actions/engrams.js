@@ -12,13 +12,13 @@ const fs = require('node:fs');
 /**
  *
  */
-module.exports = async (action) => {
+module.exports = async (fiber) => {
   logger.verbose("engrams ...");
   let retCode = 0;
   let fn;
 
   try {
-    for (let [ command, request ] of Object.entries(action)) {
+    for (let [ command, request ] of Object.entries(fiber)) {
       if (command === "action" || command === "name") continue;
 
       // determine function to apply
@@ -53,7 +53,7 @@ module.exports = async (action) => {
 
 /**
  *
- * @param {Object} entry ETL engrams action that is a Engrams entry
+ * @param {Object} entry ETL engrams fiber that is a Engrams entry
  */
 async function store(entry) {
   let retCode = 0;
@@ -96,7 +96,7 @@ async function store(entry) {
 
 /**
  *
- * @param {Object} request ETL engrams action
+ * @param {Object} request ETL engrams fiber
  * @param {String|Object} request.urn engrams URN string or object
  */
 async function dull(request) {
@@ -117,7 +117,7 @@ async function dull(request) {
 
 /**
  *
- * @param {Object} request ETL engrams action
+ * @param {Object} request ETL engrams fiber
  * @param {String|Object} request.urn engrams URN string or object
  * @param {Boolean} request.resolve resolve aliases
  */
@@ -140,7 +140,7 @@ async function recall(request) {
 
 /**
  *
- * @param {Object} request ETL engrams action with query pattern
+ * @param {Object} request ETL engrams fiber with query pattern
  * @param {Object} request.pattern query pattern
  */
 async function retrieve(request) {

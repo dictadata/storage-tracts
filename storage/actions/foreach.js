@@ -12,9 +12,9 @@ const { perform } = require('.');
  * Retrieve data from origin smt
  * and perform action(s) on each construct.
  */
-module.exports = async (action) => {
+module.exports = async (fiber) => {
   logger.info("=== foreach");
-  logger.verbose(action.origin.smt);
+  logger.verbose(fiber.origin.smt);
   let retCode = 0;
 
   var jo;
@@ -22,20 +22,20 @@ module.exports = async (action) => {
   var writer;
   var results_separator;
   try {
-    if (!action.origin.options)
-      action.origin.options = {};
-    jo = await Storage.activate(action.origin.smt, action.origin.options);
+    if (!fiber.origin.options)
+      fiber.origin.options = {};
+    jo = await Storage.activate(fiber.origin.smt, fiber.origin.options);
 
-    if (action.terminal) {
-      if (!action.terminal.options)
-        action.terminal.options = {};
-      jt = await Storage.activate(action.terminal.smt, action.terminal.options);
+    if (fiber.terminal) {
+      if (!fiber.terminal.options)
+        fiber.terminal.options = {};
+      jt = await Storage.activate(fiber.terminal.smt, fiber.terminal.options);
       writer = jt.createWriter();
-      results_separator = action.terminal.options.results_separator;
+      results_separator = fiber.terminal.options.results_separator;
     }
 
     // get constructs from source
-    let { data: list } = await jo.retrieve(action.origin.pattern);
+    let { data: list } = await jo.retrieve(fiber.origin.pattern);
     jo.relax();
 
     if (typeOf(list) === "object")
@@ -45,17 +45,17 @@ module.exports = async (action) => {
     let separator;
     for (let entry of list) {
 
-      // loop thru sub actions
-      for (const sub of action.actions) {
-        let subaction = objCopy({}, sub);
+      // loop thru sub fibers
+      for (const sub of fiber.fibers) {
+        let subfiber = objCopy({}, sub);
 
-        if (subaction.terminal?.smt === "$:smt" && jt) {
+        if (subfiber.terminal?.smt === "$:smt" && jt) {
           if (jt.capabilities.filesystem) {
-            subaction.terminal.smt = Object.assign({}, jt.smt,
+            subfiber.terminal.smt = Object.assign({}, jt.smt,
               {
                 locus: "stream:*"
               });
-            subaction.terminal.options = Object.assign({}, subaction.terminal.options,
+            subfiber.terminal.options = Object.assign({}, subfiber.terminal.options,
               {
                 writer: writer.ws,
                 autoClose: false
@@ -65,8 +65,8 @@ module.exports = async (action) => {
               results_separator = ",";
           }
           else {
-            subaction.terminal.smt = Object.assign({}, jt.smt);
-            subaction.terminal.options = Object.assign({}, subaction.terminal.options,
+            subfiber.terminal.smt = Object.assign({}, jt.smt);
+            subfiber.terminal.options = Object.assign({}, subfiber.terminal.options,
               {
                 junction: jt,
                 autoClose: false
@@ -77,7 +77,7 @@ module.exports = async (action) => {
         if (separator && writer)
           writer.ws.write(separator);
 
-        await perform(subaction, entry);
+        await perform(subfiber, entry);
 
         separator = results_separator;
       }
@@ -89,8 +89,8 @@ module.exports = async (action) => {
       });
     }
 
-    if (action.terminal?.output) {
-      retCode = output(action.terminal.output, null, action.terminal.compareValues || 1);
+    if (fiber.terminal?.output) {
+      retCode = output(fiber.terminal.output, null, fiber.terminal.compareValues || 1);
     }
 
     logger.info("=== completed");

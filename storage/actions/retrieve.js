@@ -18,19 +18,19 @@ const { pipeline } = require('node:stream/promises');
 /**
  * retrieve action
  */
-module.exports = async (action) => {
+module.exports = async (fiber) => {
   logger.info("=== retrieve");
   let retCode = 0;
 
   // resolve urn
-  if (typeof action?.urn === "string") {
-    let results = await Storage.tracts.recall(action.urn);
-    action = results.data[ 0 ].actions[ 0 ];
+  if (typeof fiber?.urn === "string") {
+    let results = await Storage.tracts.recall(fiber.urn);
+    fiber = results.data[ 0 ].fibers[ 0 ];
   }
 
-  var origin = action.origin || {};
-  var terminal = action.terminal || {};
-  var transforms = action.transforms || [];
+  var origin = fiber.origin || {};
+  var terminal = fiber.terminal || {};
+  var transforms = fiber.transforms || [];
   if (!origin.options) origin.options = {};
   if (!terminal.options) terminal.options = {};
 
@@ -55,12 +55,12 @@ module.exports = async (action) => {
 
     if (!terminal.options?.encoding || transforms.length > 0) {
       // run some objects through transforms to create terminal encoding
-      let codifyAction = objCopy({}, action);
-      codifyAction.action = "codify";
-      codifyAction.terminal = {};
+      let codifyFiber = objCopy({}, fiber);
+      codifyFiber.action = "codify";
+      codifyFiber.terminal = {};
 
       let codifyEncoding = {};
-      await codify(codifyAction, codifyEncoding);
+      await codify(codifyFiber, codifyEncoding);
       terminal.options.encoding = codifyEncoding;
     }
 
@@ -74,8 +74,8 @@ module.exports = async (action) => {
     let results = await jo.retrieve(origin.pattern);
     let data = typeOf(results.data) === "object" ? Object.values(results.data) : (results.data || []);
 
-    if (results.status === 404 && action.source_action) {
-      return action.source_action;
+    if (results.status === 404 && fiber.source_action) {
+      return fiber.source_action;
     }
 
     if (results.status !== 0 && results.status !== 404)

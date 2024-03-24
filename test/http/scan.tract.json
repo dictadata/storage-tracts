@@ -2,7 +2,7 @@
   "realm": "foo",
   "name": "transfer.tract.json",
   "type": "tract",
-  "actions": [
+  "fibers": [
     {
       "name": "scan",
       "action": "scan",
@@ -12,7 +12,7 @@
           "recursive": false
         }
       },
-      "actions": [
+      "fibers": [
         {
           "name": "schema",
           "action": "codify",

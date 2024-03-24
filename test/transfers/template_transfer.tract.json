@@ -2,7 +2,7 @@
   "name": "template_transfer",
   "type": "tract",
   "description": "transfer foo to a json template",
-  "actions": [
+  "fibers": [
     {
       "name": "transfer",
       "action": "transfer",

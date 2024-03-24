@@ -12,13 +12,13 @@ const fs = require('node:fs');
 /**
  *
  */
-module.exports = async (action) => {
+module.exports = async (fiber) => {
   logger.verbose("tracts ...");
   let retCode = 0;
   let fn;
 
   try {
-    for (let [ command, request ] of Object.entries(action)) {
+    for (let [ command, request ] of Object.entries(fiber)) {
       if (command === "action" || command === "name") continue;
 
       // determine function to apply
@@ -53,7 +53,7 @@ module.exports = async (action) => {
 
 /**
  *
- * @param {Object} entry ETL tracts action that is a Tracts entry
+ * @param {Object} entry ETL tracts entry
  */
 async function store(entry) {
   let retCode = 0;
@@ -84,7 +84,7 @@ async function store(entry) {
 
 /**
  *
- * @param {Object} request ETL tracts action
+ * @param {Object} request ETL tracts entry
  * @param {String|Object} request.urn tracts URN string or object
  */
 async function dull(request) {
@@ -105,7 +105,7 @@ async function dull(request) {
 
 /**
  *
- * @param {Object} request ETL tracts action
+ * @param {Object} request ETL tracts entry
  * @param {String|Object} request.urn tracts URN string or object
  * @param {Boolean} request.resolve resolve aliases
  */
@@ -128,7 +128,7 @@ async function recall(request) {
 
 /**
  *
- * @param {Object} request ETL tracts action with query pattern
+ * @param {Object} request ETL tracts entry with query pattern
  * @param {Object} request.pattern query pattern
  */
 async function retrieve(request) {

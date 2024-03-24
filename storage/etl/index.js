@@ -25,8 +25,8 @@ const appArgs = {
 
 /**
  * parseArgs
- *   only actionName is required
- *   example process.argv  ["node.exe", "storage/etl/index.js", "-c", <configFile>, "-t", <tract>, <actionName>]
+ *   only fiber-name is required
+ *   example process.argv  ["node.exe", "storage/etl/index.js", "-c", <configFile>, "-t", <tract>, <fiber-name>]
  */
 function parseArgs() {
 
@@ -82,7 +82,7 @@ function parseArgs() {
   if (!appArgs.name) {
     console.log("Transfer, transform and codify data between local and distributed storage sources.");
     console.log("");
-    console.log("etl [-c configFile] [-t tract] actionName");
+    console.log("etl [-c configFile] [-t tract] fiber-name");
     console.log("");
     console.log("configFile");
     console.log("  JSON configuration file that defines engrams, plug-ins and logging.");
@@ -93,23 +93,23 @@ function parseArgs() {
     console.log("  ETL tract filename or Tracts urn that contains tract to process.");
     console.log("  Default tract file is ./etl.tract.json");
     console.log("");
-    console.log("actionName");
-    console.log("  The action to perform in the ETL tract file. Required. Use '*' to process all actions.");
+    console.log("fiber-name");
+    console.log("  The fiber to perform in the ETL tract file. Required. Use '*' to process all fibers.");
     console.log("");
     console.log("Actions:");
     console.log("  transfer - transfer data between data stores with optional transforms.");
     console.log("  retrieve - retrieve data with fallback to a source origin.");
-    console.log("  foreach - retrieve data and perform child action(s) for each construct.");
+    console.log("  foreach - retrieve data and perform child fiber(s) for each construct.");
     console.log("  tee - transfer data between origin and multiple destinations.");
     console.log("  dull - remove data from a data store.");
     console.log("  list - listing of schema names at origin (data store or file system).");
-    console.log("  scan - list schemas, e.g. files, at origin and perform sub-actions for each schema.");
+    console.log("  scan - list schemas, e.g. files, at origin and perform sub-fibers for each schema.");
     console.log("  copy - copy data files between remote file system and local file system.");
     console.log("  codify - determine schema's encoding by examining some data.");
     console.log("  engrams - manage engrams encoding definitions");
     console.log("  tracts - manage tracts definitions");
-    console.log("  all | * - run all actions in sequence.");
-    console.log("  parallel - run all actions in parallel.");
+    console.log("  all | * - run all fibers in sequence.");
+    console.log("  parallel - run all fibers in parallel.");
     console.log("");
     console.log("  " + junctionsPkg.name + "@" + junctionsPkg.version);
     return;
@@ -126,43 +126,43 @@ function parseArgs() {
       tract = results.data[ 0 ];
     }
 
-    let base = tract.actions.find((action) => action.name === "_base");
+    let base = tract.fibers.find((fiber) => fiber.name === "_base");
 
     if (appArgs.name === "all" || appArgs.name === "*") {
-      for (let action of tract.actions) {
-        if (action.name[ 0 ] === "_")
+      for (let fiber of tract.fibers) {
+        if (fiber.name[ 0 ] === "_")
           continue;
         if (base)
-          action = objCopy({}, base, action);
-        retCode = await Actions.perform(action, appArgs.params);
+          fiber = objCopy({}, base, fiber);
+        retCode = await Actions.perform(fiber, appArgs.params);
         if (retCode)
           break;
       }
     }
     else if (appArgs.name === "parallel") {
       let tasks = [];
-      for (let action of tract.actions) {
-        if (action.name[ 0 ] === "_")
+      for (let fiber of tract.fibers) {
+        if (fiber.name[ 0 ] === "_")
           continue;
         if (base)
-          action = objCopy({}, base, action);
-        tasks.push(Actions.perform(action, appArgs.params));
+          fiber = objCopy({}, base, fiber);
+        tasks.push(Actions.perform(fiber, appArgs.params));
       }
       await Promise.allSettled(tasks);
     }
     else {
-      // actions can be chained through the retCode
+      // fibers can be chained through the retCode
       let name = appArgs.name;
       while (name) {
-        let action = tract.actions.find((action) => action.name === name);
-        if (!action) {
+        let fiber = tract.fibers.find((fiber) => fiber.name === name);
+        if (!fiber) {
           logger.error("tract name not found: " + name);
           retCode = 1;
           break;
         }
 
-        if (base) action = objCopy({}, base, action);
-        retCode = await Actions.perform(action, appArgs.params);
+        if (base) fiber = objCopy({}, base, fiber);
+        retCode = await Actions.perform(fiber, appArgs.params);
         name = (typeof retCode === "string") ? retCode : "";
       }
     }

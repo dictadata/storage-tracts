@@ -2,7 +2,7 @@
   "realm": "foo",
   "name": "retrieve.tract.json",
   "type": "tract",
-  "actions": [
+  "fibers": [
     {
       "name": "foo_cache",
       "action": "retrieve",

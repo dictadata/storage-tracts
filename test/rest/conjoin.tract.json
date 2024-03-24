@@ -2,7 +2,7 @@
   "realm": "",
   "name": "conjoin.tract",
   "type": "tract",
-  "actions": [
+  "fibers": [
     {
       "name": "transfer_forecast",
       "action": "transfer",

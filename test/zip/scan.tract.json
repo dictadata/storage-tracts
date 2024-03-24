@@ -2,7 +2,7 @@
   "realm": "",
   "name": "scan.tract",
   "type": "tract",
-  "actions": [
+  "fibers": [
     {
       "name": "scan",
       "action": "scan",
@@ -12,7 +12,7 @@
           "recursive": true
         }
       },
-      "actions": [
+      "fibers": [
         {
           "name": "schema",
           "action": "codify",

@@ -2,7 +2,7 @@
   "realm": "",
   "name": "list.tract",
   "type": "tract",
-  "actions": [
+  "fibers": [
     {
       "name": "list_local",
       "action": "list",

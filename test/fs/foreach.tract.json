@@ -2,7 +2,7 @@
   "realm": "",
   "name": "foreach.tract",
   "type": "tract",
-  "actions": [
+  "fibers": [
     {
       "name": "foreach",
       "action": "foreach",
@@ -17,7 +17,7 @@
           }
         }
       },
-      "actions": [
+      "fibers": [
         {
           "name": "each_file",
           "action": "copy",

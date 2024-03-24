@@ -10,7 +10,7 @@
       }
     }
   },
-  "actions": [
+  "fibers": [
     {
       "name": "recall_tracts",
       "action": "tracts",

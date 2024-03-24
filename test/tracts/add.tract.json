@@ -10,7 +10,7 @@
       }
     }
   },
-  "actions": [
+  "fibers": [
     {
       "name": "add_tracts",
       "action": "tracts",

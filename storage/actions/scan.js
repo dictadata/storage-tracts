@@ -12,24 +12,24 @@ const { perform } = require('./');
  * List schemas at a locus
  * and perform action(s) on each schema.
  */
-module.exports = async (action) => {
+module.exports = async (fiber) => {
   logger.info("=== scan");
-  logger.verbose(action.origin.smt);
+  logger.verbose(fiber.origin.smt);
   let retCode = 0;
 
   var jo;
   try {
     // get list of schemas from source
-    if (!action.origin.options)
-      action.origin.options = {};
-    jo = await Storage.activate(action.origin.smt, action.origin.options);
+    if (!fiber.origin.options)
+      fiber.origin.options = {};
+    jo = await Storage.activate(fiber.origin.smt, fiber.origin.options);
     let { data: list } = await jo.list();
     jo.relax();
 
     // exlusions
     let exclude = [];
-    if (action.origin.options?.exclude) {
-      for (let filespec of action.origin.options.exclude) {
+    if (fiber.origin.options?.exclude) {
+      for (let filespec of fiber.origin.options.exclude) {
         let rx = '^' + filespec + '$';
         rx = rx.replace(/\./g, '\\.');
         rx = rx.replace(/\?/g, '.');
@@ -64,10 +64,10 @@ module.exports = async (action) => {
       };
 
       // loop thru sub-tracts
-      for (const sub of action.actions) {
-        let subaction = objCopy({}, sub);
+      for (const sub of fiber.fibers) {
+        let subfiber = objCopy({}, sub);
 
-        retCode = await perform(subaction, replacements);
+        retCode = await perform(subfiber, replacements);
         if (retCode)
           break;
       }
@@ -77,9 +77,9 @@ module.exports = async (action) => {
     }
 
     /* could record some result logging
-    if (action.terminal?.output) {
+    if (fiber.terminal?.output) {
       logger.debug(JSON.stringify(<results>, null, " "));
-      retCode = output(action.terminal.output, <results>, action.terminal.compareValues);
+      retCode = output(fiber.terminal.output, <results>, fiber.terminal.compareValues);
     }
     */
 

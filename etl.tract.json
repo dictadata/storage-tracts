@@ -5,10 +5,10 @@
   "params": {
     "name": "value"
   },
-  "actions": [
+  "fibers": [
     {
-      "name": "action name",
-      "action": "action command",
+      "name": "fiber name",
+      "action": "action name",
       "origin": {
         "smt": "<smt|urn>",
         "options": {}

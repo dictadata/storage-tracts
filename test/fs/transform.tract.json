@@ -2,7 +2,7 @@
   "realm": "",
   "name": "transform.tract",
   "type": "tract",
-  "actions": [
+  "fibers": [
     {
       "name": "csv-json",
       "action": "transfer",

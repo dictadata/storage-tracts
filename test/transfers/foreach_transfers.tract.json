@@ -2,7 +2,7 @@
   "realm": "foo",
   "name": "foreach.tract",
   "type": "tract",
-  "actions": [
+  "fibers": [
     {
       "name": "foo_foreach_es",
       "action": "foreach",
@@ -24,7 +24,7 @@
           "encoding": "./test/data/input/engrams/foo_schema.engram.json"
         }
       },
-      "actions": [
+      "fibers": [
         {
           "name": "each_entry",
           "action": "transfer",
@@ -66,7 +66,7 @@
         "smt": "json|./test/data/output/transfers/|foreach_transfer.json|*",
         "output": "./test/data/output/transfers/foreach_transfer.json"
       },
-      "actions": [
+      "fibers": [
         {
           "name": "each_entry",
           "action": "transfer",

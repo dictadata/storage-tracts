@@ -17,28 +17,28 @@ function prefix(locus) {
   return p;
 }
 
-module.exports = exports = async function (action) {
+module.exports = exports = async function (fiber) {
   let retCode = 0;
 
   try {
     // verify that one of the destinations is local file system.
-    let src_smt = new SMT(action.origin.smt);
-    let dst_smt = new SMT(action.terminal.smt);
+    let src_smt = new SMT(fiber.origin.smt);
+    let dst_smt = new SMT(fiber.terminal.smt);
 
     let src_prefix = prefix(src_smt.locus);
     let dst_prefix = prefix(dst_smt.locus);
 
     if (src_prefix === 'file' && dst_prefix === 'file') {
       if (src_smt.schema !== '*')
-        await download(action);
+        await download(fiber);
       else
-        await upload(action);
+        await upload(fiber);
     }
     else if (src_prefix === 'file') {
-      await upload(action);
+      await upload(fiber);
     }
     else if (dst_prefix === 'file') {
-      await download(action);
+      await download(fiber);
     }
     else {
       throw new StorageError(400, "source and/or destination locus must be local file system");
@@ -53,19 +53,19 @@ module.exports = exports = async function (action) {
   return retCode;
 };
 
-async function download(action) {
+async function download(fiber) {
   let retCode = 0;
 
   var junction;
   try {
     logger.info("=== download");
 
-    logger.verbose("smt:" + JSON.stringify(action.origin.smt, null, 2));
-    if (action.origin.options)
-      logger.verbose("options:" + JSON.stringify(action.origin.options));
+    logger.verbose("smt:" + JSON.stringify(fiber.origin.smt, null, 2));
+    if (fiber.origin.options)
+      logger.verbose("options:" + JSON.stringify(fiber.origin.options));
 
     logger.verbose(">>> activate junction");
-    junction = await Storage.activate(action.origin.smt, action.origin.options);
+    junction = await Storage.activate(fiber.origin.smt, fiber.origin.options);
 
     logger.verbose(">>> get list of desired files");
     let list;
@@ -84,7 +84,7 @@ async function download(action) {
       logger.info(entry.name);
       logger.verbose(JSON.stringify(entry, null, 2));
 
-      let options = Object.assign({ smt: action.terminal.smt, entry: entry }, action.terminal.options);
+      let options = Object.assign({ smt: fiber.terminal.smt, entry: entry }, fiber.terminal.options);
       let ok = await stfs.getFile(options);
       if (!ok) {
         logger.error("download failed: " + entry.href);
@@ -105,7 +105,7 @@ async function download(action) {
   return retCode;
 }
 
-async function upload(action) {
+async function upload(fiber) {
   var retCode = 0;
 
   var local;
@@ -114,17 +114,17 @@ async function upload(action) {
     logger.info("=== upload");
 
     logger.verbose(">>> create generic junction for local files");
-    logger.verbose("smt:" + JSON.stringify(action.origin.smt, null, 2));
-    local = await Storage.activate(action.origin.smt, action.origin.options);
+    logger.verbose("smt:" + JSON.stringify(fiber.origin.smt, null, 2));
+    local = await Storage.activate(fiber.origin.smt, fiber.origin.options);
 
     logger.verbose(">>> get list of local files");
     let { data: list } = await local.list();
 
-    logger.verbose(">>> create terminal junction " + action.terminal.smt);
-    logger.verbose("smt:" + JSON.stringify(action.terminal.smt, null, 2));
-    if (action.terminal.options)
-      logger.verbose("options:" + JSON.stringify(action.terminal.options));
-    junction = await Storage.activate(action.terminal.smt, action.terminal.options);
+    logger.verbose(">>> create terminal junction " + fiber.terminal.smt);
+    logger.verbose("smt:" + JSON.stringify(fiber.terminal.smt, null, 2));
+    if (fiber.terminal.options)
+      logger.verbose("options:" + JSON.stringify(fiber.terminal.options));
+    junction = await Storage.activate(fiber.terminal.smt, fiber.terminal.options);
 
     logger.verbose(">>> upload files");
     // download is a filesystem level method
@@ -134,7 +134,7 @@ async function upload(action) {
       logger.info(entry.name);
       logger.debug(JSON.stringify(entry, null, 2));
 
-      let options = Object.assign({ smt: action.origin.smt, entry: entry }, action.origin.options);
+      let options = Object.assign({ smt: fiber.origin.smt, entry: entry }, fiber.origin.options);
       let ok = await stfs.putFile(options);
       if (!ok) {
         logger.error("!!! upload failed: " + entry.href);
