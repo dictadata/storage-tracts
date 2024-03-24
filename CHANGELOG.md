@@ -164,7 +164,7 @@
   - bug fix: issues with scan functionality
 - version 2.2.4
   - refactor: tracts and actions processing
-  - enhancement: make scan more generic, able to process any sub-action
+  - enhancement: make scan more generic, able to process any sub-fiber
 - version 2.2.3
   - refactor: merging of encoding into engrams action
 - version 2.2.2

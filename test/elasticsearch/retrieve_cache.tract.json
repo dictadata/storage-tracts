@@ -6,7 +6,7 @@
     {
       "name": "foo_cache",
       "action": "retrieve",
-      "source_action": "foo_data",
+      "source_fiber": "foo_data",
       "origin": {
         "smt": "foo:foo_cache",
         "pattern": {

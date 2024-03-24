@@ -74,8 +74,8 @@ module.exports = async (fiber) => {
     let results = await jo.retrieve(origin.pattern);
     let data = typeOf(results.data) === "object" ? Object.values(results.data) : (results.data || []);
 
-    if (results.status === 404 && fiber.source_action) {
-      return fiber.source_action;
+    if (results.status === 404 && fiber.source_fiber) {
+      return fiber.source_fiber;
     }
 
     if (results.status !== 0 && results.status !== 404)
