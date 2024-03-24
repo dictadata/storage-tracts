@@ -151,15 +151,19 @@ function parseArgs() {
       await Promise.allSettled(tasks);
     }
     else {
-      let action = tract.actions.find((action) => action.name === appArgs.name);
-      if (action) {
-        if (base)
-          action = objCopy({}, base, action);
+      // actions can be chained through the retCode
+      let name = appArgs.name;
+      while (name) {
+        let action = tract.actions.find((action) => action.name === name);
+        if (!action) {
+          logger.error("tract name not found: " + name);
+          retCode = 1;
+          break;
+        }
+
+        if (base) action = objCopy({}, base, action);
         retCode = await Actions.perform(action, appArgs.params);
-      }
-      else {
-        retCode = 1;
-        logger.error("tract name not found: " + appArgs.name);
+        name = (typeof retCode === "string") ? retCode : "";
       }
     }
 

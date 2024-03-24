@@ -6,7 +6,7 @@
       "name": "create",
       "action": "create",
       "origin": {
-        "smt": "foo:es_foo_empty"
+        "smt": "foo:foo_cache"
       },
       "terminal": {
         "output": "./test/data/output/elasticsearch/retrieve_create.json",
@@ -17,16 +17,9 @@
       "name": "dull",
       "action": "dull",
       "origin": {
-        "smt": "foo:es_foo_empty",
+        "smt": "foo:foo_cache",
         "options": {
           "refresh": true
-        },
-        "pattern": {
-          "match": {
-            "Bar": {
-              "search": "row boat"
-            }
-          }
         }
       },
       "terminal": {
@@ -35,11 +28,10 @@
       }
     },
     {
-      "name": "foo_data",
+      "name": "foo_cache",
       "action": "retrieve",
       "origin": {
-        "cacheable": false,
-        "smt": "foo:es_foo_empty",
+        "smt": "foo:foo_cache",
         "pattern": {
           "match": {
             "Bar": {
@@ -57,8 +49,7 @@
       "name": "foo_data",
       "action": "retrieve",
       "origin": {
-        "cacheable": true,
-        "smt": "foo:es_foo_empty",
+        "smt": "foo:es_foo_schema",
         "pattern": {
           "match": {
             "Bar": {
@@ -70,25 +61,6 @@
       "terminal": {
         "smt": "json|./test/data/output/elasticsearch/|retrieve2_json.json|*",
         "output": "./test/data/output/elasticsearch/retrieve2_json.json"
-      }
-    },
-    {
-      "name": "foo_data",
-      "action": "retrieve",
-      "origin": {
-        "cacheable": false,
-        "smt": "foo:es_foo_empty",
-        "pattern": {
-          "match": {
-            "Bar": {
-              "search": "row boat"
-            }
-          }
-        }
-      },
-      "terminal": {
-        "smt": "json|./test/data/output/elasticsearch/|retrieve3_json.json|*",
-        "output": "./test/data/output/elasticsearch/retrieve3_json.json"
       }
     }
   ]

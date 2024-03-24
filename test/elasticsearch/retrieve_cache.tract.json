@@ -1,0 +1,49 @@
+{
+  "realm": "foo",
+  "name": "retrieve.tract.json",
+  "type": "tract",
+  "actions": [
+    {
+      "name": "foo_cache",
+      "action": "retrieve",
+      "source_action": "foo_data",
+      "origin": {
+        "smt": "foo:foo_cache",
+        "pattern": {
+          "match": {
+            "Bar": {
+              "search": "row boat"
+            }
+          }
+        }
+      },
+      "terminal": {
+        "smt": "json|./test/data/output/elasticsearch/|retrieve_cache.json|*",
+        "output": "./test/data/output/elasticsearch/retrieve_cache.json"
+      }
+    },
+    {
+      "name": "foo_data",
+      "action": "tee",
+      "origin": {
+        "smt": "foo:es_foo_schema",
+        "pattern": {
+          "match": {
+            "Bar": {
+              "search": "row boat"
+            }
+          }
+        }
+      },
+      "terminals": [
+        {
+          "smt": "foo:foo_cache"
+        },
+        {
+          "smt": "json|./test/data/output/elasticsearch/|tee_data.json|*",
+          "output": "./test/data/output/elasticsearch/tee_data.json"
+        }
+      ]
+    }
+  ]
+}

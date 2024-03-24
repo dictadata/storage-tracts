@@ -53,7 +53,7 @@ module.exports = async (action) => {
       // then run some data through the codifier
       let pipes = [];
 
-      let options = Object.assign({ max_read: action.origin.options.max_read || 100 }, pattern);
+      let options = { max_read: action.origin.options.max_read || 100, pattern };
       let reader = jo.createReader(options);
       reader.on('error', (error) => {
         logger.error("synchronize reader: " + error.message);
@@ -71,7 +71,7 @@ module.exports = async (action) => {
     }
 
     logger.verbose(">>> createReader");
-    reader = jo.createReader(pattern);
+    reader = jo.createReader({ pattern });
     reader.on('error', (error) => {
       logger.error("synchronize reader: " + error.message);
     });

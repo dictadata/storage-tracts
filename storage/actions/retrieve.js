@@ -74,22 +74,8 @@ module.exports = async (action) => {
     let results = await jo.retrieve(origin.pattern);
     let data = typeOf(results.data) === "object" ? Object.values(results.data) : (results.data || []);
 
-    if (results.status === 404 && action.origin.cacheable && origin.options.encoding?.source) {
-      // request from jo.engram.source
-      let smt = origin.options.encoding?.source;
-      let options = {};
-      smt = await Storage.resolve(smt, options);
-
-      // create source junction
-      logger.verbose(">>> create source junction " + JSON.stringify(smt, null, 2));
-      js = await Storage.activate(smt, options);
-
-      results = await js.retrieve(origin.pattern);
-      data = typeOf(results.data) === "object" ? Object.values(results.data) : (results.data || []);
-
-      // store results to origin
-      let res = await jo.storeBulk(data);
-      logger.debug(JSON.stringify(res));
+    if (results.status === 404 && action.source_action) {
+      return action.source_action;
     }
 
     if (results.status !== 0 && results.status !== 404)

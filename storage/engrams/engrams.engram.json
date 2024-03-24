@@ -113,6 +113,14 @@
             "name": "key",
             "type": "integer",
             "default": 0
+          },
+          {
+            "name": "label",
+            "type": "keyword"
+          },
+          {
+            "name": "description",
+            "type": "text"
           }
         ]
       }

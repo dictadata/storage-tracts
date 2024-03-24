@@ -86,7 +86,7 @@ module.exports = async (action) => {
     let writers = [];
 
     // reader
-    let reader = jo.createReader(origin.pattern);
+    let reader = jo.createReader({ pattern: origin.pattern });
     //reader.on('error', (error) => {
     //  logger.error("tee reader: " + error.message);
     //});
