@@ -18,7 +18,7 @@ const path = require('node:path');
   let tractText = fs.readFileSync(tractFile, 'utf-8');
   let tract = JSON.parse(tractText);
 
-  if (tract.tracts || tract.actions) {
+  if (tract.actions) {
     console.log("already reformatted")
     return retCode;
   }
