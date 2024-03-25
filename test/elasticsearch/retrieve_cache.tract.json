@@ -32,7 +32,8 @@
             "Bar": {
               "search": "row boat"
             }
-          }
+          },
+          "order": { "Foo": "asc" }
         }
       },
       "terminals": [
