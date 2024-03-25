@@ -12,7 +12,7 @@ const fs = require('node:fs');
 /**
  *
  */
-module.exports = async (fiber) => {
+module.exports = exports = async (fiber) => {
   logger.verbose("engrams ...");
   let retCode = 0;
   let fn;

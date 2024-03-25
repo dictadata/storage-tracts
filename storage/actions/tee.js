@@ -17,7 +17,7 @@ const { finished } = require('node:stream/promises');
 /**
  * transfer w/ tee action
  */
-module.exports = async (fiber) => {
+module.exports = exports = async (fiber) => {
   logger.info("=== tee transfer");
   let retCode = 0;
 

@@ -12,7 +12,7 @@ const { perform } = require('./');
  * List schemas at a locus
  * and perform action(s) on each schema.
  */
-module.exports = async (fiber) => {
+module.exports = exports = async (fiber) => {
   logger.info("=== scan");
   logger.verbose(fiber.origin.smt);
   let retCode = 0;

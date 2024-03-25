@@ -28,7 +28,7 @@
 - version 0.9.75
   - refactor: variable replacement in foreach sub-fibers
   - refactor: Engrams, Tracts now return arrays
-  - feature: implement transfer _base fiber
+  - feature: implement ETL base fiber
   - refactor: engrams and tracts, tract, fibers
   - bug fix: return copies of cached engrams and tracts
   - updated: @dictadata/storage-junctions@0.9.102

@@ -12,7 +12,7 @@ const { pipeline, finished } = require('node:stream/promises');
 /**
  *
  */
-module.exports = async (fiber) => {
+module.exports = exports = async (fiber) => {
   logger.verbose("synchronize ...");
   let retCode = 0;
 

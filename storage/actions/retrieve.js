@@ -18,7 +18,7 @@ const { pipeline } = require('node:stream/promises');
 /**
  * retrieve action
  */
-module.exports = async (fiber) => {
+module.exports = exports = async (fiber) => {
   logger.info("=== retrieve");
   let retCode = 0;
 

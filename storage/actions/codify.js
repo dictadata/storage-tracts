@@ -16,7 +16,7 @@ const engrams_encoding = require("../engrams/engrams.engram.json");
 /**
  *
  */
-module.exports = async (fiber, resultEncoding) => {
+module.exports = exports = async (fiber, resultEncoding) => {
   logger.verbose("codify ...");
   let retCode = 0;
 

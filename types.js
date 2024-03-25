@@ -1,1 +1,1 @@
-module.exports = require("./storage/types");
+module.exports = exports = require("./storage/types");

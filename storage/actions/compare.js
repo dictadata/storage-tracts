@@ -14,7 +14,7 @@ const { unzipSync } = require('node:zlib');
 /**
  *
  */
-module.exports = async (fiber) => {
+module.exports = exports = async (fiber) => {
   logger.verbose("compare ...");
   let retCode = 0;
 

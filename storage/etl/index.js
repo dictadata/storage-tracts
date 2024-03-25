@@ -9,7 +9,7 @@ const { Tracts } = require("../tracts");
 const { Actions } = require("../index");
 const config = require('./config');
 const { logger } = require('../utils');
-const { objCopy } = require('@dictadata/storage-junctions/utils')
+const { objCopy } = require('@dictadata/storage-junctions/utils');
 const path = require('node:path');
 require('colors');
 
@@ -126,14 +126,16 @@ function parseArgs() {
       tract = results.data[ 0 ];
     }
 
-    let base = tract.fibers.find((fiber) => fiber.name === "_base");
-
     if (appArgs.name === "all" || appArgs.name === "*") {
       for (let fiber of tract.fibers) {
         if (fiber.name[ 0 ] === "_")
           continue;
-        if (base)
+
+        if (fiber.base) {
+          let base = tract.fibers.find((f) => f.name === fiber.base);
           fiber = objCopy({}, base, fiber);
+        }
+
         retCode = await Actions.perform(fiber, appArgs.params);
         if (retCode)
           break;
@@ -144,8 +146,12 @@ function parseArgs() {
       for (let fiber of tract.fibers) {
         if (fiber.name[ 0 ] === "_")
           continue;
-        if (base)
+
+        if (fiber.base) {
+          let base = tract.fibers.find((f) => f.name === fiber.base);
           fiber = objCopy({}, base, fiber);
+        }
+
         tasks.push(Actions.perform(fiber, appArgs.params));
       }
       await Promise.allSettled(tasks);
@@ -155,13 +161,18 @@ function parseArgs() {
       let name = appArgs.name;
       while (name) {
         let fiber = tract.fibers.find((fiber) => fiber.name === name);
+
         if (!fiber) {
           logger.error("tract name not found: " + name);
           retCode = 1;
           break;
         }
 
-        if (base) fiber = objCopy({}, base, fiber);
+        if (fiber.base) {
+          let base = tract.fibers.find((f) => f.name === fiber.base);
+          fiber = objCopy({}, base, fiber);
+        }
+
         retCode = await Actions.perform(fiber, appArgs.params);
         name = (typeof retCode === "string") ? retCode : "";
       }

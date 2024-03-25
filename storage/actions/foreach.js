@@ -12,7 +12,7 @@ const { perform } = require('.');
  * Retrieve data from origin smt
  * and perform action(s) on each construct.
  */
-module.exports = async (fiber) => {
+module.exports = exports = async (fiber) => {
   logger.info("=== foreach");
   logger.verbose(fiber.origin.smt);
   let retCode = 0;
