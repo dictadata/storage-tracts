@@ -7,7 +7,7 @@ const Storage = require("../storage");
 const { Engram } = require("../types");
 const { logger, output } = require('../utils');
 
-const fs = require('node:fs');
+const { readFile } = require('node:fs/promises');
 
 /**
  *
@@ -62,7 +62,7 @@ async function store(entry) {
     if (typeof entry?.engram === "string") {
       // read engram from file
       let filename = entry.engram;
-      let engram = JSON.parse(fs.readFileSync(filename, "utf8"));
+      let engram = JSON.parse(await readFile(filename, "utf8"));
       // merge engram into entry
       delete entry.engram;
       entry = Object.assign({}, engram, entry);

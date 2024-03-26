@@ -7,7 +7,7 @@ const Storage = require("../storage");
 const { Tract } = require("../types");
 const { logger, output } = require('../utils');
 
-const fs = require('node:fs');
+const { readFile } = require('node:fs/promises');
 
 /**
  *
@@ -63,7 +63,7 @@ async function store(entry) {
     if (typeof entry?.tract === "string") {
       // read tracts from file
       let filename = entry.tract;
-      let tract = JSON.parse(fs.readFileSync(filename, "utf8"));
+      let tract = JSON.parse(await readFile(filename, "utf8"));
       // merge tracts into entry
       delete entry.tract;
       entry = Object.assign({}, tract, entry);

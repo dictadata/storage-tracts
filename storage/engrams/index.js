@@ -17,7 +17,8 @@ const { Engram } = require("../types");
 const { SMT, StorageResults, StorageError } = require("@dictadata/storage-junctions/types");
 const { objCopy } = require("@dictadata/storage-junctions/utils");
 const { logger } = require('../utils');
-const fs = require("node:fs");
+const { readFile } = require("node:fs/promises");
+
 const homedir = process.env[ "HOMEPATH" ] || require('os').homedir();
 
 const engrams_encoding = require("./engrams.engram.json");
@@ -112,7 +113,7 @@ module.exports = exports = class Engrams {
 
           // replace ca with contents of file
           logger.verbose("ca: " + tls.ca);
-          tls.ca = fs.readFileSync(tls.ca);
+          tls.ca = await readFile(tls.ca);
         }
       }
 

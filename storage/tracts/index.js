@@ -15,7 +15,8 @@
 const Storage = require("../storage");
 const { SMT, Tract, StorageResults, StorageError } = require("@dictadata/storage-junctions/types");
 const { logger, objCopy } = require("@dictadata/storage-junctions/utils");
-const fs = require("node:fs");
+const { readFile } = require("node:fs/promises");
+
 const homedir = process.env[ "HOMEPATH" ] || require('os').homedir();
 
 const tracts_encoding = require("./tracts.engram.json");
@@ -97,7 +98,7 @@ module.exports = exports = class Tracts {
 
           // replace ca with contents of file
           logger.verbose("ca: " + tls.ca);
-          tls.ca = fs.readFileSync(tls.ca);
+          tls.ca = await readFile(tls.ca);
         }
       }
 
