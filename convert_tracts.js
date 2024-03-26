@@ -6,7 +6,7 @@
  */
 "use strict";
 
-const fs = require('node:fs');
+const { readFile, writeFile } = require('node:fs/promises');
 const path = require('node:path');
 
 (async () => {
@@ -15,7 +15,7 @@ const path = require('node:path');
   let tractFile = process.argv[ 2 ];
   console.log(tractFile);
 
-  let tractText = fs.readFileSync(tractFile, 'utf-8');
+  let tractText = await readFile(tractFile, 'utf-8');
   let tract = JSON.parse(tractText);
 
   if (tract.fibers) {
@@ -46,7 +46,7 @@ const path = require('node:path');
   console.log(fn);
 */
 
-  fs.writeFileSync(tractFile, JSON.stringify(newTract, null, 2), { encoding: 'utf-8', flag: 'w' });
+  await writeFile(tractFile, JSON.stringify(newTract, null, 2), { encoding: 'utf-8', flag: 'w' });
 
   return retCode;
 })();
