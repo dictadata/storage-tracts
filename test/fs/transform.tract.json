@@ -9,6 +9,7 @@
       "origin": {
         "smt": "csv|./test/data/input/|foofile.csv|*",
         "options": {
+          "encoding": "./test/data/input/engrams/foo_schema.engram.json",
           "header": true
         }
       },
@@ -59,7 +60,10 @@
       "name": "json-csv",
       "action": "transfer",
       "origin": {
-        "smt": "json|./test/data/input/|foofile.json|*"
+        "smt": "json|./test/data/input/|foofile.json|*",
+        "options": {
+          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+        }
       },
       "transforms": [
         {
@@ -125,6 +129,9 @@
       ],
       "terminal": {
         "smt": "json|./test/data/output/fs/|file_list_trim.json|*",
+        "options": {
+          "codify": true
+        },
         "output": "./test/data/output/fs/file_list_trim.json"
       }
     }

@@ -26,6 +26,9 @@
           "locus": "./test/data/output/tracts/",
           "schema": "use_elasticsearch-foo_transfer.json",
           "key": "*"
+        },
+        "options": {
+          "codify": true
         }
       }
     }

@@ -1,5 +1,5 @@
 /**
- * storage/etl/tee
+ * stor\ge/etl/tee
  *
  * stream data from origin to multiple terminals
  *
@@ -11,7 +11,7 @@ const { objCopy } = require('@dictadata/storage-junctions/utils');
 const { logger, output } = require('../utils');
 const codify = require('./codify');
 
-const fs = require('node:fs');
+const { readFile } = require('node:fs');
 const { finished } = require('node:stream/promises');
 
 /**
@@ -38,15 +38,11 @@ module.exports = exports = async (fiber) => {
   var jo;        // junction origin
   var jtl = [];  // junction terminal list
   try {
-    // note, origin.options.encoding files have been read by actions.js
+    // note, options.encoding files have been read by Actions.perform
 
     // resolve the origin and terminals
     origin.smt = await Storage.resolve(origin.smt, origin.options);
     for (let terminal of terminals) {
-      if (typeof terminal.options.encoding === "string") {
-        let filename = terminal.options.encoding;
-        terminal.options.encoding = JSON.parse(await fs.readFile(filename, "utf8"));
-      }
       terminal.smt = await Storage.resolve(terminal.smt, terminal.options);
     }
 
@@ -57,11 +53,14 @@ module.exports = exports = async (fiber) => {
 
     let codifyEncoding = {};
     for (let terminal of terminals) {
+
       if (!terminal.options?.encoding) {
         terminal.options.encoding = origin.options.encoding;
       }
 
-      if (!terminal.options?.encoding || transforms.length > 0) {
+      //if (!terminal.options?.encoding || transforms.length > 0) {
+      if (terminal.options?.codify) {
+        // only codify once
         if (!codifyEncoding.name) {
           // run some objects through transforms to create terminal encoding
           let codifyFiber = objCopy({}, fiber);
@@ -70,6 +69,7 @@ module.exports = exports = async (fiber) => {
 
           await codify(codifyFiber, codifyEncoding);
         }
+
         terminal.options.encoding = codifyEncoding;
       }
 
@@ -148,8 +148,10 @@ module.exports = exports = async (fiber) => {
     if (jo)
       await jo.relax();
     for (let jt of jtl) {
-      if (jt)
-        await jt.relax();
+      if (jt) {
+        if (Object.hasOwn(jt.options, "autoClose") ? jt.options.autoClose : true)
+          await jt.relax();
+      }
     }
   }
 

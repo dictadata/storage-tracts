@@ -8,7 +8,7 @@ const { Field } = require('@dictadata/storage-junctions/types');
 const { objCopy, typeOf } = require('@dictadata/storage-junctions/utils');
 const { logger, output } = require('../utils');
 
-const fs = require('node:fs');
+const { readFile } = require('node:fs/promises');
 const { pipeline } = require('node:stream/promises');
 
 const engrams_encoding = require("../engrams/engrams.engram.json");
@@ -37,7 +37,13 @@ module.exports = exports = async (fiber, resultEncoding) => {
     if (Object.hasOwn(fiber, "encoding")) {
       if (typeof fiber.encoding === "string") {
         let filename = fiber.encoding;
-        fiber.encoding = JSON.parse(fs.readFileSync(filename, "utf8"));
+        try {
+          fiber.encoding = JSON.parse(await readFile(filename, "utf8"));
+        }
+        catch (err) {
+          delete fiber.encoding;
+          logger.warn(err.message);
+        }
       }
     }
     else if (Object.hasOwn(origin.options, "encoding") && !transforms.length) {

@@ -16,6 +16,9 @@
           "schema": "var_${schema}.json",
           "key": "*"
         },
+        "options": {
+          "codify": true
+        },
         "output": "${output}/fs/var_${schema}.json"
       }
     }

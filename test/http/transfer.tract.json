@@ -8,7 +8,9 @@
       "action": "transfer",
       "origin": {
         "smt": "json|http://dev.dictadata.net/dictadata/test/data/input/|foofile.json|*",
-        "options": {}
+        "options": {
+          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+        }
       },
       "terminal": {
         "smt": "json|./test/data/output/http/|foofile.json|*",

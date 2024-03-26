@@ -20,7 +20,10 @@
             "smt": "json|./test/data/input/|${name}|*"
           },
           "terminal": {
-            "smt": "json|./test/data/output/fs/scan/|${name}|*"
+            "smt": "json|./test/data/output/fs/scan/|${name}|*",
+            "options": {
+              "codify": true
+            }
           }
         },
         {

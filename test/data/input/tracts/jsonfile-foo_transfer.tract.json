@@ -23,6 +23,9 @@
           "locus": "./test/data/output/tracts/",
           "schema": "use_jsonfile-foo_transfer.json",
           "key": "*"
+        },
+        "options": {
+          "codify": true
         }
       }
     }

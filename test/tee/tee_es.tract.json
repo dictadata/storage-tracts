@@ -9,7 +9,7 @@
       "origin": {
         "smt": "json|./test/data/input/|foofile.json|*",
         "options": {
-          "encoding": "./test/data/input/schema/foo_schema.engram.json"
+          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
         }
       },
       "terminals": [

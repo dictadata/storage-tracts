@@ -1042,7 +1042,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "fs tee",
+      "name": "tee json",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
@@ -1050,7 +1050,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/tee/fs_tee.tract.json",
+        "${workspaceFolder}/test/tee/tee_json.tract.json",
         "*"
       ],
       "env": {
@@ -1062,7 +1062,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "elasticsearch tee",
+      "name": "tee elasticsearch",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
@@ -1070,7 +1070,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/tee/es_tee.tract.json",
+        "${workspaceFolder}/test/tee/tee_es.tract.json",
         "*"
       ],
       "env": {
@@ -1082,7 +1082,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "mysql tee",
+      "name": "tee mysql",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/storage/etl/index.js",
       "runtimeArgs": [
@@ -1090,7 +1090,7 @@
       ],
       "args": [
         "-t",
-        "${workspaceFolder}/test/tee/mysql_tee.tract.json",
+        "${workspaceFolder}/test/tee/tee_mysql.tract.json",
         "*"
       ],
       "env": {

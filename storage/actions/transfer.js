@@ -32,11 +32,9 @@ module.exports = exports = async (fiber) => {
   if (!origin.options) origin.options = {};
   if (!terminal.options) terminal.options = {};
 
-  let autoClose = Object.hasOwn(terminal.options, "autoClose") ? terminal.options.autoClose : true;
-
   var jo, jt;  // junctions origin, terminal
   try {
-    // note, options.encoding files have been read by actions.js
+    // note, options.encoding files have been read by Actions.perform
 
     // resolve the origin and terminal
     origin.smt = await Storage.resolve(origin.smt, origin.options);
@@ -51,14 +49,15 @@ module.exports = exports = async (fiber) => {
       terminal.options.encoding = origin.options.encoding;
     }
 
-    if (!terminal.options?.encoding || transforms.length > 0) {
+    //if (!terminal.options?.encoding || transforms.length > 0) {
+    if (terminal.options?.codify) {
       // run some objects through transforms to create terminal encoding
-      let codifyAction = objCopy({}, fiber);
-      codifyAction.fiber = "codify";
-      codifyAction.terminal = {};
+      let codifyFiber = objCopy({}, fiber);
+      codifyFiber.action = "codify";
+      codifyFiber.terminal = {};
 
       let codifyEncoding = {};
-      await codify(codifyAction, codifyEncoding);
+      await codify(codifyFiber, codifyEncoding);
       terminal.options.encoding = codifyEncoding;
     }
 
@@ -120,8 +119,10 @@ module.exports = exports = async (fiber) => {
   finally {
     if (jo)
       await jo.relax();
-    if (jt && autoClose)
-      await jt.relax();
+    if (jt) {
+      if (Object.hasOwn(jt.options, "autoClose") ? jt.options.autoClose : true)
+        await jt.relax();
+    }
   }
 
   return retCode;

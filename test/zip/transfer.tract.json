@@ -8,7 +8,9 @@
       "action": "transfer",
       "origin": {
         "smt": "json|zip:./test/data/input/foofile.zip|foofile.json|*",
-        "options": {}
+        "options": {
+          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+        }
       },
       "terminal": {
         "smt": "json|./test/data/output/zip/|foofile.json|*",

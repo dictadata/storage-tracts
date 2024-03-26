@@ -7,7 +7,10 @@
       "name": "json-output",
       "action": "transfer",
       "origin": {
-        "smt": "json|./test/data/input/|foofile.json|*"
+        "smt": "json|./test/data/input/|foofile.json|*",
+        "options": {
+          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+        }
       },
       "terminal": {
         "smt": {
@@ -25,6 +28,7 @@
       "origin": {
         "smt": "csv|./test/data/input/|foofile.csv|*",
         "options": {
+          "encoding": "./test/data/input/engrams/foo_schema.engram.json",
           "header": true
         }
       },
@@ -47,6 +51,7 @@
       "origin": {
         "smt": "csv|./test/data/input/|foofile.csv|*",
         "options": {
+          "encoding": "./test/data/input/engrams/foo_schema.engram.json",
           "header": true
         }
       },
@@ -64,7 +69,10 @@
       "name": "json-csv",
       "action": "transfer",
       "origin": {
-        "smt": "json|./test/data/input/|foofile.json|*"
+        "smt": "json|./test/data/input/|foofile.json|*",
+        "options": {
+          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+        }
       },
       "terminal": {
         "smt": {

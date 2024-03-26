@@ -7,7 +7,10 @@
       "name": "transfer",
       "action": "transfer",
       "origin": {
-        "smt": "json|./test/data/input/|foofile.json|*"
+        "smt": "json|./test/data/input/|foofile.json|*",
+        "options": {
+          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+        }
       },
       "terminal": {
         "smt": "template|./test/data/output/transfers/|template_transfer.json|*",
