@@ -29,7 +29,7 @@ module.exports = exports = async (fiber) => {
 
   var origin = fiber.origin || {};
   var terminals = fiber.terminals || [];
-  var transforms = fiber.transforms || [];
+  if (!fiber.transforms) fiber.transforms = [];
   if (!origin.options) origin.options = {};
   for (let terminal of terminals) {
     if (!terminal.options) terminal.options = {};
@@ -62,7 +62,7 @@ module.exports = exports = async (fiber) => {
       if (terminal.options?.codify) {
         // only codify once
         if (!codifyEncoding.name) {
-          // run some objects through transforms to create terminal encoding
+          // run some objects through pipeline to create terminal encoding
           let codifyFiber = objCopy({}, fiber);
           codifyFiber.action = "codify";
           codifyFiber.terminal = {};
@@ -82,7 +82,7 @@ module.exports = exports = async (fiber) => {
 
     /// setup pipeline
     logger.verbose(">>> transfer pipeline");
-    let pipes = [];
+    let transforms = [];
     let writers = [];
 
     // reader
@@ -90,12 +90,11 @@ module.exports = exports = async (fiber) => {
     //reader.on('error', (error) => {
     //  logger.error("tee reader: " + error.message);
     //});
-    pipes.push(reader);
 
     // transforms
-    for (let transform of transforms) {
+    for (let transform of fiber.transforms) {
       let tfType = transform.transform;
-      pipes.push(await jo.createTransform(tfType, transform));
+      transforms.push(await jo.createTransform(tfType, transform));
     }
 
     /// create terminal junctions
