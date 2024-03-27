@@ -1,5 +1,15 @@
 # CHANGELOG:  @dictadata/storage-tracts
 
+- version 0.9.84
+  - feature: implement retrieve action
+  - feature: implement tee action
+  - feature: in retrieve actions use fiber.source_fiber to chain fibers for 404 errors
+  - feature: in non-data actions implement terminal.output to "stream:*"
+  - refactor: rename tract.actions to tract.fibers
+  - refactor: rename iterate action to foreach
+  - refactor: use terminal.options.codify to explicitly invoke codify in transfers, tee, retrieve
+  - refactor: remove MSSQL tests; moved to mssql-junction plugin project
+  - updated: @dictadata/storage-junctions@0.9.109
 - version 0.9.83
   - featrue: template-junction tests
   - bug fix: fix codify encodings
