@@ -7,6 +7,7 @@
 "use strict";
 
 const Storage = require("../storage");
+const { StorageError } = require('@dictadata/storage-junctions/types');
 const { objCopy } = require('@dictadata/storage-junctions/utils');
 const { logger, output } = require('../utils');
 const codify = require('./codify');
@@ -62,7 +63,7 @@ module.exports = exports = async (fiber) => {
     }
 
     if (typeof terminal.options.encoding !== "object")
-      throw new Error("invalid terminal encoding");
+      throw new StorageError(400, "invalid terminal encoding");
 
     //logger.debug(">>> encoding results");
     //logger.debug(JSON.stringify(terminal.options.encoding.fields, null, " "));

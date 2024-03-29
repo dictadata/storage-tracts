@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-tracts
 
+- version 0.9.85
+  - refactor: StorageError constructor() and toJSON()
+    - updated: @dictadata/storage-junctions@0.9.111
 - version 0.9.84
   - feature: implement retrieve action
   - feature: implement tee action

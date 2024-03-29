@@ -4,7 +4,7 @@
 "use strict";
 
 const Storage = require("../storage");
-const { Engram } = require("../types");
+const { Engram, StorageError } = require("../types");
 const { logger, output } = require('../utils');
 
 const { readFile } = require('node:fs/promises');
@@ -79,7 +79,7 @@ async function store(entry) {
         results = await Storage.engrams.store(entry);
         break;
       default:
-        throw new Error("invalid engrams type");
+        throw new StorageError(400, "invalid engrams type");
     }
 
     logger.info("engrams store: " + entry.type + " " + entry.name + " " + results.message);

@@ -64,7 +64,7 @@ module.exports = exports = async (fiber) => {
     }
 
     if (typeof terminal.options.encoding !== "object")
-      throw new Error("invalid terminal encoding");
+      throw new StorageError(400, "invalid terminal encoding");
 
     //logger.debug(">>> encoding results");
     //logger.debug(JSON.stringify(terminal.options.encoding.fields, null, " "));
@@ -78,7 +78,7 @@ module.exports = exports = async (fiber) => {
     }
 
     if (results.status !== 0 && results.status !== 404)
-      throw new StorageError(results.status);
+      throw new StorageError(results.status, results.message);
 
     /// setup pipeline
     logger.verbose(">>> retrieve pipeline");
