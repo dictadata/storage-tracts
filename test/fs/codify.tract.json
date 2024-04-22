@@ -69,6 +69,33 @@
       "terminal": {
         "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_codify|"
       }
+    },
+    {
+      "name": "codify csv",
+      "action": "codify",
+      "origin": {
+        "smt": "csv|./test/data/input/|foofile.csv|*",
+        "options": {
+          "header": true
+        }
+      },
+      "terminal": {
+        "output": "./test/data/output/fs/codify_csv.engram.json"
+      }
+    },
+    {
+      "name": "codify missing value",
+      "action": "codify",
+      "missingValue": "*",
+      "origin": {
+        "smt": "csv|./test/data/input/|foo_missing.csv|*",
+        "options": {
+          "header": true
+        }
+      },
+      "terminal": {
+        "output": "./test/data/output/fs/codify_mv.engram.json"
+      }
     }
   ]
 }
