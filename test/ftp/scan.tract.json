@@ -24,7 +24,8 @@
             }
           },
           "terminal": {
-            "output": "./test/data/output/ftp/scan.engram.json"
+            "output": "./test/data/output/ftp/scan.engram.json",
+            "compareValues": 1
           }
         }
       ]

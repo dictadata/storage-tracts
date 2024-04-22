@@ -37,7 +37,8 @@
             }
           },
           "terminal": {
-            "output": "./test/data/output/fs/scan.engram.json"
+            "output": "./test/data/output/fs/scan.engram.json",
+            "compareValues": 1
           }
         }
       ]
