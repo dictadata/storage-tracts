@@ -18,10 +18,7 @@ module.exports = exports = async (fiber) => {
     var j1 = await Storage.activate(origin.smt, origin.options);
 
     let results;
-    if (origin.options?.schema)
-      results = await j1.dullSchema();
-    else
-      results = await j1.dull(origin.pattern);
+    results = await j1.dull(origin.pattern);
 
     if (fiber.terminal?.output) {
       retCode = output(fiber.terminal.output, results, fiber.terminal.compareValues);

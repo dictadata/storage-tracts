@@ -21,7 +21,7 @@ Storage.tracts = new exports.Tracts();
 
 exports.Actions = require("./actions");
 exports.Actions.use("list", require("./actions/list"));
-exports.Actions.use("create", require('./actions/create'));
+exports.Actions.use("schema", require('./actions/schema'));
 exports.Actions.use("codify", require('./actions/codify'));
 exports.Actions.use("scan", require('./actions/scan'));
 exports.Actions.use("foreach", require('./actions/foreach'));

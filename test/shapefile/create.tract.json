@@ -5,7 +5,8 @@
   "fibers": [
     {
       "name": "create",
-      "action": "create",
+      "action": "schema",
+      "method": "create",
       "origin": {
         "smt": "elasticsearch|http://dev.dictadata.net:9200|bl_2021_us_congress|*",
         "options": {

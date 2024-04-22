@@ -54,6 +54,8 @@ module.exports = exports = async (fiber) => {
       let pipes = [];
 
       let options = { max_read: fiber.origin.options.max_read || 100, pattern };
+      //let options = Object.assign({ max_read: 100 }, fiber.origin.options);
+
       let reader = jo.createReader(options);
       reader.on('error', (error) => {
         logger.error("synchronize reader: " + error.message);
@@ -63,7 +65,7 @@ module.exports = exports = async (fiber) => {
       for (let transform of transforms)
         pipes.push(await jo.createTransform(transform.transform, transform));
 
-      let ct = await jo.createTransform("codify", fiber);
+      let ct = await jo.createTransform("codify", fiber.origin.options);
       pipes.push(ct);
 
       await pipeline(pipes);
