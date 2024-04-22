@@ -1,10 +1,10 @@
 {
-  "name": "codify",
+  "name": "codify csv",
   "type": "engram",
   "smt": {
-   "model": "json",
-   "locus": "http://dev.dictadata.net/dictadata/test/data/input/",
-   "schema": "foofile.json",
+   "model": "csv",
+   "locus": "./test/data/input/",
+   "schema": "foofile.csv",
    "key": "*"
   },
  "fields": [

@@ -53,9 +53,7 @@ module.exports = exports = async (fiber, resultEncoding) => {
     ///// run data through transforms (optional) and codify transform
     let pipes = [];
 
-    let options = {
-      max_read: origin.options.max_read || 100
-    };
+    let options = Object.assign({ max_read: 100 }, origin.options);
 
     let reader = jo.createReader(options);
 
@@ -97,6 +95,8 @@ module.exports = exports = async (fiber, resultEncoding) => {
 
     await pipeline(pipes);
     let encoding = ct.encoding;
+    encoding.name = fiber.name || jo.engram.name || jo.smt.schema;
+    encoding.smt = jo.smt;
 
     ///// output the results
 
@@ -122,7 +122,7 @@ module.exports = exports = async (fiber, resultEncoding) => {
     logger.debug(JSON.stringify(encoding.fields, null, " "));
 
     if (terminal.output) {
-      retCode = output(terminal.output, encoding, terminal.compareValues || 1);
+      retCode = output(terminal.output, encoding, terminal.compareValues || 2);
     }
     //else if (!terminal?.smt) {
     //  console.log(JSON.stringify(encoding, null, " "));

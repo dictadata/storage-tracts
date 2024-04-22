@@ -1,12 +1,12 @@
 {
- "type": "engram",
- "name": "*",
- "smt": {
-  "model": "*",
-  "locus": "*",
-  "schema": "*",
-  "key": "*"
- },
+  "name": "codify_01",
+  "type": "engram",
+  "smt": {
+   "model": "json",
+   "locus": "./test/data/input/",
+   "schema": "foofile_01.json",
+   "key": "*"
+  },
  "fields": [
   {
    "name": "Foo",

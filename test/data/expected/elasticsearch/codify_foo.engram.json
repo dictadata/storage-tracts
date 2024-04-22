@@ -1,55 +1,61 @@
 {
- "name": "foo_schema",
- "type": "engram",
- "smt": {
-  "model": "elasticsearch",
-  "locus": "http://dev.dictadata.net:9200",
-  "schema": "foo_schema",
-  "key": "!Foo"
- },
- "fields": [
-  {
-   "name": "Bar",
-   "type": "keyword",
-   "_elasticsearch": {
-    "type": "keyword"
-   }
+  "name": "codify",
+  "type": "engram",
+  "smt": {
+   "model": "elasticsearch",
+   "locus": "http://dev.dictadata.net:9200",
+   "schema": "foo_schema",
+   "key": "!Foo"
   },
-  {
-   "name": "Baz",
-   "type": "integer",
-   "_elasticsearch": {
-    "type": "integer"
-   }
-  },
-  {
-   "name": "Dt Test",
-   "type": "date",
-   "_elasticsearch": {
-    "type": "date"
-   }
-  },
-  {
-   "name": "Fobe",
-   "type": "float",
-   "_elasticsearch": {
-    "type": "double"
-   }
-  },
-  {
-   "name": "Foo",
-   "type": "keyword",
-   "_elasticsearch": {
-    "type": "keyword"
+  "fields": [
+   {
+    "name": "Foo",
+    "type": "keyword",
+    "size": 64,
+    "default": null,
+    "nullable": false,
+    "key": 1,
+    "label": "Foo"
    },
-   "key": 1
-  },
-  {
-   "name": "enabled",
-   "type": "boolean",
-   "_elasticsearch": {
-    "type": "boolean"
+   {
+    "name": "Bar",
+    "type": "text",
+    "size": 256,
+    "default": null,
+    "nullable": true,
+    "label": "Bar"
+   },
+   {
+    "name": "Baz",
+    "type": "integer",
+    "size": 0,
+    "default": null,
+    "nullable": true,
+    "label": "Baz"
+   },
+   {
+    "name": "Fobe",
+    "type": "number",
+    "size": 0,
+    "default": null,
+    "nullable": true,
+    "label": "Fobe"
+   },
+   {
+    "name": "Dt Test",
+    "type": "date",
+    "size": 0,
+    "default": null,
+    "nullable": true,
+    "label": "Dt Test"
+   },
+   {
+    "name": "enabled",
+    "type": "boolean",
+    "size": 0,
+    "default": null,
+    "nullable": true,
+    "label": "enabled"
    }
-  }
- ]
-}
+  ]
+ }

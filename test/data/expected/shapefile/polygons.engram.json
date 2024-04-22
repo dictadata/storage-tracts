@@ -1,12 +1,12 @@
 {
- "name": "*",
- "type": "engram",
- "smt": {
-  "model": "any",
-  "locus": "*",
-  "schema": "*",
-  "key": "*"
- },
+  "name": "codify",
+  "type": "engram",
+  "smt": {
+   "model": "shp",
+   "locus": "./test/data/input/shapes/",
+   "schema": "polygons",
+   "key": "*"
+  },
  "fields": [
   {
    "name": "type",
