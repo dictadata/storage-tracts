@@ -42,9 +42,7 @@
     "url": "https://github.com/dictadata/storage-tracts/issues"
   },
   "devDependencies": {
-    "eslint": "^8.57.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.1.1"
+    "eslint": "^9.1.0"
   },
   "dependencies": {
     "@dictadata/storage-junctions": "^0.9.111",

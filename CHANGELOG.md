@@ -2,7 +2,7 @@
 
 - version 0.9.85
   - refactor: StorageError constructor() and toJSON()
-    - updated: @dictadata/storage-junctions@0.9.111
+  - updated: @dictadata/storage-junctions@0.9.111
 - version 0.9.84
   - feature: implement retrieve action
   - feature: implement tee action
@@ -102,7 +102,7 @@
   - updated: @dictadata/storage-junctions@0.9.83
 - version 0.9.57
   - new versioning
-  - feature: new "create" action to create empty schemas in a data source
+  - feature: new "schema" action to create or dull schema in a data source
   - bugfix: glitch reading terminal.options.encoding from a file
 
 - version 2.5.6
@@ -251,7 +251,7 @@
     - tests moved to project @dictadata/storage-tracts-plugins
 - version 1.8.0
   - update to @dictadata/storage-junctions 1.8.0
-  - implement ShapeFileJunction (.shp files) and ZipFileSystem (.zip files)
+  - implement ShapefileJunction (.shp files) and ZipFileSystem (.zip files)
   - refactor upload/download actions to copy action
   - local file folders now configured as SMT entries
   - refactor terminology, CLI command arg is now fiber
