@@ -1,5 +1,9 @@
 # CHANGELOG:  @dictadata/storage-tracts
 
+- version 0.9.86
+  - refactor: implement/refactor schema action, replaces create action
+  - updated: test codify with missing values
+  - updated: @dictadata/storage-junctions@0.9.112
 - version 0.9.85
   - refactor: StorageError constructor() and toJSON()
   - updated: @dictadata/storage-junctions@0.9.111
