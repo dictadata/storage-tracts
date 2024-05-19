@@ -144,7 +144,7 @@
       "name": "bl_2021_ia_congress",
       "action": "transfer",
       "origin": {
-        "smt": "shp|zip:/var/dictadata/US/IA/legis.iowa.gov/Plan2/SHP/IA_ProposedPlan2_Oct2021.zip|Plan2_Congress|*",
+        "smt": "shp|zip:/var/dictadata/IA/legis.iowa.gov/Plan2/SHP/IA_ProposedPlan2_Oct2021.zip|Plan2_Congress|*",
         "options": {
           "encoding": "./test/data/input/engrams/bl_2021_ia_congress.engram.json"
         }
@@ -152,7 +152,7 @@
       "transforms": [
         {
           "transform": "mutate",
-          "override": {
+          "assign": {
             "properties.STATEFP": "19"
           }
         }
