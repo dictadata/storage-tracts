@@ -6,10 +6,11 @@
 const Storage = require("../storage");
 const { StorageError } = require("@dictadata/storage-junctions/types");
 const { objCopy } = require("@dictadata/storage-junctions/utils");
-const { logger } = require('../utils');
+const { logger, findFile } = require('../utils');
 const Package = require('../../package.json');
-const { readFile } = require('node:fs/promises');
-const { join } = require('node:path');
+
+const { readFile } = require("node:fs/promises");
+const { join } = require("node:path");
 
 module.exports.version = Package.version;
 
@@ -29,7 +30,8 @@ var configDefaults = {
   },
   "plugins": {
     "filesystems": [],
-    "junctions": []
+    "junctions": [],
+    "transforms": []
   }
 };
 
@@ -48,7 +50,8 @@ module.exports.loadFiles = async (appArgs) => {
     let nested = configObj.config?.config;
     if (nested) {
       // read nested config file, lowest priority
-      let nestedText = await readFile(nested, { encoding: 'utf8' });
+      let filename = await findFile(nested);
+      let nestedText = await readFile(filename, { encoding: 'utf8' });
       let nestedObj = JSON.parse(nestedText);
 
       if (nestedObj?.config)
@@ -99,7 +102,7 @@ async function configStorage(config) {
 
   //// load auth_file
   if (config.auth?.auth_file)
-    Storage.auth.load(config.auth.auth_file);
+    Storage.auth.load(await findFile(config.auth.auth_file));
 
   //// engrams datastore initialization
   let engrams;
@@ -118,19 +121,26 @@ async function configStorage(config) {
 
   // filesystem plugins
   if (Object.hasOwn(plugins, "filesystems")) {
-    for (let [ name, prefixes ] of Object.entries(plugins[ "filesystems" ])) {
-      let stfs = require(name);  //join(nmp, name));
-      for (let prefix of prefixes)
-        Storage.FileSystems.use(prefix, stfs);
+    for (let [ prefix, modName ] of Object.entries(plugins[ "filesystems" ])) {
+      let tFilesystem = require(modName);
+      Storage.FileSystems.use(prefix, tFilesystem);
     }
   }
 
   // junction plugins
   if (Object.hasOwn(plugins, "junctions")) {
-    for (let [ name, models ] of Object.entries(plugins[ "junctions" ])) {
-      let junction = require(name);  //join(nmp, name));
-      for (let model of models)
-        Storage.Junctions.use(model, junction);
+    for (let [ model, modName ] of Object.entries(plugins[ "junctions" ])) {
+      let tJunction = require(modName);
+      Storage.Junctions.use(model, tJunction);
+    }
+  }
+
+  // transform plugins
+  if (Object.hasOwn(plugins, "transforms")) {
+    //console.log("CWD: " + process.cwd());
+    for (let [ name, modName ] of Object.entries(plugins[ "transforms" ])) {
+      let tTransform = require(join(process.cwd(), modName));
+      Storage.Transforms.use(name, tTransform);
     }
   }
 

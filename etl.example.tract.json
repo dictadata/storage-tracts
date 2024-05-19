@@ -38,14 +38,13 @@
     },
     "plugins": {
       "filesystems": {
-        "<package_name>": [
-          "<prefix>"
-        ]
+        "<prefix>": "<package_name>|<file_name.js>"
       },
       "junctions": {
-        "<package_name>": [
-          "<model>"
-        ]
+        "<model>": "<package_name>|<file_name.js>"
+      },
+      "transforms": {
+        "<name>": "<package_name>|<file_name.js>"
       },
       "log": {
         "logPath": "./log",

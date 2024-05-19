@@ -63,7 +63,8 @@ Default configuration settings can be specified in a config tract in **etl.confi
     },
     "plugins": {
       "filesystems": [],
-      "junctions": []
+      "junctions": [],
+      "transforms": []
     }
   },
   "params": {
