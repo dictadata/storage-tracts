@@ -20,14 +20,21 @@ storage-tracts (etl) 0.9.x
 
   Actions:
     transfer - transfer data between data stores with optional transforms.
-    copy - copy data files between remote file system and local file system.
-    list - listing of schema names at origin, datastore or filesystem.
-    codify - determine schema encoding by examining some data.
+    retrieve - retrieve data with fallback to a source origin.
+    foreach - retrieve data and perform child fibers for each construct.
+    tee - transfer data between origin and multiple destinations.
     dull - remove data from a data store.
+
+    list - listing of schema names at origin, datastore or filesystem.
+    scan - list schemas, e.g. files, at origin and perform sub-fibers for each schema.
+    copy - copy data files between remote file system and local file system.
+
+    schema - manage a schema instance.
+    codify - determine schema encoding by examining some data.
+
     engrams - manage engrams encoding definitions
     tracts = manage ETL tract definitions
-    scan - list schemas, e.g. files, at origin and perform sub-fibers for each schema.
-    foreach - retrieve data and perform child fiber(s) for each construct.
-    all | * - run all actions in sequence.
-    parallel - run all actions in parallel.
+
+    all | * - run all fibers in sequence.
+    parallel - run all fibers in parallel.
 ```

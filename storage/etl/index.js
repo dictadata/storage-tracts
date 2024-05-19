@@ -102,15 +102,21 @@ function parseArgs() {
     console.log("  foreach - retrieve data and perform child fiber(s) for each construct.");
     console.log("  tee - transfer data between origin and multiple destinations.");
     console.log("  dull - remove data from a data store.");
+    console.log("");
     console.log("  list - listing of schema names at origin (data store or file system).");
     console.log("  scan - list schemas, e.g. files, at origin and perform sub-fibers for each schema.");
     console.log("  copy - copy data files between remote file system and local file system.");
+    console.log("");
+    console.log("  schema - manage a schema instance.");
     console.log("  codify - determine schema's encoding by examining some data.");
-    console.log("  engrams - manage engrams encoding definitions");
-    console.log("  tracts - manage tracts definitions");
+    console.log("");
+    console.log("  engrams - manage engrams encoding definitions.");
+    console.log("  tracts - manage tracts definitions.");
+    console.log("");
     console.log("  all | * - run all fibers in sequence.");
     console.log("  parallel - run all fibers in parallel.");
     console.log("");
+    console.log("  @dictadata/storage-tracts@" + config.version);
     console.log("  " + junctionsPkg.name + "@" + junctionsPkg.version);
     return;
   }
