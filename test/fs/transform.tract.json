@@ -38,7 +38,7 @@
           "remove": [
             "fobe"
           ],
-          "override": {
+          "assign": {
             "state": "unknown"
           }
         }
@@ -90,7 +90,7 @@
           "remove": [
             "fobe"
           ],
-          "override": {
+          "assign": {
             "state": "unknown"
           }
         }
