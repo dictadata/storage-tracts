@@ -1,5 +1,9 @@
 # CHANGELOG:  @dictadata/storage-tracts
 
+- version 0.9.87
+  - feature: specify custom transform modules in etl.config.json files
+  - updated: look for nested config.config files in parent folders
+  - refactor: rename Mutate Transform options
 - version 0.9.86
   - refactor: implement/refactor schema action, replaces create action
   - updated: test codify with missing values

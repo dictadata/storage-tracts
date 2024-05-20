@@ -1,10 +1,12 @@
 # @dictadata/storage-tracts 0.9.x
 
-Command line ETL utilitiy to transfer, transform and codify data between local and distributed storage sources.
+Command line utility to export, transfer and load (ETL) data from heterogeneous data sources. Implemented with Node.js streams. Converts data source formats to a normalized JSON representation with ability to transform the data.
+
+Dependent upon the [@dictadata/storage-junctions](https://github.com/dictadata/storage-junctions) package.
 
 ## Prerequisites
 
-Node.js version 16 or higher.  Download the latest stable installer from [https://nodejs.org/en/download/](https://nodejs.org/en/download/).
+Node.js version 18 or higher.  Download the latest stable installer from [https://nodejs.org/en/download/](https://nodejs.org/en/download/).
 
 ## Installation
 
@@ -16,19 +18,19 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
 
 ```bash
   Command line:
-    etl [-c configFile] [-t tract] fiber-name
+    etl [-c configFile] [-t tractFile] fiber-name
 
   configFile
     JSON configuration file that defines engrams, plug-ins and logging.
     Supports abbreviated name; "-c dev" for "./etl.dev.config.json"
     Default configuration file is ./etl.config.json
 
-  tract
+  tractFile
     ETL tract filename or Tracts urn that defines tract to process.
     Default tract file is ./etl.tract.json
 
   fiber-name
-    The action to perform in the tract file. Required.  Use '*' to process all fibers.
+    The fiber to process in the tract file. Required.  Use '*' to process all fibers.
 
   Actions:
     transfer - transfer data between data stores with optional transforms.
@@ -44,7 +46,7 @@ Node.js version 16 or higher.  Download the latest stable installer from [https:
     parallel - run all actions in parallel.
 ```
 
-## Configuration File
+## Config File
 
 Default configuration settings can be specified in a config tract in **etl.config.json**.  The file will be read from the current working directory.  Example configuration tract:
 
@@ -80,6 +82,39 @@ Default configuration settings can be specified in a config tract in **etl.confi
 - Origin and terminal MUST both be supported and compatible key stores or record stores.
 - Scan functionality supports file storage such as local folders, FTP and AWS S3 buckets.
 - Transforms are optional. If specified then fields will be transformed between origin and terminal.
+
+### Variable Replacements
+
+A fiber section can use "${name}" syntax for variable names.
+
+Variable values are defined in a `params` section of Config and/or Tract files.
+
+```json
+{
+  "config": {
+  },
+  "params": {
+    "schema": "foofile",
+    "input": "./test/data/input",
+    "output": "./test/data/output"
+  }
+}
+```
+
+In a Tract file variables are declared using ${} syntax.
+
+```json
+{
+  "transfer": {
+    "origin": {
+      "smt": "json|${input}|${schema}.json|*"
+    },
+    "terminal": {
+      "smt": "json|${output}/fs/|var_${schema}.json|*"
+    }
+  }
+}
+```
 
 ## Examples
 
@@ -193,38 +228,5 @@ etl_weather.json:
       }
     }
   ]
-}
-```
-
-### Variable Replacements
-
-In an action use the "${name}" syntax for variable names.
-
-Config file:
-
-```json
-{
-  "config": {
-  },
-  "params": {
-    "schema": "foofile",
-    "input": "./test/data/input",
-    "output": "./test/data/output"
-  }
-}
-```
-
-Tracts file:
-
-```json
-{
-  "transfer": {
-    "origin": {
-      "smt": "json|${input}|${schema}.json|*"
-    },
-    "terminal": {
-      "smt": "json|${output}/fs/|var_${schema}.json|*"
-    }
-  }
 }
 ```
