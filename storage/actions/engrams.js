@@ -5,6 +5,7 @@
 
 const Storage = require("../storage");
 const { Engram, StorageError } = require("../types");
+const { objCopy } = require('@dictadata/storage-junctions/utils');
 const { logger, output } = require('../utils');
 
 const { readFile } = require('node:fs/promises');
@@ -65,7 +66,7 @@ async function store(entry) {
       let engram = JSON.parse(await readFile(filename, "utf8"));
       // merge engram into entry
       delete entry.engram;
-      entry = Object.assign({}, engram, entry);
+      entry = objCopy({}, engram, entry);
     }
 
     let results;

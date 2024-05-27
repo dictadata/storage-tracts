@@ -5,6 +5,7 @@
 
 const Storage = require("../storage");
 const { Tract } = require("../types");
+const { objCopy } = require('@dictadata/storage-junctions/utils');
 const { logger, output } = require('../utils');
 
 const { readFile } = require('node:fs/promises');
@@ -66,7 +67,7 @@ async function store(entry) {
       let tract = JSON.parse(await readFile(filename, "utf8"));
       // merge tracts into entry
       delete entry.tract;
-      entry = Object.assign({}, tract, entry);
+      entry = objCopy({}, tract, entry);
     }
 
     let results = await Storage.tracts.store(entry);
