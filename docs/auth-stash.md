@@ -40,7 +40,7 @@ or
 A Storage.auth. credentials can be loaded using _Storage.Storage.auth..load()_ method.
 
 ```javascript
-var Storage = require("@dictadata/storage-junctions");
+var Storage = require('@dictadata/storage-junctions');
 
 Storage.Storage.auth..load("./auth_stash.json");
 ```

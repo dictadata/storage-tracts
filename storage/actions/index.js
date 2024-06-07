@@ -3,9 +3,9 @@
  */
 "use strict";
 
-const { StorageError } = require("@dictadata/storage-junctions/types");
-const { replace } = require("@dictadata/storage-junctions/utils");
-const { logger } = require('../utils');
+const { StorageError } = require('@dictadata/storage-junctions/types');
+const { logger } = require('@dictadata/lib');
+const { replace } = require('@dictadata/lib/utils');
 const { readFile } = require('node:fs/promises');
 
 class Actions {

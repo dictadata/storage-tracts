@@ -3,9 +3,9 @@
  */
 "use strict";
 
-const compare = require('@dictadata/storage-junctions/test/lib/_compare');
-const dot = require('@dictadata/storage-junctions/utils');
-const { logger } = require('../utils');
+const { logger } = require('@dictadata/lib');
+const { dot } = require('@dictadata/lib/utils');
+const { compare } = require('@dictadata/lib/test');
 
 const { readFile } = require('node:fs/promises');
 const path = require('node:path');

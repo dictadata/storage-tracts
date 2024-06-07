@@ -3,9 +3,10 @@
  */
 "use strict";
 
-const Storage = require("../storage");
-const { typeOf, objCopy } = require('@dictadata/storage-junctions/utils');
-const { logger, output } = require('../utils');
+const Storage = require('../storage');
+const { logger } = require('@dictadata/lib');
+const { typeOf, objCopy } = require('@dictadata/lib/utils');
+const { output } = require('@dictadata/lib/test');;
 const { perform } = require('.');
 
 /**

@@ -3,9 +3,9 @@
  */
 "use strict";
 
-const Storage = require("../storage");
-const { objCopy } = require('@dictadata/storage-junctions/utils');
-const { logger } = require('../utils');
+const Storage = require('../storage');
+const { logger } = require('@dictadata/lib');
+const { objCopy } = require('@dictadata/lib/utils');
 const { perform } = require('./');
 
 /**

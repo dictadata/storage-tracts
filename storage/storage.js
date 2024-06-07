@@ -10,8 +10,8 @@
  */
 "use strict";
 
-const { Storage } = require("@dictadata/storage-junctions");
-const { SMT, StorageError } = require("@dictadata/storage-junctions/types");
+const { Storage } = require('@dictadata/storage-junctions');
+const { SMT, StorageError } = require('@dictadata/storage-junctions/types');
 
 /**
  * Create and activate a StorageJunction given an SMT.

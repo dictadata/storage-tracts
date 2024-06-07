@@ -17,6 +17,13 @@
     "node": ">=18.0.0"
   },
   "main": "index.js",
+  "exports": {
+    ".": "./storage/index.js",
+    "./package.json": "./package.json",
+    "./types": "./storage/types/index.js",
+    "./types/*": "./storage/types/*.js",
+    "./types/*.js": "./storage/types/*.js"
+  },
   "bin": {
     "etl": "storage/etl/index.js",
     "storage-etl": "storage/etl/index.js"

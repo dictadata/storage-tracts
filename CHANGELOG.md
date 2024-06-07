@@ -270,7 +270,7 @@
   - improvements to REST junction and httpRequest for querystring and web form parameters
   - implement junction capabilities
 - version 1.7.2
-  - updates for testing with st_launcher
+  - updates for testing with tr_launcher
   - update dependencies
 - version 1.7.1
   - update dependency to @dictadata/storage-junctions 1.7.3

@@ -12,16 +12,16 @@
  */
 "use strict";
 
-const Storage = require("../storage");
-const { Engram } = require("../types");
-const { SMT, StorageResults, StorageError } = require("@dictadata/storage-junctions/types");
-const { objCopy } = require("@dictadata/storage-junctions/utils");
-const { logger } = require('../utils');
-const { readFile } = require("node:fs/promises");
+const Storage = require('../storage');
+const { Engram } = require('../types');
+const { SMT, StorageResults, StorageError } = require('@dictadata/storage-junctions/types');
+const { logger } = require('@dictadata/lib');
+const { objCopy } = require('@dictadata/lib/utils');
+const { readFile } = require('node:fs/promises');
 
 const homedir = process.env[ "HOMEPATH" ] || require('os').homedir();
 
-const engrams_encoding = require("./engrams.engram.json");
+const engrams_encoding = require('./engrams.engram.json');
 
 const engramsTypes = [ "engram", "alias" ];
 

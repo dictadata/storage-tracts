@@ -5,7 +5,7 @@
  */
 "use strict";
 
-const Storage = require("../storage");
+const Storage = require('../storage');
 
 const { pipeline, finished } = require('node:stream/promises');
 

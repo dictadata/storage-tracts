@@ -6,10 +6,11 @@
  */
 "use strict";
 
-const Storage = require("../storage");
+const Storage = require('../storage');
 const { StorageError } = require('@dictadata/storage-junctions/types');
-const { objCopy, typeOf } = require('@dictadata/storage-junctions/utils');
-const { logger, output } = require('../utils');
+const { logger } = require('@dictadata/lib');
+const { objCopy, typeOf } = require('@dictadata/lib/utils');
+const { output } = require('@dictadata/lib/test');;
 const codify = require('./codify');
 
 const { Readable } = require('node:stream');

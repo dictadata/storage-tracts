@@ -3,8 +3,9 @@
  */
 "use strict";
 
-const Storage = require("../storage");
-const { logger, output } = require('../utils');
+const Storage = require('../storage');
+const { logger } = require('@dictadata/lib');
+const { output } = require('@dictadata/lib/test');;
 const { readFile } = require('node:fs/promises');
 
 /**

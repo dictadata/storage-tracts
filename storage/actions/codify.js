@@ -3,15 +3,16 @@
  */
 "use strict";
 
-const Storage = require("../storage");
+const Storage = require('../storage');
 const { Field } = require('@dictadata/storage-junctions/types');
-const { objCopy, typeOf } = require('@dictadata/storage-junctions/utils');
-const { logger, output } = require('../utils');
+const { logger } = require('@dictadata/lib');
+const { objCopy, typeOf } = require('@dictadata/lib/utils');
+const { output } = require('@dictadata/lib/test');
 
 const { readFile } = require('node:fs/promises');
 const { pipeline } = require('node:stream/promises');
 
-const engrams_encoding = require("../engrams/engrams.engram.json");
+const engrams_encoding = require('../engrams/engrams.engram.json');
 
 /**
  *

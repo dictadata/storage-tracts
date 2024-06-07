@@ -3,10 +3,11 @@
  */
 "use strict";
 
-const Storage = require("../storage");
-const { Tract } = require("../types");
-const { objCopy } = require('@dictadata/storage-junctions/utils');
-const { logger, output } = require('../utils');
+const Storage = require('../storage');
+const { Tract } = require('../types');
+const { logger } = require('@dictadata/lib');
+const { objCopy } = require('@dictadata/lib/utils');
+const { output } = require('@dictadata/lib/test');;
 
 const { readFile } = require('node:fs/promises');
 

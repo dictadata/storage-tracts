@@ -3,14 +3,14 @@
  */
 "use strict";
 
-const Storage = require("../storage");
-const { StorageError } = require("@dictadata/storage-junctions/types");
-const { objCopy } = require("@dictadata/storage-junctions/utils");
-const { logger, findFile } = require('../utils');
+const Storage = require('../storage');
+const { StorageError } = require('@dictadata/storage-junctions/types');
+const { logger } = require('@dictadata/lib');
+const { objCopy, findFile } = require('@dictadata/lib/utils');
 const Package = require('../../package.json');
 
-const { readFile } = require("node:fs/promises");
-const { join } = require("node:path");
+const { readFile } = require('node:fs/promises');
+const { join } = require('node:path');
 
 module.exports.version = Package.version;
 
