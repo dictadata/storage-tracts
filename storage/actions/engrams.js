@@ -6,7 +6,7 @@
 const Storage = require('../storage');
 const { Engram, StorageError } = require('../types');
 const { logger } = require('@dictadata/lib');
-const { objCopy } = require('@dictadata/lib/utils');
+const { objCopy } = require('@dictadata/lib');
 const { output } = require('@dictadata/lib/test');
 
 const { readFile } = require('node:fs/promises');

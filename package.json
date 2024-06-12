@@ -52,9 +52,8 @@
     "eslint": "^9.1.0"
   },
   "dependencies": {
-    "@dictadata/storage-junctions": "^0.9.113",
-    "colors": "^1.4.0",
-    "winston": "^3.11.0",
-    "winston-daily-rotate-file": "^5.0.0"
+    "@dictadata/lib": "github:dictadata/lib#semver:1.0",
+    "@dictadata/storage-junctions": "^0.9.114",
+    "colors": "^1.4.0"
   }
 }

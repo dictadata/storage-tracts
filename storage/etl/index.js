@@ -9,7 +9,7 @@ const { Tracts } = require('../tracts');
 const { Actions } = require('../index');
 const config = require('./config');
 const { logger } = require('@dictadata/lib');
-const { objCopy } = require('@dictadata/lib/utils');
+const { objCopy } = require('@dictadata/lib');
 const path = require('node:path');
 require('colors');
 

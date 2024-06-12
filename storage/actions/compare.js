@@ -4,7 +4,7 @@
 "use strict";
 
 const { logger } = require('@dictadata/lib');
-const { dot } = require('@dictadata/lib/utils');
+const { dot } = require('@dictadata/lib');
 const { compare } = require('@dictadata/lib/test');
 
 const { readFile } = require('node:fs/promises');

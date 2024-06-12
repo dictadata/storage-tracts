@@ -16,7 +16,7 @@ const Storage = require('../storage');
 const { Engram } = require('../types');
 const { SMT, StorageResults, StorageError } = require('@dictadata/storage-junctions/types');
 const { logger } = require('@dictadata/lib');
-const { objCopy } = require('@dictadata/lib/utils');
+const { objCopy } = require('@dictadata/lib');
 const { readFile } = require('node:fs/promises');
 
 const homedir = process.env[ "HOMEPATH" ] || require('os').homedir();

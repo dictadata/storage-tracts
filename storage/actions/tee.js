@@ -9,7 +9,7 @@
 const Storage = require('../storage');
 const { StorageError } = require('@dictadata/storage-junctions/types');
 const { logger } = require('@dictadata/lib');
-const { objCopy } = require('@dictadata/lib/utils');
+const { objCopy } = require('@dictadata/lib');
 const { output } = require('@dictadata/lib/test');;
 const codify = require('./codify');
 

@@ -5,7 +5,7 @@
 
 const Storage = require('../storage');
 const { logger } = require('@dictadata/lib');
-const { objCopy } = require('@dictadata/lib/utils');
+const { objCopy } = require('@dictadata/lib');
 const { perform } = require('./');
 
 /**

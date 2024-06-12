@@ -5,7 +5,7 @@
 
 const Storage = require('../storage');
 const { logger } = require('@dictadata/lib');
-const { typeOf, objCopy } = require('@dictadata/lib/utils');
+const { typeOf, objCopy } = require('@dictadata/lib');
 const { output } = require('@dictadata/lib/test');;
 const { perform } = require('.');
 

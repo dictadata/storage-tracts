@@ -6,7 +6,7 @@
 const Storage = require('../storage');
 const { StorageError } = require('@dictadata/storage-junctions/types');
 const { logger } = require('@dictadata/lib');
-const { objCopy, findFile } = require('@dictadata/lib/utils');
+const { objCopy, findFile } = require('@dictadata/lib');
 const Package = require('../../package.json');
 
 const { readFile } = require('node:fs/promises');
@@ -98,7 +98,7 @@ module.exports.loadFiles = async (appArgs) => {
 async function configStorage(config) {
 
   //// config logger
-  logger.configLogger(config.log);
+  logger.configDaily(config.log);
 
   //// load auth_file
   if (config.auth?.auth_file)

@@ -5,7 +5,7 @@
 
 const { StorageError } = require('@dictadata/storage-junctions/types');
 const { logger } = require('@dictadata/lib');
-const { replace } = require('@dictadata/lib/utils');
+const { replace } = require('@dictadata/lib');
 const { readFile } = require('node:fs/promises');
 
 class Actions {

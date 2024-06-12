@@ -6,7 +6,7 @@
 const Storage = require('../storage');
 const { Field } = require('@dictadata/storage-junctions/types');
 const { logger } = require('@dictadata/lib');
-const { objCopy, typeOf } = require('@dictadata/lib/utils');
+const { objCopy, typeOf } = require('@dictadata/lib');
 const { output } = require('@dictadata/lib/test');
 
 const { readFile } = require('node:fs/promises');
