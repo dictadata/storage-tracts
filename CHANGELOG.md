@@ -1,5 +1,9 @@
 # CHANGELOG:  @dictadata/storage-tracts
 
+- version 0.9.88
+  - refactor: use utils modules form @dictadata/lib
+  - refactor: use objCopy for deep config copy
+  - updated: @dictadata/storage-junctions@0.9.114
 - version 0.9.87
   - feature: specify custom transform modules in etl.config.json files
   - updated: look for nested config.config files in parent folders
