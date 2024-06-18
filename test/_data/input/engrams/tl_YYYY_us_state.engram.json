@@ -1,0 +1,127 @@
+{
+  "realm": "census.gov",
+  "name": "tl_YYYY_us_state",
+  "type": "engram",
+  "description": "State and Equivalent Entity National Shapefile Record Layout (Current)",
+  "tags": [
+    "census.gov",
+    "administrative",
+    "district",
+    "state",
+    "tigerline"
+  ],
+  "smt": {
+    "model": "*",
+    "locus": "*",
+    "schema": "tl_YYYY_us_state",
+    "key": "!properties.GEOID"
+  },
+  "fields": [
+    {
+      "name": "type",
+      "type": "keyword",
+      "size": 18
+    },
+    {
+      "name": "properties",
+      "type": "map",
+      "fields": [
+        {
+          "name": "REGION",
+          "type": "keyword",
+          "size": "2",
+          "description": "Current region code"
+        },
+        {
+          "name": "DIVISION",
+          "type": "keyword",
+          "size": "2",
+          "description": "Current division code"
+        },
+        {
+          "name": "STATEFP",
+          "type": "keyword",
+          "size": "2",
+          "description": "Current state FIPS code"
+        },
+        {
+          "name": "STATENS",
+          "type": "keyword",
+          "size": "8",
+          "description": "ANSI feature code for the state or equivalent entity"
+        },
+        {
+          "name": "GEOID",
+          "type": "keyword",
+          "size": "2",
+          "description": "State identifier; state FIPS code",
+          "key": 1
+        },
+        {
+          "name": "STUSPS",
+          "type": "keyword",
+          "size": "2",
+          "description": "Current United States Postal Service state abbreviation"
+        },
+        {
+          "name": "NAME",
+          "type": "keyword",
+          "size": "100",
+          "description": "Current state name"
+        },
+        {
+          "name": "LSAD",
+          "type": "keyword",
+          "size": "2",
+          "description": "Current legal/statistical area description code for state"
+        },
+        {
+          "name": "MTFCC",
+          "type": "keyword",
+          "size": "5",
+          "description": "MAF/TIGER Feature Class Code (G4000)"
+        },
+        {
+          "name": "FUNCSTAT",
+          "type": "keyword",
+          "size": "1",
+          "description": "Current functional status"
+        },
+        {
+          "name": "ALAND",
+          "type": "number",
+          "size": "14",
+          "description": "Current land area",
+          "_elasticsearch": {
+            "type": "long"
+          }
+        },
+        {
+          "name": "AWATER",
+          "type": "number",
+          "size": "14",
+          "description": "Current water area",
+          "_elasticsearch": {
+            "type": "long"
+          }
+        },
+        {
+          "name": "INTPTLAT",
+          "type": "string",
+          "size": "11",
+          "description": "Current latitude of the internal point"
+        },
+        {
+          "name": "INTPTLON",
+          "type": "string",
+          "size": "12",
+          "description": "Current longitude of the internal point"
+        }
+      ]
+    },
+    {
+      "name": "geometry",
+      "type": "Geometry"
+    }
+  ]
+}

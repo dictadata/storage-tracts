@@ -7,15 +7,15 @@
       "name": "es-tee",
       "action": "tee",
       "origin": {
-        "smt": "json|./test/data/input/|foofile.json|*",
+        "smt": "json|./test/_data/input/|foofile.json|*",
         "options": {
-          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+          "encoding": "./test/_data/input/engrams/foo_schema.engram.json"
         }
       },
       "terminals": [
         {
-          "smt": "json|./test/data/output/tee/|es_foofile.json|*",
-          "output": "./test/data/output/tee/es_foofile.json"
+          "smt": "json|./test/_data/output/tee/|es_foofile.json|*",
+          "output": "./test/_data/output/tee/es_foofile.json"
         },
         {
           "smt": "elastic|http://dev.dictadata.net:9200|foo_tee|*"

@@ -7,7 +7,7 @@
       "name": "load",
       "action": "scan",
       "origin": {
-        "smt": "json|./test/data/input/|foofile*.json|*",
+        "smt": "json|./test/_data/input/|foofile*.json|*",
         "options": {
           "recursive": false
         }
@@ -17,15 +17,15 @@
           "name": "schema",
           "action": "transfer",
           "origin": {
-            "smt": "json|./test/data/input/|${name}|*",
+            "smt": "json|./test/_data/input/|${name}|*",
             "options": {
-              "encoding": "./test/data/input/engrams/foo_schema_01.engram.json"
+              "encoding": "./test/_data/input/engrams/foo_schema_01.engram.json"
             }
           },
           "terminal": {
             "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_load|!Foo",
             "options": {
-              "encoding": "./test/data/input/engrams/foo_schema_01.engram.json"
+              "encoding": "./test/_data/input/engrams/foo_schema_01.engram.json"
             }
           }
         }

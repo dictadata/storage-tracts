@@ -25,11 +25,11 @@
         }
       ],
       "terminal": {
-        "smt": "json|./test/data/output/transfers/|adjoin.json|*",
+        "smt": "json|./test/_data/output/transfers/|adjoin.json|*",
         "options": {
-          "encoding": "./test/data/input/engrams/foo_widgets.engram.json"
+          "encoding": "./test/_data/input/engrams/foo_widgets.engram.json"
         },
-        "output": "./test/data/output/transfers/adjoin.json"
+        "output": "./test/_data/output/transfers/adjoin.json"
       }
     }
   ]

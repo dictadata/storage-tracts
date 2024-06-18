@@ -7,15 +7,15 @@
       "name": "zip-local",
       "action": "transfer",
       "origin": {
-        "smt": "json|zip:./test/data/input/foofile.zip|foofile.json|*",
+        "smt": "json|zip:./test/_data/input/foofile.zip|foofile.json|*",
         "options": {
-          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+          "encoding": "./test/_data/input/engrams/foo_schema.engram.json"
         }
       },
       "terminal": {
-        "smt": "json|./test/data/output/zip/|foofile.json|*",
+        "smt": "json|./test/_data/output/zip/|foofile.json|*",
         "options": {},
-        "output": "./test/data/output/zip/foofile.json"
+        "output": "./test/_data/output/zip/foofile.json"
       }
     }
   ]

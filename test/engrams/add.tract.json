@@ -16,17 +16,17 @@
       "action": "engrams",
       "store": [
         {
-          "engram": "./test/data/input/engrams/foo_schema.engram.json",
+          "engram": "./test/_data/input/engrams/foo_schema.engram.json",
           "name": "jsonfile_foo_schema",
-          "smt": "json|./test/data/input/|foofile.json|*"
+          "smt": "json|./test/_data/input/|foofile.json|*"
         },
         {
-          "engram": "./test/data/input/engrams/foo_widgets.engram.json",
+          "engram": "./test/_data/input/engrams/foo_widgets.engram.json",
           "name": "json_widgets",
-          "smt": "json|./test/data/input/|foo_widgets.json|*"
+          "smt": "json|./test/_data/input/|foo_widgets.json|*"
         },
         {
-          "engram": "./test/data/input/engrams/foo_schema.engram.json",
+          "engram": "./test/_data/input/engrams/foo_schema.engram.json",
           "name": "es_foo_schema",
           "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_schema|!Foo",
           "options": {
@@ -35,7 +35,7 @@
           "tags": [ "bar" ]
         },
         {
-          "engram": "./test/data/input/engrams/foo_schema.engram.json",
+          "engram": "./test/_data/input/engrams/foo_schema.engram.json",
           "realm": "foo",
           "name": "foo_cache",
           "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_cache|!Foo",
@@ -44,13 +44,13 @@
           }
         },
         {
-          "engram": "./test/data/input/engrams/foo_schema.engram.json",
+          "engram": "./test/_data/input/engrams/foo_schema.engram.json",
           "name": "mysql_foo_schema",
           "smt": "mysql|host=dev.dictadata.net;database=storage_node|foo_schema|=Foo",
           "tags": [ "bar" ]
         },
         {
-          "engram": "./test/data/input/engrams/tl_YYYY_us_state.engram.json",
+          "engram": "./test/_data/input/engrams/tl_YYYY_us_state.engram.json",
           "name": "tl_2023_us_state",
           "smt": "elasticsearch|http://dev.dictadata.net:9200/|tl_2023_us_state|*"
         }

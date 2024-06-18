@@ -16,7 +16,7 @@
       "action": "engrams",
       "recall": {
         "urn": "foo_schema_two",
-        "output": "./test/data/output/engrams/recall-foo_schema.engram.json"
+        "output": "./test/_data/output/engrams/recall-foo_schema.engram.json"
       }
     }
   ]

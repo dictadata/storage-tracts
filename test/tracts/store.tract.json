@@ -8,7 +8,7 @@
       "action": "tracts",
       "store": [
         {
-          "tract": "./test/data/input/tracts/foo_transfer.tract.json",
+          "tract": "./test/_data/input/tracts/foo_transfer.tract.json",
           "realm": "foo",
           "name": "foo_transfer",
           "type": "tract",
@@ -21,7 +21,7 @@
           ]
         },
         {
-          "tract": "./test/data/input/tracts/foo_transfer.tract.json",
+          "tract": "./test/_data/input/tracts/foo_transfer.tract.json",
           "realm": "foo",
           "name": "foo_transfer_two",
           "type": "tract",

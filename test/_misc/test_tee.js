@@ -3,15 +3,15 @@ const stream = require('node:stream/promises');
 
 (async () => {
   console.log('rs');
-  const rs = fs.createReadStream('./test/data/output/shapefiles_list_raw.json');
+  const rs = fs.createReadStream('./test/_data/output/shapefiles_list_raw.json');
 
   console.log('ws1');
-  const ws1 = fs.createWriteStream('./test/data/output/shapefiles_1.json');
+  const ws1 = fs.createWriteStream('./test/_data/output/shapefiles_1.json');
 
   rs.pipe(ws1);
 
   console.log('ws1');
-  const ws2 = fs.createWriteStream('./test/data/output/shapefiles_2.json');
+  const ws2 = fs.createWriteStream('./test/_data/output/shapefiles_2.json');
 
   rs.pipe(ws2);
 

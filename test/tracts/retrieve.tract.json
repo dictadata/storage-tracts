@@ -14,7 +14,7 @@
             }
           }
         },
-        "output": "./test/data/output/tracts/retrieve-foo_transfers.json"
+        "output": "./test/_data/output/tracts/retrieve-foo_transfers.json"
       }
     }
   ]

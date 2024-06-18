@@ -17,7 +17,7 @@
           },
           "retries": 1,
           "pick": "periods",
-          "encoding": "./test/data/input/engrams/weather_forecast.engram.json"
+          "encoding": "./test/_data/input/engrams/weather_forecast.engram.json"
         }
       },
       "transforms": [
@@ -34,8 +34,8 @@
         }
       ],
       "terminal": {
-        "smt": "json|./test/data/output/rest/|transform.json|*",
-        "output": "./test/data/output/rest/transform.json",
+        "smt": "json|./test/_data/output/rest/|transform.json|*",
+        "output": "./test/_data/output/rest/transform.json",
         "compareValues": 1
       }
     }

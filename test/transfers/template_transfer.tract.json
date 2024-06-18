@@ -7,21 +7,21 @@
       "name": "transfer",
       "action": "transfer",
       "origin": {
-        "smt": "json|./test/data/input/|foofile.json|*",
+        "smt": "json|./test/_data/input/|foofile.json|*",
         "options": {
-          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+          "encoding": "./test/_data/input/engrams/foo_schema.engram.json"
         }
       },
       "terminal": {
-        "smt": "template|./test/data/output/transfers/|template_transfer.json|*",
+        "smt": "template|./test/_data/output/transfers/|template_transfer.json|*",
         "options": {
-          "template": "./test/data/input/template_1.json",
+          "template": "./test/_data/input/template_1.json",
           "params": {
             "name": "template_transfer"
           },
           "storeTo": "data"
         },
-        "output": "./test/data/output/transfers/template_transfer.json"
+        "output": "./test/_data/output/transfers/template_transfer.json"
       }
     }
   ]

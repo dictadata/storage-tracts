@@ -7,9 +7,9 @@
       "name": "csv-json",
       "action": "transfer",
       "origin": {
-        "smt": "csv|./test/data/input/|foofile.csv|*",
+        "smt": "csv|./test/_data/input/|foofile.csv|*",
         "options": {
-          "encoding": "./test/data/input/engrams/foo_schema.engram.json",
+          "encoding": "./test/_data/input/engrams/foo_schema.engram.json",
           "header": true
         }
       },
@@ -46,23 +46,23 @@
       "terminal": {
         "smt": {
           "model": "json",
-          "locus": "./test/data/output/fs/",
+          "locus": "./test/_data/output/fs/",
           "schema": "transform.json",
           "key": "*"
         },
         "options": {
-          "encoding": "./test/data/input/engrams/foo_schema_t.engram.json"
+          "encoding": "./test/_data/input/engrams/foo_schema_t.engram.json"
         },
-        "output": "./test/data/output/fs/transform.json"
+        "output": "./test/_data/output/fs/transform.json"
       }
     },
     {
       "name": "json-csv",
       "action": "transfer",
       "origin": {
-        "smt": "json|./test/data/input/|foofile.json|*",
+        "smt": "json|./test/_data/input/|foofile.json|*",
         "options": {
-          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+          "encoding": "./test/_data/input/engrams/foo_schema.engram.json"
         }
       },
       "transforms": [
@@ -98,15 +98,15 @@
       "terminal": {
         "smt": {
           "model": "csv",
-          "locus": "./test/data/output/fs/",
+          "locus": "./test/_data/output/fs/",
           "schema": "transform.csv",
           "key": "*"
         },
         "options": {
           "header": true,
-          "encoding": "./test/data/input/engrams/foo_schema_t.engram.json"
+          "encoding": "./test/_data/input/engrams/foo_schema_t.engram.json"
         },
-        "output": "./test/data/output/fs/transform.csv"
+        "output": "./test/_data/output/fs/transform.csv"
       }
     },
     {
@@ -114,7 +114,7 @@
       "action": "transfer",
       "description": "select fields in directory list",
       "origin": {
-        "smt": "json|./test/data/input/|file_list.json|*"
+        "smt": "json|./test/_data/input/|file_list.json|*"
       },
       "transforms": [
         {
@@ -128,11 +128,11 @@
         }
       ],
       "terminal": {
-        "smt": "json|./test/data/output/fs/|file_list_trim.json|*",
+        "smt": "json|./test/_data/output/fs/|file_list_trim.json|*",
         "options": {
           "codify": true
         },
-        "output": "./test/data/output/fs/file_list_trim.json"
+        "output": "./test/_data/output/fs/file_list_trim.json"
       }
     }
   ]

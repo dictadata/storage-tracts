@@ -21,7 +21,7 @@
       "terminal": {
         "smt": "elasticsearch|http://dev.dictadata.net:9200|foreach_transfer|=Foo",
         "options": {
-          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+          "encoding": "./test/_data/input/engrams/foo_schema.engram.json"
         }
       },
       "fibers": [
@@ -63,8 +63,8 @@
         }
       },
       "terminal": {
-        "smt": "json|./test/data/output/transfers/|foreach_transfer.json|*",
-        "output": "./test/data/output/transfers/foreach_transfer.json"
+        "smt": "json|./test/_data/output/transfers/|foreach_transfer.json|*",
+        "output": "./test/_data/output/transfers/foreach_transfer.json"
       },
       "fibers": [
         {

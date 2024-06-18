@@ -7,10 +7,10 @@
     "name": "csv-table",
     "action": "transfer",
     "origin": {
-      "smt": "csv|./test/data/input/|foofile.csv|*",
+      "smt": "csv|./test/_data/input/|foofile.csv|*",
       "options": {
         "header": true,
-        "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+        "encoding": "./test/_data/input/engrams/foo_schema.engram.json"
       }
     },
     "terminal": {
@@ -29,7 +29,7 @@
       "smt": "foo:mysql_foo_schema"
     },
     "terminal": {
-      "smt": "csv|./test/data/output/mysql/|foofile.csv|*",
+      "smt": "csv|./test/_data/output/mysql/|foofile.csv|*",
       "options": {
         "header": true
       }

@@ -6,20 +6,20 @@
     {
       "name": "codify",
       "origin": {
-        "smt": "json|zip:./test/data/input/foofile.zip|foofile.json|*",
+        "smt": "json|zip:./test/_data/input/foofile.zip|foofile.json|*",
         "options": {
           "max_read": 100
         }
       },
       "terminal": {
-        "output": "./test/data/output/zip/codify.engram.json"
+        "output": "./test/_data/output/zip/codify.engram.json"
       }
     },
     {
       "name": "codify_zip",
       "action": "codify",
       "origin": {
-        "smt": "json|zip:./test/data/input/foofile.zip|foofile.json|*",
+        "smt": "json|zip:./test/_data/input/foofile.zip|foofile.json|*",
         "options": {
           "max_read": 100
         }

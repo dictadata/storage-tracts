@@ -7,7 +7,7 @@
       "name": "scan",
       "action": "scan",
       "origin": {
-        "smt": "json|zip:./test/data/input/foofile.zip|foofile*.json|*",
+        "smt": "json|zip:./test/_data/input/foofile.zip|foofile*.json|*",
         "options": {
           "recursive": true
         }
@@ -17,14 +17,14 @@
           "name": "schema",
           "action": "codify",
           "origin": {
-            "smt": "json|zip:./test/data/input/foofile.zip|${name}|*",
+            "smt": "json|zip:./test/_data/input/foofile.zip|${name}|*",
             "options": {
-              "encoding": "./test/data/output/zip/scan.engram.json",
+              "encoding": "./test/_data/output/zip/scan.engram.json",
               "max_read": 100
             }
           },
           "terminal": {
-            "output": "./test/data/output/zip/scan.engram.json",
+            "output": "./test/_data/output/zip/scan.engram.json",
             "compareValues": 1
           }
         }

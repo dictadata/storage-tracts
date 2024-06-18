@@ -7,15 +7,15 @@
       "name": "mysql-tee",
       "action": "tee",
       "origin": {
-        "smt": "json|./test/data/input/|foofile.json|*",
+        "smt": "json|./test/_data/input/|foofile.json|*",
         "options": {
-          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+          "encoding": "./test/_data/input/engrams/foo_schema.engram.json"
         }
       },
       "terminals": [
         {
-          "smt": "json|./test/data/output/tee/|mysql_foofile.json|*",
-          "output": "./test/data/output/tee/mysql_foofile.json"
+          "smt": "json|./test/_data/output/tee/|mysql_foofile.json|*",
+          "output": "./test/_data/output/tee/mysql_foofile.json"
         },
         {
           "smt": "mysql|host=dev.dictadata.net;database=storage_node|foo_tee|*"

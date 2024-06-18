@@ -7,7 +7,7 @@
       "name": "upload",
       "action": "copy",
       "origin": {
-        "smt": "*|./test/data/input/|*.json|*"
+        "smt": "*|./test/_data/input/|*.json|*"
       },
       "terminal": {
         "smt": "*|ftp://dev.dictadata.net/dictadata/test/data/output/uploads/|*|*"
@@ -21,7 +21,7 @@
         "options": {}
       },
       "terminal": {
-        "smt": "*|./test/data/output/ftp/downloads/|*|*"
+        "smt": "*|./test/_data/output/ftp/downloads/|*|*"
       }
     }
   ]

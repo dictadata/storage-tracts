@@ -18,8 +18,8 @@
         }
       },
       "terminal": {
-        "smt": "json|./test/data/output/elasticsearch/|retrieve_cache.json|*",
-        "output": "./test/data/output/elasticsearch/retrieve_cache.json"
+        "smt": "json|./test/_data/output/elasticsearch/|retrieve_cache.json|*",
+        "output": "./test/_data/output/elasticsearch/retrieve_cache.json"
       }
     },
     {
@@ -41,8 +41,8 @@
           "smt": "foo:foo_cache"
         },
         {
-          "smt": "json|./test/data/output/elasticsearch/|tee_data.json|*",
-          "output": "./test/data/output/elasticsearch/tee_data.json"
+          "smt": "json|./test/_data/output/elasticsearch/|tee_data.json|*",
+          "output": "./test/_data/output/elasticsearch/tee_data.json"
         }
       ]
     }

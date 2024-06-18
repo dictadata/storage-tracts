@@ -7,9 +7,9 @@
       "name": "local-ftp",
       "action": "transfer",
       "origin": {
-        "smt": "json|./test/data/input/|foofile.json|*",
+        "smt": "json|./test/_data/input/|foofile.json|*",
         "options": {
-          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+          "encoding": "./test/_data/input/engrams/foo_schema.engram.json"
         }
       },
       "terminal": {
@@ -27,13 +27,13 @@
       "origin": {
         "smt": "json|ftp://dev.dictadata.net/dictadata/test/data/input/|foofile.json|*",
         "options": {
-          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+          "encoding": "./test/_data/input/engrams/foo_schema.engram.json"
         }
       },
       "terminal": {
-        "smt": "json|./test/data/output/ftp/|foofile.json|*",
+        "smt": "json|./test/_data/output/ftp/|foofile.json|*",
         "options": {},
-        "output": "./test/data/output/ftp/foofile.json"
+        "output": "./test/_data/output/ftp/foofile.json"
       }
     }
   ]

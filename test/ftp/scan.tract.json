@@ -19,12 +19,12 @@
           "origin": {
             "smt": "json|ftp://dev.dictadata.net/dictadata/test/data/input/|${name}|*",
             "options": {
-              "encoding": "./test/data/output/ftp/scan.engram.json",
+              "encoding": "./test/_data/output/ftp/scan.engram.json",
               "max_read": 100
             }
           },
           "terminal": {
-            "output": "./test/data/output/ftp/scan.engram.json",
+            "output": "./test/_data/output/ftp/scan.engram.json",
             "compareValues": 1
           }
         }

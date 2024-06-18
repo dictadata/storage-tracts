@@ -9,13 +9,13 @@
       "origin": {
         "smt": "shp|zip:/var/dictadata/US/census.gov/geo/tiger/TIGER2023/STATE/tl_2023_us_state.zip|tl_2023_us_state|*",
         "options": {
-          "encoding": "./test/data/input/engrams/tl_YYYY_us_state.engram.json"
+          "encoding": "./test/_data/input/engrams/tl_YYYY_us_state.engram.json"
         }
       },
       "terminal": {
         "smt": "census.gov:tl_2023_us_state",
         "options": {
-          "encoding": "./test/data/input/engrams/tl_YYYY_us_state.engram.json"
+          "encoding": "./test/_data/input/engrams/tl_YYYY_us_state.engram.json"
         }
       }
     }

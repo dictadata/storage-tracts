@@ -29,12 +29,12 @@ module.exports = exports = class Entry {
     if (options.type) this.type = options.type;
     if (options.source) this.source = options.source;
 
-    if (options.title) this.title = options.title;
     if (options.description) this.description = options.description;
 
     if (options.roles) this.roles = options.roles;
     if (options.tags) this.tags = options.tags;
 
+    if (options.footnote) this.footnote = options.footnote;
     if (options.notes) this.notes = options.notes;
 
     if (options.urn) this.urn = options.urn;

@@ -16,7 +16,7 @@
   },
   "params": {
     "schema": "foofile",
-    "input": "./test/data/input",
-    "output": "./test/data/output"
+    "input": "./test/_data/input",
+    "output": "./test/_data/output"
   }
 }

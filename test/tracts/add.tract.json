@@ -16,17 +16,17 @@
       "action": "tracts",
       "store": [
         {
-          "tract": "./test/data/input/tracts/jsonfile-foo_transfer.tract.json",
+          "tract": "./test/_data/input/tracts/jsonfile-foo_transfer.tract.json",
           "realm": "foo",
           "name": "jsonfile-foo_transfer"
         },
         {
-          "tract": "./test/data/input/tracts/elasticsearch-foo_transfer.tract.json",
+          "tract": "./test/_data/input/tracts/elasticsearch-foo_transfer.tract.json",
           "realm": "foo",
           "name": "elasticsearch-foo_transfer"
         },
         {
-          "tract": "./test/data/input/tracts/mysql-foo_transfer.tract.json",
+          "tract": "./test/_data/input/tracts/mysql-foo_transfer.tract.json",
           "realm": "foo",
           "name": "mysql-foo_transfer"
         }

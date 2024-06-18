@@ -12,7 +12,7 @@
         }
       },
       "terminal": {
-        "output": "./test/data/output/mysql/list.json"
+        "output": "./test/_data/output/mysql/list.json"
       }
     }
   ]

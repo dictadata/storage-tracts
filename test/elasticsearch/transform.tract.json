@@ -7,9 +7,9 @@
       "name": "json-etl2",
       "action": "transfer",
       "origin": {
-        "smt": "json|./test/data/input/|foofile_01.json|*",
+        "smt": "json|./test/_data/input/|foofile_01.json|*",
         "options": {
-          "encoding": "./test/data/input/engrams/foo_schema_01.engram.json"
+          "encoding": "./test/_data/input/engrams/foo_schema_01.engram.json"
         }
       },
       "transforms": [
@@ -45,7 +45,7 @@
       "terminal": {
         "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_schema_etl2|=Foo",
         "options": {
-          "encoding": "./test/data/input/engrams/foo_schema_t.engram.json"
+          "encoding": "./test/_data/input/engrams/foo_schema_t.engram.json"
         }
       }
     }

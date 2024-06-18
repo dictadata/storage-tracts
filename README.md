@@ -95,8 +95,8 @@ Variable values are defined in a `params` section of Config and/or Tract files.
   },
   "params": {
     "schema": "foofile",
-    "input": "./test/data/input",
-    "output": "./test/data/output"
+    "input": "./test/_data/input",
+    "output": "./test/_data/output"
   }
 }
 ```
@@ -131,7 +131,7 @@ etl_flatten.json:
   "transfer_foofile": {
     "action": "transfer",
     "origin": {
-      "smt": "json|./test/data/input/|foofile.json|*"
+      "smt": "json|./test/_data/input/|foofile.json|*"
     },
     "transforms": [
       {
@@ -145,7 +145,7 @@ etl_flatten.json:
       }
     ],
     "terminal": {
-      "smt": "csv|./test/data/output/|fooflat.csv|*",
+      "smt": "csv|./test/_data/output/|fooflat.csv|*",
       "options": {
         "header": true
       }
@@ -221,7 +221,7 @@ etl_weather.json:
         }
       },
       "terminal": {
-        "smt": "csv|./test/data/output/|etl-3-weather.csv|*",
+        "smt": "csv|./test/_data/output/|etl-3-weather.csv|*",
         "options": {
           "header": true
         }

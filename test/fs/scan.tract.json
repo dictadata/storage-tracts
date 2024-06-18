@@ -7,7 +7,7 @@
       "name": "scan",
       "action": "scan",
       "origin": {
-        "smt": "json|./test/data/input/|foofile*.json|*",
+        "smt": "json|./test/_data/input/|foofile*.json|*",
         "options": {
           "recursive": false
         }
@@ -17,10 +17,10 @@
           "name": "files",
           "action": "transfer",
           "origin": {
-            "smt": "json|./test/data/input/|${name}|*"
+            "smt": "json|./test/_data/input/|${name}|*"
           },
           "terminal": {
-            "smt": "json|./test/data/output/fs/scan/|${name}|*",
+            "smt": "json|./test/_data/output/fs/scan/|${name}|*",
             "options": {
               "codify": true
             }
@@ -29,15 +29,15 @@
         {
           "name": "schema",
           "action": "codify",
-          "encoding": "./test/data/output/fs/scan.engram.json",
+          "encoding": "./test/_data/output/fs/scan.engram.json",
           "origin": {
-            "smt": "json|./test/data/input/|${name}|*",
+            "smt": "json|./test/_data/input/|${name}|*",
             "options": {
               "max_read": 100
             }
           },
           "terminal": {
-            "output": "./test/data/output/fs/scan.engram.json",
+            "output": "./test/_data/output/fs/scan.engram.json",
             "compareValues": 1
           }
         }

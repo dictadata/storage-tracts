@@ -16,7 +16,7 @@
             }
           },
           "retries": 1,
-          "encoding": "./test/data/input/engrams/weather_points.engram.json"
+          "encoding": "./test/_data/input/engrams/weather_points.engram.json"
         },
         "pattern": {
           "fields": [
@@ -39,15 +39,15 @@
             },
             "retries": 1,
             "pick": "periods",
-            "encoding": "./test/data/input/engrams/weather_forecast.engram.json"
+            "encoding": "./test/_data/input/engrams/weather_forecast.engram.json"
           }
         }
       ],
       "terminal": {
-        "smt": "csv|./test/data/output/rest/|conjoin.csv|*",
+        "smt": "csv|./test/_data/output/rest/|conjoin.csv|*",
         "options": {
           "header": true,
-          "encoding": "./test/data/input/engrams/weather_forecast.engram.json"
+          "encoding": "./test/_data/input/engrams/weather_forecast.engram.json"
         }
       }
     }

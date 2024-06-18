@@ -195,7 +195,6 @@
 - version 2.2.2
   - update to @dictadata/storage-junctions 2.2.2
   - override engram's engrams properties from action
-  - title added to predefined engrams properties
 - version 2.2.1
   - update to @dictadata/storage-junctions 2.2.1
   - refactor: Engrams usage

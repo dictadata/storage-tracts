@@ -12,7 +12,7 @@
         }
       },
       "terminal": {
-        "output": "./test/data/output/elasticsearch/codify_foo.engram.json"
+        "output": "./test/_data/output/elasticsearch/codify_foo.engram.json"
       }
     },
     {

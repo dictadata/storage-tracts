@@ -10,7 +10,7 @@
         "smt": "foo:foo_cache"
       },
       "terminal": {
-        "output": "./test/data/output/elasticsearch/retrieve_create.json",
+        "output": "./test/_data/output/elasticsearch/retrieve_create.json",
         "compareValues": 0
       }
     },
@@ -24,7 +24,7 @@
         }
       },
       "terminal": {
-        "output": "./test/data/output/elasticsearch/retrieve_dull.json",
+        "output": "./test/_data/output/elasticsearch/retrieve_dull.json",
         "compareValues": 0
       }
     },
@@ -42,8 +42,8 @@
         }
       },
       "terminal": {
-        "smt": "json|./test/data/output/elasticsearch/|retrieve1_json.json|*",
-        "output": "./test/data/output/elasticsearch/retrieve1_json.json"
+        "smt": "json|./test/_data/output/elasticsearch/|retrieve1_json.json|*",
+        "output": "./test/_data/output/elasticsearch/retrieve1_json.json"
       }
     },
     {
@@ -60,8 +60,8 @@
         }
       },
       "terminal": {
-        "smt": "json|./test/data/output/elasticsearch/|retrieve2_json.json|*",
-        "output": "./test/data/output/elasticsearch/retrieve2_json.json"
+        "smt": "json|./test/_data/output/elasticsearch/|retrieve2_json.json|*",
+        "output": "./test/_data/output/elasticsearch/retrieve2_json.json"
       }
     }
   ]

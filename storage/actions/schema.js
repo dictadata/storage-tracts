@@ -36,7 +36,7 @@ module.exports = exports = async (fiber) => {
         results = await jo.dullSchema();
         break;
       case "encoding":
-        results = await jo.getSchema();
+        results = await jo.getEngram();
         break;
     }
 

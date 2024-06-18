@@ -1,0 +1,36 @@
+{
+  "realm": "foo",
+  "name": "mysql-foo_transfer",
+  "type": "tract",
+  "description": "JSON to JSON transfer tract.",
+  "notes": "tract definitions: 1",
+  "tags": [
+    "dictadata.net",
+    "foo",
+    "json"
+  ],
+  "fibers": [
+    {
+      "name": "json-json",
+      "action": "transfer",
+      "description": "transfer foo from MySQL to JSON",
+      "origin": {
+        "smt": "mysql|host=dev.dictadata.net;database=storage_node|foo_schema|=Foo",
+        "pattern": {
+          "order": { "Foo": "asc" }
+        }
+      },
+      "terminal": {
+        "smt": {
+          "model": "json",
+          "locus": "./test/_data/output/tracts/",
+          "schema": "use_mysql-foo_transfer.json",
+          "key": "*"
+        },
+        "options": {
+          "codify": true
+        }
+      }
+    }
+  ]
+}

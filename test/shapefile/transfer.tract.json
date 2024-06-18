@@ -7,31 +7,31 @@
       "name": "shp-json",
       "action": "transfer",
       "origin": {
-        "smt": "shp|./test/data/input/shapes/|polygons|*",
+        "smt": "shp|./test/_data/input/shapes/|polygons|*",
         "options": {}
       },
       "terminal": {
-        "smt": "json|./test/data/output/shapefile/|polygons.json|*",
-        "output": "./test/data/output/shapefile/polygons.json"
+        "smt": "json|./test/_data/output/shapefile/|polygons.json|*",
+        "output": "./test/_data/output/shapefile/polygons.json"
       }
     },
     {
       "name": "zip-json",
       "action": "transfer",
       "origin": {
-        "smt": "shp|zip:./test/data/input/shapes/points.zip|points|*",
+        "smt": "shp|zip:./test/_data/input/shapes/points.zip|points|*",
         "options": {}
       },
       "terminal": {
-        "smt": "json|./test/data/output/shapefile/|points.json|*",
-        "output": "./test/data/output/shapefile/points.json"
+        "smt": "json|./test/_data/output/shapefile/|points.json|*",
+        "output": "./test/_data/output/shapefile/points.json"
       }
     },
     {
       "name": "points-elastic",
       "action": "transfer",
       "origin": {
-        "smt": "shp|zip:./test/data/input/shapes/points.zip|points|*",
+        "smt": "shp|zip:./test/_data/input/shapes/points.zip|points|*",
         "options": {}
       },
       "transforms": [
@@ -55,7 +55,7 @@
       "name": "polygons-elastic",
       "action": "transfer",
       "origin": {
-        "smt": "shp|./test/data/input/shapes/|polygons|*",
+        "smt": "shp|./test/_data/input/shapes/|polygons|*",
         "options": {}
       },
       "transforms": [
@@ -92,8 +92,8 @@
         }
       },
       "terminal": {
-        "smt": "json|./test/data/output/shapefile/|shapes.json|*",
-        "output": "./test/data/output/shapefile/shapes.json"
+        "smt": "json|./test/_data/output/shapefile/|shapes.json|*",
+        "output": "./test/_data/output/shapefile/shapes.json"
       }
     },
     {
@@ -117,7 +117,7 @@
         "smt": "shp|zip:/var/dictadata/US/census.gov/geo/tiger/TIGER2023/STATE/tl_2023_us_state.zip|tl_2023_us_state|*"
       },
       "terminal": {
-        "smt": "json|./test/data/output/shapefile/|tl_2023_us_state.json|*"
+        "smt": "json|./test/_data/output/shapefile/|tl_2023_us_state.json|*"
       }
     },
     {
@@ -137,7 +137,7 @@
         }
       },
       "terminal": {
-        "smt": "json|./test/data/output/shapefile/|tl_2023_us_state_NY.json|*"
+        "smt": "json|./test/_data/output/shapefile/|tl_2023_us_state_NY.json|*"
       }
     },
     {
@@ -146,7 +146,7 @@
       "origin": {
         "smt": "shp|zip:/var/dictadata/IA/legis.iowa.gov/Plan2/SHP/IA_ProposedPlan2_Oct2021.zip|Plan2_Congress|*",
         "options": {
-          "encoding": "./test/data/input/engrams/bl_2021_ia_congress.engram.json"
+          "encoding": "./test/_data/input/engrams/bl_2021_ia_congress.engram.json"
         }
       },
       "transforms": [
@@ -160,7 +160,7 @@
       "terminal": {
         "smt": "elasticsearch|http://dev.dictadata.net:9200|bl_2021_us_congress|*",
         "options": {
-          "encoding": "./test/data/input/engrams/bl_2021_ia_congress.engram.json"
+          "encoding": "./test/_data/input/engrams/bl_2021_ia_congress.engram.json"
         }
       }
     }

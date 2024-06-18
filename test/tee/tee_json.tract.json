@@ -7,19 +7,19 @@
       "name": "json-tee",
       "action": "tee",
       "origin": {
-        "smt": "json|./test/data/input/|foofile.json|*",
+        "smt": "json|./test/_data/input/|foofile.json|*",
         "options": {
-          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+          "encoding": "./test/_data/input/engrams/foo_schema.engram.json"
         }
       },
       "terminals": [
         {
-          "smt": "json|./test/data/output/tee/|fs_foofile.json|*",
-          "output": "./test/data/output/tee/fs_foofile.json"
+          "smt": "json|./test/_data/output/tee/|fs_foofile.json|*",
+          "output": "./test/_data/output/tee/fs_foofile.json"
         },
         {
-          "smt": "csv|./test/data/output/tee/|fs_foofile.csv|*",
-          "output": "./test/data/output/tee/fs_foofile.csv"
+          "smt": "csv|./test/_data/output/tee/|fs_foofile.csv|*",
+          "output": "./test/_data/output/tee/fs_foofile.csv"
         }
       ]
     }

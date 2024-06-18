@@ -1,0 +1,28 @@
+[
+  {
+   "realm": "foo",
+   "name": "foo_transfer_two",
+   "type": "tract",
+   "description": "just two fields: Foo Bar",
+   "notes": "tract definitions: 1",
+   "tags": [
+    "dictadata",
+    "foo",
+    "test"
+   ],
+   "fibers": [
+    {
+     "name": "json-json",
+     "action": "transfer",
+     "description": "transfer foo from json to json",
+     "origin": {
+      "smt": "json|./test/_data/input/|foofile.json|*"
+     },
+     "terminal": {
+      "smt": "json|./test/_data/output/tracts/|transfer_foofile.json|*"
+     }
+    }
+   ],
+   "source": "modified foo_transfer.tract.json"
+  }
+ ]

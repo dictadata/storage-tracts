@@ -1,0 +1,75 @@
+{
+  "name": "foo_schema_lg",
+  "type": "engram",
+  "description": "Test input for foo_schema_lg encoding with large text field.",
+  "source": "file:./test/_data/input/engrams/foo_schema_lg.engram.json",
+  "notes": "This is where a user could add their notes about the data source.",
+  "tags": [
+    "foo"
+  ],
+  "smt": {
+    "model": "*",
+    "locus": "*",
+    "schema": "foo_schema_lg",
+    "key": "=Foo"
+  },
+  "fields": {
+    "Foo": {
+      "name": "Foo",
+      "type": "keyword",
+      "size": 64,
+      "default": null,
+      "nullable": false,
+      "key": 1,
+      "label": "Foo"
+    },
+    "Bar": {
+      "name": "Bar",
+      "type": "text",
+      "size": 256,
+      "default": null,
+      "nullable": true,
+      "label": "Bar"
+    },
+    "Baz": {
+      "name": "Baz",
+      "type": "integer",
+      "size": 0,
+      "default": null,
+      "nullable": true,
+      "label": "Baz"
+    },
+    "Fobe": {
+      "name": "Fobe",
+      "type": "number",
+      "size": 0,
+      "default": null,
+      "nullable": true,
+      "label": "Fobe"
+    },
+    "Dt Test": {
+      "name": "Dt Test",
+      "type": "date",
+      "size": 0,
+      "default": null,
+      "nullable": true,
+      "label": "Dt Test"
+    },
+    "enabled": {
+      "name": "enabled",
+      "type": "boolean",
+      "size": 0,
+      "default": null,
+      "nullable": true,
+      "label": "enabled"
+    },
+    "big_text": {
+      "name": "big_text",
+      "type": "text",
+      "size": 200000,
+      "default": null,
+      "nullable": true,
+      "label": "Big Text"
+    }
+  }
+}

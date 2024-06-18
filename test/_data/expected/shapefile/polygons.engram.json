@@ -1,0 +1,58 @@
+{
+  "name": "codify",
+  "type": "engram",
+  "smt": {
+   "model": "shp",
+   "locus": "./test/_data/input/shapes/",
+   "schema": "polygons",
+   "key": "*"
+  },
+ "fields": [
+  {
+   "name": "type",
+   "type": "keyword",
+   "size": 7
+  },
+  {
+   "name": "properties",
+   "type": "map",
+   "fields": [
+    {
+     "name": "FID",
+     "type": "integer"
+    }
+   ]
+  },
+  {
+   "name": "geometry",
+   "type": "map",
+   "fields": [
+    {
+     "name": "type",
+     "type": "keyword",
+     "size": 12
+    },
+    {
+     "name": "coordinates",
+     "type": "list",
+     "_list": {
+      "name": "_list",
+      "type": "list",
+      "_list": {
+       "name": "_list",
+       "type": "list",
+       "_list": {
+        "name": "_list",
+        "type": "list",
+        "_list": {
+         "name": "_list",
+         "type": "integer"
+        }
+       }
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

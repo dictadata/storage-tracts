@@ -14,7 +14,7 @@
             }
           }
         },
-        "output": "./test/data/output/engrams/retrieve-foo_schemas.json"
+        "output": "./test/_data/output/engrams/retrieve-foo_schemas.json"
       }
     }
   ]

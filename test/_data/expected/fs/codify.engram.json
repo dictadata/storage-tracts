@@ -1,0 +1,38 @@
+{
+ "name": "codify",
+ "type": "engram",
+ "smt": {
+  "model": "json",
+  "locus": "./test/_data/input/",
+  "schema": "foofile.json",
+  "key": "*"
+ },
+ "fields": [
+  {
+   "name": "Foo",
+   "type": "keyword",
+   "size": 7
+  },
+  {
+   "name": "Bar",
+   "type": "text",
+   "size": 13
+  },
+  {
+   "name": "Baz",
+   "type": "integer"
+  },
+  {
+   "name": "Fobe",
+   "type": "number"
+  },
+  {
+   "name": "Dt Test",
+   "type": "date"
+  },
+  {
+   "name": "enabled",
+   "type": "boolean"
+  }
+ ]
+}

@@ -1,0 +1,90 @@
+{
+  "name": "bl_2020_ia_congress",
+  "type": "engram",
+  "realm": "legis.iowa.gov",
+  "source": "https://gis.legis.iowa.gov/Plan2/SHP/IA_ProposedPlan2_Oct2021.zip",
+  "description": "Second redistricting plan enacted 11/04/2021, and effective beginning with the elections in 2022 for the 118th U.S. Congress and the 90th Iowa General Assembly.",
+  "notes": "https://www.legis.iowa.gov/legislators/redistricting",
+  "tags": [
+    "iowa.gov",
+    "legislative",
+    "district",
+    "congress",
+    "boundary-line",
+    "geometry"
+  ],
+  "smt": {
+    "model": "*",
+    "locus": "*",
+    "schema": "bl_2020_ia_congress",
+    "key": "!properties.ID"
+  },
+  "fields": [
+    {
+      "name": "type",
+      "type": "keyword",
+      "size": 7
+    },
+    {
+      "name": "properties",
+      "type": "map",
+      "fields": [
+        {
+          "name": "ID",
+          "type": "integer"
+        },
+        {
+          "name": "AREA",
+          "type": "number"
+        },
+        {
+          "name": "DISTRICT",
+          "type": "integer"
+        },
+        {
+          "name": "MEMBERS",
+          "type": "integer"
+        },
+        {
+          "name": "LOCKED",
+          "type": "text"
+        },
+        {
+          "name": "NAME",
+          "type": "keyword"
+        },
+        {
+          "name": "POPULATION",
+          "type": "integer"
+        },
+        {
+          "name": "IDEAL_VALU",
+          "type": "integer"
+        },
+        {
+          "name": "DEVIATION",
+          "type": "integer"
+        },
+        {
+          "name": "F_DEVIATIO",
+          "type": "number"
+        },
+        {
+          "name": "DISTRICT_L",
+          "type": "keyword",
+          "size": 8
+        },
+        {
+          "name": "STATEFP",
+          "type": "keyword",
+          "size": "2",
+          "description": "State FIPS code"
+        }
+      ]
+    },
+    {
+      "name": "geometry",
+      "type": "Geometry"
+    }
+  ]
+}

@@ -6,13 +6,13 @@
     {
       "name": "list",
       "origin": {
-        "smt": "json|./test/data/input/|foofile_*.json|*",
+        "smt": "json|./test/_data/input/|foofile_*.json|*",
         "options": {
           "recursive": true
         }
       },
       "terminal": {
-        "output": "./test/data/output/fs/list.json"
+        "output": "./test/_data/output/fs/list.json"
       }
     }
   ]

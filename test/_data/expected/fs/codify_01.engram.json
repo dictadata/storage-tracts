@@ -1,0 +1,79 @@
+{
+  "name": "codify_01",
+  "type": "engram",
+  "smt": {
+   "model": "json",
+   "locus": "./test/_data/input/",
+   "schema": "foofile_01.json",
+   "key": "*"
+  },
+ "fields": [
+  {
+   "name": "Foo",
+   "type": "keyword",
+   "size": 7
+  },
+  {
+   "name": "Bar",
+   "type": "text",
+   "size": 13
+  },
+  {
+   "name": "Baz",
+   "type": "integer"
+  },
+  {
+   "name": "Fobe",
+   "type": "number"
+  },
+  {
+   "name": "Dt Test",
+   "type": "date"
+  },
+  {
+   "name": "enabled",
+   "type": "boolean"
+  },
+  {
+   "name": "subObj1",
+   "type": "map",
+   "fields": [
+    {
+     "name": "state",
+     "type": "keyword",
+     "size": 7
+    },
+    {
+     "name": "ex-state",
+     "type": "keyword",
+     "size": 4
+    }
+   ]
+  },
+  {
+   "name": "subObj2",
+   "type": "map",
+   "fields": [
+    {
+     "name": "subsub",
+     "type": "map",
+     "fields": [
+      {
+       "name": "izze",
+       "type": "integer"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "tags",
+   "type": "list",
+   "_list": {
+    "name": "_list",
+    "type": "keyword",
+    "size": 6
+   }
+  }
+ ]
+}

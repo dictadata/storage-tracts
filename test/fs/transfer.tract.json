@@ -7,84 +7,84 @@
       "name": "json-output",
       "action": "transfer",
       "origin": {
-        "smt": "json|./test/data/input/|foofile.json|*",
+        "smt": "json|./test/_data/input/|foofile.json|*",
         "options": {
-          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+          "encoding": "./test/_data/input/engrams/foo_schema.engram.json"
         }
       },
       "terminal": {
         "smt": {
           "model": "json",
-          "locus": "./test/data/output/fs/",
+          "locus": "./test/_data/output/fs/",
           "schema": "fs_foofile.json",
           "key": "*"
         },
-        "output": "./test/data/output/fs/fs_foofile.json"
+        "output": "./test/_data/output/fs/fs_foofile.json"
       }
     },
     {
       "name": "csv-output",
       "action": "transfer",
       "origin": {
-        "smt": "csv|./test/data/input/|foofile.csv|*",
+        "smt": "csv|./test/_data/input/|foofile.csv|*",
         "options": {
-          "encoding": "./test/data/input/engrams/foo_schema.engram.json",
+          "encoding": "./test/_data/input/engrams/foo_schema.engram.json",
           "header": true
         }
       },
       "terminal": {
         "smt": {
           "model": "csv",
-          "locus": "./test/data/output/fs/",
+          "locus": "./test/_data/output/fs/",
           "schema": "fs_foofile.csv",
           "key": "*"
         },
         "options": {
           "header": true
         },
-        "output": "./test/data/output/fs/fs_foofile.csv"
+        "output": "./test/_data/output/fs/fs_foofile.csv"
       }
     },
     {
       "name": "csv-json",
       "action": "transfer",
       "origin": {
-        "smt": "csv|./test/data/input/|foofile.csv|*",
+        "smt": "csv|./test/_data/input/|foofile.csv|*",
         "options": {
-          "encoding": "./test/data/input/engrams/foo_schema.engram.json",
+          "encoding": "./test/_data/input/engrams/foo_schema.engram.json",
           "header": true
         }
       },
       "terminal": {
         "smt": {
           "model": "json",
-          "locus": "./test/data/output/fs/",
+          "locus": "./test/_data/output/fs/",
           "schema": "fs_foofile_csv.json",
           "key": "*"
         },
-        "output": "./test/data/output/fs/fs_foofile_csv.json"
+        "output": "./test/_data/output/fs/fs_foofile_csv.json"
       }
     },
     {
       "name": "json-csv",
       "action": "transfer",
       "origin": {
-        "smt": "json|./test/data/input/|foofile.json|*",
+        "smt": "json|./test/_data/input/|foofile.json|*",
         "options": {
-          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+          "encoding": "./test/_data/input/engrams/foo_schema.engram.json"
         }
       },
       "terminal": {
         "smt": {
           "model": "csv",
-          "locus": "./test/data/output/fs/",
+          "locus": "./test/_data/output/fs/",
           "schema": "fs_foofile_json.csv",
           "key": "*"
         },
         "options": {
           "header": true
         },
-        "output": "./test/data/output/fs/fs_foofile_json.csv"
+        "output": "./test/_data/output/fs/fs_foofile_json.csv"
       }
     }
   ]

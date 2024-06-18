@@ -7,7 +7,7 @@
       "name": "foreach",
       "action": "foreach",
       "origin": {
-        "smt": "csv|./test/data/input/|foo_numbers.txt|*",
+        "smt": "csv|./test/_data/input/|foo_numbers.txt|*",
         "options": {
           "header": false,
           "encoding": {
@@ -22,10 +22,10 @@
           "name": "each_file",
           "action": "copy",
           "origin": {
-            "smt": "*|./test/data/input/|foofile_${filenum}.json|*"
+            "smt": "*|./test/_data/input/|foofile_${filenum}.json|*"
           },
           "terminal": {
-            "smt": "*|./test/data/output/fs/foreach/|foofile_${filenum}.json|*"
+            "smt": "*|./test/_data/output/fs/foreach/|foofile_${filenum}.json|*"
           }
         }
       ]

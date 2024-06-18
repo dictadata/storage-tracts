@@ -9,13 +9,13 @@
       "origin": {
         "smt": "json|http://dev.dictadata.net/dictadata/test/data/input/|foofile.json|*",
         "options": {
-          "encoding": "./test/data/input/engrams/foo_schema.engram.json"
+          "encoding": "./test/_data/input/engrams/foo_schema.engram.json"
         }
       },
       "terminal": {
-        "smt": "json|./test/data/output/http/|foofile.json|*",
+        "smt": "json|./test/_data/output/http/|foofile.json|*",
         "options": {},
-        "output": "./test/data/output/http/foofile.json"
+        "output": "./test/_data/output/http/foofile.json"
       }
     }
   ]

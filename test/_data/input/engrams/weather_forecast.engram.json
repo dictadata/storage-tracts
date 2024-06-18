@@ -1,0 +1,117 @@
+{
+  "name": "gridpoints",
+  "type": "engram",
+  "smt": {
+    "model": "rest",
+    "locus": "https://api.weather.gov/gridpoints/DVN/34,71/",
+    "schema": "gridpoints",
+    "key": "*"
+  },
+  "fields": [
+    {
+      "name": "number",
+      "type": "integer"
+    },
+    {
+      "name": "name",
+      "type": "text",
+      "size": 15
+    },
+    {
+      "name": "startTime",
+      "type": "date"
+    },
+    {
+      "name": "endTime",
+      "type": "date"
+    },
+    {
+      "name": "isDaytime",
+      "type": "boolean"
+    },
+    {
+      "name": "temperature",
+      "type": "integer"
+    },
+    {
+      "name": "temperatureUnit",
+      "type": "keyword",
+      "size": 1
+    },
+    {
+      "name": "temperatureTrend",
+      "type": "keyword",
+      "size": 7
+    },
+    {
+      "name": "probabilityOfPrecipitation",
+      "type": "map",
+      "fields": [
+        {
+          "name": "unitCode",
+          "type": "keyword",
+          "size": 15
+        },
+        {
+          "name": "value",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "name": "dewpoint",
+      "type": "map",
+      "fields": [
+        {
+          "name": "unitCode",
+          "type": "keyword",
+          "size": 12
+        },
+        {
+          "name": "value",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "relativeHumidity",
+      "type": "map",
+      "fields": [
+        {
+          "name": "unitCode",
+          "type": "keyword",
+          "size": 15
+        },
+        {
+          "name": "value",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "name": "windSpeed",
+      "type": "text",
+      "size": 12
+    },
+    {
+      "name": "windDirection",
+      "type": "keyword",
+      "size": 2
+    },
+    {
+      "name": "icon",
+      "type": "text",
+      "size": 69
+    },
+    {
+      "name": "shortForecast",
+      "type": "text",
+      "size": 55
+    },
+    {
+      "name": "detailedForecast",
+      "type": "text",
+      "size": 200
+    }
+  ]
+}

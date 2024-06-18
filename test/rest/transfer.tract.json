@@ -17,15 +17,15 @@
           },
           "retries": 1,
           "pick": "periods",
-          "encoding": "./test/data/input/engrams/weather_forecast.engram.json"
+          "encoding": "./test/_data/input/engrams/weather_forecast.engram.json"
         }
       },
       "terminal": {
-        "smt": "json|./test/data/output/rest/|transfer.json|*",
+        "smt": "json|./test/_data/output/rest/|transfer.json|*",
         "options": {
-          "encoding": "./test/data/input/engrams/weather_forecast.engram.json"
+          "encoding": "./test/_data/input/engrams/weather_forecast.engram.json"
         },
-        "output": "./test/data/output/rest/transfer.json",
+        "output": "./test/_data/output/rest/transfer.json",
         "compareValues": 1
       }
     }
