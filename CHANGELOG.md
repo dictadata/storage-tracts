@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-tracts
 
+- version 0.9.89
+  - updated: @dictadata/storage-junctions@0.9.114
+  - refactor: aggregate transform
 - version 0.9.88
   - refactor: use utils modules form @dictadata/lib
   - refactor: use objCopy for deep config copy
