@@ -1,5 +1,8 @@
 /**
  * storage/etl/codify
+ *
+ * Create an engram from source data.
+ * Output to a file.
  */
 "use strict";
 
@@ -15,9 +18,16 @@ const { pipeline } = require('node:stream/promises');
 const engrams_encoding = require('../engrams/engrams.engram.json');
 
 /**
+ * Create an engram from source data.
  *
+ * @param {Object} fiber
+ * @param {Object} fiber.source
+ * @param {Object} fiber.transforms
+ * @param {Object} fiber.terminal
+ * @param {*} resultEncoding storage engram|encoding
+ * @returns write resulting engram to fiber.terminal.output
  */
-module.exports = exports = async (fiber, resultEncoding) => {
+module.exports = exports = async function codify(fiber, resultEncoding) {
   logger.verbose("codify ...");
   let retCode = 0;
 

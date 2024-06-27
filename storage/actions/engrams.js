@@ -1,5 +1,7 @@
 /**
  * storage/etl/engrams
+ *
+ * Manage engram definitions on storage-node server.
  */
 "use strict";
 
@@ -12,16 +14,27 @@ const { output } = require('@dictadata/lib/test');
 const { readFile } = require('node:fs/promises');
 
 /**
+ * Manage engram definitions on storage-node server.
  *
+ * @param {String} fiber.action always equals "engrams"
+ * @param {Object|String} fiber.store an engram or name of file containing engram definition
+ * @param {Object} fiber.dull
+ * @param {String} fiber.dull.urn
+ * @param {Object} fiber.recall
+ * @param {String} fiber.recall.urn
+ * @param {Ojbect} fiber.retrieve
+ * @param {Ojbect} fiber.retrieve.pattern
+ * @returns {Number} return code with 0 = success, non-zero = error
  */
-module.exports = exports = async (fiber) => {
+module.exports = exports = async function engrams(fiber) {
   logger.verbose("engrams ...");
   let retCode = 0;
   let fn;
 
   try {
     for (let [ command, request ] of Object.entries(fiber)) {
-      if (command === "action" || command === "name") continue;
+      if (command === "action" || command === "name")
+        continue;
 
       // determine function to apply
       switch (command) {

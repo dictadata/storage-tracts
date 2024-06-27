@@ -1,5 +1,7 @@
 /**
  * storage/etl/tracts
+ *
+ * Manage tract definitions on storage-node server.
  */
 "use strict";
 
@@ -12,9 +14,20 @@ const { output } = require('@dictadata/lib/test');;
 const { readFile } = require('node:fs/promises');
 
 /**
+ * Manage tract definitions on storage-node server.
  *
+ * @param {Object} fiber
+ * @param {String} fiber.action always equals "engrams"
+ * @param {Object|String} fiber.store a tract or name of file containing tract definition
+ * @param {Object} fiber.dull
+ * @param {String} fiber.dull.urn
+ * @param {Object} fiber.recall
+ * @param {String} fiber.recall.urn
+ * @param {Ojbect} fiber.retrieve
+ * @param {Ojbect} fiber.retrieve.pattern
+ * @returns {Number} return code with 0 = success, non-zero = error
  */
-module.exports = exports = async (fiber) => {
+module.exports = exports = async function tracts(fiber) {
   logger.verbose("tracts ...");
   let retCode = 0;
   let fn;
