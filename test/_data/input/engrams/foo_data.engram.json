@@ -1,0 +1,42 @@
+{
+  "realm": "foo",
+  "name": "foo_data",
+  "type": "engram",
+  "description": "test input for foo_data encoding",
+  "source": "file:./test/_data/input/engrams/foo_data.engram.json",
+  "tags": [
+    "foo"
+  ],
+  "smt": {
+    "model": "*",
+    "locus": "*",
+    "schema": "foo_data",
+    "key": "*"
+  },
+  "fields": [
+    {
+      "name": "category",
+      "type": "keyword",
+      "size": 64,
+      "nullable": false
+    },
+    {
+      "name": "item",
+      "type": "keyword",
+      "size": 64,
+      "nullable": false
+    },
+    {
+      "name": "quantity",
+      "type": "integer",
+      "default": 0,
+      "nullable": true
+    },
+    {
+      "name": "cost",
+      "type": "number",
+      "default": 0.0,
+      "nullable": true
+    }
+  ]
+}

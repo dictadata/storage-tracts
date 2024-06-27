@@ -1,0 +1,10 @@
+[
+{"category": "tools", "item": "widget_1", "quantity": 10, "cost": 1.00 },
+{"category": "tools", "item": "widget_1", "quantity": 10, "cost": 1.00 },
+{"category": "tools", "item": "widget_2", "quantity": 10, "cost": 1.00 },
+{"category": "tools", "item": "widget_2", "quantity": 10, "cost": 1.00 },
+{"category": "supplies", "item": "whatsit_1", "quantity": 20, "cost": 0.50 },
+{"category": "supplies", "item": "whatsit_1", "quantity": 20, "cost": 0.50 },
+{"category": "supplies", "item": "whatsit_2", "quantity": 20, "cost": 0.50 },
+{"category": "supplies", "item": "whatsit_2", "quantity": 20, "cost": 0.50 }
+]

@@ -1,0 +1,68 @@
+{
+  "name": "foo_cars",
+  "type": "engram",
+  "smt": {
+    "model": "",
+    "locus": "",
+    "schema": "foo_cars.csv",
+    "key": "*"
+  },
+  "fields": [
+    {
+      "name": "year",
+      "type": "integer"
+    },
+    {
+      "name": "make",
+      "type": "keyword",
+      "size": 12
+    },
+    {
+      "name": "model",
+      "type": "text",
+      "size": 11
+    },
+    {
+      "name": "engine",
+      "type": "keyword",
+      "size": 2
+    },
+    {
+      "name": "blower",
+      "type": "keyword",
+      "size": 2
+    },
+    {
+      "name": "color",
+      "type": "keyword",
+      "size": 6
+    },
+    {
+      "name": "mileage",
+      "type": "integer"
+    },
+    {
+      "name": "purchased",
+      "type": "date"
+    },
+    {
+      "name": "price",
+      "type": "number"
+    },
+    {
+      "name": "state",
+      "type": "keyword",
+      "size": 2
+    },
+    {
+      "name": "county",
+      "type": "keyword",
+      "size": 10
+    },
+    {
+      "name": "status",
+      "type": "keyword",
+      "size": 1
+    }
+  ]
+}
