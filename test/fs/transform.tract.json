@@ -114,7 +114,10 @@
       "action": "transfer",
       "description": "select fields in directory list",
       "origin": {
-        "smt": "json|./test/_data/input/|file_list.json|*"
+        "smt": "json|./test/_data/input/|file_list.json|*",
+        "options": {
+          "codify": true
+        }
       },
       "transforms": [
         {
@@ -129,9 +132,6 @@
       ],
       "terminal": {
         "smt": "json|./test/_data/output/fs/|file_list_trim.json|*",
-        "options": {
-          "codify": true
-        },
         "output": "./test/_data/output/fs/file_list_trim.json"
       }
     }

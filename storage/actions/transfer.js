@@ -13,7 +13,7 @@ const { objCopy } = require('@dictadata/lib');
 const { output } = require('@dictadata/lib/test');;
 const codify = require('./codify');
 
-const { pipeline } = require('node:stream/promises');
+const { finished } = require('node:stream/promises');
 
 /**
  * transfer action
@@ -28,31 +28,35 @@ module.exports = exports = async (fiber) => {
     fiber = results.data[ 0 ].fibers[ 0 ];
   }
 
-  var origin = fiber.origin || {};
-  var terminal = fiber.terminal || {};
-  var transforms = fiber.transforms || [];
+  var origin = fiber.origin;
   if (!origin.options) origin.options = {};
-  if (!terminal.options) terminal.options = {};
+  var transforms = fiber.transforms || [];
 
-  var jo, jt;  // junctions origin, terminal
+  let terminals = Array.isArray(fiber.terminal) ? fiber.terminal : [ fiber.terminal ];
+  for (let terminal of terminals)
+    if (!terminal.options) terminal.options = {};
+
+  var jo;       // junction origin
+  var jts = [];  // junction terminal(s)
   try {
     // note, options.encoding files have been read by Actions.perform
 
     // resolve the origin and terminal
     origin.smt = await Storage.resolve(origin.smt, origin.options);
-    terminal.smt = await Storage.resolve(terminal.smt, terminal.options);
+    for (let terminal of terminals)
+      terminal.smt = await Storage.resolve(terminal.smt, terminal.options);
 
     // create origin junction
     logger.verbose(">>> create origin junction " + JSON.stringify(origin.smt, null, 2));
     jo = await Storage.activate(origin.smt, origin.options);
     // note, if jo.capabilities.encoding is true origin.options.encoding will be set by the junction
 
-    if (!terminal.options?.encoding) {
-      terminal.options.encoding = origin.options.encoding;
-    }
+    for (let terminal of terminals)
+      if (!terminal.options?.encoding)
+        terminal.options.encoding = origin.options.encoding;
 
-    //if (!terminal.options?.encoding || transforms.length > 0) {
-    if (terminal.options?.codify) {
+    //if (!origin.options?.encoding || transforms.length > 0) {
+    if (origin.options?.codify) {
       // run some objects through transforms to create terminal encoding
       let codifyFiber = objCopy({}, fiber);
       codifyFiber.action = "codify";
@@ -60,58 +64,67 @@ module.exports = exports = async (fiber) => {
 
       let codifyEncoding = {};
       await codify(codifyFiber, codifyEncoding);
-      terminal.options.encoding = codifyEncoding;
+      for (let terminal of terminals)
+        terminal.options.encoding = codifyEncoding;
     }
 
-    if (typeof terminal.options.encoding !== "object")
-      throw new StorageError(400, "invalid terminal encoding");
+    for (let terminal of terminals)
+      if (typeof terminal.options.encoding !== "object")
+        throw new StorageError(400, "invalid terminal encoding");
 
     //logger.debug(">>> encoding results");
     //logger.debug(JSON.stringify(terminal.options.encoding.fields, null, " "));
 
     /// setup pipeline
     logger.verbose(">>> transfer pipeline");
-    let pipes = [];
 
     // reader
     let reader = jo.createReader({ pattern: origin.pattern });
     //reader.on('error', (error) => {
     //  logger.error("transfer reader: " + error.message);
     //});
-    pipes.push(reader);
+    let pipeline = reader;
 
     // transforms
     for (let transform of transforms) {
-      pipes.push(await jo.createTransform(transform.transform, transform));
+      pipeline = pipeline.pipe(await jo.createTransform(transform.transform, transform));
     }
 
-    /// create terminal junction
-    logger.verbose(">>> create terminal junction " + JSON.stringify(terminal.smt));
-    jt = await Storage.activate(terminal.smt, terminal.options);
+    /// create terminal junction(s)
+    let writers = [];
+    for (let terminal of terminals) {
+      logger.verbose(">>> create terminal junction " + JSON.stringify(terminal.smt));
+      let jt = await Storage.activate(terminal.smt, terminal.options);
+      jts.push(jt);
 
-    logger.debug("create terminal schema");
-    if (jt.capabilities.encoding && !terminal.options.append) {
-      logger.verbose(">>> createSchema");
-      let results = await jt.createSchema();
-      if (results.status !== 0)
-        logger.info("could not create storage schema: " + results.message);
+      logger.debug("create terminal schema");
+      if (jt.capabilities.encoding && !terminal.options?.append) {
+        logger.verbose(">>> createSchema");
+        let results = await jt.createSchema();
+        if (results.status !== 0)
+          logger.info("could not create storage schema: " + results.message);
+      }
+
+      // writer
+      let writer = jt.createWriter();
+      //writer.on('error', (error) => {
+      // logger.error("transfer writer: " + error.message);
+      //});
+      writers.push(writer);
+      pipeline.pipe(writer);
     }
-
-    // writer
-    let writer = jt.createWriter();
-    //writer.on('error', (error) => {
-    // logger.error("transfer writer: " + error.message);
-    //});
-    pipes.push(writer);
 
     // transfer data
-    logger.verbose(">>> start transfer");
-    await pipeline(pipes);
+    logger.verbose(">>> await transfer");
+    await finished(reader);
+    for (let writer of writers)
+      await finished(writer);
 
     // if testing, validate results
-    if (terminal?.output) {
-      retCode = output(terminal.output, null, terminal.compareValues || 2);
-    }
+    for (let terminal of terminals)
+      if (terminal?.output)
+        retCode |= output(terminal.output, null, terminal.compareValues || 2);
+
     logger.info("=== completed");
   }
   catch (err) {
@@ -121,10 +134,9 @@ module.exports = exports = async (fiber) => {
   finally {
     if (jo)
       await jo.relax();
-    if (jt) {
-      if (Object.hasOwn(jt.options, "autoClose") ? jt.options.autoClose : true)
+    for (let jt of jts)
+      if (jt && (Object.hasOwn(jt.options, "autoClose") ? jt.options.autoClose : true))
         await jt.relax();
-    }
   }
 
   return retCode;

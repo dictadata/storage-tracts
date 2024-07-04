@@ -1,18 +1,18 @@
 {
   "realm": "foo",
-  "name": "tee.tract.json",
+  "name": "tee_es.tract.json",
   "type": "tract",
   "fibers": [
     {
       "name": "es-tee",
-      "action": "tee",
+      "action": "transfer",
       "origin": {
         "smt": "json|./test/_data/input/|foofile.json|*",
         "options": {
           "encoding": "./test/_data/input/engrams/foo_schema.engram.json"
         }
       },
-      "terminals": [
+      "terminal": [
         {
           "smt": "json|./test/_data/output/tee/|es_foofile.json|*",
           "output": "./test/_data/output/tee/es_foofile.json"

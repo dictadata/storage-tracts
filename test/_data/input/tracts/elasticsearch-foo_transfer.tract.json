@@ -18,6 +18,9 @@
         "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_schema|!Foo",
         "pattern": {
           "order": { "Foo": "asc" }
+        },
+        "options": {
+          "codify": true
         }
       },
       "terminal": {
@@ -26,9 +29,6 @@
           "locus": "./test/_data/output/tracts/",
           "schema": "use_elasticsearch-foo_transfer.json",
           "key": "*"
-        },
-        "options": {
-          "codify": true
         }
       }
     }

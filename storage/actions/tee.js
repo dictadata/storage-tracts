@@ -3,6 +3,7 @@
  *
  * stream data from origin to multiple terminals
  *
+ * DEPRECATED use transfer action
  */
 "use strict";
 
@@ -61,7 +62,7 @@ module.exports = exports = async (fiber) => {
       }
 
       //if (!terminal.options?.encoding || transforms.length > 0) {
-      if (terminal.options?.codify) {
+      if (origin.options?.codify) {
         // only codify once
         if (!codifyEncoding.name) {
           // run some objects through pipeline to create terminal encoding

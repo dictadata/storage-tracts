@@ -1,0 +1,32 @@
+{
+  "realm": "foo",
+  "name": "tee_transform.tract.json",
+  "type": "tract",
+  "fibers": [
+    {
+      "name": "transform-tee",
+      "action": "transfer",
+      "origin": {
+        "smt": "json|./test/_data/input/|foofile.json|*",
+        "options": {
+          "encoding": "./test/_data/input/engrams/foo_schema.engram.json"
+        }
+      },
+      "transforms": [
+        {
+          "transform": "tee",
+          "fiber": {
+            "terminal": {
+              "smt": "json|./test/_data/output/tee/|transform_tee.json|*",
+              "output": "./test/_data/output/tee/transform_tee.json"
+            }
+          }
+        }
+      ],
+      "terminal": {
+        "smt": "json|./test/_data/output/tee/|transform_terminal.json|*",
+        "output": "./test/_data/output/tee/transform_terminal.json"
+      }
+    }
+  ]
+}

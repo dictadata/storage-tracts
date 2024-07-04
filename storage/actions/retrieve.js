@@ -53,7 +53,7 @@ module.exports = exports = async (fiber) => {
     }
 
     //if (!terminal.options?.encoding || transforms.length > 0) {
-    if (terminal.options?.codify) {
+    if (origin.options?.codify) {
       // run some objects through transforms to create terminal encoding
       let codifyFiber = objCopy({}, fiber);
       codifyFiber.action = "codify";

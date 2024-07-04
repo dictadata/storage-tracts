@@ -17,13 +17,13 @@
           "name": "files",
           "action": "transfer",
           "origin": {
-            "smt": "json|./test/_data/input/|${name}|*"
-          },
-          "terminal": {
-            "smt": "json|./test/_data/output/fs/scan/|${name}|*",
+            "smt": "json|./test/_data/input/|${name}|*",
             "options": {
               "codify": true
             }
+          },
+          "terminal": {
+            "smt": "json|./test/_data/output/fs/scan/|${name}|*"
           }
         },
         {
