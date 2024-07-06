@@ -87,6 +87,7 @@ module.exports = exports = async (fiber) => {
 
     // transforms
     for (let transform of transforms) {
+      transform._junction = jo;
       pipeline = pipeline.pipe(await jo.createTransform(transform.transform, transform));
     }
 
@@ -126,6 +127,9 @@ module.exports = exports = async (fiber) => {
         retCode |= output(terminal.output, null, terminal.compareValues || 2);
 
     logger.info("=== completed");
+
+    let stats = writers[0]._stats;
+    logger.info(stats.count + " in " + stats.elapsed / 1000 + "s, " + Math.round(stats.count / (stats.elapsed / 1000)) + "/sec");
   }
   catch (err) {
     logger.error("transfer: " + err.message + " " + err.stack);

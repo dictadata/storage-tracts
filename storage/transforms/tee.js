@@ -24,6 +24,7 @@ module.exports = exports = class TeeTransform extends Transform {
     super(streamOptions);
 
     this.options = Object.assign({}, options);
+    this._junction = options._junction;
     this.writer;
   }
 
@@ -53,7 +54,7 @@ module.exports = exports = class TeeTransform extends Transform {
     // transforms
     for (let transform of transforms) {
       let tfType = transform.transform;
-      pipes.push(await jo.createTransform(tfType, transform));
+      pipes.push(await this._junction.createTransform(tfType, transform));
     }
 
     // writer
@@ -111,7 +112,7 @@ module.exports = exports = class TeeTransform extends Transform {
     // push some final object(s)
     //this.push(this._composition);
 
-    await finished(this.writer);
+    //await finished(this.writer);
 
     callback();
   }
