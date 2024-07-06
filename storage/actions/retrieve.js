@@ -43,8 +43,8 @@ module.exports = exports = async (fiber) => {
     origin.smt = await Storage.resolve(origin.smt, origin.options);
     terminal.smt = await Storage.resolve(terminal.smt, terminal.options);
 
-    // create origin junction
-    logger.verbose(">>> create origin junction " + JSON.stringify(origin.smt, null, 2));
+    // origin junction
+    logger.verbose(">>> origin junction " + JSON.stringify(origin.smt, null, 2));
     jo = await Storage.activate(origin.smt, origin.options);
     // note, if jo.capabilities.encoding is true origin.options.encoding will be set by the junction
 
@@ -54,7 +54,7 @@ module.exports = exports = async (fiber) => {
 
     //if (!terminal.options?.encoding || transforms.length > 0) {
     if (origin.options?.codify) {
-      // run some objects through transforms to create terminal encoding
+      // run some objects through transforms to terminal encoding
       let codifyFiber = objCopy({}, fiber);
       codifyFiber.action = "codify";
       codifyFiber.terminal = {};
@@ -97,11 +97,11 @@ module.exports = exports = async (fiber) => {
       pipes.push(await jo.createTransform(transform.transform, transform));
     }
 
-    /// create terminal junction
-    logger.verbose(">>> create terminal junction " + JSON.stringify(terminal.smt));
+    /// terminal junction
+    logger.verbose(">>> terminal junction " + JSON.stringify(terminal.smt));
     jt = await Storage.activate(terminal.smt, terminal.options);
 
-    logger.debug("create terminal schema");
+    logger.debug("terminal schema");
     if (jt.capabilities.encoding && !terminal.options.append) {
       logger.verbose(">>> createSchema");
       let results = await jt.createSchema();

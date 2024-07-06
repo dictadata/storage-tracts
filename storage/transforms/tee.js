@@ -58,10 +58,10 @@ module.exports = exports = class TeeTransform extends Transform {
     }
 
     // writer
-    logger.verbose(">>> create terminal junction " + JSON.stringify(terminal.smt));
+    logger.verbose(">>> terminal junction " + JSON.stringify(terminal.smt));
     let jt = await Storage.activate(terminal.smt, terminal.options);
 
-    logger.debug("create terminal schema");
+    logger.debug("terminal schema");
     if (jt.capabilities.encoding && !terminal.options?.append) {
       logger.verbose(">>> createSchema");
       let results = await jt.createSchema();

@@ -40,7 +40,7 @@ module.exports = exports = async function codify(fiber, resultEncoding) {
   var jo, jt;
   try {
     // note, if origin.options.encoding is a string filename it will have been read by actions.js
-    logger.verbose(">>> create origin junction " + JSON.stringify(origin.smt, null, 2));
+    logger.verbose(">>> origin junction " + JSON.stringify(origin.smt, null, 2));
     jo = await Storage.activate(origin.smt, origin.options);
     // note, if jo.capabilities.encoding is true origin.options.encoding will be set by the junction
 
@@ -84,11 +84,11 @@ module.exports = exports = async function codify(fiber, resultEncoding) {
       if (!terminal.options.encoding)
         terminal.options.encoding = engrams_encoding;
 
-      /// create terminal junction
-      logger.verbose(">>> create terminal junction " + JSON.stringify(terminal.smt));
+      /// terminal junction
+      logger.verbose(">>> terminal junction " + JSON.stringify(terminal.smt));
       jt = await Storage.activate(terminal.smt, terminal.options);
 
-      logger.debug("create terminal schema");
+      logger.debug("terminal schema");
       if (jt.capabilities.encoding && !terminal.options.append) {
         logger.verbose(">>> createSchema");
         let results = await jt.createSchema();

@@ -121,7 +121,7 @@ async function upload(fiber) {
     logger.verbose(">>> get list of local files");
     let { data: list } = await local.list();
 
-    logger.verbose(">>> create terminal junction " + fiber.terminal.smt);
+    logger.verbose(">>> terminal junction " + fiber.terminal.smt);
     logger.verbose("smt:" + JSON.stringify(fiber.terminal.smt, null, 2));
     if (fiber.terminal.options)
       logger.verbose("options:" + JSON.stringify(fiber.terminal.options));

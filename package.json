@@ -53,7 +53,7 @@
   },
   "dependencies": {
     "@dictadata/lib": "github:dictadata/lib#semver:1.0",
-    "@dictadata/storage-junctions": "^0.9.115",
+    "@dictadata/storage-junctions": "^0.9.116",
     "colors": "^1.4.0"
   }
 }

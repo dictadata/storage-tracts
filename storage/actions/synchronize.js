@@ -36,7 +36,7 @@ module.exports = exports = async (fiber) => {
     if (!fiber.origin.options) fiber.origin.options = {};
     if (!fiber.terminal.options) fiber.terminal.options = {};
 
-    logger.verbose(">>> create origin junction " + fiber.origin.smt);
+    logger.verbose(">>> origin junction " + fiber.origin.smt);
     jo = await Storage.activate(fiber.origin.smt, fiber.origin.options);
 
     logger.verbose(">>> getEngram");
@@ -94,7 +94,7 @@ module.exports = exports = async (fiber) => {
       logger.verbose(">>> Terminal Tract");
       let terminal = fiber.terminal;
 
-      logger.verbose(">>> create terminal junction " + terminal.smt);
+      logger.verbose(">>> terminal junction " + terminal.smt);
       let jt = await Storage.activate(terminal.smt, terminal.options);
       jtl.push(jt);
 
