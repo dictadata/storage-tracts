@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-tracts
 
+- version 0.9.90
+  - feature: implement tee as a transform
+  - refactor: remove tee action
 - version 0.9.89
   - updated: @dictadata/storage-junctions@0.9.114
   - refactor: aggregate transform
