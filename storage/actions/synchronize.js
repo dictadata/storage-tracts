@@ -53,8 +53,8 @@ module.exports = exports = async (fiber) => {
       // then run some data through the codifier
       let pipes = [];
 
-      let options = { max_read: fiber.origin.options.max_read || 100, pattern };
-      //let options = Object.assign({ max_read: 100 }, fiber.origin.options);
+      let options = { count: fiber.origin?.options?.count || 100, pattern };
+      //let options = Object.assign({ count: 100 }, fiber.origin.options);
 
       let reader = jo.createReader(options);
       reader.on('error', (error) => {

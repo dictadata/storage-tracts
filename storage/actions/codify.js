@@ -64,7 +64,7 @@ module.exports = exports = async function codify(fiber, resultEncoding) {
     ///// run data through transforms (optional) and codify transform
     let pipes = [];
 
-    let options = Object.assign({ max_read: 100 }, origin.options);
+    let options = Object.assign({ count: 100 }, origin.options);
 
     let reader = jo.createReader(options);
 

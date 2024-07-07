@@ -33,7 +33,7 @@
           "origin": {
             "smt": "json|./test/_data/input/|${name}|*",
             "options": {
-              "max_read": 100
+              "count": 100
             }
           },
           "terminal": {

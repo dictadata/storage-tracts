@@ -16,7 +16,7 @@
             }
           },
           "retries": 1,
-          "max_read": 100,
+          "count": 100,
           "pick": "periods"
         }
       },

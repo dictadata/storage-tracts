@@ -13,7 +13,7 @@
           "key": "*"
         },
         "options": {
-          "max_read": 100
+          "count": 100
         }
       },
       "terminal": {
@@ -31,7 +31,7 @@
           "key": "*"
         },
         "options": {
-          "max_read": 100
+          "count": 100
         }
       },
       "terminal": {

@@ -20,7 +20,7 @@
             "smt": "json|zip:./test/_data/input/foofile.zip|${name}|*",
             "options": {
               "encoding": "./test/_data/output/zip/scan.engram.json",
-              "max_read": 100
+              "count": 100
             }
           },
           "terminal": {

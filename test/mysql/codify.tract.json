@@ -8,7 +8,7 @@
       "origin": {
         "smt": "foo:mysql_foo_schema",
         "options": {
-          "max_read": 100
+          "count": 100
         }
       },
       "terminal": {
@@ -21,7 +21,7 @@
       "origin": {
         "smt": "foo:mysql_foo_schema",
         "options": {
-          "max_read": 100
+          "count": 100
         }
       },
       "terminal": {

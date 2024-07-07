@@ -8,7 +8,7 @@
       "origin": {
         "smt": "json|http://dev.dictadata.net/dictadata/test/data/input/|foofile.json|*",
         "options": {
-          "max_read": 100
+          "count": 100
         }
       },
       "terminal": {
@@ -21,7 +21,7 @@
       "origin": {
         "smt": "json|http://dev.dictadata.net/dictadata/test/data/input/|foofile.json|*",
         "options": {
-          "max_read": 100
+          "count": 100
         }
       },
       "terminal": {
