@@ -6,7 +6,10 @@
     "Fobe": "1.0",
     "Dt Test": "2018-10-07",
     "enabled": "true",
-    "tags": [ "fun", "fast" ],
+    "tags": [
+      "fun",
+      "fast"
+    ],
     "widgets": [
       {
         "part": "core",
@@ -25,7 +28,10 @@
     "Fobe": "2.1",
     "Dt Test": "10/07/2018",
     "enabled": "false",
-    "tags": [ "unfun", "slow" ],
+    "tags": [
+      "unfun",
+      "slow"
+    ],
     "widgets": [
       {
         "part": "core",
@@ -44,7 +50,10 @@
     "Fobe": "3",
     "Dt Test": "10-18-18",
     "enabled": "true",
-    "tags": [ "row", "boat!" ],
+    "tags": [
+      "row",
+      "boat!"
+    ],
     "widgets": [
       {
         "part": "core",
@@ -63,7 +72,11 @@
     "Fobe": "4.3",
     "Dt Test": "2018-10-10T14:13:30.500Z",
     "enabled": "false",
-    "tags": [ "ancient", "guardian", "beast" ],
+    "tags": [
+      "ancient",
+      "guardian",
+      "beast"
+    ],
     "widgets": [
       {
         "part": "shaft",
@@ -82,8 +95,11 @@
     "Fobe": "+19",
     "Dt Test": "10/18/18",
     "enabled": "true",
-     "tags": [ "wild", "side" ],
-     "widgets": [
+    "tags": [
+      "wild",
+      "side"
+    ],
+    "widgets": [
       {
         "part": "core",
         "count": 12

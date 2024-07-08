@@ -7,8 +7,21 @@ const Storage = require('../storage');
 const { logger } = require('@dictadata/lib');
 const { output } = require('@dictadata/lib/test');
 
+/*
+  fiber = {
+    origin: {
+      smt: "" | SMT object
+      options: {}
+      pattern: {}
+    }
+    terminal: {
+      output: "<filename>" | stream
+    }
+  }
+*/
+
 /**
- *
+ * @param {Object} fiber
  */
 module.exports = exports = async (fiber) => {
   logger.verbose("dull ...");

@@ -1,0 +1,82 @@
+{
+  "name": "dull.tract.json",
+  "type": "tract",
+  "fibers": [
+    {
+      "name": "create",
+      "action": "schema",
+      "method": "create",
+      "origin": {
+        "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_schema_01|!Foo",
+        "options": {
+          "encoding": "./test/_data/input/engrams/foo_schema_01.engram.json"
+        }
+      },
+      "terminal": {
+        "output": "./test/_data/output/elasticsearch/dull_create.json",
+        "compareValues": 0
+      }
+    },
+    {
+      "name": "load",
+      "action": "transfer",
+      "origin": {
+        "smt": "json|./test/_data/input/|foofile_01.json|*",
+        "options": {
+          "encoding": "./test/_data/input/engrams/foo_schema_01.engram.json"
+        }
+      },
+      "terminal": [
+        {
+          "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_schema_01|!Foo"
+        }
+      ]
+    },
+    {
+      "name": "retrieve1",
+      "action": "retrieve",
+      "origin": {
+        "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_schema_01|!Foo"
+      },
+      "terminal": {
+        "smt": "json|./test/_data/output/elasticsearch/|dull_retrieve1.json|*",
+        "options": {
+          "encoding": "./test/_data/input/engrams/foo_schema_01.engram.json"
+        },
+        "output": "./test/_data/output/elasticsearch/dull_retrieve1.json"
+      }
+    },
+    {
+      "name": "dull",
+      "action": "dull",
+      "origin": {
+        "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_schema_01|!Foo",
+        "options": {
+          "refresh": true
+        },
+        "pattern": {
+          "match": {
+            "subObj1.state": "running"
+          }
+        }
+      },
+      "terminal": {
+        "output": "./test/_data/output/elasticsearch/dull_dull.json"
+      }
+    },
+    {
+      "name": "retrieve2",
+      "action": "retrieve",
+      "origin": {
+      "smt": "elasticsearch|http://dev.dictadata.net:9200|foo_schema_01|!Foo"
+      },
+      "terminal": {
+        "smt": "json|./test/_data/output/elasticsearch/|dull_retrieve2.json|*",
+        "options": {
+          "encoding": "./test/_data/input/engrams/foo_schema_01.engram.json"
+        },
+        "output": "./test/_data/output/elasticsearch/dull_retrieve2.json"
+      }
+    }
+  ]
+}
