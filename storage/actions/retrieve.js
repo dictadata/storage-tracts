@@ -20,7 +20,7 @@ const { pipeline } = require('node:stream/promises');
  * retrieve action
  */
 module.exports = exports = async (fiber) => {
-  logger.info("=== retrieve");
+  logger.verbose("=== retrieve");
   let retCode = 0;
 
   // resolve urn
@@ -44,7 +44,7 @@ module.exports = exports = async (fiber) => {
     terminal.smt = await Storage.resolve(terminal.smt, terminal.options);
 
     // origin junction
-    logger.verbose(">>> origin junction " + JSON.stringify(origin.smt, null, 2));
+    logger.debug(">>> origin junction " + JSON.stringify(origin.smt, null, 2));
     jo = await Storage.activate(origin.smt, origin.options);
     // note, if jo.capabilities.encoding is true origin.options.encoding will be set by the junction
 
@@ -70,7 +70,7 @@ module.exports = exports = async (fiber) => {
     //logger.debug(">>> encoding results");
     //logger.debug(JSON.stringify(terminal.options.encoding.fields, null, " "));
 
-    logger.verbose(">>> retrieve data" );
+    logger.debug(">>> retrieve data" );
     let results = await jo.retrieve(origin.pattern);
     let data = typeOf(results.data) === "object" ? Object.values(results.data) : (results.data || []);
 
@@ -82,7 +82,7 @@ module.exports = exports = async (fiber) => {
       throw new StorageError(results.status, results.message);
 
     /// setup pipeline
-    logger.verbose(">>> retrieve pipeline");
+    logger.debug(">>> retrieve pipeline");
     let pipes = [];
 
     // reader
@@ -98,12 +98,12 @@ module.exports = exports = async (fiber) => {
     }
 
     /// terminal junction
-    logger.verbose(">>> terminal junction " + JSON.stringify(terminal.smt));
+    logger.debug(">>> terminal junction " + JSON.stringify(terminal.smt));
     jt = await Storage.activate(terminal.smt, terminal.options);
 
     logger.debug("terminal schema");
     if (jt.capabilities.encoding && !terminal.options.append) {
-      logger.verbose(">>> createSchema");
+      logger.debug(">>> createSchema");
       let results = await jt.createSchema();
       if (results.status !== 0)
         logger.info("could not create storage schema: " + results.message);
@@ -117,14 +117,14 @@ module.exports = exports = async (fiber) => {
     pipes.push(writer);
 
     // transfer data
-    logger.verbose(">>> start transfer");
+    logger.debug(">>> start transfer");
     await pipeline(pipes);
 
     // if testing, validate results
     if (terminal?.output) {
       retCode = output(terminal.output, null, terminal.compareValues || 2);
     }
-    logger.info("=== completed");
+    logger.verbose("=== completed");
   }
   catch (err) {
     logger.error("retrieve: " + err.message + " " + err.stack);

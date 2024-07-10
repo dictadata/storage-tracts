@@ -21,7 +21,7 @@ const { finished } = require('node:stream/promises');
  * transfer w/ tee action
  */
 module.exports = exports = async (fiber) => {
-  logger.info("=== tee transfer");
+  logger.verbose("=== tee transfer");
   let retCode = 0;
 
   // resolve urn
@@ -50,7 +50,7 @@ module.exports = exports = async (fiber) => {
     }
 
     // origin junction
-    logger.verbose(">>> origin junction " + JSON.stringify(origin.smt, null, 2));
+    logger.debug(">>> origin junction " + JSON.stringify(origin.smt, null, 2));
     jo = await Storage.activate(origin.smt, origin.options);
     // note, if jo.capabilities.encoding is true origin.options.encoding will be set by the junction
 
@@ -84,7 +84,7 @@ module.exports = exports = async (fiber) => {
     //logger.debug(JSON.stringify(terminal.options.encoding.fields, null, " "));
 
     /// setup pipeline
-    logger.verbose(">>> transfer pipeline");
+    logger.debug(">>> transfer pipeline");
     let transforms = [];
     let writers = [];
 
@@ -103,13 +103,13 @@ module.exports = exports = async (fiber) => {
     /// terminal junctions
     for (let terminal of terminals) {
 
-      logger.verbose(">>> terminal junction " + JSON.stringify(terminal.smt));
+      logger.debug(">>> terminal junction " + JSON.stringify(terminal.smt));
       let jt = await Storage.activate(terminal.smt, terminal.options);
       jtl.push(jt);
 
       logger.debug("terminal schema");
       if (jt.capabilities.encoding && !terminal.options.append) {
-        logger.verbose(">>> createSchema");
+        logger.debug(">>> createSchema");
         let results = await jt.createSchema();
         if (results.status !== 0)
           logger.info("could not create storage schema: " + results.message);
@@ -124,7 +124,7 @@ module.exports = exports = async (fiber) => {
     }
 
     // transfer data
-    logger.verbose(">>> start transfer");
+    logger.debug(">>> start transfer");
     let pipe = reader;
     for (let transform of transforms)
       pipe = pipe.pipe(transform);
@@ -140,7 +140,7 @@ module.exports = exports = async (fiber) => {
         retCode = output(terminal.output, null, terminal.compareValues || 2);
       }
     }
-    logger.info("=== completed");
+    logger.verbose("=== completed");
   }
   catch (err) {
     logger.error("tee: " + err.message);

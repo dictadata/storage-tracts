@@ -59,16 +59,16 @@ async function download(fiber) {
 
   var junction;
   try {
-    logger.info("=== download");
+    logger.verbose("=== download");
 
     logger.verbose("smt:" + JSON.stringify(fiber.origin.smt, null, 2));
     if (fiber.origin.options)
       logger.verbose("options:" + JSON.stringify(fiber.origin.options));
 
-    logger.verbose(">>> activate junction");
+    logger.debug(">>> activate junction");
     junction = await Storage.activate(fiber.origin.smt, fiber.origin.options);
 
-    logger.verbose(">>> get list of desired files");
+    logger.debug(">>> get list of desired files");
     let list;
     if (junction.smt.schema.includes('*') || junction.smt.schema.includes('?'))
       // wildcard
@@ -77,7 +77,7 @@ async function download(fiber) {
       // single file
       list = [ { name: junction.smt.schema, rpath: junction.smt.schema } ];
 
-    logger.verbose(">>> download files");
+    logger.debug(">>> download files");
     // download is a filesystem level method
     let stfs = await junction.getFileSystem();
 
@@ -93,7 +93,7 @@ async function download(fiber) {
       }
     }
 
-    logger.info("=== completed");
+    logger.verbose("=== completed");
   }
   catch (err) {
     logger.error('!!! request failed: ' + err.message);
@@ -112,22 +112,22 @@ async function upload(fiber) {
   var local;
   var junction;
   try {
-    logger.info("=== upload");
+    logger.verbose("=== upload");
 
-    logger.verbose(">>> create generic junction for local files");
+    logger.debug(">>> create generic junction for local files");
     logger.verbose("smt:" + JSON.stringify(fiber.origin.smt, null, 2));
     local = await Storage.activate(fiber.origin.smt, fiber.origin.options);
 
-    logger.verbose(">>> get list of local files");
+    logger.debug(">>> get list of local files");
     let { data: list } = await local.list();
 
-    logger.verbose(">>> terminal junction " + fiber.terminal.smt);
+    logger.debug(">>> terminal junction " + fiber.terminal.smt);
     logger.verbose("smt:" + JSON.stringify(fiber.terminal.smt, null, 2));
     if (fiber.terminal.options)
       logger.verbose("options:" + JSON.stringify(fiber.terminal.options));
     junction = await Storage.activate(fiber.terminal.smt, fiber.terminal.options);
 
-    logger.verbose(">>> upload files");
+    logger.debug(">>> upload files");
     // download is a filesystem level method
     let stfs = await junction.getFileSystem();
 
@@ -143,7 +143,7 @@ async function upload(fiber) {
       }
     }
 
-    logger.info("=== completed");
+    logger.verbose("=== completed");
   }
   catch (err) {
     logger.error('!!! request failed: ' + err.message);

@@ -19,7 +19,7 @@ const { finished } = require('node:stream/promises');
  * transfer action
  */
 module.exports = exports = async (fiber) => {
-  logger.info("=== transfer");
+  logger.verbose("=== transfer");
   let retCode = 0;
 
   // resolve urn
@@ -47,7 +47,7 @@ module.exports = exports = async (fiber) => {
       terminal.smt = await Storage.resolve(terminal.smt, terminal.options);
 
     // origin junction
-    logger.verbose(">>> origin junction " + JSON.stringify(origin.smt, null, 2));
+    logger.debug(">>> origin junction " + JSON.stringify(origin.smt, null, 2));
     jo = await Storage.activate(origin.smt, origin.options);
     // note, if jo.capabilities.encoding is true origin.options.encoding will be set by the junction
 
@@ -76,7 +76,7 @@ module.exports = exports = async (fiber) => {
     //logger.debug(JSON.stringify(terminal.options.encoding.fields, null, " "));
 
     /// setup pipeline
-    logger.verbose(">>> transfer pipeline");
+    logger.debug(">>> transfer pipeline");
 
     // reader
     let reader = jo.createReader({ pattern: origin.pattern });
@@ -94,13 +94,13 @@ module.exports = exports = async (fiber) => {
     /// terminal junction(s)
     let writers = [];
     for (let terminal of terminals) {
-      logger.verbose(">>> terminal junction " + JSON.stringify(terminal.smt));
+      logger.debug(">>> terminal junction " + JSON.stringify(terminal.smt));
       let jt = await Storage.activate(terminal.smt, terminal.options);
       jts.push(jt);
 
       logger.debug("terminal schema");
       if (jt.capabilities.encoding && !terminal.options?.append) {
-        logger.verbose(">>> createSchema");
+        logger.debug(">>> createSchema");
         let results = await jt.createSchema();
         if (results.status !== 0)
           logger.info("could not create storage schema: " + results.message);
@@ -116,7 +116,7 @@ module.exports = exports = async (fiber) => {
     }
 
     // transfer data
-    logger.verbose(">>> await transfer");
+    logger.debug(">>> await transfer");
     await finished(reader);
     for (let writer of writers)
       await finished(writer);
@@ -126,7 +126,7 @@ module.exports = exports = async (fiber) => {
       if (terminal?.output)
         retCode |= output(terminal.output, null, terminal.compareValues || 2);
 
-    logger.info("=== completed");
+    logger.verbose("=== completed");
 
     let stats = writers[0]._stats;
     logger.info(stats.count + " in " + stats.elapsed / 1000 + "s, " + Math.round(stats.count / (stats.elapsed / 1000)) + "/sec");

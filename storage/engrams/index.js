@@ -179,7 +179,7 @@ module.exports = exports = class Engrams {
 
     // save in engrams
     storageResults = await this._junction.store(encoding, { key: urn });
-    logger.verbose("storage/engrams: store, " + urn + ", " + storageResults.status);
+    logger.debug("storage/engrams: store, " + urn + ", " + storageResults.status);
     return storageResults;
   }
 
@@ -236,7 +236,7 @@ module.exports = exports = class Engrams {
       }
 
       let results = await this._junction.recall({ key: urn });
-      logger.verbose("storage/engrams: recall, " + results.status);
+      logger.debug("storage/engrams: recall, " + results.status);
       if (results.status !== 0) {
         return results;
       }
@@ -271,7 +271,7 @@ module.exports = exports = class Engrams {
 
     // retrieve list from engrams
     let results = await this._junction.retrieve(pattern);
-    logger.verbose("storage/engrams: retrieve, " + results.status);
+    logger.debug("storage/engrams: retrieve, " + results.status);
     if (results.status !== 0) {
       return results;
     }

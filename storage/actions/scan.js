@@ -13,7 +13,7 @@ const { perform } = require('./');
  * and perform action(s) on each schema.
  */
 module.exports = exports = async (fiber) => {
-  logger.info("=== scan");
+  logger.verbose("=== scan");
   logger.verbose(fiber.origin.smt);
   let retCode = 0;
 
@@ -83,7 +83,7 @@ module.exports = exports = async (fiber) => {
     }
     */
 
-    logger.info("=== completed");
+    logger.verbose("=== completed");
   }
   catch (err) {
     logger.error("scan: " + err.message);

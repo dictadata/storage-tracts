@@ -14,7 +14,7 @@ const { perform } = require('.');
  * and perform action(s) on each construct.
  */
 module.exports = exports = async (fiber) => {
-  logger.info("=== foreach");
+  logger.verbose("=== foreach");
   logger.verbose(fiber.origin.smt);
   let retCode = 0;
 
@@ -94,7 +94,7 @@ module.exports = exports = async (fiber) => {
       retCode = output(fiber.terminal.output, null, fiber.terminal.compareValues || 1);
     }
 
-    logger.info("=== completed");
+    logger.verbose("=== completed");
   }
   catch (err) {
     logger.error("foreach: " + err.message);

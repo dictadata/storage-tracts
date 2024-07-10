@@ -45,7 +45,7 @@ module.exports = exports = class TeeTransform extends Transform {
     terminal.smt = await Storage.resolve(terminal.smt, terminal.options);
 
     /// setup pipeline
-    logger.verbose(">>> transfer pipeline");
+    logger.debug(">>> transfer pipeline");
     let pipes = [];
 
     // reader
@@ -58,12 +58,12 @@ module.exports = exports = class TeeTransform extends Transform {
     }
 
     // writer
-    logger.verbose(">>> terminal junction " + JSON.stringify(terminal.smt));
+    logger.debug(">>> terminal junction " + JSON.stringify(terminal.smt));
     let jt = await Storage.activate(terminal.smt, terminal.options);
 
     logger.debug("terminal schema");
     if (jt.capabilities.encoding && !terminal.options?.append) {
-      logger.verbose(">>> createSchema");
+      logger.debug(">>> createSchema");
       let results = await jt.createSchema();
       if (results.status !== 0)
         logger.info("could not create storage schema: " + results.message);
@@ -77,7 +77,7 @@ module.exports = exports = class TeeTransform extends Transform {
     pipes.push(this.writer);
 
     // start pipeline
-    logger.verbose(">>> start transfer");
+    logger.debug(">>> start transfer");
     pipeline(pipes);
 
     callback();

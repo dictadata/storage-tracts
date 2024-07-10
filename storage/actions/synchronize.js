@@ -32,14 +32,14 @@ module.exports = exports = async (fiber) => {
 
     let transforms = fiber.transforms || [];
 
-    logger.verbose(">>> Origin Tract");
+    logger.debug(">>> Origin Tract");
     if (!fiber.origin.options) fiber.origin.options = {};
     if (!fiber.terminal.options) fiber.terminal.options = {};
 
-    logger.verbose(">>> origin junction " + fiber.origin.smt);
+    logger.debug(">>> origin junction " + fiber.origin.smt);
     jo = await Storage.activate(fiber.origin.smt, fiber.origin.options);
 
-    logger.verbose(">>> getEngram");
+    logger.debug(">>> getEngram");
     let encoding = {};
     // if not a filesystem based source and no transforms defined
     // then get source encoding
@@ -72,13 +72,13 @@ module.exports = exports = async (fiber) => {
       encoding = ct.encoding;
     }
 
-    logger.verbose(">>> createReader");
+    logger.debug(">>> createReader");
     reader = jo.createReader({ pattern });
     reader.on('error', (error) => {
       logger.error("synchronize reader: " + error.message);
     });
 
-    logger.verbose(">>> origin transforms");
+    logger.debug(">>> origin transforms");
     for (let transform of transforms) {
       let tfType = transform.transform;
       reader = reader.pipe(await jo.createTransform(tfType, transform));
@@ -91,19 +91,19 @@ module.exports = exports = async (fiber) => {
 
     if (!Array.isArray(fiber.terminal)) {
       // a single terminal object
-      logger.verbose(">>> Terminal Tract");
+      logger.debug(">>> Terminal Tract");
       let terminal = fiber.terminal;
 
-      logger.verbose(">>> terminal junction " + terminal.smt);
+      logger.debug(">>> terminal junction " + terminal.smt);
       let jt = await Storage.activate(terminal.smt, terminal.options);
       jtl.push(jt);
 
       if (!terminal.options.append && jt.capabilities.encoding) {
-        logger.verbose(">>> createSchema");
+        logger.debug(">>> createSchema");
         encoding = await jt.createSchema();
       }
 
-      logger.verbose(">>> createWriter");
+      logger.debug(">>> createWriter");
       let writer = jt.createWriter();
       writer.on('error', (error) => {
         logger.error("synchronize writer: " + error.message);
@@ -114,19 +114,19 @@ module.exports = exports = async (fiber) => {
     }
     else {
       // sub-terminal tracts
-      logger.verbose(">>> Terminal Tee");
+      logger.debug(">>> Terminal Tee");
       for (let branch of fiber.terminal) {
-        logger.verbose(">>> create branch junction " + branch.terminal.smt);
+        logger.debug(">>> create branch junction " + branch.terminal.smt);
         let jt = await Storage.activate(branch.terminal.smt, branch.terminal.options);
         jtl.push(jt);
 
         if (!branch.terminal.options.append && jt.capabilities.encoding) {
-          logger.verbose(">>> createSchema");
+          logger.debug(">>> createSchema");
           encoding = await jt.createSchema();
         }
 
         let writer = null;
-        logger.verbose(">>> transforms");
+        logger.debug(">>> transforms");
         let transforms = branch.transforms || [];
         for (let transform of transforms) {
           let tfType = transform.transform;
@@ -134,7 +134,7 @@ module.exports = exports = async (fiber) => {
           writer = (writer) ? writer.pipe(t) : reader.pipe(t);
         }
 
-        logger.verbose(">>> createWriter");
+        logger.debug(">>> createWriter");
         // add terminal
         let w = jt.createWriter();
         w.on('error', (error) => {
@@ -146,12 +146,12 @@ module.exports = exports = async (fiber) => {
       }
     }
 
-    logger.verbose(">>> wait on transfer");
+    logger.debug(">>> wait on transfer");
     await finished(reader);
     for (let writer of writers)
       await finished(writer);
 
-    logger.verbose(">>> completed");
+    logger.debug(">>> completed");
   }
   catch (err) {
     logger.error(err);
