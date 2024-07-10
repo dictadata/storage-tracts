@@ -21,6 +21,9 @@
         "smt": "foo:foo_cache",
         "options": {
           "refresh": true
+        },
+        "pattern": {
+          "match": "*"
         }
       },
       "terminal": {
