@@ -15,7 +15,7 @@
 const Storage = require('../storage');
 const { SMT, Tract, StorageResults, StorageError } = require('@dictadata/storage-junctions/types');
 const { logger } = require('@dictadata/lib');
-const { objCopy } = require('@dictadata/lib');
+const { objCopy, dot } = require('@dictadata/lib');
 const { readFile } = require('node:fs/promises');
 
 const homedir = process.env[ "HOMEPATH" ] || require('os').homedir();
@@ -52,12 +52,12 @@ module.exports = exports = class Tracts {
 
     if (urn.indexOf(":") < 0)
       urn = ":" + urn;
-/*
-    // remove any fiber name
-    let i = urn.lastIndexOf("#");
-    if (i > 0)
-      urn = urn.substring(0, i);
-*/
+    /*
+        // remove any fiber name
+        let i = urn.lastIndexOf("#");
+        if (i > 0)
+          urn = urn.substring(0, i);
+    */
     return urn;
   }
 
@@ -104,6 +104,10 @@ module.exports = exports = class Tracts {
       }
 
       // create the junction
+      // Elasticsearch index config parameters
+      //options.indexSettings = {}
+      //dot.set(options.indexSettings, "index.mapping.depth.limit", 5);
+      //dot.set(options.indexSettings, "index.mapping.total_fields.ignore_dynamic_beyond_limit", true);
       this._junction = await Storage.activate(this.smt, options);
 
       // attempt to create tracts schema
@@ -143,11 +147,11 @@ module.exports = exports = class Tracts {
     // parameter checks
     // note: realm is optional
     if (!entry.name || entry.name === "*") {
-      storageResults.setResults(400, "Invalid tracts name" );
+      storageResults.setResults(400, "Invalid tracts name");
       return storageResults;
     }
     if (!entry.type || !tractsTypes.includes(entry.type)) {
-      storageResults.setResults(400, "Invalid tracts type" );
+      storageResults.setResults(400, "Invalid tracts type");
       return storageResults;
     }
 

@@ -16,7 +16,7 @@ const Storage = require('../storage');
 const { Engram } = require('../types');
 const { SMT, StorageResults, StorageError } = require('@dictadata/storage-junctions/types');
 const { logger } = require('@dictadata/lib');
-const { objCopy } = require('@dictadata/lib');
+const { objCopy, dot } = require('@dictadata/lib');
 const { readFile } = require('node:fs/promises');
 
 const homedir = process.env[ "HOMEPATH" ] || require('os').homedir();
@@ -118,6 +118,9 @@ module.exports = exports = class Engrams {
       }
 
       // create the junction
+      // Elasticsearch index config parameters
+      //options.indexSettings = {}
+      //dot.set(options.indexSettings, "index.mapping.depth.limit", 10);
       this._junction = await Storage.activate(this.smt, options);
 
       // attempt to create engrams schema
