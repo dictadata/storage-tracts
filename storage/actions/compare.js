@@ -27,13 +27,13 @@ module.exports = exports = async (fiber) => {
       if (path.extname(fiber.expected) === '.gz')
         expected = unzipSync(expected);
       expected = JSON.parse(expected);
-      expected = dot.get(fiber.pick, expected);
+      expected = dot.get(expected, fiber.pick);
 
       let output = await readFile(fiber.output, { encoding: 'utf8' });
       if (path.extname(fiber.output) === '.gz')
         output = unzipSync(output);
       output = JSON.parse(output);
-      output = dot.get(fiber.pick, output);
+      output = dot.get(output, fiber.pick);
 
       // choose parser
       return compare.JSON(expected, output, fiber.compareValues);
