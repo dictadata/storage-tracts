@@ -1,6 +1,6 @@
 {
   "name": "@dictadata/storage-tracts",
-  "version": "0.9.91",
+  "version": "0.9.92",
   "description": "Node.js library and command line utility to transfer and transform data between data sources.",
   "author": "Drew O. Letcher",
   "license": "MIT",
@@ -49,11 +49,11 @@
     "url": "https://github.com/dictadata/storage-tracts/issues"
   },
   "devDependencies": {
-    "eslint": "^9.1.0"
+    "eslint": "^9.7.0"
   },
   "dependencies": {
     "@dictadata/lib": "github:dictadata/lib#semver:1.0",
-    "@dictadata/storage-junctions": "^0.9.118",
+    "@dictadata/storage-junctions": "^0.9.119",
     "colors": "^1.4.0"
   }
 }

@@ -1,5 +1,7 @@
 # CHANGELOG:  @dictadata/storage-tracts
 
+- version 0.9.92
+  - updated: @dictadata/storage-junctison@0.9.119
 - version 0.9.91
   - updated: @dictadata/storage-junctions@0.9.118
 - version 0.9.90
