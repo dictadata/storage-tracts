@@ -94,7 +94,7 @@ module.exports = exports = async (fiber) => {
 
     // transforms
     for (let transform of transforms) {
-      pipes.push(await jo.createTransform(transform.transform, transform));
+      pipes.push(await Storage.activateTransform(transform.transform, transform));
     }
 
     /// terminal junction

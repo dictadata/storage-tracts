@@ -79,6 +79,9 @@
     {
       "name": "fields",
       "type": "list",
+      "_elasticsearch": {
+        "type": "flattened"
+      },
       "_list": {
         "name": "_list",
         "type": "map",

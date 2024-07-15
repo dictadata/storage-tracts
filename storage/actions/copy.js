@@ -79,7 +79,7 @@ async function download(fiber) {
 
     logger.debug(">>> download files");
     // download is a filesystem level method
-    let stfs = await junction.getFileSystem();
+    let stfs = await Storage.activateFileSystem(junction.smt, junction.options);
 
     for (let entry of list) {
       logger.info(entry.name);
@@ -93,6 +93,7 @@ async function download(fiber) {
       }
     }
 
+    stfs.relax();
     logger.verbose("=== completed");
   }
   catch (err) {
@@ -129,7 +130,7 @@ async function upload(fiber) {
 
     logger.debug(">>> upload files");
     // download is a filesystem level method
-    let stfs = await junction.getFileSystem();
+    let stfs = await Storage.activateFileSystem(junction.smt, junction.options);
 
     for (let entry of list) {
       logger.info(entry.name);
@@ -143,6 +144,7 @@ async function upload(fiber) {
       }
     }
 
+    stfs.relax();
     logger.verbose("=== completed");
   }
   catch (err) {

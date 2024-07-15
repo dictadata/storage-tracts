@@ -5,11 +5,10 @@
  */
 "use strict";
 
-const { Tracts } = require('../tracts');
-const { Actions } = require('../index');
+const { Actions, Tracts } = require('../index');
 const config = require('./config');
-const { logger } = require('@dictadata/lib');
-const { objCopy } = require('@dictadata/lib');
+
+const { logger, objCopy } = require('@dictadata/lib');
 const path = require('node:path');
 require('colors');
 

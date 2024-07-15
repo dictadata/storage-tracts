@@ -13,6 +13,14 @@
 const { Storage } = require('@dictadata/storage-junctions');
 const { SMT, StorageError } = require('@dictadata/storage-junctions/types');
 
+module.exports = exports = Storage;
+
+// replace storage-junctions.activate function
+var Storage_activate = Storage.activate;
+Storage.activate = activateJunction;
+Storage.activateJunction = activateJunction;
+Storage.resolve = resolve;
+
 /**
  * Create and activate a StorageJunction given an SMT.
  * Will do Engrams engram and auth lookups.
@@ -21,23 +29,23 @@ const { SMT, StorageError } = require('@dictadata/storage-junctions/types');
  * @param {*} options options to pass to the storage-junction
  * @returns
  */
-async function activate(smt, options, etl) {
+async function activateJunction(smt, options, etl) {
   let _smt = {};
   if (!options) options = {};
 
   // lookup/verify SMT object
-  if (typeof smt === "string" && smt.indexOf('|') < 0 && StorageEtl.engrams?.isActive) {
+  if (typeof smt === "string" && smt.indexOf('|') < 0 && Storage.engrams?.isActive) {
     if (smt === "$:engrams") {
-      _smt = StorageEtl.engrams.smt;
-      options = StorageEtl.engrams.options;
+      _smt = Storage.engrams.smt;
+      options = Storage.engrams.options;
     }
-    else if (smt === "$:tracts" && StorageEtl.tracts?.isActive) {
-      _smt = StorageEtl.tracts.smt;
-      options = StorageEtl.tracts.options;
+    else if (smt === "$:tracts" && Storage.tracts?.isActive) {
+      _smt = Storage.tracts.smt;
+      options = Storage.tracts.options;
     }
     else {
       // lookup urn in Engrams
-      let results = await StorageEtl.engrams.recall(smt, true);
+      let results = await Storage.engrams.recall(smt, true);
       if (results.status !== 0)
         throw new StorageError(results.status, results.message + ": " + smt);
 
@@ -69,16 +77,16 @@ async function resolve(smt, options) {
     throw new StorageError(400, "invalid/missing argument: options");
 
   // lookup/verify SMT object
-  if (typeof smt === "string" && smt.indexOf('|') < 0 && StorageEtl.engrams?.isActive) {
+  if (typeof smt === "string" && smt.indexOf('|') < 0 && Storage.engrams?.isActive) {
     if (smt === "$:engrams") {
-      _smt = StorageEtl.engrams.smt;
+      _smt = Storage.engrams.smt;
     }
-    else if (smt === "$:tracts" && StorageEtl.tracts?.isActive) {
-      _smt = StorageEtl.tracts.smt;
+    else if (smt === "$:tracts" && Storage.tracts?.isActive) {
+      _smt = Storage.tracts.smt;
     }
     else {
       // lookup urn in Engrams
-      let results = await StorageEtl.engrams.recall(smt, true);
+      let results = await Storage.engrams.recall(smt, true);
       if (results.status !== 0)
         throw new StorageError(results.status, results.message + ": " + smt);
 
@@ -97,17 +105,3 @@ async function resolve(smt, options) {
 
   return _smt;
 }
-
-class StorageEtl extends Storage {}
-
-// replace storage-junctions.activate function
-var Storage_activate = Storage.activate;
-Storage.activate = activate;
-
-//StorageEtl.activate = activate;  // redundant, but would only set StorageElt.activate
-StorageEtl.resolve = resolve;
-StorageEtl.engrams = null;
-StorageEtl.tracts = null;
-
-
-module.exports = exports = StorageEtl;

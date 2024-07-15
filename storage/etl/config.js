@@ -101,8 +101,10 @@ async function configStorage(config) {
   logger.configDaily(config.log);
 
   //// load auth_file
-  if (config.auth?.auth_file)
-    Storage.auth.load(await findFile(config.auth.auth_file));
+  if (config.auth?.auth_file) {
+    let file = await findFile(config.auth.auth_file);
+    Storage.auth.load(file);
+  }
 
   //// engrams datastore initialization
   let engrams;

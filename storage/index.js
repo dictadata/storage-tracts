@@ -8,18 +8,16 @@
  *   StorageJunctions, FileSystems, Transforms
  */
 
-var Storage = require('./storage');
-exports.Storage = Storage;
+const Storage = require('./storage');
+const Actions = require('./actions');
+const Engrams = require('./engrams');
+const Tracts = require('./tracts');
 
-//////////
-///// register Storage FileSystems
-exports.Engrams = require('./engrams');
-Storage.engrams = new exports.Engrams();
+Storage.engrams = new Engrams();
+Storage.tracts = new Tracts();
 
-exports.Tracts = require('./tracts');
-Storage.tracts = new exports.Tracts();
+Storage.Transforms.use("tee", require('./transforms/tee'));
 
-var Actions = exports.Actions = require('./actions');
 Actions.use("list", require('./actions/list'));
 Actions.use("schema", require('./actions/schema'));
 Actions.use("codify", require('./actions/codify'));
@@ -32,4 +30,7 @@ Actions.use("copy", require('./actions/copy'));
 Actions.use("engrams", require('./actions/engrams'));
 Actions.use("tracts", require('./actions/tracts'));
 
-Storage.Transforms.use("tee", require('./transforms/tee'));
+exports.Storage = Storage;
+exports.Actions = Actions;
+exports.Engrams = Storage.engram;
+exports.Tracts = Storage.tracts;

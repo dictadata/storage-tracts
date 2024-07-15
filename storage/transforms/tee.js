@@ -54,7 +54,7 @@ module.exports = exports = class TeeTransform extends Transform {
     // transforms
     for (let transform of transforms) {
       let tfType = transform.transform;
-      pipes.push(await this._junction.createTransform(tfType, transform));
+      pipes.push(await Storage.activateTransform(tfType, transform));
     }
 
     // writer

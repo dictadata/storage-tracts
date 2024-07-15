@@ -75,9 +75,9 @@ module.exports = exports = async function codify(fiber, resultEncoding) {
     pipes.push(reader);
 
     for (let transform of transforms)
-      pipes.push(await jo.createTransform(transform.transform, transform));
+      pipes.push(await Storage.activateTransform(transform.transform, transform));
 
-    let ct = await jo.createTransform("codify", fiber);
+    let ct = await Storage.activateTransform("codify", fiber);
     pipes.push(ct);
 
     if (terminal.smt) {

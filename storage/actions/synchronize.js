@@ -63,9 +63,9 @@ module.exports = exports = async (fiber) => {
       pipes.push(reader);
 
       for (let transform of transforms)
-        pipes.push(await jo.createTransform(transform.transform, transform));
+        pipes.push(await Storage.activateTransform(transform.transform, transform));
 
-      let ct = await jo.createTransform("codify", fiber.origin.options);
+      let ct = await Storage.activateTransform("codify", fiber.origin.options);
       pipes.push(ct);
 
       await pipeline(pipes);
@@ -81,7 +81,7 @@ module.exports = exports = async (fiber) => {
     logger.debug(">>> origin transforms");
     for (let transform of transforms) {
       let tfType = transform.transform;
-      reader = reader.pipe(await jo.createTransform(tfType, transform));
+      reader = reader.pipe(await Storage.activateTransform(tfType, transform));
     }
 
     if (!fiber.terminal.options.encoding) {
@@ -130,7 +130,7 @@ module.exports = exports = async (fiber) => {
         let transforms = branch.transforms || [];
         for (let transform of transforms) {
           let tfType = transform.transform;
-          let t = await jt.createTransform(tfType, transform);
+          let t = await Storage.activateTransform(tfType, transform);
           writer = (writer) ? writer.pipe(t) : reader.pipe(t);
         }
 
