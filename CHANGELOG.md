@@ -1,5 +1,8 @@
 # CHANGELOG:  @dictadata/storage-tracts
 
+- version 0.9.93
+  - refactor: Storage, activateFilesystem, activateTransform
+  - updated: @dictadata/storage-junctison@0.9.120
 - version 0.9.92
   - updated: @dictadata/storage-junctison@0.9.119
 - version 0.9.91
