@@ -76,8 +76,8 @@ module.exports = exports = async (fiber) => {
         terminal.options.encoding = codifyEncoding;
       }
 
-      if (typeof terminal.options.encoding !== "object")
-        throw new StorageError(400, "invalid terminal encoding");
+      //if (typeof terminal.options.encoding !== "object")
+      //  throw new StorageError(400, "invalid terminal encoding");
     }
 
     //logger.debug(">>> encoding results");
