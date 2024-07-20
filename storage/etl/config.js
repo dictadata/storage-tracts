@@ -66,7 +66,7 @@ module.exports.loadFiles = async (appArgs) => {
       objCopy(appArgs.params, configObj.params);
   }
   catch (err) {
-    console.warn(err.message);
+    console.warn("config.loadFiles " + err.message);
   }
 
   if (appArgs.tract.endsWith(".json")) {
