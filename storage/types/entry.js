@@ -15,29 +15,33 @@
  */
 "use strict";
 
-module.exports = exports = class Entry {
+const { Fields } = require('@dictadata/storage-junctions/types');
+
+module.exports = exports = class Entry extends Fields {
 
   /**
    * Entry class for a data directory
    *
-   * @param {Object} options an object containing common entry properties.
+   * @param {Object} encoding an object containing common entry properties.
    */
-  constructor(options) {
-    if (options.realm) this.realm = options.realm;
-    if (options.name) this.name = options.name;
+  constructor(encoding) {
+    super(encoding);
 
-    if (options.type) this.type = options.type;
-    if (options.source) this.source = options.source;
+    if (encoding.realm) this.realm = encoding.realm;
+    if (encoding.name) this.name = encoding.name;
 
-    if (options.description) this.description = options.description;
+    if (encoding.type) this.type = encoding.type;
+    if (encoding.source) this.source = encoding.source;
 
-    if (options.roles) this.roles = options.roles;
-    if (options.tags) this.tags = options.tags;
+    if (encoding.description) this.description = encoding.description;
 
-    if (options.footnote) this.footnote = options.footnote;
-    if (options.notes) this.notes = options.notes;
+    if (encoding.roles) this.roles = encoding.roles;
+    if (encoding.tags) this.tags = encoding.tags;
 
-    if (options.urn) this.urn = options.urn;
+    if (encoding.footnote) this.footnote = encoding.footnote;
+    if (encoding.notes) this.notes = encoding.notes;
+
+    if (encoding.urn) this.urn = encoding.urn;
   }
 
   get urn() {

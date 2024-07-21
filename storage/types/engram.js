@@ -3,14 +3,15 @@
  *
  * engram definition
  */
-
 "use strict";
 
 const { Engram } = require('@dictadata/storage-junctions/types');
 const Entry = require('./entry');
 
-// Set the prototype chain of Engram to Entry, i.e.
-//  class Engram extends Entry {}
+// Set the prototype chain Engram > Entry > Fields
+// i.e.
+//   class Engram extends Entry { }
+//   class Entry extends Fields { }
 
 Object.setPrototypeOf(Engram, Entry);
 Object.setPrototypeOf(Engram.prototype, Entry.prototype);
