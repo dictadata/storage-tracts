@@ -137,7 +137,7 @@ module.exports = exports = class Engrams {
       this._active = true;
     }
     catch (err) {
-      logger.error('storage/engrams: activate junction failed, ', err.message || err);
+      logger.error('storage/engrams: activate junction failed, ' + err.message || err);
     }
 
     return this._active;

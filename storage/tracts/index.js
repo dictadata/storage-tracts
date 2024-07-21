@@ -124,7 +124,7 @@ module.exports = exports = class Tracts {
       this._active = true;
     }
     catch (err) {
-      logger.error('storage/tracts: activate junction failed, ', err.message || err);
+      logger.error('storage/tracts: activate junction failed, ' + err.message || err);
     }
 
     return this._active;
