@@ -8,6 +8,7 @@
 const Storage = require('../storage');
 const { logger } = require('@dictadata/lib');
 const { Transform } = require('node:stream');
+const { readFile } = require('node:fs/promises');
 const { pipeline, finished } = require('node:stream/promises');
 
 module.exports = exports = class TeeTransform extends Transform {
@@ -41,7 +42,13 @@ module.exports = exports = class TeeTransform extends Transform {
       fiber = results.data[ 0 ].fibers[ 0 ];
     }
 
+    if (typeof terminal.options?.encoding === "string") {
+      let filename = terminal.options.encoding;
+      terminal.options.encoding = JSON.parse(await readFile(filename, "utf8"));
+    }
+
     // resolve terminal SMT
+    logger.debug(">>> resolve terminal SMT");
     terminal.smt = await Storage.resolve(terminal.smt, terminal.options);
 
     /// setup pipeline
@@ -95,8 +102,7 @@ module.exports = exports = class TeeTransform extends Transform {
     logger.debug("tee _transform");
 
     try {
-      // process
-
+      // pass through
       this.push(construct);
     }
     catch (err) {
