@@ -124,7 +124,7 @@ module.exports = exports = async (fiber) => {
     // if testing, validate results
     for (let terminal of terminals)
       if (terminal?.output)
-        retCode |= output(terminal.output, null, terminal.compareValues || 2);
+        retCode |= output(terminal.output, null, terminal.compareValues);
 
     logger.verbose("=== completed");
 

@@ -12,7 +12,8 @@
         }
       },
       "terminal": {
-        "output": "./test/_data/output/http/list.json"
+        "output": "./test/_data/output/http/list.json",
+        "compareValues": 1
       }
     }
   ]

@@ -1,20 +1,20 @@
 [
- {
-  "name": "foofile_01.json",
-  "rpath": "foofile_01.json",
-  "size": 2057,
-  "date": "2021-12-18T15:17:11.224Z"
- },
- {
-  "name": "foofile_03.json",
-  "rpath": "foofile_03.json",
-  "size": 1729,
-  "date": "2021-06-25T18:12:12.154Z"
- },
- {
-  "name": "foofile_two.json",
-  "rpath": "foofile_two.json",
-  "size": 452,
-  "date": "2021-12-18T15:17:11.224Z"
- }
+  {
+    "name": "foofile_01.json",
+    "rpath": "foofile_01.json",
+    "size": 1961,
+    "date": "2024-06-18T15:54:15.404Z"
+  },
+  {
+    "name": "foofile_03.json",
+    "rpath": "foofile_03.json",
+    "size": 1638,
+    "date": "2024-06-18T16:39:16.977Z"
+  },
+  {
+    "name": "foofile_two.json",
+    "rpath": "foofile_two.json",
+    "size": 421,
+    "date": "2024-06-18T15:54:15.413Z"
+  }
 ]

@@ -12,7 +12,8 @@
         }
       },
       "terminal": {
-        "output": "./test/_data/output/mysql/list.json"
+        "output": "./test/_data/output/mysql/list.json",
+        "compareValues": 1
       }
     }
   ]

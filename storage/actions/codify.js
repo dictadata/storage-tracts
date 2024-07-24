@@ -133,7 +133,7 @@ module.exports = exports = async function codify(fiber, resultEncoding) {
     logger.debug(JSON.stringify(encoding.fields, null, " "));
 
     if (terminal.output) {
-      retCode = output(terminal.output, encoding, terminal.compareValues || 2);
+      retCode = output(terminal.output, encoding, terminal.compareValues);
     }
     //else if (!terminal?.smt) {
     //  console.log(JSON.stringify(encoding, null, " "));

@@ -13,7 +13,8 @@
         }
       },
       "terminal": {
-        "output": "./test/_data/output/ftp/list.json"
+        "output": "./test/_data/output/ftp/list.json",
+        "compareValues": 1
       }
     },
     {
@@ -26,7 +27,8 @@
         }
       },
       "terminal": {
-        "output": "./test/_data/output/ftp/list_tiger.json"
+        "output": "./test/_data/output/ftp/list_tiger.json",
+        "compareValues": 1
       }
     }
   ]

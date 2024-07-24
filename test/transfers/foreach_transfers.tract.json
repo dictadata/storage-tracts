@@ -64,7 +64,8 @@
       },
       "terminal": {
         "smt": "json|./test/_data/output/transfers/|foreach_transfer.json|*",
-        "output": "./test/_data/output/transfers/foreach_transfer.json"
+        "output": "./test/_data/output/transfers/foreach_transfer.json",
+        "compareValues": 1
       },
       "fibers": [
         {

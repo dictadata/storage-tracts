@@ -12,7 +12,8 @@
         }
       },
       "terminal": {
-        "output": "./test/_data/output/fs/list.json"
+        "output": "./test/_data/output/fs/list.json",
+        "compareValues": 1
       }
     }
   ]

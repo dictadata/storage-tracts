@@ -22,7 +22,7 @@ module.exports = exports = async (fiber) => {
 
     logger.verbose(JSON.stringify(list, null, " "));
     if (fiber.terminal?.output) {
-      retCode = output(fiber.terminal.output, list, fiber.terminal.compareValues || 1);
+      retCode = output(fiber.terminal.output, list, fiber.terminal.compareValues);
     }
     //else {
     //  console.log(JSON.stringify(list, null, " "));

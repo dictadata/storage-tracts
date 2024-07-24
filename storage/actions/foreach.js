@@ -91,7 +91,7 @@ module.exports = exports = async (fiber) => {
     }
 
     if (fiber.terminal?.output) {
-      retCode = output(fiber.terminal.output, null, fiber.terminal.compareValues || 1);
+      retCode = output(fiber.terminal.output, null, fiber.terminal.compareValues);
     }
 
     logger.verbose("=== completed");

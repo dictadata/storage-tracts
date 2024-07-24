@@ -12,7 +12,8 @@
         }
       },
       "terminal": {
-        "output": "./test/_data/output/elasticsearch/list.json"
+        "output": "./test/_data/output/elasticsearch/list.json",
+        "compareValues": 1
       }
     }
   ]
