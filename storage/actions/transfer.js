@@ -68,9 +68,10 @@ module.exports = exports = async (fiber) => {
         terminal.options.encoding = codifyEncoding;
     }
 
-    for (let terminal of terminals)
+    for (let terminal of terminals) {
       //if (typeof terminal.options.encoding !== "object")
       //  throw new StorageError(400, "invalid terminal encoding");
+    }
 
     //logger.debug(">>> encoding results");
     //logger.debug(JSON.stringify(terminal.options.encoding.fields, null, " "));
