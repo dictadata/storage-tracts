@@ -1,0 +1,32 @@
+{
+  "realm": "foo",
+  "name": "transfer.tract.json",
+  "type": "tract",
+  "fibers": [
+    {
+      "name": "download",
+      "action": "copy",
+      "origin": {
+        "smt": "*|https://elections.ny.gov/|voters-registered-county-02272024|*",
+        "options": {
+          "http": {
+            "httpVersion": 1,
+            "headers": {
+              "accept-language": "en-US,en;q=0.5",
+              "host": "elections.ny.gov",
+              "referer": "https://elections.ny.gov/enrollment-county",
+              "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0",
+              "cookie": "__cf_bm=G_x4WNbGkAmmJ0gr7cZVzYWNTIqOwsq81.wKhmnZQjs-1721906553-1.0.1.1-rqA2D8bjbrFTwMEf5Bt5o2KNQuxqtoJWxzVZtgv8iv0YA7rnx85cOcAwwIRhgrWuXQRSdyObnnCUhOfdeEheOQ"
+            }
+          }
+        }
+      },
+      "terminal": {
+        "smt": "*|./test/_data/output/http/downloads/|county_feb24-revised.xlsx|*",
+        "options": {
+          "use_rpath": false
+        }
+      }
+    }
+  ]
+}
