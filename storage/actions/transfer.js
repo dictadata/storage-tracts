@@ -49,14 +49,18 @@ module.exports = exports = async (fiber) => {
     // origin junction
     logger.debug(">>> origin junction " + JSON.stringify(origin.smt, null, 2));
     jo = await Storage.activate(origin.smt, origin.options);
-    // note, if jo.capabilities.encoding is true origin.options.encoding will be set by the junction
+
+    /// get origin encoding
+    if (!origin.options.encoding && jo.capabilities.encoding) {
+      let results = await jo.getEngram();
+      origin.options.encoding = results.data;
+    }
 
     for (let terminal of terminals)
       if (!terminal.options?.encoding)
         terminal.options.encoding = origin.options.encoding;
 
-    //if (!origin.options?.encoding || transforms.length > 0) {
-    if (origin.options?.codify) {
+    if (origin.options.codify) {
       // run some objects through transforms to terminal encoding
       let codifyFiber = objCopy({}, fiber);
       codifyFiber.action = "codify";
