@@ -46,7 +46,7 @@
       "terminal": {
         "smt": "csv|./test/_data/output/rest/|conjoin.csv|*",
         "options": {
-          "header": true,
+          "addHeader": true,
           "encoding": "./test/_data/input/engrams/weather_forecast.engram.json"
         }
       }

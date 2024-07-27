@@ -147,7 +147,7 @@ etl_flatten.json:
     "terminal": {
       "smt": "csv|./test/_data/output/|fooflat.csv|*",
       "options": {
-        "header": true
+        "addHeader": true
       }
     }
   }
@@ -223,7 +223,7 @@ etl_weather.json:
       "terminal": {
         "smt": "csv|./test/_data/output/|etl-3-weather.csv|*",
         "options": {
-          "header": true
+          "addHeader": true
         }
       }
     }

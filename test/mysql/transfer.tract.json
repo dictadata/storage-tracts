@@ -9,7 +9,7 @@
     "origin": {
       "smt": "csv|./test/_data/input/|foofile.csv|*",
       "options": {
-        "header": true,
+        "hasHeader": true,
         "encoding": "./test/_data/input/engrams/foo_schema.engram.json"
       }
     },
@@ -31,7 +31,7 @@
     "terminal": {
       "smt": "csv|./test/_data/output/mysql/|foofile.csv|*",
       "options": {
-        "header": true
+        "addHeader": true
       }
     }
   },

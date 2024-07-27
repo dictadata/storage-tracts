@@ -9,7 +9,7 @@
       "origin": {
         "smt": "csv|./test/_data/input/|foo_numbers.txt|*",
         "options": {
-          "header": false,
+          "hasHeader": false,
           "encoding": {
             "fields": {
               "filenum": "keyword"

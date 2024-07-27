@@ -76,7 +76,7 @@
       "origin": {
         "smt": "csv|./test/_data/input/|foofile.csv|*",
         "options": {
-          "header": true
+          "hasHeader": true
         }
       },
       "terminal": {
@@ -90,7 +90,7 @@
       "origin": {
         "smt": "csv|./test/_data/input/|foo_missing.csv|*",
         "options": {
-          "header": true
+          "hasHeader": true
         }
       },
       "terminal": {
