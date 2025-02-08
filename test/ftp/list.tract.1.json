@@ -16,6 +16,20 @@
         "output": "./test/_data/output/ftp/list.json",
         "compareValues": 1
       }
+    },
+    {
+      "name": "list_tiger",
+      "action": "list",
+      "origin": {
+        "smt": "json|ftp://ftp2.census.gov/geo/tiger/TIGER2023/|*.pdf|*",
+        "options": {
+          "recursive": false
+        }
+      },
+      "terminal": {
+        "output": "./test/_data/output/ftp/list_tiger.json",
+        "compareValues": 1
+      }
     }
   ]
 }
