@@ -49,11 +49,11 @@
     "url": "https://github.com/dictadata/storage-tracts/issues"
   },
   "devDependencies": {
-    "eslint": "^9.9.0"
+    "eslint": "^9.20.0"
   },
   "dependencies": {
     "@dictadata/lib": "github:dictadata/lib#semver:1.0",
-    "@dictadata/storage-junctions": "^0.9.120",
+    "@dictadata/storage-junctions": "^0.9.121",
     "colors": "^1.4.0"
   }
 }
